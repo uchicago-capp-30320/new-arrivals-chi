@@ -20,12 +20,18 @@ _status_ (int) – Flag to indicate whether the organization's admin status. 1 i
 
 _visibility_ (int) – Flag to indicate whether the organization is visible on the portal to users. 1 indicates visible to the users, 0 indicates hidden.  
 
-  
+
+<br/><br/> 
+
+
 **language\_table**:
 
 _org\_id_ (UUID) – Foreign key referencing the org\_id column in the organization\_table.
 
 _language_ (string) – A single language spoken at the organization.  
+
+
+<br/><br/> 
 
   
 **hours\_table**:
@@ -48,6 +54,7 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 
 NOTE TO TEAM: Would there be any use in a primary key here?  
 
+<br/><br/> 
   
 **supply\_table**:
 
@@ -63,7 +70,8 @@ _logo\_path_ (string) – Path to corresponding item logo; stored in cloud.
 
 _item\_note_ (string) – More specified notes about the items. Provides the ability for organizations to give more information about the items in stock that they have.  
 
-  
+<br/><br/> 
+
 **services\_table**:
 
 _service\_id_ (UUID)_–_ Primary key for the service table. Uniquely identifies each service. 
@@ -84,7 +92,8 @@ _access_ (string) - Mode of access for the service provided by the organization.
 
 _service\_note_ (string) – More specified notes about the service. Provides the ability for organizations to give more information about the service they provide.  
 
-  
+<br/><br/> 
+
 **service\_date\_table**:
 
 _org\_id_ (UUID) – Foreign key referencing the org\_id column in the organization\_table.
