@@ -1,0 +1,20 @@
+---
+name: Feature request
+about: Suggest an idea for this project
+title: "(feat):"
+labels: ''
+assignees: ''
+
+---
+
+**Describe the feature**
+A clear and concise description of the feature.
+
+**Requirements**
+Specified requirements for the feature (if applicable)
+
+**Additional context**
+Add any other context about the feature here.
+
+**Additional context**
+Add any other context or screenshots about the feature request here.
