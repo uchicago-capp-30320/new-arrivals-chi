@@ -8,13 +8,14 @@ assignees: ''
 ---
 
 **Describe the feature**
-A clear and concise description of the feature.
+
+*A clear and concise description of the feature.*
 
 **Requirements**
-Specified requirements for the feature (if applicable)
+
+*Specified requirements for the feature (if applicable)*
 
 **Additional context**
-Add any other context about the feature here.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+*Add any other context about the feature here.*
+
