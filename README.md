@@ -1,7 +1,6 @@
 ## New Arrivals Chi
 
-New Arrivals Chi seeks to address the common challenges encountered by newly arrived individuals in Chicago. Such individuals often find themselves struggling with the complexities of accessing essential resources, from navigating systems to staying updated on what's available. This project hopes to   
-ease these difficulties and support the newly arrived community by establishing am online platform tailored to their needs.
+New Arrivals Chi seeks to address the common challenges encountered by newly arrived individuals in Chicago. Such individuals often find themselves struggling with the complexities of accessing essential resources, from navigating systems to staying updated on what's available. This project hopes to ease these difficulties and support the newly arrived community by establishing am online platform tailored to their needs.
 
 Through this portal, we aim to offer guidance on task prioritization and provide the latest information regarding vital services. Our current focus areas are medical care, food assistance, and legal support.
 
