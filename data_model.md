@@ -1,6 +1,8 @@
 **NOTE:**
 All user input that is manually entered will be sanitized before being added to tables.
 
+<br/><br/> 
+
 **organization\_table**:
 
 _org\_id_ (int)_–_ Primary key for the organization table. Will uniquely identifies each organization.
@@ -89,13 +91,13 @@ _supply\_id_ (int)_–_ Primary key for the supply table.
 
 _org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
 
-_category_ (string) – Overarching category type of the supply item. Ex: Clothing, Home, Health, etc.
+_category_ (string) – Overarching category type of the supply item. Ex: Clothing, Home, Health, etc. Will have table of enumerated options saved in a backend layer to help with translation.
 
-_item\_type_ (string) – Type of item. Ex: Jackets, Pants, etc.
+_item\_type_ (string) – Type of item. Ex: Jackets, Pants, etc. Will have table of enumerated options saved in a backend layer to help with translation.
 
-_item\_status_ (int/string?) – Indicates whether the item is available at the organization. 1 indicates available, 0 indicates available. (NOTE TO TEAM: low stock?)
+_item\_status_ (int) – Indicates whether the item is available at the organization. 1 indicates available, 0 indicates available. (NOTE TO TEAM: low stock?, use datetime?)
 
-_logo\_path_ (string) – Path to corresponding item logo; stored in cloud
+_logo\_path_ (string) – Path to corresponding item logo; stored in cloud.
 
 _item\_note_ (string) – More specified notes about the items. Provides the ability for organizations to give more information about the items in stock that they have.
 
@@ -109,19 +111,23 @@ _service\_id_ (int)_–_ Primary key for the service table.
 
 _org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
 
-_category_ (string) – Overarching category type of the service. Ex: Health, Legal etc.
+_category_ (string) – Overarching category type of the service. Ex: Health, Legal etc.  Will have table of enumerated options saved in a backend layer to help with translation.
 
-_service_ (string) – Type of service.
+_service_ (string) – Type of service. Will have table of enumerated options saved in a backend layer to help with translation.
 
 _service\_description_ (string) – Explanation of the service.
-
-_alt\_location\_flag_ (int) – Indicates whether there is an alternate location for the service. 1 indicates alternate location, 0 indicates normal organization location.
-
-_alt\_location_ (string) – Address of the alternate location
 
 _access_ (string) - Mode of access for the service provided by the organization. Walk-Ins Only, Appointments Only, etc.
 
 _service\_note_ (string) – More specified notes about the service. Provides the ability for organizations to give more information about the service they provide.  
+
+_alt\_location_ (string) – Street address of the alternate location for the service. Not null indicates alternate location, null indicates normal organization location.
+
+_alt\_zip\_code_ (string) – Zip code of the alternate location. Plan to use association tables to match zip codes to nearby Chicago neighborhoods.
+
+_alt\_city_ (string) – City that the alternate location is located within.
+
+_alt\_state_ (string) – State that the alternate location is located within.
 
 
 <br/><br/> 
@@ -137,7 +143,7 @@ _service\_id_ (int) – Foreign key referencing the service\_id column in the se
 
 _start\_date_ (date object) – Start date of the service.
 
-_day\_of\_week_ (int) – Day of the week when the organization operates. 1 = Monday … 7 = Sunday.
+_day\_of\_week_ (int) – Day of the week when the organization operates.  Will use ISO week-numbering: 1 = Monday … 7 = Sunday.
 
 _opening\_time_ (time object) – Indicates time when the organization opens on the specified day.
 
