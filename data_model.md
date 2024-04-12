@@ -5,31 +5,31 @@ All user input that is manually entered will be sanitized before being added to 
 
 **organization\_table**:
 
-_org\_id_ (int)_–_ Primary key for the organization table. Will uniquely identifies each organization.
+`org_id` (int)_–_ Primary key for the organization table. Will uniquely identify each organization.
 
-_organization\_name_ (string) – Name of organization.
+`organization_name` (string) – Name of organization.
 
-_email_ (string) – Email associated with the organization's account.
+`email` (string) – Email associated with the organization's account.
 
-_password_ (string) – Password associated with the organization's account. Hashed for security.
+`password` (string) – Password associated with the organization's account. Hashed for security.
 
-_street\_address_ (string) – Physical street address of the organization.
+`street_address` (string) – Physical street address of the organization.
 
-_zip\_code_ (string) – Zip code of the organization. Plan to use association tables to match zip codes to nearby Chicago neighborhoods.
+`zip_code` (string) – Zip code of the organization. Plan to use association tables to match zip codes to nearby Chicago neighborhoods.
 
-_city_ (string) – City that the organization is located within.
+`city` (string) – City that the organization is located within.
 
-_state_ (string) – State that the organization is located within.
+`state` (string) – State that the organization is located within.
 
-_phone_ (string) – Primary external contact number for the organization. This will include the country code which will be able to be selected by the user from dropdown (information from data file)
+`phone` (string) – Primary external contact number for the organization. This will include the country code which will be able to be selected by the user from dropdown (information from data file)
 
-_image\_path_ (string) – Path to corresponding organization logo; stored in cloud.
+`image_path` (string) – Path to corresponding organization logo; stored in cloud.
 
-_active_ (Datetime) – Indicates whether the organization's admin active status. Not null indicates active and time when it was activated, null indicates suspended.
+`active` (Datetime) – Indicates the organization's admin active status. Not null indicates active and time when it was activated, null indicates suspended.
 
-_deleted_ (Datetime) – Indicates whether the organization's deleted status. Not null indicates indicates time this organization was deleted, null indicates active. Allows for soft delete.
+`deleted` (Datetime) – Indicates whether the organization's deleted status. Not null indicates indicates time this organization was deleted, null indicates active. Allows for soft delete.
 
-_visible_ (Datetime) – Indicates whether the organization is visible on the portal to users. Not null indicates visible and time when it was activated, null indicates invisible.
+`visible` (Datetime) – Indicates the organization is visible on the portal to users. Not null indicates visible and time when it was activated, null indicates invisible.
 
 
 <br/><br/> 
@@ -37,11 +37,11 @@ _visible_ (Datetime) – Indicates whether the organization is visible on the po
 
 **language\_table**:
 
-_lang\_id_ (int)_–_ Primary key for the language table.
+`lang_id` (int)_–_ Primary key for the language table.
 
-_org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
+`org_id` (int) – Foreign key referencing the _org\_id_ column in _organization\_table_.
 
-_language_ (string) – A single language spoken at the organization.  
+`language` (string) – A single language spoken at the organization.  
 
 
 <br/><br/> 
@@ -49,7 +49,7 @@ _language_ (string) – A single language spoken at the organization.
   
 **hours\_table**:
 
-_hours\_id_ (int)_–_ Primary key for the hours table.
+`hours_id` (int)_–_ Primary key for the hours table.
 
 _org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
 
@@ -71,7 +71,7 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 
 _hours\_exception\_id_ (int)_–_ Primary key for the hours table.
 
-_org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
+_org\_id_ (int) – Foreign key referencing the `org\_id` column in the organization\_table.
 
 _exception\_start_ (date object) – Indicates the date in which the modfied hours start.
 
@@ -89,13 +89,13 @@ _closing\_time_ (time object) – Indicates time when the organization opens on 
 
 _supply\_id_ (int)_–_ Primary key for the supply table.
 
-_org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
+_org\_id_ (int) – Foreign key referencing the `org_id` column in the organization\_table.
 
 _category_ (string) – Overarching category type of the supply item. Ex: Clothing, Home, Health, etc. Will have table of enumerated options saved in a backend layer to help with translation.
 
 _item\_type_ (string) – Type of item. Ex: Jackets, Pants, etc. Will have table of enumerated options saved in a backend layer to help with translation.
 
-_item\_status_ (int) – Indicates whether the item is available at the organization. 1 indicates available, 0 indicates available. (NOTE TO TEAM: low stock?, use datetime?)
+_item\_status_ (int) – Indicates whether the item is available at the organization. 1 indicates available, 0 indicates unavailable.
 
 _logo\_path_ (string) – Path to corresponding item logo; stored in cloud.
 
