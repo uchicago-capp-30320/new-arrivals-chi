@@ -47,7 +47,7 @@ _language_ (string) – A single language spoken at the organization.
   
 **hours\_table**:
 
-_lang\_id_ (int)_–_ Primary key for the hours table.
+_hours\_id_ (int)_–_ Primary key for the hours table.
 
 _org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
 
@@ -58,10 +58,26 @@ _opening\_time_ (time object) – Indicates time when the organization opens on 
 _closing\_time_ (time object) – Indicates time when the organization opens on the specified day.
 
 
-
 NOTE: Structure of this table allows for organizations to include breaks within their days. example: 
 
 <table><tbody><tr><td><i>org_id</i></td><td><i>day_of_week</i></td><td><i>opening_time</i></td><td><i>closing_time</i></td></tr><tr><td>1</td><td>1</td><td>9:00 AM</td><td>11:00 AM</td></tr><tr><td>1</td><td>1</td><td>2:00 PM</td><td>7:00 PM</td></tr></tbody></table>
+
+<br/><br/> 
+
+
+**hours\_exception\_table**:
+
+_hours\_exception\_id_ (int)_–_ Primary key for the hours table.
+
+_org\_id_ (int) – Foreign key referencing the org\_id column in the organization\_table.
+
+_exception\_start_ (date object) – Indicates the date in which the modfied hours start.
+
+_exception\_end_ (date object) – Indicates the date in which the modfied hours end.
+
+_opening\_time_ (time object) – Indicates time when the organization opens on the specified day.
+
+_closing\_time_ (time object) – Indicates time when the organization opens on the specified day.
 
 
 <br/><br/> 
