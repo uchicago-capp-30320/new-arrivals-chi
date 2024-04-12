@@ -66,5 +66,5 @@ This project is licensed under the [AGPLv3](https://www.gnu.org/licenses/agpl-3.
 
 ## Acknowledgments
 
-*   Thank you to our academic course advisors for this project James Turk and Michael Plunket for support and guidance throughout this project.
+*   Thank you to our academic course advisors for this project James Turk and Michael Plunkett for support and guidance throughout this project.
 *   Thank you to all the incredibly hardworking and amazing community organizations and individuals who generously dedicated their time to educate our team on the current status, needs, and challenges of new arrivals in Chicago, as well as provided valuable recommendations throughout the development of this project.
