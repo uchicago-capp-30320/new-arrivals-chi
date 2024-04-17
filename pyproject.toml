@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Aaron Haefner <aaronhaefner@uchicago.edu>"]
 readme = "README.md"
-packages = [{include = "new_arrivals_chi"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
