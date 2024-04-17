@@ -1,7 +1,7 @@
 **NOTE:**
 All user input that is manually entered will be sanitized before being added to tables.
 
-<br/><br/> 
+<br/><br/>
 
 **organization\_table**:
 
@@ -32,7 +32,7 @@ All user input that is manually entered will be sanitized before being added to 
 `visible` (Datetime) – Indicates the organization is visible on the portal to users. Not null indicates visible and time when it was activated, null indicates invisible.
 
 
-<br/><br/> 
+<br/><br/>
 
 
 **language\_table**:
@@ -41,12 +41,12 @@ All user input that is manually entered will be sanitized before being added to 
 
 `org_id` (int) – Foreign key referencing the _org\_id_ column in _organization\_table_.
 
-`language` (string) – A single language spoken at the organization.  
+`language` (string) – A single language spoken at the organization.
 
 
-<br/><br/> 
+<br/><br/>
 
-  
+
 **hours\_table**:
 
 `hours_id` (int)_–_ Primary key for the hours table.
@@ -64,7 +64,7 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 
 <table><tbody><tr><td><i>org_id</i></td><td><i>day_of_week</i></td><td><i>opening_time</i></td><td><i>closing_time</i></td></tr><tr><td>1</td><td>1</td><td>9:00 AM</td><td>11:00 AM</td></tr><tr><td>1</td><td>1</td><td>2:00 PM</td><td>7:00 PM</td></tr></tbody></table>
 
-<br/><br/> 
+<br/><br/>
 
 
 **hours\_exception\_table**:
@@ -82,9 +82,9 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 `closing_time` (time object) – Indicates time when the organization opens on the specified day.
 
 
-<br/><br/> 
+<br/><br/>
 
-  
+
 **supply\_table**:
 
 `supply_id` (int)_–_ Primary key for the supply table.
@@ -102,7 +102,7 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 `item_note` (string) – More specified notes about the items. Provides the ability for organizations to give more information about the items in stock that they have.
 
 
-<br/><br/> 
+<br/><br/>
 
 
 **services\_table**:
@@ -119,7 +119,7 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 
 `access` (string) - Mode of access for the service provided by the organization. Walk-Ins Only, Appointments Only, etc.
 
-`service_note` (string) – More specified notes about the service. Provides the ability for organizations to give more information about the service they provide.  
+`service_note` (string) – More specified notes about the service. Provides the ability for organizations to give more information about the service they provide.
 
 `alt_location` (string) – Street address of the alternate location for the service. Not null indicates alternate location, null indicates normal organization location.
 
@@ -130,7 +130,7 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 `alt_state` (string) – State that the alternate location is located within.
 
 
-<br/><br/> 
+<br/><br/>
 
 
 **service\_date\_table**:
