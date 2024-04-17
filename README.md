@@ -34,13 +34,13 @@ _To be updated later with requirements for the software and other tools in the u
 Poetry:
 
 1.  Install Poetry:
-    
+
     `curl -sSL https://install.python-poetry.org | python3 -`
-    
+
 2.  Navigate to your the project directory and use Poetry to install project dependencies:
-    
+
     `poetry install`
-    
+
 
 ### Running the Project
 
