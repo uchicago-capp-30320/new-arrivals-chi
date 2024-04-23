@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.9"
 pre-commit = "^3.7.0"
 pytest = "^8.1.1"
+flask = "^3.0.3"
 
 
 [build-system]
