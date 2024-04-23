@@ -1,22 +1,24 @@
-from flask import Flask, Blueprint, render_template, redirect, url_for, request
+from flask import Flask, Blueprint, render_template, request
 
-main = Blueprint('main', __name__) 
+main = Blueprint("main", __name__)
 
-@main.route('/')
+
+@main.route("/")
 def home():
-    language = request.args.get('lang', 'en')
-    return render_template('home.html', language=language)
+    language = request.args.get("lang", "en")
+    return render_template("home.html", language=language)
 
-@main.route('/legal')
+
+@main.route("/legal")
 def legal():
-    language = request.args.get('lang', 'en')
-    return render_template('legal.html', language=language)
+    language = request.args.get("lang", "en")
+    return render_template("legal.html", language=language)
+
 
 app = Flask(__name__)
 
 app.register_blueprint(main)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
-    
-    
+
