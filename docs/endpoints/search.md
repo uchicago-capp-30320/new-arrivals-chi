@@ -17,9 +17,3 @@ TODO:
   - `organization`: Optional filter by organization
   - `hours`: Optional filter by hours
 - **Response**: TODO
-
-## Example
-- **Endpoint**: `/search?query=food&location=pilsen`
-- **Description**: Searches for food-related resources in Pilsen.
-- **Method**: GET
-- **Response**: TODO

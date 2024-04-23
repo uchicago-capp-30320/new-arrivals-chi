@@ -19,4 +19,3 @@ TODO:
 - **Description**: Page with information about food resources available to new arrivals
 - **Method**: GET
 - **Response**: HTML content with details about food resources available to new arrivals
-

@@ -20,13 +20,13 @@ TODO:
 - **Description**: Endpoint for the admin to add and organization to the database
 - **Method**: PUT
 - **Parameters**: JSON object with fields (e.g., `address`, `phone`, `hours`, `languages`, `supplies`, `services`).
-- **Response**: 
+- **Response**:
 
 ## /admin/update_org_status
 - **Description**: Endpoint for the admin to edit, suspect, or delete and organizations profile
-- **Method**: 
-- **Parameters**: 
-- **Response**: 
+- **Method**:
+- **Parameters**:
+- **Response**:
 
 ## /admin/org_update
 - **Description**: Endpoint for  editing organization information on behalf of an organization (e.g., address, phone, hours, services, languages, supplies and services).
@@ -36,8 +36,3 @@ TODO:
 - **Similarity with /org/update**: While both `//admin/org_update` and `/org/update` can perform updates on organization profiles, they serve different user roles:
     - **/admin/org_update** is intended for administrators to change the organization's status or perform administrative actions.
     - **/org/update** is for organization users to update their own information.
-
-
-
-
-

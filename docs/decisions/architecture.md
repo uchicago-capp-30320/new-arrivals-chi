@@ -12,4 +12,4 @@ This document summarizes key architecture decisions in New Arrivals Chi.
 - **Decision**: The project follows a standard client-server model.
 - **Reason**: This model supports scalability and centralized resource management, allowing multiple users to interact with the server through a web interface.
 - **Alternatives Considered**: N/A
-- **Impacts**: 
+- **Impacts**:
