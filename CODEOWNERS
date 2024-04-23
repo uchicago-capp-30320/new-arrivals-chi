@@ -2,3 +2,11 @@
 # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 # Update this file with the GitHub usernames that are relevant to your repository.
 
+/.github/workflows/ @aaronhaefner
+/.github/ISSUE_TEMPLATE/ @klinkoberstar
+/new_arrivals_chi/ @MadeleineKRoberts
+/new_arrivals_chi/**.py @FedericoDM
+/new_arrivals_chi/templates/ @sumslong
+/new_arrivals_chi/static/ @sumslong
+/tests/ @aaronhaefner
+/*.md @klinkoberstar
