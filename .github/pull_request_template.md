@@ -12,7 +12,10 @@ https://success.vanillaforums.com/kb/articles/228-using-pull-requests-to-contrib
 
 
 ## Checklist before requesting a review
-- [ ] The code runs successfully.
+- [x] pre-commit run --all-files
+- [x] pytest if applicable
+- [x] Link issue 
+- [x] Update relevant documentation if applicable: doc strings, readme, poetry.
 
 ```commandline
 HERE IS SOME COMMAND LINE OUTPUT
