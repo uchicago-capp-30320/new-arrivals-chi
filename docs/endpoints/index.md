@@ -31,7 +31,7 @@
 ### Organization Profile
 - [**Get Organization Profile**:](organization.md#get-organization-profile)`GET /app/organization/profile` — Retrieve the profile information of the logged-in organization.
 - [**Update Organization Profile**:](organization.md#update-organization-profile) `PUT /app/organization/profile` — Update the organization's profile information.
-- [**Delete Organization Account**](anization.md#Delete Organization Account) `DELETE /app/organization/profile` — Delete the logged-in organization's account.
+- [**Delete Organization Account**](organization.md#delete-organization-account) `DELETE /app/organization/profile` — Delete the logged-in organization's account.
 home page from the organization page.
 - **Logout**: `POST /app/auth/org-logout` — Log out and end the organization's session.
 
