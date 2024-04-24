@@ -29,8 +29,8 @@
 - [**Authenticate Organization**:](organization.md#authenticate-organization) `POST /app/auth/organization-login` — Log in to the organization page with credentials.
 
 ### Organization Profile
-- [**Get Organization Profile**:](anization.md#get-organization-profile)`GET /app/organization/profile` — Retrieve the profile information of the logged-in organization.
-- [**Update Organization Profile**:](anization.md#update-organization-profile) `PUT /app/organization/profile` — Update the organization's profile information.
+- [**Get Organization Profile**:](organization.md#get-organization-profile)`GET /app/organization/profile` — Retrieve the profile information of the logged-in organization.
+- [**Update Organization Profile**:](organization.md#update-organization-profile) `PUT /app/organization/profile` — Update the organization's profile information.
 - [**Delete Organization Account**](anization.md#Delete Organization Account) `DELETE /app/organization/profile` — Delete the logged-in organization's account.
 home page from the organization page.
 - **Logout**: `POST /app/auth/org-logout` — Log out and end the organization's session.
