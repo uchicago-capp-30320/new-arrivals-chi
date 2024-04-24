@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrival Resource Portal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+        }
+
+        title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Public Sans', sans-serif;
+            width: 45%;
+            height: 10%;
+        }
+
+        .language-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        .button-blue {
+            background-color: #9FC5F8;
+            color: black;
+            
+        }
+
+        .button-blue:hover {
+            background-color: #2980b9;
+        }
+
+        .button-yellow {
+            background-color: #FFE599;
+            color: black;
+        }
+
+        .button-yellow:hover {
+            background-color: #d4ac0d;
+        }
+
+        .button-green {
+            background-color: #B6D7A8;
+            color: black;
+        }
+
+        .button-green:hover {
+            background-color: #27ae60;
+        }
+
+        .button.orange {
+            background-color: #F9E3CE;
+            color: black;
+        }
+
+        .button.orange:hover {
+            background-color: #FF8C00;
+        }
+
+        .home-button-container {
+            display: flex; /* Enables flexbox for vertical centering */
+            flex-direction: column; /* Stacks elements vertically */
+            justify-content: center; /* Centers content vertically */
+            align-items: center; 
+        }
+
+        .box {
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 100px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 9%);
+        }
+
+        .box-big-title {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 10px;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .box-title {
+            text-align: left;
+            font-size: 20px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: -55px;
+            align-items: center;
+        }
+
+        .bottom-left {
+            position: relative;
+            bottom: 0%;
+            left: -47%;
+            font-size: 16px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" style="position: absolute; top: 20px; left: 20px;">
+        <button href="url_for('main.index') class="navbar-item">{{ 'Home' if language == 'en' else 'Página de inicio' }}</button>
+        <button href="url_for('main.profile')" class="navbar-item">{{ 'Profile' if language == 'en' else 'Perfil' }}</button>
+        <button href="url_for('auth.login')" class="navbar-item">{{ 'Login' if language == 'en' else 'Acceso' }}</button>
+        <button href="url_for('auth.signup')" class="navbar-item">{{ 'Sign Up' if language == 'en' else 'Iniciar sesión' }}</button>
+        <button href="url_for('auth.logout')" class="navbar-item">{{ 'Logout' if language == 'en' else 'Cerrar sesión' }}</button>
+    </nav>
+</body>
+
+<form action="/" method="GET">
+    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+</form>
+
+<div class="container has-text-centered">
+    {% block content %}
+    {% endblock %}
+ </div>
+
+ <p class="report-error">
+    <a href="/report-error">{{ 'Reportar error del sitio web' if language == 'es' else 'Report website error' }}</a> <i class="fas fa-bug"></i>
+</p>
+
+</html>
+
+
+<script>
+    function navigateTo(destination, language) {
+        window.location.href = destination + '?lang=' + language;
+    }
+</script>
