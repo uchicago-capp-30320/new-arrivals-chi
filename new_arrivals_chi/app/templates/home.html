@@ -5,10 +5,9 @@
     <h1>{{ 'Bienvenido' if language == 'es' else 'Welcome' }}</h1>
     <p>{{ 'Encuentra apoyo para tus necesidades legales, de salud o de comida.' if language == 'es' else 'Find essential support for legal, health, and food needs.' }}</p>
     <p>{{ 'Por favor haz click abajo para comenzar:' if language == 'es' else 'Please click below to begin:'}}</p>
-    <div class="home-button-container"> 
+    <div class="home-button-container">
         <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ 'Legal' if language == 'es' else 'Legal' }}</button>
         <button class="button button-yellow" onclick="window.location.href='/health'">{{ 'Salud' if language == 'es' else 'Health' }}</button>
         <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' }}</button>
     </div>
 {% endblock %}
-
