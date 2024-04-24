@@ -4,14 +4,14 @@
 ## [Home Page](home.md)
 - [**Get Home Page Content**:](home.md#get-home-page-content) `GET /app/home` — Retrieve content for the home page, including sections and action buttons.
 
-## [General Information Page](general_info.md) 
+## [General Information Page](general_info.md)
 - [**Get General Information Content**:](general_info.md#get-general-information-content) `GET /app/information/general` — Retrieve general information content about Chicago and resources for new migrants.
 
 ## [Health Resources Page](health.md)
 - [**Get Health Resources Content**:](health.md#get-health-resources-page-content) `GET /app/health` — Retrieve the static health resources page.
 - [**Retrieve Health Services**:](health.md#search-health-services) `GET /app/health-search` — Retrieve health services based on query parameters like services, neighborhood, organization, or operating hours.
 
-## [Admin Page](admin.md) 
+## [Admin Page](admin.md)
 ### [Admin Login](admin.md#admin-login)
 - [**Authenticate Admin**:](admin.md#authenticate-admin) `POST /app/auth/admin-login` — Log in to the admin page with admin credentials.
 
@@ -44,6 +44,3 @@ home page from the organization page.
 
 ## Toggle Language
 - **Toggle Language**: `POST /app/settings/language` — Toggle the website's language between English and Spanish.
-
-
-

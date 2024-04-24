@@ -66,4 +66,3 @@ The health resources page has buttons to navigate to the health services search 
   - **Link**: `/home`
   - **Endpoint**: `GET /app/home`
   - **Description**: Go back to the home page from the health resources page.
-

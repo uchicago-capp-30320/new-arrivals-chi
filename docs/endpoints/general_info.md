@@ -1,6 +1,6 @@
 # General Information Endpoint Documentation
 
-The general information page provides users with static content about Chicago and the various resources available to new migrants. 
+The general information page provides users with static content about Chicago and the various resources available to new migrants.
 
 ## Retrieve General Information Content
 ### Get General Information Content
@@ -29,4 +29,3 @@ This section describes the buttons and links on the general information page, pr
   - **Link**: `/home`
   - **Endpoint**: `GET /app/home`
   - **Description**: Returns to the home page from the general information page.
-

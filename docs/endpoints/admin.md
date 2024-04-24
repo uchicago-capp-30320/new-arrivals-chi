@@ -107,4 +107,3 @@ This section describes where the admin page buttons lead to and the correspondin
   - **Responses**:
     - `200 OK`: Logout successful.
     - `401 Unauthorized`: Unauthorized access.
-
