@@ -18,6 +18,14 @@ def legal():
 # @auth.route('/signup')
 @main.route("/signup")
 def signup():
+    """
+    Establishes route for the user sign up page. This route is accessible
+    within the 'sign up' button in the navigation bar.
+
+    Returns:
+        Renders sign up page in their selected language.
+    """
+
     language = request.args.get("lang", "en")
     return render_template("signup.html", language=language)
 
