@@ -2,13 +2,13 @@
 Project: new_arrivals_chi
 File name: main.py
 Associated Files:
-    Templates: base.html, home.html, legal.html, profile.html, signup.html, 
+    Templates: base.html, home.html, legal.html, profile.html, signup.html,
     login.html
 
 Runs primary flask application for Chicago's new arrivals portal.
 
 Methods:
-	* home — Route to homepage of application.
+    * home — Route to homepage of application.
     * profile - Route to user's profil.
     * legal - Route to legal portion of application.
 
@@ -32,15 +32,16 @@ def home():
     return render_template("home.html", language=language)
 
 
-"""
-Establishes route for the user's profile page. This route is accessible within 
-the  'profile' button in the navigation bar.
-
-Returns:
-    Renders profile page for user with in their selected language.
-"""
 @main.route("/profile")
 def profile():
+    """
+    Establishes route for the user's profile page. This route is accessible
+    within the 'profile' button in the navigation bar.
+
+    Returns:
+        Renders profile page for user with in their selected language.
+    """
+
     language = request.args.get("lang", "en")
     return render_template("profile.html", language=language)
 
