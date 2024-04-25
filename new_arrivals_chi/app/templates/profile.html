@@ -1,0 +1,22 @@
+<!--
+Project: new_arrivals_chi
+File name: profile.html
+Associated Files:
+    base.html, main.py
+
+Skeleton HTML for user profile page.
+
+Creation:
+@Author: Madeleine Roberts @MadeleineKRoberts
+@Date: 04/24/2024
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+    {{'Profile infomation will exist here.'
+    if language == 'en' else
+    'La información del perfil existirá aquí.'}}
+</h1>
+{% endblock %}
