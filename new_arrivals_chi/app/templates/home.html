@@ -1,94 +1,13 @@
-<!DOCTYPE html>
-<html lang="{{ language }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Arrival Resource Portal</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Public Sans', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f2f2f2;
-        }
+{% extends "base.html" %}
 
-        .button {
-            padding: 10px 20px;
-            margin: 10px 0;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-family: 'Public Sans', sans-serif;
-            width: 45%;
-            height: 10%;
-        }
+{% block content %}
 
-        .language-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-        }
-
-        .button-blue {
-            background-color: #9FC5F8;
-            color: black;
-        }
-
-        .button-blue:hover {
-            background-color: #2980b9;
-        }
-
-        .button-yellow {
-            background-color: #FFE599;
-            color: black;
-        }
-
-        .button-yellow:hover {
-            background-color: #d4ac0d;
-        }
-
-        .button-green {
-            background-color: #B6D7A8;
-            color: black;
-        }
-
-        .button-green:hover {
-            background-color: #27ae60;
-        }
-
-
-    </style>
-</head>
-<body>
     <h1>{{ 'Bienvenido' if language == 'es' else 'Welcome' }}</h1>
     <p>{{ 'Encuentra apoyo para tus necesidades legales, de salud o de comida.' if language == 'es' else 'Find essential support for legal, health, and food needs.' }}</p>
     <p>{{ 'Por favor haz click abajo para comenzar:' if language == 'es' else 'Please click below to begin:'}}</p>
-    <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ 'Legal' if language == 'es' else 'Legal' }}</button>
-    <button class="button button-yellow" onclick="window.location.href='/health'">{{ 'Salud' if language == 'es' else 'Health' }}</button>
-    <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' }}</button>
-    <form action="/" method="GET">
-        <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
-        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
-    </form>
-    <p class="report-error">
-    <a href="/report-error">{{ 'Reportar error del sitio web' if language == 'es' else 'Report website error' }}</a> <i class="fas fa-bug"></i>
-    </p>
-</body>
-</html>
-
-<script>
-    function navigateTo(destination, language) {
-        window.location.href = destination + '?lang=' + language;
-    }
-</script>
+    <div class="home-button-container">
+        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ 'Legal' if language == 'es' else 'Legal' }}</button>
+        <button class="button button-yellow" onclick="window.location.href='/health'">{{ 'Salud' if language == 'es' else 'Health' }}</button>
+        <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' }}</button>
+    </div>
+{% endblock %}
