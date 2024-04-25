@@ -80,7 +80,7 @@ The documentation is divided into the following sections:
   - `400 Bad Request`: Invalid data provided.
   - `500 Internal Server Error`: Indicates a server error.
 
-## Organization Password Setup 
+## Organization Password Setup
 The process for organizations to set up or reset their passwords involves sending a temporary password via email and providing a link to reset it. This documentation outlines the key endpoints for these operations.
 
 ### Send Email with Temporary Password and Reset Link
@@ -132,7 +132,7 @@ The process for organizations to set up or reset their passwords involves sendin
   - `404 Not Found`: Organization not found.
   - `401 Unauthorized`: Unauthorized action.
 
-## Admin Password Reset 
+## Admin Password Reset
 The admin password reset process consists of endpoints that trigger a password reset email, validate the reset token, and set the new password. This documentation outlines the key endpoints involved in the process.
 
 ### Request Password Reset
