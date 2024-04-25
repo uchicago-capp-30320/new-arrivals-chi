@@ -15,9 +15,16 @@ def legal():
     return render_template("legal.html", language=language)
 
 
-# will change to auth,route when the database is usable
+# will change to auth.route when the database is usable
 @main.route("/login")
 def login():
+    """
+    Establishes route for the login page. This route is accessible
+    within the 'login' button in the navigation bar.
+
+    Returns:
+        Renders login page for user with their selected language.
+    """
     language = request.args.get("lang", "en")
     return render_template("login.html", language=language)
 
