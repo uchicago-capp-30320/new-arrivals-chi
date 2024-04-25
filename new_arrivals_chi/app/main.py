@@ -8,15 +8,6 @@ main = Blueprint("main", __name__)
 
 
 load_dotenv()
-app = Flask(__name__)
-app.register_blueprint(main)
-
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
 
 @main.route("/")
@@ -29,6 +20,17 @@ def home():
 def legal():
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
+
+
+app = Flask(__name__)
+app.register_blueprint(main)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 if __name__ == "__main__":
