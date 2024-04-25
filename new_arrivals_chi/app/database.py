@@ -15,6 +15,7 @@ class Organization(db.Model):
     phone = db.Column(db.String(20), nullable=False)
     image_path = db.Column(db.String(255), nullable=False)
     status = db.Column(db.String(50), nullable=False)
+    test_column = db.Column(db.String(100))  # Temporary test column
 
 
 class Language(db.Model):
