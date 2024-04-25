@@ -13,8 +13,8 @@ def home():
 def legal():
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
-  
-  
+
+
 # will change to auth.route when the database is usable
 @main.route("/login")
 def login():
@@ -28,8 +28,8 @@ def login():
 
     language = request.args.get("lang", "en")
     return render_template("login.html", language=language)
-  
-  
+
+
 # @auth.route('/signup')
 @main.route("/signup")
 def signup():
