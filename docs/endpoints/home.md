@@ -1,8 +1,8 @@
 # Home Page Endpoint Documentation
 
-The home page is the main entry point for users, providing options to access various resources and perform specific tasks, such as toggling languages, reporting bugs, or logging in. It includes buttons that lead to other key sections like general information, legal resources, health resources, organization login, and admin login.
+The home page is the main entry point for users, providing options to access various resources and perform specific tasks, such as toggling languages, reporting bugs, or logging in. It includes buttons that lead to key sections like general information, legal resources, health resources, organization login, and admin login.
 
-The documentation is divided into 2 sections:
+The documentation is divided into two sections:
 - [Retrieve Home Page Content](#retrieve-home-page-content)
 - [Home Page Buttons and Links](#home-page-buttons-and-links)
 
@@ -52,39 +52,62 @@ The documentation is divided into 2 sections:
   ```
 
 ## Home Page Buttons and Links
-This section describes where the home page buttons link to and the corresponding endpoints. It provides an overview of user navigation from the home page.
+This section describes where the home page buttons link to and the corresponding endpoints, providing an overview of user navigation from the home page.
 
-- [**General Information**:](general_info.md) This button links to the general information page.
-  - **Link**: `/general-info`
-  - **Endpoint**: `GET /general-info`
-  - **Description**: Retrieves static content about Chicago and its resources for new arrivals including how to ride the bus, register for school, and get a CityKey ID.
+### General Information
+- **Endpoint**: `GET /general-info`
+- **Description**: This button links to the general information page. It provides static content about Chicago and its resources for new arrivals, including how to ride the bus, register for school, and get a CityKey ID.
+- **Responses**:
+  - `200 OK`: Content retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- [**Legal Resources**:](legal.md) This button links to the legal resources page.
-  - **Link**: `/legal-resources`
-  - **Endpoint**: `GET /legal-resources`
-  - **Description**: Retrieves content for the legal resources page, which guides users through a flowchart to help them find appropriate legal resources based on their situation and legal status.
+### Legal Resources
+- **Endpoint**: `GET /legal-resources`
+- **Description**: This button links to the legal resources page. It retrieves content for the legal resources page, which guides users through a flowchart to help them find appropriate legal resources based on their situation and legal status.
+- **Responses**:
+  - `200 OK`: Legal resources content retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- [**Health Resources**:](health.md) This button links to the health resources page.
-  - **Link**: `/health-resources`
-  - **Endpoint**: `GET /health-resources`
-  - **Description**: Retrieves general information about heath services, as well as a filterable table of service providers
+### Health Resources
+- **Endpoint**: `GET /health-resources`
+- **Description**: This button links to the health resources page. It provides general information about health services, as well as a filterable table of service providers.
+- **Responses**:
+  - `200 OK`: Health resources content retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- **Report a Bug**: This button allows users to submit a bug report.
-  - **Link**: `/report-bug`
-  - **Endpoint**: `POST /app/bugs/report`
-  - **Description**: Submit a bug report with a description of the issue.
+### Report a Bug
+- **Endpoint**: `POST /app/bugs/report`
+- **Description**: This button allows users to submit a bug report with a description of the issue.
+- **Responses**:
+  - `200 OK`: Bug report submitted successfully.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- [**Organization Login**:](organization.md) This button allows organizations to log in.
-  - **Link**: `/organization-login`
-  - **Endpoint**: `POST /app/auth/organization-login`
-  - **Description**: Authenticate organization users to access their profiles.
+### Organization Login
+- **Endpoint**: `POST /app/auth/organization-login`
+- **Description**: This button allows organizations to log in. It authenticates organization users to access their profiles.
+- **Responses**:
+  - `200 OK`: Organization login successful.
+  - `401 Unauthorized`: Invalid credentials.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- [**Admin Login**:](admin.md) This button allows administrators to log in.
-  - **Link**: `/admin-login`
-  - **Endpoint**: `POST /app/auth/admin-login`
-  - **Description**: Authenticate administrators to access admin-related features.
+### Admin Login
+- **Endpoint**: `POST /app/auth/admin-login`
+- **Description**: This button allows administrators to log in. It authenticates admin users to access admin-related features.
+- **Responses**:
+  - `200 OK`: Admin login successful.
+  - `401 Unauthorized`: Invalid credentials.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- **Toggle Language**: This button toggles the website's language between English and Spanish.
-  - **Link**: `/toggle-language`
-  - **Endpoint**: `POST /app/settings/language`
-  - **Description**: Toggle the website's language.
+### Toggle Language
+- **Endpoint**: `POST /app/settings/language`
+- **Description**: This button toggles the website's language between English and Spanish.
+- **Responses**:
+  - `200 OK`: Language toggled successfully.
+  - `500 Internal Server Error`: Indicates a server error.
+
+### Return to Home Page
+- **Endpoint**: `GET /app/home`
+- **Description**: This button allows users to return to the home page from other sections.
+- **Responses**:
+  - `200 OK`: Home page content retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.

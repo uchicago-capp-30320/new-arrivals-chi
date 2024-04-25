@@ -48,7 +48,7 @@ The documentation is divided into four sections:
   ```
 
 ### Update Organization Profile
-- **Endpoint**: `PUT /app/organization/profile`
+- **Endpoint**: `POST /app/organization/profile`
 - **Description**: Update the organization's profile information.
 - **Request Body**:
   - Profile details to update (e.g., `address`, `phone`, `hours`, `languages`, `supplies`, `services`).
@@ -68,17 +68,17 @@ The documentation is divided into four sections:
   }
   ```
 
-### Delete Organization Account
-- **Endpoint**: `DELETE /app/organization/profile`
-- **Description**: Delete the logged-in organization's account.
+### Suspend Organization Account
+- **Endpoint**: `POST /app/organization/suspend`
+- **Description**: Suspend the organization's account by updating the active status to inactive.
 - **Responses**:
-  - `200 OK`: Account deleted successfully.
+  - `200 OK`: Account suspended successfully.
   - `401 Unauthorized`: Unauthorized action.
   - `500 Internal Server Error`: Indicates a server error.
 - **Example Response**:
   ```json
   {
-    "message": "Organization account deleted successfully."
+    "message": "Organization account suspended successfully."
   }
   ```
 
@@ -111,16 +111,17 @@ Organizations can set up new accounts via a direct link, creating a username, pa
 ## Organization Page Buttons and Links
 This section describes the buttons and links on the organization page, providing navigation options and other common actions.
 
-- **Return to Home Page**: This button allows users to return to the home page.
-  - **Link**: `/home`
-  - **Endpoint**: `GET /app/home`
-  - **Description**: Go back to the home page from the organization page.
+### Return to Home Page
+- **Endpoint**: ``GET /app/home`
+- **Description**:   Button to navigate back to the home page.
+- **Responses**:
+  - `200 OK`: Home page content retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- **Logout**: This button allows users to log out of the organization page.
-  - **Link**: `/app/auth/org-logout`
-  - **Endpoint**: `POST /app/auth/org-logout`
-  - **Description**: Log out and end the current session.
-  - **Responses**:
+### Logout
+- **Endpoint**: `POST /app/auth/org-logout`
+- **Description**:   Log out and end the current session.
+- **Responses**:
     - `200 OK`: Logout successful.
     - `401 Unauthorized`: Unauthorized access attempt.
     - `500 Internal Server Error`: Indicates a server error.

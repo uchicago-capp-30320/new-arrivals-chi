@@ -1,16 +1,18 @@
 # Admin Page Endpoint Documentation
 
-The admin page provides administrative functions for managing organizations and other system-wide tasks. Access is restricted to users with admin credentials.
+The admin page provides administrative functions for managing organizations and other system-wide tasks. Access is restricted to users with admin credentials. This documentation covers admin-related operations, including setting up organization accounts, sending temporary passwords, and providing links to reset passwords.
 
-The documentation is divided into 3 sections:
+The documentation is divided into the following sections:
 - [Admin Login](#admin-login)
-- [Get Admin Page Content](#get-admin-page-content)
+- [Retrieve Admin Page](#retrieve-admin-page)
+- [Set Up a New Organization](#set-up-a-new-organization)
+- [Update Organization Information](#update-organization-information)
 - [Admin Page Buttons and Links](#admin-page-buttons-and-links)
 
 ## Admin Login
 ### Authenticate Admin
 - **Endpoint**: `POST /app/auth/admin-login`
-- **Description**: Log in to the admin page with credentials.
+- **Description**: Log in to the admin page with admin credentials.
 - **Request Body**:
   - `username`: Admin's username.
   - `password`: Admin's password.
@@ -18,14 +20,9 @@ The documentation is divided into 3 sections:
   - `200 OK`: Login successful.
   - `401 Unauthorized`: Invalid credentials.
   - `500 Internal Server Error`: Indicates a server error.
-- **Example Request**:
-  ```json
-  {
-    "username": "admin123",
-    "password": "adm!np@ssword"
-  }
 
-## Get Admin Page Content
+## Retrieve Admin Page
+### Get Admin Page Content
 - **Endpoint**: `GET /app/admin/dashboard`
 - **Description**: Retrieve the admin dashboard content, which includes an overview of organizations and admin-related tasks.
 - **Responses**:
@@ -56,8 +53,8 @@ The documentation is divided into 3 sections:
         "link": "/admin/edit-organization"
       },
       {
-        "name": "Delete Organization",
-        "link": "/admin/delete-organization"
+        "name": "Suspend Organization",
+        "link": "/admin/suspend-organization"
       }
     ],
     "otherActions": [
@@ -73,37 +70,51 @@ The documentation is divided into 3 sections:
   }
   ```
 
+## Set Up a New Organization
+### Create Organization Account
+- **Endpoint**: `POST /app/admin/organization`
+- **Description**: Admins add a new organization with required information like username, temporary password, and other profile details.
+- **Responses**:
+  - `200 OK`: Organization created successfully.
+  - `400 Bad Request`: Invalid data provided.
+  - `500 Internal Server Error`: Indicates a server error.
+
+### Send Email with Temporary Password and Reset Link
+- **Endpoint**: `POST /app/admin/email`
+- **Description**: Admins send an email with a temporary password and a link for the organization to reset their password.
+- **Responses**:
+  - `200 OK`: Email sent successfully.
+  - `500 Internal Server Error`: Indicates a server error.
+
+## Update Organization Information
+### Edit Organization
+- **Endpoint**: `PUT /app/admin/organization`
+- **Description**: Update an existing organization's profile details.
+- **Responses**:
+  - `200 OK`: Organization updated successfully.
+  - `400 Bad Request`: Incorrect data provided.
+  - `500 Internal Server Error`: Indicates a server error.
+
+### Suspend Organization
+- **Endpoint**: `PUT /app/admin/organization/{username}`
+- **Description**: Suspend an organization's account by updating its status to inactive.
+- **Responses**:
+  - `200 OK`: Organization suspended successfully.
+  - `404 Not Found`: Organization not found.
+  - `401 Unauthorized`: Unauthorized action.
+
 ## Admin Page Buttons and Links
-This section describes where the admin page buttons lead to and the corresponding endpoints, providing an overview of available actions for administrators.
 
-- **Add Organization**: Allows admins to add a new organization.
-  - **Link**: `/admin/add-organization`
-  - **Endpoint**: `POST /app/admin/organization`
-  - **Description**: Add a new organization with required information like username, password, and other profile details.
+### Return to Home Page
+- **Endpoint**: `GET /app/home`
+- **Description**: Button to navigate back to the home page from the admin page.
+- **Responses**:
+  - `200 OK`: Home page content retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
 
-- **Edit Organization**: Allows admins to edit an existing organization.
-  - **Link**: `/admin/edit-organization`
-  - **Endpoint**: `POST /app/admin/organization`
-  - **Description**: Update an organization's profile details.
-
-- **Delete Organization**: Allows admins to delete an organization by username.
-  - **Link**: `/admin/delete-organization`
-  - **Endpoint**: `DELETE /app/admin/organization/{username}`
-  - **Description**: Delete an organization by its username. The `{username}` parameter specifies the organization to be deleted.
-  - **Responses**:
-    - `200 OK`: Organization deleted successfully.
-    - `404 Not Found`: Organization not found.
-    - `401 Unauthorized`: Unauthorized action.
-
-- **Home Page**: Provides a button to return to the home page.
-  - **Link**: `/home`
-  - **Endpoint**: `GET /app/home`
-  - **Description**: Returns to the home page.
-
-- **Logout**: Allows admins to log out of the admin session.
-  - **Link**: `/app/auth/admin-logout`
-  - **Endpoint**: `POST /app/auth/admin-logout`
-  - **Description**: Log out and invalidate the current authentication token.
-  - **Responses**:
-    - `200 OK`: Logout successful.
-    - `401 Unauthorized`: Unauthorized access.
+### Logout
+- **Endpoint**: `POST /app/auth/admin-logout`
+- **Description**: Log out and end the current admin session.
+- **Responses**:
+  - `200 OK`: Logout successful.
+  - `401 Unauthorized`: Unauthorized action.
