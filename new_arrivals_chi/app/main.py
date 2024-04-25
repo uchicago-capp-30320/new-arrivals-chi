@@ -25,6 +25,7 @@ def login():
     Returns:
         Renders login page for user with their selected language.
     """
+    
     language = request.args.get("lang", "en")
     return render_template("login.html", language=language)
 
