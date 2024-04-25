@@ -1,7 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Enum
-
-db = SQLAlchemy()
+from app import db
 
 
 class Organization(db.Model):

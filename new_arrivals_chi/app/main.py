@@ -26,6 +26,7 @@ import os
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+import database as model
 
 main = Blueprint("main", __name__)
 
