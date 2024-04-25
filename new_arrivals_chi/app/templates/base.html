@@ -84,9 +84,9 @@
         }
 
         .home-button-container {
-            display: flex; /* Enables flexbox for vertical centering */
-            flex-direction: column; /* Stacks elements vertically */
-            justify-content: center; /* Centers content vertically */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
         }
 
@@ -95,21 +95,20 @@
             border-radius: 5px;
             padding: 20px;
             background-color: #fff;
-            margin-bottom: 100px;
             margin-top: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            top: 50%;
+            position: absolute;
+            top: 20%;
             left: 50%;
-            transform: translate(-50%, 9%);
+            transform: translateX(-50%);
         }
 
         .box-big-title {
             text-align: center;
             font-size: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             width: 100%;
             font-weight: bold;
         }
@@ -126,15 +125,57 @@
             flex-direction: column;
             justify-content: space-between;
             width: 100%;
-            margin-bottom: -55px;
             align-items: center;
         }
 
         .bottom-left {
             position: relative;
-            bottom: 0%;
             left: -47%;
             font-size: 16px;
+            display: inline-block;
+        }
+
+        .yellow-button {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #FFD966;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .yellow-button:hover {
+            background-color: #FFD700;
+        }
+
+        .button.orange {
+            background-color: #F9E3CE;
+            color: black;
+        }
+
+        .button.orange:hover {
+            background-color: #FF8C00;
+        }
+
+        .button.green {
+            background-color: #DAE9D3;
+            color: black;
+        }
+
+        .button.green:hover {
+            background-color: #006400;
+        }
+
+        .button.blue {
+            background-color: #E7F0FE;
+            color: black;
+        }
+
+        .button.blue:hover {
+            background-color: #00008B;
         }
 
     </style>
