@@ -14,6 +14,10 @@ def legal():
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
 
+#@auth.route('/signup')
+@main.route('/signup')
+def signup():
+    return render_template('signup.html')
 
 app = Flask(__name__)
 
