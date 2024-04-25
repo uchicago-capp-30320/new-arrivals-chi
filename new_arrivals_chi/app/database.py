@@ -51,3 +51,29 @@ class Services:
     service = db.Column(db.String, nullable=False)
     access = db.Column(db.String, nullable=False)
     service_note = db.Column(db.String, nullable=True)
+
+
+class ServiceDate:
+    id = db.Column(db.Integer, primary_key=True)
+    org_id = db.Column(
+        db.Integer, db.ForeignKey("organization.id"), nullable=False
+    )
+    service_id = db.Column(
+        db.Integer, db.ForeignKey("service.id"), nullable=False
+    )
+    date = db.Column(db.Date, nullable=False)
+    start_time = db.Column(db.Time, nullable=False)
+    end_time = db.Column(db.Time, nullable=False)
+    repeat = db.Column(db.Enum, nullable=False)
+
+
+class Location:
+    id = db.Column(db.Integer, primary_key=True)
+    org_id = db.Column(
+        db.Integer, db.ForeignKey("organization.id"), nullable=False
+    )
+    street_address = db.Column(db.String, nullable=False)
+    zip_code = db.Column(db.String, nullable=False)
+    city = db.Column(db.String, nullable=False)
+    state = db.Column(db.String, nullable=False)
+    primary_location = db.Column(db.Integer, nullable=False)
