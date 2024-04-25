@@ -15,6 +15,36 @@ def legal():
     return render_template("legal.html", language=language)
 
 
+# will change to auth.route when the database is usable
+@main.route("/login")
+def login():
+    """
+    Establishes route for the login page. This route is accessible
+    within the 'login' button in the navigation bar.
+
+    Returns:
+        Renders login page for user with their selected language.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("login.html", language=language)
+
+
+# @auth.route('/signup')
+@main.route("/signup")
+def signup():
+    """
+    Establishes route for the user sign up page. This route is accessible
+    within the 'sign up' button in the navigation bar.
+
+    Returns:
+        Renders sign up page in their selected language.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("signup.html", language=language)
+
+
 app = Flask(__name__)
 
 app.register_blueprint(main)
