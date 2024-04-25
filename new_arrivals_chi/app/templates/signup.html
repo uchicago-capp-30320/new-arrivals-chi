@@ -1,0 +1,58 @@
+<!--
+Project: new_arrivals_chi
+File name: signup.html
+Associated Files:
+    base.html, main.py
+
+Skeleton HTML for user sign up page.
+
+Creation:
+@Author: Madeleine Roberts @MadeleineKRoberts
+@Date: 04/24/2024
+-->
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="column is-4 is-offset-4">
+    <h3 class="title">{{ 'Sign Up' if language == 'en' else 'Registrar' }}</h3>
+    <div class="box">
+        <form method="POST" action="/signup">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}.</a>.
+                </div>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" action="/signup">
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="email" name="email" placeholder="{{ 'Email' if language == 'en' else 'Correo electrónico' }}" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="name" placeholder="{{ 'Organization' if language == 'en' else 'Organización' }}" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" placeholder="{{ 'Password' if language == 'en' else 'Contraseña' }}" autofocus="">
+                </div>
+            </div>
+            <div class="content">
+                {{ 'Your password must include at least one uppercase letter, one lowercase letter, one number, one special symbol, and be longer than 8 characters.'
+                    if language == 'en' else
+                    'Su contraseña debe incluir al menos una letra mayúscula, una letra minúscula, un número, un símbolo especial y tener más de 8 caracteres.'
+                }}
+            </div>
+                <button class="button is-block is-info is-large is-fullwidth">{{ 'Sign Up' if language == 'en' else 'Registrar' }}</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
