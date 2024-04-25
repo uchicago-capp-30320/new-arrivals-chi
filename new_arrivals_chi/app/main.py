@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+
 main = Blueprint("main", __name__)
 
 
