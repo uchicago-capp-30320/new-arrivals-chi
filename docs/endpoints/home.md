@@ -2,7 +2,7 @@
 
 The home page is the main entry point for users, providing options to access various resources and perform specific tasks, such as toggling languages, reporting bugs, or logging in. It includes buttons that lead to key sections like general information, legal resources, health resources, organization login, and admin login.
 
-The documentation is divided into two sections:
+The documentation is divided into the following sections:
 - [Retrieve Home Page Content](#retrieve-home-page-content)
 - [Home Page Buttons and Links](#home-page-buttons-and-links)
 

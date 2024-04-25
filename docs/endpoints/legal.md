@@ -1,6 +1,6 @@
 # Legal Flow Endpoint Documentation
 
-The legal flow endpoint guides users through a series of questions to determine the appropriate legal resources based on their individual circumstances. It provides an organized pathway for users seeking various forms of legal support, such as Temporary Protected Status (TPS), work authorization, asylum, and humanitarian parole.
+The legal flow guides users through a series of questions to determine the appropriate legal resources based on their individual circumstances. It provides an organized pathway for users seeking various forms of legal support, such as Temporary Protected Status (TPS), work authorization, asylum, and humanitarian parole.
 
 The documentation is divided into the following sections:
 - [Determine Legal Flow](#determine-legal-flow)
@@ -22,7 +22,7 @@ The documentation is divided into the following sections:
 - **Responses**:
   - `200 OK`: TPS information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
-  ```
+
 
 ### Temporary Protected Status (TPS) - Guide
 - **Endpoint**: `GET /app/legal/temporary-protected-status-guide`
@@ -30,7 +30,6 @@ The documentation is divided into the following sections:
 - **Responses**:
   - `200 OK`: TPS information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
-  ```
 
 ### Work Authorization - Basic
 - **Endpoint**: `GET /app/legal/work-authorization-basic`
@@ -74,13 +73,13 @@ The documentation is divided into the following sections:
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Rights as a Worker
-- **Endpoint**: ``GET /app/legal/worker-rights`
+- **Endpoint**: `GET /app/legal/worker-rights`
 - **Description**: Static page with information about workers' rights.
 - **Responses**:
   - `200 OK`: Workers rights information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-## Rights as a Renter
+### Rights as a Renter
 - **Endpoint**: `/app/legal/renter-rights`
 - **Description**: Static page with information about renters' rights.
 - **Responses**:

@@ -2,7 +2,7 @@
 
 The health resources page provides static information and a filterable table for finding specific health services. The main page includes a two-button approach to direct users to either a filterable table for immediate assistance or a static page with health information.
 
-The documentation is divided into three main sections:
+The documentation is divided into the following sections:
 - [Retrieve Health Resources Page Content](#retrieve-health-resources-page-content)
 - [Using the Filterable Table](#using-the-filterable-table)
 - [Health Page Buttons and Links](#health-page-buttons-and-links)
@@ -39,7 +39,7 @@ The documentation is divided into three main sections:
 Users can navigate to a static page for additional information about health and medical resources.
 
 - **Endpoint**: `GET /app/health-info`
-- **Description**: Retrieve a static page with information about available health resources for new migrants, including health clinics, emergency services, and other medical facilities.
+- **Description**: Retrieve a static page with information about available health resources for new migrants, including free clinics, insurance for kids, and insurance options for those with Asylum or TPS.
 - **Responses**:
   - `200 OK`: Information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.

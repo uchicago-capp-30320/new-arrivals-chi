@@ -2,7 +2,7 @@
 
 The organization page allows community organizations to manage their profiles, update their resources and services, and perform various tasks with their accounts. It includes buttons that lead to specific actions, such as profile updates, account setup, and deletion, along with a logout option.
 
-The documentation is divided into four sections:
+The documentation is divided into the following sections:
 - [Organization Login](#organization-login)
 - [Organization Page Content](#organization-page-content)
 - [Organization Setup](#organization-setup)
