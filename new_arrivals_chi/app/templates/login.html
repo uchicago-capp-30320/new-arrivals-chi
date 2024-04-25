@@ -1,0 +1,48 @@
+<!--
+Project: new_arrivals_chi
+File name: login.html
+Associated Files:
+    base.html, main.py
+
+Skeleton HTML for user login page.
+
+Creation:
+@Author: Madeleine Roberts @MadeleineKRoberts
+@Date: 04/24/2024
+-->
+
+{% extends "base.html" %}
+{% block content %}
+<div >
+    <h3 class="title">{{ 'Login' if language == 'en' else 'Iniciar sesión' }}</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="email" name="email" placeholder="{{ 'Email' if language == 'en' else 'Correo electrónico' }}" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" placeholder="{{ 'Password' if language == 'en' else 'Contraseña' }}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember">
+                    {{ 'Remember me' if language == 'en' else 'Recordarme' }}
+                </label>
+            </div>
+            <button >{{ 'Login' if language == 'en' else 'Iniciar sesión' }}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
