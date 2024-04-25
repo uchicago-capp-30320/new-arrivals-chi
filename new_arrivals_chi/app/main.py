@@ -9,6 +9,12 @@ def home():
     return render_template("home.html", language=language)
 
 
+@main.route("/profile")
+def profile():
+    language = request.args.get("lang", "en")
+    return render_template("profile.html", language=language)
+
+
 @main.route("/legal")
 def legal():
     language = request.args.get("lang", "en")
