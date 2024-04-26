@@ -3,7 +3,7 @@
 ## Association Tables
 Tables for Many-to-Many relationships
 
-**languages_organizations**
+**languages_organizations**  
 Represents the relationship between languages and organizations.
 | Name           | Type    | Description                                     |
 |----------------|---------|-------------------------------------------------|
@@ -12,7 +12,7 @@ Represents the relationship between languages and organizations.
 
 <br>
 
-**organizations_hours**
+**organizations_hours**  
 Represents the relationship between organizations and hours.
 | Name           | Type    | Description                                     |
 |----------------|---------|-------------------------------------------------|
@@ -21,7 +21,7 @@ Represents the relationship between organizations and hours.
 
 <br>
 
-**organizations_services**
+**organizations_services**  
 Represents the relationship between organizations and services.
 | Name           | Type    | Description                                     |
 |----------------|---------|-------------------------------------------------|
