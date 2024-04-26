@@ -1,5 +1,44 @@
-from sqlalchemy import Enum
+from sqlalchemy import Enum, Table, ForeignKey, Column, Integer
 from main import db
+
+# Association Tables for Many-to-Many relationships
+languages_organizations = Table(
+    "languages_organizations",
+    db.Model.metadata,
+    Column(
+        "language_id", Integer, ForeignKey("languages.id"), primary_key=True
+    ),
+    Column(
+        "organization_id",
+        Integer,
+        ForeignKey("organizations.id"),
+        primary_key=True,
+    ),
+)
+
+organizations_hours = Table(
+    "organizations_hours",
+    db.Model.metadata,
+    Column("hours_id", Integer, ForeignKey("hours.id"), primary_key=True),
+    Column(
+        "organization_id",
+        Integer,
+        ForeignKey("organizations.id"),
+        primary_key=True,
+    ),
+)
+
+organizations_services = Table(
+    "organizations_services",
+    db.Model.metadata,
+    Column("service_id", Integer, ForeignKey("services.id"), primary_key=True),
+    Column(
+        "organization_id",
+        Integer,
+        ForeignKey("organizations.id"),
+        primary_key=True,
+    ),
+)
 
 
 class User(db.Model):
@@ -7,73 +46,14 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100), nullable=False)
-    organization_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=True
-    )
+    organization_id = db.Column(db.Integer, db.ForeignKey("organizations.id"))
     organization = db.relationship("Organization", back_populates="users")
-
-
-languages_organizations = db.Table(
-    "languages_organizations",
-    db.Column(
-        "language_id",
-        db.Integer,
-        db.ForeignKey("language.id"),
-        primary_key=True,
-    ),
-    db.Column(
-        "organization_id",
-        db.Integer,
-        db.ForeignKey("organization.id"),
-        primary_key=True,
-    ),
-)
-
-services_organizations = db.Table(
-    "services_organizations",
-    db.Column(
-        "service_id", db.Integer, db.ForeignKey("services.id"), primary_key=True
-    ),
-    db.Column(
-        "organization_id",
-        db.Integer,
-        db.ForeignKey("organizations.id"),
-        primary_key=True,
-    ),
-)
-
-hours_organizations = db.Table(
-    "hours_organizations",
-    db.Column(
-        "hours_id", db.Integer, db.ForeignKey("hours.id"), primary_key=True
-    ),
-    db.Column(
-        "organization_id",
-        db.Integer,
-        db.ForeignKey("organizations.id"),
-        primary_key=True,
-    ),
-)
-
-services_dates = db.Table(
-    "service_dates_relationship",
-    db.Column(
-        "service_id", db.Integer, db.ForeignKey("services.id"), primary_key=True
-    ),
-    db.Column(
-        "date_id",
-        db.Integer,
-        db.ForeignKey("service_dates.id"),
-        primary_key=True,
-    ),
-)
 
 
 class Organization(db.Model):
     __tablename__ = "organizations"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     location_id = db.Column(
         db.Integer, db.ForeignKey("locations.id"), nullable=False
     )
@@ -86,57 +66,37 @@ class Organization(db.Model):
     users = db.relationship("User", back_populates="organizations")
     languages = db.relationship(
         "Language",
-        secondary=languages_organizations,
         back_populates="organizations",
     )
     services = db.relationship(
         "Service",
-        secondary=services_organizations,
         back_populates="organizations",
     )
-    hours = db.relationship(
-        "Hours", secondary=hours_organizations, back_populates="organizations"
-    )
+    hours = db.relationship("Hours", back_populates="organizations")
 
 
 class Language(db.Model):
     __tablename__ = "languages"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
     language = db.Column(db.String(50), nullable=False)
     organizations = db.relationship(
         "Organization",
-        secondary=languages_organizations,
-        back_populates="languages",
+        back_populates="language",
     )
 
 
 class Hours(db.Model):
     __tablename__ = "hours"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
     day_of_week = db.Column(db.Integer, nullable=False)
     opening_time = db.Column(db.Time, nullable=False)
     closing_time = db.Column(db.Time, nullable=False)
-    organizations = db.relationship(
-        "Organization", secondary=hours_organizations, back_populates="hours"
-    )
+    organizations = db.relationship("Organization", back_populates="hours")
 
 
 class Service(db.Model):
     __tablename__ = "services"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
-    location_id = db.Column(
-        db.Integer, db.ForeignKey("locations.id"), nullable=False
-    )
-    date_id = db.Column(db.Integer, db.ForeignKey("date.id"), nullable=False)
     category = db.Column(db.String(100), nullable=False)
     service = db.Column(db.String(100), nullable=False)
     access = db.Column(db.String(100), nullable=False)
@@ -144,13 +104,11 @@ class Service(db.Model):
 
     organizations = db.relationship(
         "Organization",
-        secondary=services_organizations,
         back_populates="services",
     )
 
     service_dates = db.relationship(
         "ServiceDate",
-        secondary=services_dates,
         back_populates="services",
     )
 
@@ -158,12 +116,6 @@ class Service(db.Model):
 class ServiceDate(db.Model):
     __tablename__ = "service_dates"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
-    service_id = db.Column(
-        db.Integer, db.ForeignKey("services.id"), nullable=False
-    )
     date = db.Column(db.Date, nullable=False)
     start_time = db.Column(db.Time, nullable=False)
     end_time = db.Column(db.Time, nullable=False)
@@ -177,10 +129,9 @@ class ServiceDate(db.Model):
         ),
         nullable=False,
     )
-
-    services = db.relationship(
+    service_id = db.Column(db.Integer, db.ForeignKey("services.id"))
+    service = db.relationship(
         "Service",
-        secondary=services_dates,
         back_populates="service_dates",
     )
 
@@ -188,9 +139,6 @@ class ServiceDate(db.Model):
 class Location(db.Model):
     __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
     street_address = db.Column(db.String(255), nullable=False)
     zip_code = db.Column(db.String(10), nullable=False)
     city = db.Column(db.String(100), nullable=False)
