@@ -45,6 +45,11 @@ class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
+    role = db.Column(
+        Enum("admin", "standard", name="role_types"),
+        nullable=False,
+        default="standard",
+    )
     password = db.Column(db.String(100), nullable=False)
     organization_id = db.Column(db.Integer, db.ForeignKey("organizations.id"))
     organization = db.relationship("Organization", back_populates="users")
