@@ -3,11 +3,10 @@ from main import db
 
 
 class User(db.Model):
-    id = db.Column(
-        db.Integer, primary_key=True
-    )  # primary keys are required by SQLAlchemy
+    id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100), nullable=False)
+    users = db.relationship("User", back_populates="organization")
 
 
 class Organization(db.Model):
@@ -19,8 +18,9 @@ class Organization(db.Model):
     )
     hours_id = db.Column(db.Integer, db.ForeignKey("hours.id"), nullable=False)
     phone = db.Column(db.String(25), nullable=False)
-    image_path = db.Column(db.String(255), nullable=False)
+    image_path = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(50), nullable=False)
+    organization = db.relationship("Organization", back_populates="users")
 
 
 class Language(db.Model):
