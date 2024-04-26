@@ -55,6 +55,19 @@ hours_organizations = db.Table(
     ),
 )
 
+services_dates = db.Table(
+    "service_dates_relationship",
+    db.Column(
+        "service_id", db.Integer, db.ForeignKey("services.id"), primary_key=True
+    ),
+    db.Column(
+        "date_id",
+        db.Integer,
+        db.ForeignKey("service_dates.id"),
+        primary_key=True,
+    ),
+)
+
 
 class Organization(db.Model):
     __tablename__ = "organizations"
@@ -114,7 +127,7 @@ class Hours(db.Model):
     )
 
 
-class Services(db.Model):
+class Service(db.Model):
     __tablename__ = "services"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
@@ -128,9 +141,16 @@ class Services(db.Model):
     service = db.Column(db.String(100), nullable=False)
     access = db.Column(db.String(100), nullable=False)
     service_note = db.Column(db.String(255), nullable=True)
+
     organizations = db.relationship(
         "Organization",
         secondary=services_organizations,
+        back_populates="services",
+    )
+
+    service_dates = db.relationship(
+        "ServiceDate",
+        secondary=services_dates,
         back_populates="services",
     )
 
@@ -156,6 +176,12 @@ class ServiceDate(db.Model):
             name="repeat_types",
         ),
         nullable=False,
+    )
+
+    services = db.relationship(
+        "Service",
+        secondary=services_dates,
+        back_populates="service_dates",
     )
 
 
