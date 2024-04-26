@@ -52,7 +52,7 @@ Relationships:
 <br>
 
 **organization**
-Represents organizations whose information is provided on the New Arrivals Chi platform. Contains information regarding the general public facing operations. The raw bytes of image (oganization's logo) are uploaded to our Heroku cloud provider and referenced via associated URLs in this table.
+Represents organizations whose information is provided on the New Arrivals Chi platform. Contains information regarding the general public facing operations. The raw bytes of image (oganization's logo) are uploaded to our AWS S3 bucket and referenced via associated URLs in this table.
 
 | Name        | Type    | Description                                                 |
 |-------------|---------|-------------------------------------------------------------|
