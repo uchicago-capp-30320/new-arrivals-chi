@@ -11,10 +11,10 @@ The documentation is divided into the following sections:
 
 ## Admin Login
 ### Authenticate Admin
-- **Endpoint**: `POST /app/auth/admin-login`
+- **Endpoint**: `POST /login`
 - **Description**: Log in to the admin page with admin credentials.
 - **Request Body**:
-  - `username`: Admin's username.
+  - `email`: Admin's email
   - `password`: Admin's password.
 - **Responses**:
   - `200 OK`: Login successful.
@@ -23,7 +23,7 @@ The documentation is divided into the following sections:
 
 ## Retrieve Admin Page
 ### Get Admin Page Content
-- **Endpoint**: `GET /app/admin/dashboard`
+- **Endpoint**: `GET /admin/dashboard`
 - **Description**: Retrieve the admin dashboard content, which includes an overview of organizations and admin-related tasks.
 - **Responses**:
   - `200 OK`: Admin page content retrieved successfully.
@@ -60,11 +60,11 @@ The documentation is divided into the following sections:
     "otherActions": [
       {
         "name": "Home Page",
-        "link": "/home"
+        "link": "/"
       },
       {
         "name": "Logout",
-        "link": "/app/auth/admin-logout"
+        "link": "/auth/admin-logout"
       }
     ]
   }
@@ -73,8 +73,8 @@ The documentation is divided into the following sections:
 ## Set Up a New Organization
 
 ### Create Organization Account
-- **Endpoint**: `POST /app/admin/organization`
-- **Description**: Admins add a new organization with required information like username, temporary password, and other profile details.
+- **Endpoint**: `POST /admin/organization`
+- **Description**: Admins add a new organization with required information like username (email), temporary password, and other profile details.
 - **Responses**:
   - `200 OK`: Organization created successfully.
   - `400 Bad Request`: Invalid data provided.
@@ -84,7 +84,7 @@ The documentation is divided into the following sections:
 The process for organizations to set up or reset their passwords involves sending a temporary password via email and providing a link to reset it. This documentation outlines the key endpoints for these operations.
 
 ### Send Email with Temporary Password and Reset Link
-- **Endpoint**: `POST /app/admin/org-email`
+- **Endpoint**: `POST /admin/org-email`
 - **Description**: Admins send an email with a temporary password and a link for the organization to reset their password.
 - **Request Body**:
   - `email`: The email address to send the temporary password and reset link.
@@ -93,7 +93,7 @@ The process for organizations to set up or reset their passwords involves sendin
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Validate Organization Reset Token
-- **Endpoint**: `GET /app/auth/validate-org-reset-token`
+- **Endpoint**: `GET /auth/validate-org-reset-token`
 - **Description**: Validates the token from the email to ensure it's valid for resetting the organization's password.
 - **Query Parameters**:
   - `token`: The unique token from the reset email.
@@ -103,7 +103,7 @@ The process for organizations to set up or reset their passwords involves sendin
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Set New Organization Password
-- **Endpoint**: `POST /app/auth/org-set-password`
+- **Endpoint**: `POST /auth/org-set-password`
 - **Description**: Set a new password for the organization account after validating the token.
 - **Request Body**:
   - `token`: The unique token from the reset email.
@@ -117,7 +117,7 @@ The process for organizations to set up or reset their passwords involves sendin
 
 ## Update Organization Information
 ### Edit Organization
-- **Endpoint**: `POST /app/admin/organization`
+- **Endpoint**: `POST /admin/organization`
 - **Description**: Update an existing organization's profile details.
 - **Responses**:
   - `200 OK`: Organization updated successfully.
@@ -125,7 +125,7 @@ The process for organizations to set up or reset their passwords involves sendin
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Suspend Organization
-- **Endpoint**: `POST /app/admin/organization/{username}`
+- **Endpoint**: `POST /admin/organization/{name}`
 - **Description**: Suspend an organization's account by updating its status to inactive.
 - **Responses**:
   - `200 OK`: Organization suspended successfully.
@@ -136,7 +136,7 @@ The process for organizations to set up or reset their passwords involves sendin
 The admin password reset process consists of endpoints that trigger a password reset email, validate the reset token, and set the new password. This documentation outlines the key endpoints involved in the process.
 
 ### Request Password Reset
-- **Endpoint**: `POST /app/auth/admin-reset-password`
+- **Endpoint**: `POST /auth/admin-reset-password`
 - **Description**: Request a password reset email for an admin user.
 - **Request Body**:
   - `email`: The admin's registered email address.
@@ -146,7 +146,7 @@ The admin password reset process consists of endpoints that trigger a password r
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Validate Reset Token
-- **Endpoint**: `GET /app/auth/admin-validate-reset-token`
+- **Endpoint**: `GET /auth/admin-validate-reset-token`
 - **Description**: Validates the token from the password reset email to ensure it's correct and hasn't expired.
 - **Query Parameters**:
   - `token`: The unique token from the reset email.
@@ -156,7 +156,7 @@ The admin password reset process consists of endpoints that trigger a password r
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Set New Password
-- **Endpoint**: `POST /app/auth/admin-set-new-password`
+- **Endpoint**: `POST /auth/admin-set-new-password`
 - **Description**: Set a new password for the admin account after the token has been validated.
 - **Request Body**:
   - `token`: The unique token from the reset email.
@@ -170,15 +170,18 @@ The admin password reset process consists of endpoints that trigger a password r
 
 ## Admin Page Buttons and Links
 ### Return to Home Page
-- **Endpoint**: `GET /app/home`
+- **Endpoint**: `GET /`
 - **Description**: Button to navigate back to the home page from the admin page.
 - **Responses**:
   - `200 OK`: Home page content retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-### Logout
-- **Endpoint**: `POST /app/auth/admin-logout`
-- **Description**: Log out and end the current admin session.
+### Admin Logout
+- **Endpoint**: `POST /auth/admin-logout`
+- **Description**: Logs out the admin and ends the session.
+- **Implementation**:
+  - The `href="url_for('auth.logout')"` value in the HTML template points to this endpoint to trigger logout functionality.
 - **Responses**:
   - `200 OK`: Logout successful.
   - `401 Unauthorized`: Unauthorized action.
+  - `500 Internal Server Error`: Server error.

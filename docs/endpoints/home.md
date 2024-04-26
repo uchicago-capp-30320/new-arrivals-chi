@@ -8,7 +8,7 @@ The documentation is divided into the following sections:
 
 ## Retrieve Home Page Content
 ### Get Home Page Content
-- **Endpoint**: `GET /app/home`
+- **Endpoint**: `GET /`
 - **Description**: Retrieve the content for the home page, which includes sections for general information, legal resources, and health resources, along with action buttons for logging in, reporting bugs, and toggling languages.
 - **Responses**:
   - `200 OK`: Home page content retrieved successfully.
@@ -76,14 +76,14 @@ This section describes where the home page buttons link to and the corresponding
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Report a Bug
-- **Endpoint**: `POST /app/bugs/report`
+- **Endpoint**: `POST /bugs/report`
 - **Description**: This button allows users to submit a bug report with a description of the issue.
 - **Responses**:
   - `200 OK`: Bug report submitted successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Organization Login
-- **Endpoint**: `POST /app/auth/organization-login`
+- **Endpoint**: `POST /auth/organization-login`
 - **Description**: This button allows organizations to log in. It authenticates organization users to access their profiles.
 - **Responses**:
   - `200 OK`: Organization login successful.
@@ -91,7 +91,7 @@ This section describes where the home page buttons link to and the corresponding
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Admin Login
-- **Endpoint**: `POST /app/auth/admin-login`
+- **Endpoint**: `POST /auth/admin-login`
 - **Description**: This button allows administrators to log in. It authenticates admin users to access admin-related features.
 - **Responses**:
   - `200 OK`: Admin login successful.
@@ -99,14 +99,14 @@ This section describes where the home page buttons link to and the corresponding
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Toggle Language
-- **Endpoint**: `POST /app/settings/language`
+- **Endpoint**: `POST /settings/language`
 - **Description**: This button toggles the website's language between English and Spanish.
 - **Responses**:
   - `200 OK`: Language toggled successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Return to Home Page
-- **Endpoint**: `GET /app/home`
+- **Endpoint**: `GET /`
 - **Description**: This button allows users to return to the home page from other sections.
 - **Responses**:
   - `200 OK`: Home page content retrieved successfully.
