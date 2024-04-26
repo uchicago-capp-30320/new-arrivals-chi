@@ -8,7 +8,7 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100), nullable=False)
     organization_id = db.Column(
-        db.Integer, db.ForeignKey("organization.id"), nullable=True
+        db.Integer, db.ForeignKey("organizations.id"), nullable=True
     )
     organization = db.relationship("Organization", back_populates="users")
 
@@ -32,12 +32,12 @@ languages_organizations = db.Table(
 services_organizations = db.Table(
     "services_organizations",
     db.Column(
-        "service_id", db.Integer, db.ForeignKey("service.id"), primary_key=True
+        "service_id", db.Integer, db.ForeignKey("services.id"), primary_key=True
     ),
     db.Column(
         "organization_id",
         db.Integer,
-        db.ForeignKey("organization.id"),
+        db.ForeignKey("organizations.id"),
         primary_key=True,
     ),
 )
@@ -50,7 +50,7 @@ hours_organizations = db.Table(
     db.Column(
         "organization_id",
         db.Integer,
-        db.ForeignKey("organization.id"),
+        db.ForeignKey("organizations.id"),
         primary_key=True,
     ),
 )
@@ -73,9 +73,9 @@ class Organization(db.Model):
     __tablename__ = "organizations"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     location_id = db.Column(
-        db.Integer, db.ForeignKey("location.id"), nullable=False
+        db.Integer, db.ForeignKey("locations.id"), nullable=False
     )
     hours_id = db.Column(db.Integer, db.ForeignKey("hours.id"), nullable=False)
     phone = db.Column(db.String(25), nullable=False)
@@ -103,7 +103,7 @@ class Language(db.Model):
     __tablename__ = "languages"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
-        db.Integer, db.ForeignKey("organization.id"), nullable=False
+        db.Integer, db.ForeignKey("organizations.id"), nullable=False
     )
     language = db.Column(db.String(50), nullable=False)
     organizations = db.relationship(
@@ -117,7 +117,7 @@ class Hours(db.Model):
     __tablename__ = "hours"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
-        db.Integer, db.ForeignKey("organization.id"), nullable=False
+        db.Integer, db.ForeignKey("organizations.id"), nullable=False
     )
     day_of_week = db.Column(db.Integer, nullable=False)
     opening_time = db.Column(db.Time, nullable=False)
@@ -131,10 +131,10 @@ class Service(db.Model):
     __tablename__ = "services"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
-        db.Integer, db.ForeignKey("organization.id"), nullable=False
+        db.Integer, db.ForeignKey("organizations.id"), nullable=False
     )
     location_id = db.Column(
-        db.Integer, db.ForeignKey("location.id"), nullable=False
+        db.Integer, db.ForeignKey("locations.id"), nullable=False
     )
     date_id = db.Column(db.Integer, db.ForeignKey("date.id"), nullable=False)
     category = db.Column(db.String(100), nullable=False)
@@ -159,7 +159,7 @@ class ServiceDate(db.Model):
     __tablename__ = "service_dates"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
-        db.Integer, db.ForeignKey("organization.id"), nullable=False
+        db.Integer, db.ForeignKey("organizations.id"), nullable=False
     )
     service_id = db.Column(
         db.Integer, db.ForeignKey("services.id"), nullable=False
@@ -189,7 +189,7 @@ class Location(db.Model):
     __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
-        db.Integer, db.ForeignKey("organization.id"), nullable=False
+        db.Integer, db.ForeignKey("organizations.id"), nullable=False
     )
     street_address = db.Column(db.String(255), nullable=False)
     zip_code = db.Column(db.String(10), nullable=False)
