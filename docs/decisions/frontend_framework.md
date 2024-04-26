@@ -11,4 +11,3 @@ This document summarizes key frontend decisions in New Arrivals Chi.
 - **Alternatives Considered**: *Django*: as the sole alternative considered, we opted for Flask instead due the aforementioned reasons.
 
 - **Impacts**: If we decided we wanted a feature-rich application in the future, there could be a potential downside in scaling up to add many unique features. However, we do not anticipate this to be an issue in the future.
-
