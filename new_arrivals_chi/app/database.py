@@ -13,30 +13,6 @@ class User(db.Model):
     organization = db.relationship("Organization", back_populates="users")
 
 
-class Organization(db.Model):
-    __tablename__ = "organizations"
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    location_id = db.Column(
-        db.Integer, db.ForeignKey("location.id"), nullable=False
-    )
-    hours_id = db.Column(db.Integer, db.ForeignKey("hours.id"), nullable=False)
-    phone = db.Column(db.String(25), nullable=False)
-    image_path = db.Column(db.String(255), nullable=True)
-    status = db.Column(db.String(50), nullable=False)
-    organization = db.relationship("Organization", back_populates="users")
-
-
-class Language(db.Model):
-    __tablename__ = "languages"
-    id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organization.id"), nullable=False
-    )
-    language = db.Column(db.String(50), nullable=False)
-
-
 languages_organizations = db.Table(
     "languages_organizations",
     db.Column(
@@ -52,6 +28,40 @@ languages_organizations = db.Table(
         primary_key=True,
     ),
 )
+
+
+class Organization(db.Model):
+    __tablename__ = "organizations"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    location_id = db.Column(
+        db.Integer, db.ForeignKey("location.id"), nullable=False
+    )
+    hours_id = db.Column(db.Integer, db.ForeignKey("hours.id"), nullable=False)
+    phone = db.Column(db.String(25), nullable=False)
+    image_path = db.Column(db.String(255), nullable=True)
+    status = db.Column(db.String(50), nullable=False)
+    users = db.relationship("User", back_populates="organizations")
+    languages = db.relationship(
+        "Language",
+        secondary=languages_organizations,
+        back_populates="organizations",
+    )
+
+
+class Language(db.Model):
+    __tablename__ = "languages"
+    id = db.Column(db.Integer, primary_key=True)
+    org_id = db.Column(
+        db.Integer, db.ForeignKey("organization.id"), nullable=False
+    )
+    language = db.Column(db.String(50), nullable=False)
+    organizations = db.relationship(
+        "Organization",
+        secondary=languages_organizations,
+        back_populates="languages",
+    )
 
 
 class Hours(db.Model):
