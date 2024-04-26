@@ -66,8 +66,12 @@ class Organization(db.Model):
     phone = db.Column(db.String(25), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(50), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False)
-    deleted_at = db.Column(db.DateTime, nullable=True)
+    created_at = db.Column(
+        db.DateTime, nullable=False, server_default=db.func.now()
+    )
+    deleted_at = db.Column(
+        db.DateTime(timezone=True), nullable=True, server_default=None
+    )
     created_by = db.Column(
         db.Integer, db.ForeignKey("users.id"), nullable=False
     )
@@ -90,8 +94,10 @@ class Language(db.Model):
     __tablename__ = "languages"
     id = db.Column(db.Integer, primary_key=True)
     language = db.Column(db.String(50), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False)
-    deleted_at = db.Column(db.DateTime, nullable=True)
+    created_at = db.Column(
+        db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
+    )
+    deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
     created_by = db.Column(
         db.Integer, db.ForeignKey("users.id"), nullable=False
     )
@@ -108,6 +114,14 @@ class Hours(db.Model):
     day_of_week = db.Column(db.Integer, nullable=False)
     opening_time = db.Column(db.Time, nullable=False)
     closing_time = db.Column(db.Time, nullable=False)
+    created_at = db.Column(
+        db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
+    )
+    deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
+    created_by = db.Column(
+        db.Integer, db.ForeignKey("users.id"), nullable=False
+    )
+    deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship("Organization", back_populates="hours")
 
 
@@ -118,7 +132,14 @@ class Service(db.Model):
     service = db.Column(db.String(100), nullable=False)
     access = db.Column(db.String(100), nullable=False)
     service_note = db.Column(db.String(255), nullable=True)
-
+    created_at = db.Column(
+        db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
+    )
+    deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
+    created_by = db.Column(
+        db.Integer, db.ForeignKey("users.id"), nullable=False
+    )
+    deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship(
         "Organization",
         back_populates="services",
@@ -146,6 +167,14 @@ class ServiceDate(db.Model):
         ),
         nullable=False,
     )
+    created_at = db.Column(
+        db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
+    )
+    deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
+    created_by = db.Column(
+        db.Integer, db.ForeignKey("users.id"), nullable=False
+    )
+    deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     service_id = db.Column(db.Integer, db.ForeignKey("services.id"))
     service = db.relationship(
         "Service",
@@ -161,3 +190,11 @@ class Location(db.Model):
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(50), nullable=False)
     primary_location = db.Column(db.Integer, nullable=False)
+    created_at = db.Column(
+        db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
+    )
+    deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
+    created_by = db.Column(
+        db.Integer, db.ForeignKey("users.id"), nullable=False
+    )
+    deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
