@@ -3,16 +3,16 @@
 ## Association Tables
 Tables for Many-to-Many relationships
 
-**languages_organizations**  
+**languages_organizations**
 Represents the relationship between languages and organizations.
 | Name           | Type    | Description                                     |
 |----------------|---------|-------------------------------------------------|
 | language_id    | int     | Foreign key referencing the id column in languages table. Primary key. |
-| organization_id| int     | Foreign key referencing the id column in organizations table. Primary key. |  
+| organization_id| int     | Foreign key referencing the id column in organizations table. Primary key. |
 
 <br>
 
-**organizations_hours**  
+**organizations_hours**
 Represents the relationship between organizations and hours.
 | Name           | Type    | Description                                     |
 |----------------|---------|-------------------------------------------------|
@@ -21,7 +21,7 @@ Represents the relationship between organizations and hours.
 
 <br>
 
-**organizations_services**  
+**organizations_services**
 Represents the relationship between organizations and services.
 | Name           | Type    | Description                                     |
 |----------------|---------|-------------------------------------------------|
@@ -31,7 +31,7 @@ Represents the relationship between organizations and services.
 <br/><br/>
 
 ## Data Tables
-**user**  
+**user**
 Represents users with login capabilities for the New Arrivals Chi platform. Contains login credentials, admin status of particular user, and associate organization. Note: this will not be used by general website visitors.
 | Name             | Type      | Description                                       |
 |------------------|-----------|---------------------------------------------------|
@@ -51,7 +51,7 @@ Relationships:
 
 <br>
 
-**organization**  
+**organization**
 Represents organizations whose information is provided on the New Arrivals Chi platform. Contains information regarding the general public facing operations. The raw bytes of image (oganization's logo) are uploaded to our Heroku cloud provider and referenced via associated URLs in this table.
 
 | Name        | Type    | Description                                                 |
@@ -70,14 +70,14 @@ Represents organizations whose information is provided on the New Arrivals Chi p
 
 
  Relationships:
- - users: Represents the relationship between the organization and users. Each organization can have multiple users associated with it. 
- - languages: Represents the relationship between the organization and languages. Each organization can support multiple languages. 
- - services: Represents the relationship between the organization and services. Each organization can provide multiple services. 
+ - users: Represents the relationship between the organization and users. Each organization can have multiple users associated with it.
+ - languages: Represents the relationship between the organization and languages. Each organization can support multiple languages.
+ - services: Represents the relationship between the organization and services. Each organization can provide multiple services.
  - hours: Represents the relationship between the organization and hours. Each organization can have multiple operating hours.
 
 <br>
 
-**language**  
+**language**
 Represents information about languages spoken at organizations featured on the New Arrivals Chi platform.
 | Name        | Type    | Description |
 |-------------|---------|-------------|
@@ -90,10 +90,10 @@ Represents information about languages spoken at organizations featured on the N
 
 Relationships:
 - organizations: Represents the relationship between the language and organizations. Each language can be supported by multiple organizations.`
-  
+
 <br>
 
-**hours**  
+**hours**
 Represents information about the operating hours of organizations featured on the New Arrivals Chi platform. Allows for non-consecutive hours to accommodate for breaks within days. These hours will be displayed to visitors in local Chicago time.
 | Name          | Type      | Description |
 |---------------|-----------|-------------|
@@ -118,7 +118,7 @@ Example of an organization that changed their hours to provide a lunch break for
 | 3  | 1           | 14:00:00     | 19:00:00     | 2024-04-26 08:00:00 | 2024-04-27 09:00:00 | 456        | NULL |
 <br>
 
-**service**  
+**service**
 Represents information about a single service provided by an organization featured on the New Arrivals Chi platform. The broader categories of services will allow for filtering by platform visitors.
 | Name          | Type      | Description |
 |---------------|-----------|-------------|
@@ -139,7 +139,7 @@ Relationships:
 
 <br>
 
-**service_dates**  
+**service_dates**
 Represents information related to the dates and times of services provided by organizations on the New Arrivals Chi platform.
 | Name          | Type      | Description |
 |---------------|-----------|-------------|
@@ -160,7 +160,7 @@ Relationships:
 
 <br>
 
-**locations**  
+**locations**
 Represents information about the physical addresses of organizations and related services featured on the New Arrivals Chi platform.
 | Name            | Type    | Description |
 |-----------------|---------|-------------|
