@@ -42,6 +42,19 @@ services_organizations = db.Table(
     ),
 )
 
+hours_organizations = db.Table(
+    "hours_organizations",
+    db.Column(
+        "hours_id", db.Integer, db.ForeignKey("hours.id"), primary_key=True
+    ),
+    db.Column(
+        "organization_id",
+        db.Integer,
+        db.ForeignKey("organization.id"),
+        primary_key=True,
+    ),
+)
+
 
 class Organization(db.Model):
     __tablename__ = "organizations"
@@ -55,6 +68,8 @@ class Organization(db.Model):
     phone = db.Column(db.String(25), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(50), nullable=False)
+
+    # Relationships
     users = db.relationship("User", back_populates="organizations")
     languages = db.relationship(
         "Language",
@@ -65,6 +80,9 @@ class Organization(db.Model):
         "Service",
         secondary=services_organizations,
         back_populates="organizations",
+    )
+    hours = db.relationship(
+        "Hours", secondary=hours_organizations, back_populates="organizations"
     )
 
 
@@ -91,6 +109,9 @@ class Hours(db.Model):
     day_of_week = db.Column(db.Integer, nullable=False)
     opening_time = db.Column(db.Time, nullable=False)
     closing_time = db.Column(db.Time, nullable=False)
+    organizations = db.relationship(
+        "Organization", secondary=hours_organizations, back_populates="hours"
+    )
 
 
 class Services(db.Model):
