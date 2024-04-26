@@ -3,13 +3,18 @@ from main import db
 
 
 class User(db.Model):
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100), nullable=False)
-    users = db.relationship("User", back_populates="organization")
+    organization_id = db.Column(
+        db.Integer, db.ForeignKey("organization.id"), nullable=True
+    )
+    organization = db.relationship("Organization", back_populates="users")
 
 
 class Organization(db.Model):
+    __tablename__ = "organizations"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
@@ -24,6 +29,7 @@ class Organization(db.Model):
 
 
 class Language(db.Model):
+    __tablename__ = "languages"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
         db.Integer, db.ForeignKey("organization.id"), nullable=False
@@ -31,7 +37,25 @@ class Language(db.Model):
     language = db.Column(db.String(50), nullable=False)
 
 
+languages_organizations = db.Table(
+    "languages_organizations",
+    db.Column(
+        "language_id",
+        db.Integer,
+        db.ForeignKey("language.id"),
+        primary_key=True,
+    ),
+    db.Column(
+        "organization_id",
+        db.Integer,
+        db.ForeignKey("organization.id"),
+        primary_key=True,
+    ),
+)
+
+
 class Hours(db.Model):
+    __tablename__ = "hours"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
         db.Integer, db.ForeignKey("organization.id"), nullable=False
@@ -42,6 +66,7 @@ class Hours(db.Model):
 
 
 class Services(db.Model):
+    __tablename__ = "services"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
         db.Integer, db.ForeignKey("organization.id"), nullable=False
@@ -57,6 +82,7 @@ class Services(db.Model):
 
 
 class ServiceDate(db.Model):
+    __tablename__ = "service_dates"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
         db.Integer, db.ForeignKey("organization.id"), nullable=False
@@ -80,6 +106,7 @@ class ServiceDate(db.Model):
 
 
 class Location(db.Model):
+    __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
     org_id = db.Column(
         db.Integer, db.ForeignKey("organization.id"), nullable=False
