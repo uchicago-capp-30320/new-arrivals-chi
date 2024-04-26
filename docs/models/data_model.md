@@ -1,6 +1,36 @@
 **NOTE:**
 All user input that is manually entered will be sanitized before being added to tables.
 
+
+### Association Tables for Many-to-Many Relationships
+
+Since there are several 'many-to-many' relationships in the database, we will use association tables to represent these relationships. Below are the association tables that will be used in the database:
+
+**languages\_organizations**:
+`language_id` (int) – Foreign key referencing the _id_ column in the _language_ table.
+`organization_id` (int) – Foreign key referencing the _id_ column in the _organization_ table.
+
+**organizations\_hours**:
+`organization_id` (int) – Foreign key referencing the _id_ column in the _organization_ table.
+`hours_id` (int) – Foreign key referencing the _id_ column in the _hours_ table.
+
+**organizations\_services**:
+`organization_id` (int) – Foreign key referencing the _id_ column in the _organization_ table.
+`service_id` (int) – Foreign key referencing the _id_ column in the _service_ table.
+
+
+### Main Tables
+
+<br/><br/>
+
+**user**:
+
+`id` (int) – Primary key for the user table. Will uniquely identify each user.
+`email` (string) – Email associated with the user's account.
+`password` (string) – Password associated with the user's account. Hashed for security.
+`organization_id` (int) – Foreign key referencing the _id_ column in _organization_ table.
+
+
 <br/><br/>
 
 **organization**:
@@ -8,8 +38,6 @@ All user input that is manually entered will be sanitized before being added to 
 `id` (int) – Primary key for the organization table. Will uniquely identify each organization.
 
 `name` (string) – Name of organization.
-
-`user_id` (int) – Foreign key to Flask User authentication.
 
 `location_id` (int) – Foreign key referencing the _id_ column in _location_ table.
 
@@ -29,8 +57,6 @@ All user input that is manually entered will be sanitized before being added to 
 
 `id` (int) – Primary key for the language table.
 
-`org_id` (int) – Foreign key referencing the _id_ column in _organization_.
-
 `language` (string) – A single language spoken at the organization.
 
 
@@ -40,8 +66,6 @@ All user input that is manually entered will be sanitized before being added to 
 **hours**:
 
 `id` (int) – Primary key for the hours table.
-
-`org_id` (int) – Foreign key referencing the _id_ column in  _organization_ table.
 
 `day_of_week` (int) – Day of the week when the organization operates. Will use ISO week-numbering: 1 = Monday … 7 = Sunday.
 
@@ -61,12 +85,6 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 
 `id` (int) – Primary key for the service table.
 
-`org_id` (int) – Foreign key referencing the _id_ column in the _organization_ table.
-
-`location_id` (int) – Foreign key referencing the _id_ column in the _location_ table.
-
-`date_id` (int) – Foreign key referencing the _id_ column in the _service\_date_ table.
-
 `category` (string) – Overarching category type of the service. Ex: Health, Legal etc.  Will have table of enumerated options saved in a backend layer to help with translation.
 
 `service` (string) – Type of service. Will have table of enumerated options saved in a backend layer to help with translation.
@@ -82,8 +100,6 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 **service\_date**:
 
 `id` (int) -  Primary key for the service date table.
-
-`org_id` (int) – Foreign key referencing the _id_ column in the _organization_ table.
 
 `service_id` (int) – Foreign key referencing the _id_ column in the _service_ table.
 
@@ -103,8 +119,6 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 **location**:
 
 `id` (int) -  Primary key for the location table.
-
-`org_id` (int) – Foreign key referencing the _id_ column in the _organization_ table.
 
 `street_address` (string) – Physical street address of the organization.
 
