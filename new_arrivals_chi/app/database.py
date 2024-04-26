@@ -66,6 +66,12 @@ class Organization(db.Model):
     phone = db.Column(db.String(25), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(50), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False)
+    deleted_at = db.Column(db.DateTime, nullable=True)
+    created_by = db.Column(
+        db.Integer, db.ForeignKey("users.id"), nullable=False
+    )
+    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
 
     # Relationships
     users = db.relationship("User", back_populates="organizations")
@@ -84,6 +90,12 @@ class Language(db.Model):
     __tablename__ = "languages"
     id = db.Column(db.Integer, primary_key=True)
     language = db.Column(db.String(50), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False)
+    deleted_at = db.Column(db.DateTime, nullable=True)
+    created_by = db.Column(
+        db.Integer, db.ForeignKey("users.id"), nullable=False
+    )
+    deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship(
         "Organization",
         back_populates="language",
