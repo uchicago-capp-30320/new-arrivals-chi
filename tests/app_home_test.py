@@ -71,8 +71,8 @@ def test_home_page_buttons(client):
     html_content = response.data.decode("utf-8")
     soup = BeautifulSoup(html_content, "html.parser")
 
-    legal_button = soup.find("button", text="Legal")
-    health_button = soup.find("button", text="Health")
+    legal_button = soup.find("button", string="Legal")
+    health_button = soup.find("button", string="Health")
 
     assert legal_button is not None
     assert health_button is not None
