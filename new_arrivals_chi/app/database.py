@@ -29,6 +29,19 @@ languages_organizations = db.Table(
     ),
 )
 
+services_organizations = db.Table(
+    "services_organizations",
+    db.Column(
+        "service_id", db.Integer, db.ForeignKey("service.id"), primary_key=True
+    ),
+    db.Column(
+        "organization_id",
+        db.Integer,
+        db.ForeignKey("organization.id"),
+        primary_key=True,
+    ),
+)
+
 
 class Organization(db.Model):
     __tablename__ = "organizations"
@@ -46,6 +59,11 @@ class Organization(db.Model):
     languages = db.relationship(
         "Language",
         secondary=languages_organizations,
+        back_populates="organizations",
+    )
+    services = db.relationship(
+        "Service",
+        secondary=services_organizations,
         back_populates="organizations",
     )
 
@@ -89,6 +107,11 @@ class Services(db.Model):
     service = db.Column(db.String(100), nullable=False)
     access = db.Column(db.String(100), nullable=False)
     service_note = db.Column(db.String(255), nullable=True)
+    organizations = db.relationship(
+        "Organization",
+        secondary=services_organizations,
+        back_populates="services",
+    )
 
 
 class ServiceDate(db.Model):
