@@ -186,6 +186,9 @@ class ServiceDate(db.Model):
 class Location(db.Model):
     __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
+    org_id = db.Column(
+        db.Integer, db.ForeignKey("organizations.id"), nullable=False
+    )
     street_address = db.Column(db.String(255), nullable=False)
     zip_code = db.Column(db.String(10), nullable=False)
     city = db.Column(db.String(100), nullable=False)
