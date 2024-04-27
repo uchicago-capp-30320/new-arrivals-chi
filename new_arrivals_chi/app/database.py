@@ -88,6 +88,7 @@ class Organization(db.Model):
         back_populates="organizations",
     )
     hours = db.relationship("Hours", back_populates="organizations")
+    locations = db.relationship("Location", back_populates="organizations")
 
 
 class Language(db.Model):
@@ -198,3 +199,4 @@ class Location(db.Model):
         db.Integer, db.ForeignKey("users.id"), nullable=False
     )
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    organizations = db.relationship("Organization", back_populates="locations")
