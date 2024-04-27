@@ -37,7 +37,7 @@ The ingested data will be stored in our own database. The information flows from
 
 ## Module Relationships
 
-The following diagram shows how our application's modules are related with each other. We have a 'log in' module, which, along with a 'sign up' module, interact with the database to either upload or read a user's data. 
+The following diagram shows how our application's modules are related with each other. We have a 'log in' module, which, along with a 'sign up' module, interact with the database to either upload or read a user's data.
 
 As the diagram shows, all of the other services in the application (food, legal information, etc.) are managed by a Flask layer that interacts with the database. Moreover, the Flask layer will be in charge with reading the database to populate the user interface, an it will also handle any data uploads to the database.
 
