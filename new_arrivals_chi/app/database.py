@@ -145,7 +145,7 @@ class Service(db.Model):
         "Organization",
         back_populates="services",
     )
-
+    locations = db.relationship("Location", back_populates="services")
     service_dates = db.relationship(
         "ServiceDate",
         back_populates="services",
@@ -155,6 +155,9 @@ class Service(db.Model):
 class ServiceDate(db.Model):
     __tablename__ = "service_dates"
     id = db.Column(db.Integer, primary_key=True)
+    org_id = db.Column(
+        db.Integer, db.ForeignKey("organizations.id"), nullable=False
+    )
     date = db.Column(db.Date, nullable=False)
     start_time = db.Column(db.Time, nullable=False)
     end_time = db.Column(db.Time, nullable=False)
