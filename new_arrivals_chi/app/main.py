@@ -29,8 +29,8 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def home():
     """
-    Establishes route for the home page of New Arrivals Chi. This route is 
-    accessible within the 'home' button in the navigation bar and is the page 
+    Establishes route for the home page of New Arrivals Chi. This route is
+    accessible within the 'home' button in the navigation bar and is the page
     that users are directed to when first visiting the site.
 
     Returns:
