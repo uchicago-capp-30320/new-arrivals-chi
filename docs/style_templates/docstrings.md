@@ -1,51 +1,51 @@
-## Class Headers 
-**.py Files:**  
-"""  
-Project:  
-File name:  
+## Class Headers
+**.py Files:**
+"""
+Project:
+File name:
 Associated Files:
 
 Class description
 
-Methods:  
+Methods:
 	*Method Name — Short description
 
-Last updated:  
-@Author: Name + Github username  
+Last updated:
+@Author: Name + Github username
 @Date:
 
-Creation:  
-@Author: Name + Github username  
-@Date:  
+Creation:
+@Author: Name + Github username
+@Date:
 """
 
-*.html Files*:  
+*.html Files*:
 .<!--
-Project:  
-File name:  
+Project:
+File name:
 Associated Files:
 
 Class description
 
-Methods:  
+Methods:
 	*Method Name — Short description
 
-Last updated:  
-@Author: Name + Github username  
+Last updated:
+@Author: Name + Github username
 @Date:
 
-Creation:  
-@Author: Name + Github username  
+Creation:
+@Author: Name + Github username
 @Date:
 -->
 
 ## Method Headers
-"""  
+"""
 Method description
 
-Parameters:  
+Parameters:
     * Param Name (Param Type): Param description
 
-Returns:  
-    Return description  
+Returns:
+    Return description
 """
