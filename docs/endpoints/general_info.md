@@ -9,7 +9,7 @@ The documentation is divided into the following sections:
 
 ## Retrieve General Information Content
 ### Get General Information Content
-- **Endpoint**: `GET /app/information/general`
+- **Endpoint**: `GET /information/general`
 - **Description**: Retrieve static content for the general information page, providing information about Chicago and resources for new migrants.
 - **Responses**:
   - `200 OK`: General information retrieved successfully.
@@ -21,7 +21,7 @@ The documentation is divided into the following sections:
     "buttons": [
       {
         "name": "Home Page",
-        "link": "/home"
+        "link": "/"
       }
     ]
   }
@@ -31,7 +31,7 @@ The documentation is divided into the following sections:
 This section describes the buttons and links on the general information page, providing navigation options for users.
 
 ### Return to Home Page
-- **Endpoint**: ``GET /app/home`
+- **Endpoint**: ``GET /`
 - **Description**:   Button to navigate back to the home page.
 - **Responses**:
   - `200 OK`: Home page content retrieved successfully.
