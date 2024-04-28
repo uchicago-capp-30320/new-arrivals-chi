@@ -3,6 +3,7 @@ repos:
     rev: v4.4.0
     hooks:
       - id: trailing-whitespace
+        exclude: '\.md$'
       - id: name-tests-test
       - id: check-docstring-first
       - id: check-executables-have-shebangs

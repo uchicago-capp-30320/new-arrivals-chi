@@ -2,7 +2,7 @@
 
 ## Testing Framework
 
-We utilize `pytest` along with the `pytest-flask` plugin to facilitate our testing.
+We utilize `pytest` along with the `pytest-flask` plugin to facilitate our testing.  
 
 ### Configuration with `conftest.py`
 
