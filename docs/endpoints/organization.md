@@ -10,10 +10,10 @@ The documentation is divided into the following sections:
 
 ## Organization Login
 ### Authenticate Organization
-- **Endpoint**: `POST /app/auth/organization-login`
+- **Endpoint**: `POST /login`
 - **Description**: Log in to the organization page with credentials.
 - **Request Body**:
-  - `username`: Organization's username.
+  - `email`: Organization's email.
   - `password`: Organization's password.
 - **Responses**:
   - `200 OK`: Login successful.
@@ -22,14 +22,14 @@ The documentation is divided into the following sections:
 - **Example Request**:
   ```json
   {
-    "username": "org123",
+    "email": "org123@email.com",
     "password": "mypassword"
   }
   ```
 
 ## Organization Page Content
 ### Get Organization Profile
-- **Endpoint**: `GET /app/organization/profile`
+- **Endpoint**: `GET /organization/profile`
 - **Description**: Retrieve the profile information of the logged-in organization.
 - **Responses**:
   - `200 OK`: Profile information retrieved successfully.
@@ -48,7 +48,7 @@ The documentation is divided into the following sections:
   ```
 
 ### Update Organization Profile
-- **Endpoint**: `POST /app/organization/profile`
+- **Endpoint**: `POST /organization/profile`
 - **Description**: Update the organization's profile information.
 - **Request Body**:
   - Profile details to update (e.g., `address`, `phone`, `hours`, `languages`, `supplies`, `services`).
@@ -69,7 +69,7 @@ The documentation is divided into the following sections:
   ```
 
 ### Suspend Organization Account
-- **Endpoint**: `POST /app/organization/suspend`
+- **Endpoint**: `POST /organization/suspend`
 - **Description**: Suspend the organization's account by updating the active status to inactive.
 - **Responses**:
   - `200 OK`: Account suspended successfully.
@@ -83,13 +83,13 @@ The documentation is divided into the following sections:
   ```
 
 ## Organization Setup
-Organizations can set up new accounts via a direct link, creating a username, password, and other profile information.
+Organizations can set up new accounts via a direct link, creating a username (email), password, and other profile information.
 
 ### Create Organization Account
-- **Endpoint**: `POST /app/organization/setup`
+- **Endpoint**: `POST /organization/setup`
 - **Description**: Set up a new organization account through a direct link.
 - **Request Body**:
-  - `username`, `password`, and other profile details (`address`, `phone`, `hours`, `languages`, `supplies`, `services`).
+  - `email`, `password`, and other profile details (`address`, `phone`, `hours`, `languages`, `supplies`, `services`).
 - **Responses**:
   - `200 OK`: Account created successfully.
   - `400 Bad Request`: Incorrect input data.
@@ -97,7 +97,7 @@ Organizations can set up new accounts via a direct link, creating a username, pa
 - **Example Request**:
   ```json
   {
-    "username": "org124",
+    "email": "org124@email.com",
     "password": "mypassword",
     "address": "123 Main St, Chicago",
     "phone": "123-456-7890",
@@ -112,16 +112,18 @@ Organizations can set up new accounts via a direct link, creating a username, pa
 This section describes the buttons and links on the organization page, providing navigation options and other common actions.
 
 ### Return to Home Page
-- **Endpoint**: ``GET /app/home`
+- **Endpoint**: ``GET /`
 - **Description**:   Button to navigate back to the home page.
 - **Responses**:
   - `200 OK`: Home page content retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-### Logout
-- **Endpoint**: `POST /app/auth/org-logout`
-- **Description**:   Log out and end the current session.
+### Org Logout
+- **Endpoint**: `POST /auth/org-logout`
+- **Description**: Logs out the admin and ends the session.
+- **Implementation**:
+  - The `href="url_for('auth.logout')"` value in the HTML template points to this endpoint to trigger logout functionality.
 - **Responses**:
-    - `200 OK`: Logout successful.
-    - `401 Unauthorized`: Unauthorized access attempt.
-    - `500 Internal Server Error`: Indicates a server error.
+  - `200 OK`: Logout successful.
+  - `401 Unauthorized`: Unauthorized action.
+  - `500 Internal Server Error`: Server error.
