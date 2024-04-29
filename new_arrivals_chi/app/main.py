@@ -20,10 +20,11 @@ Creation:
 @Author: Summer Long @Sumslong
 @Date: 04/19/2024
 """
+from pathlib import Path
 
 from flask import Flask, Blueprint, render_template, request
 
-main = Blueprint("main", __name__)
+main = Blueprint("main", __name__, static_folder='/static')
 
 
 @main.route("/")
