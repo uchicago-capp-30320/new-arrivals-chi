@@ -8,6 +8,7 @@
 /new_arrivals_chi/app/**.py @FedericoDM @MadeleineKRoberts
 /new_arrivals_chi/app/templates/ @sumslong @xiomara0
 /new_arrivals_chi/app/static/ @sumslong @xiomara0
+/new_arrivals_chi/migrations/ @FedericoDM @MadeleineKRoberts
 /tests/ @aaronhaefner @klinkoberstar
 /*.md @klinkoberstar @FedericoDM
 /*.toml @aaronhaefner @klinkoberstar
