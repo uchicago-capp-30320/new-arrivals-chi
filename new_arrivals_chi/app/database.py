@@ -40,6 +40,21 @@ organizations_services = Table(
     ),
 )
 
+# Association Table for Services and Service Dates
+service_dates_services = db.Table(
+    "service_dates_services",
+    db.Model.metadata,
+    db.Column(
+        "service_id", db.Integer, db.ForeignKey("services.id"), primary_key=True
+    ),
+    db.Column(
+        "service_date_id",
+        db.Integer,
+        db.ForeignKey("service_dates.id"),
+        primary_key=True,
+    ),
+)
+
 
 class User(db.Model):
     __tablename__ = "users"
@@ -81,13 +96,17 @@ class Organization(db.Model):
     users = db.relationship("User", back_populates="organizations")
     languages = db.relationship(
         "Language",
+        secondary=languages_organizations,
         back_populates="organizations",
     )
     services = db.relationship(
         "Service",
+        secondary=organizations_services,
         back_populates="organizations",
     )
-    hours = db.relationship("Hours", back_populates="organizations")
+    hours = db.relationship(
+        "Hours", secondary=organizations_hours, back_populates="organizations"
+    )
     locations = db.relationship("Location", back_populates="organizations")
 
 
@@ -105,7 +124,8 @@ class Language(db.Model):
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship(
         "Organization",
-        back_populates="language",
+        secondary=languages_organizations,
+        back_populates="languages",
     )
 
 
@@ -123,7 +143,9 @@ class Hours(db.Model):
         db.Integer, db.ForeignKey("users.id"), nullable=False
     )
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-    organizations = db.relationship("Organization", back_populates="hours")
+    organizations = db.relationship(
+        "Organization", secondary=organizations_hours, back_populates="hours"
+    )
 
 
 class Service(db.Model):
@@ -143,11 +165,15 @@ class Service(db.Model):
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship(
         "Organization",
+        secondary=organizations_services,
         back_populates="services",
     )
-    locations = db.relationship("Location", back_populates="services")
+    locations = db.relationship(
+        "Location", secondary=organizations_services, back_populates="services"
+    )
     service_dates = db.relationship(
         "ServiceDate",
+        secondary=service_dates_services,
         back_populates="services",
     )
 
@@ -155,9 +181,6 @@ class Service(db.Model):
 class ServiceDate(db.Model):
     __tablename__ = "service_dates"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
     date = db.Column(db.Date, nullable=False)
     start_time = db.Column(db.Time, nullable=False)
     end_time = db.Column(db.Time, nullable=False)
@@ -179,9 +202,9 @@ class ServiceDate(db.Model):
         db.Integer, db.ForeignKey("users.id"), nullable=False
     )
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-    service_id = db.Column(db.Integer, db.ForeignKey("services.id"))
     service = db.relationship(
         "Service",
+        secondary=service_dates_services,
         back_populates="service_dates",
     )
 
