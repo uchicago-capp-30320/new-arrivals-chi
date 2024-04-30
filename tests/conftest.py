@@ -11,9 +11,9 @@ def app():
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     flask_app.config["TESTING"] = True
     flask_app.config["DEBUG"] = False
-    flask_app.config["SERVER_NAME"] = (
-        "localhost.localdomain:5000"  # Example server name
-    )
+    flask_app.config[
+        "SERVER_NAME"
+    ] = "localhost.localdomain:5000"  # Example server name
     flask_app.config["APPLICATION_ROOT"] = "/"  # Default root
     flask_app.config["PREFERRED_URL_SCHEME"] = "http"
 
