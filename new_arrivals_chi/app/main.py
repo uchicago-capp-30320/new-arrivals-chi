@@ -5,11 +5,11 @@ Associated Files:
     Templates: base.html, home.html, legal.html, profile.html, signup.html,
     login.html
 
-Runs primary flask application for Chicago's new arrivals portal.
+Runs primary flask application for Chicago's new arrivals' portal.
 
 Methods:
     * home — Route to homepage of application.
-    * profile - Route to user's profil.
+    * profile - Route to user's profile.
     * legal - Route to legal portion of application.
 
 Last updated:
