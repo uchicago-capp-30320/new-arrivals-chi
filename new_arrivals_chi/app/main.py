@@ -3,7 +3,7 @@ Project: new_arrivals_chi
 File name: main.py
 Associated Files:
     Templates: base.html, home.html, legal.html, profile.html, signup.html,
-    login.html
+    login.html, info.html
 
 Runs primary flask application for Chicago's new arrivals' portal.
 
@@ -73,6 +73,20 @@ def legal():
 
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
+
+
+@main.route("/info")
+def info():
+    """
+    Establishes route for an unauthenticated view of an organization's
+    information. This will be accessible when search is implemented.
+
+    Returns:
+        Renders information of an organization.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("info.html", language=language)
 
 
 # will change to auth.route when the database is usable
