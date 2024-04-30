@@ -28,6 +28,15 @@ main = Blueprint("main", __name__, static_folder="/static")
 
 @main.route("/")
 def home():
+    """
+    Establishes route for the home page of New Arrivals Chi. This route is
+    accessible within the 'home' button in the navigation bar and is the page
+    that users are directed to when first visiting the site.
+
+    Returns:
+        Renders home page.
+    """
+
     language = request.args.get("lang", "en")
     return render_template("home.html", language=language)
 
@@ -48,6 +57,14 @@ def profile():
 
 @main.route("/legal")
 def legal():
+    """
+    Establishes route for the legal page. This route is accessible
+    within the 'legal' button in the navigation bar.
+
+    Returns:
+        Renders main legal page.
+    """
+
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
 
