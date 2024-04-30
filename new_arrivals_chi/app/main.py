@@ -23,7 +23,7 @@ Creation:
 
 from flask import Flask, Blueprint, render_template, request
 
-main = Blueprint("main", __name__)
+main = Blueprint("main", __name__, static_folder="/static")
 
 
 @main.route("/")

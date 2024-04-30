@@ -5,9 +5,9 @@
 * @MadeleineKRoberts @aaronhaefner
 /.github/workflows/ @aaronhaefner @klinkoberstar
 /.github/ISSUE_TEMPLATE/ @klinkoberstar @FedericoDM
-/new_arrivals_chi/**.py @FedericoDM @MadeleineKRoberts
-/new_arrivals_chi/templates/ @sumslong @xiomara0
-/new_arrivals_chi/static/ @sumslong @xiomara0
+/new_arrivals_chi/app/**.py @FedericoDM @MadeleineKRoberts
+/new_arrivals_chi/app/templates/ @sumslong @xiomara0
+/new_arrivals_chi/app/static/ @sumslong @xiomara0
 /tests/ @aaronhaefner @klinkoberstar
 /*.md @klinkoberstar @FedericoDM
 /*.toml @aaronhaefner @klinkoberstar
