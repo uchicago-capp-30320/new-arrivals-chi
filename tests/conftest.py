@@ -1,4 +1,3 @@
-import os
 import pytest
 
 from new_arrivals_chi.app.main import app as flask_app
@@ -7,11 +6,6 @@ from new_arrivals_chi.app.main import app as flask_app
 @pytest.fixture(scope="module")
 def app():
     """Provides the Flask application instance configured for testing."""
-    flask_app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
-    flask_app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-    flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    flask_app.config["TESTING"] = True
-    flask_app.config["DEBUG"] = False
     flask_app.config[
         "SERVER_NAME"
     ] = "localhost.localdomain:5000"  # Example server name
