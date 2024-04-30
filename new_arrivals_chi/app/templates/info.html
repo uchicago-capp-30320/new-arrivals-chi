@@ -1,0 +1,32 @@
+<!--
+Project: new_arrivals_chi
+File name: legal.html
+Associated Files:
+    x.html [filler]
+
+Skeleton html of unauthenticated view of an organization's website.
+
+Creation:
+@Author: Summer Long @sumslong
+@Date: 04/29/2024
+
+Contributors:
+Summer Long @sumslong
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/info" method="GET">
+    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+</form>
+<div class="box">
+    <div class="box-big-title">{{ 'Nombre de la Organización' if language == 'es' else 'Organization Name' }} </div>
+    <div class="box-contact-info"> <i class="fa-solid fa-diamond-turn-right"></i> 123 Main St&nbsp;&nbsp;<i class="fa-solid fa-phone"></i> 234-567-8901</div>
+    <div class="box-contact-info">Open Hours: Monday - Friday, 9:00 AM - 5:00 PM</div>
+    <div class="box-contact-info">Languages Spoken: English, Spanish</div>
+</div>
+
+{% endblock %}
