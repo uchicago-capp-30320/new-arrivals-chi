@@ -7,7 +7,6 @@ Create Date: 2024-04-30 14:10:22.625040
 """
 
 from alembic import op
-import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
@@ -22,8 +21,8 @@ def upgrade():
     with op.batch_alter_table("locations", schema=None) as batch_op:
         batch_op.execute(
             """
-            ALTER TABLE locations 
-            ALTER COLUMN primary_location TYPE BOOLEAN 
+            ALTER TABLE locations
+            ALTER COLUMN primary_location TYPE BOOLEAN
             USING CASE WHEN primary_location = 0 THEN FALSE ELSE TRUE END
         """
         )
@@ -36,8 +35,8 @@ def downgrade():
     with op.batch_alter_table("locations", schema=None) as batch_op:
         batch_op.execute(
             """
-            ALTER TABLE locations 
-            ALTER COLUMN primary_location TYPE INTEGER 
+            ALTER TABLE locations
+            ALTER COLUMN primary_location TYPE INTEGER
             USING CASE WHEN primary_location THEN 1 ELSE 0 END
         """
         )
