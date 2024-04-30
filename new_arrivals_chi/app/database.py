@@ -219,7 +219,7 @@ class Location(db.Model):
     zip_code = db.Column(db.String(10), nullable=False)
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(50), nullable=False)
-    primary_location = db.Column(db.Integer, nullable=False)
+    primary_location = db.Column(db.Boolean, nullable=False)
     created_at = db.Column(
         db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
     )
