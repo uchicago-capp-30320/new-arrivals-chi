@@ -29,7 +29,7 @@ from flask_migrate import Migrate
 
 load_dotenv()
 
-main = Blueprint("main", __name__)
+main = Blueprint("main", __name__, static_folder="/static")
 
 
 @main.route("/")
