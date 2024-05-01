@@ -66,7 +66,10 @@ class User(db.Model):
         default="standard",
     )
     password = db.Column(db.String(100), nullable=False)
-    organization_id = db.Column(db.Integer, db.ForeignKey("organizations.id"))
+    organization_id = db.Column(
+        db.Integer,
+        db.ForeignKey("organizations.id", name="users_organization_id_fkey"),
+    )
     organization = db.relationship("Organization", back_populates="users")
 
 
@@ -75,9 +78,15 @@ class Organization(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     location_id = db.Column(
-        db.Integer, db.ForeignKey("locations.id"), nullable=False
+        db.Integer,
+        db.ForeignKey("locations.id", name="organizations_location_id_fkey"),
+        nullable=False,
     )
-    hours_id = db.Column(db.Integer, db.ForeignKey("hours.id"), nullable=False)
+    hours_id = db.Column(
+        db.Integer,
+        db.ForeignKey("hours.id", name="organizations_hours_id_fkey"),
+        nullable=False,
+    )
     phone = db.Column(db.String(25), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(50), nullable=False)
@@ -93,7 +102,7 @@ class Organization(db.Model):
     updated_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
 
     # Relationships
-    users = db.relationship("User", back_populates="organizations")
+    users = db.relationship("User", back_populates="organization")
     languages = db.relationship(
         "Language",
         secondary=languages_organizations,
@@ -107,7 +116,7 @@ class Organization(db.Model):
     hours = db.relationship(
         "Hours", secondary=organizations_hours, back_populates="organizations"
     )
-    locations = db.relationship("Location", back_populates="organizations")
+    locations = db.relationship("Location", back_populates="organization")
 
 
 class Language(db.Model):
@@ -212,9 +221,6 @@ class ServiceDate(db.Model):
 class Location(db.Model):
     __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
     street_address = db.Column(db.String(255), nullable=False)
     zip_code = db.Column(db.String(10), nullable=False)
     city = db.Column(db.String(100), nullable=False)
