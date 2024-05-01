@@ -26,6 +26,7 @@ import os
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from utils import validate_email_syntax, validate_password
 
 load_dotenv()
 
