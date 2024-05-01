@@ -1,5 +1,6 @@
 from sqlalchemy import Enum, Table, ForeignKey, Column, Integer
 from main import db
+from flask_login import UserMixin
 
 # Association Tables for Many-to-Many relationships
 languages_organizations = Table(
@@ -56,7 +57,7 @@ service_dates_services = db.Table(
 )
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
