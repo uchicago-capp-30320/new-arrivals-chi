@@ -3,13 +3,13 @@ Project: new_arrivals_chi
 File name: main.py
 Associated Files:
     Templates: base.html, home.html, legal.html, profile.html, signup.html,
-    login.html
+    login.html, info.html
 
-Runs primary flask application for Chicago's new arrivals portal.
+Runs primary flask application for Chicago's new arrivals' portal.
 
 Methods:
     * home — Route to homepage of application.
-    * profile - Route to user's profil.
+    * profile - Route to user's profile.
     * legal - Route to legal portion of application.
 
 Last updated:
@@ -22,12 +22,27 @@ Creation:
 """
 
 from flask import Flask, Blueprint, render_template, request
+import os
+from dotenv import load_dotenv
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
-main = Blueprint("main", __name__)
+load_dotenv()
+
+main = Blueprint("main", __name__, static_folder="/static")
 
 
 @main.route("/")
 def home():
+    """
+    Establishes route for the home page of New Arrivals Chi. This route is
+    accessible within the 'home' button in the navigation bar and is the page
+    that users are directed to when first visiting the site.
+
+    Returns:
+        Renders home page.
+    """
+
     language = request.args.get("lang", "en")
     return render_template("home.html", language=language)
 
@@ -48,8 +63,30 @@ def profile():
 
 @main.route("/legal")
 def legal():
+    """
+    Establishes route for the legal page. This route is accessible
+    within the 'legal' button in the navigation bar.
+
+    Returns:
+        Renders main legal page.
+    """
+
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
+
+
+@main.route("/info")
+def info():
+    """
+    Establishes route for an unauthenticated view of an organization's
+    information. This will be accessible when search is implemented.
+
+    Returns:
+        Renders information of an organization.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("info.html", language=language)
 
 
 # will change to auth.route when the database is usable
@@ -83,8 +120,16 @@ def signup():
 
 
 app = Flask(__name__)
-
 app.register_blueprint(main)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
+    "DATABASE_URL", default="sqlite:///:memory:"
+)
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 if __name__ == "__main__":
     app.run(debug=True)

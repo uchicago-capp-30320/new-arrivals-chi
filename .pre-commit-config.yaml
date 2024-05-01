@@ -3,6 +3,7 @@ repos:
     rev: v4.4.0
     hooks:
       - id: trailing-whitespace
+        exclude: '\.md$'
       - id: name-tests-test
       - id: check-docstring-first
       - id: check-executables-have-shebangs
@@ -41,6 +42,14 @@ repos:
         args:
         - --ignore=E203,E402,E501,E800,W503,W391,E261
         - --select=B,C,E,F,W,T4,B9
+
+  - repo: https://github.com/pre-commit/mirrors-csslint
+    rev: v1.0.5
+    hooks:
+      - id: csslint
+        args:
+        - --format=compact
+        - --ignore=adjoining-classes
 
   - repo: https://github.com/psf/black
     rev: 23.7.0
