@@ -55,6 +55,23 @@ service_dates_services = db.Table(
     ),
 )
 
+location_services = db.Table(
+    "location_services",
+    db.Model.metadata,
+    db.Column(
+        "location_id",
+        db.Integer,
+        db.ForeignKey("locations.id"),
+        primary_key=True,
+    ),
+    db.Column(
+        "service_id",
+        db.Integer,
+        db.ForeignKey("services.id"),
+        primary_key=True,
+    ),
+)
+
 
 class User(db.Model):
     __tablename__ = "users"
@@ -70,13 +87,15 @@ class User(db.Model):
         db.Integer,
         db.ForeignKey("organizations.id", name="users_organization_id_fkey"),
     )
-    organization = db.relationship("Organization", back_populates="users")
+    organization = db.relationship(
+        "Organization", back_populates="users", foreign_keys=[organization_id]
+    )
 
 
 class Organization(db.Model):
     __tablename__ = "organizations"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
+    name = db.Column(db.String(260), nullable=False)
     location_id = db.Column(
         db.Integer,
         db.ForeignKey("locations.id", name="organizations_location_id_fkey"),
@@ -102,7 +121,11 @@ class Organization(db.Model):
     updated_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
 
     # Relationships
-    users = db.relationship("User", back_populates="organization")
+    users = db.relationship(
+        "User",
+        back_populates="organization",
+        foreign_keys="User.organization_id",
+    )
     languages = db.relationship(
         "Language",
         secondary=languages_organizations,
@@ -178,7 +201,7 @@ class Service(db.Model):
         back_populates="services",
     )
     locations = db.relationship(
-        "Location", secondary=organizations_services, back_populates="services"
+        "Location", secondary=location_services, back_populates="services"
     )
     service_dates = db.relationship(
         "ServiceDate",
@@ -211,7 +234,7 @@ class ServiceDate(db.Model):
         db.Integer, db.ForeignKey("users.id"), nullable=False
     )
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-    service = db.relationship(
+    services = db.relationship(
         "Service",
         secondary=service_dates_services,
         back_populates="service_dates",
@@ -234,4 +257,7 @@ class Location(db.Model):
         db.Integer, db.ForeignKey("users.id"), nullable=False
     )
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-    organizations = db.relationship("Organization", back_populates="locations")
+    organization = db.relationship("Organization", back_populates="locations")
+    services = db.relationship(
+        "Service", secondary=location_services, back_populates="locations"
+    )
