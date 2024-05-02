@@ -34,7 +34,7 @@ Madeleine Roberts @MadeleineKRoberts
         <button onclick="navigateTo('/', '{{ language }}')" class="navbar-item">{{ 'Home' if language == 'en' else 'Página de inicio' }}</button>
         <button onclick="navigateTo('/login', '{{ language }}')" class="navbar-item">{{ 'Login' if language == 'en' else 'Iniciar sesión' }}</button>
         <button onclick="navigateTo('/signup', '{{ language }}')" class="navbar-item">{{ 'Sign Up' if language == 'en' else 'Registrar' }}</button>
-        <button href="url_for('auth.logout')" class="navbar-item">{{ 'Logout' if language == 'en' else 'Cerrar sesión' }}</button>
+        <button onclick="navigateTo('/logout', '{{ language }}')" class="navbar-item">{{ 'Logout' if language == 'en' else 'Cerrar sesión' }}</button>
     </nav>
 </body>
 
