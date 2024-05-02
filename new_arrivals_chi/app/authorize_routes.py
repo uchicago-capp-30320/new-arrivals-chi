@@ -1,19 +1,21 @@
 """
 Project: new_arrivals_chi
-File name: authorize.py
+File name: authorize_routes.py
 Associated Files:
     Templates: profile.html, signup.html, login.html
 
 Defines routes for user creation and authentication for new arrivals portal.
 
 Methods:
-    * login - Route to the login page.
     * signup - Route to the user sign up page.
-    * signup_post - Handles the POST request for user sign up.
+    * signup_post - Executes user sign up logic.
+    * login - Route to the login page.
+    * login_post - Executes user login logic.
+    * signout - Routes and executes user sign out logic.
 
 Last updated:
 @Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/01/2024
+@Date: 05/02/2024
 
 Creation:
 @Author: Madeleine Roberts @MadeleineKRoberts
@@ -21,25 +23,12 @@ Creation:
 """
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from new_arrivals_chi.app.database import db, User
 from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
+from flask_login import login_user, login_required, logout_user
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
-
-
-@authorize.route("/login")
-def login():
-    """
-    Establishes route for the login page. This route is accessible
-    within the 'login' button in the navigation bar.
-
-    Returns:
-        Renders login page for user with their selected language.
-    """
-
-    language = request.args.get("lang", "en")
-    return render_template("login.html", language=language)
 
 
 @authorize.route("/signup")
@@ -103,4 +92,61 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
 
+    return redirect(url_for("main.home"))
+
+
+@authorize.route("/login")
+def login():
+    """
+    Establishes route for the login page. This route is accessible
+    within the 'login' button in the navigation bar.
+
+    Returns:
+        Renders login page for user with their selected language.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("login.html", language=language)
+
+
+@authorize.route("/login", methods=["POST"])
+def login_post():
+    """
+    Processes the login request.
+
+    Returns:
+        Redirects to the user's profile page if login is successful,
+        otherwise redirects back to the login page with a flash message.
+    """
+
+    email = request.form.get("email")
+    password = request.form.get("password")
+    remember = True if request.form.get("remember") else False
+
+    user = User.query.filter_by(email=email).first()
+
+    # check if the user actually exists & password is correct
+    if not user or not check_password_hash(user.password, password):
+        flash("Please check your login details and try again.")
+        return redirect(
+            url_for("authorize.login")
+        )  # if the user doesn't exist or password is wrong, reload the page
+
+    # if the above check passes, then we know the user has the right credentials
+    login_user(user, remember=remember)
+    return redirect(url_for("main.profile"))
+
+
+@authorize.route("/logout")
+@login_required
+def logout():
+    """
+    Logs out the current user.
+
+    Returns:
+        Redirects to the home page after logout.
+        If a user is not currently logged in, redirects to the log in page.
+    """
+
+    logout_user()
     return redirect(url_for("main.home"))
