@@ -8,7 +8,6 @@ from sqlalchemy import select
 
 
 fake = Faker()
-test_logger = setup_logger("test")
 
 
 def create_fake_location(user_id):
@@ -99,13 +98,17 @@ def fetch_data():
 def test_user_organization_creation(app):
     """Test creating users and organizations and retrieving them."""
     app = create_app()
+    logger = setup_logger("test_user_organization_creation")
+
     with app.app_context():
+        logger.info("Starting database setup for test")
         db.drop_all()
         db.create_all()
         create_fake_data(5)
+        logger.info("Database setup complete and fake data created")
 
         with Session(bind=db.engine) as session:
-            # Retrieve user by primary key
+            logger.info("Attempting to retrieve user with ID 1")
             user = session.get(User, 1)
             assert user is not None, "No user found with ID 1"
             assert "@" in user.email, "User email format is incorrect"
@@ -113,8 +116,12 @@ def test_user_organization_creation(app):
                 "admin",
                 "standard",
             ], "User role is not set correctly"
+            logger.info("User retrieved and validated successfully")
 
             # Retrieve organization by name using select
+            logger.info(
+                f"Retrieving organization named {user.organization.name}"
+            )
             org_select = select(Organization).where(
                 Organization.name == user.organization.name
             )
@@ -127,8 +134,12 @@ def test_user_organization_creation(app):
                 "SUSPENDED",
                 "HIDDEN",
             ], "Organization status is incorrect"
+            logger.info("Organization retrieved and validated successfully")
 
             # Retrieve all users using select
+            logger.info(
+                "Retrieving all users to validate total count and links"
+            )
             users_select = select(User)
             users = session.execute(users_select).scalars().all()
             assert (
@@ -141,3 +152,4 @@ def test_user_organization_creation(app):
                 assert (
                     user.organization.phone
                 ), "Organization phone number is missing"
+            logger.info("All users retrieved and validated successfully")
