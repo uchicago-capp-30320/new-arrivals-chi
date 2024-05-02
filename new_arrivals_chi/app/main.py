@@ -25,8 +25,9 @@ from flask import Flask, Blueprint, render_template, request
 import os
 from dotenv import load_dotenv
 from authorize import authorize
-from database import db
+from database import db, User
 from flask_migrate import Migrate
+from flask_login import LoginManager, login_required
 
 migrate = Migrate()
 
@@ -51,6 +52,7 @@ def home():
 
 
 @main.route("/profile")
+@login_required
 def profile():
     """
     Establishes route for the user's profile page. This route is accessible
@@ -105,6 +107,15 @@ def create_app():
 
     app.register_blueprint(main)
     app.register_blueprint(authorize)
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'authorize.login'
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        # since the user_id is just the primary key of our user table, use it in the query for the user
+        return User.query.get(int(user_id))
 
     return app
 
