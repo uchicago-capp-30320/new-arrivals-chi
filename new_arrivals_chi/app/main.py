@@ -29,9 +29,7 @@ from authorize import authorize
 from database import db
 from flask_migrate import Migrate
 
-db = SQLAlchemy()
 migrate = Migrate()
-
 
 load_dotenv()
 
