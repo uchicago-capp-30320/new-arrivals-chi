@@ -2,7 +2,7 @@ from sqlalchemy import Enum, Table, ForeignKey, Column, Integer
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 
-db = SQLAlchemy() 
+db = SQLAlchemy()
 
 # Association Tables for Many-to-Many relationships
 languages_organizations = Table(
@@ -85,7 +85,7 @@ class User(UserMixin, db.Model):
         nullable=False,
         default="standard",
     )
-    password = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(255), nullable=False)
     organization_id = db.Column(
         db.Integer,
         db.ForeignKey("organizations.id", name="users_organization_id_fkey"),

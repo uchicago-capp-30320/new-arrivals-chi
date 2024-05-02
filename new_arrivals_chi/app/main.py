@@ -24,7 +24,6 @@ Creation:
 from flask import Flask, Blueprint, render_template, request
 import os
 from dotenv import load_dotenv
-from flask_sqlalchemy import SQLAlchemy
 from authorize import authorize
 from database import db
 from flask_migrate import Migrate
@@ -34,6 +33,7 @@ migrate = Migrate()
 load_dotenv()
 
 main = Blueprint("main", __name__, static_folder="/static")
+
 
 @main.route("/")
 def home():
@@ -107,6 +107,7 @@ def create_app():
     app.register_blueprint(authorize)
 
     return app
+
 
 if __name__ == "__main__":
     app = create_app()
