@@ -99,7 +99,6 @@ def signup_post():
         email=email,
         password=generate_password_hash(password, method="pbkdf2:sha256"),
     )
-
     # add the new user to the database
     db.session.add(new_user)
     db.session.commit()

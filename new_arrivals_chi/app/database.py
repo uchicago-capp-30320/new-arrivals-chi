@@ -85,7 +85,7 @@ class User(UserMixin, db.Model):
         nullable=False,
         default="standard",
     )
-    password = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(255), nullable=False)
     organization_id = db.Column(
         db.Integer,
         db.ForeignKey("organizations.id", name="users_organization_id_fkey"),
