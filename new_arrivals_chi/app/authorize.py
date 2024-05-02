@@ -157,7 +157,7 @@ def logout():
 def change_password():
     """
     Establishes route for the change password page. This route is accessible
-    within the 'change password' button in the profile page (will likely change 
+    within the 'change password' button in the profile page (will likely change
     location in the future).
 
     Returns:
@@ -167,7 +167,8 @@ def change_password():
     language = request.args.get("lang", "en")
     return render_template("change_password.html", language=language)
 
-@authorize.route('/change_password', methods=['POST'])
+
+@authorize.route("/change_password", methods=["POST"])
 @login_required
 def post_change_password():
     """
@@ -175,26 +176,30 @@ def post_change_password():
 
     Returns:
         Redirects to the user's profile page if password change is successful,
-        otherwise redirects back to the change password page with a flash 
+        otherwise redirects back to the change password page with a flash
         message.
     """
-       
-    old_password = request.form.get('old_password')
-    new_password = request.form.get('new_password')
-    new_password_confirm = request.form.get('new_password_confirm')
+
+    old_password = request.form.get("old_password")
+    new_password = request.form.get("new_password")
+    new_password_confirm = request.form.get("new_password_confirm")
 
     if not check_password_hash(current_user.password, old_password):
-        flash('Wrong existing password. Try again')
-    elif old_password == new_password: # Do not need to check password hash because we know that the old password is correct
-        flash('New password cannot be the same as your previous password. Try again')
-    elif not new_password == new_password_confirm: 
-        flash('New passwords do not match. Try again')
+        flash("Wrong existing password. Try again")
+    elif (
+        old_password == new_password
+    ):  # Do not need to check password hash because old password is correct
+        flash("New password cannot be the same as your previous password.")
+    elif not new_password == new_password_confirm:
+        flash("New passwords do not match. Try again")
     elif not validate_password(new_password):
-        flash('New password does not meet requirements. Try again')
-    else: 
-        current_user.password = generate_password_hash(new_password, method='pbkdf2:sha256')
+        flash("New password does not meet requirements. Try again")
+    else:
+        current_user.password = generate_password_hash(
+            new_password, method="pbkdf2:sha256"
+        )
         db.session.commit()
-        flash('Password change successful.')
-        return redirect(url_for('main.profile'))
+        flash("Password change successful.")
+        return redirect(url_for("main.profile"))
 
-    return redirect(url_for('authorize.change_password'))
+    return redirect(url_for("authorize.change_password"))
