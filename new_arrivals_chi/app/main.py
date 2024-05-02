@@ -36,7 +36,8 @@ load_dotenv()
 
 main = Blueprint("main", __name__, static_folder="/static")
 
-logger = setup_logger('main')
+logger = setup_logger("main")
+
 
 @main.route("/")
 def home():
@@ -48,12 +49,12 @@ def home():
     Returns:
         Renders home page.
     """
-    logger.info('Home page accessed')
+    logger.info("Home page accessed")
     try:
         language = request.args.get("lang", "en")
         return render_template("home.html", language=language)
     except Exception as e:
-        logger.error('Error accessing home', exc_info=True)
+        logger.error("Error accessing home", exc_info=True)
         raise e
 
 
@@ -67,7 +68,7 @@ def profile():
     Returns:
         Renders profile page for user with in their selected language.
     """
-    logger.info('Profile page accessed')
+    logger.info("Profile page accessed")
     language = request.args.get("lang", "en")
     return render_template("profile.html", language=language)
 
@@ -108,12 +109,12 @@ def create_app():
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    logger.info('App created')
+    logger.info("App created")
 
     db.init_app(app)
     migrate.init_app(app, db)
 
-    logger.info('Database initialized')
+    logger.info("Database initialized")
 
     app.register_blueprint(main)
     app.register_blueprint(authorize)

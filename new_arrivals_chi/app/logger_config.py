@@ -2,7 +2,10 @@ import logging
 import os
 from datetime import datetime
 
-def setup_logger(name: str, log_directory: str="logs", level = logging.INFO) -> logging.Logger:
+
+def setup_logger(
+    name: str, log_directory: str = "logs", level=logging.INFO
+) -> logging.Logger:
     """
     Set up and configure a logger.
 
@@ -11,15 +14,15 @@ def setup_logger(name: str, log_directory: str="logs", level = logging.INFO) -> 
 
     Parameters:
         name (str): "main", "database", etc.
-        log_directory (str): Directory where the log files will be stored. Default is 'logs'.
-        level (int): The logging level, which determines the severity of the events that are logged.
-                     This can be DEBUG, INFO, WARNING, ERROR, or CRITICAL. Default is INFO.
+        log_directory (str): Directory for log files. Default is 'logs'.
+        level (int): The logging level. Default is logging.INFO.
+        Types: DEBUG, INFO, WARNING, ERROR, CRITICAL
 
     Logging Levels:
-        DEBUG: Detailed information, typically useful only when diagnosing problems.
+        DEBUG: Detailed, typically useful only when diagnosing problems.
         INFO: Confirmation that things are working as expected.
-        WARNING: An indication that something unexpected happened, or indicative of near-term problems.
-        ERROR: A significant problem occurred, preventing some function from completing.
+        WARNING: An indication that something unexpected happened
+        ERROR: A problem occurred, preventing some function from completing.
         CRITICAL: A serious error
 
     Returns:
@@ -42,7 +45,9 @@ def setup_logger(name: str, log_directory: str="logs", level = logging.INFO) -> 
     log_filename = f"{name}_{timestamp}.log"
     log_path = os.path.join(log_directory, log_filename)
 
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
 
     # Create file handler for logging to a file
     file_handler = logging.FileHandler(log_path)
