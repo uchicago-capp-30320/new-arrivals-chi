@@ -2,9 +2,37 @@ import logging
 import os
 from datetime import datetime
 
-def setup_logger(name, log_directory="logs", level=logging.INFO):
-    """Function to set up logger by name and level"""
+def setup_logger(name: str, log_directory: str="logs", level = logging.INFO) -> logging.Logger:
+    """
+    Set up and configure a logger.
 
+    This function creates a logger with both file and console handlers.
+    It also supports different logging levels.
+
+    Parameters:
+        name (str): "main", "database", etc.
+        log_directory (str): Directory where the log files will be stored. Default is 'logs'.
+        level (int): The logging level, which determines the severity of the events that are logged.
+                     This can be DEBUG, INFO, WARNING, ERROR, or CRITICAL. Default is INFO.
+
+    Logging Levels:
+        DEBUG: Detailed information, typically useful only when diagnosing problems.
+        INFO: Confirmation that things are working as expected.
+        WARNING: An indication that something unexpected happened, or indicative of near-term problems.
+        ERROR: A significant problem occurred, preventing some function from completing.
+        CRITICAL: A serious error
+
+    Returns:
+        logging.Logger: A configured logger with specified name and level.
+
+    Example:
+        logger = setup_logger('main', level=logging.DEBUG)
+        logger.debug('debug')
+        logger.info('info')
+        logger.warning('warning')
+        logger.error('error')
+        logger.critical('critical')
+    """
     # Ensure that a logs directory exists
     if not os.path.exists(log_directory):
         os.makedirs(log_directory)
