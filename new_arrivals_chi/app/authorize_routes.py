@@ -22,8 +22,8 @@ Creation:
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash
-from database import db, User
-from utils import validate_email_syntax, validate_password
+from new_arrivals_chi.app.database import db, User
+from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 

@@ -24,8 +24,8 @@ Creation:
 from flask import Flask, Blueprint, render_template, request
 import os
 from dotenv import load_dotenv
-from authorize import authorize
-from database import db
+from new_arrivals_chi.app.authorize_routes import authorize
+from new_arrivals_chi.app.database import db
 from flask_migrate import Migrate
 
 migrate = Migrate()
