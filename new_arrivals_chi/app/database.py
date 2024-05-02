@@ -2,7 +2,7 @@ from sqlalchemy import Enum, Table, ForeignKey, Column, Integer
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 
-db = SQLAlchemy()
+db = SQLAlchemy() 
 
 # Association Tables for Many-to-Many relationships
 languages_organizations = Table(
@@ -58,6 +58,23 @@ service_dates_services = db.Table(
     ),
 )
 
+location_services = db.Table(
+    "location_services",
+    db.Model.metadata,
+    db.Column(
+        "location_id",
+        db.Integer,
+        db.ForeignKey("locations.id"),
+        primary_key=True,
+    ),
+    db.Column(
+        "service_id",
+        db.Integer,
+        db.ForeignKey("services.id"),
+        primary_key=True,
+    ),
+)
+
 
 class User(UserMixin, db.Model):
     __tablename__ = "users"
@@ -69,18 +86,30 @@ class User(UserMixin, db.Model):
         default="standard",
     )
     password = db.Column(db.String(100), nullable=False)
-    organization_id = db.Column(db.Integer, db.ForeignKey("organizations.id"))
-    organization = db.relationship("Organization", back_populates="users")
+    organization_id = db.Column(
+        db.Integer,
+        db.ForeignKey("organizations.id", name="users_organization_id_fkey"),
+        nullable=True,
+    )
+    organization = db.relationship(
+        "Organization", back_populates="users", foreign_keys=[organization_id]
+    )
 
 
 class Organization(db.Model):
     __tablename__ = "organizations"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
+    name = db.Column(db.String(260), nullable=False)
     location_id = db.Column(
-        db.Integer, db.ForeignKey("locations.id"), nullable=False
+        db.Integer,
+        db.ForeignKey("locations.id", name="organizations_location_id_fkey"),
+        nullable=True,
     )
-    hours_id = db.Column(db.Integer, db.ForeignKey("hours.id"), nullable=False)
+    hours_id = db.Column(
+        db.Integer,
+        db.ForeignKey("hours.id", name="organizations_hours_id_fkey"),
+        nullable=True,
+    )
     phone = db.Column(db.String(25), nullable=False)
     image_path = db.Column(db.String(255), nullable=True)
     status = db.Column(db.String(50), nullable=False)
@@ -90,13 +119,15 @@ class Organization(db.Model):
     deleted_at = db.Column(
         db.DateTime(timezone=True), nullable=True, server_default=None
     )
-    created_by = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False
-    )
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     updated_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
 
     # Relationships
-    users = db.relationship("User", back_populates="organizations")
+    users = db.relationship(
+        "User",
+        back_populates="organization",
+        foreign_keys="User.organization_id",
+    )
     languages = db.relationship(
         "Language",
         secondary=languages_organizations,
@@ -110,7 +141,7 @@ class Organization(db.Model):
     hours = db.relationship(
         "Hours", secondary=organizations_hours, back_populates="organizations"
     )
-    locations = db.relationship("Location", back_populates="organizations")
+    locations = db.relationship("Location", back_populates="organization")
 
 
 class Language(db.Model):
@@ -121,9 +152,7 @@ class Language(db.Model):
         db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
     )
     deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
-    created_by = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False
-    )
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship(
         "Organization",
@@ -142,9 +171,7 @@ class Hours(db.Model):
         db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
     )
     deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
-    created_by = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False
-    )
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship(
         "Organization", secondary=organizations_hours, back_populates="hours"
@@ -162,9 +189,7 @@ class Service(db.Model):
         db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
     )
     deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
-    created_by = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False
-    )
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     organizations = db.relationship(
         "Organization",
@@ -172,7 +197,7 @@ class Service(db.Model):
         back_populates="services",
     )
     locations = db.relationship(
-        "Location", secondary=organizations_services, back_populates="services"
+        "Location", secondary=location_services, back_populates="services"
     )
     service_dates = db.relationship(
         "ServiceDate",
@@ -201,11 +226,9 @@ class ServiceDate(db.Model):
         db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
     )
     deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
-    created_by = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False
-    )
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-    service = db.relationship(
+    services = db.relationship(
         "Service",
         secondary=service_dates_services,
         back_populates="service_dates",
@@ -215,9 +238,6 @@ class ServiceDate(db.Model):
 class Location(db.Model):
     __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
-    org_id = db.Column(
-        db.Integer, db.ForeignKey("organizations.id"), nullable=False
-    )
     street_address = db.Column(db.String(255), nullable=False)
     zip_code = db.Column(db.String(10), nullable=False)
     city = db.Column(db.String(100), nullable=False)
@@ -227,8 +247,9 @@ class Location(db.Model):
         db.DateTime(timezone=True), nullable=False, server_default=db.func.now()
     )
     deleted_at = db.Column(db.DateTime(timezone=True), nullable=True)
-    created_by = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False
-    )
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     deleted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-    organizations = db.relationship("Organization", back_populates="locations")
+    organization = db.relationship("Organization", back_populates="locations")
+    services = db.relationship(
+        "Service", secondary=location_services, back_populates="locations"
+    )

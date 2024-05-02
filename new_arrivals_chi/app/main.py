@@ -29,6 +29,10 @@ from authorize import authorize
 from database import db
 from flask_migrate import Migrate
 
+db = SQLAlchemy()
+migrate = Migrate()
+
+
 load_dotenv()
 
 main = Blueprint("main", __name__, static_folder="/static")
@@ -90,19 +94,22 @@ def info():
     return render_template("info.html", language=language)
 
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
+        "DATABASE_URL", default="sqlite:///:memory:"
+    )
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
-    "DATABASE_URL", default="sqlite:///:memory:"
-)
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.init_app(app)
+    migrate.init_app(app, db)
 
-db.init_app(app)
-migrate = Migrate(app, db)
+    app.register_blueprint(main)
+    app.register_blueprint(authorize)
 
-app.register_blueprint(main)
-app.register_blueprint(authorize)
+    return app
 
 if __name__ == "__main__":
+    app = create_app()
     app.run(debug=True)
