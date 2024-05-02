@@ -1,3 +1,5 @@
+import re
+
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
 def validate_email_syntax(email):
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"

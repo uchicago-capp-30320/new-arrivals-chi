@@ -25,13 +25,13 @@ from flask import Flask, Blueprint, render_template, request
 import os
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
+from authorize import authorize
+from database import db
 from flask_migrate import Migrate
-from utils import validate_email_syntax, validate_password
 
 load_dotenv()
 
 main = Blueprint("main", __name__, static_folder="/static")
-
 
 @main.route("/")
 def home():
@@ -90,38 +90,7 @@ def info():
     return render_template("info.html", language=language)
 
 
-# will change to auth.route when the database is usable
-@main.route("/login")
-def login():
-    """
-    Establishes route for the login page. This route is accessible
-    within the 'login' button in the navigation bar.
-
-    Returns:
-        Renders login page for user with their selected language.
-    """
-
-    language = request.args.get("lang", "en")
-    return render_template("login.html", language=language)
-
-
-# @auth.route('/signup')
-@main.route("/signup")
-def signup():
-    """
-    Establishes route for the user sign up page. This route is accessible
-    within the 'sign up' button in the navigation bar.
-
-    Returns:
-        Renders sign up page in their selected language.
-    """
-
-    language = request.args.get("lang", "en")
-    return render_template("signup.html", language=language)
-
-
 app = Flask(__name__)
-app.register_blueprint(main)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
     "DATABASE_URL", default="sqlite:///:memory:"
@@ -129,8 +98,11 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db = SQLAlchemy(app)
+db.init_app(app)
 migrate = Migrate(app, db)
+
+app.register_blueprint(main)
+app.register_blueprint(authorize)
 
 if __name__ == "__main__":
     app.run(debug=True)

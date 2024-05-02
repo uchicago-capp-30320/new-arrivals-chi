@@ -1,6 +1,8 @@
 from sqlalchemy import Enum, Table, ForeignKey, Column, Integer
-from main import db
+from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+
+db = SQLAlchemy()
 
 # Association Tables for Many-to-Many relationships
 languages_organizations = Table(
