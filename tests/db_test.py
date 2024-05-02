@@ -49,7 +49,8 @@ def create_fake_user(organization):
 
 
 def create_fake_data(num_users=1):
-    """Generate fake data for testing by creating multiple users and organizations along with their locations."""
+    """Generate fake data for testing by creating multiple users
+    and organizations along with their locations."""
     try:
         db.create_all()
 
