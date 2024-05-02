@@ -1,6 +1,6 @@
 """
 Project: new_arrivals_chi
-File name: authorize.py
+File name: authorize_routes.py
 Associated Files:
     Templates: profile.html, signup.html, login.html
 
@@ -12,6 +12,8 @@ Methods:
     * login - Route to the login page.
     * login_post - Executes user login logic.
     * signout - Routes and executes user sign out logic.
+    * change_password - Route to the change password page.
+    * post_change_password - Executes change password logic.
 
 Last updated:
 @Author: Madeleine Roberts @MadeleineKRoberts
@@ -24,8 +26,8 @@ Creation:
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from database import db, User
-from utils import validate_email_syntax, validate_password
+from new_arrivals_chi.app.database import db, User
+from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
 from flask_login import login_user, login_required, logout_user, current_user
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
