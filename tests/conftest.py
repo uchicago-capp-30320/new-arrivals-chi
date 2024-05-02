@@ -1,19 +1,22 @@
 import pytest
 
-from new_arrivals_chi.app.main import app as flask_app
+from new_arrivals_chi.app.main import create_app
 
 
 @pytest.fixture(scope="module")
 def app():
     """Provides the Flask application instance configured for testing."""
-    flask_app.config[
+    app = create_app()
+    app.config[
         "SERVER_NAME"
     ] = "localhost.localdomain:5000"  # Example server name
-    flask_app.config["APPLICATION_ROOT"] = "/"  # Default root
-    flask_app.config["PREFERRED_URL_SCHEME"] = "http"
+    app.config["APPLICATION_ROOT"] = "/"  # Default root
+    app.config["PREFERRED_URL_SCHEME"] = "http"
+    app.config["TESTING"] = True
+    app.config["DEBUG"] = False
 
-    with flask_app.app_context():  # Pushes an application context
-        yield flask_app
+    with app.app_context():  # Pushes an application context
+        yield app
 
 
 @pytest.fixture(scope="module")

@@ -1,6 +1,6 @@
 import logging
 from logging.config import fileConfig
-import database as models
+import new_arrivals_chi.app.database as models
 
 from flask import current_app
 
