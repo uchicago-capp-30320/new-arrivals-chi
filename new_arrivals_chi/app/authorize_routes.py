@@ -12,6 +12,8 @@ Methods:
     * login - Route to the login page.
     * login_post - Executes user login logic.
     * signout - Routes and executes user sign out logic.
+    * change_password - Route to the change password page.
+    * post_change_password - Executes change password logic.
 
 Last updated:
 @Author: Madeleine Roberts @MadeleineKRoberts
@@ -26,7 +28,7 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from new_arrivals_chi.app.database import db, User
 from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
@@ -150,3 +152,56 @@ def logout():
 
     logout_user()
     return redirect(url_for("main.home"))
+
+
+@authorize.route("/change_password")
+@login_required
+def change_password():
+    """
+    Establishes route for the change password page. This route is accessible
+    within the 'change password' button in the profile page (will likely change
+    location in the future).
+
+    Returns:
+        Renders change password page for user with their selected language.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("change_password.html", language=language)
+
+
+@authorize.route("/change_password", methods=["POST"])
+@login_required
+def post_change_password():
+    """
+    Allows an authorized user to update their current password.
+
+    Returns:
+        Redirects to the user's profile page if password change is successful,
+        otherwise redirects back to the change password page with a flash
+        message.
+    """
+
+    old_password = request.form.get("old_password")
+    new_password = request.form.get("new_password")
+    new_password_confirm = request.form.get("new_password_confirm")
+
+    if not check_password_hash(current_user.password, old_password):
+        flash("Wrong existing password. Try again")
+    elif (
+        old_password == new_password
+    ):  # Do not need to check password hash because old password is correct
+        flash("New password cannot be the same as your previous password.")
+    elif not new_password == new_password_confirm:
+        flash("New passwords do not match. Try again")
+    elif not validate_password(new_password):
+        flash("New password does not meet requirements. Try again")
+    else:
+        current_user.password = generate_password_hash(
+            new_password, method="pbkdf2:sha256"
+        )
+        db.session.commit()
+        flash("Password change successful.")
+        return redirect(url_for("main.profile"))
+
+    return redirect(url_for("authorize.change_password"))
