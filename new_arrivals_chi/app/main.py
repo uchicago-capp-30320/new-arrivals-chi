@@ -27,6 +27,10 @@ from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+db = SQLAlchemy()
+migrate = Migrate()
+
+
 load_dotenv()
 
 main = Blueprint("main", __name__, static_folder="/static")
@@ -119,17 +123,22 @@ def signup():
     return render_template("signup.html", language=language)
 
 
-app = Flask(__name__)
-app.register_blueprint(main)
+def create_app():
+    app = Flask(__name__)
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
+        "DATABASE_URL", default="sqlite:///:memory:"
+    )
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
-    "DATABASE_URL", default="sqlite:///:memory:"
-)
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.init_app(app)
+    migrate.init_app(app, db)
 
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+    app.register_blueprint(main)
+
+    return app
+
 
 if __name__ == "__main__":
+    app = create_app()
     app.run(debug=True)
