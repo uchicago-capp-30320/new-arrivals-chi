@@ -41,5 +41,5 @@ def test_home_page_button_links(client):
     response = client.get(url_for("main.home", lang="es"))
     html_content = response.data.decode("utf-8")
     assert "navigateTo('/legal', 'es')" in html_content
-    assert "navigateTo('/health, 'es')" in html_content
+    assert "navigateTo('/health', 'es')" in html_content
     assert "window.location.href='/food'" in html_content
