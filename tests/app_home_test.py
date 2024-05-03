@@ -34,12 +34,12 @@ def test_home_page_button_links(client):
     response = client.get(url_for("main.home"))
     html_content = response.data.decode("utf-8")
     assert "navigateTo('/legal', 'en')" in html_content
-    assert "window.location.href='/health'" in html_content
+    assert "navigateTo('/health', 'en')" in html_content
     assert "window.location.href='/food'" in html_content
 
     # Test Spanish links
     response = client.get(url_for("main.home", lang="es"))
     html_content = response.data.decode("utf-8")
     assert "navigateTo('/legal', 'es')" in html_content
-    assert "window.location.href='/health'" in html_content
+    assert "navigateTo('/health', 'es')" in html_content
     assert "window.location.href='/food'" in html_content

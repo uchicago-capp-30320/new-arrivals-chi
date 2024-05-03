@@ -1,0 +1,40 @@
+<!--
+Project: new_arrivals_chi
+File name: health.html
+Associated Files:
+    base.html, main.py
+
+Landing page for user to navigate through health information.
+
+Creation:
+@Author: Summer Long @sumslong
+@Date: 05/03/2024
+
+Contributors:
+Summer Long @sumslong
+-->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="/health" method="GET">
+        <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
+        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+    </form>
+    <div class="box">
+        <div class="box-big-title">Health Information</div>
+        <div class="box-title">I want to...</div>
+        <div class="button-container">
+            <button class="button orange" onclick="navigateTo('/health/search', '{{ language }}')">
+                {{ 'Ayudame Ahora' if language == 'es' else 'Receive Assistance Now' }}
+              </button>
+            <button class="button green">Learn More About Resources</button>
+            <button class="yellow-button">Something else</button>
+            <p class="bottom-left">
+                <a href="/">{{ '<    ' if language == 'es' else '< Back' }}</a>
+            </p>
+            <p>
+        </div>
+
+    </div>
+{% endblock %}
