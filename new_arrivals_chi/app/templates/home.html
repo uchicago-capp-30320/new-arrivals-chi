@@ -23,7 +23,7 @@ Madeleine Roberts @MadeleineKRoberts
     <p>{{ 'Por favor haz click abajo para comenzar:' if language == 'es' else 'Please click below to begin:'}}</p>
     <div class="home-button-container">
         <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ 'Legal' if language == 'es' else 'Legal' }}</button>
-        <button class="button button-yellow" onclick="window.location.href='/health'">{{ 'Salud' if language == 'es' else 'Health' }}</button>
+        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language }}')">{{ 'Salud' if language == 'es' else 'Health' }}</button>
         <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' }}</button>
     </div>
 {% endblock %}

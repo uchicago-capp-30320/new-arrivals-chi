@@ -2,8 +2,8 @@
 Project: new_arrivals_chi
 File name: main.py
 Associated Files:
-    Templates: base.html, home.html, legal.html, profile.html,
-    login.html, info.html
+    Templates: base.html, home.html, legal.html, health.html,
+    health_search.html, profile.html, login.html, info.html
 
 Runs primary flask application for Chicago's new arrivals' portal.
 
@@ -13,8 +13,8 @@ Methods:
     * legal - Route to legal portion of application.
 
 Last updated:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 04/25/2024
+@Author: Summer Long @Sumslong
+@Date: 05/03/2024
 
 Creation:
 @Author: Summer Long @Sumslong
@@ -70,7 +70,7 @@ def profile():
 def legal():
     """
     Establishes route for the legal page. This route is accessible
-    within the 'legal' button in the navigation bar.
+    within the 'legal' button on the home page.
 
     Returns:
         Renders main legal page.
@@ -78,6 +78,33 @@ def legal():
 
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
+
+
+@main.route("/health")
+def health():
+    """
+    Establishes route for the health page. This route is accessible
+    within the 'health' button on the home page.
+
+    Returns:
+        Renders main health page.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("health.html", language=language)
+
+
+@main.route("/health/search")
+def health_search():
+    """
+    Establishes route for the health search page. This route is accessible
+    by selecting 'Receive Assistance Now' on the health page.
+
+    Returns:
+        Renders the health search page.
+    """
+    language = request.args.get("lang", "en")
+    return render_template("health_search.html", language=language)
 
 
 @main.route("/info")
