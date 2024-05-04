@@ -2,8 +2,8 @@
 Project: new_arrivals_chi
 File name: main.py
 Associated Files:
-    Templates: base.html, home.html, legal.html, profile.html, signup.html,
-    login.html, info.html
+    Templates: base.html, home.html, legal.html, health.html,
+    health_search.html, profile.html, login.html, info.html
 
 Runs primary flask application for Chicago's new arrivals' portal.
 
@@ -13,8 +13,8 @@ Methods:
     * legal - Route to legal portion of application.
 
 Last updated:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 04/25/2024
+@Author: Summer Long @Sumslong
+@Date: 05/03/2024
 
 Creation:
 @Author: Summer Long @Sumslong
@@ -24,12 +24,12 @@ Creation:
 from flask import Flask, Blueprint, render_template, request
 import os
 from dotenv import load_dotenv
-from flask_sqlalchemy import SQLAlchemy
+from new_arrivals_chi.app.authorize_routes import authorize
+from new_arrivals_chi.app.database import db, User
 from flask_migrate import Migrate
+from flask_login import LoginManager, login_required
 
-db = SQLAlchemy()
 migrate = Migrate()
-
 
 load_dotenv()
 
@@ -52,6 +52,7 @@ def home():
 
 
 @main.route("/profile")
+@login_required
 def profile():
     """
     Establishes route for the user's profile page. This route is accessible
@@ -69,7 +70,7 @@ def profile():
 def legal():
     """
     Establishes route for the legal page. This route is accessible
-    within the 'legal' button in the navigation bar.
+    within the 'legal' button on the home page.
 
     Returns:
         Renders main legal page.
@@ -77,6 +78,33 @@ def legal():
 
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
+
+
+@main.route("/health")
+def health():
+    """
+    Establishes route for the health page. This route is accessible
+    within the 'health' button on the home page.
+
+    Returns:
+        Renders main health page.
+    """
+
+    language = request.args.get("lang", "en")
+    return render_template("health.html", language=language)
+
+
+@main.route("/health/search")
+def health_search():
+    """
+    Establishes route for the health search page. This route is accessible
+    by selecting 'Receive Assistance Now' on the health page.
+
+    Returns:
+        Renders the health search page.
+    """
+    language = request.args.get("lang", "en")
+    return render_template("health_search.html", language=language)
 
 
 @main.route("/info")
@@ -93,36 +121,6 @@ def info():
     return render_template("info.html", language=language)
 
 
-# will change to auth.route when the database is usable
-@main.route("/login")
-def login():
-    """
-    Establishes route for the login page. This route is accessible
-    within the 'login' button in the navigation bar.
-
-    Returns:
-        Renders login page for user with their selected language.
-    """
-
-    language = request.args.get("lang", "en")
-    return render_template("login.html", language=language)
-
-
-# @auth.route('/signup')
-@main.route("/signup")
-def signup():
-    """
-    Establishes route for the user sign up page. This route is accessible
-    within the 'sign up' button in the navigation bar.
-
-    Returns:
-        Renders sign up page in their selected language.
-    """
-
-    language = request.args.get("lang", "en")
-    return render_template("signup.html", language=language)
-
-
 def create_app():
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
@@ -135,6 +133,15 @@ def create_app():
     migrate.init_app(app, db)
 
     app.register_blueprint(main)
+    app.register_blueprint(authorize)
+
+    login_manager = LoginManager()
+    login_manager.login_view = "authorize.login"
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
 
     return app
 

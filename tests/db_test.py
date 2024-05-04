@@ -2,6 +2,10 @@ import pytest
 from faker import Faker
 from new_arrivals_chi.app.main import db, create_app
 from new_arrivals_chi.app.database import User, Organization, Location, Hours
+from new_arrivals_chi.app.logger_config import setup_logger
+from sqlalchemy.orm import Session
+from sqlalchemy import select
+
 
 fake = Faker()
 
@@ -94,39 +98,58 @@ def fetch_data():
 def test_user_organization_creation(app):
     """Test creating users and organizations and retrieving them."""
     app = create_app()
+    logger = setup_logger("test_user_organization_creation")
+
     with app.app_context():
+        logger.info("Starting database setup for test")
         db.drop_all()
         db.create_all()
         create_fake_data(5)
+        logger.info("Database setup complete and fake data created")
 
-        user = User.query.get(1)
-        assert user is not None, "No user found with ID 1"
-        assert "@" in user.email, "User email format is incorrect"
-        assert user.role in [
-            "admin",
-            "standard",
-        ], "User role is not set correctly"
+        with Session(bind=db.engine) as session:
+            logger.info("Attempting to retrieve user with ID 1")
+            user = session.get(User, 1)
+            assert user is not None, "No user found with ID 1"
+            assert "@" in user.email, "User email format is incorrect"
+            assert user.role in [
+                "admin",
+                "standard",
+            ], "User role is not set correctly"
+            logger.info("User retrieved and validated successfully")
 
-        organization = Organization.query.filter_by(
-            name=user.organization.name
-        ).first()
-        assert (
-            organization is not None
-        ), "No organization found with specified name"
-        assert organization.status in [
-            "ACTIVE",
-            "SUSPENDED",
-            "HIDDEN",
-        ], "Organization status is incorrect"
-
-        users = User.query.all()
-        assert (
-            len(users) == 5
-        ), "Number of users created and retrieved does not match"
-        for user in users:
+            # Retrieve organization by name using select
+            logger.info(
+                f"Retrieving organization named {user.organization.name}"
+            )
+            org_select = select(Organization).where(
+                Organization.name == user.organization.name
+            )
+            organization = session.execute(org_select).scalar_one_or_none()
             assert (
-                user.organization is not None
-            ), "User organization is not linked properly"
+                organization is not None
+            ), "No organization found with specified name"
+            assert organization.status in [
+                "ACTIVE",
+                "SUSPENDED",
+                "HIDDEN",
+            ], "Organization status is incorrect"
+            logger.info("Organization retrieved and validated successfully")
+
+            # Retrieve all users using select
+            logger.info(
+                "Retrieving all users to validate total count and links"
+            )
+            users_select = select(User)
+            users = session.execute(users_select).scalars().all()
             assert (
-                user.organization.phone
-            ), "Organization phone number is missing"
+                len(users) == 5
+            ), "Number of users created and retrieved does not match"
+            for user in users:
+                assert (
+                    user.organization is not None
+                ), "User organization is not linked properly"
+                assert (
+                    user.organization.phone
+                ), "Organization phone number is missing"
+            logger.info("All users retrieved and validated successfully")
