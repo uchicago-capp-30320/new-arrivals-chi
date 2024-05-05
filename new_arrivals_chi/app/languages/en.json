@@ -1,13 +1,20 @@
 {
-    "en": {
-        "base": {
-            "home": "Home",
-            "profile": "Profile",
-            "logout": "Logout",
-            "login": "Login",
-            "sign_up": "Sign Up",
-            "language": "English",
-            "report_error": "Report website error"
-        }
+  "en": {
+    "base": {
+      "home": "Home",
+      "language": "English",
+      "login": "Login",
+      "logout": "Logout",
+      "profile": "Profile",
+      "report_error": "Report website error",
+      "sign_up": "Sign Up"
+    },
+    "change_password": {
+      "change_password": "Change Password",
+      "new_password": "New Password",
+      "new_password_confirm": "New Password",
+      "old_password": "Old Password",
+      "password_must_include": "Your password must include at least one uppercase letter, one lowercase letter, one number, one special symbol, and be longer than 8 characters."
     }
+  }
 }
