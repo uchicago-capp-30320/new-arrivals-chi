@@ -5,7 +5,9 @@
             "profile": "Profile",
             "logout": "Logout",
             "login": "Login",
-            "sign_up": "Sign Up"
+            "sign_up": "Sign Up",
+            "language": "English",
+            "report_error": "Report website error"
         }
     }
 }

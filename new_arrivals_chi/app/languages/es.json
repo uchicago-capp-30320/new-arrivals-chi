@@ -1,3 +1,13 @@
 {
-    "es": {}
+    "es": {
+        "base": {
+            "home": "Página de inicio",
+            "profile": "Perfil",
+            "logout": "Cerrar Sesión",
+            "login": "Iniciar Sesión",
+            "sign_up": "Registrarse",
+            "language": "Español",
+            "report_error": "Reportar error del sitio web"
+        }
+    }
 }
