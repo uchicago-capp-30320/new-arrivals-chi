@@ -1,0 +1,11 @@
+{
+    "en": {
+        "base": {
+            "home": "Home",
+            "profile": "Profile",
+            "logout": "Logout",
+            "login": "Login",
+            "sign_up": "Sign Up"
+        }
+    }
+}
