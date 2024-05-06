@@ -15,6 +15,16 @@
       "new_password_confirm": "New Password",
       "old_password": "Old Password",
       "password_must_include": "Your password must include at least one uppercase letter, one lowercase letter, one number, one special symbol, and be longer than 8 characters."
+    },
+    "health": {
+      "health_information": "Health Information",
+      "i_want_to": "I want to...",
+      "learn_more": "Learn More About Resources",
+      "recieve_assistance": "Receive Assistance Now",
+      "something_else": "Something else"
+    },
+    "util": {
+      "back": "Back"
     }
   }
 }
