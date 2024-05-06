@@ -23,7 +23,7 @@ def create_fake_location(user_id):
 
 
 def create_fake_hours(user_id):
-    """Create a single fake hours instance"""
+    """Create a single fake hours instance."""
     return Hours(
         day_of_week=fake.random_int(min=0, max=6),  # 0-6 for Sunday to Saturday
         opening_time=fake.time_object(),
@@ -54,7 +54,8 @@ def create_fake_user(organization):
 
 def create_fake_data(num_users=1):
     """Generate fake data for testing by creating multiple users
-    and organizations along with their locations."""
+    and organizations along with their locations.
+    """
     try:
         db.create_all()
 

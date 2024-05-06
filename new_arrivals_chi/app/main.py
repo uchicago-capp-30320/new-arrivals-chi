@@ -1,9 +1,8 @@
-"""
-Project: new_arrivals_chi
+"""Project: new_arrivals_chi
 File name: main.py
 Associated Files:
     Templates: base.html, home.html, legal.html, health.html,
-    health_search.html, profile.html, login.html, info.html
+    health_search.html, profile.html, login.html, info.html.
 
 Runs primary flask application for Chicago's new arrivals' portal.
 
@@ -38,15 +37,13 @@ main = Blueprint("main", __name__, static_folder="/static")
 
 @main.route("/")
 def home():
-    """
-    Establishes route for the home page of New Arrivals Chi. This route is
+    """Establishes route for the home page of New Arrivals Chi. This route is
     accessible within the 'home' button in the navigation bar and is the page
     that users are directed to when first visiting the site.
 
     Returns:
         Renders home page.
     """
-
     language = request.args.get("lang", "en")
     return render_template("home.html", language=language)
 
@@ -54,50 +51,43 @@ def home():
 @main.route("/profile")
 @login_required
 def profile():
-    """
-    Establishes route for the user's profile page. This route is accessible
+    """Establishes route for the user's profile page. This route is accessible
     within the 'profile' button in the navigation bar.
 
     Returns:
         Renders profile page for user with in their selected language.
     """
-
     language = request.args.get("lang", "en")
     return render_template("profile.html", language=language)
 
 
 @main.route("/legal")
 def legal():
-    """
-    Establishes route for the legal page. This route is accessible
+    """Establishes route for the legal page. This route is accessible
     within the 'legal' button on the home page.
 
     Returns:
         Renders main legal page.
     """
-
     language = request.args.get("lang", "en")
     return render_template("legal.html", language=language)
 
 
 @main.route("/health")
 def health():
-    """
-    Establishes route for the health page. This route is accessible
+    """Establishes route for the health page. This route is accessible
     within the 'health' button on the home page.
 
     Returns:
         Renders main health page.
     """
-
     language = request.args.get("lang", "en")
     return render_template("health.html", language=language)
 
 
 @main.route("/health/search")
 def health_search():
-    """
-    Establishes route for the health search page. This route is accessible
+    """Establishes route for the health search page. This route is accessible
     by selecting 'Receive Assistance Now' on the health page.
 
     Returns:
@@ -109,14 +99,12 @@ def health_search():
 
 @main.route("/info")
 def info():
-    """
-    Establishes route for an unauthenticated view of an organization's
+    """Establishes route for an unauthenticated view of an organization's
     information. This will be accessible when search is implemented.
 
     Returns:
         Renders information of an organization.
     """
-
     language = request.args.get("lang", "en")
     return render_template("info.html", language=language)
 

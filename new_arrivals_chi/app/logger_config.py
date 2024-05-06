@@ -6,8 +6,7 @@ from datetime import datetime
 def setup_logger(
     name: str, log_directory: str = "logs", level=logging.INFO
 ) -> logging.Logger:
-    """
-    Set up and configure a logger.
+    """Set up and configure a logger.
 
     This function creates a logger with both file and console handlers.
     It also supports different logging levels.
