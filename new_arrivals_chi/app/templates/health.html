@@ -22,16 +22,16 @@ Summer Long @sumslong
         <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
     </form>
     <div class="box">
-        <div class="box-big-title">Health Information</div>
-        <div class="box-title">I want to...</div>
+        <div class="box-big-title">{{ 'Información Médica' if language == 'es' else 'Health Information' }}</div>
+        <div class="box-title">{{ 'Quiero...' if language == 'es' else 'I want to...' }} </div>
         <div class="button-container">
             <button class="button orange" onclick="navigateTo('/health/search', '{{ language }}')">
-                {{ 'Ayudame Ahora' if language == 'es' else 'Receive Assistance Now' }}
+                {{ 'Recibe Asistencia Inmediata' if language == 'es' else 'Receive Assistance Now' }}
               </button>
-            <button class="button green">Learn More About Resources</button>
-            <button class="yellow-button">Something else</button>
+            <button class="button green">{{ 'Aprende Más de Otros Recursos' else 'Learn More About Resources' }}</button>
+            <button class="yellow-button">{{ 'Algo más' if language == 'es' else 'Something else' }}</button>
             <p class="bottom-left">
-                <a href="/">{{ '<    ' if language == 'es' else '< Back' }}</a>
+                <a href="/">{{ '< Regresar' if language == 'es' else '< Back' }}</a>
             </p>
             <p>
         </div>
