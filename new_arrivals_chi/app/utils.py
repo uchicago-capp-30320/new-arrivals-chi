@@ -1,3 +1,22 @@
+"""Project: new_arrivals_chi.
+
+File name: utils.py
+Associated Files:
+   authorize_routes.py.
+
+This file contains utility methods for validating user input.
+
+
+Methods:
+    * validate_email_syntax — Validates the syntax of an email address.
+    * validate_password - Validates the strength of a password.
+
+Creation:
+@Author: Madeleine Roberts @MadeleineKRoberts
+@Date: 04/19/2024
+"""
+
+
 import re
 
 
