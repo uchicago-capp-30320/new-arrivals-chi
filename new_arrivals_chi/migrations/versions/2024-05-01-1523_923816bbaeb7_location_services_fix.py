@@ -1,4 +1,4 @@
-"""Location services fix
+"""Location services fix.
 
 Revision ID: 923816bbaeb7
 Revises: 6e1f62d7980b
