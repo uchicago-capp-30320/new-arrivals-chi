@@ -1,4 +1,5 @@
-"""Project: new_arrivals_chi
+"""Project: new_arrivals_chi.
+
 File name: authorize_routes.py
 Associated Files:
     Templates: profile.html, signup.html, login.html.
@@ -34,8 +35,10 @@ authorize = Blueprint("authorize", __name__, static_folder="/static")
 
 @authorize.route("/signup")
 def signup():
-    """Establishes route for the user sign up page. This route is accessible
-    within the 'sign up' button in the navigation bar.
+    """Establishes route for the user sign up page.
+
+    This route is accessible within the 'sign up' button in the navigation bar.
+
 
     Returns:
         Renders sign up page in their selected language.
@@ -46,8 +49,10 @@ def signup():
 
 @authorize.route("/signup", methods=["POST"])
 def signup_post():
-    """Handles the POST request for user sign up. Validates the input data,
-    adds the user to the database if valid, and redirects accordingly.
+    """Handles the POST request for user sign up.
+
+    Validates the input data, adds the user to the database if valid, and
+    redirects accordingly.
 
     Returns:
         Redirects to the home page upon successful sign up.
@@ -94,8 +99,9 @@ def signup_post():
 
 @authorize.route("/login")
 def login():
-    """Establishes route for the login page. This route is accessible
-    within the 'login' button in the navigation bar.
+    """Establishes route for the login page.
+
+    Login route is accessible within the 'login' button in the navigation bar.
 
     Returns:
         Renders login page for user with their selected language.
@@ -146,9 +152,10 @@ def logout():
 @authorize.route("/change_password")
 @login_required
 def change_password():
-    """Establishes route for the change password page. This route is accessible
-    within the 'change password' button in the profile page (will likely change
-    location in the future).
+    """Establishes route for the change password page.
+
+    This route is accessible within the 'change password' button in the profile
+    page (will likely change location in the future).
 
     Returns:
         Renders change password page for user with their selected language.
