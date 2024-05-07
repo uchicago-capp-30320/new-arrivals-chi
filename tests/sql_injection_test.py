@@ -6,23 +6,27 @@ Associated Files: new_arrivals_chi/app/main.py, new_arrivals_chi/app/logger_conf
 
 
 This test suite performs testing on the database to ensure that input handling, 
-particularly regarding SQL injections, is secure and prevents unauthorized database access or manipulation.
+particularly regarding SQL injections, is secure and prevents unauthorized database 
+access or manipulation.
 
 
 Methods:
-    - test_safe_injections: Test function for testing safe input handling or prevention of SQL injections.
-    - test_unsafe_injections_return_all_rows: Test function for an unsafe input attempting to return all 
-                                              rows from the database.
-    - test_unsafe_injections_alter_table: Test function for an unsafe input attempting to alter the database
-                                          table structure.
-    - test_line_comments_injection: Test function for testing prevention of line comments in SQL queries.
+    - test_safe_injections: Test function for testing safe input handling or prevention
+                            of SQL injections.
+    - test_unsafe_injections_return_all_rows: Test function for an unsafe input 
+                                              attempting to return all rows from the
+                                              database.
+    - test_unsafe_injections_alter_table: Test function for an unsafe input attempting
+                                          to alter the database table structure.
+    - test_line_comments_injection: Test function for testing prevention of line comments
+                                    in SQL queries.
     - test_union_injection: Test function for testing prevention of Union-based SQL injections.
 
 
 
 Last updated:
 @Author: Xiomara Salazar @xiomara0
-@Date: 05/06/2024
+@Date: 05/07/2024
 
 Creation:
 @Author: Xiomara Salazar @xiomara0
@@ -109,7 +113,7 @@ def test_unsafe_injection_alter_table(db_connection):
     assert row_count == 0 
 
 
-def test_line_comments_injection(db_connection): 
+def test_unsafe_line_comments_injection(db_connection): 
     """
     Test function for testing prevention of line comments in SQL queries.
     """
@@ -122,7 +126,7 @@ def test_line_comments_injection(db_connection):
     assert row_count == 0
 
 
-def test_union_injection(db_connection): 
+def test_unsafe_union_injection(db_connection): 
     """
     Test function for testing prevention of Union-based SQL injections.
     """
@@ -134,14 +138,30 @@ def test_union_injection(db_connection):
 
     assert row_count == 0
 
-def test_error_based_injection(db_connection): 
+def test_unsafe_error_based_injection(db_connection): 
     """
     Test function for testing error-based SQL injections that find column names.
     """
-    
+
     test_user = create_fake_user()
-    input_value = f"password = '{test_user.password}' HAVING 1=1 UNION SELECT 1, group_concat(name) FROM sqlite_master WHERE type='table';"
+    input_value = f"password = '{test_user.password}' HAVING 1=1 UNION SELECT 1, \
+                    group_concat(name) FROM sqlite_master WHERE type='table';"
 
     row_count = database_query(db_connection, input_value)
 
     assert row_count == 0
+
+def test_unsafe_boolean_based_blind_sql_injection(db_connection):
+    """
+    Test function fo testing blind sql injection.
+    """
+    test_user = create_fake_user()
+
+    input_value_true = f"email = {test_user.email} AND 1=1; --"
+    input_value_false = f"name = {test_user.email}  AND 1=2; --"
+
+    row_count_true = database_query(db_connection, input_value_true)
+    row_count_false = database_query(db_connection, input_value_false)
+
+    assert row_count_true > 0, "Boolean-Based Blind SQL Injection detected (True condition)"
+    assert row_count_false == 0, "Boolean-Based Blind SQL Injection detected (False condition)"
