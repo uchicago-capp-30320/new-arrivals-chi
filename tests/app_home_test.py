@@ -1,4 +1,5 @@
-"""Project: New Arrivals Chicago
+"""Project: New Arrivals Chicago.
+
 File name: test_home_page.py
 Associated Files: main.py, views.py, templates/home.html.
 
@@ -6,10 +7,10 @@ Tests for the home page of the New Arrivals Chicago Flask application.
 
 Methods:
     * test_home_page_status — Ensure the home page returns 200 status code.
-    * test_home_contains_welcome_message — Check if the home page contains welcome message.
-    * test_home_language_setting — Ensure the home page supports Spanish language settings.
-    * test_home_page_buttons — Verify that all necessary buttons are present on the home page.
-    * test_home_page_button_links — Test that buttons link correctly in both English/Spanish.
+    * test_home_contains_welcome_message — Check home page welcome message.
+    * test_home_language_setting — Ensure home page supports Spanish language.
+    * test_home_page_buttons — Verify buttons are present on home page.
+    * test_home_page_button_links — Test that buttons link correctly.
 
 Last updated:
 @Author: Aaron Haefner @aaronhaefner
