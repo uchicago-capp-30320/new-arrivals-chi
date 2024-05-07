@@ -1,12 +1,24 @@
 """
 Project: New Arrivals Chi
 File name: sql_injection_test.py
-Associated Files:
+Associated Files: new_arrivals_chi/app/main.py, new_arrivals_chi/app/logger_config.py, 
+                  tests/db_test.py
 
 
-This test suite performs testing on the database to 
+This test suite performs testing on the database to ensure that input handling, 
+particularly regarding SQL injections, is secure and prevents unauthorized database access or manipulation.
+
 
 Methods:
+    - test_safe_injections: Test function for testing safe input handling or prevention of SQL injections.
+    - test_unsafe_injections_return_all_rows: Test function for an unsafe input attempting to return all 
+                                              rows from the database.
+    - test_unsafe_injections_alter_table: Test function for an unsafe input attempting to alter the database
+                                          table structure.
+    - test_line_comments_injection: Test function for testing prevention of line comments in SQL queries.
+    - test_union_injection: Test function for testing prevention of Union-based SQL injections.
+
+
 
 Last updated:
 @Author: Xiomara Salazar @xiomara0
@@ -34,9 +46,11 @@ def db_connection(database):
 
     Input: Database, database from fixture
     """
+
     connection = database  
     yield connection  
     connection.close()  
+
 
 def database_query(db_connection, input_value):
     """
@@ -44,14 +58,12 @@ def database_query(db_connection, input_value):
     """
     
     cursor = db_connection.cursor()
-
     query = f"SELECT * FROM users {input_value} ;"
 
     try:
         cursor.execute(query)
         rows = cursor.fetchall()
         print("Query executed successfully. Results:")
-
         return len(rows)
 
     except sqlite3.Error as e:
@@ -59,26 +71,29 @@ def database_query(db_connection, input_value):
         return -1
 
 
-def test_safe_injections(test_database_query): 
+def test_safe_injections(database_query): 
     """
     Test function for testing safe input handling or prevention of SQL injections.
     """
-    test_user = create_fake_user()
-    email_filter = f"WHERE email = '{test_user.email}'"
 
-    row_count = database_query(db_connection, email_filter)
+    test_user = create_fake_user()
+    input_value = f"WHERE email = '{test_user.email}'"
+
+    row_count = database_query(db_connection, input_value)
 
     assert row_count == 0 ## it's okay if this one is 0 right?
 
 
-# Test for unsafe input handling or prevention of SQL injections
 def test_unsafe_injection_return_all_rows(db_connection): 
     """
     Test function for an unsafe input attempting to return all rows.
     """
-    return_all_rows_input = "name = 'Alice' OR 1=1;"
 
-    row_count = database_query(db_connection, return_all_rows_input)
+    test_user = create_fake_user()
+    input_value = f"WHERE email = '{test_user.email}' OR 1=1;"
+
+    row_count = database_query(db_connection, input_value)
+
     assert row_count == 0 
 
 
@@ -86,11 +101,47 @@ def test_unsafe_injection_alter_table(db_connection):
     """
     Test function for an unsafe input attempting to alter the table.
     """
-    
+
     alter_table_input = "'; DROP TABLE users; --"
 
     row_count = database_query(db_connection, alter_table_input)
+
     assert row_count == 0 
 
 
+def test_line_comments_injection(db_connection): 
+    """
+    Test function for testing prevention of line comments in SQL queries.
+    """
 
+    test_user = create_fake_user()
+    input_value = f"id = {test_user.id}; -- This is a line comment"
+
+    row_count = database_query(db_connection, input_value)
+
+    assert row_count == 0
+
+
+def test_union_injection(db_connection): 
+    """
+    Test function for testing prevention of Union-based SQL injections.
+    """
+
+    test_user = create_fake_user()
+    input_value = f"id = {test_user.id} UNION SELECT * FROM organizations;"
+
+    row_count = database_query(db_connection, input_value)
+
+    assert row_count == 0
+
+def test_error_based_injection(db_connection): 
+    """
+    Test function for testing error-based SQL injections that find column names.
+    """
+    
+    test_user = create_fake_user()
+    input_value = f"password = '{test_user.password}' HAVING 1=1 UNION SELECT 1, group_concat(name) FROM sqlite_master WHERE type='table';"
+
+    row_count = database_query(db_connection, input_value)
+
+    assert row_count == 0
