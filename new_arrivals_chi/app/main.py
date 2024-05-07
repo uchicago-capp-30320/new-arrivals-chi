@@ -118,6 +118,7 @@ def info():
 
 
 def create_app(config_override=None):
+    """This function creates the flask application for the web portal."""
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
         "DATABASE_URL", default="sqlite:///:memory:"
