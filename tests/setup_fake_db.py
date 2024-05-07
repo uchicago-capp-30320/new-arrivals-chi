@@ -3,10 +3,12 @@
 File name: create_fake_data.py
 Associated Files: main.py, database.py, db_test.py
 
-This script initializes a Flask application and uses it to generate fake data for testing by invoking functions defined in db_test.py.
+This script initializes a Flask application and uses it to generate
+fake data for testing purposes.
 
 Methods:
-    * main — Sets up logging, initializes the Flask application, creates the database, and generates fake data.
+    * main — Sets up logging, initializes the Flask application,
+    creates the database, and generates fake data.
 
 Last updated:
 @Author: Aaron Haefner @aaronhaefner
@@ -18,27 +20,28 @@ Creation:
 """
 
 import logging
-from flask import Flask
 from new_arrivals_chi.app.main import create_app, db
-from new_arrivals_chi.app.database import User, Organization, Location, Hours
 from db_test import create_fake_data
+
 
 def main():
     """
-    Main function to initialize logging, create a Flask application, set up the database,
-    and generate fake data using the create_fake_data function from db_test.
+    Main function to initialize fake database
+    using the create_fake_data function from db_test.
 
     Returns:
         None; logs the completion of fake data generation.
     """
     logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger('FakeDataCreator')
+    logger = logging.getLogger("FakeDataCreator")
 
-    app = create_app({
-        'TESTING': True,
-        'SQLALCHEMY_DATABASE_URI': 'sqlite:///./test_fake_data.db',
-        'SQLALCHEMY_TRACK_MODIFICATIONS': False
-    })
+    app = create_app(
+        {
+            "TESTING": True,
+            "SQLALCHEMY_DATABASE_URI": "sqlite:///./test_fake_data.db",
+            "SQLALCHEMY_TRACK_MODIFICATIONS": False,
+        }
+    )
 
     with app.app_context():
         db.create_all()
@@ -48,5 +51,6 @@ def main():
 
         logger.info("Fake data has been created successfully.")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
