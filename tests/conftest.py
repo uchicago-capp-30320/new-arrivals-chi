@@ -14,7 +14,7 @@ def app():
         "PREFERRED_URL_SCHEME": "http",
         "TESTING": True,
         "DEBUG": False,
-        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:"  # Ensure this uses a separate test database
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
     }
     app = create_app(config_override=test_config)
     with app.app_context():

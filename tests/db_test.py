@@ -53,7 +53,6 @@ def create_fake_data(num_users, database, logger):
     """
     Generate fake data for testing by creating multiple users
     and organizations with their locations and hours.
-    Assumes that the database schema is already created and managed by the test fixture.
 
     Parameters:
     num_users (int): The number of users to create
