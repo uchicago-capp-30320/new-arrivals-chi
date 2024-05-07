@@ -117,18 +117,17 @@ def info():
     return render_template("info.html", language=language)
 
 
-def create_app():
-    """Creates and configures the Flask application instance.
-
-    Returns:
-        app (Flask): The configured Flask application instance.
-    """
+def create_app(config_override=None):
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
         "DATABASE_URL", default="sqlite:///:memory:"
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    # Update app configuration with any provided override config (for testing)
+    if config_override:
+        app.config.update(config_override)
 
     db.init_app(app)
     migrate.init_app(app, db)
