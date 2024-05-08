@@ -19,8 +19,8 @@ Creation:
 @Date: 2024-05-07
 """
 
-import logging
 from new_arrivals_chi.app.main import create_app, db
+from new_arrivals_chi.app.utils import setup_logger
 from db_test import create_fake_data
 
 
@@ -32,8 +32,8 @@ def main():
     Returns:
         None; logs the completion of fake data generation.
     """
-    logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger("FakeDataCreator")
+    logger = setup_logger("FakeDataCreator")
+    logger.info("Starting the application setup for fake data creation.")
 
     app = create_app(
         {
