@@ -49,7 +49,14 @@ def home():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("home.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+
+    print(translations)
+
+    return render_template(
+        "home.html", language=language, translations=translations
+    )
 
 
 @main.route("/profile")
@@ -64,7 +71,12 @@ def profile():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("profile.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+
+    return render_template(
+        "profile.html", language=language, translations=translations
+    )
 
 
 @main.route("/legal")
@@ -78,7 +90,12 @@ def legal():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("legal.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+
+    return render_template(
+        "legal.html", language=language, translations=translations
+    )
 
 
 @main.route("/health")
@@ -92,7 +109,12 @@ def health():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("health.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+
+    return render_template(
+        "health.html", language=language, translations=translations
+    )
 
 
 @main.route("/health/search")
@@ -105,7 +127,12 @@ def health_search():
         Renders the health search page.
     """
     language = request.args.get("lang", "en")
-    return render_template("health_search.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+
+    return render_template(
+        "health_search.html", language=language, translations=translations
+    )
 
 
 @main.route("/info")
@@ -119,13 +146,17 @@ def info():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("info.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+
+    return render_template(
+        "info.html", language=language, translations=translations
+    )
 
 
 def create_app(config_override=None):
     """This function creates the flask application for the web portal."""
     app = Flask(__name__)
-    app.config["TRANSLATIONS"] = load_translations()
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
         "DATABASE_URL", default="sqlite:///:memory:"
     )
