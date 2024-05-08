@@ -41,6 +41,8 @@
       "understand_rights": "Understand my legal rights"
     },
     "login": {
+      "email": "Email",
+      "password": "Password",
       "remember_me": "Remember me"
     },
     "profile": {
