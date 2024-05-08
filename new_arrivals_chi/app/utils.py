@@ -105,6 +105,6 @@ def load_translations():
     languages = ["en", "es"]
     translations = {}
     for lang in languages:
-        with open(f"new-arrivals-chi/app/languages/{lang}.json", "r") as file:
+        with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
             translations[lang] = json.load(file)
     return translations
