@@ -39,7 +39,6 @@ def main():
         {
             "TESTING": True,
             "SQLALCHEMY_DATABASE_URI": "sqlite:///./test_fake_data.db",
-            "SQLALCHEMY_TRACK_MODIFICATIONS": False,
         }
     )
 
