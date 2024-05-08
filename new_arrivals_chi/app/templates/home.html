@@ -13,17 +13,18 @@ Creation:
 Contributors:
 Summer Long @sumslong
 Madeleine Roberts @MadeleineKRoberts
+Federico Dominguez Molina @FedericoDM
 -->
 {% extends "base.html" %}
 
 {% block content %}
 
-    <h1>{{ 'Welcome' }}</h1>
-    <p>{{ 'Encuentra apoyo para tus necesidades legales, de salud o de comida.' if language == 'es' else 'Find essential support for legal, health, and food needs.' }}</p>
-    <p>{{ 'Por favor haz click abajo para comenzar:' if language == 'es' else 'Please click below to begin:'}}</p>
+    <h1>{{ translations[language]['home']['welcome'] }}</h1>
+    <p>{{ translations[language]['home']['find_support'] }}</p>
+    <p>{{ translations[language]['home']['please_click'] }}</p>
     <div class="home-button-container">
-        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ 'Legal' if language == 'es' else 'Legal' }}</button>
-        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language }}')">{{ 'Salud' if language == 'es' else 'Health' }}</button>
-        <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' }}</button>
+        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ translations[language]['home']['legal'] }}</button>
+        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language }}')">{{ translations[language]['home']['health'] }}</button>
+        <button class="button button-green" onclick="window.location.href='/food'">{{ translations[language]['home']['food'] }}</button>
     </div>
 {% endblock %}
