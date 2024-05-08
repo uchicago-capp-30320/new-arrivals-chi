@@ -21,6 +21,9 @@ Creation:
 """
 
 import re
+import os
+import logging
+from datetime import datetime
 import json
 
 
@@ -65,6 +68,31 @@ def validate_password(password):
     no_space = re.search(r"\s", password) is None
 
     return len(password) >= 8 and valid_characters and no_space
+
+
+def setup_logger(name):
+    """Create a logger for recording the output of the script."""
+    log_directory = "logs"
+    if not os.path.exists(log_directory):
+        os.makedirs(log_directory)
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_filename = f"{name}_{timestamp}.log"
+    log_path = os.path.join(log_directory, log_filename)
+
+    formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
+    file_handler = logging.FileHandler(log_path)
+    file_handler.setFormatter(formatter)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.INFO)
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    return logger
 
 
 def load_translations():
