@@ -25,11 +25,11 @@
         },
         "home": {
             "welcome": "Bienvenido",
-            "find_support": "Find essential support for legal, health, and food needs.",
-            "please_click": "Please click below to begin:",
+            "find_support": "Encuentra apoyo para tus necesidades legales, de salud o de comida.",
+            "please_click": "Por favor haz click abajo para comenzar:",
             "legal": "Legal",
-            "health": "Health",
-            "food": "Food"
+            "health": "Salud",
+            "food": "Comida"
         },
         "util": {
             "back": "Regresar"
