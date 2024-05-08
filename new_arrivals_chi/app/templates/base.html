@@ -30,20 +30,20 @@ Madeleine Roberts @MadeleineKRoberts
 
 <body>
     <nav class="navbar" style="position: absolute; top: 20px; left: 20px;">
-        <button onclick="navigateTo('/', '{{ language }}')" class="navbar-item">{{ 'Home' if language == 'en' else 'Página de inicio' }}</button>
+        <button onclick="navigateTo('/', '{{ language }}')" class="navbar-item">{{ translations[language]['base']['home'] }}</button>
         {% if current_user.is_authenticated %}
-        <button onclick="navigateTo('/profile', '{{ language }}')" class="navbar-item">{{ 'Profile' if language == 'en' else 'Perfil' }}</button>
-        <button onclick="navigateTo('/logout', '{{ language }}')" class="navbar-item">{{ 'Logout' if language == 'en' else 'Cerrar sesión' }}</button>
+        <button onclick="navigateTo('/profile', '{{ language }}')" class="navbar-item">{{ translations[language]['base']['profile'] }}</button>
+        <button onclick="navigateTo('/logout', '{{ language }}')" class="navbar-item">{{ translations[language]['base']['logout'] }}</button>
         {% endif %}
         {% if not current_user.is_authenticated %}
-        <button onclick="navigateTo('/login', '{{ language }}')" class="navbar-item">{{ 'Login' if language == 'en' else 'Iniciar sesión' }}</button>
-        <button onclick="navigateTo('/signup', '{{ language }}')" class="navbar-item">{{ 'Sign Up' if language == 'en' else 'Registrar' }}</button>
+        <button onclick="navigateTo('/login', '{{ language }}')" class="navbar-item">{{ translations[language]['util']['login'] }}</button>
+        <button onclick="navigateTo('/signup', '{{ language }}')" class="navbar-item">{{ translations[language]['base'['signup']] }}</button>
         {% endif %}
     </nav>
 </body>
 
 <form action="/" method="GET">
-    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
+    <button type="submit" class="language-button">{{ translations[language]['base']['language'] }}</button>
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
 </form>
 
