@@ -34,134 +34,127 @@ Creation:
 """
 
 import pytest
-import sqlite3
-from new_arrivals_chi.app.main import db
-from new_arrivals_chi.app.logger_config import setup_logger
-from tests.db_test import create_fake_user
 from sqlalchemy.orm import Session
 from sqlalchemy import select
+from tests.db_test import create_fake_user, create_fake_organization
+from new_arrivals_chi.app.database import User, Organization, Location, Hours
 
 
-@pytest.mark.usefixtures("database")
-def db_connection(database):
-    """
-    Function to connect to a database. It uses fixture to get a created db
-    instance.
-
-    Input: Database, database from fixture
-    """
-
-    connection = database  
-    yield connection  
-    connection.close()  
+test_org = create_fake_organization()
+test_user = create_fake_user(test_org)
 
 
-def database_query(db_connection, input_value):
+def database_query(app, database, setup_logger, input_value):
     """
     Function to execute a database query and check the number of rows returned.
     """
     
-    cursor = db_connection.cursor()
-    query = f"SELECT * FROM users {input_value} ;"
+    # cursor = database.cursor()
+    # query = f"SELECT * FROM users {input_value} ;"
 
-    try:
-        cursor.execute(query)
-        rows = cursor.fetchall()
-        print("Query executed successfully. Results:")
-        return len(rows)
+    # try:
+    #     cursor.execute(query)
+    #     rows = cursor.fetchall()
+    #     print("Query executed successfully. Results:")
+    #     return len(rows)
 
-    except sqlite3.Error as e:
-        print("Error executing query:", e)
-        return -1
+    # except sqlite3.Error as e:
+    #     print("Error executing query:", e)
+    #     return -1
+    logger = setup_logger("test_safe_injections")
+
+    with app.app_context():
+        logger.info("Starting safe injection test")
+    
+        
+        # Attempt to retrieve a user with the safe input value
+        with Session(bind=database.engine) as session:
+            logger.info("Attempting to retrieve user with safe input")
+            users_select = select(User).where(User.email == input_value)
+            users = session.execute(users_select).scalars().all()
+            
+            return len(users)
 
 
-def test_safe_injections(database_query): 
+def test_safe_injections(app, database, setup_logger): 
     """
     Test function for testing safe input handling or prevention of SQL injections.
     """
 
-    test_user = create_fake_user()
-    input_value = f"WHERE email = '{test_user.email}'"
-
-    row_count = database_query(db_connection, input_value)
+    row_count = database_query(app, database, setup_logger, test_user.email)
 
     assert row_count == 0 ## it's okay if this one is 0 right?
 
 
-def test_unsafe_injection_return_all_rows(db_connection): 
+def test_unsafe_injection_return_all_rows(database): 
     """
     Test function for an unsafe input attempting to return all rows.
     """
 
-    test_user = create_fake_user()
     input_value = f"WHERE email = '{test_user.email}' OR 1=1;"
 
-    row_count = database_query(db_connection, input_value)
+    row_count = database_query(database, input_value)
 
     assert row_count == 0 
 
 
-def test_unsafe_injection_alter_table(db_connection): 
+def test_unsafe_injection_alter_table(app, database, setup_logger): 
     """
     Test function for an unsafe input attempting to alter the table.
     """
 
     alter_table_input = "'; DROP TABLE users; --"
 
-    row_count = database_query(db_connection, alter_table_input)
+    row_count = database_query(app, database, setup_logger, alter_table_input)
 
     assert row_count == 0 
 
 
-def test_unsafe_line_comments_injection(db_connection): 
+def test_unsafe_line_comments_injection(database): 
     """
     Test function for testing prevention of line comments in SQL queries.
     """
 
-    test_user = create_fake_user()
     input_value = f"id = {test_user.id}; -- This is a line comment"
 
-    row_count = database_query(db_connection, input_value)
+    row_count = database_query(database, input_value)
 
     assert row_count == 0
 
 
-def test_unsafe_union_injection(db_connection): 
+def test_unsafe_union_injection(database): 
     """
     Test function for testing prevention of Union-based SQL injections.
     """
 
-    test_user = create_fake_user()
     input_value = f"id = {test_user.id} UNION SELECT * FROM organizations;"
 
-    row_count = database_query(db_connection, input_value)
+    row_count = database_query(database, input_value)
 
     assert row_count == 0
 
-def test_unsafe_error_based_injection(db_connection): 
+def test_unsafe_error_based_injection(database): 
     """
     Test function for testing error-based SQL injections that find column names.
     """
 
-    test_user = create_fake_user()
     input_value = f"password = '{test_user.password}' HAVING 1=1 UNION SELECT 1, \
                     group_concat(name) FROM sqlite_master WHERE type='table';"
 
-    row_count = database_query(db_connection, input_value)
+    row_count = database_query(database, input_value)
 
     assert row_count == 0
 
-def test_unsafe_boolean_based_blind_sql_injection(db_connection):
+def test_unsafe_boolean_based_blind_sql_injection(database):
     """
     Test function fo testing blind sql injection.
     """
-    test_user = create_fake_user()
 
     input_value_true = f"email = {test_user.email} AND 1=1; --"
     input_value_false = f"name = {test_user.email}  AND 1=2; --"
 
-    row_count_true = database_query(db_connection, input_value_true)
-    row_count_false = database_query(db_connection, input_value_false)
+    row_count_true = database_query(database, input_value_true)
+    row_count_false = database_query(database, input_value_false)
 
     assert row_count_true > 0, "Boolean-Based Blind SQL Injection detected (True condition)"
     assert row_count_false == 0, "Boolean-Based Blind SQL Injection detected (False condition)"
