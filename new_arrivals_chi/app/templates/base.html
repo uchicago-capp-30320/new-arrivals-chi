@@ -37,14 +37,14 @@ Madeleine Roberts @MadeleineKRoberts
         {% endif %}
         {% if not current_user.is_authenticated %}
         <button onclick="navigateTo('/login', '{{ language }}')" class="navbar-item">{{ translations[language]['util']['login'] }}</button>
-        <button onclick="navigateTo('/signup', '{{ language }}')" class="navbar-item">{{ translations[language]['base'['sign_up']] }}</button>
+        <button onclick="navigateTo('/signup', '{{ language }}')" class="navbar-item">{{ translations[language]['base']['sign_up'] }}</button>
         {% endif %}
     </nav>
 </body>
 
 <form action="/" method="GET">
     <button type="submit" class="language-button">{{ translations[language]['util']['language'] }}</button>
-    <input type="hidden" name="lang" value="{{ language }}">
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'es' }}">
 </form>
 
 <div class="container has-text-centered">
