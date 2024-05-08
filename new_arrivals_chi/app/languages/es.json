@@ -2,7 +2,6 @@
   "es": {
     "base": {
       "home": "P\u00e1gina de inicio",
-      "language": "Espa\u00f1ol",
       "logout": "Cerrar Sesi\u00f3n",
       "profile": "Perfil",
       "report_error": "Reportar error del sitio web",
@@ -35,7 +34,7 @@
       "supplies_and_services": "Recursos y Servicios: Comida"
     },
     "legal": {
-      "apply_for": "Aplica para a Identificaci\u00f3n de Chicago",
+      "apply_for": "Aplicar para la Identificaci\u00f3n de Chicago",
       "legal_resources": "Recursos y Servicios Legales",
       "receive_legal": "Recibir asistencia legal",
       "understand_rights": "Entender mis derechos legales"
@@ -49,8 +48,9 @@
       "profile_information": "La informaci\u00f3n del perfil existir\u00e1 aqu\u00ed."
     },
     "util": {
-      "back": "Regresar",
+      "back": "Atr\u00e1s",
       "i_want_to": "Quiero...",
+      "language": "Espa\u00f1ol",
       "login": "Iniciar Sesi\u00f3n",
       "something_else": "Algo m\u00e1s"
     }

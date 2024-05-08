@@ -2,7 +2,6 @@
   "en": {
     "base": {
       "home": "Home",
-      "language": "English",
       "logout": "Logout",
       "profile": "Profile",
       "report_error": "Report website error",
@@ -51,6 +50,7 @@
     "util": {
       "back": "Back",
       "i_want_to": "I want to...",
+      "language": "English",
       "login": "Login",
       "something_else": "Something else"
     }
