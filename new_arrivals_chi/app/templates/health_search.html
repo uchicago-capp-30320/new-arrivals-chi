@@ -2,7 +2,7 @@
 Project: new_arrivals_chi
 File name: health.html
 Associated Files:
-    base.html, main.py, health.html
+    base.html, main.py, health.html, filter.js
 
 Search interface for health resources for a user.
 
@@ -20,6 +20,59 @@ Summer Long @sumslong
 <form action="/health/search" method="GET">
     <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
-</form>
-<h1>Placeholder for search interface</h1>
+    <h3>
+        Search for Resources
+    </h3>
+    <div>
+        <select id="street_address">
+            <option value="">Available Supplies and Services</option>
+            {% for row in services_info %}
+            <option value="{{ row[0] }}">{{ row[0] }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="zip_code">
+            <option value="">Neighborhood</option>
+            {% for row in services_info %}
+            <option value="{{ row[1] }}">{{ row[1] }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="city">
+            <option value="">Organization</option>
+            {% for row in services_info %}
+            <option value="{{ row[2] }}">{{ row[2] }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="state">
+            <option value="">Hours</option>
+            {% for row in services_info %}
+            <option value="{{ row[3] }}">{{ row[3] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <table id="healthTable">
+        <thead>
+            <tr>
+                <th class="table-header">Supplies and Services</th>
+                <th class="table-header">Neighborhood</th>
+                <th class="table-header">Organization</th>
+                <th class="table-header">Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in services_info %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/filter.js') }}"></script>
 {% endblock %}

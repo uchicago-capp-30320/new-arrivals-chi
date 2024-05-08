@@ -28,6 +28,7 @@ from new_arrivals_chi.app.authorize_routes import authorize
 from new_arrivals_chi.app.database import db, User
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required
+import sqlite3
 
 migrate = Migrate()
 
@@ -103,8 +104,26 @@ def health_search():
     Returns:
         Renders the health search page.
     """
+
+    conn = sqlite3.connect("../../instance/test_fake_data.db")
+
+    cursor = conn.cursor()
+
+    # this is a sample from fake data; should be updated with appropriate call
+    # Supplies, Neighborhood, Organization, and Hours (with appropriate join)
+    # Organization should be clickable and lead to their page (info.html)
+    # rendered dynamically
+    cursor.execute(
+        "SELECT street_address, zip_code, city, state FROM locations"
+    )
+    services_info = cursor.fetchall()
+
+    conn.close()
+
     language = request.args.get("lang", "en")
-    return render_template("health_search.html", language=language)
+    return render_template(
+        "health_search.html", language=language, services_info=services_info
+    )
 
 
 @main.route("/info")
