@@ -31,6 +31,15 @@
             "health": "Salud",
             "food": "Comida"
         },
+        "info": {
+            "organization_name": "Nombre de la Organización",
+            "open_hours": "Horas de Atención: Lunes - Viernes, 9:00 AM - 5:00 PM",
+            "languages_spoken": "Idiomas hablados: English, Spanish",
+            "supplies_and_services": "Recursos y Servicios: Comida"
+        },
+        "profile": {
+            "profile_information": "La información del perfil existirá aquí."
+        },
         "util": {
             "back": "Regresar"
         }

@@ -31,6 +31,15 @@
             "health": "Health",
             "food": "Food"
         },
+        "info": {
+            "organization_name": "Organization Name",
+            "open_hours": "Open Hours: Monday - Friday, 9:00 AM - 5:00 PM",
+            "languages_spoken": "Languages Spoken: English, Spanish",
+            "supplies_and_services": "Supplies and Services: Food"
+        },
+        "profile": {
+            "profile_information": "Profile information will exist here."
+        },
         "util": {
             "back": "Back"
         }
