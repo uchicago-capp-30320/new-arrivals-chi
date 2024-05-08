@@ -19,36 +19,70 @@ Follow these instructions to get the project running on your computer for develo
 3.  License
 4.  Acknowledgments
 
-## Prerequisites {#prerequisites}
+## Prerequisites
 
 _To be updated later with requirements for the software and other tools in the upcoming weeks._  
 
-### Project Structure {#project-structure}
-
-*   `backend/`: This folder contains the backend code of the project, including server-side scripts, APIs, and other backend-related files.
-*   `frontend/`: This folder contains the frontend code of the project for all user interface and client-side functionalities of the project.
-*   `database/`: Scripts, configurations, and other files related to the project's database setup, management, and interactions.
+### Project Structure 
+*   `.github/`: This folder contains the templates and workflows for our github repository.
+*   `docs/`: This folder contains documents outlining decisions made throughout the development process.
+    * `decisions/`: This folder contains the decisions made regarding the various application components.
+    * `endpoints/`: This folder contains the enpoints for the pages of the application.
+    * `models/`: This folder contains the data models for the database.
+    * `style_templates/`: This folder contains the sylistic decisions to follow when contributing to the application.
+*   `new_arrivals_chi/`: This folder contains the New Arrivals Chi application.
+    * `app/`: This folder contains the frontend, backend, and database code for the application.
+    * `migrations/`: This folder contains the migrations to establish the database.
+*   `tests/`: This folder contains the test scripts for the application.
 
 ### Installing
 
 Poetry:
 
 1.  Install Poetry:
-
-    `curl -sSL https://install.python-poetry.org | python3 -`
+    ```bash
+    curl -sSL https://install.python-poetry.org | python3 -
+    ```
 
 2.  Navigate to your the project directory and use Poetry to install project dependencies:
-
-    `poetry install`
+    ```bash
+    poetry install
+    ```
 
 
 ### Running the Project
 
-_To be updated in the upcoming weeks._
+1.  Navigate to your the project directory and use Poetry to update project dependencies:
+    ```bash
+    poetry update
+    ```
+    
+3.  Activate the Poetry virutal environment:
+    ```bash
+    poetry shell
+    ```
+
+4.  Run application:
+    ```bash
+    python new_arrivals_chi/app/main.py
+    ``` 
 
 ### Running the Tests
 
-_To be updated in the upcoming weeks._
+- Run all tests:
+  ```bash
+  poetry run pytest
+  ```
+
+- Run a specific test:
+  ```bash
+  poetry run pytest tests/app_home_test.py::test_home_page_status
+  ```
+  
+- Run database tests:
+  ```bash
+  poetry run pytest tests/db_test.py
+  ```
 
 ## Authors
 
