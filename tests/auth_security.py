@@ -21,11 +21,12 @@ Creation:
 from flask_testing import TestCase
 from new_arrivals_chi.app.main import create_app, db
 from new_arrivals_chi.app.database import User
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+import re
 
 
 class TestAuthorizeRoutes(TestCase):
-    def test_create_app(self):
+    def create_app(self):
         """
         Sets up a Flask application configured for testing.
         The application is configured to use a memory-based SQLite database
@@ -40,7 +41,7 @@ class TestAuthorizeRoutes(TestCase):
         app.secret_key = "test_secret_key"
         return app
 
-    def test_set_up(self):
+    def setUp(self):
         """
         Prepares the testing environment before each test.
         This includes creating the database tables and adding a test user with
@@ -56,7 +57,7 @@ class TestAuthorizeRoutes(TestCase):
         db.session.add(self.test_user)
         db.session.commit()
 
-    def test_tear_down(self):
+    def tearDown(self):
         """
         Cleans up the testing environment after each test by removing the
         database tables.
@@ -66,8 +67,11 @@ class TestAuthorizeRoutes(TestCase):
 
     def test_set_up_password_hashed(self):
         """
-        TODO: test password is hashed
+        Tests that the password stored in the database is correctly hashed.
         """
+        user = User.query.filter_by(email="test@example.com").first()
+        self.assertTrue(check_password_hash(user.password, "TestP@ssword!"))
+
 
     def test_set_up_all_password_params(self):
         """
