@@ -1,30 +1,38 @@
 {
-  "es": {
-    "base": {
-      "home": "P\u00e1gina de inicio",
-      "language": "Espa\u00f1ol",
-      "login": "Iniciar Sesi\u00f3n",
-      "logout": "Cerrar Sesi\u00f3n",
-      "profile": "Perfil",
-      "report_error": "Reportar error del sitio web",
-      "sign_up": "Registrarse"
-    },
-    "change_password": {
-      "change_password": "Cambiar su contrase\u00f1a",
-      "new_password": "Contrase\u00f1a nueva",
-      "new_password_confirm": "Contrase\u00f1a nueva",
-      "old_password": "Contrase\u00f1a anterior",
-      "password_must_include": "Su contrase\u00f1a debe incluir al menos una letra may\u00fascula, una letra min\u00fascula, un n\u00famero, un s\u00edmbolo especial y tener m\u00e1s de 8 caracteres."
-    },
-    "health": {
-      "health_information": "Informaci\u00f3n M\u00e9dica",
-      "i_want_to": "Quiero...",
-      "learn_more": "Aprende M\u00e1s de Otros Recursos",
-      "recieve_assistance": "Receive Asistencia Inmediata",
-      "something_else": "Algo m\u00e1s"
-    },
-    "util": {
-      "back": "Regresar"
+    "es": {
+        "base": {
+            "home": "P\u00e1gina de inicio",
+            "language": "Espa\u00f1ol",
+            "login": "Iniciar Sesi\u00f3n",
+            "logout": "Cerrar Sesi\u00f3n",
+            "profile": "Perfil",
+            "report_error": "Reportar error del sitio web",
+            "sign_up": "Registrarse"
+        },
+        "change_password": {
+            "change_password": "Cambiar su contrase\u00f1a",
+            "new_password": "Contrase\u00f1a nueva",
+            "new_password_confirm": "Contrase\u00f1a nueva",
+            "old_password": "Contrase\u00f1a anterior",
+            "password_must_include": "Su contrase\u00f1a debe incluir al menos una letra may\u00fascula, una letra min\u00fascula, un n\u00famero, un s\u00edmbolo especial y tener m\u00e1s de 8 caracteres."
+        },
+        "health": {
+            "health_information": "Informaci\u00f3n M\u00e9dica",
+            "i_want_to": "Quiero...",
+            "learn_more": "Aprende M\u00e1s de Otros Recursos",
+            "recieve_assistance": "Receive Asistencia Inmediata",
+            "something_else": "Algo m\u00e1s"
+        },
+        "home": {
+            "welcome": "Bienvenido",
+            "find_support": "Find essential support for legal, health, and food needs.",
+            "please_click": "Please click below to begin:",
+            "legal": "Legal",
+            "health": "Health",
+            "food": "Food"
+        },
+        "util": {
+            "back": "Regresar"
+        }
     }
-  }
 }
