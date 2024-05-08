@@ -35,232 +35,195 @@ Creation:
 """
 
 import pytest
-from flask_testing import TestCase
+from flask import url_for
+from flask import template_rendered
 from new_arrivals_chi.app.main import create_app, db
 from new_arrivals_chi.app.database import User
 from werkzeug.security import generate_password_hash
 
-class TestAuthorizeRoutes(TestCase):
-    def create_app(self):
-        """
-        Sets up a Flask application configured for testing. 
-        The application is configured to use a memory-based SQLite database 
-        and a secret key for session management.
 
-        Returns:
-            Flask app instance with test configurations.
-        """
-        app = create_app()
-        app.config["TESTING"] = True
-        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
-        app.secret_key = "test_secret_key"
-        return app
+def test_signup_route(client):
+    """
+    Tests the accessibility of the signup route by making a GET request 
+    and verifying the response.
 
-    def setUp(self):
-        """
-        Prepares the testing environment before each test. 
-        This includes creating the database tables and adding a test user with 
-        a hashed password.
-        """
-        db.create_all()
-        hashed_password = generate_password_hash(
-            "TestP@ssword!", method="pbkdf2:sha256"
-        )
-        self.test_user = User(
-            email="test@example.com", password=hashed_password
-        )
-        db.session.add(self.test_user)
-        db.session.commit()
-
-    def tearDown(self):
-        """
-        Cleans up the testing environment after each test by removing the 
-        database tables.
-        """
-        db.session.remove()
-        db.drop_all()
-
-    def test_signup_route(self):
-        """
-        Tests the accessibility of the signup route by making a GET request 
-        and verifying the response.
-
-        Returns:
-            Asserts that the response status code is 200 and the correct 
-            template 'signup.html' is used.
-        """
-        response = self.client.get("/signup")
-        self.assert200(response)
-        self.assertIn(b"Sign Up", response.data)
-
-    def test_signup_post_invalid_email(self):
-        """
-        Tests the signup functionality with an invalid email format. Verifies 
-        that the system correctly identifies the email as invalid and returns 
-        to the signup page.
-
-        Returns:
-            Asserts that the response status code is 200, the correct template 
-            'signup.html' is used, and an appropriate error message is included 
-            in the response.
-        """
-        response = self.client.post(
-            "/signup",
-            data={
-                "email": "bad_email",  # invalid email format
-                "password": "TestP@ssword!",
-            },
-            follow_redirects=True,
-        )
-        self.assert200(response)
-        self.assertIn(b"Please enter a valid email address", response.data)
-
-    def test_signup_post_invalid_password(self):
-        """
-        Tests the signup functionality with an invalid password. Ensures that 
-        the application rejects passwords that do not meet the specified 
-        security criteria.
-
-        Returns:
-            Asserts that the response status code is 200, the 'signup.html' 
-            template is used, and an appropriate error message is displayed.
-        """
-        response = self.client.post(
-            "/signup",
-            data={
-                "email": "test@example.com",  # invalid password
-                "password": "password!",
-            },
-            follow_redirects=True,
-        )
-        self.assert200(response)
-        self.assertIn(b"Please enter a valid password", response.data)
-
-    def test_signup_post_valid_credentials(self):
-        """
-        Tests the signup functionality with valid email and password. 
-        This test verifies if the application correctly handles valid 
-        registration credentials and redirects to the home page.
-
-        Returns:
-            Asserts that the response status code is 200, the 'home.html' 
-            template is used after successful signup.
-        """
-        response = self.client.post(
-            "/signup",
-            data={
-                "email": "new_user@example.com",  # valid email format
-                "password": "StrongPassword123!",
-            },
-            follow_redirects=True,
-        )
-        self.assert200(response)
-        self.assert_template_used("home.html")
-
-    def test_signup_post_weak_password(self):
-        """
-        Tests the signup functionality with a weak password to verify that the 
-        system enforces strong password requirements.
-
-        Returns:
-            Asserts that the response status code is 200, the 'signup.html' 
-            template is reused, and an error message regarding password strength 
-            is displayed.
-        """
-        response = self.client.post(
-            "/signup",
-            data={"email": "new_user@example.com", "password": "weak"},
-            follow_redirects=True,
-        )
-        self.assert200(response)
-        self.assertIn(b"Please enter a valid password", response.data)
-
-    def test_login_route(self):
-        """
-        Tests the accessibility of the login route by making a GET request to 
-        ensure the login page is accessible and rendered correctly.
-
-        Returns:
-            Asserts that the response status code is 200 and the 'login.html' 
-            template is used.
-        """
-        response = self.client.get("/login")
-        self.assert200(response)
-        self.assert_template_used("login.html")
-        self.assertIn(b"Login", response.data)
-
-    def test_login_valid_credentials(self):
-        """
-        Tests login functionality with valid credentials to ensure that users 
-        can log in successfully and are redirected to their profile page.
-
-        Returns:
-            Asserts that the 'profile.html' template is used after a successful 
-            login and redirection.
-        """
-        response = self.client.post(
-            "/login",
-            data={"email": "test@example.com", "password": "TestP@ssword!"},
-            follow_redirects=False,
-        )
-        response = self.client.get(
-            response.headers.get("Location"), follow_redirects=True
-        )
-        self.assert_template_used("profile.html")
-
-    def test_login_invalid_credentials(self):
-        """
-        Tests login functionality with invalid credentials to confirm system 
-        correctly identifies incorrect login attempts and prevents access.
-
-        Returns:
-            Asserts that the response status code is 200, the 'login.html' 
-            template is used, and an error message is displayed.
-        """
-        response = self.client.post(
-            "/login",
-            data={"email": "test@example.com", "password": "wrongpassword"},
-            follow_redirects=True,
-        )
-        self.assert200(response)
-        self.assert_template_used("login.html")
-        self.assertIn(
-            b"Please check your login details and try again.", response.data
-        )
-
-    def test_logout(self):
-        """
-        Tests the logout functionality to verify that a logged-in user can 
-        successfully log out and is redirected to the home page.
-
-        Returns:
-            Asserts that after logging out, the response status code is 200 and 
-            the 'home.html' template is used.
-        """
-        self.client.post(
-            "/login",
-            data={"email": "test@example.com", "password": "TestP@ssword!"},
-            follow_redirects=True,
-        )
-        response = self.client.get("/logout", follow_redirects=True)
-        self.assert200(response)
-        self.assert_template_used("home.html")
-
-    def test_logout_not_logged_in(self):
-        """
-        Tests the logout route's behavior when no user is logged in. This test 
-        ensures that the application handles unauthorized logout attempts 
-        gracefully.
-
-        Returns:
-            Asserts that the response redirects to the login page, showing a 
-            'login.html' template and a prompt to log in.
-        """
-        response = self.client.get("/logout", follow_redirects=True)
-        self.assert200(response)
-        self.assert_template_used("login.html")
-        self.assertIn(b"Login", response.data)
+    Returns:
+        Asserts that the response status code is 200 and that the correct 
+        template 'signup.html' is used.
+    """
+    with capture_templates() as templates:
+        response = client.get("/signup")
+        assert response.status_code == 200
+        assert b"Sign Up" in response.data  
+        assert len(templates) == 1
+        assert templates[0][0].name == 'signup.html'
 
 
-if __name__ == "__main__":
-    pytest.main()
+def test_signup_post_invalid_email(client):
+    """
+    Tests the signup functionality with an invalid email format. Verifies 
+    that the system correctly identifies the email as invalid and returns 
+    to the signup page.
+
+    Returns:
+        Asserts that the response status code is 200, the correct template 
+        'signup.html' is used, and an appropriate error message is included 
+        in the response.
+    """
+    response = client.post(
+        "/signup",
+        data={
+            "email": "bad_email",  # invalid email format
+            "password": "TestP@ssword!",
+        },
+        follow_redirects=True,
+    )
+    assert response.status_code == 200
+    assert b"Please enter a valid email address" in response.data
+
+def test_signup_post_invalid_password(client):
+    """
+    Tests the signup functionality with an invalid password. Ensures that 
+    the application rejects passwords that do not meet the specified 
+    security criteria.
+
+    Returns:
+        Asserts that the response status code is 200, the 'signup.html' 
+        template is used, and an appropriate error message is displayed.
+    """
+    response = client.client.post(
+        "/signup",
+        data={
+            "email": "test@example.com",  # invalid password
+            "password": "password!",
+        },
+        follow_redirects=True,
+    )
+    assert response.status_code == 200
+    assert b"Please enter a valid password" in response.data
+
+def test_signup_post_valid_credentials(client):
+    """
+    Tests the signup functionality with valid email and password. 
+    This test verifies if the application correctly handles valid 
+    registration credentials and redirects to the home page.
+
+    Returns:
+        Asserts that the response status code is 200, the 'home.html' 
+        template is used after successful signup.
+    """
+    response = client.client.post(
+        "/signup",
+        data={
+            "email": "new_user@example.com",  # valid email format
+            "password": "StrongPassword123!",
+        },
+        follow_redirects=True,
+    )
+    assert response.status_code == 200
+    client.assert_template_used("home.html")
+
+def test_signup_post_weak_password(client):
+    """
+    Tests the signup functionality with a weak password to verify that the 
+    system enforces strong password requirements.
+
+    Returns:
+        Asserts that the response status code is 200, the 'signup.html' 
+        template is reused, and an error message regarding password strength 
+        is displayed.
+    """
+    response = client.client.post(
+        "/signup",
+        data={"email": "new_user@example.com", "password": "weak"},
+        follow_redirects=True,
+    )
+    assert response.status_code == 200
+    client.assertIn(b"Please enter a valid password", response.data)
+
+def test_login_route(client):
+    """
+    Tests the accessibility of the login route by making a GET request to 
+    ensure the login page is accessible and rendered correctly.
+
+    Returns:
+        Asserts that the response status code is 200 and the 'login.html' 
+        template is used.
+    """
+    response = client.client.get("/login")
+    assert response.status_code == 200
+    client.assert_template_used("login.html")
+    client.assertIn(b"Login", response.data)
+
+def test_login_valid_credentials(client):
+    """
+    Tests login functionality with valid credentials to ensure that users 
+    can log in successfully and are redirected to their profile page.
+
+    Returns:
+        Asserts that the 'profile.html' template is used after a successful 
+        login and redirection.
+    """
+    response = client.client.post(
+        "/login",
+        data={"email": "test@example.com", "password": "TestP@ssword!"},
+        follow_redirects=False,
+    )
+    response = client.client.get(
+        response.headers.get("Location"), follow_redirects=True
+    )
+    client.assert_template_used("profile.html")
+
+def test_login_invalid_credentials(client):
+    """
+    Tests login functionality with invalid credentials to confirm system 
+    correctly identifies incorrect login attempts and prevents access.
+
+    Returns:
+        Asserts that the response status code is 200, the 'login.html' 
+        template is used, and an error message is displayed.
+    """
+    response = client.client.post(
+        "/login",
+        data={"email": "test@example.com", "password": "wrongpassword"},
+        follow_redirects=True,
+    )
+    assert response.status_code == 200
+    client.assert_template_used("login.html")
+    client.assertIn(
+        b"Please check your login details and try again.", response.data
+    )
+
+def test_logout(client):
+    """
+    Tests the logout functionality to verify that a logged-in user can 
+    successfully log out and is redirected to the home page.
+
+    Returns:
+        Asserts that after logging out, the response status code is 200 and 
+        the 'home.html' template is used.
+    """
+    client.client.post(
+        "/login",
+        data={"email": "test@example.com", "password": "TestP@ssword!"},
+        follow_redirects=True,
+    )
+    response = client.client.get("/logout", follow_redirects=True)
+    assert response.status_code == 200
+    client.assert_template_used("home.html")
+
+def test_logout_not_logged_in(client):
+    """
+    Tests the logout route's behavior when no user is logged in. This test 
+    ensures that the application handles unauthorized logout attempts 
+    gracefully.
+
+    Returns:
+        Asserts that the response redirects to the login page, showing a 
+        'login.html' template and a prompt to log in.
+    """
+    response = client.client.get("/logout", follow_redirects=True)
+    assert response.status_code == 200
+    client.assert_template_used("login.html")
+    client.assertIn(b"Login", response.data)
+
