@@ -13,8 +13,8 @@ lint:
 	pre-commit run --all-files
 
 .PHONY: test
-test: start
-	# test command
+test: # Runs all tests
+	pytest tests
 
 .PHONY: stamp_db
 stamp_db: # Runs the stamp command to set the base state of the db
