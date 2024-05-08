@@ -26,6 +26,7 @@ import os
 from dotenv import load_dotenv
 from new_arrivals_chi.app.authorize_routes import authorize
 from new_arrivals_chi.app.database import db, User
+from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required
 
@@ -122,7 +123,9 @@ def info():
 
 
 def create_app(config_override=None):
+    """This function creates the flask application for the web portal."""
     app = Flask(__name__)
+    app.config["TRANSLATIONS"] = load_translations()
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
         "DATABASE_URL", default="sqlite:///:memory:"
     )
