@@ -101,8 +101,9 @@ def create_fake_user(organization):
     )
 
 
-def create_fake_data(num_users, db, logger):
-    """Generate fake data for testing by creating multiple users and orgs.
+def create_fake_data(num_users, database, logger):
+    """
+    Generate fake data for testing by creating multiple users and organizations.
 
     Parameters:
         num_users (int): The number of users to create.
@@ -111,29 +112,36 @@ def create_fake_data(num_users, db, logger):
 
     Returns:
         None; logs data creation process and outcomes.
+
+    Parameters:
+    num_users (int): The number of users to create
+    database (SQLAlchemy): The database object to interact with the database
+    logger (Logger): The logger object to log messages
+
+    Returns:
+    None
     """
     logger.info("Starting to create fake data")
     try:
-        db.create_all()
-
         for _ in range(num_users):
             org = create_fake_organization()
-            db.session.add(org)
+            database.session.add(org)
 
             initial_user = create_fake_user(org)
-            db.session.add(initial_user)
+            database.session.add(initial_user)
 
             location = create_fake_location(initial_user.id)
-            db.session.add(location)
+            database.session.add(location)
 
             hours = create_fake_hours(initial_user.id)
-            db.session.add(hours)
-            db.session.commit()
-            logger.info(
-                f"Added org, user, location & hours for user {initial_user.id}"
-            )
+            database.session.add(hours)
+
+        database.session.commit()
+        logger.info(
+            f"Added org, user, location & hours for user {initial_user.id}"
+        )
     except Exception as e:
-        db.session.rollback()
+        database.session.rollback()
         logger.error(f"Error creating data: {e}, rolling back changes")
     else:
         logger.info("Fake data creation completed successfully")

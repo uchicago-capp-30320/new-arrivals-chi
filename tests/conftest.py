@@ -41,10 +41,14 @@ def app():
         "PREFERRED_URL_SCHEME": "http",
         "TESTING": True,
         "DEBUG": False,
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
     }
     app = create_app(config_override=test_config)
     with app.app_context():
+        db.create_all()
         yield app
+        db.session.remove()
+        db.drop_all()
 
 
 @pytest.fixture(scope="module")
