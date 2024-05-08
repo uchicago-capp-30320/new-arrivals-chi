@@ -52,8 +52,6 @@ def home():
     translations = load_translations()
     translations = translations[language]
 
-    print(translations)
-
     return render_template(
         "home.html", language=language, translations=translations
     )
