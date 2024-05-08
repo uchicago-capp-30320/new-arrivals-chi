@@ -11,9 +11,6 @@ including signup, login, and logout functionalities for the New Arrivals
 Chicago portal.
 
 Methods:
-    * create_app — Sets up the Flask application for testing.
-    * setUp — Prepares the database and a test user before each test.
-    * tearDown — Cleans up the database after each test.
     * test_signup_route — Tests the accessibility of the signup route.
     * test_signup_post_invalid_email — Tests signup with an invalid email.
     * test_signup_post_invalid_password — Tests signup with an invalid password.
@@ -42,7 +39,7 @@ from new_arrivals_chi.app.database import User
 from werkzeug.security import generate_password_hash
 
 
-def test_signup_route(client):
+def test_signup_route(client, captured_templates):
     """
     Tests the accessibility of the signup route by making a GET request 
     and verifying the response.
@@ -51,15 +48,14 @@ def test_signup_route(client):
         Asserts that the response status code is 200 and that the correct 
         template 'signup.html' is used.
     """
-    with capture_templates() as templates:
-        response = client.get("/signup")
-        assert response.status_code == 200
-        assert b"Sign Up" in response.data  
-        assert len(templates) == 1
-        assert templates[0][0].name == 'signup.html'
+    response = client.get("/signup")
+    assert response.status_code == 200
+    assert b"Sign Up" in response.data  
+    assert len(captured_templates) == 1
+    assert captured_templates[0][0].name == 'signup.html', "Wrong template used"
 
 
-def test_signup_post_invalid_email(client):
+def test_signup_post_invalid_email(client, captured_templates):
     """
     Tests the signup functionality with an invalid email format. Verifies 
     that the system correctly identifies the email as invalid and returns 
@@ -80,8 +76,11 @@ def test_signup_post_invalid_email(client):
     )
     assert response.status_code == 200
     assert b"Please enter a valid email address" in response.data
+    assert len(captured_templates) == 1
+    assert captured_templates[0][0].name == 'signup.html', "Wrong template used"
 
-def test_signup_post_invalid_password(client):
+
+def test_signup_post_invalid_password(client, captured_templates):
     """
     Tests the signup functionality with an invalid password. Ensures that 
     the application rejects passwords that do not meet the specified 
@@ -91,7 +90,7 @@ def test_signup_post_invalid_password(client):
         Asserts that the response status code is 200, the 'signup.html' 
         template is used, and an appropriate error message is displayed.
     """
-    response = client.client.post(
+    response = client.post(
         "/signup",
         data={
             "email": "test@example.com",  # invalid password
@@ -101,8 +100,10 @@ def test_signup_post_invalid_password(client):
     )
     assert response.status_code == 200
     assert b"Please enter a valid password" in response.data
+    assert len(captured_templates) == 1
+    assert captured_templates[0][0].name == 'signup.html', "Wrong template used"
 
-def test_signup_post_valid_credentials(client):
+def test_signup_post_valid_credentials(client, captured_templates):
     """
     Tests the signup functionality with valid email and password. 
     This test verifies if the application correctly handles valid 
@@ -112,7 +113,7 @@ def test_signup_post_valid_credentials(client):
         Asserts that the response status code is 200, the 'home.html' 
         template is used after successful signup.
     """
-    response = client.client.post(
+    response = client.post(
         "/signup",
         data={
             "email": "new_user@example.com",  # valid email format
@@ -121,9 +122,10 @@ def test_signup_post_valid_credentials(client):
         follow_redirects=True,
     )
     assert response.status_code == 200
-    client.assert_template_used("home.html")
+    assert len(captured_templates) == 1
+    assert captured_templates[0][0].name == 'home.html', "Wrong template used"
 
-def test_signup_post_weak_password(client):
+def test_signup_post_weak_password(client, captured_templates):
     """
     Tests the signup functionality with a weak password to verify that the 
     system enforces strong password requirements.
@@ -133,15 +135,17 @@ def test_signup_post_weak_password(client):
         template is reused, and an error message regarding password strength 
         is displayed.
     """
-    response = client.client.post(
+    response = client.post(
         "/signup",
         data={"email": "new_user@example.com", "password": "weak"},
         follow_redirects=True,
     )
     assert response.status_code == 200
-    client.assertIn(b"Please enter a valid password", response.data)
+    assert b"Please enter a valid password" in response.data
+    assert len(captured_templates) == 1
+    assert captured_templates[0][0].name == 'signup.html', "Wrong template used"
 
-def test_login_route(client):
+def test_login_route(client, captured_templates):
     """
     Tests the accessibility of the login route by making a GET request to 
     ensure the login page is accessible and rendered correctly.
@@ -150,12 +154,13 @@ def test_login_route(client):
         Asserts that the response status code is 200 and the 'login.html' 
         template is used.
     """
-    response = client.client.get("/login")
+    response = client.get("/login")
     assert response.status_code == 200
-    client.assert_template_used("login.html")
-    client.assertIn(b"Login", response.data)
+    assert b"Login" in response.data
+    assert len(captured_templates) == 1
+    assert captured_templates[0][0].name == 'login.html', "Wrong template used"
 
-def test_login_valid_credentials(client):
+def test_login_valid_credentials(client, captured_templates):
     """
     Tests login functionality with valid credentials to ensure that users 
     can log in successfully and are redirected to their profile page.
@@ -164,17 +169,19 @@ def test_login_valid_credentials(client):
         Asserts that the 'profile.html' template is used after a successful 
         login and redirection.
     """
-    response = client.client.post(
+    response = client.post(
         "/login",
         data={"email": "test@example.com", "password": "TestP@ssword!"},
         follow_redirects=False,
     )
-    response = client.client.get(
+    response = client.get(
         response.headers.get("Location"), follow_redirects=True
     )
-    client.assert_template_used("profile.html")
+    assert response.status_code == 200
+    assert captured_templates[0][0].name == 'profile.html', "Wrong template used"
 
-def test_login_invalid_credentials(client):
+
+def test_login_invalid_credentials(client, captured_templates):
     """
     Tests login functionality with invalid credentials to confirm system 
     correctly identifies incorrect login attempts and prevents access.
@@ -183,18 +190,18 @@ def test_login_invalid_credentials(client):
         Asserts that the response status code is 200, the 'login.html' 
         template is used, and an error message is displayed.
     """
-    response = client.client.post(
+    response = client.post(
         "/login",
         data={"email": "test@example.com", "password": "wrongpassword"},
         follow_redirects=True,
     )
     assert response.status_code == 200
-    client.assert_template_used("login.html")
-    client.assertIn(
-        b"Please check your login details and try again.", response.data
-    )
+    assert b"Please check your login details and try again." in response.data
+    assert len(captured_templates) == 1
+    assert captured_templates[0][0].name == 'login.html', "Wrong template used"
 
-def test_logout(client):
+
+def test_logout(client, captured_templates):
     """
     Tests the logout functionality to verify that a logged-in user can 
     successfully log out and is redirected to the home page.
@@ -203,16 +210,17 @@ def test_logout(client):
         Asserts that after logging out, the response status code is 200 and 
         the 'home.html' template is used.
     """
-    client.client.post(
+    response = client.post(
         "/login",
         data={"email": "test@example.com", "password": "TestP@ssword!"},
         follow_redirects=True,
     )
-    response = client.client.get("/logout", follow_redirects=True)
+    response = client.get("/logout", follow_redirects=True)
     assert response.status_code == 200
-    client.assert_template_used("home.html")
+    assert captured_templates[0][0].name == 'home.html', "Wrong template used"
 
-def test_logout_not_logged_in(client):
+
+def test_logout_not_logged_in(client, captured_templates):
     """
     Tests the logout route's behavior when no user is logged in. This test 
     ensures that the application handles unauthorized logout attempts 
@@ -222,8 +230,8 @@ def test_logout_not_logged_in(client):
         Asserts that the response redirects to the login page, showing a 
         'login.html' template and a prompt to log in.
     """
-    response = client.client.get("/logout", follow_redirects=True)
+    response = client.get("/logout", follow_redirects=True)
     assert response.status_code == 200
-    client.assert_template_used("login.html")
-    client.assertIn(b"Login", response.data)
+    assert captured_templates[0][0].name == 'login.html', "Wrong template used"
+
 
