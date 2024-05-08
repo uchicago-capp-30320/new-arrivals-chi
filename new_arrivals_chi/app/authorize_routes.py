@@ -16,7 +16,7 @@ Methods:
     * post_change_password - Executes change password logic.
 
 Last updated:
-@Author: Madeleine Roberts @MadeleineKRoberts
+@Author: Federico Dominguez Molina @FedericoDM
 @Date: 05/02/2024
 
 Creation:
@@ -27,7 +27,11 @@ Creation:
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from new_arrivals_chi.app.database import db, User
-from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
+from new_arrivals_chi.app.utils import (
+    validate_email_syntax,
+    validate_password,
+    load_translations,
+)
 from flask_login import login_user, login_required, logout_user, current_user
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
@@ -44,7 +48,11 @@ def signup():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("signup.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+    return render_template(
+        "signup.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/signup", methods=["POST"])
@@ -108,7 +116,11 @@ def login():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("login.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+    return render_template(
+        "login.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/login", methods=["POST"])
@@ -167,7 +179,11 @@ def change_password():
     """
 
     language = request.args.get("lang", "en")
-    return render_template("change_password.html", language=language)
+    translations = load_translations()
+    translations = translations[language]
+    return render_template(
+        "change_password.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/change_password", methods=["POST"])
