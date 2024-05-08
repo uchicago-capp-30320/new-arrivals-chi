@@ -5,6 +5,7 @@ repos:
       - id: trailing-whitespace
         exclude: '\.md$'
       - id: name-tests-test
+        exclude: 'setup_fake_db.py'
       - id: check-docstring-first
       - id: check-executables-have-shebangs
       - id: check-json
