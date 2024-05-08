@@ -102,8 +102,10 @@ def create_fake_user(organization):
 
 
 def create_fake_data(num_users, database, logger):
-    """
-    Generate fake data for testing by creating multiple users and organizations.
+    """Generate fake data for testing.
+
+    The function creates multiple users and organizations
+    for testing purposes.
 
     Parameters:
         num_users (int): The number of users to create.
