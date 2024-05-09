@@ -30,7 +30,12 @@ from unittest.mock import patch
 
 
 def test_set_up_password_hashed(test_user, setup_logger):
-    """Tests that the password stored in the database is correctly hashed."""
+    """Tests that the password stored in the database is correctly hashed.
+
+    Args:
+        test_user: User instance for which the test is run.
+        setup_logger: Setup logger.
+    """
     logger = setup_logger("test_set_up_password_hashede")
     try:
         user = User.query.filter_by(email="test@example.com").first()
@@ -46,6 +51,9 @@ def test_set_up_all_password_params(setup_logger):
 
     Requirements tested: 8+ characters, 1+ number, 1+ special characters, not
     empty, no spaces.
+
+    Args:
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_set_up_all_password_params")
     try:
@@ -75,7 +83,12 @@ def test_set_up_all_password_params(setup_logger):
 
 
 def test_password_never_logged_plaintext(client, setup_logger):
-    """Check that logger never stores plain text password."""
+    """Check that logger never stores plain text password.
+
+    Args:
+    client: The test client used for making requests.
+    setup_logger: Setup logger.
+    """
     logger = setup_logger("test_logger")
 
     # attempt to sign up a new user

@@ -37,6 +37,11 @@ def test_signup_route(client, capture_templates, setup_logger):
     This test verifies that accessing the signup route returns the correct HTTP
     status,contains the expected 'Sign Up' text, and renders the appropriate
     template.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_signup_route")
     try:
@@ -60,6 +65,11 @@ def test_signup_post_invalid_email(client, capture_templates, setup_logger):
 
     Verifies that the system
     correctly identifies the email as invalid and returns to the signup page.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_signup_post_invalid_email")
     try:
@@ -88,6 +98,11 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
 
     Ensures that the application rejects passwords that do not meet the
     specified security criteria.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_signup_post_invalid_password")
     try:
@@ -116,6 +131,11 @@ def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
 
     This test verifies if the application correctly handles valid
     registration credentials and redirects to the home page.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_signup_post_valid_credentials")
     try:
@@ -142,6 +162,11 @@ def test_signup_post_weak_password(client, capture_templates, setup_logger):
     """Tests the signup functionality with a weak password.
 
     Verify that the system enforces strong password requirements.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_signup_post_weak_password")
     try:
@@ -166,6 +191,11 @@ def test_login_route(client, capture_templates, setup_logger):
     """Tests the accessibility of the login route.
 
     Ensure the login page is accessible and rendered correctly.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_login_route")
     try:
@@ -189,6 +219,12 @@ def test_login_valid_credentials(
 
     Ensure that users can log in successfully and are redirected to their
     profile page.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        test_user: User instance for which the test is run.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_login_valid_credentials")
     try:
@@ -216,6 +252,11 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
 
     Tests login functionality with invalid credentials to confirm system
     correctly identifies incorrect login attempts and prevents access.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_login_invalid_credentials")
     try:
@@ -245,6 +286,13 @@ def test_logout(
 
     Tests the logout functionality to verify that a logged-in user can
     successfully log out and is redirected to the home page.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        test_user: User instance for which the test is run.
+        logged_in_state: Session object for the logged-in client.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_logout")
     try:
@@ -265,6 +313,11 @@ def test_logout_not_logged_in(client, capture_templates, setup_logger):
 
     This test ensures that the application handles unauthorized logout attempts
     gracefully.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_logout_not_logged_in")
     try:
@@ -288,6 +341,11 @@ def test_page_requiring_login_after_logout(
     This test ensures that the application redirects to the login page when an
     unauthenticated user attempts to access a restricted page (e.g., the profile
     page) after logging out.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
     """
     logger = setup_logger("test_page_requiring_login_after_logout")
     client.post(
