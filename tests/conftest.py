@@ -2,15 +2,21 @@
 Project: New Arrivals Chi
 File name: conftest.py
 Associated Files:
+   This script defines various pytest fixtures used across the test suite for
+   the New Arrivals Chi application.
 
-This script ...
-
-Methods:
-
+Fixtures:
+   - app: Flask application instance configured for testing.
+   - client: A test client for the app.
+   - database: Sets up a clean database before each test, tears down after.
+   - setup_logger: Creates a logger with file and console handlers for testing.
+   - capture_templates: Captures the templates rendered during a test.
+   - test_user: Creates a test user in the database before test, removes after.
+   - login_client: Logs in user for testing routes that require authentication.
 
 Last updated:
 @Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 2024-05-07
+@Date: 2024-05-08
 
 Creation:
 @Author: Aaron Haefner @aaronhaefner
@@ -93,7 +99,7 @@ def setup_logger():
     return create_logger
 
 
-# Reference: https://stackoverflow.com/questions/57006104/how-to-test-flask-view-context-and-templates-using-pytest
+# Reference: https://stackoverflow.com/questions/57006104/
 @pytest.fixture(scope="function")
 def capture_templates(app):
     """

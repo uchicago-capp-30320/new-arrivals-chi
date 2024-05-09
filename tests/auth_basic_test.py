@@ -9,16 +9,16 @@ including signup, login, and logout functionalities for the New Arrivals
 Chicago portal.
 
 Methods:
-    * test_signup_route — Tests the signup route.
-    * test_signup_post_invalid_email — Tests signup with an invalid email.
-    * test_signup_post_invalid_password — Tests signup with an invalid password.
-    * test_signup_post_valid_credentials — Tests signup with valid credentials.
-    * test_signup_post_weak_password — Tests signup with a weak password.
-    * test_login_route — Tests login route.
-    * test_login_valid_credentials — Tests login with valid credentials.
-    * test_login_invalid_credentials — Tests login with invalid credentials.
-    * test_logout — Tests the logout functionality.
-    * test_logout_not_logged_in — Tests the logout route when no user logged in.
+    * test_signup_route
+    * test_signup_post_invalid_email
+    * test_signup_post_invalid_password
+    * test_signup_post_valid_credentials
+    * test_signup_post_weak_password
+    * test_login_route
+    * test_login_valid_credentials
+    * test_login_invalid_credentials
+    * test_logout
+    * test_logout_not_logged_in
 
 Last updated:
 @Author: Kathryn Link-Oberstar @klinkoberstar
