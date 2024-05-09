@@ -14,6 +14,10 @@ The core configurations for our tests are managed through `conftest.py`, which i
 - `client`: Provides a test client for the application
 - `database`: Provides a test database instance for the application
 - `logger`: Provides an instance to log test results
+- `capture_templates`: Create a function to retrieve the templates rendered
+- `test_user`: Create a test user in the database before each test and remove after
+- `logged_in_state`(client): Logs in a user for testing routes that require authentication
+- 
 
 ## Writing Tests
 
@@ -31,6 +35,7 @@ The `setup_fake_db.py` script is used to create a fake database instance and fil
 - **Fake Data Creation**: Confirms that users, organizations, locations, and hours can be created, added to sessions, and committed without issues.
 - **Data Retrieval**: Tests retrieving users by their ID and asserts the correctness of the data like email format and user roles.
 - **Data Validation**: Verifies the integrity of data relationships, ensuring that users are linked to valid organizations and all entities have expected attributes.
+- **Authentication**: Tests to check authentication pathways including sign-up, login, logout, password changes, and password security.
 - **Error Handling and Logging**: Log errors during data creation and handle exceptions with rollback.
 
 ### Additional Tests - in progress

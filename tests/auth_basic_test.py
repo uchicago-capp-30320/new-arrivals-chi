@@ -19,6 +19,7 @@ Methods:
     * test_login_invalid_credentials
     * test_logout
     * test_logout_not_logged_in
+    * test_page_requiring_login_after_logout
 
 Last updated:
 @Author: Kathryn Link-Oberstar @klinkoberstar
@@ -274,6 +275,37 @@ def test_logout_not_logged_in(client, capture_templates, setup_logger):
             capture_templates[0][0].name == "login.html"
         ), "Wrong template used"
         logger.info("Successful redirect on invalid logout.")
+    except AssertionError as e:
+        logger.error(f"Test failed: {str(e)}")
+        raise
+
+
+def test_page_requiring_login_after_logout(
+    client, capture_templates, setup_logger
+):
+    """Tests behavior accessing page that requires login after user logged out.
+
+    This test ensures that the application redirects to the login page when an
+    unauthenticated user attempts to access a restricted page (e.g., the profile
+    page) after logging out.
+    """
+    logger = setup_logger("test_page_requiring_login_after_logout")
+    client.post(
+        "/login",
+        data={"username": "test@example.com", "password": "TestPassword123!"},
+        follow_redirects=True,
+    )
+    client.get("/logout", follow_redirects=True)
+
+    try:
+        profile_response = client.get("/profile", follow_redirects=True)
+        assert profile_response.status_code == 200
+        assert b"Login" in profile_response.data, "User not prompted to log in"
+        assert len(capture_templates) == 3
+        assert (
+            capture_templates[2][0].name == "login.html"
+        ), "Did not redirect to login page after trying to access profile"
+        logger.info("Successful redirect to login page.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
