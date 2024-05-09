@@ -21,7 +21,7 @@ Creation:
 
 from new_arrivals_chi.app.main import create_app, db
 from new_arrivals_chi.app.utils import setup_logger
-from db_test import create_fake_data
+from .db_test import create_fake_data
 
 
 def main():
