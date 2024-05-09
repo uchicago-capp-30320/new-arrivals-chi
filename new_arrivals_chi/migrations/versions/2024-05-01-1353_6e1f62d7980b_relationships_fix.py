@@ -1,4 +1,4 @@
-"""Relationships fix
+"""Relationships fix.
 
 Revision ID: 6e1f62d7980b
 Revises: 157b362584d8
