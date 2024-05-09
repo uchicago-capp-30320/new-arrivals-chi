@@ -144,13 +144,13 @@ def test_user(client):
     user_password = generate_password_hash(
         "TestP@ssword!", method="pbkdf2:sha256"
     )
-    test_user = User(email="test@example.com", password=user_password)
-    db.session.add(test_user)
+    user_test_case = User(email="test@example.com", password=user_password)
+    db.session.add(user_test_case)
     db.session.commit()
 
-    yield test_user
+    yield user_test_case
 
-    db.session.delete(test_user)
+    db.session.delete(user_test_case)
     db.session.commit()
 
 
