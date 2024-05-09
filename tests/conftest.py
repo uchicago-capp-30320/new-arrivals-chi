@@ -16,8 +16,8 @@ Fixtures:
    - login_client: Logs in user for testing routes that require authentication.
 
 Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 2024-05-08
+@Author: Aaron Haefner @aaronhaefner
+@Date: 2024-05-09
 
 Creation:
 @Author: Aaron Haefner @aaronhaefner
@@ -31,7 +31,7 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash
 from new_arrivals_chi.app.main import create_app, db, User
 from flask import template_rendered
-
+from flask_wtf import CSRFProtect
 
 @pytest.fixture(scope="module")
 def app():
@@ -48,8 +48,10 @@ def app():
         "DEBUG": False,
         "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
         "SECRET_KEY": "testing_key",
+        "WTF_CSRF_ENABLED": True,  # Enable CSRF protection for testing
     }
     app = create_app(config_override=test_config)
+    CSRFProtect(app)  # Initialize CSRF protection
     with app.app_context():
         db.create_all()
         yield app
