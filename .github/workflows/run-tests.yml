@@ -22,10 +22,12 @@ jobs:
         id: check-deps
         run: |
           echo "Checking pyproject.toml and poetry.lock for changes..."
-          CHANGES=$(git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} | grep -E "^(pyproject.toml|poetry.lock)$")
+          CHANGES=$(git diff --name-only origin/main origin/feature_ci_auto_deps | grep -E "^(pyproject.toml|poetry.lock)$" || true)
           echo "Changed files: $CHANGES"
           if [ ! -z "$CHANGES" ]; then
             echo "::set-output name=poetry_updated::true"
+          else
+            echo "No changes in pyproject.toml or poetry.lock."
           fi
 
       - name: Validate requirements.txt update
