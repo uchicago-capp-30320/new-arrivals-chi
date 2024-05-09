@@ -51,6 +51,8 @@ def main():
 
         logger.info("Fake data has been created successfully.")
 
+        return app, db
+
 
 if __name__ == "__main__":
     main()
