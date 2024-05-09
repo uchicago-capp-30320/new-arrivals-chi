@@ -1,4 +1,4 @@
-"""Project: New Arrivals Chicago
+"""Project: New Arrivals Chicago.
 
 File name: create_fake_data.py
 Associated Files: main.py, database.py, db_test.py
@@ -25,9 +25,10 @@ from .db_test import create_fake_data
 
 
 def main():
-    """
-    Main function to initialize fake database
-    using the create_fake_data function from db_test.
+    """Main function to initialize fake database.
+
+    Uses the create_fake_data function from db_test to
+    generate fake data for testing purposes.
 
     Returns:
         None; logs the completion of fake data generation.
