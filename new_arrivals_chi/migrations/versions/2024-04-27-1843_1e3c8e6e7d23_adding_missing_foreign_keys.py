@@ -1,4 +1,4 @@
-"""Adding missing foreign keys
+"""Adding missing foreign keys.
 
 Revision ID: 1e3c8e6e7d23
 Revises: 56a8e2512e2b
