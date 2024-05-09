@@ -29,7 +29,7 @@ Creation:
 
 
 def test_access_change_password_page(
-    client, capture_templates, test_user, login_client
+    client, capture_templates, test_user, logged_in_state, setup_logger
 ):
     """Test Access Change Password Page.
 
@@ -40,18 +40,25 @@ def test_access_change_password_page(
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         test_user: User instance for which the test is run.
-        login_client: Session object for the logged-in client.
+        logged_in_state: Session object for the logged-in client.
+        setup_logger: Setup logger.
     """
-    response = client.get("/change_password", follow_redirects=True)
-    assert response.status_code == 200
-    assert len(capture_templates) == 2
-    assert (
-        capture_templates[1][0].name == "change_password.html"
-    ), "Wrong template used"
+    logger = setup_logger("test_access_change_password_page")
+    try:
+        response = client.get("/change_password", follow_redirects=True)
+        assert response.status_code == 200
+        assert len(capture_templates) == 2
+        assert (
+            capture_templates[1][0].name == "change_password.html"
+        ), "Wrong template used"
+        logger.info("Change password page rendered correctly.")
+    except AssertionError as e:
+        logger.error(f"Test failed: {str(e)}")
+        raise
 
 
 def test_change_password_wrong_old_password(
-    client, capture_templates, test_user, login_client
+    client, capture_templates, test_user, logged_in_state, setup_logger
 ):
     """Tests change password functionality with an incorrect old password.
 
@@ -62,26 +69,35 @@ def test_change_password_wrong_old_password(
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         test_user: User instance for which the test is run.
-        login_client: Session object for the logged-in client.
+        logged_in_state: Session object for the logged-in client.
+        setup_logger: Setup logger.
     """
-    response = client.post(
-        "/change_password",
-        data={
-            "old_password": "BestP@ssword!",
-            "new_password": "TestP@ssword!_2!",
-        },
-        follow_redirects=True,
-    )
-    assert response.status_code == 200
-    assert b"Wrong existing password. Try again" in response.data
-    assert len(capture_templates) == 2
-    assert (
-        capture_templates[1][0].name == "change_password.html"
-    ), "Wrong template used"
+    logger = setup_logger("test_change_password_wrong_old_password")
+    try:
+        response = client.post(
+            "/change_password",
+            data={
+                "old_password": "BestP@ssword!",
+                "new_password": "TestP@ssword!_2!",
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200
+        assert b"Wrong existing password. Try again" in response.data
+        assert len(capture_templates) == 2
+        assert (
+            capture_templates[1][0].name == "change_password.html"
+        ), "Wrong template used"
+        logger.info(
+            "Change password successfully failed due to wrong old password."
+        )
+    except AssertionError as e:
+        logger.error(f"Test failed: {str(e)}")
+        raise
 
 
 def test_change_password_wrong_new_password_same_as_old(
-    client, capture_templates, test_user, login_client
+    client, capture_templates, test_user, logged_in_state, setup_logger
 ):
     """Tests change password functionality with the new password same as old.
 
@@ -92,29 +108,38 @@ def test_change_password_wrong_new_password_same_as_old(
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         test_user: User instance for which the test is run.
-        login_client: Session object for the logged-in client.
+        logged_in_state: Session object for the logged-in client.
+        setup_logger: Setup logger.
     """
-    response = client.post(
-        "/change_password",
-        data={
-            "old_password": "TestP@ssword!",
-            "new_password": "TestP@ssword!",
-        },
-        follow_redirects=True,
-    )
-    assert response.status_code == 200
-    assert (
-        b"New password cannot be the same as your previous password."
-        in response.data
-    )
-    assert len(capture_templates) == 2
-    assert (
-        capture_templates[1][0].name == "change_password.html"
-    ), "Wrong template used"
+    logger = setup_logger("test_change_password_wrong_new_password_same_as_old")
+    try:
+        response = client.post(
+            "/change_password",
+            data={
+                "old_password": "TestP@ssword!",
+                "new_password": "TestP@ssword!",
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200
+        assert (
+            b"New password cannot be the same as your previous password."
+            in response.data
+        )
+        assert len(capture_templates) == 2
+        assert (
+            capture_templates[1][0].name == "change_password.html"
+        ), "Wrong template used"
+        logger.info(
+            "Change password successfully failed - new password same as old."
+        )
+    except AssertionError as e:
+        logger.error(f"Test failed: {str(e)}")
+        raise
 
 
 def test_change_password_new_passwords_do_not_match(
-    client, capture_templates, test_user, login_client
+    client, capture_templates, test_user, logged_in_state, setup_logger
 ):
     """Tests change password functionality with mismatched new password.
 
@@ -125,27 +150,36 @@ def test_change_password_new_passwords_do_not_match(
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         test_user: User instance for which the test is run.
-        login_client: Session object for the logged-in client.
+        logged_in_state: Session object for the logged-in client.
+        setup_logger: Setup logger.
     """
-    response = client.post(
-        "/change_password",
-        data={
-            "old_password": "TestP@ssword!",
-            "new_password": "TestP@ssword!_2!",
-            "new_password_confirm": "BestP@ssword!_2!",
-        },
-        follow_redirects=True,
-    )
-    assert response.status_code == 200
-    assert b"New passwords do not match. Try again." in response.data
-    assert len(capture_templates) == 2
-    assert (
-        capture_templates[1][0].name == "change_password.html"
-    ), "Wrong template used"
+    logger = setup_logger("test_change_password_wrong_new_password_same_as_old")
+    try:
+        response = client.post(
+            "/change_password",
+            data={
+                "old_password": "TestP@ssword!",
+                "new_password": "TestP@ssword!_2!",
+                "new_password_confirm": "BestP@ssword!_2!",
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200
+        assert b"New passwords do not match. Try again." in response.data
+        assert len(capture_templates) == 2
+        assert (
+            capture_templates[1][0].name == "change_password.html"
+        ), "Wrong template used"
+        logger.info(
+            "Change password successfully failed - passwords don't match."
+        )
+    except AssertionError as e:
+        logger.error(f"Test failed: {str(e)}")
+        raise
 
 
 def test_change_password_new_password_invalid(
-    client, capture_templates, test_user, login_client
+    client, capture_templates, test_user, logged_in_state, setup_logger
 ):
     """Tests change password functionality with insecure new password.
 
@@ -156,29 +190,39 @@ def test_change_password_new_password_invalid(
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         test_user: User instance for which the test is run.
-        login_client: Session object for the logged-in client.
+        logged_in_state: Session object for the logged-in client.
+        setup_logger: Setup logger.
     """
-    response = client.post(
-        "/change_password",
-        data={
-            "old_password": "TestP@ssword!",
-            "new_password": "badpassword",
-            "new_password_confirm": "badpassword",
-        },
-        follow_redirects=True,
-    )
-    assert response.status_code == 200
-    assert (
-        b"New password does not meet requirements. Try again." in response.data
-    )
-    assert len(capture_templates) == 2
-    assert (
-        capture_templates[1][0].name == "change_password.html"
-    ), "Wrong template used"
+    logger = setup_logger("test_change_password_new_password_invalid")
+    try:
+        response = client.post(
+            "/change_password",
+            data={
+                "old_password": "TestP@ssword!",
+                "new_password": "badpassword",
+                "new_password_confirm": "badpassword",
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200
+        assert (
+            b"New password does not meet requirements. Try again."
+            in response.data
+        )
+        assert len(capture_templates) == 2
+        assert (
+            capture_templates[1][0].name == "change_password.html"
+        ), "Wrong template used"
+        logger.info(
+            "Change password successfully failed due to invalid new password."
+        )
+    except AssertionError as e:
+        logger.error(f"Test failed: {str(e)}")
+        raise
 
 
 def test_change_password_success(
-    client, test_user, login_client, capture_templates
+    client, test_user, logged_in_state, capture_templates, setup_logger
 ):
     """Verifies the successful change of a user's password.
 
@@ -189,36 +233,45 @@ def test_change_password_success(
     Args:
         client: The test client used for making requests.
         test_user: User instance for which the test is run.
-        login_client: Session object for the logged-in client.
+        logged_in_state: Session object for the logged-in client.
         capture_templates: Context manager to capture templates.
+        setup_logger: Setup logger.
     """
-    old_password = "TestP@ssword!"
-    new_password = "TestP@ssword!-2!"
+    logger = setup_logger("test_change_password_success")
+    try:
+        old_password = "TestP@ssword!"
+        new_password = "TestP@ssword!-2!"
 
-    # change password
-    response = client.post(
-        "/change_password",
-        data={
-            "old_password": old_password,
-            "new_password": new_password,
-            "new_password_confirm": new_password,
-        },
-        follow_redirects=True,
-    )
-    assert response.status_code == 200
+        # change password
+        response = client.post(
+            "/change_password",
+            data={
+                "old_password": old_password,
+                "new_password": new_password,
+                "new_password_confirm": new_password,
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200
 
-    # logout
-    client.get("/logout", follow_redirects=True)
+        # logout
+        client.get("/logout", follow_redirects=True)
 
-    # try to log in with the new password
-    response = client.post(
-        "/login",
-        data={"email": test_user.email, "password": new_password},
-        follow_redirects=True,
-    )
+        # try to log in with the new password
+        response = client.post(
+            "/login",
+            data={"email": test_user.email, "password": new_password},
+            follow_redirects=True,
+        )
 
-    # if the login is successful, password was changed correctly
-    assert response.status_code == 200
-    assert b"Profile" in response.data
-    assert len(capture_templates) == 3
-    assert capture_templates[2][0].name == "profile.html", "Wrong template used"
+        # if the login is successful, password was changed correctly
+        assert response.status_code == 200
+        assert b"Profile" in response.data
+        assert len(capture_templates) == 3
+        assert (
+            capture_templates[2][0].name == "profile.html"
+        ), "Wrong template used"
+        logger.info("Change password successful.")
+    except AssertionError as e:
+        logger.error(f"Test failed: {str(e)}")
+        raise

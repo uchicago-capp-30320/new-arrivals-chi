@@ -155,7 +155,7 @@ def test_user(client):
 
 
 @pytest.fixture(scope="function")
-def login_client(client):
+def logged_in_state(client):
     """Logs in a user for testing routes that require authentication."""
     client.post(
         "/login",
