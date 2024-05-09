@@ -17,14 +17,18 @@ jobs:
         id: check-deps
         run: |
           echo "Checking pyproject.toml and poetry.lock for changes..."
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -E "^(pyproject.toml|poetry.lock)$"; then
+          CHANGES=$(git diff --name-only ${{ github.base_ref }} ${{ github.head_ref }} | grep -E "^(pyproject.toml|poetry.lock)$")
+          echo "Changed files: $CHANGES"
+          if [ ! -z "$CHANGES" ]; then
             echo "::set-output name=poetry_updated::true"
           fi
 
       - name: Validate requirements.txt update
         if: steps.check-deps.outputs.poetry_updated == 'true'
         run: |
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "requirements.txt"; then
+          REQUIREMENTS_CHANGE=$(git diff --name-only ${{ github.base_ref }} ${{ github.head_ref }} | grep -q "requirements.txt")
+          echo "Requirements.txt changed: $REQUIREMENTS_CHANGE"
+          if [ ! -z "$REQUIREMENTS_CHANGE" ]; then
             echo "requirements.txt updated correctly."
           else
             echo "ERROR: pyproject.toml or poetry.lock has changed, but requirements.txt has not been updated."
