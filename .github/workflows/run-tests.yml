@@ -25,7 +25,14 @@ jobs:
           CHANGES=$(git diff --name-only origin/main origin/feature_ci_auto_deps | grep -E "^(pyproject.toml|poetry.lock)$" || true)
           echo "Changed files: $CHANGES"
           if [ ! -z "$CHANGES" ]; then
-            echo "::set-output name=poetry_updated::true"
+            echo "Checking if requirements.txt has also been updated..."
+            if git diff --name-only origin/main origin/feature_ci_auto_deps | grep -q "requirements.txt"; then
+              echo "requirements.txt updated correctly."
+            else
+              echo "ERROR: pyproject.toml or poetry.lock has changed, but requirements.txt has not been updated."
+              echo "Please update requirements.txt by running 'make'."
+              exit 1
+            fi
           else
             echo "No changes in pyproject.toml or poetry.lock."
           fi
