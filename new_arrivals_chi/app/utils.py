@@ -11,24 +11,6 @@ Methods:
     * validate_email_syntax — Validates the syntax of an email address.
     * validate_password - Validates the strength of a password.
 
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 04/19/2024
-"""
-
-"""Project: new_arrivals_chi.
-
-File name: utils.py
-Associated Files:
-   authorize_routes.py.
-
-This file contains utility methods for validating user input.
-
-
-Methods:
-    * validate_email_syntax — Validates the syntax of an email address.
-    * validate_password - Validates the strength of a password.
-
 Last updated:
 @Author: Federico Dominguez @FedericoDM
 @Date: 05/07/2024
@@ -38,9 +20,9 @@ Creation:
 @Date: 04/19/2024
 """
 
+import logging
 import re
 import os
-import logging
 from datetime import datetime
 import json
 
@@ -114,8 +96,7 @@ def setup_logger(name):
 
 
 def load_translations():
-    """
-    Loads translations from JSON files for supported languages.
+    """Loads translations from JSON files for supported languages.
 
     Returns:
         dict: A dictionary containing translations for supported languages.
