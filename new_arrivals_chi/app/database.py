@@ -1,3 +1,5 @@
+"""This script contains the corresponding database models for the app."""
+
 from sqlalchemy import Enum, Table, ForeignKey, Column, Integer
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
@@ -77,6 +79,8 @@ location_services = db.Table(
 
 
 class User(UserMixin, db.Model):
+    """Class for the users table in the database."""
+
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
@@ -97,6 +101,8 @@ class User(UserMixin, db.Model):
 
 
 class Organization(db.Model):
+    """Class for the organizations table in the database."""
+
     __tablename__ = "organizations"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(260), nullable=False)
@@ -145,6 +151,8 @@ class Organization(db.Model):
 
 
 class Language(db.Model):
+    """Class for the languages table in the database."""
+
     __tablename__ = "languages"
     id = db.Column(db.Integer, primary_key=True)
     language = db.Column(db.String(50), nullable=False)
@@ -162,6 +170,8 @@ class Language(db.Model):
 
 
 class Hours(db.Model):
+    """Class for the hours table in the database."""
+
     __tablename__ = "hours"
     id = db.Column(db.Integer, primary_key=True)
     day_of_week = db.Column(db.Integer, nullable=False)
@@ -179,6 +189,8 @@ class Hours(db.Model):
 
 
 class Service(db.Model):
+    """Class for the services table in the database."""
+
     __tablename__ = "services"
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(100), nullable=False)
@@ -207,6 +219,8 @@ class Service(db.Model):
 
 
 class ServiceDate(db.Model):
+    """Class for the service_dates table in the database."""
+
     __tablename__ = "service_dates"
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False)
@@ -236,6 +250,8 @@ class ServiceDate(db.Model):
 
 
 class Location(db.Model):
+    """Class for the locations table in the database."""
+
     __tablename__ = "locations"
     id = db.Column(db.Integer, primary_key=True)
     street_address = db.Column(db.String(255), nullable=False)

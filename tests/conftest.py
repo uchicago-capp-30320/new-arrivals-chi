@@ -34,7 +34,11 @@ from flask import template_rendered
 
 @pytest.fixture(scope="module")
 def app():
-    """Provides the Flask application instance configured for testing."""
+    """Provides the Flask application instance configured for testing.
+
+    Returns:
+        Yields the Flask application instance with test configurations applied.
+    """
     test_config = {
         "SERVER_NAME": "localhost.localdomain:5000",
         "APPLICATION_ROOT": "/",
@@ -54,14 +58,26 @@ def app():
 
 @pytest.fixture(scope="module")
 def client(app):
-    """A test client for the app."""
+    """Provides a test client for the app.
+
+    Parameters:
+        app (Flask): The Flask app instance for which to create a test client.
+
+    Returns:
+        The test client for the given Flask app.
+    """
     return app.test_client()
 
 
 @pytest.fixture(scope="function")
 def database(app):
-    """
-    Set up a clean database before each test and tear it down after.
+    """Sets up a clean database before each test and tears it down after.
+
+    Parameters:
+        app (Flask): The Flask app instance to use for test database setup.
+
+    Returns:
+        Yields the database instance to be used in tests.
     """
     with app.app_context():
         db.create_all()
@@ -72,6 +88,12 @@ def database(app):
 
 @pytest.fixture(scope="function")
 def setup_logger():
+    """Creates a logger with file and console handlers.
+
+    Returns:
+        A function that creates and returns a configured logger.
+    """
+
     def create_logger(name: str, level=logging.INFO) -> logging.Logger:
         log_directory = "logs"
         if not os.path.exists(log_directory):

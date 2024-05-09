@@ -1,4 +1,4 @@
-"""Adding created_by, deleted_by, created_at and deleted_at columns
+"""Adding created_by, deleted_by, created_at and deleted_at columns.
 
 Revision ID: 56a8e2512e2b
 Revises: 16cf46fcdfbf
