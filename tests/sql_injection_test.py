@@ -31,7 +31,7 @@ Methods:
 
 Last updated:
 @Author: Xiomara Salazar @xiomara0
-@Date: 05/07/2024
+@Date: 05/09/2024
 
 Creation:
 @Author: Xiomara Salazar @xiomara0
@@ -42,17 +42,26 @@ import pytest
 from sqlalchemy.orm import Session
 from sqlalchemy import select, inspect
 from tests.db_test import create_fake_user, create_fake_organization
+from tests.setup_fake_db import main
 from new_arrivals_chi.app.database import User
 
-
+#creating fake users for queries
 test_org = create_fake_organization()
 test_user = create_fake_user(test_org)
 
 
-def database_query(app, database, setup_logger, input_value):
+# def fake_database():
+#     """
+#     Initialize the fake database
+#     with fake data before running the tests.
+#     """
+     
+
+def database_query(app, setup_logger, input_value):
     """
     Function to execute a database query and check the number of rows returned.
     """
+    main() 
 
     logger = setup_logger("test_injections")
 
@@ -60,7 +69,7 @@ def database_query(app, database, setup_logger, input_value):
         logger.info("Starting injection test")
     
         # Attempt to retrieve a user with the safe input value
-        with Session(bind=database.engine) as session:
+        with app.scoped_session() as session:
             logger.info("Attempting to retrieve user with test input")
             users_select = select(User).where(User.email == input_value)
             users = session.execute(users_select).scalars().all()
@@ -68,69 +77,70 @@ def database_query(app, database, setup_logger, input_value):
             return len(users)
 
 
-def test_safe_injections(app, database, setup_logger): 
+def test_safe_injections(app, setup_logger): 
     """
     Test function for testing safe input handling or prevention of SQL injections.
     """
 
     input_value = f"'{test_user.email}'"
 
-    row_count = database_query(app, database, setup_logger, input_value)
+    row_count = database_query(app, setup_logger, input_value)
 
-    assert row_count == 0 ## it's okay if this one is 0 right? since I am using dummy data
-                          ## won't it always be 0; should i use real data for the other ones?
+    assert row_count == 0 
 
 
-def test_unsafe_injection_return_all_rows(app, database, setup_logger): 
+def test_unsafe_injection_return_all_rows(app, setup_logger): 
     """
     Test function for an unsafe input attempting to return all rows.
     """
 
     input_value = f"'{test_user.email}' OR 1=1;"
 
-    row_count = database_query(app, database, setup_logger, input_value)
+    row_count = database_query(app, setup_logger, input_value)
 
     assert row_count == 0 
 
 
-def test_unsafe_injection_alter_table(app, database, setup_logger): 
+def test_unsafe_injection_alter_table(app, setup_logger): 
     """
     Test function for an unsafe input attempting to alter the table.
     Checks if table still exists and if anything is returned.
     """
 
     input_value = f"'{test_user.email}'; DROP TABLE users; --"
-    metadata = database.metadata
 
-    if 'users' in metadata.tables:
+    inspector = inspect(app)
+
+    row_count = database_query(app, setup_logger, input_value)
+
+    # Check if the 'users' table exists in the metadata
+    if 'users' in inspector.get_table_names():
         table_exists = True
     else:
         table_exists = False
 
     assert table_exists, "Table 'users' does not exist"
-
-    row_count = database_query(app, database, setup_logger, input_value)
-
     assert row_count == 0
 
 
-def test_unsafe_line_comments_injection(app, database, setup_logger): 
+def test_unsafe_line_comments_injection(app, setup_logger): 
     """
     Test function for testing prevention of line comments in SQL queries.
     """
 
     input_value = f"'{test_user.email}'; DROP TABLE users /*"
-    metadata = database.metadata
+     # Assuming you have an inspector instance for your database
+    inspector = inspect(app)
 
-    if 'users' in metadata.tables:
+    row_count = database_query(app, setup_logger, input_value)
+
+    # Check if the 'users' table exists in the metadata
+    if 'users' in inspector.get_table_names():
         table_exists = True
     else:
         table_exists = False
 
     assert table_exists, "Table 'users' does not exist"
-
-    row_count = database_query(app, database, setup_logger, input_value)
-
     assert row_count == 0
 
 

@@ -22,8 +22,9 @@ Test files are organized by their respective application components.
 ## Database Operation Tests
 
 The `db_test.py` file focuses on testing database operations and consistency across our application.
-
 It utilizes fixtures for the app, logger, and database and ensures all tests run within the application context.
+
+The `setup_fake_db.py` script is used to create a fake database instance and fill it with fake data.
 
 ### Tests Included
 
