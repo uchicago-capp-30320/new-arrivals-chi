@@ -1,8 +1,9 @@
-"""
-Project: New Arrivals Chi
+"""Project: New Arrivals Chi.
+
 File name: auth_change_password_test.py
+
 Associated Files:
-    Templates: change_password.html, login.html, profile.html
+    Templates: change_password.html, login.html, profile.html.
 
 This test suite verifies the functionality of the change password feature,
 including testing various scenarios such as incorrect old password,
@@ -30,8 +31,16 @@ Creation:
 def test_access_change_password_page(
     client, capture_templates, test_user, login_client
 ):
-    """
-    Tests that change password page can be reached.
+    """Test Access Change Password Page.
+
+    Verifies that the change password page is accessible.
+    Ensures that the correct template is rendered when accessing this page.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        test_user: User instance for which the test is run.
+        login_client: Session object for the logged-in client.
     """
     response = client.get("/change_password", follow_redirects=True)
     assert response.status_code == 200
@@ -44,6 +53,17 @@ def test_access_change_password_page(
 def test_change_password_wrong_old_password(
     client, capture_templates, test_user, login_client
 ):
+    """Tests change password functionality with an incorrect old password.
+
+    This should not allow the user to change the password, and the same page
+    should be re-rendered with an error message.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        test_user: User instance for which the test is run.
+        login_client: Session object for the logged-in client.
+    """
     response = client.post(
         "/change_password",
         data={
@@ -63,6 +83,17 @@ def test_change_password_wrong_old_password(
 def test_change_password_wrong_new_password_same_as_old(
     client, capture_templates, test_user, login_client
 ):
+    """Tests change password functionality with the new password same as old.
+
+    The user should receive an error stating that the new password
+    cannot be the same as the old password.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        test_user: User instance for which the test is run.
+        login_client: Session object for the logged-in client.
+    """
     response = client.post(
         "/change_password",
         data={
@@ -85,6 +116,17 @@ def test_change_password_wrong_new_password_same_as_old(
 def test_change_password_new_passwords_do_not_match(
     client, capture_templates, test_user, login_client
 ):
+    """Tests change password functionality with mismatched new password.
+
+    This should result in an error message prompting the user to
+    ensure passwords match.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        test_user: User instance for which the test is run.
+        login_client: Session object for the logged-in client.
+    """
     response = client.post(
         "/change_password",
         data={
@@ -105,6 +147,17 @@ def test_change_password_new_passwords_do_not_match(
 def test_change_password_new_password_invalid(
     client, capture_templates, test_user, login_client
 ):
+    """Tests change password functionality with insecure new password.
+
+    This should re-render the page with an error message regarding password
+    requirements.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        test_user: User instance for which the test is run.
+        login_client: Session object for the logged-in client.
+    """
     response = client.post(
         "/change_password",
         data={
@@ -127,9 +180,17 @@ def test_change_password_new_password_invalid(
 def test_change_password_success(
     client, test_user, login_client, capture_templates
 ):
-    """
-    Verifies that the password change functionality works correctly by changing
-    the password and then logging in with updated credentials.
+    """Verifies the successful change of a user's password.
+
+    Complete flow of changing the password, logging out, and then logging back
+    in with the new password.This test ensures that all steps in the password
+    change process work correctly together.
+
+    Args:
+        client: The test client used for making requests.
+        test_user: User instance for which the test is run.
+        login_client: Session object for the logged-in client.
+        capture_templates: Context manager to capture templates.
     """
     old_password = "TestP@ssword!"
     new_password = "TestP@ssword!-2!"

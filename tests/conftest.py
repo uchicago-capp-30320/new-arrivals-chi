@@ -1,6 +1,7 @@
-"""
-Project: New Arrivals Chi
+"""Project: New Arrivals Chi.
+
 File name: conftest.py
+
 Associated Files:
    This script defines various pytest fixtures used across the test suite for
    the New Arrivals Chi application.
@@ -124,9 +125,7 @@ def setup_logger():
 # Reference: https://stackoverflow.com/questions/57006104/
 @pytest.fixture(scope="function")
 def capture_templates(app):
-    """
-    Create a function to retrieve the templates rendered.
-    """
+    """Create a function to retrieve the templates rendered."""
     recorded = []
 
     def record(sender, template, context, **extra):
@@ -141,9 +140,7 @@ def capture_templates(app):
 
 @pytest.fixture(scope="function")
 def test_user(client):
-    """
-    Create a test user in the database before each test and remove it after.
-    """
+    """Create a test user in the database before each test and remove after."""
     user_password = generate_password_hash(
         "TestP@ssword!", method="pbkdf2:sha256"
     )
@@ -159,9 +156,7 @@ def test_user(client):
 
 @pytest.fixture(scope="function")
 def login_client(client):
-    """
-    Logs in a user for testing routes that require authentication.
-    """
+    """Logs in a user for testing routes that require authentication."""
     client.post(
         "/login",
         data={"email": "test@example.com", "password": "TestP@ssword!"},

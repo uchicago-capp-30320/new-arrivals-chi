@@ -1,9 +1,10 @@
-"""
-Project: New Arrivals Chi
+"""Project: New Arrivals Chi.
+
 File name: auth_security_test.py
+
 Associated Files:
    Templates: signup.html, login.html
-   Utils: validate_password
+   Utils: validate_password.
 
 This test suite performs more robust security testing for user authorization
 routes and password handling mechanisms for the New Arrivals Chicago portal.
@@ -29,17 +30,16 @@ from unittest.mock import patch
 
 
 def test_set_up_password_hashed(test_user):
-    """
-    Tests that the password stored in the database is correctly hashed.
-    """
+    """Tests that the password stored in the database is correctly hashed."""
     user = User.query.filter_by(email="test@example.com").first()
     assert check_password_hash(user.password, "TestP@ssword!")
 
 
 def test_set_up_all_password_params():
-    """
-    Test passwords that each violate only one of the requirements:
-    8+ characters, 1+ number, 1+ special characters, not empty, no spaces
+    """Test passwords that each violate only one of the requirements.
+
+    Requirements tested: 8+ characters, 1+ number, 1+ special characters, not
+    empty, no spaces.
     """
     # test password with less than 8 characters
     short_password = "pA4s!12"
@@ -63,9 +63,7 @@ def test_set_up_all_password_params():
 
 
 def test_password_never_logged_plaintext(client, setup_logger):
-    """
-    Check that logger never stores plain text password.
-    """
+    """Check that logger never stores plain text password."""
     logger = setup_logger("test_logger")
 
     # attempt to sign up a new user
