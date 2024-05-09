@@ -1,3 +1,8 @@
+"""Script to run migrations for the database.
+
+This script is used by Alembic when running migrations for the database.
+"""
+
 import logging
 from logging.config import fileConfig
 import new_arrivals_chi.app.database as models

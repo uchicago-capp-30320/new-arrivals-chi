@@ -1,4 +1,4 @@
-"""Change primary location to boolean
+"""Change primary location to boolean.
 
 Revision ID: 157b362584d8
 Revises: d3cd733bc032
