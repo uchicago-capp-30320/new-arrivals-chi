@@ -6,10 +6,16 @@ Associated Files:
 
 This file contains utility methods for validating user input.
 
-
 Methods:
     * validate_email_syntax — Validates the syntax of an email address.
     * validate_password - Validates the strength of a password.
+    * extract_signup_data - Extracts signup data from a request object.
+    * extract_new_pw_data - Extracts new password data from a request object.
+    * setup_logger - Creates a logger for recording the output of the script.
+
+Last Updated:
+@Author: Madeleine Roberts @MadeleineKRoberts
+@Date: 05/19/2024
 
 Creation:
 @Author: Madeleine Roberts @MadeleineKRoberts
@@ -25,12 +31,32 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from password_strength import PasswordPolicy, PasswordStats
 
 def extract_signup_data(form):
+    """Extracts signup data from a POST request form.
+
+    Parameters:
+        form (ImmutableMultiDict): The ImmutableMultiDict object containing form data from a POST request.
+            It should have keys "email", "password", and "password_confirm".
+
+    Returns:
+        tuple: A tuple containing the extracted email, password, and password_confirm.
+    """
+    
     email = form.get("email").lower()
     password = form.get("password")
     password_confirm = form.get("password_confirm")
     return email, password, password_confirm
 
 def extract_new_pw_data(form):
+    """Extracts new password data from a POST request form.
+
+    Parameters:
+        form (ImmutableMultiDict): The ImmutableMultiDict object containing form data from a POST request.
+            It should have keys "old_password", "new_password", and "new_password_confirm".
+
+    Returns:
+        tuple: A tuple containing the extracted old_password, new_password, and new_password_confirm.
+    """
+
     old_password = form.get("old_password")
     new_password = form.get("new_password")
     new_password_confirm = form.get("new_password_confirm")
@@ -49,6 +75,7 @@ def validate_email_syntax(email):
     Returns:
         bool: True if the email syntax is valid, False otherwise.
     """
+
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
     return re.match(pattern, email) is not None
 
@@ -70,13 +97,13 @@ def validate_password(password):
         bool: True if the password meets the strength requirements,
         False otherwise.
     """
-    
+
     policy = PasswordPolicy.from_names(
         length=8,
         uppercase=1,  # need min. 1 uppercase letter
         numbers=1,  # need min. 1 digit
         special=1,  # need min. 1 special character
-        strength=0.5
+        strength=0.66 # Minimum value to be considered a strong password
     )
     
     policy_reqs = len(policy.test(password))
@@ -88,7 +115,15 @@ def validate_password(password):
    
 
 def setup_logger(name):
-    """Create a logger for recording the output of the script."""
+    """Create a logger for recording the output of the script.
+
+    Parameters:
+        name (str): The name of the logger.
+
+    Returns:
+        logging.Logger: The configured logger object.
+    """
+
     log_directory = "logs"
     if not os.path.exists(log_directory):
         os.makedirs(log_directory)
