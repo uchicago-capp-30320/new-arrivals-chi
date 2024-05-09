@@ -21,7 +21,6 @@ import re
 import os
 import logging
 from datetime import datetime
-from new_arrivals_chi.app.database import db, User
 from werkzeug.security import generate_password_hash, check_password_hash
 from password_strength import PasswordPolicy, PasswordStats
 
@@ -30,6 +29,12 @@ def extract_signup_data(form):
     password = form.get("password")
     password_confirm = form.get("password_confirm")
     return email, password, password_confirm
+
+def extract_new_pw_data(form):
+    old_password = form.get("old_password")
+    new_password = form.get("new_password")
+    new_password_confirm = form.get("new_password_confirm")
+    return old_password, new_password, new_password_confirm
 
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
 def validate_email_syntax(email):
@@ -79,19 +84,8 @@ def validate_password(password):
 
     no_space = re.search(r"\s", password) is None
 
-    return policy_reqs==0 and no_space
+    return policy_reqs == 0 and no_space
    
-
-def create_user(email, password):
-    new_user = User(
-        email=email,
-        password=generate_password_hash(password, method="pbkdf2:sha256"),
-    )
-    db.session.add(new_user)
-    db.session.commit()
-
-    return new_user
-
 
 def setup_logger(name):
     """Create a logger for recording the output of the script."""
