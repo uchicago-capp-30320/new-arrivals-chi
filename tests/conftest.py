@@ -1,9 +1,30 @@
+"""
+Project: New Arrivals Chi
+File name: conftest.py
+Associated Files:
+
+This script ...
+
+Methods:
+
+
+Last updated:
+@Author: Kathryn Link-Oberstar @klinkoberstar
+@Date: 2024-05-07
+
+Creation:
+@Author: Aaron Haefner @aaronhaefner
+@Date: 2024-05-06
+"""
+
 import pytest
 import logging
 import os
 from datetime import datetime
-from new_arrivals_chi.app.main import create_app, db
+from werkzeug.security import generate_password_hash
+from new_arrivals_chi.app.main import create_app, db, User
 from flask import template_rendered
+
 
 @pytest.fixture(scope="module")
 def app():
@@ -15,7 +36,7 @@ def app():
         "TESTING": True,
         "DEBUG": False,
         "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
-        "SECRET_KEY" : "testing_key",
+        "SECRET_KEY": "testing_key",
     }
     app = create_app(config_override=test_config)
     with app.app_context():
@@ -71,8 +92,13 @@ def setup_logger():
 
     return create_logger
 
+
+# Reference: https://stackoverflow.com/questions/57006104/how-to-test-flask-view-context-and-templates-using-pytest
 @pytest.fixture(scope="function")
-def captured_templates(app):
+def capture_templates(app):
+    """
+    Create a function to retrieve the templates rendered.
+    """
     recorded = []
 
     def record(sender, template, context, **extra):
@@ -83,3 +109,34 @@ def captured_templates(app):
         yield recorded
     finally:
         template_rendered.disconnect(record, app)
+
+
+@pytest.fixture(scope="function")
+def test_user(client):
+    """
+    Create a test user in the database before each test and remove it after.
+    """
+    user_password = generate_password_hash(
+        "TestP@ssword!", method="pbkdf2:sha256"
+    )
+    test_user = User(email="test@example.com", password=user_password)
+    db.session.add(test_user)
+    db.session.commit()
+
+    yield test_user
+
+    db.session.delete(test_user)
+    db.session.commit()
+
+
+@pytest.fixture(scope="function")
+def login_client(client):
+    """
+    Logs in a user for testing routes that require authentication.
+    """
+    client.post(
+        "/login",
+        data={"email": "test@example.com", "password": "TestP@ssword!"},
+        follow_redirects=True,
+    )
+    yield client
