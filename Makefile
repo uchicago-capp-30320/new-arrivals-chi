@@ -14,7 +14,7 @@ lint:
 
 .PHONY: test
 test: # Runs all tests
-	pytest tests
+	pytest tests -vs
 
 .PHONY: stamp_db
 stamp_db: # Runs the stamp command to set the base state of the db
