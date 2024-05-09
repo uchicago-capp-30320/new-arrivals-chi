@@ -19,6 +19,7 @@ psycopg2-binary = "^2.9.9"
 flask-sqlalchemy = "^3.1.1"
 faker = "^25.0.0"
 flask-login = "^0.6.3"
+pyopenssl = "^24.1.0"
 
 
 [build-system]
