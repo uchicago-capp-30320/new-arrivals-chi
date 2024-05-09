@@ -17,7 +17,7 @@ Methods:
 
 Last updated:
 @Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/02/2024
+@Date: 05/09/2024
 
 Creation:
 @Author: Madeleine Roberts @MadeleineKRoberts
@@ -27,7 +27,7 @@ Creation:
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from new_arrivals_chi.app.database import db, User
-from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
+from new_arrivals_chi.app.utils import validate_email_syntax, validate_password, extract_signup_data, create_user
 from flask_login import login_user, login_required, logout_user, current_user
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
@@ -59,42 +59,30 @@ def signup_post():
         Redirects back to the sign up page if there are validation errors
         or if the email address already exists in the database.
     """
-    email = request.form.get("email")
-    password = request.form.get("password")
+
+    email, password, password_confirm = extract_signup_data(request.form)
 
     # ensure that input meets requirments
-    email_synax = validate_email_syntax(email)
-
-    if not email_synax:
+    if not validate_email_syntax(email):
         flash("Please enter a valid email address")
-        return redirect(url_for("authorize.signup"))
 
-    # password constraints: 8+ characters, 1+ number, 1+ special characters
-    # cannot be empty, cannot contain certain special chars, no spaces
-    password_strength = validate_password(password)
-
-    if not password_strength:
-        flash("Please enter a valid password")
-        return redirect(url_for("authorize.signup"))
-
-    # if this returns a user, then the email already exists in database
-    user = User.query.filter_by(email=email).first()
-
-    if user:
-        # if a user is found, we want to redirect back to signup page
+    elif User.query.filter_by(email=email).first():
+        # email already exists in database
         flash("Email address already exists for user")
-        return redirect(url_for("authorize.signup"))
+       
+    elif not password == password_confirm:
+        flash("New passwords do not match. Try again")
 
-    # create a new user with the form data
-    new_user = User(
-        email=email,
-        password=generate_password_hash(password, method="pbkdf2:sha256"),
-    )
-    # add the new user to the database
-    db.session.add(new_user)
-    db.session.commit()
-
-    return redirect(url_for("main.home"))
+    elif not validate_password(password):
+        flash("Please enter a valid password")
+       
+    else:
+        # Meets all sign up requirements
+        new_user = create_user(email, password)
+        login_user(new_user, remember=False)
+        return redirect(url_for("main.profile"))
+    
+    return redirect(url_for("authorize.signup"))
 
 
 @authorize.route("/login")
@@ -118,7 +106,7 @@ def login_post():
         Redirects to the user's profile page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
-    email = request.form.get("email")
+    email = request.form.get("email").lower()
     password = request.form.get("password")
     remember = True if request.form.get("remember") else False
 
