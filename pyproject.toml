@@ -21,6 +21,11 @@ faker = "^25.0.0"
 flask-login = "^0.6.3"
 pyopenssl = "^24.1.0"
 
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.per-file-ignores]
+"new_arrivals_chi/migrations/*" = ["D103"]
 
 [build-system]
 requires = ["poetry-core"]

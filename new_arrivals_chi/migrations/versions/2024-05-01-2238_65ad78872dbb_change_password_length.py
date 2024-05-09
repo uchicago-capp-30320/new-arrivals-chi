@@ -1,4 +1,4 @@
-"""change password length
+"""change password length.
 
 Revision ID: 65ad78872dbb
 Revises: 923816bbaeb7

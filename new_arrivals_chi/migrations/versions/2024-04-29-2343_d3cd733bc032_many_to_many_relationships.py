@@ -1,4 +1,4 @@
-"""Many to many relationships
+"""Many to many relationships.
 
 Revision ID: d3cd733bc032
 Revises: 1e3c8e6e7d23
