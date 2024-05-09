@@ -23,6 +23,7 @@ import logging
 from datetime import datetime
 from new_arrivals_chi.app.database import db, User
 from werkzeug.security import generate_password_hash, check_password_hash
+from password_strength import PasswordPolicy, PasswordStats
 
 def extract_signup_data(form):
     email = form.get("email").lower()
@@ -47,7 +48,7 @@ def validate_email_syntax(email):
     return re.match(pattern, email) is not None
 
 
-# Reference: ChatGPT supported regex
+# Reference: https://pypi.org/project/password-strength/#passwordstats
 def validate_password(password):
     """Validates the strength of a password.
 
@@ -64,14 +65,22 @@ def validate_password(password):
         bool: True if the password meets the strength requirements,
         False otherwise.
     """
-    # 1+ lower case, 1+ upper case, 1+ number, 1+ special characters
-    pattern = r"(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[\W_]+).+"
-    valid_characters = re.fullmatch(pattern, password) is not None
+    
+    policy = PasswordPolicy.from_names(
+        length=8,
+        uppercase=1,  # need min. 1 uppercase letter
+        numbers=1,  # need min. 1 digit
+        special=1,  # need min. 1 special character
+        strength=0.5
+    )
+    
+    policy_reqs = len(policy.test(password))
+    print(policy.password(password).strength())
 
     no_space = re.search(r"\s", password) is None
 
-    return len(password) >= 8 and valid_characters and no_space
-
+    return policy_reqs==0 and no_space
+   
 
 def create_user(email, password):
     new_user = User(

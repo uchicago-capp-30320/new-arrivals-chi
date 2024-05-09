@@ -591,6 +591,20 @@ qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
 testing = ["docopt", "pytest"]
 
 [[package]]
+name = "password-strength"
+version = "0.0.3.post2"
+description = "Password strength and validation"
+optional = false
+python-versions = "*"
+files = [
+    {file = "password_strength-0.0.3.post2-py2.py3-none-any.whl", hash = "sha256:6739357c2863d707b7c7f247ff7c6882a70904a18d12c9aaf98f8b95da176fb9"},
+    {file = "password_strength-0.0.3.post2.tar.gz", hash = "sha256:bf4df10a58fcd3abfa182367307b4fd7b1cec518121dd83bf80c1c42ba796762"},
+]
+
+[package.dependencies]
+six = "*"
+
+[[package]]
 name = "pexpect"
 version = "4.9.0"
 description = "Pexpect allows easy control of interactive console applications."
@@ -1148,4 +1162,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "4213df3c70d40f22330e08b52c2d99e9ddce117595a862f975aa13f5bd57fb5e"
+content-hash = "127c4245e7fd7d1b086154197a6b019a0707480f6ea7f595a3759e42fe8cbce7"

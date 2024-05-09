@@ -71,7 +71,7 @@ def signup_post():
         flash("Email address already exists for user")
        
     elif not password == password_confirm:
-        flash("New passwords do not match. Try again")
+        flash("Passwords do not match. Try again")
 
     elif not validate_password(password):
         flash("Please enter a valid password")
