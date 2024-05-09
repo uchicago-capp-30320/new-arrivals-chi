@@ -12,12 +12,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch all history for all branches and tags
+
+      - name: Fetch all history
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
       - name: Check for changes in dependency files
         id: check-deps
         run: |
           echo "Checking pyproject.toml and poetry.lock for changes..."
-          CHANGES=$(git diff --name-only ${{ github.base_ref }} ${{ github.head_ref }} | grep -E "^(pyproject.toml|poetry.lock)$")
+          CHANGES=$(git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} | grep -E "^(pyproject.toml|poetry.lock)$")
           echo "Changed files: $CHANGES"
           if [ ! -z "$CHANGES" ]; then
             echo "::set-output name=poetry_updated::true"
@@ -26,7 +31,7 @@ jobs:
       - name: Validate requirements.txt update
         if: steps.check-deps.outputs.poetry_updated == 'true'
         run: |
-          REQUIREMENTS_CHANGE=$(git diff --name-only ${{ github.base_ref }} ${{ github.head_ref }} | grep -q "requirements.txt")
+          REQUIREMENTS_CHANGE=$(git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} | grep -q "requirements.txt")
           echo "Requirements.txt changed: $REQUIREMENTS_CHANGE"
           if [ ! -z "$REQUIREMENTS_CHANGE" ]; then
             echo "requirements.txt updated correctly."
