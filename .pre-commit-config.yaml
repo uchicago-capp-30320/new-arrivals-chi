@@ -26,15 +26,16 @@ repos:
           - --autofix
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.286
+    rev: v0.0.289
     hooks:
       - id: ruff
         types_or: [python, pyi, jupyter]
         args:
           - --fix
           - --target-version=py311
-          - --select=B,C,E,F,W
+          - --select=B,C,E,F,W,D
           - --line-length=80
+          - --config=pyproject.toml
 
   - repo: https://github.com/PyCQA/flake8
     rev: 6.0.0

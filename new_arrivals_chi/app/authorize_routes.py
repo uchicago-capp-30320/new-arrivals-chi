@@ -1,8 +1,8 @@
-"""
-Project: new_arrivals_chi
+"""Project: new_arrivals_chi.
+
 File name: authorize_routes.py
 Associated Files:
-    Templates: profile.html, signup.html, login.html
+    Templates: profile.html, signup.html, login.html.
 
 Defines routes for user creation and authentication for new arrivals portal.
 
@@ -35,30 +35,30 @@ authorize = Blueprint("authorize", __name__, static_folder="/static")
 
 @authorize.route("/signup")
 def signup():
-    """
-    Establishes route for the user sign up page. This route is accessible
-    within the 'sign up' button in the navigation bar.
+    """Establishes route for the user sign up page.
+
+    This route is accessible within the 'sign up' button in the navigation bar.
+
 
     Returns:
         Renders sign up page in their selected language.
     """
-
     language = request.args.get("lang", "en")
     return render_template("signup.html", language=language)
 
 
 @authorize.route("/signup", methods=["POST"])
 def signup_post():
-    """
-    Handles the POST request for user sign up. Validates the input data,
-    adds the user to the database if valid, and redirects accordingly.
+    """Handles the POST request for user sign up.
+
+    Validates the input data, adds the user to the database if valid, and
+    redirects accordingly.
 
     Returns:
         Redirects to the home page upon successful sign up.
         Redirects back to the sign up page if there are validation errors
         or if the email address already exists in the database.
     """
-
     email = request.form.get("email")
     password = request.form.get("password")
 
@@ -99,28 +99,25 @@ def signup_post():
 
 @authorize.route("/login")
 def login():
-    """
-    Establishes route for the login page. This route is accessible
-    within the 'login' button in the navigation bar.
+    """Establishes route for the login page.
+
+    Login route is accessible within the 'login' button in the navigation bar.
 
     Returns:
         Renders login page for user with their selected language.
     """
-
     language = request.args.get("lang", "en")
     return render_template("login.html", language=language)
 
 
 @authorize.route("/login", methods=["POST"])
 def login_post():
-    """
-    Processes the login request.
+    """Processes the login request.
 
     Returns:
         Redirects to the user's profile page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
-
     email = request.form.get("email")
     password = request.form.get("password")
     remember = True if request.form.get("remember") else False
@@ -142,14 +139,12 @@ def login_post():
 @authorize.route("/logout")
 @login_required
 def logout():
-    """
-    Logs out the current user.
+    """Logs out the current user.
 
     Returns:
         Redirects to the home page after logout.
         If a user is not currently logged in, redirects to the log in page.
     """
-
     logout_user()
     return redirect(url_for("main.home"))
 
@@ -157,15 +152,14 @@ def logout():
 @authorize.route("/change_password")
 @login_required
 def change_password():
-    """
-    Establishes route for the change password page. This route is accessible
-    within the 'change password' button in the profile page (will likely change
-    location in the future).
+    """Establishes route for the change password page.
+
+    This route is accessible within the 'change password' button in the profile
+    page (will likely change location in the future).
 
     Returns:
         Renders change password page for user with their selected language.
     """
-
     language = request.args.get("lang", "en")
     return render_template("change_password.html", language=language)
 
@@ -173,15 +167,13 @@ def change_password():
 @authorize.route("/change_password", methods=["POST"])
 @login_required
 def post_change_password():
-    """
-    Allows an authorized user to update their current password.
+    """Allows an authorized user to update their current password.
 
     Returns:
         Redirects to the user's profile page if password change is successful,
         otherwise redirects back to the change password page with a flash
         message.
     """
-
     old_password = request.form.get("old_password")
     new_password = request.form.get("new_password")
     new_password_confirm = request.form.get("new_password_confirm")
