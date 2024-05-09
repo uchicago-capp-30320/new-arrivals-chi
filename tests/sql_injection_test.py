@@ -59,7 +59,6 @@ def database_query(app, database, setup_logger, input_value):
     with app.app_context():
         logger.info("Starting injection test")
     
-        
         # Attempt to retrieve a user with the safe input value
         with Session(bind=database.engine) as session:
             logger.info("Attempting to retrieve user with test input")
