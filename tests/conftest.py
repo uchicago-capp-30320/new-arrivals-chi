@@ -1,31 +1,38 @@
-"""Project: New Arrivals Chicago.
+"""Project: New Arrivals Chi.
 
 File name: conftest.py
-Associated Files: main.py, models.py, tests/.
 
-Provides pytest fixtures for creating a Flask application context,
-a client for testing, and a database setup for function-scoped tests.
+Associated Files:
+   This script defines various pytest fixtures used across the test suite for
+   the New Arrivals Chi application.
 
-Methods:
-    * app — Provides a configured Flask application for testing.
-    * client — Provides a test client for the application.
-    * database — Sets up and tears down a clean database for each test.
-    * setup_logger — Creates a logger with a file and console handler.
+Fixtures:
+   - app: Flask application instance configured for testing.
+   - client: A test client for the app.
+   - database: Sets up a clean database before each test, tears down after.
+   - setup_logger: Creates a logger with file and console handlers for testing.
+   - capture_templates: Captures the templates rendered during a test.
+   - test_user: Creates a test user in the database before test, removes after.
+   - login_client: Logs in user for testing routes that require authentication.
 
 Last updated:
-@Author: Aaron Haefner @aaronhaefner
-@Date: 2024-05-07
+@Author: Madeleine Roberts @madeleinekroberts
+@Date: 2024-05-09
 
 Creation:
 @Author: Aaron Haefner @aaronhaefner
-@Date: 2024-04-23
+@Date: 2024-05-06
 """
 
 import pytest
 import logging
 import os
 from datetime import datetime
-from new_arrivals_chi.app.main import create_app, db
+from new_arrivals_chi.app.main import create_app, db, User
+from flask import template_rendered
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt()
 
 
 @pytest.fixture(scope="module")
@@ -42,6 +49,7 @@ def app():
         "TESTING": True,
         "DEBUG": False,
         "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+        "SECRET_KEY": "testing_key",
     }
     app = create_app(config_override=test_config)
     with app.app_context():
@@ -114,3 +122,46 @@ def setup_logger():
         return logger
 
     return create_logger
+
+
+# Reference: https://stackoverflow.com/questions/57006104/
+@pytest.fixture(scope="function")
+def capture_templates(app):
+    """Create a function to retrieve the templates rendered."""
+    recorded = []
+
+    def record(sender, template, context, **extra):
+        recorded.append((template, context))
+
+    template_rendered.connect(record, app)
+    try:
+        yield recorded
+    finally:
+        template_rendered.disconnect(record, app)
+
+
+@pytest.fixture(scope="function")
+def test_user(client):
+    """Create a test user in the database before each test and remove after."""
+    user_password = bcrypt.generate_password_hash("TestP@ssword!").decode(
+        "utf-8"
+    )
+    user_test_case = User(email="test@example.com", password=user_password)
+    db.session.add(user_test_case)
+    db.session.commit()
+
+    yield user_test_case
+
+    db.session.delete(user_test_case)
+    db.session.commit()
+
+
+@pytest.fixture(scope="function")
+def logged_in_state(client):
+    """Logs in a user for testing routes that require authentication."""
+    client.post(
+        "/login",
+        data={"email": "test@example.com", "password": "TestP@ssword!"},
+        follow_redirects=True,
+    )
+    yield client

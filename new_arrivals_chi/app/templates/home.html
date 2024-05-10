@@ -18,12 +18,12 @@ Madeleine Roberts @MadeleineKRoberts
 
 {% block content %}
 
-    <h1>{{ 'Bienvenido' if language == 'es' else 'Welcome' }}</h1>
-    <p>{{ 'Encuentra apoyo para tus necesidades legales, de salud o de comida.' if language == 'es' else 'Find essential support for legal, health, and food needs.' }}</p>
-    <p>{{ 'Por favor haz click abajo para comenzar:' if language == 'es' else 'Please click below to begin:'}}</p>
+    <h1>{{ 'Bienvenido' if language == 'es' else 'Welcome' | escape }}</h1>
+    <p>{{ 'Encuentra apoyo para tus necesidades legales, de salud o de comida.' if language == 'es' else 'Find essential support for legal, health, and food needs.' | escape }}</p>
+    <p>{{ 'Por favor haz click abajo para comenzar:' if language == 'es' else 'Please click below to begin:'| escape }}</p>
     <div class="home-button-container">
-        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ 'Legal' if language == 'es' else 'Legal' }}</button>
-        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language }}')">{{ 'Salud' if language == 'es' else 'Health' }}</button>
-        <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' }}</button>
+        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ 'Legal' if language == 'es' else 'Legal' | escape }}</button>
+        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language | escape }}')">{{ 'Salud' if language == 'es' else 'Health' | escape }}</button>
+        <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' | escape }}</button>
     </div>
 {% endblock %}
