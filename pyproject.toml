@@ -21,6 +21,7 @@ faker = "^25.0.0"
 flask-login = "^0.6.3"
 password-strength = "^0.0.3.post2"
 flask-bcrypt = "^1.0.1"
+flask-testing = "^0.8.1"
 
 [tool.ruff.pydocstyle]
 convention = "google"
