@@ -28,6 +28,7 @@ from new_arrivals_chi.app.database import db, User
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required
 from new_arrivals_chi.app.authorize_routes import authorize
+from flask_wtf.csrf import CSRFProtect, generate_csrf
 
 migrate = Migrate()
 
@@ -125,6 +126,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["WTF_CSRF_ENABLED"] = True
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
@@ -135,6 +137,8 @@ def create_app(config_override=None):
 
     app.register_blueprint(main)
     app.register_blueprint(authorize)
+
+    csrf = CSRFProtect(app)
 
     login_manager = LoginManager()
     login_manager.login_view = "authorize.login"
