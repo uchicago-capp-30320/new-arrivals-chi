@@ -104,6 +104,9 @@ def validate_password(password):
         bool: True if the password meets the strength requirements,
         False otherwise.
     """
+    if len(password) < 8:
+        return False
+
     policy = PasswordPolicy.from_names(
         length=8,
         uppercase=1,  # need min. 1 uppercase letter
@@ -113,7 +116,6 @@ def validate_password(password):
     )
 
     policy_reqs = len(policy.test(password))
-    print(policy.password(password).strength())
 
     no_space = re.search(r"\s", password) is None
 
