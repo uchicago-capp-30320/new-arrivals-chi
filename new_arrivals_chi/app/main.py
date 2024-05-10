@@ -24,10 +24,10 @@ Creation:
 from flask import Flask, Blueprint, render_template, request
 import os
 from dotenv import load_dotenv
-from new_arrivals_chi.app.authorize_routes import authorize
 from new_arrivals_chi.app.database import db, User
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required
+from new_arrivals_chi.app.authorize_routes import authorize
 from flask_wtf import CSRFProtect
 
 migrate = Migrate()
@@ -152,4 +152,9 @@ def create_app(config_override=None):
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True)
+    # Note: For the development server, we are using a auto-generated
+    # self-signed certificate as a result the CA is unable to validate a server
+    # certificate, though you can continue to proceed and visit the development
+    # site. For the production deployment, we will ensure a valid certificate
+    # from CA for our domain.
+    app.run(ssl_context=("adhoc"), debug=True)

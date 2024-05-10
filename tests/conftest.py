@@ -28,10 +28,12 @@ import pytest
 import logging
 import os
 from datetime import datetime
-from werkzeug.security import generate_password_hash
 from new_arrivals_chi.app.main import create_app, db, User
 from flask import template_rendered
-from flask_wtf import CSRFProtect
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt()
+
 
 @pytest.fixture(scope="module")
 def app():
@@ -143,8 +145,8 @@ def capture_templates(app):
 @pytest.fixture(scope="function")
 def test_user(client):
     """Create a test user in the database before each test and remove after."""
-    user_password = generate_password_hash(
-        "TestP@ssword!", method="pbkdf2:sha256"
+    user_password = bcrypt.generate_password_hash("TestP@ssword!").decode(
+        "utf-8"
     )
     user_test_case = User(email="test@example.com", password=user_password)
     db.session.add(user_test_case)
