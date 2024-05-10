@@ -23,11 +23,13 @@ Creation:
 
 from flask import Flask, Blueprint, render_template, request
 import os
+import bleach
 from dotenv import load_dotenv
-from new_arrivals_chi.app.authorize_routes import authorize
 from new_arrivals_chi.app.database import db, User
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required
+from new_arrivals_chi.app.authorize_routes import authorize
+
 
 migrate = Migrate()
 
@@ -46,7 +48,7 @@ def home():
     Returns:
         Renders home page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("home.html", language=language)
 
 
@@ -60,7 +62,7 @@ def profile():
     Returns:
         Renders profile page for user with in their selected language.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("profile.html", language=language)
 
 
@@ -73,7 +75,7 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("legal.html", language=language)
 
 
@@ -86,7 +88,7 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("health.html", language=language)
 
 
@@ -100,7 +102,7 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("health_search.html", language=language)
 
 
@@ -113,7 +115,7 @@ def info():
     Returns:
         Renders information of an organization.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("info.html", language=language)
 
 
@@ -138,6 +140,7 @@ def create_app(config_override=None):
 
     login_manager = LoginManager()
     login_manager.login_view = "authorize.login"
+    login_manager.session_protection = "strong"
     login_manager.init_app(app)
 
     @login_manager.user_loader
@@ -149,4 +152,9 @@ def create_app(config_override=None):
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True)
+    # Note: For the development server, we are using a auto-generated
+    # self-signed certificate as a result the CA is unable to validate a server
+    # certificate, though you can continue to proceed and visit the development
+    # site. For the production deployment, we will ensure a valid certificate
+    # from CA for our domain.
+    app.run(ssl_context=("adhoc"), debug=True)
