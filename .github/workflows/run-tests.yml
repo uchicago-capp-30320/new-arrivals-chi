@@ -49,7 +49,6 @@ jobs:
             echo "Please update requirements.txt by running 'make'."
             exit 1
           fi
-
   Test:
     needs: validate-dependencies
     runs-on: ubuntu-latest
@@ -58,23 +57,23 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.11
-      - name: cache deps
+      - name: cache local deps
         uses: actions/cache@v2
         with:
-          path: ~/.local
-          key: poetry-1.5.1
+          path: .venv
+          key: pydeps-${{ hashFiles('**/poetry.lock') }}
       - uses: snok/install-poetry@v1
         with:
           version: 1.5.1
           virtualenvs-create: true
           virtualenvs-in-project: true
-      - name: cache local deps
-        id: cache-local-deps
+      - name: cache deps
+        id: cache-deps
         uses: actions/cache@v2
         with:
-          path: .venv
-          key: pydeps-${{ hashFiles('**/poetry.lock') }}
+          path: ~/.local
+          key: poetry-1.5.1
       - run: poetry install --no-interaction --no-root
-        if: steps.cache-local-deps.outputs.cache-hit != 'true'
+        if: steps.cache-deps.outputs.cache-hit != 'true'
       - run: poetry install --no-interaction
       - run: poetry run pytest
