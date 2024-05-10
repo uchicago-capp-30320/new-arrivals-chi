@@ -27,40 +27,44 @@ import re
 import os
 import logging
 from datetime import datetime
-from werkzeug.security import generate_password_hash, check_password_hash
-from password_strength import PasswordPolicy, PasswordStats
+from password_strength import PasswordPolicy
+
 
 def extract_signup_data(form):
     """Extracts signup data from a POST request form.
 
     Parameters:
-        form (ImmutableMultiDict): The ImmutableMultiDict object containing form data from a POST request.
+        form (ImmutableMultiDict): The ImmutableMultiDict object containing
+            form data from a POST request.
             It should have keys "email", "password", and "password_confirm".
 
     Returns:
-        tuple: A tuple containing the extracted email, password, and password_confirm.
+        tuple: A tuple containing the extracted email, password, and
+            password_confirm.
     """
-    
     email = form.get("email").lower()
     password = form.get("password")
     password_confirm = form.get("password_confirm")
     return email, password, password_confirm
 
+
 def extract_new_pw_data(form):
     """Extracts new password data from a POST request form.
 
     Parameters:
-        form (ImmutableMultiDict): The ImmutableMultiDict object containing form data from a POST request.
-            It should have keys "old_password", "new_password", and "new_password_confirm".
+        form (ImmutableMultiDict): The ImmutableMultiDict object containing
+            form data from a POST request. It should have keys "old_password",
+            "new_password", and "new_password_confirm".
 
     Returns:
-        tuple: A tuple containing the extracted old_password, new_password, and new_password_confirm.
+        tuple: A tuple containing the extracted old_password, new_password,
+        and new_password_confirm.
     """
-
     old_password = form.get("old_password")
     new_password = form.get("new_password")
     new_password_confirm = form.get("new_password_confirm")
     return old_password, new_password, new_password_confirm
+
 
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
 def validate_email_syntax(email):
@@ -75,7 +79,6 @@ def validate_email_syntax(email):
     Returns:
         bool: True if the email syntax is valid, False otherwise.
     """
-
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
     return re.match(pattern, email) is not None
 
@@ -97,22 +100,21 @@ def validate_password(password):
         bool: True if the password meets the strength requirements,
         False otherwise.
     """
-
     policy = PasswordPolicy.from_names(
         length=8,
         uppercase=1,  # need min. 1 uppercase letter
         numbers=1,  # need min. 1 digit
         special=1,  # need min. 1 special character
-        strength=0.66 # Minimum value to be considered a strong password
+        strength=0.66,  # Minimum value to be considered a strong password
     )
-    
+
     policy_reqs = len(policy.test(password))
     print(policy.password(password).strength())
 
     no_space = re.search(r"\s", password) is None
 
     return policy_reqs == 0 and no_space
-   
+
 
 def setup_logger(name):
     """Create a logger for recording the output of the script.
@@ -123,7 +125,6 @@ def setup_logger(name):
     Returns:
         logging.Logger: The configured logger object.
     """
-
     log_directory = "logs"
     if not os.path.exists(log_directory):
         os.makedirs(log_directory)
