@@ -1,4 +1,4 @@
-name: Run-Tests
+name: run-tests
 
 on:
   push:
@@ -10,15 +10,15 @@ jobs:
   validate-dependencies:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Fetch all history for all branches and tags
 
-      - name: Fetch all history
+      - name: fetch all history
         run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
-      - name: Check for changes in dependency files
+      - name: check for changes in dependency files
         id: check-deps
         run: |
           echo "Checking pyproject.toml and poetry.lock for changes..."
@@ -37,11 +37,11 @@ jobs:
             echo "No changes in pyproject.toml or poetry.lock."
           fi
 
-      - name: Validate requirements.txt update
+      - name: validate requirements.txt update
         if: steps.check-deps.outputs.poetry_updated == 'true'
         run: |
           REQUIREMENTS_CHANGE=$(git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} | grep -q "requirements.txt")
-          echo "Requirements.txt changed: $REQUIREMENTS_CHANGE"
+          echo "requirements.txt changed: $REQUIREMENTS_CHANGE"
           if [ ! -z "$REQUIREMENTS_CHANGE" ]; then
             echo "requirements.txt updated correctly."
           else
@@ -68,13 +68,13 @@ jobs:
           version: 1.5.1
           virtualenvs-create: true
           virtualenvs-in-project: true
-      - name: cache deps
-        id: cache-deps
+      - name: cache local deps
+        id: cache-local-deps
         uses: actions/cache@v2
         with:
           path: .venv
           key: pydeps-${{ hashFiles('**/poetry.lock') }}
       - run: poetry install --no-interaction --no-root
-        if: steps.cache-deps.outputs.cache-hit != 'true'
+        if: steps.cache-local-deps.outputs.cache-hit != 'true'
       - run: poetry install --no-interaction
       - run: poetry run pytest
