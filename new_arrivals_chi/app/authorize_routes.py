@@ -25,16 +25,17 @@ Creation:
 """
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from werkzeug.security import check_password_hash
 from new_arrivals_chi.app.database import User
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
     validate_password,
     extract_signup_data,
     extract_new_pw_data,
+    verify_password
 )
 from flask_login import login_user, login_required, logout_user, current_user
 from new_arrivals_chi.app.data_handler import create_user, change_db_password
+
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
@@ -118,7 +119,7 @@ def login_post():
     user = User.query.filter_by(email=email).first()
 
     # check if the user actually exists & password is correct
-    if not user or not check_password_hash(user.password, password):
+    if not user or not verify_password(user.password, password):
         flash("Please check your login details and try again.")
         return redirect(
             url_for("authorize.login")
@@ -171,7 +172,7 @@ def post_change_password():
         request.form
     )
 
-    if not check_password_hash(current_user.password, old_password):
+    if not verify_password(current_user.password, old_password):
         flash("Wrong existing password. Try again")
 
     elif old_password == new_password:
