@@ -25,10 +25,9 @@ Creation:
 """
 
 import bleach
-from flask import Blueprint, render_template, redirect, url_for, request, flash
 from markupsafe import escape
-from werkzeug.security import generate_password_hash, check_password_hash
-from new_arrivals_chi.app.database import db, User
+from flask import Blueprint, render_template, redirect, url_for, request, flash
+from new_arrivals_chi.app.database import User
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
     validate_password,
@@ -69,32 +68,15 @@ def signup_post():
         Redirects back to the sign up page if there are validation errors
         or if the email address already exists in the database.
     """
-    # sanitize inputs to prevent xss attacks
-    email = bleach.clean(request.form.get("email"))
-    password = bleach.clean(request.form.get("password"))
+    email, password, password_confirm = extract_signup_data(request.form)
 
     # ensure that input meets requirments
-    email_synax = validate_email_syntax(email)
-
-    if not email_synax:
+    if not validate_email_syntax(email):
         flash(escape("Please enter a valid email address"))
-        return redirect(url_for("authorize.signup"))
 
-    # password constraints: 8+ characters, 1+ number, 1+ special characters
-    # cannot be empty, cannot contain certain special chars, no spaces
-    password_strength = validate_password(password)
-
-    if not password_strength:
-        flash(escape("Please enter a valid password"))
-        return redirect(url_for("authorize.signup"))
-
-    # if this returns a user, then the email already exists in database
-    user = User.query.filter_by(email=email).first()
-
-    if user:
-        # if a user is found, we want to redirect back to signup page
+    elif User.query.filter_by(email=email).first():
+        # email already exists in database
         flash(escape("Email address already exists for user"))
-        return redirect(url_for("authorize.signup"))
 
     elif not password == password_confirm:
         flash(escape("Passwords do not match. Try again"))
@@ -132,15 +114,14 @@ def login_post():
         Redirects to the user's profile page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
-    # sanitize password to prevent xss attacks
-    email = bleach.clean(request.form.get("email"))
-    password = bleach.clean(request.form.get("password"))
+    email = request.form.get("email").lower()
+    password = request.form.get("password")
     remember = True if request.form.get("remember") else False
 
     user = User.query.filter_by(email=email).first()
 
     # check if the user actually exists & password is correct
-    if not user or not check_password_hash(user.password, password):
+    if not user or not verify_password(user.password, password):
         flash(escape("Please check your login details and try again."))
         return redirect(
             url_for("authorize.login")
@@ -189,27 +170,27 @@ def post_change_password():
         otherwise redirects back to the change password page with a flash
         message.
     """
-    # sanitize password to prevent xss attacks
-    old_password = bleach.clean(request.form.get("old_password"))
-    new_password = bleach.clean(request.form.get("new_password"))
-    new_password_confirm = bleach.clean(request.form.get("new_password_confirm"))
+    old_password, new_password, new_password_confirm = extract_new_pw_data(
+        request.form
+    )
 
-
-    if not check_password_hash(current_user.password, old_password):
+    if not verify_password(current_user.password, old_password):
         flash(escape("Wrong existing password. Try again"))
-    elif (
-        old_password == new_password
-    ):  # Do not need to check password hash because old password is correct
-        flash(escape("New password cannot be the same as your previous password."))
+
+    elif old_password == new_password:
+        # Do not need to check password hash because old password is correct
+        flash(
+            escape("New password cannot be the same as your previous password.")
+        )
+
     elif not new_password == new_password_confirm:
         flash(escape("New passwords do not match. Try again"))
+
     elif not validate_password(new_password):
-        flash(escape("New password does not meet requirements. Try again"))
+        flash(escape("New password does not meet requirements. Try again."))
+
     else:
-        current_user.password = generate_password_hash(
-            new_password, method="pbkdf2:sha256"
-        )
-        db.session.commit()
+        change_db_password(new_password)
         flash(escape("Password change successful."))
         return redirect(url_for("main.profile"))
 
