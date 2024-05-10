@@ -24,7 +24,7 @@ Creation:
 @Date: 05/01/2024
 """
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, session
 from new_arrivals_chi.app.database import User
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
@@ -35,7 +35,7 @@ from new_arrivals_chi.app.utils import (
 )
 from flask_login import login_user, login_required, logout_user, current_user
 from new_arrivals_chi.app.data_handler import create_user, change_db_password
-
+from flask_wtf.csrf import CSRFProtect, generate_csrf
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
@@ -101,7 +101,7 @@ def login():
         Renders login page for user with their selected language.
     """
     language = request.args.get("lang", "en")
-    return render_template("login.html", language=language)
+    return render_template("login.html", language=language, csrf_token=generate_csrf())
 
 
 @authorize.route("/login", methods=["POST"])
@@ -112,6 +112,9 @@ def login_post():
         Redirects to the user's profile page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
+    if request.form.get("csrf_token") != session.get("csrf_token"):
+        flash("Invalid CSRF token. Please try again.")
+        return redirect(url_for("authorize.login"))
     email = request.form.get("email").lower()
     password = request.form.get("password")
     remember = True if request.form.get("remember") else False
