@@ -19,8 +19,8 @@ Methods:
     * test_change_password_success
 
 Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/08/2024
+@Author: Madeleine Roberts @madeleinekroberts
+@Date: 05/09/2024
 
 Creation:
 @Author: Kathryn Link-Oberstar @klinkoberstar
@@ -240,7 +240,7 @@ def test_change_password_success(
     logger = setup_logger("test_change_password_success")
     try:
         old_password = "TestP@ssword!"
-        new_password = "TestP@ssword!-2!"
+        new_password = "cH@^v6EDStr0ngP@$$word123!C0ntre$namUyfue&t3"
 
         # change password
         response = client.post(
