@@ -139,6 +139,7 @@ def create_app(config_override=None):
 
     login_manager = LoginManager()
     login_manager.login_view = "authorize.login"
+    login_manager.session_protection = "strong"
     login_manager.init_app(app)
 
     @login_manager.user_loader
