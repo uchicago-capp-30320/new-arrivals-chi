@@ -22,7 +22,7 @@ Methods:
     * test_page_requiring_login_after_logout
 
 Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
+@Author: Madeleine Roberts 05/09/2024
 @Date: 05/08/2024
 
 Creation:
