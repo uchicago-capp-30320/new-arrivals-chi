@@ -20,15 +20,15 @@ Summer Long @sumslong
 {% block content %}
 
 <form action="/info" method="GET">
-    <button type="submit" class="language-button">{{ 'Español' if language == 'es' else 'English' }}</button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+    <button type="submit" class="language-button">{{ 'Español' if language == 'es' else 'English' | escape }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
 </form>
 <div class="box">
-    <div class="box-big-title">{{ 'Nombre de la Organización' if language == 'es' else 'Organization Name' }} </div>
+    <div class="box-big-title">{{ 'Nombre de la Organización' if language == 'es' else 'Organization Name' | escape }} </div>
     <div class="box-contact-info"> <i class="fa-solid fa-diamond-turn-right"></i> 123 Main St&nbsp;&nbsp;<i class="fa-solid fa-phone"></i> 234-567-8901</div>
-    <div class="box-contact-info">{{ 'Horas de Atención: Lunes - Viernes, 9:00 AM - 5:00 PM' if language =='es' else 'Open Hours: Monday - Friday, 9:00 AM - 5:00 PM' }}</div>
-    <div class="box-contact-info">{{ 'Idiomas hablados: Inglés, Español' if language == 'es' else 'Languages Spoken: English, Spanish' }}</div>
-    <div class="box-contact-info">{{ 'Recursos y Servicios: Comida' if language == 'es' else 'Supplies and Services: Food'}}</div>
+    <div class="box-contact-info">{{ 'Horas de Atención: Lunes - Viernes, 9:00 AM - 5:00 PM' if language =='es' else 'Open Hours: Monday - Friday, 9:00 AM - 5:00 PM' | escape }}</div>
+    <div class="box-contact-info">{{ 'Idiomas hablados: Inglés, Español' if language == 'es' else 'Languages Spoken: English, Spanish' | escape }}</div>
+    <div class="box-contact-info">{{ 'Recursos y Servicios: Comida' if language == 'es' else 'Supplies and Services: Food'| escape }}</div>
 </div>
 
 {% endblock %}
