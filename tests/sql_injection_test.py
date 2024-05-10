@@ -11,7 +11,7 @@ database access or manipulation.
 
 
 Methods:
-    - database_query: 
+    - database_query:
     - test_safe_injections: Test function for testing safe input handling or
                             prevention of SQL injections.
     - test_unsafe_injections_return_all_rows: Test function for an unsafe input
