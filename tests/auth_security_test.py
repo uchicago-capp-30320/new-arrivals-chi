@@ -15,8 +15,8 @@ Methods:
    * test_password_never_logged_plaintext
 
 Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/08/2024
+@Author: Madeleine Roberts @madeleinekroberts
+@Date: 05/06/2024
 
 Creation:
 @Author: Kathryn Link-Oberstar @klinkoberstar
@@ -24,9 +24,11 @@ Creation:
 """
 
 from new_arrivals_chi.app.database import User
-from werkzeug.security import check_password_hash
 from new_arrivals_chi.app.utils import validate_password
 from unittest.mock import patch
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt()
 
 
 def test_set_up_password_hashed(test_user, setup_logger):
@@ -39,7 +41,7 @@ def test_set_up_password_hashed(test_user, setup_logger):
     logger = setup_logger("test_set_up_password_hashede")
     try:
         user = User.query.filter_by(email="test@example.com").first()
-        assert check_password_hash(user.password, "TestP@ssword!")
+        assert bcrypt.check_password_hash(user.password, "TestP@ssword!")
         logger.info("Password hashed properly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")

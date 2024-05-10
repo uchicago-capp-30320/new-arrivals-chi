@@ -19,8 +19,8 @@ Methods:
     * test_change_password_success
 
 Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/08/2024
+@Author: Madeleine Roberts @madeleinekroberts
+@Date: 05/09/2024
 
 Creation:
 @Author: Kathryn Link-Oberstar @klinkoberstar
@@ -79,6 +79,7 @@ def test_change_password_wrong_old_password(
             data={
                 "old_password": "BestP@ssword!",
                 "new_password": "TestP@ssword!_2!",
+                "new_password_confirm": "TestP@ssword!_2!",
             },
             follow_redirects=True,
         )
@@ -118,6 +119,7 @@ def test_change_password_wrong_new_password_same_as_old(
             data={
                 "old_password": "TestP@ssword!",
                 "new_password": "TestP@ssword!",
+                "new_password_confirm": "TestP@ssword!",
             },
             follow_redirects=True,
         )
@@ -240,7 +242,7 @@ def test_change_password_success(
     logger = setup_logger("test_change_password_success")
     try:
         old_password = "TestP@ssword!"
-        new_password = "TestP@ssword!-2!"
+        new_password = "cH@^v6EDStr0ngP@$$word123!C0ntre$namUyfue&t3"
 
         # change password
         response = client.post(
