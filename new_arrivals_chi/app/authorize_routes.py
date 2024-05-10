@@ -24,7 +24,15 @@ Creation:
 @Date: 05/01/2024
 """
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash, session
+from flask import (
+    Blueprint,
+    render_template,
+    redirect,
+    url_for,
+    request,
+    flash,
+    session,
+)
 from new_arrivals_chi.app.database import User
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
@@ -35,7 +43,7 @@ from new_arrivals_chi.app.utils import (
 )
 from flask_login import login_user, login_required, logout_user, current_user
 from new_arrivals_chi.app.data_handler import create_user, change_db_password
-from flask_wtf.csrf import CSRFProtect, generate_csrf
+from flask_wtf.csrf import generate_csrf
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
@@ -63,7 +71,9 @@ def signup():
         Renders sign up page in their selected language.
     """
     language = request.args.get("lang", "en")
-    return render_template("signup.html", language=language, csrf_token=generate_csrf())
+    return render_template(
+        "signup.html", language=language, csrf_token=generate_csrf()
+    )
 
 
 @authorize.route("/signup", methods=["POST"])
@@ -114,7 +124,9 @@ def login():
         Renders login page for user with their selected language.
     """
     language = request.args.get("lang", "en")
-    return render_template("login.html", language=language, csrf_token=generate_csrf())
+    return render_template(
+        "login.html", language=language, csrf_token=generate_csrf()
+    )
 
 
 @authorize.route("/login", methods=["POST"])
@@ -169,7 +181,9 @@ def change_password():
         Renders change password page for user with their selected language.
     """
     language = request.args.get("lang", "en")
-    return render_template("change_password.html", language=language, csrf_token=generate_csrf())
+    return render_template(
+        "change_password.html", language=language, csrf_token=generate_csrf()
+    )
 
 
 @authorize.route("/change_password", methods=["POST"])
