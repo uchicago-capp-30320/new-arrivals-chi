@@ -1,15 +1,60 @@
+"""Project: New Arrivals Chi.
+
+File name: csrf_protection_test.py
+
+Associated Files:
+    Templates: signup.html, login.html, change_password.html.
+
+This test suite verifies the proper handling of CSRF tokens across various user authorization forms.
+It ensures that all sensitive forms such as login, signup, and change password strictly enforce CSRF token validation, thereby protecting against CSRF attacks.
+The suite tests for scenarios where forms should reject submissions without CSRF tokens, accept submissions with valid CSRF tokens, and reject submissions with invalid CSRF tokens.
+
+Methods included:
+    * test_login_form_rejection_without_csrf
+    * test_login_form_acceptance_with_csrf
+    * test_login_post_invalid_csrf
+    * test_signup_form_rejection_without_csrf
+    * test_signup_form_acceptance_with_csrf
+    * test_signup_post_invalid_csrf 
+    * test_change_password_form_rejection_without_csrf
+    * test_change_password_form_acceptance_with_csrf
+    * test_change_password_post_invalid_csrf
+
+Last updated:
+@Author: Aaron Haefner @aaronhaefner
+@Date: 2024-05-10
+
+Creation:
+@Author: Aaron Haefner @aaronhaefner
+@Date: 2024-05-09
+"""
 from bs4 import BeautifulSoup
 
 
 def get_csrf_token_from_response(html):
-    """Parses CSRF token from HTML response."""
+    """Parses the CSRF token from an HTML response.
+
+    Args:
+        html (str): The HTML content from which to parse the CSRF token.
+
+    Returns:
+        str: The CSRF token extracted from the HTML input.
+    """
     soup = BeautifulSoup(html, "html.parser")
     token = soup.find("input", {"name": "csrf_token"})["value"]
     return token
 
 
 def test_login_form_rejection_without_csrf(client):
-    """Ensure the login form rejects a submission without a CSRF token."""
+    """Verifies that submitting the login form without a CSRF token
+    results in a rejection.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.post(
         "/login",
         data={"email": "user@example.com", "password": "securepassword"},
@@ -22,7 +67,17 @@ def test_login_form_rejection_without_csrf(client):
 
 
 def test_login_form_acceptance_with_csrf(client, app):
-    """Ensure the login form accepts a submission with a valid CSRF token."""
+    """Obtains a CSRF token by accessing the login page, then submits the login
+    form with valid credentials and the retrieved CSRF token
+    to verify successful submission.
+
+    Args:
+        client: The test client for the application.
+        app: The application instance.
+
+    Returns:
+        None
+    """
     # Get the login page to retrieve the CSRF token
     response = client.get("/login")
     csrf_token = get_csrf_token_from_response(response.data.decode())
@@ -43,7 +98,15 @@ def test_login_form_acceptance_with_csrf(client, app):
 
 
 def test_login_post_invalid_csrf(client):
-    """Ensure the login form rejects a submission with an invalid CSRF token."""
+    """Attempts to submit the login form with an invalid CSRF
+    token to verify that the form correctly rejects the submission.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.post(
         "/login",
         data={
@@ -60,7 +123,16 @@ def test_login_post_invalid_csrf(client):
 
 
 def test_login_post_valid_csrf(client, test_user):
-    """Ensure the login form accepts a submission with a valid CSRF token."""
+    """Submits the login form with a valid CSRF token
+    to verify that the form accepts the submission.
+
+    Args:
+        client: The test client for the application.
+        test_user: The test user instance.
+
+    Returns:
+        None
+    """
     response = client.get("/login")
     csrf_token = get_csrf_token_from_response(response.data.decode())
 
@@ -79,7 +151,15 @@ def test_login_post_valid_csrf(client, test_user):
 
 
 def test_signup_form_rejection_without_csrf(client):
-    """Ensure the signup form rejects a submission without a CSRF token."""
+    """Verifies that submitting the signup form
+    without a CSRF token results in a rejection.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.post(
         "/signup",
         data={
@@ -96,7 +176,16 @@ def test_signup_form_rejection_without_csrf(client):
 
 
 def test_signup_form_acceptance_with_csrf(client):
-    """Ensure the signup form accepts a submission with a valid CSRF token."""
+    """Obtains a CSRF token by accessing the signup page, then submits the signup
+    form with valid credentials and the retrieved CSRF token
+    to verify successful submission.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.get("/signup")
     csrf_token = get_csrf_token_from_response(response.data.decode())
 
@@ -116,7 +205,15 @@ def test_signup_form_acceptance_with_csrf(client):
 
 
 def test_signup_post_invalid_csrf(client):
-    """Ensure the signup form rejects a submission with an invalid CSRF token."""
+    """Attempts to submit the signup form with an invalid CSRF
+    token to verify that the form correctly rejects the submission.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.post(
         "/signup",
         data={
@@ -134,7 +231,15 @@ def test_signup_post_invalid_csrf(client):
 
 
 def test_signup_post_valid_csrf(client):
-    """Ensure the signup form accepts a submission with a valid CSRF token."""
+    """Submits the signup form with a valid CSRF token to verify
+    that the form accepts the submission.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.get("/signup")
     csrf_token = get_csrf_token_from_response(response.data.decode())
 
@@ -151,7 +256,15 @@ def test_signup_post_valid_csrf(client):
 
 
 def test_change_password_form_rejection_without_csrf(client):
-    """Ensure the change password form rejects a submission without a CSRF token."""
+    """Verify that the change password form does not process
+    submissions that lack a CSRF token.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.post(
         "/change_password",
         data={
@@ -164,11 +277,19 @@ def test_change_password_form_rejection_without_csrf(client):
     assert (
         "The CSRF token is missing." in response.data.decode()
         or response.status_code == 400
-    ), "Form should reject submission without CSRF token"
+    ), "Submission without CSRF token should be rejected."
 
 
 def test_change_password_form_acceptance_with_csrf(client):
-    """Ensure the change password form accepts a submission with a valid CSRF token."""
+    """Confirm that the change password form processes
+    submissions correctly when a valid CSRF token is provided.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.get("/change_password")
     csrf_token = get_csrf_token_from_response(response.data.decode())
 
@@ -184,11 +305,19 @@ def test_change_password_form_acceptance_with_csrf(client):
     )
     assert (
         response.status_code == 200
-    ), "Form should accept submission with valid CSRF token"
+    ), "Form should correctly accept submissions with a valid CSRF token."
 
 
 def test_change_password_post_invalid_csrf(client):
-    """Ensure the change password form rejects a submission with an invalid CSRF token."""
+    """Test the change password form's ability to
+    reject submissions with an invalid CSRF token.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.post(
         "/change_password",
         data={
@@ -202,11 +331,18 @@ def test_change_password_post_invalid_csrf(client):
     assert (
         "Invalid CSRF token. Please try again." in response.data.decode()
         or response.status_code == 400
-    ), "Form should reject submission with invalid CSRF token"
+    ), "Form should deny submissions with invalid CSRF tokens."
 
 
 def test_change_password_post_valid_csrf(client):
-    """Ensure the change password form accepts a submission with a valid CSRF token."""
+    """Validate that the change password form accepts correctly submitted datawith a valid CSRF token.
+
+    Args:
+        client: The test client for the application.
+
+    Returns:
+        None
+    """
     response = client.get("/change_password")
     csrf_token = get_csrf_token_from_response(response.data.decode())
 
@@ -222,4 +358,4 @@ def test_change_password_post_valid_csrf(client):
     )
     assert (
         response.status_code == 200
-    ), "Form should accept submission with valid CSRF token"
+    ), "Form must properly process valid submissions with a correct CSRF token."
