@@ -48,21 +48,15 @@ This ensures our application is protected against CSRF attacks as described in t
 
 ### Tests Included
 
-- **Login Form CSRF Protection**
-  - **Rejection without CSRF**: Verifies rejection of POST requests without a CSRF token.
-  - **Acceptance with valid CSRF**: Confirms acceptance of POST requests with a valid CSRF token.
-  - **Rejection with invalid CSRF**: Ensures rejection of POST requests with an invalid CSRF token.
+Areas tested include:
+- Login Form CSRF Protection
+- Signup Form CSRF Protection
+- Password Change CSRF Protection
 
-- **Signup Form CSRF Protection**
-  - **Rejection without CSRF**: Verifies rejection of POST requests without a CSRF token.
-  - **Acceptance with valid CSRF**: Confirms acceptance of POST requests with a valid CSRF token.
-  - **Rejection with invalid CSRF**: Ensures rejection of POST requests with an invalid CSRF token.
-
-- **Password Change CSRF Protection**
-  - **Rejection without CSRF**: Verifies rejection of POST requests without a CSRF token.
-  - **Acceptance with valid CSRF**: Confirms acceptance of POST requests with a valid CSRF token.
-  - **Rejection with invalid CSRF**: Ensures rejection of POST requests with an invalid CSRF token.
-
+Types of tests include:
+- Rejection, missing token
+- Acceptance with valid token
+- Rejection with non-missing invalid token
 
 ### Test Implementation Details
 
