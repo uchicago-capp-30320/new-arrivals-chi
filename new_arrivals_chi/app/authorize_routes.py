@@ -26,7 +26,15 @@ Creation:
 
 import bleach
 from markupsafe import escape
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import (
+    Blueprint,
+    render_template,
+    redirect,
+    url_for,
+    request,
+    flash,
+    current_app,
+)
 from new_arrivals_chi.app.database import User
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
@@ -53,7 +61,10 @@ def signup():
         Renders sign up page in their selected language.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("signup.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "signup.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/signup", methods=["POST"])
@@ -103,7 +114,10 @@ def login():
         Renders login page for user with their selected language.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("login.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "login.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/login", methods=["POST"])
@@ -157,7 +171,10 @@ def change_password():
         Renders change password page for user with their selected language.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("change_password.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "change_password.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/change_password", methods=["POST"])
