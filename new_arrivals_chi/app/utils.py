@@ -33,6 +33,7 @@ from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
 
+
 def extract_signup_data(form):
     """Extracts signup data from a POST request form.
 

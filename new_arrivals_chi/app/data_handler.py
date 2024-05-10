@@ -23,6 +23,7 @@ from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
 
+
 def create_user(email, password):
     """Creates a new user in the database.
 
@@ -34,8 +35,8 @@ def create_user(email, password):
         User: The newly created User object.
     """
     new_user = User(
-        email = email,
-        password = bcrypt.generate_password_hash(password).decode('utf-8'),
+        email=email,
+        password=bcrypt.generate_password_hash(password).decode("utf-8"),
     )
     db.session.add(new_user)
     db.session.commit()
@@ -49,5 +50,7 @@ def change_db_password(password):
     Parameters:
         password (str): The new password for the current user.
     """
-    current_user.password = bcrypt.generate_password_hash(password).decode('utf-8')
+    current_user.password = bcrypt.generate_password_hash(password).decode(
+        "utf-8"
+    )
     db.session.commit()

@@ -31,7 +31,7 @@ from new_arrivals_chi.app.utils import (
     validate_password,
     extract_signup_data,
     extract_new_pw_data,
-    verify_password
+    verify_password,
 )
 from flask_login import login_user, login_required, logout_user, current_user
 from new_arrivals_chi.app.data_handler import create_user, change_db_password
