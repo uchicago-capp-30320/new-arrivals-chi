@@ -24,13 +24,20 @@ Creation:
 @Date: 05/01/2024
 """
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import (
+    Blueprint,
+    render_template,
+    redirect,
+    url_for,
+    request,
+    flash,
+    current_app,
+)
 from werkzeug.security import generate_password_hash, check_password_hash
 from new_arrivals_chi.app.database import db, User
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
     validate_password,
-    load_translations,
 )
 from flask_login import login_user, login_required, logout_user, current_user
 
@@ -48,8 +55,7 @@ def signup():
         Renders sign up page in their selected language.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
     return render_template(
         "signup.html", language=language, translations=translations
     )
@@ -115,8 +121,7 @@ def login():
         Renders login page for user with their selected language.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
     return render_template(
         "login.html", language=language, translations=translations
     )
@@ -173,8 +178,7 @@ def change_password():
         Renders change password page for user with their selected language.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
     return render_template(
         "change_password.html", language=language, translations=translations
     )

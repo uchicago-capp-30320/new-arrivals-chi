@@ -21,7 +21,7 @@ Creation:
 @Date: 04/19/2024
 """
 
-from flask import Flask, Blueprint, render_template, request
+from flask import Flask, Blueprint, render_template, request, current_app
 import os
 from dotenv import load_dotenv
 from new_arrivals_chi.app.authorize_routes import authorize
@@ -48,8 +48,7 @@ def home():
         Renders home page.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
         "home.html", language=language, translations=translations
@@ -67,8 +66,7 @@ def profile():
         Renders profile page for user with in their selected language.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
         "profile.html", language=language, translations=translations
@@ -85,8 +83,7 @@ def legal():
         Renders main legal page.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
         "legal.html", language=language, translations=translations
@@ -103,8 +100,7 @@ def health():
         Renders main health page.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
         "health.html", language=language, translations=translations
@@ -122,8 +118,7 @@ def health_search():
         Renders the health search page.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
         "health_search.html", language=language, translations=translations
@@ -140,8 +135,7 @@ def info():
         Renders information of an organization.
     """
     language = request.args.get("lang", "en")
-    translations = load_translations()
-    translations = translations[language]
+    translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
         "info.html", language=language, translations=translations
@@ -156,6 +150,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["TRANSLATIONS"] = load_translations()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
