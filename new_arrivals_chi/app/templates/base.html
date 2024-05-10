@@ -30,21 +30,21 @@ Madeleine Roberts @MadeleineKRoberts
 
 <body>
     <nav class="navbar" style="position: absolute; top: 20px; left: 20px;">
-        <button onclick="navigateTo('/', '{{ language | escape }}')" class="navbar-item">{{ 'Home' if language == 'en' else 'Página de inicio' | escape }}</button>
+        <button onclick="navigateTo('/', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['home'] | escape }}</button>
         {% if current_user.is_authenticated %}
-        <button onclick="navigateTo('/profile', '{{ language | escape }}')" class="navbar-item">{{ 'Profile' if language == 'en' else 'Perfil' | escape }}</button>
-        <button onclick="navigateTo('/logout', '{{ language | escape }}')" class="navbar-item">{{ 'Logout' if language == 'en' else 'Cerrar sesión' | escape }}</button>
+        <button onclick="navigateTo('/profile', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['profile'] | escape }}</button>
+        <button onclick="navigateTo('/logout', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['logout'] | escape }}</button>
         {% endif %}
         {% if not current_user.is_authenticated %}
-        <button onclick="navigateTo('/login', '{{ language | escape }}')" class="navbar-item">{{ 'Login' if language == 'en' else 'Iniciar sesión' | escape }}</button>
-        <button onclick="navigateTo('/signup', '{{ language | escape }}')" class="navbar-item">{{ 'Sign Up' if language == 'en' else 'Registrar' | escape }}</button>
+        <button onclick="navigateTo('/login', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['util']['login'] | escape }}</button>
+        <button onclick="navigateTo('/signup', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['sign_up'] | escape }}</button>
         {% endif %}
     </nav>
 </body>
 
 <form action="/" method="GET">
-    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' | escape }}</button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+    <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'es' | escape }}">
 </form>
 
 <div class="container has-text-centered">
@@ -53,7 +53,7 @@ Madeleine Roberts @MadeleineKRoberts
  </div>
 
  <p class="report-error">
-    <a href="/report-error">{{ 'Reportar error del sitio web' if language == 'es' else 'Report website error' | escape }}</a> <i class="fas fa-bug"></i>
+    <a href="/report-error">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
 </p>
 
 </html>

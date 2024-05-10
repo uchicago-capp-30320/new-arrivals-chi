@@ -2,8 +2,6 @@
   "es": {
     "base": {
       "home": "P\u00e1gina de inicio",
-      "language": "Espa\u00f1ol",
-      "login": "Iniciar Sesi\u00f3n",
       "logout": "Cerrar Sesi\u00f3n",
       "profile": "Perfil",
       "report_error": "Reportar error del sitio web",
@@ -18,13 +16,43 @@
     },
     "health": {
       "health_information": "Informaci\u00f3n M\u00e9dica",
-      "i_want_to": "Quiero...",
       "learn_more": "Aprende M\u00e1s de Otros Recursos",
-      "recieve_assistance": "Receive Asistencia Inmediata",
-      "something_else": "Algo m\u00e1s"
+      "receive_assistance": "Recibir Asistencia Inmediata"
+    },
+    "home": {
+      "find_support": "Encuentra apoyo para tus necesidades legales, de salud o de comida.",
+      "food": "Comida",
+      "health": "Salud",
+      "legal": "Legal",
+      "please_click": "Por favor haz click abajo para comenzar:",
+      "welcome": "Bienvenido"
+    },
+    "info": {
+      "languages_spoken": "Idiomas hablados: English, Spanish",
+      "open_hours": "Horas de Atenci\u00f3n: Lunes - Viernes, 9:00 AM - 5:00 PM",
+      "organization_name": "Nombre de la Organizaci\u00f3n",
+      "supplies_and_services": "Recursos y Servicios: Comida"
+    },
+    "legal": {
+      "apply_for": "Aplicar para la Identificaci\u00f3n de Chicago",
+      "legal_resources": "Recursos y Servicios Legales",
+      "receive_legal": "Recibir asistencia legal",
+      "understand_rights": "Entender mis derechos legales"
+    },
+    "login": {
+      "email": "Correo electr\u00f3nico",
+      "password": "Contrase\u00f1a",
+      "remember_me": "Recordarme"
+    },
+    "profile": {
+      "profile_information": "La informaci\u00f3n del perfil existir\u00e1 aqu\u00ed."
     },
     "util": {
-      "back": "Regresar"
+      "back": "Atr\u00e1s",
+      "i_want_to": "Quiero...",
+      "language": "Espa\u00f1ol",
+      "login": "Iniciar Sesi\u00f3n",
+      "something_else": "Algo m\u00e1s"
     }
   }
 }
