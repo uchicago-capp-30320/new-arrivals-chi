@@ -11,6 +11,7 @@ database access or manipulation.
 
 
 Methods:
+    - database_query: 
     - test_safe_injections: Test function for testing safe input handling or
                             prevention of SQL injections.
     - test_unsafe_injections_return_all_rows: Test function for an unsafe input
@@ -41,9 +42,9 @@ Creation:
 @Date: 05/09/2024
 """
 
-from sqlalchemy import select
-from .db_test import create_fake_user, create_fake_organization
-from .setup_fake_db import main
+from sqlalchemy import select, text
+from db_test import create_fake_user, create_fake_organization
+from setup_fake_db import main
 from new_arrivals_chi.app.database import User
 
 
@@ -53,10 +54,11 @@ test_user = create_fake_user(test_org)
 
 
 def database_query(setup_logger, input_value):
-    """Executing a database query and check the number of rows returned.
+    """Executing a database query, and returns the number of rows and metadata.
 
     Executes a database query and checks the number of returned rows based on
-    an input value that filters the email column.
+    an input value that filters the email column as well as metadata information
+    from the test database instance.
 
     Args:
         setup_logger: Setup logger.
@@ -73,13 +75,15 @@ def database_query(setup_logger, input_value):
             session = test_db.session
             logger.info("Attempting to retrieve user with test input")
             filtered_users_select = select(User).where(
-                User.email == input_value
+                User.email == text(":email")
             )
             all_users_select = select(User)
 
             all_users = session.execute(all_users_select).scalars().all()
             filtered_users = (
-                session.execute(filtered_users_select).scalars().all()
+                session.execute(filtered_users_select, {"email": input_value})
+                .scalars()
+                .all()
             )
 
             logger.info("SQL query was executed")

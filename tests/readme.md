@@ -26,12 +26,15 @@ It utilizes fixtures for the app, logger, and database and ensures all tests run
 
 The `setup_fake_db.py` script is used to create a fake database instance and fill it with fake data.
 
+The `sql_injection_test.py` file focuses on testing the fake database instance for SQL injections to ensure that input handling is secure and prevents unauthorized database access or manipulation.
+
 ### Tests Included
 
 - **Fake Data Creation**: Confirms that users, organizations, locations, and hours can be created, added to sessions, and committed without issues.
 - **Data Retrieval**: Tests retrieving users by their ID and asserts the correctness of the data like email format and user roles.
 - **Data Validation**: Verifies the integrity of data relationships, ensuring that users are linked to valid organizations and all entities have expected attributes.
 - **Error Handling and Logging**: Log errors during data creation and handle exceptions with rollback.
+- **Prevention of SQL Injections**: Tests for secure handling of safe and unsafe inputs within the fake database instance, preventing malicious actions such as returning all records or dropping tables.
 
 ### Additional Tests - in progress
 
