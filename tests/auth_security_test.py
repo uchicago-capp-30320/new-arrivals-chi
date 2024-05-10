@@ -24,7 +24,6 @@ Creation:
 """
 
 from new_arrivals_chi.app.database import User
-from werkzeug.security import check_password_hash
 from new_arrivals_chi.app.utils import validate_password
 from unittest.mock import patch
 from flask_bcrypt import Bcrypt

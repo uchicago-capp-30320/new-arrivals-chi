@@ -28,7 +28,6 @@ import pytest
 import logging
 import os
 from datetime import datetime
-from werkzeug.security import generate_password_hash
 from new_arrivals_chi.app.main import create_app, db, User
 from flask import template_rendered
 from flask_bcrypt import Bcrypt
