@@ -34,7 +34,7 @@ from new_arrivals_chi.app.utils import (
     extract_new_pw_data,
 )
 from flask_login import login_user, login_required, logout_user, current_user
-from data_handler import create_user, change_db_password
+from new_arrivals_chi.app.data_handler import create_user, change_db_password
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
