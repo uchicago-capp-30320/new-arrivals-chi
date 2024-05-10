@@ -19,20 +19,20 @@ Federico Dominguez Molina @FedericoDM
 {% block content %}
 
     <form action="/health" method="GET">
-        <button type="submit" class="language-button">{{ translations[language]['util']['language'] }}</button>
-        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
     </form>
     <div class="box">
-        <div class="box-big-title">{{ translations[language]['health']['health_information'] }}</div>
-        <div class="box-title">{{ translations[language]['util']['i_want_to'] }} </div>
+        <div class="box-big-title">{{ translations[language]['health']['health_information'] | escape }}</div>
+        <div class="box-title">{{ translations[language]['util']['i_want_to'] | escape }} </div>
         <div class="button-container">
-            <button class="button orange" onclick="navigateTo('/health/search', '{{ language }}')">
-                {{ translations[language]['health']['receive_assistance'] }}
+            <button class="button orange" onclick="navigateTo('/health/search', '{{ language | escape }}')">
+                {{ translations[language]['health']['receive_assistance'] | escape }}
               </button>
-            <button class="button green">{{ translations[language]['health']['learn_more'] }}</button>
-            <button class="yellow-button">{{ translations[language]['util']['something_else'] }}</button>
+            <button class="button green">{{ translations[language]['health']['learn_more'] | escape }}</button>
+            <button class="yellow-button">{{ translations[language]['util']['something_else'] | escape }}</button>
             <p class="bottom-left">
-                <a href="/">{{ translations[language]['util']['back'] }}</a>
+                <a href="/">{{ translations[language]['util']['back'] | escape }}</a>
             </p>
             <p>
         </div>

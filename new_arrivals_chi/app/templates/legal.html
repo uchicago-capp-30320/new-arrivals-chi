@@ -18,8 +18,8 @@ Summer Long @sumslong
 {% block content %}
 
     <form action="/legal" method="GET">
-        <button type="submit" class="language-button">{{ translations[language]['util']['language'] }}</button>
-        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
     </form>
     <div class="box">
         <div class="box-big-title">{{ translations[language]['legal']['legal_resources'] }}</div>
@@ -30,7 +30,7 @@ Summer Long @sumslong
             <button class="button blue">{{ translations[language]['legal']['receive_legal'] }}</button>
             <button class="yellow-button">{{ translations[language]['util']['something_else'] }}</button>
             <p class="bottom-left">
-                <a href="/">{{ translations[language]['util']['back'] }}</a>
+                <a href="/">{{ translations[language]['util']['back'] | escape }}</a>
             </p>
             <p>
         </div>

@@ -19,12 +19,12 @@ Federico Dominguez Molina @FedericoDM
 
 {% block content %}
 
-    <h1>{{ translations[language]['home']['welcome'] }}</h1>
-    <p>{{ translations[language]['home']['find_support'] }}</p>
-    <p>{{ translations[language]['home']['please_click'] }}</p>
+    <h1>{{ translations[language]['home']['welcome'] | escape }}</h1>
+    <p>{{ translations[language]['home']['find_support'] | escape }}</p>
+    <p>{{ translations[language]['home']['please_click'] | escape }}</p>
     <div class="home-button-container">
-        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ translations[language]['home']['legal'] }}</button>
-        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language }}')">{{ translations[language]['home']['health'] }}</button>
-        <button class="button button-green" onclick="window.location.href='/food'">{{ translations[language]['home']['food'] }}</button>
+        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['legal'] | escape }}</button>
+        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['health'] | escape }}</button>
+        <button class="button button-green" onclick="window.location.href='/food'">{{ translations[language]['home']['food'] | escape }}</button>
     </div>
 {% endblock %}

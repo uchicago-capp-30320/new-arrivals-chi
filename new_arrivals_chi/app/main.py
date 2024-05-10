@@ -23,6 +23,7 @@ Creation:
 
 from flask import Flask, Blueprint, render_template, request, current_app
 import os
+import bleach
 from dotenv import load_dotenv
 from new_arrivals_chi.app.database import db, User
 from new_arrivals_chi.app.utils import load_translations
@@ -48,7 +49,7 @@ def home():
     Returns:
         Renders home page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
@@ -66,7 +67,7 @@ def profile():
     Returns:
         Renders profile page for user with in their selected language.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
@@ -83,7 +84,7 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
@@ -100,7 +101,7 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
@@ -118,7 +119,7 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
@@ -135,7 +136,7 @@ def info():
     Returns:
         Renders information of an organization.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
 
     return render_template(
@@ -165,6 +166,7 @@ def create_app(config_override=None):
 
     login_manager = LoginManager()
     login_manager.login_view = "authorize.login"
+    login_manager.session_protection = "strong"
     login_manager.init_app(app)
 
     @login_manager.user_loader
