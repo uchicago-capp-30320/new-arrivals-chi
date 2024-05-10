@@ -80,7 +80,7 @@ def signup_post():
         flash("Passwords do not match. Try again")
 
     elif not validate_password(password):
-        flash("Your Password does not meet our strength requirements.")
+        flash("Please enter a valid password")
 
     else:
         # Meets all sign up requirements
@@ -184,7 +184,7 @@ def post_change_password():
 
     elif not validate_password(new_password):
         flash(
-            "Your Password does not meet our strength requirements. Try again"
+            "New password does not meet requirements. Try again."
         )
 
     else:

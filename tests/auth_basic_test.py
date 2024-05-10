@@ -111,6 +111,7 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
             data={
                 "email": "test@example.com",  # invalid password
                 "password": "password!",
+                "password_confirm": "password!",
             },
             follow_redirects=True,
         )
@@ -144,13 +145,14 @@ def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
             data={
                 "email": "new_user@example.com",  # valid email format
                 "password": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
+                "password_confirm": "Str0ngP@$$word123!C0ntre$namUyfue&t3"
             },
             follow_redirects=True,
         )
         assert response.status_code == 200
         assert len(capture_templates) == 1
         assert (
-            capture_templates[0][0].name == "home.html"
+            capture_templates[0][0].name == "profile.html"
         ), "Wrong template used"
         logger.info("Sign up successful with valid credentials.")
     except AssertionError as e:
@@ -172,10 +174,11 @@ def test_signup_post_weak_password(client, capture_templates, setup_logger):
     try:
         response = client.post(
             "/signup",
-            data={"email": "new_user@example.com", "password": "weak"},
+            data={"email": "new_user123@example.com", "password": "weak", "password_confirm": "weak"},
             follow_redirects=True,
         )
         assert response.status_code == 200
+        print(response.data)
         assert b"Please enter a valid password" in response.data
         assert len(capture_templates) == 1
         assert (
@@ -350,7 +353,7 @@ def test_page_requiring_login_after_logout(
     logger = setup_logger("test_page_requiring_login_after_logout")
     client.post(
         "/login",
-        data={"username": "test@example.com", "password": "TestPassword123!"},
+        data={"email": "test@example.com", "password": "TestPassword123!"},
         follow_redirects=True,
     )
     client.get("/logout", follow_redirects=True)
