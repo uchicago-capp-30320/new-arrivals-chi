@@ -23,6 +23,7 @@ Creation:
 
 from flask import Flask, Blueprint, render_template, request
 import os
+import bleach
 from dotenv import load_dotenv
 from new_arrivals_chi.app.database import db, User
 from flask_migrate import Migrate
@@ -47,7 +48,7 @@ def home():
     Returns:
         Renders home page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("home.html", language=language)
 
 
@@ -61,7 +62,7 @@ def profile():
     Returns:
         Renders profile page for user with in their selected language.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("profile.html", language=language)
 
 
@@ -74,7 +75,7 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("legal.html", language=language)
 
 
@@ -87,7 +88,7 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("health.html", language=language)
 
 
@@ -101,7 +102,7 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("health_search.html", language=language)
 
 
@@ -114,7 +115,7 @@ def info():
     Returns:
         Renders information of an organization.
     """
-    language = request.args.get("lang", "en")
+    language = bleach.clean(request.args.get("lang", "en"))
     return render_template("info.html", language=language)
 
 
