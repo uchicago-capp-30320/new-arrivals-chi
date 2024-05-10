@@ -29,8 +29,16 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from markupsafe import escape
 from werkzeug.security import generate_password_hash, check_password_hash
 from new_arrivals_chi.app.database import db, User
-from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
+from new_arrivals_chi.app.utils import (
+    validate_email_syntax,
+    validate_password,
+    extract_signup_data,
+    extract_new_pw_data,
+    verify_password,
+)
 from flask_login import login_user, login_required, logout_user, current_user
+from new_arrivals_chi.app.data_handler import create_user, change_db_password
+
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
@@ -88,16 +96,19 @@ def signup_post():
         flash(escape("Email address already exists for user"))
         return redirect(url_for("authorize.signup"))
 
-    # create a new user with the form data
-    new_user = User(
-        email=email,
-        password=generate_password_hash(password, method="pbkdf2:sha256"),
-    )
-    # add the new user to the database
-    db.session.add(new_user)
-    db.session.commit()
+    elif not password == password_confirm:
+        flash(escape("Passwords do not match. Try again"))
 
-    return redirect(url_for("main.home"))
+    elif not validate_password(password):
+        flash(escape("Please enter a valid password"))
+
+    else:
+        # Meets all sign up requirements
+        new_user = create_user(email, password)
+        login_user(new_user, remember=False)
+        return redirect(url_for("main.profile"))
+
+    return redirect(url_for("authorize.signup"))
 
 
 @authorize.route("/login")
