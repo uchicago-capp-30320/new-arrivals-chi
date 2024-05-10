@@ -26,6 +26,7 @@ Creation:
         {% endif %}
         {% endwith %}
         <form method="POST" action="/login">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             <div class="field">
                 <div class="control">
                     <input class="input is-large" type="email" name="email" placeholder="{{ 'Email' if language == 'en' else 'Correo electrónico' }}" autofocus="">

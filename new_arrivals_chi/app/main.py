@@ -28,7 +28,6 @@ from new_arrivals_chi.app.database import db, User
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required
 from new_arrivals_chi.app.authorize_routes import authorize
-from flask_wtf import CSRFProtect
 
 migrate = Migrate()
 
@@ -141,7 +140,6 @@ def create_app(config_override=None):
     login_manager.login_view = "authorize.login"
     login_manager.init_app(app)
 
-    CSRFProtect(app)
 
     @login_manager.user_loader
     def load_user(user_id):

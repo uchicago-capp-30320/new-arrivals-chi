@@ -31,6 +31,7 @@ from datetime import datetime
 from new_arrivals_chi.app.main import create_app, db, User
 from flask import template_rendered
 from flask_bcrypt import Bcrypt
+from flask_wtf import CSRFProtect
 
 bcrypt = Bcrypt()
 
