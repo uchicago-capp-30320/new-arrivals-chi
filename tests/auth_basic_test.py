@@ -143,7 +143,7 @@ def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
             "/signup",
             data={
                 "email": "new_user@example.com",  # valid email format
-                "password": "StrongPassword123!",
+                "password": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
             },
             follow_redirects=True,
         )
