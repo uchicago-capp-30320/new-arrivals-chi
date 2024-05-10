@@ -16,34 +16,34 @@ Creation:
 {% extends "base.html" %}
 {% block content %}
 <div >
-    <h3 class="title">{{ 'Login' if language == 'en' else 'Iniciar sesión' }}</h3>
+    <h3 class="title">{{ 'Login' if language == 'en' else 'Iniciar sesión' | escape }}</h3>
     <div class="box">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="notification is-danger">
-                {{ messages[0] }}
+                {{ messages[0] | escape }}
             </div>
         {% endif %}
         {% endwith %}
         <form method="POST" action="/login">
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="{{ 'Email' if language == 'en' else 'Correo electrónico' }}" autofocus="">
+                    <input class="input is-large" type="email" name="email" placeholder="{{ 'Email' if language == 'en' else 'Correo electrónico' | escape }}" autofocus="">
                 </div>
             </div>
 
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="{{ 'Password' if language == 'en' else 'Contraseña' }}">
+                    <input class="input is-large" type="password" name="password" placeholder="{{ 'Password' if language == 'en' else 'Contraseña' | escape }}">
                 </div>
             </div>
             <div class="field">
                 <label class="checkbox">
                     <input type="checkbox" name="remember">
-                    {{ 'Remember me' if language == 'en' else 'Recordarme' }}
+                    {{ 'Remember me' if language == 'en' else 'Recordarme' | escape }}
                 </label>
             </div>
-            <button >{{ 'Login' if language == 'en' else 'Iniciar sesión' }}</button>
+            <button >{{ 'Login' if language == 'en' else 'Iniciar sesión' | escape }}</button>
         </form>
     </div>
 </div>

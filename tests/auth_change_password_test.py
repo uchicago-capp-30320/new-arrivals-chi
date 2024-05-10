@@ -76,12 +76,13 @@ def test_change_password_wrong_old_password(
     try:
         response = client.post(
             "/change_password",
-            data={
-                "old_password": "BestP@ssword!",
-                "new_password": "TestP@ssword!_2!",
-            },
-            follow_redirects=True,
-        )
+        data={
+            "old_password": "BestP@ssword!",
+            "new_password": "TestP@ssword!_2!",
+            "new_password_confirm": "TestP@ssword!_2!", 
+        },
+        follow_redirects=True,
+    )
         assert response.status_code == 200
         assert b"Wrong existing password. Try again" in response.data
         assert len(capture_templates) == 2
@@ -118,6 +119,7 @@ def test_change_password_wrong_new_password_same_as_old(
             data={
                 "old_password": "TestP@ssword!",
                 "new_password": "TestP@ssword!",
+                "new_password_confirm": "TestP@ssword!",
             },
             follow_redirects=True,
         )

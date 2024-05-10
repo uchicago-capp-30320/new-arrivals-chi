@@ -17,10 +17,10 @@ Creation:
 <h1>
     {{'Profile infomation will exist here.'
     if language == 'en' else
-    'La información del perfil existirá aquí.'}}
+    'La información del perfil existirá aquí.'| escape }}
 
     <div class="home-button-container">
-        <button class="button button-blue" onclick="navigateTo('/change_password', '{{ language }}')">{{ 'Cambiar su contraseña' if language == 'es' else 'Change Password' }}</button>
+        <button class="button button-blue" onclick="navigateTo('/change_password', '{{ language | escape }}')">{{ 'Cambiar su contraseña' if language == 'es' else 'Change Password' | escape }}</button>
     </div>
 </h1>
 {% endblock %}

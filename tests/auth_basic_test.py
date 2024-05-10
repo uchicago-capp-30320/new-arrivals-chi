@@ -350,7 +350,7 @@ def test_page_requiring_login_after_logout(
     logger = setup_logger("test_page_requiring_login_after_logout")
     client.post(
         "/login",
-        data={"username": "test@example.com", "password": "TestPassword123!"},
+        data={"email": "test@example.com", "password": "TestPassword123!"},
         follow_redirects=True,
     )
     client.get("/logout", follow_redirects=True)
