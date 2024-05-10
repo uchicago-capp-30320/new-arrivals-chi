@@ -19,6 +19,7 @@ Creation:
 <div class="column is-4 is-offset-4">
     <div class="box">
         <form method="POST" action="/signup">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <div class="notification is-danger">
@@ -27,6 +28,7 @@ Creation:
             {% endif %}
             {% endwith %}
             <form method="POST" action="/signup">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
 
             <div class="field">
                 <div class="control">

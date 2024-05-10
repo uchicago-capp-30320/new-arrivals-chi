@@ -40,6 +40,18 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
 
+def validate_csrf():
+    """Validates the CSRF token.
+
+    Returns:
+        Redirects to the login page with a flash message if the CSRF token is
+        invalid.
+    """
+    if request.form.get("csrf_token") != session.get("csrf_token"):
+        flash("Invalid CSRF token. Please try again.")
+        return redirect(url_for("authorize.login"))
+
+
 @authorize.route("/signup")
 def signup():
     """Establishes route for the user sign up page.
@@ -51,7 +63,7 @@ def signup():
         Renders sign up page in their selected language.
     """
     language = request.args.get("lang", "en")
-    return render_template("signup.html", language=language)
+    return render_template("signup.html", language=language, csrf_token=generate_csrf())
 
 
 @authorize.route("/signup", methods=["POST"])
@@ -66,6 +78,7 @@ def signup_post():
         Redirects back to the sign up page if there are validation errors
         or if the email address already exists in the database.
     """
+    validate_csrf()
     email, password, password_confirm = extract_signup_data(request.form)
 
     # ensure that input meets requirments
@@ -112,9 +125,7 @@ def login_post():
         Redirects to the user's profile page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
-    if request.form.get("csrf_token") != session.get("csrf_token"):
-        flash("Invalid CSRF token. Please try again.")
-        return redirect(url_for("authorize.login"))
+    validate_csrf()
     email = request.form.get("email").lower()
     password = request.form.get("password")
     remember = True if request.form.get("remember") else False
@@ -158,7 +169,7 @@ def change_password():
         Renders change password page for user with their selected language.
     """
     language = request.args.get("lang", "en")
-    return render_template("change_password.html", language=language)
+    return render_template("change_password.html", language=language, csrf_token=generate_csrf())
 
 
 @authorize.route("/change_password", methods=["POST"])
