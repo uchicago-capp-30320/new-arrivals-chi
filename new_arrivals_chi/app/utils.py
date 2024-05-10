@@ -7,10 +7,11 @@ Associated Files:
 This file contains utility methods for validating user input.
 
 Methods:
-    * validate_email_syntax — Validates the syntax of an email address.
-    * validate_password - Validates the strength of a password.
     * extract_signup_data - Extracts signup data from a request object.
     * extract_new_pw_data - Extracts new password data from a request object.
+    * validate_email_syntax — Validates the syntax of an email address.
+    * validate_password - Validates the strength of a password.
+    * verify_password - Verifies a candidate password against a hashed password.
     * setup_logger - Creates a logger for recording the output of the script.
 
 Last Updated:
@@ -28,7 +29,9 @@ import os
 import logging
 from datetime import datetime
 from password_strength import PasswordPolicy
+from flask_bcrypt import Bcrypt
 
+bcrypt = Bcrypt()
 
 def extract_signup_data(form):
     """Extracts signup data from a POST request form.
@@ -114,6 +117,23 @@ def validate_password(password):
     no_space = re.search(r"\s", password) is None
 
     return policy_reqs == 0 and no_space
+
+
+def verify_password(pw_hash, candidate):
+    """Verifies a candidate password against a hashed password.
+
+    This function compares a candidate password against a hashed password
+    to check if they match.
+
+    Parameters:
+        pw_hash (str): The hashed password.
+        candidate (str): The candidate password to be verified.
+
+    Returns:
+        bool: True if the candidate password matches the hashed password,
+        False otherwise.
+    """
+    return bcrypt.check_password_hash(pw_hash, candidate)
 
 
 def setup_logger(name):
