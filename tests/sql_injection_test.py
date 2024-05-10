@@ -11,7 +11,7 @@ database access or manipulation.
 
 
 Methods:
-    - database_query: Executing a database query, returns number of rows and 
+    - database_query: Executing a database query, returns number of rows and
                       metadata.
     - test_safe_injections: Test function for testing safe input handling or
                             prevention of SQL injections.
@@ -44,8 +44,8 @@ Creation:
 """
 
 from sqlalchemy import select, text
-from db_test import create_fake_user, create_fake_organization
-from setup_fake_db import main
+from tests.db_test import create_fake_user, create_fake_organization
+from tests.setup_fake_db import main
 from new_arrivals_chi.app.database import User
 
 
