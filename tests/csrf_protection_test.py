@@ -15,7 +15,7 @@ Methods included:
     * test_login_post_invalid_csrf
     * test_signup_form_rejection_without_csrf
     * test_signup_form_acceptance_with_csrf
-    * test_signup_post_invalid_csrf 
+    * test_signup_post_invalid_csrf
     * test_change_password_form_rejection_without_csrf
     * test_change_password_form_acceptance_with_csrf
     * test_change_password_post_invalid_csrf
