@@ -11,7 +11,8 @@ database access or manipulation.
 
 
 Methods:
-    - database_query:
+    - database_query: Executing a database query, returns number of rows and 
+                      metadata.
     - test_safe_injections: Test function for testing safe input handling or
                             prevention of SQL injections.
     - test_unsafe_injections_return_all_rows: Test function for an unsafe input
@@ -54,7 +55,7 @@ test_user = create_fake_user(test_org)
 
 
 def database_query(setup_logger, input_value):
-    """Executing a database query, and returns the number of rows and metadata.
+    """Executing a database query, returns number of rows and metadata.
 
     Executes a database query and checks the number of returned rows based on
     an input value that filters the email column as well as metadata information
