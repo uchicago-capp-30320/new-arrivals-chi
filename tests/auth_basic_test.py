@@ -145,7 +145,7 @@ def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
             data={
                 "email": "new_user@example.com",  # valid email format
                 "password": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
-                "password_confirm": "Str0ngP@$$word123!C0ntre$namUyfue&t3"
+                "password_confirm": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
             },
             follow_redirects=True,
         )
@@ -174,7 +174,11 @@ def test_signup_post_weak_password(client, capture_templates, setup_logger):
     try:
         response = client.post(
             "/signup",
-            data={"email": "new_user123@example.com", "password": "weak", "password_confirm": "weak"},
+            data={
+                "email": "new_user123@example.com",
+                "password": "weak",
+                "password_confirm": "weak",
+            },
             follow_redirects=True,
         )
         assert response.status_code == 200

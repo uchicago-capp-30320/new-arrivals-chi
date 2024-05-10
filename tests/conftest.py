@@ -143,9 +143,9 @@ def capture_templates(app):
 @pytest.fixture(scope="function")
 def test_user(client):
     """Create a test user in the database before each test and remove after."""
-    user_password = bcrypt.generate_password_hash(
-        "TestP@ssword!"
-    ).decode("utf-8")
+    user_password = bcrypt.generate_password_hash("TestP@ssword!").decode(
+        "utf-8"
+    )
     user_test_case = User(email="test@example.com", password=user_password)
     db.session.add(user_test_case)
     db.session.commit()

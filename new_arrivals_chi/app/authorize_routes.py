@@ -183,9 +183,7 @@ def post_change_password():
         flash("New passwords do not match. Try again")
 
     elif not validate_password(new_password):
-        flash(
-            "New password does not meet requirements. Try again."
-        )
+        flash("New password does not meet requirements. Try again.")
 
     else:
         change_db_password(new_password)
