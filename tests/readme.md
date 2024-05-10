@@ -17,7 +17,6 @@ The core configurations for our tests are managed through `conftest.py`, which i
 - `capture_templates`: Create a function to retrieve the templates rendered
 - `test_user`: Create a test user in the database before each test and remove after
 - `logged_in_state`(client): Logs in a user for testing routes that require authentication
-- 
 
 ## Writing Tests
 
@@ -38,11 +37,39 @@ The `setup_fake_db.py` script is used to create a fake database instance and fil
 - **Authentication**: Tests to check authentication pathways including sign-up, login, logout, password changes, and password security.
 - **Error Handling and Logging**: Log errors during data creation and handle exceptions with rollback.
 
-### Additional Tests - in progress
+## Cross Site Request Forgery (CSRF) Tests
 
-Simple starter tests are defined in `app_home_test.py`, which contains functions to test specific aspects of the home page such as,
-- `test_home_page_status`: Verifies that the home page loads correctly.
-- `test_home_contains_welcome_message`: Checks for the presence of a welcome message on the home page.
+Cross Site Request Forgery (CSRF) is a type of attack where a malicious website sends a request to a different website on behalf of a user.
+This can lead to unauthorized actions being performed on the user's behalf, such as changing passwords or making purchases.
+
+To ensure application security, we have implemented a series of CSRF protection tests.
+These tests verify that our application properly handles CSRF tokens during POST requests including login, password changes, and user signup.
+This ensures our application is protected against CSRF attacks as described in the [OWASP guidelines](https://owasp.org/www-community/attacks/csrf).
+
+### Tests Included
+
+- **Login Form CSRF Protection**
+  - **Rejection without CSRF**: Verifies rejection of POST requests without a CSRF token.
+  - **Acceptance with valid CSRF**: Confirms acceptance of POST requests with a valid CSRF token.
+  - **Rejection with invalid CSRF**: Ensures rejection of POST requests with an invalid CSRF token.
+
+- **Signup Form CSRF Protection**
+  - **Rejection without CSRF**: Verifies rejection of POST requests without a CSRF token.
+  - **Acceptance with valid CSRF**: Confirms acceptance of POST requests with a valid CSRF token.
+  - **Rejection with invalid CSRF**: Ensures rejection of POST requests with an invalid CSRF token.
+
+- **Password Change CSRF Protection**
+  - **Rejection without CSRF**: Verifies rejection of POST requests without a CSRF token.
+  - **Acceptance with valid CSRF**: Confirms acceptance of POST requests with a valid CSRF token.
+  - **Rejection with invalid CSRF**: Ensures rejection of POST requests with an invalid CSRF token.
+
+
+### Test Implementation Details
+
+Each CSRF test follows a two-step process:
+
+1. **Token Retrieval**: First, a GET request is sent to the respective form page (`/login`, `/signup`, `/change_password`) to retrieve a page containing a CSRF token.
+2. **Form Submission**: A POST request is then made with or without the retrieved CSRF token to test the form's response. This simulates user actions under normal and attack scenarios.
 
 ## Running Tests
 
