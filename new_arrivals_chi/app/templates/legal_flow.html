@@ -1,0 +1,112 @@
+<!--
+Project: new_arrivals_chi
+File name: legal_flow.html
+Associated Files:
+    base.html, main.py
+
+Decision tree for legal resources.
+
+Creation:
+@Author: Kathryn Link-Oberstar @klinkoberstar
+@Date: 05/11/2024
+
+Contributors:
+Kathryn Link-Oberstar @klinkoberstar
+-->
+{% extends "base.html" %}
+
+{% block content %}
+<div id="buttonContainer"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    const options = {
+        legal_start: {
+            key: "legal",
+            text: "what_help",
+            children: {
+                work_auth: {
+                    key: "work_auth",
+                    text: "work_auth_question",
+                    children: {
+                        tps: { key: "tps", text: "tps_header", children: { 
+                            option1: { key: "tps_info", link: "/tps_info" }, 
+                            option2: { key: "tps_apply", link: "/tps_apply" } 
+                        }},
+                        vttc: { key: "vttc", text: "vttc_header", children: { 
+                            option1: { key: "vttc_info", link: "/vttc_info" }, 
+                            option2: { key: "vttc_apply", link: "/vttc_apply" } 
+                        }},
+                        asylum: { key: "asylum", text: "asylum_header", children: { 
+                            option1: { key: "asylum_info", link: "/asylum_info" }, 
+                            option2: { key: "asylum_apply", link: "/asylum_apply" } 
+                        }},
+                        parole: { key: "parole", text: "parole_header", children: { 
+                            option1: { key: "parole_info", link: "/parole_info" }, 
+                            option2: { key: "parole_apply", link: "/parole_apply" } 
+                        }},
+                        other: { key: "other", text: "other_header", children: { 
+                            option1: { key: "undocumented", link: "/undocumented_resources" }, 
+                            option2: { key: "lawyers", link: "/legal_help" } 
+                        }},
+                    }
+                },
+                work_rights: { key: "work_rights", link: "/work_rights" },
+                renters_rights: { key: "renters_rights", link: "/renters_rights" },
+                something_else: { key: "something_else", link: "/legal_general" }
+            }
+        }
+    };
+
+    let currentLanguage = 'en';
+    let languageData = {};
+
+    function loadLanguage(lang) {
+        fetch(`/static/languages/${lang}.json`)
+            .then(response => response.json())
+            .then(data => {
+                languageData = data;
+                createButtons(options.legal_start);
+            })
+            .catch(error => {
+                console.error('Error loading the language file:', error);
+                $('#buttonContainer').html('Failed to load language data.');
+            });
+    }
+
+    function createButtons(currentOptions) {
+        $('#buttonContainer').empty(); 
+        const headerText = currentOptions.text && languageData.legal_start[currentOptions.text]
+            ? languageData.legal_start[currentOptions.text]
+            : 'Select an option'; 
+        $('#buttonContainer').append($('<p>').text(headerText)); 
+
+        if (currentOptions.children) {
+            Object.keys(currentOptions.children).forEach(key => {
+                const childOption = currentOptions.children[key];
+                const btnText = languageData.legal_start[childOption.key] || 'Key not found'; 
+                let btn = $('<button>').text(btnText).on('click', () => {
+                    if (childOption.children) {
+                        createButtons(childOption);
+                    } else if (childOption.link) {
+                        window.location.href = childOption.link;
+                    }
+                });
+                $('#buttonContainer').append(btn);
+            });
+        } else {
+            console.error("No children options found for:", currentOptions);
+        }
+    }
+
+    $(document).ready(function() {
+        $('#languageSelect').change(function() {
+            currentLanguage = $(this).val();
+            loadLanguage(currentLanguage);
+        });
+
+        loadLanguage(currentLanguage);
+    });
+</script>
+
+{% endblock %}

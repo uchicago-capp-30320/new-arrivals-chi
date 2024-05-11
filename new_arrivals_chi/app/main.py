@@ -76,7 +76,7 @@ def legal():
         Renders main legal page.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("legal.html", language=language)
+    return render_template("legal_flow.html", language=language)
 
 
 @main.route("/health")

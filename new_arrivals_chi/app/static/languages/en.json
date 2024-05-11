@@ -1,0 +1,56 @@
+{
+  "base": {
+    "home": "Home",
+    "language": "English",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "report_error": "Report website error",
+    "sign_up": "Sign Up"
+  },
+  "change_password": {
+    "change_password": "Change Password",
+    "new_password": "New Password",
+    "new_password_confirm": "New Password",
+    "old_password": "Old Password",
+    "password_must_include": "Your password must include at least one uppercase letter, one lowercase letter, one number, one special symbol, and be longer than 8 characters."
+  },
+  "health": {
+    "health_information": "Health Information",
+    "i_want_to": "I want to...",
+    "learn_more": "Learn More About Resources",
+    "recieve_assistance": "Receive Assistance Now",
+    "something_else": "Something else"
+  },
+  "util": {
+    "back": "Back"
+  },
+  "legal_start": {
+    "what_help": "What can I help you with?",
+    "work_auth": "I need help getting authorization to work",
+    "work_rights": "I need to learn more about my rights as a worker",
+    "renters_rights": "I need to learn more about my rights as a renter",
+    "something_else": "I need help with something else",
+    "work_auth_question": "Do any of the following circumstances apply to you?",
+    "tps": "I am from one of the countries listed below and arrived before the accompanying date.Afghanistan (May 20, 2022)Burma (Myanmar) (March 25, 2024)Cameroon (June 7, 2022)El Salvador (December 14, 2023)Ethiopia (April 15, 2024)Haiti (December 14, 2023)Honduras (December 14, 2023)Nepal (December 14, 2023)Nicaragua (December 14, 2023)Somalia (March 13, 2023)South Sudan (August 21, 2023)Sudan (December 14, 2023)Syria (January 29, 2024)Ukraine (August 21, 2023)Venezuela (November 17, 2023)Yemen (January 3, 2023)",
+    "vttc": "I am the victim of trafficking, domestic violence, sexual assault, hate crimes, human trafficking, involuntary servitude, or a certain other serious offense.",
+    "asylum": "I have a credible fear of persecution or torture in my home country that led me to come to the US.",
+    "parole": "I am from Ukraine or Afghanistan OR I am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing dangerous conditions, violence, or severe economic hardship in my home country OR I have an emergency reason for seeking parole in the US including:- Medical Family Reunification (adults and children) Civil and Criminal Court Proceedings Other Emergent Requests",
+    "other": "None of the above apply to me.",
+    "tps_header":"We think you may be eligible for Temporary Protected Status (TPS)",
+    "tps_info": "I have applied for or received Temporary Protected Status (TPS)",
+    "tps_apply": "I want help applying for Temporary Protected Status (TPS)",
+    "vttc_header":"We think you may be eligible for work authorization.",
+    "vttc_info": "I have applied for or received work authorization.",
+    "vttc_apply": "I want help applying for work authorization.",
+    "asylum_header":"We think you may be eligible for asylum.",
+    "asylum_info": "I have applied for or received asylum.",
+    "asylum_apply": "I want help applying for asylum.",
+    "parole_header":"We think you may be eligible for humanitarian parole.",
+    "parole_info": "I have applied for or received humanitarian parole.",
+    "parole_apply": "I want help applying for humanitarian parole.",
+    "other_header": "We cannot determine your eligibility for Asylum, Parole, or Temporary Protected Status",
+    "undocumented": "Learn more about resources for undocumented migrants.",  
+    "lawyers": "Find Personalized Legal Assistance."  
+  }
+}
