@@ -16,7 +16,7 @@ Creation:
 {% extends "base.html" %}
 {% block content %}
 <div >
-    <h3 class="title">{{ 'Login' if language == 'en' else 'Iniciar sesión' | escape }}</h3>
+    <h3 class="title">{{ translations[language]['util']['login'] | escape }}</h3>
     <div class="box">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -28,7 +28,7 @@ Creation:
         <form method="POST" action="/login">
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="{{ 'Email' if language == 'en' else 'Correo electrónico' | escape }}" autofocus="">
+                    <input class="input is-large" type="email" name="email" placeholder="{{ translations[language]['profile']['email']  | escape }}" autofocus="">
                 </div>
             </div>
 
@@ -40,10 +40,10 @@ Creation:
             <div class="field">
                 <label class="checkbox">
                     <input type="checkbox" name="remember">
-                    {{ 'Remember me' if language == 'en' else 'Recordarme' | escape }}
+                    {{ translations[language]['login']['remember_me'] | escape }}
                 </label>
             </div>
-            <button >{{ 'Login' if language == 'en' else 'Iniciar sesión' | escape }}</button>
+            <button >{{ translations[language]['util']['login'] | escape }}</button>
         </form>
     </div>
 </div>

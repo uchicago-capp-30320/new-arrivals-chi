@@ -23,10 +23,10 @@ Creation:
 @Date: 04/19/2024
 """
 
-
+import logging
+import json
 import re
 import os
-import logging
 from datetime import datetime
 from password_strength import PasswordPolicy
 from flask_bcrypt import Bcrypt
@@ -169,3 +169,17 @@ def setup_logger(name):
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
     return logger
+
+
+def load_translations():
+    """Loads translations from JSON files for supported languages.
+
+    Returns:
+        dict: A dictionary containing translations for supported languages.
+    """
+    languages = ["en", "es"]
+    translations = {}
+    for lang in languages:
+        with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
+            translations[lang] = json.load(file)
+    return translations

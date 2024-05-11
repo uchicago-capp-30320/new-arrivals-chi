@@ -15,9 +15,7 @@ Creation:
 
 {% block content %}
 <h1>
-    {{'Profile infomation will exist here.'
-    if language == 'en' else
-    'La información del perfil existirá aquí.'| escape }}
+    {{ translations[language]['profile']['profile_information']| escape }}
 
     <div class="home-button-container">
         <button class="button button-blue" onclick="navigateTo('/change_password', '{{ language | escape }}')">{{ 'Cambiar su contraseña' if language == 'es' else 'Change Password' | escape }}</button>

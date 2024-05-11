@@ -1,0 +1,58 @@
+{
+  "en": {
+    "base": {
+      "home": "Home",
+      "logout": "Logout",
+      "profile": "Profile",
+      "report_error": "Report website error",
+      "sign_up": "Sign Up"
+    },
+    "change_password": {
+      "change_password": "Change Password",
+      "new_password": "New Password",
+      "new_password_confirm": "New Password",
+      "old_password": "Old Password",
+      "password_must_include": "Your password must include at least one uppercase letter, one lowercase letter, one number, one special symbol, and be longer than 8 characters."
+    },
+    "health": {
+      "health_information": "Health Information",
+      "learn_more": "Learn More About Resources",
+      "receive_assistance": "Receive Assistance Now"
+    },
+    "home": {
+      "find_support": "Find essential support for legal, health, and food needs.",
+      "food": "Food",
+      "health": "Health",
+      "legal": "Legal",
+      "please_click": "Please click below to begin:",
+      "welcome": "Welcome"
+    },
+    "info": {
+      "languages_spoken": "Languages Spoken: English, Spanish",
+      "open_hours": "Open Hours: Monday - Friday, 9:00 AM - 5:00 PM",
+      "organization_name": "Organization Name",
+      "supplies_and_services": "Supplies and Services: Food"
+    },
+    "legal": {
+      "apply_for": "Apply for Chicago Identification",
+      "legal_resources": "Legal Resources and Services",
+      "receive_legal": "Receive legal assistance",
+      "understand_rights": "Understand my legal rights"
+    },
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "remember_me": "Remember me"
+    },
+    "profile": {
+      "profile_information": "Profile information will exist here."
+    },
+    "util": {
+      "back": "Back",
+      "i_want_to": "I want to...",
+      "language": "English",
+      "login": "Login",
+      "something_else": "Something else"
+    }
+  }
+}

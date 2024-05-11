@@ -21,11 +21,12 @@ Creation:
 @Date: 04/19/2024
 """
 
-from flask import Flask, Blueprint, render_template, request
+from flask import Flask, Blueprint, render_template, request, current_app
 import os
 import bleach
 from dotenv import load_dotenv
 from new_arrivals_chi.app.database import db, User
+from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required
 from new_arrivals_chi.app.authorize_routes import authorize
@@ -49,7 +50,11 @@ def home():
         Renders home page.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("home.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "home.html", language=language, translations=translations
+    )
 
 
 @main.route("/profile")
@@ -63,7 +68,11 @@ def profile():
         Renders profile page for user with in their selected language.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("profile.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "profile.html", language=language, translations=translations
+    )
 
 
 @main.route("/legal")
@@ -76,7 +85,12 @@ def legal():
         Renders main legal page.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("legal_flow.html", language=language)
+
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_flow.html", language=language, translations=translations
+    )
 
 
 @main.route("/health")
@@ -89,7 +103,11 @@ def health():
         Renders main health page.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("health.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "health.html", language=language, translations=translations
+    )
 
 
 @main.route("/health/search")
@@ -103,7 +121,11 @@ def health_search():
         Renders the health search page.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("health_search.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "health_search.html", language=language, translations=translations
+    )
 
 
 @main.route("/info")
@@ -116,7 +138,11 @@ def info():
         Renders information of an organization.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    return render_template("info.html", language=language)
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "info.html", language=language, translations=translations
+    )
 
 
 def create_app(config_override=None):
@@ -127,6 +153,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["TRANSLATIONS"] = load_translations()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
