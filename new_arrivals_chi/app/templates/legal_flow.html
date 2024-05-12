@@ -60,6 +60,7 @@ Kathryn Link-Oberstar @klinkoberstar
     };
 
     let languageData = {{ translations[language].legal_start | tojson | safe }};
+    let previousOptions = [];
 
     function createButtons(currentOptions) {
         $('#buttonContainer').empty();
@@ -74,6 +75,7 @@ Kathryn Link-Oberstar @klinkoberstar
                 const btnText = languageData[childOption.key] || 'Key not found';
                 let btn = $('<button>').text(btnText).on('click', () => {
                     if (childOption.children) {
+                        previousOptions.push(currentOptions);
                         createButtons(childOption);
                     } else if (childOption.link) {
                         window.location.href = childOption.link;
@@ -81,6 +83,14 @@ Kathryn Link-Oberstar @klinkoberstar
                 });
                 $('#buttonContainer').append(btn);
             });
+
+            if (previousOptions.length > 0) {
+                let backBtn = $('<button>').text('Back').on('click', () => {
+                    const prevOptions = previousOptions.pop();
+                    createButtons(prevOptions);
+                });
+                $('#buttonContainer').append(backBtn);
+            }
         } else {
             console.error("No children options found for:", currentOptions);
         }
