@@ -1,0 +1,87 @@
+{
+  "es": {
+    "base": {
+      "home": "P\u00e1gina de inicio",
+      "logout": "Cerrar Sesi\u00f3n",
+      "profile": "Perfil",
+      "report_error": "Reportar error del sitio web",
+      "sign_up": "Registrarse"
+    },
+    "change_password": {
+      "change_password": "Cambiar su contrase\u00f1a",
+      "new_password": "Contrase\u00f1a nueva",
+      "new_password_confirm": "Contrase\u00f1a nueva",
+      "old_password": "Contrase\u00f1a anterior",
+      "password_must_include": "Su contrase\u00f1a debe incluir al menos una letra may\u00fascula, una letra min\u00fascula, un n\u00famero, un s\u00edmbolo especial y tener m\u00e1s de 8 caracteres."
+    },
+    "health": {
+      "health_information": "Informaci\u00f3n M\u00e9dica",
+      "learn_more": "Aprende M\u00e1s de Otros Recursos",
+      "receive_assistance": "Recibir Asistencia Inmediata"
+    },
+    "home": {
+      "find_support": "Encuentra apoyo para tus necesidades legales, de salud o de comida.",
+      "food": "Comida",
+      "health": "Salud",
+      "legal": "Legal",
+      "please_click": "Por favor haz click abajo para comenzar:",
+      "welcome": "Bienvenido"
+    },
+    "info": {
+      "languages_spoken": "Idiomas hablados: English, Spanish",
+      "open_hours": "Horas de Atenci\u00f3n: Lunes - Viernes, 9:00 AM - 5:00 PM",
+      "organization_name": "Nombre de la Organizaci\u00f3n",
+      "supplies_and_services": "Recursos y Servicios: Comida"
+    },
+    "legal": {
+      "apply_for": "Aplicar para la Identificaci\u00f3n de Chicago",
+      "legal_resources": "Recursos y Servicios Legales",
+      "receive_legal": "Recibir asistencia legal",
+      "understand_rights": "Entender mis derechos legales"
+    },
+    "login": {
+      "email": "Correo electr\u00f3nico",
+      "password": "Contrase\u00f1a",
+      "remember_me": "Recordarme"
+    },
+    "profile": {
+      "profile_information": "La informaci\u00f3n del perfil existir\u00e1 aqu\u00ed."
+    },
+    "util": {
+      "back": "Atr\u00e1s",
+      "i_want_to": "Quiero...",
+      "language": "Espa\u00f1ol",
+      "login": "Iniciar Sesi\u00f3n",
+      "something_else": "Algo m\u00e1s"
+    },
+    "legal_start": {
+      "what_help": "¿En qué puedo ayudarle?",
+      "work_auth": "Necesito ayuda para obtener autorización para trabajar",
+      "work_rights": "Necesito aprender más sobre mis derechos como trabajador",
+      "renters_rights": "Necesito aprender más sobre mis derechos como inquilino",
+      "something_else": "Necesito ayuda con algo más",
+      "work_auth_question": "¿Alguna de las siguientes circunstancias le aplica?",
+      "tps": "Soy de uno de los países listados a continuación y llegué antes de la fecha correspondiente: Afganistán (20 de mayo de 2022), Birmania (Myanmar) (25 de marzo de 2024), Camerún (7 de junio de 2022), El Salvador (14 de diciembre de 2023), Etiopía (15 de abril de 2024), Haití (14 de diciembre de 2023), Honduras (14 de diciembre de 2023), Nepal (14 de diciembre de 2023), Nicaragua (14 de diciembre de 2023), Somalia (13 de marzo de 2023), Sudán del Sur (21 de agosto de 2023), Sudán (14 de diciembre de 2023), Siria (29 de enero de 2024), Ucrania (21 de agosto de 2023), Venezuela (17 de noviembre de 2023), Yemen (3 de enero de 2023)",
+      "vttc": "Soy víctima de tráfico humano, violencia doméstica, asalto sexual, crímenes de odio, tráfico humano, servidumbre involuntaria u otro delito grave específico.",
+      "asylum": "Tengo un temor creíble de persecución o tortura en mi país de origen que me llevó a venir a los EE. UU.",
+      "parole": "Soy de Ucrania o Afganistán O soy de Cuba, Haití, Nicaragua y Venezuela y estoy experimentando condiciones peligrosas, violencia o dificultades económicas severas en mi país de origen O tengo una razón de emergencia para buscar la libertad condicional en los EE. UU., incluyendo: - Reunificación familiar médica (adultos y niños) Procedimientos judiciales civiles y criminales Otras solicitudes emergentes",
+      "other": "Ninguna de las anteriores me aplica.",
+      "tps_header": "Creemos que usted podría ser elegible para el Estatus de Protección Temporal (TPS)",
+      "tps_info": "He solicitado o recibido el Estatus de Protección Temporal (TPS)",
+      "tps_apply": "Quiero ayuda para solicitar el Estatus de Protección Temporal (TPS)",
+      "vttc_header": "Creemos que usted podría ser elegible para autorización de trabajo.",
+      "vttc_info": "He solicitado o recibido autorización de trabajo.",
+      "vttc_apply": "Quiero ayuda para solicitar autorización de trabajo.",
+      "asylum_header": "Creemos que usted podría ser elegible para asilo.",
+      "asylum_info": "He solicitado o recibido asilo.",
+      "asylum_apply": "Quiero ayuda para solicitar asilo.",
+      "parole_header": "Creemos que usted podría ser elegible para libertad condicional humanitaria.",
+      "parole_info": "He solicitado o recibido libertad condicional humanitaria.",
+      "parole_apply": "Quiero ayuda para solicitar la libertad condicional humanitaria.",
+      "other_header": "No podemos determinar su elegibilidad para Asilo, Libertad Condicional, o Estatus de Protección Temporal",
+      "undocumented": "Aprenda más sobre recursos para migrantes indocumentados.",
+      "lawyers": "Encuentre asistencia legal personalizada."
+    }    
+  }
+}
+
