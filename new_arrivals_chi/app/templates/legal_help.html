@@ -14,7 +14,7 @@ Creation:
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="/legal/undocumented_resources" method="GET">
+    <form action="/legal/legal_help" method="GET">
         <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
         <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
     </form>
