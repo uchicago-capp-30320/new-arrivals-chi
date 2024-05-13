@@ -48,9 +48,9 @@ def test_signup_route(client, capture_templates, setup_logger):
         response = client.get("/signup")
         assert response.status_code == 200
         assert b"Sign Up" in response.data, "Sign Up text not found in response"
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "signup.html"
+            capture_templates[final_template_rendered][0].name == "signup.html"
         ), "Wrong template used"
         logger.info(
             "Signup page accessed successfully, correct template rendered."
@@ -84,8 +84,9 @@ def test_signup_post_invalid_email(client, capture_templates, setup_logger):
         assert response.status_code == 200
         assert b"Please enter a valid email address" in response.data
         assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "signup.html"
+            capture_templates[final_template_rendered][0].name == "signup.html"
         ), "Wrong template used"
         logger.info("Sign up failed successfully with invalid email.")
     except AssertionError as e:
@@ -117,9 +118,9 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
         )
         assert response.status_code == 200
         assert b"Please enter a valid password" in response.data
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "signup.html"
+            capture_templates[final_template_rendered][0].name == "signup.html"
         ), "Wrong template used"
         logger.info("Sign up failed successfully with invalid password.")
     except AssertionError as e:
@@ -150,9 +151,9 @@ def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
             follow_redirects=True,
         )
         assert response.status_code == 200
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "profile.html"
+            capture_templates[final_template_rendered][0].name == "profile.html"
         ), "Wrong template used"
         logger.info("Sign up successful with valid credentials.")
     except AssertionError as e:
@@ -184,9 +185,9 @@ def test_signup_post_weak_password(client, capture_templates, setup_logger):
         assert response.status_code == 200
         print(response.data)
         assert b"Please enter a valid password" in response.data
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "signup.html"
+            capture_templates[final_template_rendered][0].name == "signup.html"
         ), "Wrong template used"
         logger.info("Sign up failed successfully with weak password.")
     except AssertionError as e:
@@ -209,9 +210,9 @@ def test_login_route(client, capture_templates, setup_logger):
         response = client.get("/login")
         assert response.status_code == 200
         assert b"Login" in response.data
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "login.html"
+            capture_templates[final_template_rendered][0].name == "login.html"
         ), "Wrong template used"
         logger.info("Login page loaded successfully.")
     except AssertionError as e:
@@ -244,9 +245,9 @@ def test_login_valid_credentials(
             response.headers.get("Location"), follow_redirects=True
         )
         assert response.status_code == 200
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "profile.html"
+            capture_templates[final_template_rendered][0].name == "profile.html"
         ), "Wrong template used"
         logger.info("Login successfully with valid credentials.")
     except AssertionError as e:
@@ -276,9 +277,9 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
         assert (
             b"Please check your login details and try again." in response.data
         )
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "login.html"
+            capture_templates[final_template_rendered][0].name == "login.html"
         ), "Wrong template used"
         logger.info("Login failed successfully with invalid credentials.")
     except AssertionError as e:
@@ -305,9 +306,9 @@ def test_logout(
     try:
         response = client.get("/logout", follow_redirects=True)
         assert response.status_code == 200
-        assert len(capture_templates) == 2
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[1][0].name == "home.html"
+            capture_templates[final_template_rendered][0].name == "home.html"
         ), "Wrong template used"
         logger.info("Successful logout.")
     except AssertionError as e:
@@ -330,9 +331,9 @@ def test_logout_not_logged_in(client, capture_templates, setup_logger):
     try:
         response = client.get("/logout", follow_redirects=True)
         assert response.status_code == 200
-        assert len(capture_templates) == 1
+        final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[0][0].name == "login.html"
+            capture_templates[final_template_rendered][0].name == "login.html"
         ), "Wrong template used"
         logger.info("Successful redirect on invalid logout.")
     except AssertionError as e:

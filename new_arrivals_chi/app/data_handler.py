@@ -17,7 +17,8 @@ Creation:
 @Date: 05/09/2024
 """
 
-from new_arrivals_chi.app.database import db, User
+from new_arrivals_chi.app.database import db, User, Organization
+from sqlalchemy.exc import SQLAlchemyError
 from flask_login import current_user
 from flask_bcrypt import Bcrypt
 
@@ -54,3 +55,29 @@ def change_db_password(password):
         "utf-8"
     )
     db.session.commit()
+
+
+def create_organization_profile(name, phone, status):
+    """Create new organization in the database.
+
+    Create a new organization with the required (non-nullable) organization
+    details.
+
+    Parameters:
+        name (str): Name of organization.
+        phone (str): Primary external contact number for the organization.
+        status (str): Indicates the organization's status eg: ACTIVE, HIDDEN,
+        SUSPENDED.
+    """
+    if not all([name, phone, status]):
+        return None
+
+    try:
+        new_organization = Organization(name=name, phone=phone, status=status)
+        db.session.add(new_organization)
+        db.session.commit()
+        return new_organization.id
+    except SQLAlchemyError:
+        db.session.rollback()
+        return None
+
