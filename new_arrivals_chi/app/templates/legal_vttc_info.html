@@ -14,7 +14,7 @@ Creation:
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="/legal/tps_apply" method="GET">
+    <form action="/legal/vttc_info" method="GET">
         <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
         <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
     </form>
@@ -35,10 +35,4 @@ Creation:
         </ul>
     </div>
 
-    <div class="info-section">
-        <h2>{{ 'Contact Information' if language == 'en' else 'Información de Contacto' }}</h2>
-        <p class="contact-info"><i class="fa-solid fa-diamond-turn-right"></i> 123 Main St</p>
-        <p class="contact-info"><i class="fa-solid fa-phone"></i> 234-567-8901</p>
-        <p class="contact-info"><i class="fa-solid fa-envelope"></i> info@example.com</p>
-    </div>
 {% endblock %}
