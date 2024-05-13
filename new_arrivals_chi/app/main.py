@@ -92,14 +92,15 @@ def legal():
         "legal_flow.html", language=language, translations=translations
     )
 
+
 @main.route("/legal/tps_info")
 def legal_tps_info():
-    """Establishes route for the legal TPS info page.
+    """Establishes route for the TPS info page.
 
     This route is accessible within the legal section.
 
     Returns:
-        Renders legal TPS info page.
+        Renders legal flow - TPS info page.
     """
     language = bleach.clean(request.args.get("lang", "en"))
 
@@ -108,6 +109,164 @@ def legal_tps_info():
     return render_template(
         "legal_tps_info.html", language=language, translations=translations
     )
+
+
+@main.route("/legal/tps_apply")
+def legal_tps_apply():
+    """Establishes route for the TPS apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - TPS apply page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_tps_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/vttc_info")
+def legal_vttc_info():
+    """Establishes route for the VTTC info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal VTTC info page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_vttc_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/vttc_apply")
+def legal_vttc_apply():
+    """Establishes route for the VTTC apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - VTTC apply page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_vttc_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/asylum_info")
+def legal_asylum_info():
+    """Establishes route for the Asylum info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Asylum info page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_asylum_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/asylum_apply")
+def legal_asylum_apply():
+    """Establishes route for the Asylum apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Asylum apply page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_asylum_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/parole_info")
+def legal_parole_info():
+    """Establishes route for the Parole info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Parole info page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_parole_info.html", language=language, translations=translations
+        )
+
+
+@main.route("/legal/parole_apply")
+def legal_parole_apply():
+    """Establishes route for the Parole apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Parole apply page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_parole_apply.html", language=language, translations=translations
+        )
+
+
+@main.route("/legal/undocumented_resources")
+def legal_undocumented_resources():
+    """Establishes route for the Undocumented Resources page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Undocumented Resources page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "undocumented_resources.html", language=language, \
+            translations=translations)
+
+
+@main.route("/legal/legal_help")
+def legal_legal_help():
+    """Establishes route for the legal Legal Help page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Legal Help page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_legal_help.html", language=language, translations=translations
+        )
 
 
 @main.route("/health")
