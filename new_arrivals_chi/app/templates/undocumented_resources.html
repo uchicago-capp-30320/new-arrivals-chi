@@ -1,0 +1,38 @@
+<!--
+Project: new_arrivals_chi
+File name: undocumented_resources.html
+Associated Files:
+    base.html, main.py
+
+Landing page for user to navigate through undocumented resources.
+
+Creation:
+@Author: Xiomara Salazar @xiomara0
+@Date: 05/12/2024
+
+-->
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/legal/undocumented_resources" method="GET">
+        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+    </form>
+
+    <h1>{{ 'Undocumented Resources' if language == 'en' else 'Información Legal de Asilo' }}</h1> 
+    <!-- Update spanish! -->
+
+    <div class="info-section">
+        <h2>{{ 'Provide instructions and guidance.' if language == 'en' else 'Proporcione instrucciones y orientación para Asilo.' }}</h2>
+    </div>
+
+    <div class="info-section">
+        <h2>{{ 'Important Documents' if language == 'en' else 'Documentos Importantes' }}</h2>
+        <ul>
+            <li>{{ 'Document 1' }}</li>
+            <li>{{ 'Document 2' }}</li>
+            <li>{{ 'Document 3' }}</li>
+        </ul>
+    </div>
+
+{% endblock %}

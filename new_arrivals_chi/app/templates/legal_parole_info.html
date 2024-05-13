@@ -1,0 +1,39 @@
+<!--
+Project: new_arrivals_chi
+File name: legal_parole_info.html
+Associated Files:
+    base.html, main.py
+
+Landing page for user to navigate through legal parole information.
+
+Creation:
+@Author: Xiomara Salazar @xiomara0
+@Date: 05/12/2024
+
+-->
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/legal/parole_info" method="GET">
+        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+    </form>
+
+    <h1>{{ 'Legal Parole Info' if language == 'en' else 'Información Legal de Asilo' }}</h1> 
+    <!-- Update spanish! -->
+
+    <div class="info-section">
+        <h2>{{ 'Application Instructions' if language == 'en' else 'Instrucciones de Aplicación' }}</h2>
+        <p>{{ 'Provide instructions and guidance.' if language == 'en' else 'Proporcione instrucciones y orientación para Asilo.' }}</p>
+    </div>
+
+    <div class="info-section">
+        <h2>{{ 'Important Documents' if language == 'en' else 'Documentos Importantes' }}</h2>
+        <ul>
+            <li>{{ 'Document 1' }}</li>
+            <li>{{ 'Document 2' }}</li>
+            <li>{{ 'Document 3' }}</li>
+        </ul>
+    </div>
+
+{% endblock %}
