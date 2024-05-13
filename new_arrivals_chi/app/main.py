@@ -92,6 +92,23 @@ def legal():
         "legal_flow.html", language=language, translations=translations
     )
 
+@main.route("/legal/tps_info")
+def legal_tps_info():
+    """Establishes route for the legal TPS info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal TPS info page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal_tps_info.html", language=language, translations=translations
+    )
+
 
 @main.route("/health")
 def health():
