@@ -1,0 +1,44 @@
+<!--
+Project: new_arrivals_chi
+File name: legal_vttc_info.html
+Associated Files:
+    base.html, main.py
+
+Landing page for user to navigate through health information.
+
+Creation:
+@Author: Xiomara Salazar @xiomara0
+@Date: 05/12/2024
+
+-->
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/legal/tps_apply" method="GET">
+        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+    </form>
+
+    <h1>{{ 'Legal VTTC Information' if language == 'en' else 'Información Legal de VTTC' }}</h1>
+
+    <div class="info-section">
+        <h2>{{ 'Application Instructions' if language == 'en' else 'Instrucciones de Aplicación' }}</h2>
+        <p>{{ 'Provide instructions and guidance for VTTC.' if language == 'en' else 'Proporcione instrucciones y orientación para VTTC.' }}</p>
+    </div>
+
+    <div class="info-section">
+        <h2>{{ 'Important Documents' if language == 'en' else 'Documentos Importantes' }}</h2>
+        <ul>
+            <li>{{ 'Document 1' }}</li>
+            <li>{{ 'Document 2' }}</li>
+            <li>{{ 'Document 3' }}</li>
+        </ul>
+    </div>
+
+    <div class="info-section">
+        <h2>{{ 'Contact Information' if language == 'en' else 'Información de Contacto' }}</h2>
+        <p class="contact-info"><i class="fa-solid fa-diamond-turn-right"></i> 123 Main St</p>
+        <p class="contact-info"><i class="fa-solid fa-phone"></i> 234-567-8901</p>
+        <p class="contact-info"><i class="fa-solid fa-envelope"></i> info@example.com</p>
+    </div>
+{% endblock %}
