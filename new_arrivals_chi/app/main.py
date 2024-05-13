@@ -254,7 +254,7 @@ def legal_undocumented_resources():
 
 @main.route("/legal/legal_help")
 def legal_legal_help():
-    """Establishes route for the legal Legal Help page.
+    """Establishes route for the Legal Help page.
 
     This route is accessible within the legal section.
 
@@ -265,7 +265,7 @@ def legal_legal_help():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_legal_help.html", language=language, translations=translations
+        "legal_help.html", language=language, translations=translations
         )
 
 
