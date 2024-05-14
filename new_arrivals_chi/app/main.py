@@ -20,12 +20,15 @@ Creation:
 @Author: Summer Long @Sumslong
 @Date: 04/19/2024
 """
+from http import HTTPMethod
 
 from flask import Flask, Blueprint, render_template, request, current_app, flash
 from markupsafe import escape
 import os
 import bleach
 from dotenv import load_dotenv
+
+from new_arrivals_chi.app.constants import KEY_LANGUAGE, KEY_TRANSLATIONS
 from new_arrivals_chi.app.database import db, User, Organization
 from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.utils import load_translations
@@ -59,7 +62,7 @@ def home():
     )
 
 
-@main.route("/profile", methods=["GET", "POST"])
+@main.route("/profile", methods=[HTTPMethod.GET, HTTPMethod.POST])
 @login_required
 def profile():
     """Handles both displaying the user's profile and adding an organization.
@@ -101,8 +104,8 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, "en"))
+    translations = app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "legal.html", language=language, translations=translations
@@ -200,4 +203,4 @@ if __name__ == "__main__":
     # certificate, though you can continue to proceed and visit the development
     # site. For the production deployment, we will ensure a valid certificate
     # from CA for our domain.
-    app.run(ssl_context=("adhoc"), debug=True)
+    app.run(ssl_context="adhoc", debug=True)
