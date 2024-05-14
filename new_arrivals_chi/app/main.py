@@ -13,8 +13,8 @@ Methods:
     * legal - Route to legal portion of application.
 
 Last updated:
-@Author: Summer Long @Sumslong
-@Date: 05/03/2024
+@Author: Kathryn Link-Oberstar @klinkoberstar
+@Date: 05/13/2024
 
 Creation:
 @Author: Summer Long @Sumslong
@@ -77,9 +77,9 @@ def profile():
         
         org_id = create_organization_profile(name, phone, status)
         if org_id:
-            flash(escape("Organization added successfully."), "success")
+            flash(escape("Organization added successfully."))
         else:
-            flash(escape("Failed to add organization."), "error")
+            flash(escape("Failed to add organization."))
         
     user = current_user
     organization = Organization.query.get(user.organization_id) 

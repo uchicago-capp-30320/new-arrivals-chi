@@ -11,6 +11,11 @@ Methods:
     * create_user - Creates a new user in the database.
     * change_db_password - Changes the password for the current user in the
       database.
+    * create_organization_profile: Creates organization in the database.
+
+Last updated:
+@Author: Kathryn Link-Oberstar @klinkoberstar
+@Date: 05/13/2024
 
 Creation:
 @Author: Madeleine Roberts @MadeleineKRoberts
@@ -18,7 +23,6 @@ Creation:
 """
 
 from new_arrivals_chi.app.database import db, User, Organization
-from sqlalchemy.exc import SQLAlchemyError
 from flask_login import current_user
 from flask_bcrypt import Bcrypt
 
@@ -68,16 +72,15 @@ def create_organization_profile(name, phone, status):
         phone (str): Primary external contact number for the organization.
         status (str): Indicates the organization's status eg: ACTIVE, HIDDEN,
         SUSPENDED.
+
+    Returns:
+        organization_id: Id for the newly created org
     """
+    # check to make sure we have all the required components before attempting to add org
     if not all([name, phone, status]):
         return None
-
-    try:
-        new_organization = Organization(name=name, phone=phone, status=status)
-        db.session.add(new_organization)
-        db.session.commit()
-        return new_organization.id
-    except SQLAlchemyError:
-        db.session.rollback()
-        return None
-
+    
+    new_organization = Organization(name=name, phone=phone, status=status)
+    db.session.add(new_organization)
+    db.session.commit()
+    return new_organization.id

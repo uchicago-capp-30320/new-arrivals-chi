@@ -30,7 +30,6 @@ from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
 
-
 def test_set_up_password_hashed(test_user, setup_logger):
     """Tests that the password stored in the database is correctly hashed.
 
@@ -38,7 +37,7 @@ def test_set_up_password_hashed(test_user, setup_logger):
         test_user: User instance for which the test is run.
         setup_logger: Setup logger.
     """
-    logger = setup_logger("test_set_up_password_hashede")
+    logger = setup_logger("test_set_up_password_hashed")
     try:
         user = User.query.filter_by(email="test@example.com").first()
         assert bcrypt.check_password_hash(user.password, "TestP@ssword!")
