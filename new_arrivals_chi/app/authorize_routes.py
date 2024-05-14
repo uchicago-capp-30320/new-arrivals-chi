@@ -212,3 +212,21 @@ def post_change_password():
         return redirect(url_for("main.profile"))
 
     return redirect(url_for("authorize.change_password"))
+
+
+@authorize.route("/edit_profile")
+@login_required
+def edit_profile():
+    """Establishes route for editing a uster's page.
+
+    This route is accessible within the 'edit profile' button in the profile
+    page (will likely change location in the future).
+
+    Returns:
+        Renders edit profile page for user with their selected language.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "edit_profile.html", language=language, translations=translations
+    )

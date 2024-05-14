@@ -19,6 +19,8 @@ Creation:
 
     <div class="home-button-container">
         <button class="button button-blue" onclick="navigateTo('/change_password', '{{ language | escape }}')">{{ 'Cambiar su contraseña' if language == 'es' else 'Change Password' | escape }}</button>
+        <button class="button button-blue" onclick="navigateTo('/edit_profile', '{{ language | escape }}')">{{ 'Editar su perfil' if language == 'es' else 'Edit Profile' | escape }}</button>
     </div>
 </h1>
+
 {% endblock %}

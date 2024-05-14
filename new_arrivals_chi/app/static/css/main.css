@@ -181,3 +181,22 @@ title {
 .button.blue:hover {
     background-color: #00008B;
 }
+
+.hours-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.hours-group div {
+    flex: 1 1 48%;
+    margin-bottom: 10px;
+}
+.hours-group div:last-child {
+    margin-right: 0;
+}
+@media (max-width: 600px) {
+    .hours-group div {
+        flex: 1 1 100%;
+    }
+}
