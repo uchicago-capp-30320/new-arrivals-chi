@@ -76,10 +76,10 @@ def create_organization_profile(name, phone, status):
     Returns:
         organization_id: Id for the newly created org
     """
-    # check to make sure we have all the required components before attempting to add org
+    # make sure all required components present before attempting to add org
     if not all([name, phone, status]):
         return None
-    
+
     new_organization = Organization(name=name, phone=phone, status=status)
     db.session.add(new_organization)
     db.session.commit()

@@ -30,6 +30,7 @@ from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
 
+
 def test_set_up_password_hashed(test_user, setup_logger):
     """Tests that the password stored in the database is correctly hashed.
 

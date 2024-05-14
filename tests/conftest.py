@@ -140,11 +140,13 @@ def capture_templates(app):
     finally:
         template_rendered.disconnect(record, app)
 
+
 @pytest.fixture(scope="function")
 def test_organization(client):
     """Create a test user in the database before each test and remove after."""
-
-    org_test_case = Organization(name="Test Org", phone = "123-456-7891", status = "ACTIVE")
+    org_test_case = Organization(
+        name="Test Org", phone="123-456-7891", status="ACTIVE"
+    )
     db.session.add(org_test_case)
     db.session.commit()
 
@@ -153,13 +155,18 @@ def test_organization(client):
     db.session.delete(org_test_case)
     db.session.commit()
 
+
 @pytest.fixture(scope="function")
 def test_user(client, test_organization):
-    """Create a test user with an associated organization in the database before each test and remove after."""
+    """Create test user with associated org in db before test, remove after."""
     user_password = bcrypt.generate_password_hash("TestP@ssword!").decode(
         "utf-8"
     )
-    user_test_case = User(email="test@example.com", password=user_password, organization_id=test_organization.id)
+    user_test_case = User(
+        email="test@example.com",
+        password=user_password,
+        organization_id=test_organization.id,
+    )
     db.session.add(user_test_case)
     db.session.commit()
 
@@ -167,7 +174,6 @@ def test_user(client, test_organization):
 
     db.session.delete(user_test_case)
     db.session.commit()
-
 
 
 @pytest.fixture(scope="function")

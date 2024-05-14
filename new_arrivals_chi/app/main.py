@@ -21,7 +21,7 @@ Creation:
 @Date: 04/19/2024
 """
 
-from flask import Flask, Blueprint, render_template, request, current_app, flash, session
+from flask import Flask, Blueprint, render_template, request, current_app, flash
 from markupsafe import escape
 import os
 import bleach
@@ -74,22 +74,23 @@ def profile():
         name = bleach.clean(request.form.get("name"))
         phone = bleach.clean(request.form.get("phone"))
         status = bleach.clean(request.form.get("status"))
-        
+
         org_id = create_organization_profile(name, phone, status)
         if org_id:
             flash(escape("Organization added successfully."))
         else:
             flash(escape("Failed to add organization."))
-        
+
     user = current_user
-    organization = Organization.query.get(user.organization_id) 
+    organization = Organization.query.get(user.organization_id)
 
     return render_template(
-        'profile.html',
+        "profile.html",
         organization=organization,
         translations=translations,
         language=language,
     )
+
 
 @main.route("/legal")
 def legal():

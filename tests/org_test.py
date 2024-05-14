@@ -33,24 +33,37 @@ def test_create_organization_profile(client, setup_logger):
         status = "ACTIVE"
 
         org_id = create_organization_profile(name, phone, status)
-        assert org_id is not None, "Failed to create organization with valid data"
+        assert (
+            org_id is not None
+        ), "Failed to create organization with valid data"
 
         created_org = Organization.query.get(org_id)
-        assert created_org.name == name, "Organization name does not match the provided name"
-        assert created_org.phone == phone, "Organization phone does not match the provided phone"
-        assert created_org.status == status, "Organization status does not match the provided status"
+        assert (
+            created_org.name == name
+        ), "Organization name does not match the provided name"
+        assert (
+            created_org.phone == phone
+        ), "Organization phone does not match the provided phone"
+        assert (
+            created_org.status == status
+        ), "Organization status does not match the provided status"
         logger.info("Organization created successfully.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
 
-def test_organization_profile_page(client, logged_in_state, capture_templates, test_user, setup_logger):
+
+def test_organization_profile_page(
+    client, logged_in_state, capture_templates, test_user, setup_logger
+):
     """Test the organization profile page access and rendering."""
     logger = setup_logger("test_organization_profile_page")
     try:
         response = client.get("/profile")
-        assert response.status_code == 200, "Failed to access the organization profile page"
-        
+        assert (
+            response.status_code == 200
+        ), "Failed to access the organization profile page"
+
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "profile.html"
@@ -60,7 +73,10 @@ def test_organization_profile_page(client, logged_in_state, capture_templates, t
         logger.error(f"Test failed: {str(e)}")
         raise
 
-def test_create_post_new_org(client, logged_in_state, capture_templates, setup_logger, test_user):
+
+def test_create_post_new_org(
+    client, logged_in_state, capture_templates, setup_logger, test_user
+):
     """Tests creating a new organization."""
     logger = setup_logger("test_create_post_new_org")
 
@@ -68,7 +84,7 @@ def test_create_post_new_org(client, logged_in_state, capture_templates, setup_l
         response = client.post(
             "/profile",
             data={
-                "name": "New Org",  
+                "name": "New Org",
                 "phone": "987-654-3210",
                 "status": "ACTIVE",
             },

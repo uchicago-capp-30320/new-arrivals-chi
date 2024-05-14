@@ -49,7 +49,8 @@ def test_access_change_password_page(
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "change_password.html"
+            capture_templates[final_template_rendered][0].name
+            == "change_password.html"
         ), "Wrong template used"
         logger.info("Change password page rendered correctly.")
     except AssertionError as e:
@@ -87,7 +88,8 @@ def test_change_password_wrong_old_password(
         assert b"Wrong existing password. Try again" in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "change_password.html"
+            capture_templates[final_template_rendered][0].name
+            == "change_password.html"
         ), "Wrong template used"
         logger.info(
             "Change password successfully failed due to wrong old password."
@@ -130,7 +132,8 @@ def test_change_password_wrong_new_password_same_as_old(
         )
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "change_password.html"
+            capture_templates[final_template_rendered][0].name
+            == "change_password.html"
         ), "Wrong template used"
         logger.info(
             "Change password successfully failed - new password same as old."
@@ -170,7 +173,8 @@ def test_change_password_new_passwords_do_not_match(
         assert b"New passwords do not match. Try again." in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "change_password.html"
+            capture_templates[final_template_rendered][0].name
+            == "change_password.html"
         ), "Wrong template used"
         logger.info(
             "Change password successfully failed - passwords don't match."
@@ -213,7 +217,8 @@ def test_change_password_new_password_invalid(
         )
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "change_password.html"
+            capture_templates[final_template_rendered][0].name
+            == "change_password.html"
         ), "Wrong template used"
         logger.info(
             "Change password successfully failed due to invalid new password."
