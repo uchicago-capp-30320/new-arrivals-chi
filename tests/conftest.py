@@ -29,6 +29,7 @@ import logging
 import os
 from datetime import datetime
 from new_arrivals_chi.app.main import create_app, db, User
+from new_arrivals_chi.app.database import Organization
 from flask import template_rendered
 from flask_bcrypt import Bcrypt
 from flask_wtf import CSRFProtect
@@ -144,12 +145,31 @@ def capture_templates(app):
 
 
 @pytest.fixture(scope="function")
-def test_user(client):
+def test_organization(client):
     """Create a test user in the database before each test and remove after."""
+    org_test_case = Organization(
+        name="Test Org", phone="123-456-7891", status="ACTIVE"
+    )
+    db.session.add(org_test_case)
+    db.session.commit()
+
+    yield org_test_case
+
+    db.session.delete(org_test_case)
+    db.session.commit()
+
+
+@pytest.fixture(scope="function")
+def test_user(client, test_organization):
+    """Create test user with associated org in db before test, remove after."""
     user_password = bcrypt.generate_password_hash("TestP@ssword!").decode(
         "utf-8"
     )
-    user_test_case = User(email="test@example.com", password=user_password)
+    user_test_case = User(
+        email="test@example.com",
+        password=user_password,
+        organization_id=test_organization.id,
+    )
     db.session.add(user_test_case)
     db.session.commit()
 
@@ -160,7 +180,7 @@ def test_user(client):
 
 
 @pytest.fixture(scope="function")
-def logged_in_state(client):
+def logged_in_state(client, test_user):
     """Logs in a user for testing routes that require authentication."""
     client.post(
         "/login",
