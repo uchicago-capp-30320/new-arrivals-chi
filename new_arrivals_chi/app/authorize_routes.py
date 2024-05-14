@@ -76,7 +76,7 @@ def signup_post():
 
     Returns:
         Redirects to the home page upon successful sign up.
-        Redirects back to the sign up page if there are validation errors
+        Redirects back to the sign-up page if there are validation errors
         or if the email address already exists in the database.
     """
     email, password, password_confirm = extract_signup_data(request.form)

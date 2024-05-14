@@ -28,7 +28,6 @@ from new_arrivals_chi.app.utils import validate_password
 from unittest.mock import patch
 from flask_bcrypt import Bcrypt
 
-from tests.constants import VALID_PASSWORD, VALID_USER_NAME
 
 bcrypt = Bcrypt()
 
@@ -99,7 +98,7 @@ def test_password_never_logged_plaintext(client, setup_logger):
     with patch.object(logger, "info") as mock_logger:
         client.post(
             "/signup",
-            data={"email": VALID_USER_NAME, "password": VALID_PASSWORD},
+            data={"email": "test2@example.com", "password": "TestPassword123!"},
         )
 
         # check that the plain text password is not present in the logs
