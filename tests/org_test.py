@@ -20,6 +20,8 @@ Creation:
 @Author: Kathryn Link-Oberstar @klinkoberstar
 @Date: 05/12/2024
 """
+from http import HTTPStatus
+
 from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.database import Organization
 
@@ -90,7 +92,7 @@ def test_create_post_new_org(
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "profile.html"
