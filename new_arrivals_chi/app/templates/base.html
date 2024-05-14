@@ -43,7 +43,13 @@ Madeleine Roberts @MadeleineKRoberts
 </body>
 
 <form action="/" method="GET">
-    <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+    <button type="submit" class="language-button">
+        {% if language == 'es' %}
+            {{ translations[language]['util']['spanish'] | escape }}
+        {% else %}
+            {{ translations[language]['util']['english'] | escape }}
+        {% endif %}
+    </button>
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'es' | escape }}">
 </form>
 
