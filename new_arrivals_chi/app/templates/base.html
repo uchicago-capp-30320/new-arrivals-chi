@@ -42,16 +42,13 @@ Madeleine Roberts @MadeleineKRoberts
     </nav>
 </body>
 
-<form action="/" method="GET">
-    <button type="submit" class="language-button">
-        {% if language == 'es' %}
-            English
-        {% else %}
-            Español
-        {% endif %}
-    </button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-</form>
+<button type="button" onclick="changeLanguage('{{ language }}')">
+    {% if language == 'en' %}
+        Español
+    {% else %}
+        English
+    {% endif %}
+</button>
 
 <div class="container has-text-centered">
     {% block content %}
@@ -66,7 +63,24 @@ Madeleine Roberts @MadeleineKRoberts
 
 
 <script>
-    function navigateTo(destination, language) {
-        window.location.href = destination + '?lang=' + language;
+    function changeLanguage(currentLanguage) {
+        const newLanguage = currentLanguage === 'en' ? 'es' : 'en'; // Toggle between English and Spanish
+
+        fetch(`/change-language?lang=${newLanguage}`, { method: 'POST' })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                if (data.success) {
+                    location.reload(); // Reload the page after language change
+                } else {
+                    console.error('Error changing language:', data.error);
+                }
+            })
+            .catch(error => console.error('Error changing language:', error));
     }
 </script>
+
