@@ -16,9 +16,10 @@ Decision tree for legal resources.
 </div>
 
 <style>
+    /* creates horizontal button object*/
     .button-group {
         display: flex;
-        flex-wrap: wrap;
+
         justify-content: center;
         margin-bottom: 20px;
     }
@@ -46,7 +47,7 @@ Decision tree for legal resources.
         margin: 0;
         padding-left: 20px;
         text-align: left;
-        font-size: 14px;
+        font-size: 12px;
         font-family: 'Public Sans', sans-serif;
         display: none;
     }
@@ -123,7 +124,7 @@ Decision tree for legal resources.
 
     // Get the language-specific translations from the server-side template
     let languageData = {{ translations[language].legal_start | tojson | safe }};
-    
+
     // Array to store previous options for the back button functionality
     let previousOptions = [];
 
@@ -131,12 +132,12 @@ Decision tree for legal resources.
     function createButtons(currentOptions, parentColor = '') {
         // Clear the button container
         $('#buttonContainer').empty();
-        
+
         // Get the header text from the language data or use a default value
         const headerText = currentOptions.header && languageData[currentOptions.header]
             ? languageData[currentOptions.header]
             : 'Select an option';
-        
+
         // Append the header text to the button container
         $('#buttonContainer').append($('<div>').addClass('box-title').text(headerText));
 
@@ -148,15 +149,15 @@ Decision tree for legal resources.
             // Iterate over each child option
             Object.keys(currentOptions.children).forEach(key => {
                 const childOption = currentOptions.children[key];
-                
+
                 // Get the button text from the language data or use a default value
                 const btnText = languageData[childOption.key] || 'Key not found';
-                
+
                 // Get the button description from the language data and replace newline characters with <br> tags
-                const btnDesc = childOption.desc && languageData[childOption.desc] 
-                    ? languageData[childOption.desc].split('\n').map(item => `<li>${item}</li>`).join('') 
+                const btnDesc = childOption.desc && languageData[childOption.desc]
+                    ? languageData[childOption.desc].split('\n').map(item => `<li>${item}</li>`).join('')
                     : '';
-                
+
                 // Determine the color class for the button
                 let colorClass = '';
                 if (key === 'work_auth') {
@@ -170,7 +171,7 @@ Decision tree for legal resources.
                 } else {
                     colorClass = parentColor; // Use the color of the parent button
                 }
-                
+
                 // Create a button element with the button text, color class, and click event handler
                 let btn = $('<button>').addClass('button').addClass(colorClass).text(btnText).on('click', () => {
                     if (childOption.children) {
@@ -182,7 +183,7 @@ Decision tree for legal resources.
                         window.location.href = childOption.link;
                     }
                 });
-                
+
                 // Create a collapsible element for the description
                 let collapsible = $('<div>').addClass('collapsible').html(btnDesc);
 
@@ -192,9 +193,9 @@ Decision tree for legal resources.
                 // Check if the button description exists and has content
                 if (btnDesc && btnDesc.trim() !== '') {
                     // Create a toggle link for the collapsible element
-                    let toggleLink = $('<span>').addClass('toggle-link').text('See More').on('click', function() {
+                    let toggleLink = $('<span>').addClass('toggle-link').text('See Options').on('click', function() {
                         collapsible.toggleClass('show');
-                        $(this).text(collapsible.hasClass('show') ? 'See Less' : 'See More');
+                        $(this).text(collapsible.hasClass('show') ? 'Hide Options' : 'See Options');
                     });
 
                     // Append the collapsible and toggle link elements to the button wrapper
@@ -216,7 +217,7 @@ Decision tree for legal resources.
                     const prevOptions = previousOptions.pop();
                     createButtons(prevOptions);
                 });
-                
+
                 // Append the back button to the button container
                 $('#buttonContainer').append(backBtn);
             }
