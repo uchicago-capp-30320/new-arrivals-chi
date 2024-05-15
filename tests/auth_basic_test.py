@@ -29,6 +29,9 @@ Creation:
 @Author: Kathryn Link-Oberstar @klinkoberstar
 @Date: 05/06/2024
 """
+from http import HTTPStatus
+
+from tests.constants import VALID_EMAIL, VALID_PASSWORD
 
 
 def test_signup_route(client, capture_templates, setup_logger):
@@ -358,14 +361,14 @@ def test_page_requiring_login_after_logout(
     logger = setup_logger("test_page_requiring_login_after_logout")
     client.post(
         "/login",
-        data={"email": "test@example.com", "password": "TestPassword123!"},
+        data={"email": VALID_EMAIL, "password": VALID_PASSWORD},
         follow_redirects=True,
     )
     client.get("/logout", follow_redirects=True)
 
     try:
         profile_response = client.get("/profile", follow_redirects=True)
-        assert profile_response.status_code == 200
+        assert profile_response.status_code == HTTPStatus.OK
         assert b"Login" in profile_response.data, "User not prompted to log in"
         assert len(capture_templates) == 3
         assert (

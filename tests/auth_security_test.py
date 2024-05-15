@@ -28,6 +28,7 @@ from new_arrivals_chi.app.utils import validate_password
 from unittest.mock import patch
 from flask_bcrypt import Bcrypt
 
+
 bcrypt = Bcrypt()
 
 
