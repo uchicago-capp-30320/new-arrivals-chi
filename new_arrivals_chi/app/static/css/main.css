@@ -70,12 +70,12 @@ title {
     background-color: #27ae60;
 }
 
-.button.orange {
+.button-orange {
     background-color: #F9E3CE;
     color: black;
 }
 
-.button.orange:hover {
+.button-orange:hover {
     background-color: #FF8C00;
 }
 
