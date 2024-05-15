@@ -181,3 +181,20 @@ title {
 .button.blue:hover {
     background-color: #00008B;
 }
+
+.back-button {
+    margin-top: 20px; /* Adjust margin as needed */
+    padding: 10px 20px;
+    background-color: #f0f0f0; /* Example background color */
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex; /* Make the button flex */
+    align-items: center; /* Center content vertically */
+}
+
+.back-button:hover {
+    background-color: #c0c0c0; /* Darker color on hover */
+}
