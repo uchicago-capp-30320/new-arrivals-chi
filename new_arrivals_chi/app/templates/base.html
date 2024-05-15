@@ -45,13 +45,13 @@ Madeleine Roberts @MadeleineKRoberts
 <form action="/" method="GET">
     <button type="submit" class="language-button">
          <!-- {{ translations[language]['util']['language'] | escape }} -->
-        {% if translations[language]['util']['language'] == 'en' %}
-            Español
-        {% else %}
+        {% if translations[language]['util']['language'] == 'es' %}
             English
+        {% else %}
+            Español
         {% endif %}
     </button>
-    <input type="hidden" name="lang" value="{{ 'en' if language == 'es' else 'en' | escape }}">
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'es' | escape }}">
 </form>
 
 <div class="container has-text-centered">
