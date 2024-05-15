@@ -1,10 +1,10 @@
 <!--
 Project: new_arrivals_chi
-File name: undocumented_resources.html
+File name: legal_help.html
 Associated Files:
     base.html, main.py
 
-Landing page for user to navigate through undocumented resources.
+Landing page for user to navigate through legal resources.
 
 Creation:
 @Author: Xiomara Salazar @xiomara0
@@ -14,13 +14,13 @@ Creation:
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="/legal/undocumented_resources" method="GET">
+    <form action="/legal/help" method="GET">
         <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
         <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
     </form>
     <!-- We still need to make json for this static page-->
 
-    <h1>{{translations[language]['legal_start']['undocumented']}}</h1> 
+    <h1>{{ 'Legal Help Resources' }}</h1> 
     <!-- Update spanish! -->
 
     <div class="info-section">

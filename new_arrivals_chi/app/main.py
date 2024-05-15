@@ -124,7 +124,7 @@ def legal_tps_info():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_tps_info.html", language=language, translations=translations
+        "tps_info.html", language=language, translations=translations
     )
 
 
@@ -142,7 +142,7 @@ def legal_tps_apply():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_tps_apply.html", language=language, translations=translations
+        "tps_apply.html", language=language, translations=translations
     )
 
 
@@ -160,7 +160,7 @@ def legal_vttc_info():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_vttc_info.html", language=language, translations=translations
+        "vttc_info.html", language=language, translations=translations
     )
 
 
@@ -178,7 +178,7 @@ def legal_vttc_apply():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_vttc_apply.html", language=language, translations=translations
+        "vttc_apply.html", language=language, translations=translations
     )
 
 
@@ -196,7 +196,7 @@ def legal_asylum_info():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_asylum_info.html", language=language, translations=translations
+        "asylum_info.html", language=language, translations=translations
     )
 
 
@@ -214,7 +214,7 @@ def legal_asylum_apply():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_asylum_apply.html", language=language, translations=translations
+        "asylum_apply.html", language=language, translations=translations
     )
 
 
@@ -231,7 +231,7 @@ def legal_parole_info():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_parole_info.html", language=language, translations=translations
+        "parole_info.html", language=language, translations=translations
         )
 
 
@@ -248,7 +248,7 @@ def legal_parole_apply():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_parole_apply.html", language=language, translations=translations
+        "parole_apply.html", language=language, translations=translations
         )
 
 
@@ -269,8 +269,8 @@ def legal_undocumented_resources():
             translations=translations)
 
 
-@main.route("/legal/legal_help")
-def legal_legal_help():
+@main.route("/legal/help")
+def legal_help():
     """Establishes route for the Legal Help page.
 
     This route is accessible within the legal section.
@@ -282,7 +282,52 @@ def legal_legal_help():
     translations = app.config["TRANSLATIONS"][language]
 
     return render_template(
-        "legal_help.html", language=language, translations=translations
+        "help.html", language=language, translations=translations
+        )
+
+
+@main.route("/legal/workers_rights")
+def workers_rights():
+    """Route for information about workers' rights.
+
+    Returns:
+        Renders the workers' rights page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "workers_rights.html", language=language, translations=translations
+        )
+
+
+@main.route("/legal/renters_rights")
+def renters_rights():
+    """Route for information about renters' rights.
+
+    Returns:
+        Renders the renters' rights page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "renters_rights.html", language=language, translations=translations
+        )
+
+
+@main.route("/legal/general")
+def legal_general():
+    """Route for general legal information.
+
+    Returns:
+        Renders the legal general page.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+    
+    return render_template(
+        "general.html", language=language, translations=translations
         )
 
 
