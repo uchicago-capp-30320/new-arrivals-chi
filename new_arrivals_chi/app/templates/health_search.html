@@ -18,8 +18,8 @@ Summer Long @sumslong
 
 {% block content %}
 <form action="/health/search" method="GET">
-    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' | escape }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
 </form>
 <h1>Placeholder for search interface</h1>
 {% endblock %}

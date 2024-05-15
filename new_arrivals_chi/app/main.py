@@ -13,21 +13,26 @@ Methods:
     * legal - Route to legal portion of application.
 
 Last updated:
-@Author: Summer Long @Sumslong
-@Date: 05/03/2024
+@Author: Kathryn Link-Oberstar @klinkoberstar
+@Date: 05/13/2024
 
 Creation:
 @Author: Summer Long @Sumslong
 @Date: 04/19/2024
 """
 
-from flask import Flask, Blueprint, render_template, request
+from flask import Flask, Blueprint, render_template, request, current_app, flash
+from markupsafe import escape
 import os
+import bleach
 from dotenv import load_dotenv
-from new_arrivals_chi.app.authorize_routes import authorize
-from new_arrivals_chi.app.database import db, User
+from new_arrivals_chi.app.database import db, User, Organization
+from new_arrivals_chi.app.data_handler import create_organization_profile
+from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
-from flask_login import LoginManager, login_required
+from flask_login import LoginManager, login_required, current_user
+from new_arrivals_chi.app.authorize_routes import authorize
+
 
 migrate = Migrate()
 
@@ -46,22 +51,45 @@ def home():
     Returns:
         Renders home page.
     """
-    language = request.args.get("lang", "en")
-    return render_template("home.html", language=language)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "home.html", language=language, translations=translations
+    )
 
 
-@main.route("/profile")
+@main.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
-    """Establishes route for the user's profile page.
+    """Handles both displaying the user's profile and adding an organization.
 
-    This route is accessible within the 'profile' button in the navigation bar.
-
-    Returns:
-        Renders profile page for user with in their selected language.
+    GET: Renders profile page with user's organization info.
+    POST: Adds a new organization to the database and redirects to profile page.
     """
-    language = request.args.get("lang", "en")
-    return render_template("profile.html", language=language)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    if request.method == "POST":
+        name = bleach.clean(request.form.get("name"))
+        phone = bleach.clean(request.form.get("phone"))
+        status = bleach.clean(request.form.get("status"))
+
+        org_id = create_organization_profile(name, phone, status)
+        if org_id:
+            flash(escape("Organization added successfully."))
+        else:
+            flash(escape("Failed to add organization."))
+
+    user = current_user
+    organization = Organization.query.get(user.organization_id)
+
+    return render_template(
+        "profile.html",
+        organization=organization,
+        translations=translations,
+        language=language,
+    )
 
 
 @main.route("/legal")
@@ -73,8 +101,12 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = request.args.get("lang", "en")
-    return render_template("legal.html", language=language)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "legal.html", language=language, translations=translations
+    )
 
 
 @main.route("/health")
@@ -86,8 +118,12 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = request.args.get("lang", "en")
-    return render_template("health.html", language=language)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "health.html", language=language, translations=translations
+    )
 
 
 @main.route("/health/search")
@@ -100,8 +136,12 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    language = request.args.get("lang", "en")
-    return render_template("health_search.html", language=language)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "health_search.html", language=language, translations=translations
+    )
 
 
 @main.route("/info")
@@ -113,8 +153,12 @@ def info():
     Returns:
         Renders information of an organization.
     """
-    language = request.args.get("lang", "en")
-    return render_template("info.html", language=language)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "info.html", language=language, translations=translations
+    )
 
 
 def create_app(config_override=None):
@@ -125,6 +169,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["TRANSLATIONS"] = load_translations()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
@@ -138,6 +183,7 @@ def create_app(config_override=None):
 
     login_manager = LoginManager()
     login_manager.login_view = "authorize.login"
+    login_manager.session_protection = "strong"
     login_manager.init_app(app)
 
     @login_manager.user_loader
@@ -149,4 +195,9 @@ def create_app(config_override=None):
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True)
+    # Note: For the development server, we are using a auto-generated
+    # self-signed certificate as a result the CA is unable to validate a server
+    # certificate, though you can continue to proceed and visit the development
+    # site. For the production deployment, we will ensure a valid certificate
+    # from CA for our domain.
+    app.run(ssl_context=("adhoc"), debug=True)

@@ -6,21 +6,68 @@ Associated Files:
 
 This file contains utility methods for validating user input.
 
-
 Methods:
+    * extract_signup_data - Extracts signup data from a request object.
+    * extract_new_pw_data - Extracts new password data from a request object.
     * validate_email_syntax — Validates the syntax of an email address.
     * validate_password - Validates the strength of a password.
+    * verify_password - Verifies a candidate password against a hashed password.
+    * setup_logger - Creates a logger for recording the output of the script.
+
+Last Updated:
+@Author: Madeleine Roberts @MadeleineKRoberts
+@Date: 05/19/2024
 
 Creation:
 @Author: Madeleine Roberts @MadeleineKRoberts
 @Date: 04/19/2024
 """
 
-
+import logging
+import json
 import re
 import os
-import logging
 from datetime import datetime
+from password_strength import PasswordPolicy
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt()
+
+
+def extract_signup_data(form):
+    """Extracts signup data from a POST request form.
+
+    Parameters:
+        form (ImmutableMultiDict): The ImmutableMultiDict object containing
+            form data from a POST request.
+            It should have keys "email", "password", and "password_confirm".
+
+    Returns:
+        tuple: A tuple containing the extracted email, password, and
+            password_confirm.
+    """
+    email = form.get("email").lower()
+    password = form.get("password")
+    password_confirm = form.get("password_confirm")
+    return email, password, password_confirm
+
+
+def extract_new_pw_data(form):
+    """Extracts new password data from a POST request form.
+
+    Parameters:
+        form (ImmutableMultiDict): The ImmutableMultiDict object containing
+            form data from a POST request. It should have keys "old_password",
+            "new_password", and "new_password_confirm".
+
+    Returns:
+        tuple: A tuple containing the extracted old_password, new_password,
+        and new_password_confirm.
+    """
+    old_password = form.get("old_password")
+    new_password = form.get("new_password")
+    new_password_confirm = form.get("new_password_confirm")
+    return old_password, new_password, new_password_confirm
 
 
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
@@ -40,7 +87,7 @@ def validate_email_syntax(email):
     return re.match(pattern, email) is not None
 
 
-# Reference: ChatGPT supported regex
+# Reference: https://pypi.org/project/password-strength/#passwordstats
 def validate_password(password):
     """Validates the strength of a password.
 
@@ -57,17 +104,50 @@ def validate_password(password):
         bool: True if the password meets the strength requirements,
         False otherwise.
     """
-    # 1+ lower case, 1+ upper case, 1+ number, 1+ special characters
-    pattern = r"(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[\W_]+).+"
-    valid_characters = re.fullmatch(pattern, password) is not None
+    if len(password) < 8:
+        return False
+
+    policy = PasswordPolicy.from_names(
+        length=8,
+        uppercase=1,  # need min. 1 uppercase letter
+        numbers=1,  # need min. 1 digit
+        special=1,  # need min. 1 special character
+        strength=0.66,  # Minimum value to be considered a strong password
+    )
+
+    policy_reqs = len(policy.test(password))
 
     no_space = re.search(r"\s", password) is None
 
-    return len(password) >= 8 and valid_characters and no_space
+    return policy_reqs == 0 and no_space
+
+
+def verify_password(pw_hash, candidate):
+    """Verifies a candidate password against a hashed password.
+
+    This function compares a candidate password against a hashed password
+    to check if they match.
+
+    Parameters:
+        pw_hash (str): The hashed password.
+        candidate (str): The candidate password to be verified.
+
+    Returns:
+        bool: True if the candidate password matches the hashed password,
+        False otherwise.
+    """
+    return bcrypt.check_password_hash(pw_hash, candidate)
 
 
 def setup_logger(name):
-    """Create a logger for recording the output of the script."""
+    """Create a logger for recording the output of the script.
+
+    Parameters:
+        name (str): The name of the logger.
+
+    Returns:
+        logging.Logger: The configured logger object.
+    """
     log_directory = "logs"
     if not os.path.exists(log_directory):
         os.makedirs(log_directory)
@@ -89,3 +169,17 @@ def setup_logger(name):
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
     return logger
+
+
+def load_translations():
+    """Loads translations from JSON files for supported languages.
+
+    Returns:
+        dict: A dictionary containing translations for supported languages.
+    """
+    languages = ["en", "es"]
+    translations = {}
+    for lang in languages:
+        with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
+            translations[lang] = json.load(file)
+    return translations

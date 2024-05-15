@@ -13,17 +13,18 @@ Creation:
 Contributors:
 Summer Long @sumslong
 Madeleine Roberts @MadeleineKRoberts
+Federico Dominguez Molina @FedericoDM
 -->
 {% extends "base.html" %}
 
 {% block content %}
 
-    <h1>{{ 'Bienvenido' if language == 'es' else 'Welcome' }}</h1>
-    <p>{{ 'Encuentra apoyo para tus necesidades legales, de salud o de comida.' if language == 'es' else 'Find essential support for legal, health, and food needs.' }}</p>
-    <p>{{ 'Por favor haz click abajo para comenzar:' if language == 'es' else 'Please click below to begin:'}}</p>
+    <h1>{{ translations[language]['home']['welcome'] | escape }}</h1>
+    <p>{{ translations[language]['home']['find_support'] | escape }}</p>
+    <p>{{ translations[language]['home']['please_click'] | escape }}</p>
     <div class="home-button-container">
-        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language }}')">{{ 'Legal' if language == 'es' else 'Legal' }}</button>
-        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language }}')">{{ 'Salud' if language == 'es' else 'Health' }}</button>
-        <button class="button button-green" onclick="window.location.href='/food'">{{ 'Comida' if language == 'es' else 'Food' }}</button>
+        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['legal'] | escape }}</button>
+        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['health'] | escape }}</button>
+        <button class="button button-green" onclick="window.location.href='/food'">{{ translations[language]['home']['food'] | escape }}</button>
     </div>
 {% endblock %}
