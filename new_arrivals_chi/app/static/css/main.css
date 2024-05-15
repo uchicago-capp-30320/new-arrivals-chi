@@ -49,7 +49,7 @@ title {
 }
 
 .button-blue:hover {
-    background-color: #2980b9;
+    background-color: #297def;
 }
 
 .button-yellow {
@@ -58,7 +58,7 @@ title {
 }
 
 .button-yellow:hover {
-    background-color: #d4ac0d;
+    background-color: #FFBE00;
 }
 
 .button-green {
@@ -152,7 +152,7 @@ title {
 }
 
 .yellow-button:hover {
-    background-color: #FFD700;
+    background-color: #FFBE00;
 }
 
 .button.orange {
@@ -170,7 +170,7 @@ title {
 }
 
 .button.green:hover {
-    background-color: #006400;
+    background-color: #27ae60;
 }
 
 .button.blue {
@@ -179,7 +179,7 @@ title {
 }
 
 .button.blue:hover {
-    background-color: #00008B;
+    background-color: #297def;
 }
 
 .back-button-container {
