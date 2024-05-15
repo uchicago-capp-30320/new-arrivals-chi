@@ -126,9 +126,9 @@ def legal_tps_info():
     Returns:
         Renders legal flow - TPS info page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    translations = app.config["TRANSLATIONS"][language]
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "tps_info.html", language=language, translations=translations
@@ -144,9 +144,9 @@ def legal_tps_apply():
     Returns:
         Renders legal flow - TPS apply page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    translations = app.config["TRANSLATIONS"][language]
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "tps_apply.html", language=language, translations=translations
@@ -162,9 +162,9 @@ def legal_vttc_info():
     Returns:
         Renders legal VTTC info page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    translations = app.config["TRANSLATIONS"][language]
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "vttc_info.html", language=language, translations=translations
@@ -180,9 +180,9 @@ def legal_vttc_apply():
     Returns:
         Renders legal flow - VTTC apply page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    translations = app.config["TRANSLATIONS"][language]
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "vttc_apply.html", language=language, translations=translations
@@ -198,9 +198,9 @@ def legal_asylum_info():
     Returns:
         Renders legal flow - Asylum info page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    translations = app.config["TRANSLATIONS"][language]
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "asylum_info.html", language=language, translations=translations
@@ -216,9 +216,9 @@ def legal_asylum_apply():
     Returns:
         Renders legal flow - Asylum apply page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    translations = app.config["TRANSLATIONS"][language]
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "asylum_apply.html", language=language, translations=translations
@@ -234,8 +234,8 @@ def legal_parole_info():
     Returns:
         Renders legal flow - Parole info page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "parole_info.html", language=language, translations=translations
@@ -251,8 +251,8 @@ def legal_parole_apply():
     Returns:
         Renders legal flow - Parole apply page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "parole_apply.html", language=language, translations=translations
@@ -268,8 +268,8 @@ def legal_undocumented_resources():
     Returns:
         Renders legal flow - Undocumented Resources page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "undocumented_resources.html", language=language, \
@@ -285,8 +285,8 @@ def legal_help():
     Returns:
         Renders legal flow - Legal Help page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "help.html", language=language, translations=translations
@@ -300,8 +300,8 @@ def workers_rights():
     Returns:
         Renders the workers' rights page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "workers_rights.html", language=language, translations=translations
@@ -315,8 +315,8 @@ def renters_rights():
     Returns:
         Renders the renters' rights page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_LANGUAGE][language]
 
     return render_template(
         "renters_rights.html", language=language, translations=translations
@@ -330,8 +330,8 @@ def legal_general():
     Returns:
         Renders the legal general page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_LANGUAGE][language]
     
     return render_template(
         "general.html", language=language, translations=translations
