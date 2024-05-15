@@ -21,11 +21,19 @@ Creation:
 @Date: 04/19/2024
 """
 
+from http import HTTPMethod
+
 from flask import Flask, Blueprint, render_template, request, current_app, flash
 from markupsafe import escape
 import os
 import bleach
 from dotenv import load_dotenv
+
+from new_arrivals_chi.app.constants import (
+    KEY_LANGUAGE,
+    KEY_TRANSLATIONS,
+    DEFAULT_LANGUAGE,
+)
 from new_arrivals_chi.app.database import db, User, Organization
 from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.utils import load_translations
@@ -51,15 +59,15 @@ def home():
     Returns:
         Renders home page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "home.html", language=language, translations=translations
     )
 
 
-@main.route("/profile", methods=["GET", "POST"])
+@main.route("/profile", methods=[HTTPMethod.GET, HTTPMethod.POST])
 @login_required
 def profile():
     """Handles both displaying the user's profile and adding an organization.
@@ -67,8 +75,8 @@ def profile():
     GET: Renders profile page with user's organization info.
     POST: Adds a new organization to the database and redirects to profile page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     if request.method == "POST":
         name = bleach.clean(request.form.get("name"))
@@ -101,8 +109,8 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "legal.html", language=language, translations=translations
@@ -118,8 +126,8 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "health.html", language=language, translations=translations
@@ -136,8 +144,8 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "health_search.html", language=language, translations=translations
@@ -153,8 +161,10 @@ def info():
     Returns:
         Renders information of an organization.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(
+        request.args.get(KEY_TRANSLATIONS, DEFAULT_LANGUAGE)
+    )
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "info.html", language=language, translations=translations
@@ -200,4 +210,4 @@ if __name__ == "__main__":
     # certificate, though you can continue to proceed and visit the development
     # site. For the production deployment, we will ensure a valid certificate
     # from CA for our domain.
-    app.run(ssl_context=("adhoc"), debug=True)
+    app.run(ssl_context="adhoc", debug=True)

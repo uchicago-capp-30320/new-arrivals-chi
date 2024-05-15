@@ -43,6 +43,11 @@ from new_arrivals_chi.app.utils import (
     extract_new_pw_data,
     verify_password,
 )
+from new_arrivals_chi.app.constants import (
+    KEY_TRANSLATIONS,
+    KEY_LANGUAGE,
+    DEFAULT_LANGUAGE,
+)
 from flask_login import login_user, login_required, logout_user, current_user
 from new_arrivals_chi.app.data_handler import create_user, change_db_password
 
@@ -60,8 +65,8 @@ def signup():
     Returns:
         Renders sign up page in their selected language.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
         "signup.html", language=language, translations=translations
     )
@@ -76,7 +81,7 @@ def signup_post():
 
     Returns:
         Redirects to the home page upon successful sign up.
-        Redirects back to the sign up page if there are validation errors
+        Redirects back to the sign-up page if there are validation errors
         or if the email address already exists in the database.
     """
     email, password, password_confirm = extract_signup_data(request.form)
@@ -113,8 +118,8 @@ def login():
     Returns:
         Renders login page for user with their selected language.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
         "login.html", language=language, translations=translations
     )
@@ -170,8 +175,8 @@ def change_password():
     Returns:
         Renders change password page for user with their selected language.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
         "change_password.html", language=language, translations=translations
     )
