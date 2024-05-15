@@ -51,7 +51,7 @@ Madeleine Roberts @MadeleineKRoberts
             Español
         {% endif %}
     </button>
-    <input type="hidden" name="lang" value="{{ 'en' if translations[language]['util']['language'] == 'es' else 'es' | escape }}">
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'es' | escape }}">
 </form>
 
 <div class="container has-text-centered">
