@@ -6,9 +6,6 @@ Associated Files:
 
 Landing page for user to navigate through health information.
 
-Creation:
-@Author: Xiomara Salazar @xiomara0
-@Date: 05/12/2024
 
 -->
 {% extends "base.html" %}
@@ -20,7 +17,7 @@ Creation:
     </form>
     <!-- We still need to make json for this static page-->
 
-    <h1>{{ translations[language]['legal_start']['asylum_header'] }}</h1>
+    <h1>{{translations[language]['legal_start']['asylum_header']}}</h1>
 
     <div class="info-section">
         <h2>{{ 'Application Instructions'  }}</h2>
@@ -35,5 +32,8 @@ Creation:
             <li>{{ 'Document 3' }}</li>
         </ul>
     </div>
-
+    
+    <div class="back-button-container">
+        <a href="javascript:history.back()" class="back-button">Back</a>
+    </div>
 {% endblock %}
