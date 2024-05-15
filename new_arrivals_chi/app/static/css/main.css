@@ -182,19 +182,27 @@ title {
     background-color: #00008B;
 }
 
+.back-button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .back-button {
-    margin-top: 20px; /* Adjust margin as needed */
-    padding: 10px 20px;
-    background-color: #f0f0f0; /* Example background color */
-    color: #333;
-    border: none;
-    border-radius: 5px;
+    padding: 8px 16px; /* Adjust padding for smaller size */
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
+    border: 1px solid #ccc; /* Add a border for a button-like appearance */
+    border-radius: 3px; /* Slightly rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: flex; /* Make the button flex */
-    align-items: center; /* Center content vertically */
+    font-size: 14px; /* Adjust font size for smaller text */
 }
 
 .back-button:hover {
-    background-color: #c0c0c0; /* Darker color on hover */
+    background-color: #c0c0c0; /* Slightly darker gray on hover */
 }
