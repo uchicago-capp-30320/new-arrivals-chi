@@ -43,7 +43,7 @@ Madeleine Roberts @MadeleineKRoberts
 </body>
 
 <form action="/" method="GET">
-    <button type="submit" class="language-button">
+    <button type="submit" class="language-button" onclick="changeLanguage('{{ language | escape }}')">
         {% if language == 'es' %}
             English
         {% else %}
