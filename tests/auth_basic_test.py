@@ -99,10 +99,13 @@ def test_signup_post_invalid_email(client, capture_templates, setup_logger):
 
 
 def test_signup_post_invalid_password(client, capture_templates, setup_logger):
-    """Tests the signup with an invalid password.
+    """Tests the signup with an invalid password and sql injection.
 
     Ensures that the application rejects passwords that do not meet the
-    specified security criteria.
+    specified security criteria and that it can handle potentially malicious SQL
+    code embedded in the password input without causing SQL errors or 
+    unauthorized actions.
+
 
     Args:
         client: The test client used for making requests.
@@ -111,6 +114,7 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
     """
     logger = setup_logger("test_signup_post_invalid_password")
     try:
+        # Test with a simple invalid password first
         response = client.post(
             "/signup",
             data={
@@ -121,12 +125,33 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
             follow_redirects=True,
         )
         assert response.status_code == 200
-        assert b"Please enter a valid password" in response.data
+        assert b"Please enter a valid password" in response.data,  "Missing or \
+            incorrect error message for weak password."
+
+        # Test with SQL injection attempt in the password field
+        sql_injection_attempt = "password'; DROP TABLE users; --"
+        response = client.post(
+            "/signup",
+            data={
+                "email": "test@example.com",
+                "password": sql_injection_attempt,
+                "password_confirm": sql_injection_attempt,
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200, "Unexpected HTTP status code \
+            received."
+        # Assuming the page should still prompt for password issues or simply 
+        # fail to register without indicating SQL success
+        assert b"Please enter a valid password" in response.data or b"error" \
+            in response.data, "SQL Injection may have been processed."
+
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "signup.html"
-        ), "Wrong template used"
-        logger.info("Sign up failed successfully with invalid password.")
+        ), "Wrong template used after SQL injection attempt"
+        logger.info("Sign up failed successfully with invalid password and SQL \
+                    injection safely.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
