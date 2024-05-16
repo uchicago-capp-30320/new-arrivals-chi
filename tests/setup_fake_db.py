@@ -35,39 +35,39 @@ from tests.utils import (
 from new_arrivals_chi.app.database import organizations_hours
 
 
-def add_user(session, logger):
+def add_user(session):
     """Create and add a fake user to the session."""
     user = create_fake_user()
     session.add(user)
-    session.flush()  # Flush to get the user ID without committing
+    session.flush()
     return user
 
 
-def add_organization(session, user, logger):
+def add_organization(session, user):
     """Create and add a fake organization associated with the user."""
     organization = create_fake_organization(user)
     session.add(organization)
-    session.flush()  # Flush to get the organization ID without committing
+    session.flush()
     return organization
 
 
-def add_location(session, user, logger):
+def add_location(session, user):
     """Create and add a fake location associated with the user."""
     location = create_fake_location(user.id)
     session.add(location)
-    session.flush()  # Flush to get the location ID without committing
+    session.flush()
     return location
 
 
-def add_hours(session, user, logger):
+def add_hours(session, user):
     """Create and add fake hours associated with the user."""
     hours = create_fake_hours(user.id)
     session.add(hours)
-    session.flush()  # Flush to get the hours ID without committing
+    session.flush()
     return hours
 
 
-def add_language(session, organization, user, logger):
+def add_language(session, organization, user):
     """Create and add a fake language associated with the organization."""
     language = create_fake_language()
     language.created_by = user.id
@@ -75,7 +75,7 @@ def add_language(session, organization, user, logger):
     session.add(language)
 
 
-def add_service(session, organization, user, logger):
+def add_service(session, organization, user):
     """Create and add a fake service associated with the organization."""
     service = create_fake_service(user.id)
     service.created_by = user.id
@@ -84,14 +84,14 @@ def add_service(session, organization, user, logger):
     return service
 
 
-def add_service_date(session, service, user, logger):
+def add_service_date(session, service, user):
     """Create and add a fake service date associated with the service."""
     service_date = create_fake_service_date(user.id)
     service.service_dates.append(service_date)
     session.add(service_date)
 
 
-def add_service_location(session, service, user, logger):
+def add_service_location(session, service, user):
     """Create and add a fake location associated with the service."""
     service_location = create_fake_location(user.id)
     service.locations.append(service_location)
@@ -104,7 +104,7 @@ def populate_database(
     num_services=3,
     num_service_dates=2,
     num_service_locations=2,
-    logger=None,
+    logger=setup_logger,
 ):
     """Populate the database with fake data.
 
@@ -119,26 +119,18 @@ def populate_database(
     Returns:
         None; logs data creation process and outcomes.
     """
-    logger.info("Starting to create fake data") if logger else None
+    logger = setup_logger("populate_database")
+    logger.info("Starting to create fake data")
     try:
         for _ in range(num_organizations):
-            # Add user
-            user = add_user(session, logger)
-            
-            # Add organization
-            organization = add_organization(session, user, logger)
-            
-            # Backfill user with organization_id
+            user = add_user(session)
+            organization = add_organization(session, user)
             user.organization_id = organization.id
             session.add(user)
 
-            # Add location
-            location = add_location(session, user, logger)
+            location = add_location(session, user)
+            hours = add_hours(session, user)
 
-            # Add hours
-            hours = add_hours(session, user, logger)
-
-            # Update organization with location_id and hours_id
             organization.location_id = location.id
             organization.hours_id = hours.id
             session.add(organization)
@@ -149,29 +141,23 @@ def populate_database(
                     organization_id=organization.id, hours_id=hours.id
                 )
             )
-
-            # Add language
-            add_language(session, organization, user, logger)
+            add_language(session, organization, user)
 
             # Add services
             for _ in range(num_services):
-                service = add_service(session, organization, user, logger)
+                service = add_service(session, organization, user)
 
                 for _ in range(num_service_dates):
-                    add_service_date(session, service, user, logger)
+                    add_service_date(session, service, user)
 
                 for _ in range(num_service_locations):
-                    add_service_location(session, service, user, logger)
+                    add_service_location(session, service, user)
 
         session.commit()
-        logger.info(
-            "Fake data creation completed successfully"
-        ) if logger else None
+        logger.info("Fake data creation completed successfully")
     except Exception as e:
         session.rollback()
-        logger.error(
-            f"Error creating data: {e}, rolling back changes"
-        ) if logger else None
+        logger.error(f"Error creating data: {e}, rolling back changes")
         raise
 
 
@@ -184,7 +170,6 @@ def main():
     Returns:
         None; logs the completion of fake data generation.
     """
-    # delete the file path instance/test_fake_data.db
     if os.path.exists("./instance/test_fake_data.db"):
         os.remove("./instance/test_fake_data.db")
     logger = setup_logger("populate_database")

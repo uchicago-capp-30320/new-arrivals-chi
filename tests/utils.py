@@ -128,7 +128,7 @@ def create_fake_service(user_id):
         access=random.choice(ACCESS_TYPES),
         service_note=random.choice(SERVICE_NOTES),
         created_at=fake.date_time_this_decade().replace(microsecond=0),
-        created_by=user_id
+        created_by=user_id,
     )
 
 
