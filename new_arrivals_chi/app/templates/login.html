@@ -16,7 +16,7 @@ Creation:
 {% extends "base.html" %}
 {% block content %}
 <form action="/login" method="GET">
-    <button type="submit" class="language-button">{{ translations[language] if language == 'es' else 'Español' | escape }}</button>
+    <button type="submit" class="language-button">{{ 'English' if language == 'es' else 'Español' | escape }}</button>
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
 </form>
 <div >
