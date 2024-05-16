@@ -20,7 +20,7 @@ HTML template for the decision tree for legal resources.
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ url_for('static', filename='js/legal_data.js') }}"></script>
 <script>
-    let languageData = {{ translations[language].legal_start | tojson | safe }};
+    let languageData = {{ translations[language].legal_start | tojson | escape}};
 </script>
 <script src="{{ url_for('static', filename='js/legal_flow.js') }}"></script>
 

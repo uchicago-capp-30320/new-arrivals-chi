@@ -28,6 +28,7 @@ Methods:
     * test_access_legal_renters_rights
     * test_access_legal_general
 """
+from http import HTTPStatus
 
 
 def test_access_legal_page(client, capture_templates, setup_logger):
@@ -44,7 +45,7 @@ def test_access_legal_page(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_page")
     try:
         response = client.get("/legal", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -61,7 +62,7 @@ def test_access_legal_tps_info(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_tps_info")
     try:
         response = client.get("/legal/tps_info", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -78,7 +79,7 @@ def test_access_legal_tps_apply(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_tps_apply")
     try:
         response = client.get("/legal/tps_apply", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -95,7 +96,7 @@ def test_access_legal_vttc_info(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_vttc_info")
     try:
         response = client.get("/legal/vttc_info", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -112,7 +113,7 @@ def test_access_legal_vttc_apply(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_vttc_apply")
     try:
         response = client.get("/legal/vttc_apply", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -129,7 +130,7 @@ def test_access_legal_asylum_info(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_asylum_info")
     try:
         response = client.get("/legal/asylum_info", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -146,7 +147,7 @@ def test_access_legal_asylum_apply(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_asylum_apply")
     try:
         response = client.get("/legal/asylum_apply", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -163,7 +164,7 @@ def test_access_legal_parole_info(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_parole_info")
     try:
         response = client.get("/legal/parole_info", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -180,7 +181,7 @@ def test_access_legal_parole_apply(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_parole_apply")
     try:
         response = client.get("/legal/parole_apply", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -201,7 +202,7 @@ def test_access_legal_undocumented_resources(
         response = client.get(
             "/legal/undocumented_resources", follow_redirects=True
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -218,7 +219,7 @@ def test_access_legal_help(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_help")
     try:
         response = client.get("/legal/help", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert capture_templates[final_template_rendered][0].name == "help.html"
         logger.info("Legal Help page rendered correctly.")
@@ -232,7 +233,7 @@ def test_access_legal_work_rights(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_work_rights")
     try:
         response = client.get("/legal/work_rights", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -249,7 +250,7 @@ def test_access_legal_renters_rights(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_renters_rights")
     try:
         response = client.get("/legal/renters_rights", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -266,7 +267,7 @@ def test_access_legal_general(client, capture_templates, setup_logger):
     logger = setup_logger("test_access_legal_general")
     try:
         response = client.get("/legal/general", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "general.html"

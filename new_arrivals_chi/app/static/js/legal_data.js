@@ -49,7 +49,7 @@ const options = {
             },
             work_rights: { key: "work_rights", link: "/legal/work_rights" },
             renters_rights: { key: "renters_rights", link: "/legal/renters_rights" },
-            something_else: { key: "something_else", link: "/legal/legal_general" }
+            something_else: { key: "something_else", link: "/legal/general" }
         }
     }
 };
