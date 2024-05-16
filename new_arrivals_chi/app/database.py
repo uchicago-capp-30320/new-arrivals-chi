@@ -256,6 +256,7 @@ class Location(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     street_address = db.Column(db.String(255), nullable=False)
     zip_code = db.Column(db.String(10), nullable=False)
+    neighborhood = db.Column(db.String(100), nullable=False)
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(50), nullable=False)
     primary_location = db.Column(db.Boolean, nullable=False)
