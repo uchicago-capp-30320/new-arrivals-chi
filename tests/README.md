@@ -14,6 +14,10 @@ The core configurations for our tests are managed through `conftest.py`, which i
 - `client`: Provides a test client for the application
 - `database`: Provides a test database instance for the application
 - `logger`: Provides an instance to log test results
+- `capture_templates`: Create a function to retrieve the templates rendered
+- `test_user`: Create a test user in the database before each test and remove after
+- `logged_in_state`(client): Logs in a user for testing routes that require authentication
+- 
 
 ## Writing Tests
 
@@ -21,23 +25,21 @@ Test files are organized by their respective application components.
 
 ## Database Operation Tests
 
-The `db_test.py` file focuses on testing database operations and consistency across our application.
-It utilizes fixtures for the app, logger, and database and ensures all tests run within the application context.
+The `utils.py` file contains functions for creating the fake database.
+The `setup_fake_db.py` script is used to create a fake database instance and fill it with data.
 
-The `setup_fake_db.py` script is used to create a fake database instance and fill it with fake data.
+**IN PROGRESS** The `sql_injection.py` file focuses on testing the fake database instance for SQL injections to ensure that input handling is secure and prevents unauthorized database access or manipulation.
 
 ### Tests Included
 
 - **Fake Data Creation**: Confirms that users, organizations, locations, and hours can be created, added to sessions, and committed without issues.
 - **Data Retrieval**: Tests retrieving users by their ID and asserts the correctness of the data like email format and user roles.
 - **Data Validation**: Verifies the integrity of data relationships, ensuring that users are linked to valid organizations and all entities have expected attributes.
+- **Authentication**: Tests to check authentication pathways including sign-up, login, logout, password changes, and password security.
 - **Error Handling and Logging**: Log errors during data creation and handle exceptions with rollback.
+- **Prevention of SQL Injections**: Tests for secure handling of safe and unsafe inputs within the fake database instance, preventing malicious actions such as returning all records or dropping tables.
 
 ### Additional Tests - in progress
-
-Simple starter tests are defined in `app_home_test.py`, which contains functions to test specific aspects of the home page such as,
-- `test_home_page_status`: Verifies that the home page loads correctly.
-- `test_home_contains_welcome_message`: Checks for the presence of a welcome message on the home page.
 
 ## Running Tests
 

@@ -67,7 +67,7 @@ table {
 }
 
 .button-blue:hover {
-    background-color: #2980b9;
+    background-color: #297def;
 }
 
 .button-yellow {
@@ -76,7 +76,7 @@ table {
 }
 
 .button-yellow:hover {
-    background-color: #d4ac0d;
+    background-color: #FFBE00;
 }
 
 .button-green {
@@ -88,12 +88,12 @@ table {
     background-color: #27ae60;
 }
 
-.button.orange {
+.button-orange {
     background-color: #F9E3CE;
     color: black;
 }
 
-.button.orange:hover {
+.button-orange:hover {
     background-color: #FF8C00;
 }
 
@@ -170,7 +170,7 @@ table {
 }
 
 .yellow-button:hover {
-    background-color: #FFD700;
+    background-color: #FFBE00;
 }
 
 .button.orange {
@@ -188,7 +188,7 @@ table {
 }
 
 .button.green:hover {
-    background-color: #006400;
+    background-color: #27ae60;
 }
 
 .button.blue {
@@ -197,5 +197,5 @@ table {
 }
 
 .button.blue:hover {
-    background-color: #00008B;
+    background-color: #297def;
 }

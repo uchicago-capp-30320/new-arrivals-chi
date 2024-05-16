@@ -1,8 +1,8 @@
-"""
-Project: new_arrivals_chi
+"""Project: new_arrivals_chi.
+
 File name: authorize_routes.py
 Associated Files:
-    Templates: profile.html, signup.html, login.html
+    Templates: profile.html, signup.html, login.html.
 
 Defines routes for user creation and authentication for new arrivals portal.
 
@@ -16,120 +16,132 @@ Methods:
     * post_change_password - Executes change password logic.
 
 Last updated:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/02/2024
+@Author: Kathryn Link-Oberstar @klinkoberstar
+@Date: 05/09/2024
 
 Creation:
 @Author: Madeleine Roberts @MadeleineKRoberts
 @Date: 05/01/2024
 """
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash
-from werkzeug.security import generate_password_hash, check_password_hash
-from new_arrivals_chi.app.database import db, User
-from new_arrivals_chi.app.utils import validate_email_syntax, validate_password
+import bleach
+from markupsafe import escape
+from flask import (
+    Blueprint,
+    render_template,
+    redirect,
+    url_for,
+    request,
+    flash,
+    current_app,
+)
+from new_arrivals_chi.app.database import User
+from new_arrivals_chi.app.utils import (
+    validate_email_syntax,
+    validate_password,
+    extract_signup_data,
+    extract_new_pw_data,
+    verify_password,
+)
+from new_arrivals_chi.app.constants import (
+    KEY_TRANSLATIONS,
+    KEY_LANGUAGE,
+    DEFAULT_LANGUAGE,
+)
 from flask_login import login_user, login_required, logout_user, current_user
+from new_arrivals_chi.app.data_handler import create_user, change_db_password
+
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
 
 @authorize.route("/signup")
 def signup():
-    """
-    Establishes route for the user sign up page. This route is accessible
-    within the 'sign up' button in the navigation bar.
+    """Establishes route for the user sign up page.
+
+    This route is accessible within the 'sign up' button in the navigation bar.
+
 
     Returns:
         Renders sign up page in their selected language.
     """
-
-    language = request.args.get("lang", "en")
-    return render_template("signup.html", language=language)
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+    return render_template(
+        "signup.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/signup", methods=["POST"])
 def signup_post():
-    """
-    Handles the POST request for user sign up. Validates the input data,
-    adds the user to the database if valid, and redirects accordingly.
+    """Handles the POST request for user sign up.
+
+    Validates the input data, adds the user to the database if valid, and
+    redirects accordingly.
 
     Returns:
         Redirects to the home page upon successful sign up.
-        Redirects back to the sign up page if there are validation errors
+        Redirects back to the sign-up page if there are validation errors
         or if the email address already exists in the database.
     """
-
-    email = request.form.get("email")
-    password = request.form.get("password")
+    email, password, password_confirm = extract_signup_data(request.form)
 
     # ensure that input meets requirments
-    email_synax = validate_email_syntax(email)
+    if not validate_email_syntax(email):
+        flash(escape("Please enter a valid email address"))
 
-    if not email_synax:
-        flash("Please enter a valid email address")
-        return redirect(url_for("authorize.signup"))
+    elif User.query.filter_by(email=email).first():
+        # email already exists in database
+        flash(escape("Email address already exists for user"))
 
-    # password constraints: 8+ characters, 1+ number, 1+ special characters
-    # cannot be empty, cannot contain certain special chars, no spaces
-    password_strength = validate_password(password)
+    elif not password == password_confirm:
+        flash(escape("Passwords do not match. Try again"))
 
-    if not password_strength:
-        flash("Please enter a valid password")
-        return redirect(url_for("authorize.signup"))
+    elif not validate_password(password):
+        flash(escape("Please enter a valid password"))
 
-    # if this returns a user, then the email already exists in database
-    user = User.query.filter_by(email=email).first()
+    else:
+        # Meets all sign up requirements
+        new_user = create_user(email, password)
+        login_user(new_user, remember=False)
+        return redirect(url_for("main.profile"))
 
-    if user:
-        # if a user is found, we want to redirect back to signup page
-        flash("Email address already exists for user")
-        return redirect(url_for("authorize.signup"))
-
-    # create a new user with the form data
-    new_user = User(
-        email=email,
-        password=generate_password_hash(password, method="pbkdf2:sha256"),
-    )
-    # add the new user to the database
-    db.session.add(new_user)
-    db.session.commit()
-
-    return redirect(url_for("main.home"))
+    return redirect(url_for("authorize.signup"))
 
 
 @authorize.route("/login")
 def login():
-    """
-    Establishes route for the login page. This route is accessible
-    within the 'login' button in the navigation bar.
+    """Establishes route for the login page.
+
+    Login route is accessible within the 'login' button in the navigation bar.
 
     Returns:
         Renders login page for user with their selected language.
     """
-
-    language = request.args.get("lang", "en")
-    return render_template("login.html", language=language)
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+    return render_template(
+        "login.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/login", methods=["POST"])
 def login_post():
-    """
-    Processes the login request.
+    """Processes the login request.
 
     Returns:
         Redirects to the user's profile page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
-
-    email = request.form.get("email")
+    email = request.form.get("email").lower()
     password = request.form.get("password")
     remember = True if request.form.get("remember") else False
 
     user = User.query.filter_by(email=email).first()
 
     # check if the user actually exists & password is correct
-    if not user or not check_password_hash(user.password, password):
-        flash("Please check your login details and try again.")
+    if not user or not verify_password(user.password, password):
+        flash(escape("Please check your login details and try again."))
         return redirect(
             url_for("authorize.login")
         )  # if the user doesn't exist or password is wrong, reload the page
@@ -142,14 +154,12 @@ def login_post():
 @authorize.route("/logout")
 @login_required
 def logout():
-    """
-    Logs out the current user.
+    """Logs out the current user.
 
     Returns:
         Redirects to the home page after logout.
         If a user is not currently logged in, redirects to the log in page.
     """
-
     logout_user()
     return redirect(url_for("main.home"))
 
@@ -157,51 +167,53 @@ def logout():
 @authorize.route("/change_password")
 @login_required
 def change_password():
-    """
-    Establishes route for the change password page. This route is accessible
-    within the 'change password' button in the profile page (will likely change
-    location in the future).
+    """Establishes route for the change password page.
+
+    This route is accessible within the 'change password' button in the profile
+    page (will likely change location in the future).
 
     Returns:
         Renders change password page for user with their selected language.
     """
-
-    language = request.args.get("lang", "en")
-    return render_template("change_password.html", language=language)
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+    return render_template(
+        "change_password.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/change_password", methods=["POST"])
 @login_required
 def post_change_password():
-    """
-    Allows an authorized user to update their current password.
+    """Allows an authorized user to update their current password.
 
     Returns:
         Redirects to the user's profile page if password change is successful,
         otherwise redirects back to the change password page with a flash
         message.
     """
+    old_password, new_password, new_password_confirm = extract_new_pw_data(
+        request.form
+    )
 
-    old_password = request.form.get("old_password")
-    new_password = request.form.get("new_password")
-    new_password_confirm = request.form.get("new_password_confirm")
+    if not verify_password(current_user.password, old_password):
+        flash(escape("Wrong existing password. Try again"))
 
-    if not check_password_hash(current_user.password, old_password):
-        flash("Wrong existing password. Try again")
-    elif (
-        old_password == new_password
-    ):  # Do not need to check password hash because old password is correct
-        flash("New password cannot be the same as your previous password.")
-    elif not new_password == new_password_confirm:
-        flash("New passwords do not match. Try again")
-    elif not validate_password(new_password):
-        flash("New password does not meet requirements. Try again")
-    else:
-        current_user.password = generate_password_hash(
-            new_password, method="pbkdf2:sha256"
+    elif old_password == new_password:
+        # Do not need to check password hash because old password is correct
+        flash(
+            escape("New password cannot be the same as your previous password.")
         )
-        db.session.commit()
-        flash("Password change successful.")
+
+    elif not new_password == new_password_confirm:
+        flash(escape("New passwords do not match. Try again"))
+
+    elif not validate_password(new_password):
+        flash(escape("New password does not meet requirements. Try again."))
+
+    else:
+        change_db_password(new_password)
+        flash(escape("Password change successful."))
         return redirect(url_for("main.profile"))
 
     return redirect(url_for("authorize.change_password"))
