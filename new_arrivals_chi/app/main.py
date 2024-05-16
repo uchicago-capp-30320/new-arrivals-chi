@@ -179,7 +179,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    app.config["TRANSLATIONS"] = load_translations()
+    app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
