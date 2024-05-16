@@ -87,12 +87,36 @@ def test_signup_post_invalid_email(client, capture_templates, setup_logger):
         )
         assert response.status_code == 200
         assert b"Please enter a valid email address" in response.data
-        assert len(capture_templates) == 1
+
+        # Test with SQL injection attempt in the email field
+        sql_injection_attempt = "test@example.com' OR '1'='1' --"
+        response = client.post(
+            "/signup",
+            data={
+                "email": sql_injection_attempt, 
+                "password": "TestP@ssword!",
+                "password_confirm": "TestP@ssword!",
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200, "Unexpected HTTP status code \
+            received."
+        
+        assert b"error" in response.data or b"Please enter a valid email \
+            address" in response.data, "SQL Injection may have been processed \
+            incorrectly."
+
+
+        assert len(capture_templates) == 1, "Incorrect number of templates \
+            rendered."
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "signup.html"
-        ), "Wrong template used"
+        ), "Wrong template used after SQL injection."
+
         logger.info("Sign up failed successfully with invalid email.")
+        logger.info( "SQL injection was handled safely.")
+
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
@@ -141,8 +165,7 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
         )
         assert response.status_code == 200, "Unexpected HTTP status code \
             received."
-        # Assuming the page should still prompt for password issues or simply 
-        # fail to register without indicating SQL success
+
         assert b"Please enter a valid password" in response.data or b"error" \
             in response.data, "SQL Injection may have been processed."
 
@@ -299,6 +322,7 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
     """
     logger = setup_logger("test_login_invalid_credentials")
     try:
+        # Test with a simple invalid credentials first
         response = client.post(
             "/login",
             data={"email": "test@example.com", "password": "wrongpassword"},
@@ -308,11 +332,32 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
         assert (
             b"Please check your login details and try again." in response.data
         )
+        # Test with a sql injection
+        sql_injection_attempt = "wrongpassword' UNION SELECT 1, username, \
+            password FROM users --"
+        response = client.post(
+            "/signup",
+            data={
+                "email": "test@example.com",
+                "password": sql_injection_attempt,
+                "password_confirm": sql_injection_attempt,
+            },
+            follow_redirects=True,
+        )
+        assert response.status_code == 200, "Unexpected HTTP status code \
+            received."
+
+        assert b"Please enter a valid password" in response.data or b"error" \
+            in response.data, "SQL Injection may have been processed."
+
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "login.html"
-        ), "Wrong template used"
+        ), "Wrong template used after SQL injection attempt"
+
         logger.info("Login failed successfully with invalid credentials.")
+        logger.info( "SQL injection was handled safely.")
+
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
