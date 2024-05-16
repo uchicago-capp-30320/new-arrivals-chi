@@ -362,7 +362,6 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-
     conn = sqlite3.connect("../../instance/test_fake_data.db")
 
     cursor = conn.cursor()
@@ -382,9 +381,11 @@ def health_search():
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "health_search.html", language=language, 
-      translations=translations, 
-      services_info=services_info)
+        "health_search.html",
+        language=language,
+        translations=translations,
+        services_info=services_info,
+    )
 
 
 @main.route("/info")
