@@ -42,8 +42,8 @@ Madeleine Roberts @MadeleineKRoberts
     </nav>
 </body>
 
-<form action="/" method="GET">
-    <button type="submit" class="language-button" onclick="changeLanguage('{{ language | escape }}')">
+<form id="languageForm" action="/" method="GET">
+    <button type="button" class="language-button" onclick="changeLanguage('{{ language | escape }}')">
         {% if language == 'es' %}
             English
         {% else %}
@@ -84,8 +84,10 @@ Madeleine Roberts @MadeleineKRoberts
             // Update the language attribute in the HTML tag
             document.querySelector('html').setAttribute('lang', newLanguage);
 
-            return false;
+            // Prevent form submission (prevents redirection)
+            document.getElementById('languageForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+            });
         }
-    </script>
 </script>
    
