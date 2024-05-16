@@ -34,4 +34,3 @@ This design process was made possible by our incredible community partners who t
 - [Illinois Community for Displaced Immigrants](https://icdichicago.org/): Johannes Favi
 - [The Resurrection Project](https://resurrectionproject.org/): Oswaldo Gomez, Laura Mendoza
 - [Chicago Street Medicine](https://www.chicagostreetmedicine.org/): Saara-Anne Azizi, Dan Dolan
-
