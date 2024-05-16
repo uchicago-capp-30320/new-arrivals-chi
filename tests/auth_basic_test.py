@@ -150,8 +150,10 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
         assert (
             capture_templates[final_template_rendered][0].name == "signup.html"
         ), "Wrong template used after SQL injection attempt"
+
         logger.info("Sign up failed successfully with invalid password and SQL \
                     injection safely.")
+                    
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
