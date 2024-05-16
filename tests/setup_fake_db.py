@@ -19,6 +19,7 @@ Creation:
 @Date: 2024-05-07
 """
 
+import os
 from new_arrivals_chi.app.main import create_app, db
 from new_arrivals_chi.app.utils import setup_logger
 from sqlalchemy.orm import Session
@@ -100,7 +101,6 @@ def add_service_location(session, service, user, logger):
 def populate_database(
     session: Session,
     num_organizations=10,
-    num_languages=3,
     num_services=3,
     num_service_dates=2,
     num_service_locations=2,
@@ -111,7 +111,6 @@ def populate_database(
     Parameters:
         session (Session): The SQLAlchemy session object.
         num_organizations (int): Number of organizations to create.
-        num_languages (int): Number of languages to create per organization.
         num_services (int): Number of services to create per organization.
         num_service_dates (int): Number of service dates to create per service.
         num_service_locations (int): Number of locations to create per service.
@@ -125,10 +124,10 @@ def populate_database(
         for _ in range(num_organizations):
             # Add user
             user = add_user(session, logger)
-
+            
             # Add organization
             organization = add_organization(session, user, logger)
-
+            
             # Backfill user with organization_id
             user.organization_id = organization.id
             session.add(user)
@@ -151,19 +150,16 @@ def populate_database(
                 )
             )
 
-            # Add languages
-            for _ in range(num_languages):
-                add_language(session, organization, user, logger)
+            # Add language
+            add_language(session, organization, user, logger)
 
             # Add services
             for _ in range(num_services):
                 service = add_service(session, organization, user, logger)
 
-                # Add service dates
                 for _ in range(num_service_dates):
                     add_service_date(session, service, user, logger)
 
-                # Add service locations
                 for _ in range(num_service_locations):
                     add_service_location(session, service, user, logger)
 
@@ -188,6 +184,9 @@ def main():
     Returns:
         None; logs the completion of fake data generation.
     """
+    # delete the file path instance/test_fake_data.db
+    if os.path.exists("./instance/test_fake_data.db"):
+        os.remove("./instance/test_fake_data.db")
     logger = setup_logger("populate_database")
     logger.info("Starting the application setup for fake data creation.")
 

@@ -27,14 +27,28 @@ Creation:
 """
 
 import random
-import datetime
 from faker import Faker
-from sqlalchemy.orm import Session
-from new_arrivals_chi.app.database import User, Organization, Location, Hours, Language, Service, ServiceDate
-from constants import OPENING_TIMES, CLOSING_TIMES
-from tests.constants import FAKE_NEIGHBORHOODS
+from new_arrivals_chi.app.database import (
+    User,
+    Organization,
+    Location,
+    Hours,
+    Language,
+    Service,
+    ServiceDate,
+)
+from tests.constants import (
+    OPENING_TIMES,
+    CLOSING_TIMES,
+    SERVICE_CATEGORIES,
+    SERVICES,
+    ACCESS_TYPES,
+    SERVICE_NOTES,
+    FAKE_NEIGHBORHOODS,
+)
 
 fake = Faker()
+
 
 def create_fake_user():
     """Create a single fake user instance.
@@ -47,6 +61,7 @@ def create_fake_user():
         role=fake.random_element(elements=("admin", "standard")),
         password=fake.password(),
     )
+
 
 def create_fake_organization(user):
     """Create a single fake organization instance.
@@ -63,7 +78,7 @@ def create_fake_organization(user):
         image_path=fake.image_url(),
         status=fake.random_element(elements=("ACTIVE", "SUSPENDED", "HIDDEN")),
         created_by=user.id,
-        updated_by=user.id
+        updated_by=user.id,
     )
 
 
@@ -105,14 +120,14 @@ def create_fake_service(user_id):
         user_id (int): The ID of the user who created the service.
 
     Returns:
-        A Service instance with randomly generated category, service, and access.
+        A Service instance with randomly selected standardized data.
     """
     return Service(
-        category=fake.word(),
-        service=fake.word(),
-        access=fake.word(),
-        service_note=fake.sentence(),
-        created_at=fake.date_time_this_decade(),
+        category=random.choice(SERVICE_CATEGORIES),
+        service=random.choice(SERVICES),
+        access=random.choice(ACCESS_TYPES),
+        service_note=random.choice(SERVICE_NOTES),
+        created_at=fake.date_time_this_decade().replace(microsecond=0),
         created_by=user_id
     )
 
@@ -124,13 +139,20 @@ def create_fake_service_date(user_id):
         user_id (int): The ID of the user who created the service date.
 
     Returns:
-        A ServiceDate instance with randomly generated date, start and end times, and repeat.
+        ServiceDate instance with random date, start and end times, and repeat.
     """
     return ServiceDate(
         date=fake.date_this_decade(),
         start_time=random.choice(OPENING_TIMES),
         end_time=random.choice(CLOSING_TIMES),
-        repeat=fake.random_element(elements=["every day", "every week", "every month", "every other week"]),
+        repeat=fake.random_element(
+            elements=[
+                "every day",
+                "every week",
+                "every month",
+                "every other week",
+            ]
+        ),
         created_at=fake.date_time_this_decade(),
         created_by=user_id,
     )

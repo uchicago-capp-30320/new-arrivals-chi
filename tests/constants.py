@@ -56,3 +56,44 @@ CLOSING_TIMES = [
     datetime.time(hour=19, minute=0),
     datetime.time(hour=20, minute=0),
 ]
+
+# Constants for service categories
+SERVICE_CATEGORIES = [
+    "Family Care",
+    "Healthcare",
+    "Legal",
+    "Education",
+    "Employment",
+]
+
+# Constants for services
+SERVICES = [
+    "Childcare",
+    "Family Planning",
+    "Translators Available",
+    "Hot Meals",
+    "Clothing Pickup",
+    "Counseling",
+    "Job Training",
+    "Legal Advice",
+    "Health Checkups",
+    "Vaccinations",
+]
+
+# Constants for access types
+ACCESS_TYPES = [
+    "Walk-Ins Only",
+    "Appointments Only",
+    "Online Registration",
+    "Phone Registration",
+]
+
+# Constants for service notes
+SERVICE_NOTES = [
+    "Free",
+    "Available in multiple languages",
+    "Available to all age groups",
+    "Requires prior registration",
+    "Immediate assistance available",
+    "Close until further notice",
+]
