@@ -42,7 +42,7 @@ Madeleine Roberts @MadeleineKRoberts
     </nav>
 
 <form id="languageForm" action="/" method="GET">
-    <button type="submit" class="language-button">{{ 'English' if language == 'es' else 'Español' | escape  }}</button>
+    <button type="submit" class="language-button">{{'English' if language == 'es' else 'Español' | escape }}</button>
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'es' | escape }}">
 </form>
 
