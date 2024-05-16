@@ -3,12 +3,13 @@
 This script is used by Alembic when running migrations for the database.
 """
 
+# Assisted by ChatGPT
+
 import logging
 from logging.config import fileConfig
 import new_arrivals_chi.app.database as models
 
 from flask import current_app
-
 from alembic import context
 
 # this is the Alembic Config object, which provides
@@ -118,4 +119,8 @@ def run_migrations_online():
 if context.is_offline_mode():
     run_migrations_offline()
 else:
-    run_migrations_online()
+    # Ensure the Flask application context is available
+    from new_arrivals_chi.app.main import app  # Adjust the import if necessary
+
+    with app.app_context():
+        run_migrations_online()
