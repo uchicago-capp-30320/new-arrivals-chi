@@ -70,25 +70,12 @@ Madeleine Roberts @MadeleineKRoberts
         window.location.href = destination + '?lang=' + language;
     }
 
-    function changeLanguage(currentLanguage) {
-            const newLanguage = currentLanguage === 'en' ? 'es' : 'en'; // Toggle between English and Spanish
-
-            // Update text on the language toggle button
-            const languageButton = document.querySelector('.language-button');
-            languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
-
-            // Update the hidden input value
-            const languageInput = document.querySelector('input[name="lang"]');
-            languageInput.value = newLanguage;
-
-            // Update the language attribute in the HTML tag
-            document.querySelector('html').setAttribute('lang', newLanguage);
-
-            // Prevent form submission (prevents redirection)
-            document.getElementById('languageForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-            });
-        }
+    function changeLanguage(newLanguage) {
+        const languageButton = document.querySelector('.language-button');
+        languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
+        document.querySelector('html').setAttribute('lang', newLanguage);
+    }
 </script>
+
 </body>
 </html>
