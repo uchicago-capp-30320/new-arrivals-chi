@@ -71,24 +71,23 @@ Madeleine Roberts @MadeleineKRoberts
     }
 
     function changeLanguage(currentLanguage) {
-        const newLanguage = currentLanguage === 'en' ? 'es' : 'en'; // Toggle between English and Spanish
+        const newLanguage = currentLanguage === 'en' ? 'es' : 'en';
 
-        // Update the hidden input value
         const languageInput = document.querySelector('input[name="lang"]');
         languageInput.value = newLanguage;
 
-        // Update the language attribute in the HTML tag
         document.querySelector('html').setAttribute('lang', newLanguage);
 
-        // Redirect to the translated page if currently on a specific page
         const currentPageURL = window.location.pathname;
         if (currentPageURL.includes('/login')) {
             window.location.href = '/login?lang=' + newLanguage;
         } else if (currentPageURL.includes('/signup')) {
             window.location.href = '/signup?lang=' + newLanguage;
-        } // Add more conditions for other pages as needed
+        } else if (currentPageURL.includes('/')) {  // Include the home page
+            window.location.href = '/?lang=' + newLanguage;
+        }
+         // Add more conditions for pages that may be developed
 
-        // Update text on the language toggle button after redirection
         const languageButton = document.querySelector('.language-button');
         languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
     }
