@@ -40,7 +40,7 @@ Madeleine Roberts @MadeleineKRoberts
         <button onclick="navigateTo('/signup', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['sign_up'] | escape }}</button>
         {% endif %}
     </nav>
-</body>
+
 
 <form id="languageForm" action="/" method="GET">
     <button type="button" class="language-button" onclick="changeLanguage('{{ language | escape }}')">
@@ -62,7 +62,7 @@ Madeleine Roberts @MadeleineKRoberts
     <a href="/report-error">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
 </p>
 
-</html>
+
 
 
 <script>
@@ -90,4 +90,5 @@ Madeleine Roberts @MadeleineKRoberts
             });
         }
 </script>
-   
+</body>
+</html>
