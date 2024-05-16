@@ -1,0 +1,69 @@
+
+/**
+Project: new_arrivals_chi
+File name: legal.css
+Associated Files:
+    base.html, main.py, legal_flow.html, legal_data.js, legal_flow.js
+
+This file contains the CSS for formatting the Legal Flow page.
+**/
+
+/* Container for grouping buttons */
+   .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Wrapper for each individual button */
+.button-wrapper {
+    margin: 10px;
+    max-width: 260px;
+}
+
+/* Collapsible content within each button wrapper */
+.button-wrapper button {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    min-height: 110px;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Public Sans', sans-serif;
+}
+
+/* Show collapsible content when the 'show' class is added */
+.button-wrapper .collapsible {
+    margin: 0;
+    padding-left: 20px;
+    text-align: left;
+    font-size: 12px;
+    font-family: 'Public Sans', sans-serif;
+    display: none;
+}
+
+/* Show collapsible content when the 'show' class is added */
+.button-wrapper .collapsible.show {
+    display: block;
+}
+
+/* Style for the header within the button container */
+#buttonContainer > .box-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+/* Style for the toggle link (for showing/hiding collapsible content) */
+.toggle-link {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}

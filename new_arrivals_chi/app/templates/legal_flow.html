@@ -2,236 +2,26 @@
 Project: new_arrivals_chi
 File name: legal_flow.html
 Associated Files:
-    base.html, main.py
+    base.html, main.py, legal_data.js, legal_flow.js, legal.css
 
-Decision tree for legal resources.
+HTML template for the decision tree for legal resources.
 -->
-
 {% extends "base.html" %}
 
 {% block content %}
-
 <div class="box">
     <div id="buttonContainer" class="button-container"></div>
 </div>
 
-<style>
-    /* creates horizontal button object*/
-    .button-group {
-        display: flex;
-
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-
-    .button-wrapper {
-        margin: 10px;
-        max-width: 260px;
-    }
-
-    .button-wrapper button {
-        width: 100%;
-        white-space: normal;
-        text-align: center;
-        padding: 10px;
-        font-size: 18px;
-        min-height: 110px;
-        border: 2px solid black;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        font-family: 'Public Sans', sans-serif;
-    }
-
-    .button-wrapper .collapsible {
-        margin: 0;
-        padding-left: 20px;
-        text-align: left;
-        font-size: 12px;
-        font-family: 'Public Sans', sans-serif;
-        display: none;
-    }
-
-    .button-wrapper .collapsible.show {
-        display: block;
-    }
-
-    #buttonContainer > .box-title {
-        font-size: 28px;
-        text-align: center;
-        margin-bottom: 20px;
-        font-family: 'Public Sans', sans-serif;
-    }
-
-    .toggle-link {
-        cursor: pointer;
-        color: blue;
-        text-decoration: underline;
-    }
-</style>
-
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal.css') }}">
+{% endblock %}
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/legal_data.js') }}"></script>
 <script>
-    // Define the options object with the button structure and properties
-    const options = {
-        legal_start: {
-            key: "legal",
-            header: "what_help",
-            children: {
-                work_auth: {
-                    key: "work_auth",
-                    header: "work_auth_question",
-                    children: {
-                        tps: {
-                            key: "tps", header: "tps_header", desc: "tps_desc", children: {
-                                option1: { key: "tps_info", link: "/tps_info" },
-                                option2: { key: "tps_apply", link: "/tps_apply" }
-                            }
-                        },
-                        vttc: {
-                            key: "vttc", header: "vttc_header", desc: "vttc_desc", children: {
-                                option1: { key: "vttc_info", link: "/vttc_info" },
-                                option2: { key: "vttc_apply", link: "/vttc_apply" }
-                            }
-                        },
-                        asylum: {
-                            key: "asylum", header: "asylum_header", desc: "asylum_desc", children: {
-                                option1: { key: "asylum_info", link: "/asylum_info" },
-                                option2: { key: "asylum_apply", link: "/asylum_apply" }
-                            }
-                        },
-                        parole: {
-                            key: "parole", header: "parole_header", desc: "parole_desc", children: {
-                                option1: { key: "parole_info", link: "/parole_info" },
-                                option2: { key: "parole_apply", link: "/parole_apply" }
-                            }
-                        },
-                        other: {
-                            key: "other", header: "other_header", desc: "other_desc", children: {
-                                option1: { key: "undocumented", link: "/undocumented_resources" },
-                                option2: { key: "lawyers", link: "/legal_help" }
-                            }
-                        },
-                    }
-                },
-                work_rights: { key: "work_rights", link: "/work_rights" },
-                renters_rights: { key: "renters_rights", link: "/renters_rights" },
-                something_else: { key: "something_else", link: "/legal_general" }
-            }
-        }
-    };
-
-    // Get the language-specific translations from the server-side template
     let languageData = {{ translations[language].legal_start | tojson | safe }};
-
-    // Array to store previous options for the back button functionality
-    let previousOptions = [];
-
-    // Function to create buttons based on the current options
-    function createButtons(currentOptions, parentColor = '') {
-        // Clear the button container
-        $('#buttonContainer').empty();
-
-        // Get the header text from the language data or use a default value
-        const headerText = currentOptions.header && languageData[currentOptions.header]
-            ? languageData[currentOptions.header]
-            : 'Select an option';
-
-        // Append the header text to the button container
-        $('#buttonContainer').append($('<div>').addClass('box-title').text(headerText));
-
-        // Create a button group element
-        let buttonGroup = $('<div>').addClass('button-group');
-
-        // Check if the current options have children
-        if (currentOptions.children) {
-            // Iterate over each child option
-            Object.keys(currentOptions.children).forEach(key => {
-                const childOption = currentOptions.children[key];
-
-                // Get the button text from the language data or use a default value
-                const btnText = languageData[childOption.key] || 'Key not found';
-
-                // Get the button description from the language data and replace newline characters with <br> tags
-                const btnDesc = childOption.desc && languageData[childOption.desc]
-                    ? languageData[childOption.desc].split('\n').map(item => `<li>${item}</li>`).join('')
-                    : '';
-
-                // Determine the color class for the button
-                let colorClass = '';
-                if (key === 'work_auth') {
-                    colorClass = 'button-blue';
-                } else if (key === 'work_rights') {
-                    colorClass = 'button-yellow';
-                } else if (key === 'renters_rights') {
-                    colorClass = 'button-green';
-                } else if (key === 'something_else') {
-                    colorClass = 'button-orange';
-                } else {
-                    colorClass = parentColor; // Use the color of the parent button
-                }
-
-                // Create a button element with the button text, color class, and click event handler
-                let btn = $('<button>').addClass('button').addClass(colorClass).text(btnText).on('click', () => {
-                    if (childOption.children) {
-                        // If the child option has children, push the current options to the previous options array and create buttons for the child option
-                        previousOptions.push(currentOptions);
-                        createButtons(childOption, colorClass); // Pass the color to the child buttons
-                    } else if (childOption.link) {
-                        // If the child option has a link, navigate to the link
-                        window.location.href = childOption.link;
-                    }
-                });
-
-                // Create a collapsible element for the description
-                let collapsible = $('<div>').addClass('collapsible').html(btnDesc);
-
-                // Create a button wrapper element
-                let buttonWrapper = $('<div>').addClass('button-wrapper').append(btn);
-
-                // Check if the button description exists and has content
-                if (btnDesc && btnDesc.trim() !== '') {
-                    // Create a toggle link for the collapsible element
-                    let toggleLink = $('<span>').addClass('toggle-link').text('See Options').on('click', function() {
-                        collapsible.toggleClass('show');
-                        $(this).text(collapsible.hasClass('show') ? 'Hide Options' : 'See Options');
-                    });
-
-                    // Append the collapsible and toggle link elements to the button wrapper
-                    buttonWrapper.append(collapsible).append(toggleLink);
-                }
-
-                // Append the button wrapper to the button group
-                buttonGroup.append(buttonWrapper);
-            });
-
-            // Append the button group to the button container
-            $('#buttonContainer').append(buttonGroup);
-
-            // Check if there are previous options
-            if (previousOptions.length > 0) {
-                // Create a back button element with a click event handler
-                let backBtn = $('<button>').addClass('button yellow-button').text('Back').on('click', () => {
-                    // Pop the previous options from the array and create buttons for them
-                    const prevOptions = previousOptions.pop();
-                    createButtons(prevOptions);
-                });
-
-                // Append the back button to the button container
-                $('#buttonContainer').append(backBtn);
-            }
-        } else {
-            // If the current options have no children, log an error message to the console
-            console.error("No children options found for:", currentOptions);
-        }
-    }
-
-    // Document ready function
-    $(document).ready(function() {
-        // Create buttons for the initial legal_start options
-        createButtons(options.legal_start);
-    });
 </script>
+<script src="{{ url_for('static', filename='js/legal_flow.js') }}"></script>
 
 {% endblock %}
