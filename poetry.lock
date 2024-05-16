@@ -41,7 +41,6 @@ test = ["astroid (>=1,<2)", "astroid (>=2,<4)", "pytest"]
 name = "bcrypt"
 version = "4.1.3"
 description = "Modern password hashing for your software and your servers"
-category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -146,7 +145,6 @@ beautifulsoup4 = "*"
 name = "cffi"
 version = "1.16.0"
 description = "Foreign Function Interface for Python calling C code."
-category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -247,7 +245,6 @@ files = [
 name = "cryptography"
 version = "42.0.7"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
-category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -390,7 +387,6 @@ dotenv = ["python-dotenv"]
 name = "flask-bcrypt"
 version = "1.0.1"
 description = "Brcrypt hashing for Flask."
-category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -787,7 +783,6 @@ testing = ["docopt", "pytest"]
 name = "password-strength"
 version = "0.0.3.post2"
 description = "Password strength and validation"
-category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -985,7 +980,6 @@ tests = ["pytest"]
 name = "pycparser"
 version = "2.22"
 description = "C parser in Python"
-category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -1011,7 +1005,6 @@ windows-terminal = ["colorama (>=0.4.6)"]
 name = "pyopenssl"
 version = "24.1.0"
 description = "Python wrapper module around the OpenSSL library"
-category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
