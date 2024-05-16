@@ -29,6 +29,7 @@ Methods:
     * test_access_legal_general
 """
 
+
 def test_access_legal_page(client, capture_templates, setup_logger):
     """Test Access Legal Page.
 
@@ -45,11 +46,15 @@ def test_access_legal_page(client, capture_templates, setup_logger):
         response = client.get("/legal", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "legal_flow.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "legal_flow.html"
+        )
         logger.info("Legal page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_tps_info(client, capture_templates, setup_logger):
     """Test Access TPS Info Page."""
@@ -58,11 +63,15 @@ def test_access_legal_tps_info(client, capture_templates, setup_logger):
         response = client.get("/legal/tps_info", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "tps_info.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "tps_info.html"
+        )
         logger.info("TPS Info page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_tps_apply(client, capture_templates, setup_logger):
     """Test Access TPS Apply Page."""
@@ -71,11 +80,15 @@ def test_access_legal_tps_apply(client, capture_templates, setup_logger):
         response = client.get("/legal/tps_apply", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "tps_apply.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "tps_apply.html"
+        )
         logger.info("TPS Apply page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_vttc_info(client, capture_templates, setup_logger):
     """Test Access VTTC Info Page."""
@@ -84,11 +97,15 @@ def test_access_legal_vttc_info(client, capture_templates, setup_logger):
         response = client.get("/legal/vttc_info", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "vttc_info.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "vttc_info.html"
+        )
         logger.info("VTTC Info page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_vttc_apply(client, capture_templates, setup_logger):
     """Test Access VTTC Apply Page."""
@@ -97,11 +114,15 @@ def test_access_legal_vttc_apply(client, capture_templates, setup_logger):
         response = client.get("/legal/vttc_apply", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "vttc_apply.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "vttc_apply.html"
+        )
         logger.info("VTTC Apply page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_asylum_info(client, capture_templates, setup_logger):
     """Test Access Asylum Info Page."""
@@ -110,11 +131,15 @@ def test_access_legal_asylum_info(client, capture_templates, setup_logger):
         response = client.get("/legal/asylum_info", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "asylum_info.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "asylum_info.html"
+        )
         logger.info("Asylum Info page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_asylum_apply(client, capture_templates, setup_logger):
     """Test Access Asylum Apply Page."""
@@ -123,11 +148,15 @@ def test_access_legal_asylum_apply(client, capture_templates, setup_logger):
         response = client.get("/legal/asylum_apply", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "asylum_apply.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "asylum_apply.html"
+        )
         logger.info("Asylum Apply page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_parole_info(client, capture_templates, setup_logger):
     """Test Access Parole Info Page."""
@@ -136,11 +165,15 @@ def test_access_legal_parole_info(client, capture_templates, setup_logger):
         response = client.get("/legal/parole_info", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "parole_info.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "parole_info.html"
+        )
         logger.info("Parole Info page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_parole_apply(client, capture_templates, setup_logger):
     """Test Access Parole Apply Page."""
@@ -149,24 +182,36 @@ def test_access_legal_parole_apply(client, capture_templates, setup_logger):
         response = client.get("/legal/parole_apply", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "parole_apply.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "parole_apply.html"
+        )
         logger.info("Parole Apply page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
 
-def test_access_legal_undocumented_resources(client, capture_templates, setup_logger):
+
+def test_access_legal_undocumented_resources(
+    client, capture_templates, setup_logger
+):
     """Test Access Undocumented Resources Page."""
     logger = setup_logger("test_access_legal_undocumented_resources")
     try:
-        response = client.get("/legal/undocumented_resources", follow_redirects=True)
+        response = client.get(
+            "/legal/undocumented_resources", follow_redirects=True
+        )
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "undocumented_resources.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "undocumented_resources.html"
+        )
         logger.info("Undocumented Resources page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_help(client, capture_templates, setup_logger):
     """Test Access Legal Help Page."""
@@ -181,6 +226,7 @@ def test_access_legal_help(client, capture_templates, setup_logger):
         logger.error(f"Test failed: {str(e)}")
         raise
 
+
 def test_access_legal_work_rights(client, capture_templates, setup_logger):
     """Test Access Workers' Rights Page."""
     logger = setup_logger("test_access_legal_work_rights")
@@ -188,11 +234,15 @@ def test_access_legal_work_rights(client, capture_templates, setup_logger):
         response = client.get("/legal/work_rights", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "work_rights.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "work_rights.html"
+        )
         logger.info("Workers' Rights page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_renters_rights(client, capture_templates, setup_logger):
     """Test Access Renters' Rights Page."""
@@ -201,11 +251,15 @@ def test_access_legal_renters_rights(client, capture_templates, setup_logger):
         response = client.get("/legal/renters_rights", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "renters_rights.html"
+        assert (
+            capture_templates[final_template_rendered][0].name
+            == "renters_rights.html"
+        )
         logger.info("Renters' Rights page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
+
 
 def test_access_legal_general(client, capture_templates, setup_logger):
     """Test Access General Legal Info Page."""
@@ -214,7 +268,9 @@ def test_access_legal_general(client, capture_templates, setup_logger):
         response = client.get("/legal/general", follow_redirects=True)
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "general.html"
+        assert (
+            capture_templates[final_template_rendered][0].name == "general.html"
+        )
         logger.info("General Legal Info page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
