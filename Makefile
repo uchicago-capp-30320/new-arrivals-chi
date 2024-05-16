@@ -6,7 +6,7 @@ create_requirements:
 
 .PHONY: update_db
 update_db:
-	web alembic --config=./new_arrivals_chi/app/migrations/alembic.ini upgrade head
+	web alembic --config=./new_arrivals_chi/migrations/alembic.ini upgrade head
 
 .PHONY: lint
 lint:
@@ -18,8 +18,8 @@ test: # Runs all tests
 
 .PHONY: stamp_db
 stamp_db: # Runs the stamp command to set the base state of the db
-	alembic --config=./new_arrivals_chi/app/migrations/alembic.ini stamp head
+	alembic --config=./new_arrivals_chi/migrations/alembic.ini stamp head
 
 .PHONY: create_revision
 create_revision: # Runs the command that creates the Alembic revision
-	alembic --config=./new_arrivals_chi/app/migrations/alembic.ini revision --autogenerate
+	alembic --config=./new_arrivals_chi/migrations/alembic.ini revision --autogenerate
