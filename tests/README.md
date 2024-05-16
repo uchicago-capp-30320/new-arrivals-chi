@@ -25,12 +25,10 @@ Test files are organized by their respective application components.
 
 ## Database Operation Tests
 
-The `db_test.py` file focuses on testing database operations and consistency across our application.
-It utilizes fixtures for the app, logger, and database and ensures all tests run within the application context.
+The `utils.py` file contains functions for creating the fake database.
+The `setup_fake_db.py` script is used to create a fake database instance and fill it with data.
 
-The `setup_fake_db.py` script is used to create a fake database instance and fill it with fake data.
-
-The `sql_injection_test.py` file focuses on testing the fake database instance for SQL injections to ensure that input handling is secure and prevents unauthorized database access or manipulation.
+**IN PROGRESS** The `sql_injection.py` file focuses on testing the fake database instance for SQL injections to ensure that input handling is secure and prevents unauthorized database access or manipulation.
 
 ### Tests Included
 
@@ -42,10 +40,6 @@ The `sql_injection_test.py` file focuses on testing the fake database instance f
 - **Prevention of SQL Injections**: Tests for secure handling of safe and unsafe inputs within the fake database instance, preventing malicious actions such as returning all records or dropping tables.
 
 ### Additional Tests - in progress
-
-Simple starter tests are defined in `app_home_test.py`, which contains functions to test specific aspects of the home page such as,
-- `test_home_page_status`: Verifies that the home page loads correctly.
-- `test_home_contains_welcome_message`: Checks for the presence of a welcome message on the home page.
 
 ## Running Tests
 
