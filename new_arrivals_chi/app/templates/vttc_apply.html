@@ -1,0 +1,26 @@
+<!--
+Project: new_arrivals_chi
+File name: legal_vttc_apply.html
+Associated Files:
+    base.html, main.py
+
+Landing page for user to navigate through health information.
+
+Creation:
+@Author: Xiomara Salazar @xiomara0
+@Date: 05/12/2024
+
+-->
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/legal/vttc_apply" method="GET">
+        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+    </form>
+     <!-- We still need to make json for this static page-->
+
+    <h1>{{translations[language]['legal_start']['vttc_header'] }}</h1>
+
+
+{% endblock %}

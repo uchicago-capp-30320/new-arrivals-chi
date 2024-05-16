@@ -16,71 +16,71 @@ The documentation is divided into the following sections:
   - `500 Internal Server Error`: Indicates a server error.
 
 ## Legal Flow Outcomes
-### Temporary Protected Status (TPS) - Basic
-- **Endpoint**: `GET /legal/temporary-protected-status-basic`
+### Temporary Protected Status (TPS) - Info
+- **Endpoint**: `GET /legal/tps_info`
 - **Description**: Provides basic information on the rights a privileges of those Temporary Protected Status for those who have applied or already been approved for TPS.
 - **Responses**:
   - `200 OK`: TPS information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
 
-### Temporary Protected Status (TPS) - Guide
-- **Endpoint**: `GET /legal/temporary-protected-status-guide`
+### Temporary Protected Status (TPS) - Apply
+- **Endpoint**: `GET /legal/tps_apply`
 - **Description**: Provides guide for those applying for TPS as well as information about workshops. This page also includes the general information from the basic page.
 - **Responses**:
   - `200 OK`: TPS information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-### Work Authorization - Basic
-- **Endpoint**: `GET /legal/work-authorization-basic`
+### Work Authorization (VTTS) - Info
+- **Endpoint**: `GET /legal/vttc_info`
 - **Description**: Provides basic information on the rights a privileges of work authorization for those who have applied or already been approved for work authorization.
 - **Responses**:
   - `200 OK`: Work authorization information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-  ### Work Authorization - Guide
-- **Endpoint**: `GET /legal/work-authorization-guide`
+  ### Work Authorization (VTTC) - Apply
+- **Endpoint**: `GET /legal/vttc_apply`
 - **Description**: Provides guide for those applying for work authorization. This page also includes the general information from the basic page.
 - **Responses**:
   - `200 OK`: Work authorization information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-### Asylum - Basic
-- **Endpoint**: `GET /legal/asylum-basic`
+### Asylum - Info
+- **Endpoint**: `GET /legal/asylum_info`
 - **Description**: Provides basic information on the rights a privileges of asylum status for those who have applied or already been approved for asylum status.
 - **Responses**:
   - `200 OK`: Asylum information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-### Asylum - Guide
-- **Endpoint**: `GET /legal/asylum-guide`
+### Asylum - Info
+- **Endpoint**: `GET /legal/asylum_apply`
 - **Description**: Provides guide for those applying for asylum status. This page also includes the general information from the basic page.
 - **Responses**:
   - `200 OK`: Asylum information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-### Humanitarian Parole - Basic
-- **Endpoint**: `GET /legal/humanitarian-parole-basic`
+### Humanitarian Parole - Info
+- **Endpoint**: `GET /legal/parole_info`
 - **Description**: Provides basic information on the rights a privileges of humanitarian parole for those who have applied or already been approved for humanitarian parole.
 - **Responses**:
   - `200 OK`: Humanitarian parole information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
-### Humanitarian Parole - Guide
-- **Endpoint**: `GET /legal/humanitarian-parole-guide`
+### Humanitarian Parole - Apply
+- **Endpoint**: `GET /legal/parole_apply`
 - **Description**: Provides guide for those applying for humanitarian parole. This page also includes the general information from the basic page.
   - `200 OK`: Humanitarian parole information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Rights as a Worker
-- **Endpoint**: `GET /legal/worker-rights`
+- **Endpoint**: `GET /legal/workers_rights`
 - **Description**: Static page with information about workers' rights.
 - **Responses**:
   - `200 OK`: Workers rights information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Rights as a Renter
-- **Endpoint**: `/legal/renter-rights`
+- **Endpoint**: `/legal/renters_rights`
 - **Description**: Static page with information about renters' rights.
 - **Responses**:
   - `200 OK`: Renters rights information retrieved successfully.
@@ -89,12 +89,27 @@ The documentation is divided into the following sections:
 ## Legal Page Buttons and Links
 This section describes the buttons and links on the legal flow page, guiding users to relevant information.
 
-### General Legal Support
-- **Endpoint**: `/legal/legal-support`
+### General Legal Support (Lawyers)
+- **Endpoint**: `/legal/legal_help`
 - **Description**:  Button linking to a static page with contact information for recommended lawyers/legal support. This button should be on every end page regardless of flow.
 - **Responses**:
   - `200 OK`: Legal Support information retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.
+
+### General Legal Info
+- **Endpoint**: `/legal/legal_general`
+- **Description**:  General legal info when someone says they need help with something else, not expressly covered
+- **Responses**:
+  - `200 OK`: Legal Support information retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
+
+### Undocumented Info
+- **Endpoint**: `/legal/undocumented_resources`
+- **Description**:  Legal resources for those who are undocumented
+- **Responses**:
+  - `200 OK`: Legal Support information retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
+
 
 ### Return to Home Page
 - **Endpoint**: ``GET /`
