@@ -30,6 +30,7 @@ from faker import Faker
 from new_arrivals_chi.app.database import User, Organization, Location, Hours
 from sqlalchemy.orm import Session
 from sqlalchemy import select
+from tests.constants import FAKE_NEIGHBORHOODS
 
 fake = Faker()
 
@@ -50,6 +51,7 @@ def create_fake_location(user_id):
         state=fake.state(),
         primary_location=fake.boolean(),
         created_by=user_id,
+        neighborhood=fake.random_element(elements=FAKE_NEIGHBORHOODS),
     )
 
 
