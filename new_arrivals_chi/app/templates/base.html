@@ -71,30 +71,27 @@ Madeleine Roberts @MadeleineKRoberts
     }
 
     function changeLanguage(currentLanguage) {
-    console.log('Changing language to:', currentLanguage);
-    const newLanguage = currentLanguage === 'en' ? 'es' : 'en'; // Toggle between English and Spanish
+        const newLanguage = currentLanguage === 'en' ? 'es' : 'en'; // Toggle between English and Spanish
 
-    // Update text on the language toggle button
-    const languageButton = document.querySelector('.language-button');
-    languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
+        // Update the hidden input value
+        const languageInput = document.querySelector('input[name="lang"]');
+        languageInput.value = newLanguage;
 
-    // Update all elements with translations
-    document.querySelectorAll('.translate').forEach(element => {
-        const key = element.dataset.key;
-        console.log('Translating key:', key);
-        const translatedText = translations[newLanguage]['base'][key];
-        console.log('Translated text:', translatedText);
-        element.innerText = translatedText;
-    });
+        // Update the language attribute in the HTML tag
+        document.querySelector('html').setAttribute('lang', newLanguage);
 
-    // Update the hidden input value
-    const languageInput = document.querySelector('input[name="lang"]');
-    languageInput.value = newLanguage;
+        // Redirect to the translated page if currently on a specific page
+        const currentPageURL = window.location.pathname;
+        if (currentPageURL.includes('/login')) {
+            window.location.href = '/login?lang=' + newLanguage;
+        } else if (currentPageURL.includes('/signup')) {
+            window.location.href = '/signup?lang=' + newLanguage;
+        } // Add more conditions for other pages as needed
 
-    // Update the language attribute in the HTML tag
-    document.querySelector('html').setAttribute('lang', newLanguage);
-}
-
+        // Update text on the language toggle button after redirection
+        const languageButton = document.querySelector('.language-button');
+        languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
+    }
 </script>
 
 </body>
