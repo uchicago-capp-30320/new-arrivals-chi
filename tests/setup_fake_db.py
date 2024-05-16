@@ -79,10 +79,11 @@ def populate_database(session: Session, num_organizations=10, logger=None):
             session.add(organization)
 
             # Populate organizations_hours table
-            session.execute(organizations_hours.insert().values(
-                organization_id=organization.id,
-                hours_id=hours.id
-            ))
+            session.execute(
+                organizations_hours.insert().values(
+                    organization_id=organization.id, hours_id=hours.id
+                )
+            )
 
             # Create and add languages associated with the organization
             for _ in range(3):
@@ -111,10 +112,14 @@ def populate_database(session: Session, num_organizations=10, logger=None):
                     session.add(service_location)
 
         session.commit()
-        logger.info("Fake data creation completed successfully") if logger else None
+        logger.info(
+            "Fake data creation completed successfully"
+        ) if logger else None
     except Exception as e:
         session.rollback()
-        logger.error(f"Error creating data: {e}, rolling back changes") if logger else None
+        logger.error(
+            f"Error creating data: {e}, rolling back changes"
+        ) if logger else None
         raise
 
 
