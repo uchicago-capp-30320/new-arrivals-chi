@@ -35,26 +35,36 @@ import random
 fake = Faker()
 
 
-def create_fake_location(user_id):
-    """Create a single fake location instance that requires a user.
+def create_fake_user():
+    """Create a single fake user instance associated with an organization.
 
     Parameters:
-        user_id (int): The ID of the user who created the location.
+        organization_id (int): The ID of the organization to which the user belongs.
 
     Returns:
-        A Location instance with randomly generated address and state info.
+        A User instance with a randomly generated email and role.
     """
-    return Location(
-        street_address=fake.street_address(),
-        zip_code=fake.zipcode(),
-        city=fake.city(),
-        state=fake.state(),
-        primary_location=fake.boolean(),
-        created_by=user_id,
-        neighborhood=fake.random_element(elements=FAKE_NEIGHBORHOODS),
-        created_at=fake.date_time_this_decade(),
+    return User(
+        email=fake.email(),
+        role=fake.random_element(elements=("admin", "standard")),
+        password=fake.password(),
     )
 
+
+def create_fake_organization(user):
+    """Create a single fake organization instance.
+
+    Returns:
+        An Organization instance with randomly generated name and phone number.
+    """
+    return Organization(
+        name=fake.company(),
+        phone=fake.phone_number(),
+        image_path=fake.image_url(),
+        status=fake.random_element(elements=("ACTIVE", "SUSPENDED", "HIDDEN")),
+        created_by=user.id,
+        updated_by=user.id
+    )
 
 
 def create_fake_hours(user_id):
@@ -75,22 +85,6 @@ def create_fake_hours(user_id):
     )
 
 
-def create_fake_organization(user):
-    """Create a single fake organization instance.
-
-    Returns:
-        An Organization instance with randomly generated name and phone number.
-    """
-    return Organization(
-        name=fake.company(),
-        phone=fake.phone_number(),
-        image_path=fake.image_url(),
-        status=fake.random_element(elements=("ACTIVE", "SUSPENDED", "HIDDEN")),
-        created_by=user.id,
-        updated_by=user.id
-    )
-
-
 def create_fake_language():
     """Create a valid language instance (e.g., 'en' or 'es', or 'fake').
 
@@ -101,22 +95,6 @@ def create_fake_language():
     return Language(
         language=fake.random_element(elements=languages),
         created_at=fake.date_time_this_decade(),
-    )
-
-
-def create_fake_user():
-    """Create a single fake user instance associated with an organization.
-
-    Parameters:
-        organization_id (int): The ID of the organization to which the user belongs.
-
-    Returns:
-        A User instance with a randomly generated email and role.
-    """
-    return User(
-        email=fake.email(),
-        role=fake.random_element(elements=("admin", "standard")),
-        password=fake.password(),
     )
 
 
@@ -151,4 +129,25 @@ def create_fake_service_date(user_id):
         repeat=fake.random_element(elements=["every day", "every week", "every month", "every other week"]),
         created_at=fake.date_time_this_decade(),
         created_by=user_id,
+    )
+
+
+def create_fake_location(user_id):
+    """Create a single fake location instance that requires a user.
+
+    Parameters:
+        user_id (int): The ID of the user who created the location.
+
+    Returns:
+        A Location instance with randomly generated address and state info.
+    """
+    return Location(
+        street_address=fake.street_address(),
+        zip_code=fake.zipcode(),
+        city=fake.city(),
+        state=fake.state(),
+        primary_location=fake.boolean(),
+        created_by=user_id,
+        neighborhood=fake.random_element(elements=FAKE_NEIGHBORHOODS),
+        created_at=fake.date_time_this_decade(),
     )
