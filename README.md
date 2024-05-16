@@ -84,6 +84,39 @@ Poetry:
   poetry run pytest tests/db_test.py
   ```
 
+### Creating a database migration
+
+1.  Activate the Poetry virutal environment:
+    ```bash
+    poetry shell
+    ```
+
+2. Before making any changes, stamp the database with the current revision:
+    ```bash
+    make stamp_db
+    ```
+
+3. Make your changes to the database models in `new_arrivals_chi/app/models.py`.
+
+4. Generate a migration, you should see a new file in `new_arrivals_chi/migrations/versions/`:
+    ```bash
+    make create_revision
+    ```
+
+    Note that you may need to make changes to the migration file to ensure that the migration is correct.
+
+5. Apply the migration to the database:
+    ```bash
+    make update_db
+    ```
+
+    The changes should now be reflected in the database.
+
+
+
+
+
+
 ## Authors
 
 *   Federico Dominguez Molina
