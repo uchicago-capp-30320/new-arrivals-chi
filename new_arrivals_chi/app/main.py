@@ -110,10 +110,227 @@ def legal():
         Renders main legal page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = app.config[KEY_TRANSLATIONS][language]
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "legal.html", language=language, translations=translations
+        "legal_flow.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/tps_info")
+def legal_tps_info():
+    """Establishes route for the TPS info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - TPS info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "tps_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/tps_apply")
+def legal_tps_apply():
+    """Establishes route for the TPS apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - TPS apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "tps_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/vttc_info")
+def legal_vttc_info():
+    """Establishes route for the VTTC info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal VTTC info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "vttc_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/vttc_apply")
+def legal_vttc_apply():
+    """Establishes route for the VTTC apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - VTTC apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "vttc_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/asylum_info")
+def legal_asylum_info():
+    """Establishes route for the Asylum info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Asylum info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "asylum_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/asylum_apply")
+def legal_asylum_apply():
+    """Establishes route for the Asylum apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Asylum apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "asylum_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/parole_info")
+def legal_parole_info():
+    """Establishes route for the Parole info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Parole info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "parole_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/parole_apply")
+def legal_parole_apply():
+    """Establishes route for the Parole apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Parole apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "parole_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/undocumented_resources")
+def legal_undocumented_resources():
+    """Establishes route for the Undocumented Resources page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Undocumented Resources page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "undocumented_resources.html",
+        language=language,
+        translations=translations,
+    )
+
+
+@main.route("/legal/help")
+def legal_help():
+    """Establishes route for the Legal Help page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Legal Help page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "help.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/work_rights")
+def workers_rights():
+    """Route for information about workers' rights.
+
+    Returns:
+        Renders the workers' rights page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "work_rights.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/renters_rights")
+def renters_rights():
+    """Route for information about renters' rights.
+
+    Returns:
+        Renders the renters' rights page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "renters_rights.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/general")
+def legal_general():
+    """Route for general legal information.
+
+    Returns:
+        Renders the legal general page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "general.html", language=language, translations=translations
     )
 
 
