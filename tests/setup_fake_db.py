@@ -31,6 +31,7 @@ from tests.utils import (
     create_fake_service,
     create_fake_service_date,
 )
+from new_arrivals_chi.app.database import organizations_hours
 
 
 def populate_database(session: Session, num_organizations=10, logger=None):
@@ -92,7 +93,7 @@ def populate_database(session: Session, num_organizations=10, logger=None):
 
             # Create and add services associated with the organization
             for _ in range(3):
-                service = create_fake_service()
+                service = create_fake_service(user.id)
                 service.created_by = user.id
                 organization.services.append(service)
                 session.add(service)

@@ -25,21 +25,19 @@ Creation:
 @Author: Aaron Haefner @aaronhaefner
 @Date: 2024-05-16
 """
+
+import random
 import datetime
 from faker import Faker
+from sqlalchemy.orm import Session
 from new_arrivals_chi.app.database import User, Organization, Location, Hours, Language, Service, ServiceDate
-from tests.constants import FAKE_NEIGHBORHOODS
 from constants import OPENING_TIMES, CLOSING_TIMES
-import random
+from tests.constants import FAKE_NEIGHBORHOODS
 
 fake = Faker()
 
-
 def create_fake_user():
-    """Create a single fake user instance associated with an organization.
-
-    Parameters:
-        organization_id (int): The ID of the organization to which the user belongs.
+    """Create a single fake user instance.
 
     Returns:
         A User instance with a randomly generated email and role.
@@ -50,9 +48,11 @@ def create_fake_user():
         password=fake.password(),
     )
 
-
 def create_fake_organization(user):
     """Create a single fake organization instance.
+
+    Parameters:
+        user (User): The user who created the organization.
 
     Returns:
         An Organization instance with randomly generated name and phone number.
@@ -98,8 +98,11 @@ def create_fake_language():
     )
 
 
-def create_fake_service():
+def create_fake_service(user_id):
     """Create a single fake service instance.
+
+    Parameters:
+        user_id (int): The ID of the user who created the service.
 
     Returns:
         A Service instance with randomly generated category, service, and access.
@@ -110,6 +113,7 @@ def create_fake_service():
         access=fake.word(),
         service_note=fake.sentence(),
         created_at=fake.date_time_this_decade(),
+        created_by=user_id
     )
 
 
