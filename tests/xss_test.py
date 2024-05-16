@@ -18,13 +18,12 @@ Creation:
 
 
 def test_xss_script_tag_injection(client, setup_logger):
-    """""
-    Test the resistance of the change password form to XSS attacks.
+    """Test the resistance of the change password form to XSS attacks.
 
     Attempt to inject a script tag into the new password fields. This test
     ensures that script tags submitted through the change password form are
     properly escaped or removed.
-    """ ""
+    """
     logger = setup_logger("test_xss_script_tag_injection")
 
     try:

@@ -23,8 +23,7 @@ Creation:
 
 from http import HTTPMethod
 
-from flask import Flask, Blueprint, render_template, request, current_app, \
-                  flash, request, jsonify, session
+from flask import Flask, Blueprint, render_template, request, current_app, flash
 from markupsafe import escape
 import os
 import bleach
@@ -170,12 +169,6 @@ def info():
     return render_template(
         "info.html", language=language, translations=translations
     )
-
-@main.route('/change-language', methods=['POST'])
-def change_language():
-    new_language = request.args.get(KEY_TRANSLATIONS)
-    session['language'] = new_language  # Update session with the new language
-    return jsonify(success=True)
 
 
 def create_app(config_override=None):

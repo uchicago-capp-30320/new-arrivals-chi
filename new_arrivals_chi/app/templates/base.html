@@ -41,7 +41,6 @@ Madeleine Roberts @MadeleineKRoberts
         {% endif %}
     </nav>
 
-
 <form id="languageForm" action="/" method="GET">
     <button type="button" class="language-button" onclick="changeLanguage('{{ language | escape }}')">
         {% if language == 'es' %}
@@ -62,9 +61,6 @@ Madeleine Roberts @MadeleineKRoberts
     <a href="/report-error">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
 </p>
 
-
-
-
 <script>
     function navigateTo(destination, language) {
         window.location.href = destination + '?lang=' + language;
@@ -83,10 +79,10 @@ Madeleine Roberts @MadeleineKRoberts
             window.location.href = '/login?lang=' + newLanguage;
         } else if (currentPageURL.includes('/signup')) {
             window.location.href = '/signup?lang=' + newLanguage;
-        } else if (currentPageURL.includes('/')) {  // Include the home page
+        } else if (currentPageURL.includes('/')) {
             window.location.href = '/?lang=' + newLanguage;
         }
-         // Add more conditions for pages that may be developed
+         // Add future pages here that need to switch b/w English + Spanish
 
         const languageButton = document.querySelector('.language-button');
         languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
