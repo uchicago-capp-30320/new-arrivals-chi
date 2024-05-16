@@ -4,13 +4,13 @@ This script is used by Alembic when running migrations for the database.
 """
 
 # Assisted by ChatGPT
-
 import logging
 from logging.config import fileConfig
 import new_arrivals_chi.app.database as models
 
 from flask import current_app
 from alembic import context
+from new_arrivals_chi.app.main import create_app
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -20,6 +20,10 @@ config = context.config
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
 logger = logging.getLogger("alembic.env")
+
+# Create the Flask app and push the context
+app = create_app()
+app.app_context().push()
 
 
 def get_engine():
@@ -119,8 +123,4 @@ def run_migrations_online():
 if context.is_offline_mode():
     run_migrations_offline()
 else:
-    # Ensure the Flask application context is available
-    from new_arrivals_chi.app.main import app  # Adjust the import if necessary
-
-    with app.app_context():
-        run_migrations_online()
+    run_migrations_online()
