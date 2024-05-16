@@ -42,15 +42,10 @@ Madeleine Roberts @MadeleineKRoberts
     </nav>
 
 <form id="languageForm" action="/" method="GET">
-    <button type="button" class="language-button" onclick="changeLanguage('{{ language | escape }}')">
-        {% if language == 'es' %}
-            English
-        {% else %}
-            Español
-        {% endif %}
-    </button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+    <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'es' | escape }}">
 </form>
+
 
 <div class="container has-text-centered">
     {% block content %}
@@ -64,28 +59,6 @@ Madeleine Roberts @MadeleineKRoberts
 <script>
     function navigateTo(destination, language) {
         window.location.href = destination + '?lang=' + language;
-    }
-
-    function changeLanguage(currentLanguage) {
-        const newLanguage = currentLanguage === 'en' ? 'es' : 'en';
-
-        const languageInput = document.querySelector('input[name="lang"]');
-        languageInput.value = newLanguage;
-
-        document.querySelector('html').setAttribute('lang', newLanguage);
-
-        const currentPageURL = window.location.pathname;
-        if (currentPageURL.includes('/login')) {
-            window.location.href = '/login?lang=' + newLanguage;
-        } else if (currentPageURL.includes('/signup')) {
-            window.location.href = '/signup?lang=' + newLanguage;
-        } else if (currentPageURL.includes('/')) {
-            window.location.href = '/?lang=' + newLanguage;
-        }
-         // Add future pages here that need to switch b/w English + Spanish
-
-        const languageButton = document.querySelector('.language-button');
-        languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
     }
 </script>
 

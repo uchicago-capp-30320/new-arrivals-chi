@@ -15,6 +15,10 @@ Creation:
 
 {% extends "base.html" %}
 {% block content %}
+<form action="/signup" method="GET">
+    <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+</form>
 
 <div class="column is-4 is-offset-4">
     <div class="box">
