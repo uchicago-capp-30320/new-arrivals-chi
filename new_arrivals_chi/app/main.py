@@ -371,7 +371,7 @@ def health_search():
     # Organization should be clickable and lead to their page (info.html)
     # rendered dynamically
     cursor.execute(
-        "SELECT street_address, zip_code, city, state FROM locations"
+        "SELECT street_address, zip_code, city, state FROM locations LIMIT 10"
     )
     services_info = cursor.fetchall()
 
