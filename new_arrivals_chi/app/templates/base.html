@@ -42,13 +42,16 @@ Madeleine Roberts @MadeleineKRoberts
     </nav>
 </body>
 
-<button type="button" onclick="changeLanguage('{{ language }}')">
-    {% if language == 'en' %}
-        Español
-    {% else %}
-        English
-    {% endif %}
-</button>
+<form action="/" method="GET">
+    <button type="submit" class="language-button">
+        {% if language == 'es' %}
+            English
+        {% else %}
+            Español
+        {% endif %}
+    </button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+</form>
 
 <div class="container has-text-centered">
     {% block content %}
@@ -63,24 +66,24 @@ Madeleine Roberts @MadeleineKRoberts
 
 
 <script>
-    function changeLanguage(currentLanguage) {
-        const newLanguage = currentLanguage === 'en' ? 'es' : 'en'; // Toggle between English and Spanish
-
-        fetch(`/change-language?lang=${newLanguage}`, { method: 'POST' })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                if (data.success) {
-                    location.reload(); // Reload the page after language change
-                } else {
-                    console.error('Error changing language:', data.error);
-                }
-            })
-            .catch(error => console.error('Error changing language:', error));
+    function navigateTo(destination, language) {
+        window.location.href = destination + '?lang=' + language;
     }
-</script>
 
+    function changeLanguage(currentLanguage) {
+            const newLanguage = currentLanguage === 'en' ? 'es' : 'en'; // Toggle between English and Spanish
+
+            // Update text on the language toggle button
+            const languageButton = document.querySelector('.language-button');
+            languageButton.innerText = newLanguage === 'en' ? 'Español' : 'English';
+
+            // Update the hidden input value
+            const languageInput = document.querySelector('input[name="lang"]');
+            languageInput.value = newLanguage;
+
+            // Update the language attribute in the HTML tag
+            document.querySelector('html').setAttribute('lang', newLanguage);
+        }
+    </script>
+</script>
+   
