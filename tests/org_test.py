@@ -2,14 +2,14 @@
 
 File name: org_test.py
 
-Associated Files: main.py, profile.html
+Associated Files: main.py, dashboard.html
 
 This test suite performs more robust security testing for user authorization
 routes and password handling mechanisms for the New Arrivals Chicago portal.
 
 Methods:
-   * test_create_organization_profile
-   * test_organization_profile_page
+   * test_create_organization_dashboard
+   * test_organization_dashboard_page
    * test_create_post_new_org
 
 Last updated:
@@ -22,13 +22,13 @@ Creation:
 """
 from http import HTTPStatus
 
-from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.database import Organization
+from new_arrivals_chi.app.data_handler import create_organization_profile
 
 
-def test_create_organization_profile(client, setup_logger):
-    """Test creating a new organization profile in the database."""
-    logger = setup_logger("test_create_organization_profile")
+def test_create_organization_dashboard(client, setup_logger):
+    """Test creating a new organization dashboard in the database."""
+    logger = setup_logger("test_create_organization_dashboard")
     try:
         name = "New Org"
         phone = "987-654-3210"
@@ -55,49 +55,24 @@ def test_create_organization_profile(client, setup_logger):
         raise
 
 
-def test_organization_profile_page(
+def test_organization_dashboard_page(
     client, logged_in_state, capture_templates, test_user, setup_logger
 ):
-    """Test the organization profile page access and rendering."""
-    logger = setup_logger("test_organization_profile_page")
+    """Test the organization dashboard page access and rendering."""
+    logger = setup_logger("test_organization_dashboard_page")
     try:
-        response = client.get("/profile")
+        response = client.get("/dashboard")
         assert (
             response.status_code == 200
-        ), "Failed to access the organization profile page"
+        ), "Failed to access the organization dashboard page"
 
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "profile.html"
+            capture_templates[final_template_rendered][0].name == "dashboard.html"
         ), "Wrong template used"
-        logger.info("Organization profile page rendered.")
+        logger.info("Organization dashboard page rendered.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
 
 
-def test_create_post_new_org(
-    client, logged_in_state, capture_templates, setup_logger, test_user
-):
-    """Tests creating a new organization."""
-    logger = setup_logger("test_create_post_new_org")
-
-    try:
-        response = client.post(
-            "/profile",
-            data={
-                "name": "New Org",
-                "phone": "987-654-3210",
-                "status": "ACTIVE",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == HTTPStatus.OK
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "profile.html"
-        ), "Wrong template used"
-        logger.info("Organization created and added to database successfully.")
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise

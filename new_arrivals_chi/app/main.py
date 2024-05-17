@@ -3,13 +3,13 @@
 File name: main.py
 Associated Files:
     Templates: base.html, home.html, legal.html, health.html,
-    health_search.html, profile.html, login.html, info.html.
+    health_search.html, dashboard.html, login.html, info.html.
 
 Runs primary flask application for Chicago's new arrivals' portal.
 
 Methods:
     * home — Route to homepage of application.
-    * profile - Route to user's profile.
+    * dashboard - Route to user's dashboard.
     * legal - Route to legal portion of application.
 
 Last updated:
@@ -35,13 +35,12 @@ from new_arrivals_chi.app.constants import (
     DEFAULT_LANGUAGE,
 )
 from new_arrivals_chi.app.database import db, User, Organization
-from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
 import sqlite3
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
-
+from datetime import timedelta
 
 migrate = Migrate()
 
@@ -68,25 +67,29 @@ def home():
     )
 
 
-@main.route("/profile", methods=[HTTPMethod.GET])
+@main.route("/dashboard", methods=[HTTPMethod.GET])
 @login_required
-def profile():
-    """Handles both displaying the user's profile and adding an organization.
+def dashboard():
+    """Handles both displaying the user's dashboard and adding an organization.
 
-    GET: Renders profile page with user's organization info.
-    POST: Adds a new organization to the database and redirects to profile page.
+    GET: Renders dashboard page with user's organization info.
+    POST: Adds a new organization to the database and redirects to dashboard page.
     """
+    # if admin -> admin_dash.html
+    # if org -> org_dash.html
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
     user = current_user
     organization = Organization.query.get(user.organization_id)
+    organization_name = organization.name
 
     return render_template(
-        "profile.html",
+        "dashboard.html",
         organization=organization,
         translations=translations,
         language=language,
+        organization_name=organization_name,
     )
 
 
@@ -412,6 +415,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
     app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Update app configuration with any provided override config (for testing)

@@ -23,8 +23,8 @@ The documentation is divided into the following sections:
 
 ## Retrieve Admin Page
 ### Get Admin Page Content
-- **Endpoint**: `GET /admin/dashboard`
-- **Description**: Retrieve the admin dashboard content, which includes an overview of organizations and admin-related tasks.
+- **Endpoint**: `GET /dashboard`
+- **Description**: Retrieve the admin dashboard content, which includes an overview of organizations and admin-related tasks. 
 - **Responses**:
   - `200 OK`: Admin page content retrieved successfully.
   - `401 Unauthorized`: Unauthorized access attempt.
@@ -70,41 +70,28 @@ The documentation is divided into the following sections:
   }
   ```
 
-## Set Up a New Organization
+### From the admin dashboard, change org status
+- **Endpoint**: `POST /status`
+- **Description**: Update org status to VISIBLE, INVISIBLE, SUSPEND
+- **Responses**:
+  - `200 OK`: Admin page content retrieved successfully.
+  - `401 Unauthorized`: Unauthorized access attempt.
+  - `500 Internal Server Error`: Indicates a server error.
+
+## Set Up and Update a New Organization
 
 ### Create Organization Account
-- **Endpoint**: `POST /admin/organization`
-- **Description**: Admins add a new organization with required information like username (email), temporary password, and other profile details.
+- **Endpoint**: `POST /add_organization`
+- **Description**: Admins add a new organization with required information like username (email), temporary password, and other profile details and sends an email with a temporary password and a link for the organization to reset their password
 - **Responses**:
   - `200 OK`: Organization created successfully.
   - `400 Bad Request`: Invalid data provided.
   - `500 Internal Server Error`: Indicates a server error.
 
-## Organization Password Setup
-The process for organizations to set up or reset their passwords involves sending a temporary password via email and providing a link to reset it. This documentation outlines the key endpoints for these operations.
 
-### Send Email with Temporary Password and Reset Link
-- **Endpoint**: `POST /admin/org-email`
-- **Description**: Admins send an email with a temporary password and a link for the organization to reset their password.
-- **Request Body**:
-  - `email`: The email address to send the temporary password and reset link.
-- **Responses**:
-  - `200 OK`: Email sent successfully.
-  - `500 Internal Server Error`: Indicates a server error.
-
-### Validate Organization Reset Token
-- **Endpoint**: `GET /auth/validate-org-reset-token`
-- **Description**: Validates the token from the email to ensure it's valid for resetting the organization's password.
-- **Query Parameters**:
-  - `token`: The unique token from the reset email.
-- **Responses**:
-  - `200 OK`: Token validated successfully.
-  - `400 Bad Request`: Invalid or expired token.
-  - `500 Internal Server Error`: Indicates a server error.
-
-### Set New Organization Password
-- **Endpoint**: `POST /auth/org-set-password`
-- **Description**: Set a new password for the organization account after validating the token.
+  ### Edit Organization Info
+- **Endpoint**: `POST /edit_organization`
+- **Description**:  Validates the token from the email to ensure it's valid for resetting the organization's password. Set a new password for the organization account after validating the token.
 - **Request Body**:
   - `token`: The unique token from the reset email.
   - `new_password`: The new password to be set.
@@ -114,57 +101,17 @@ The process for organizations to set up or reset their passwords involves sendin
   - `400 Bad Request`: Invalid token, password mismatch, or other validation error.
   - `500 Internal Server Error`: Indicates a server error.
 
-
-## Update Organization Information
-### Edit Organization
-- **Endpoint**: `POST /admin/organization`
-- **Description**: Update an existing organization's profile details.
-- **Responses**:
-  - `200 OK`: Organization updated successfully.
-  - `400 Bad Request`: Incorrect data provided.
-  - `500 Internal Server Error`: Indicates a server error.
-
-### Suspend Organization
-- **Endpoint**: `POST /admin/organization/{name}`
-- **Description**: Suspend an organization's account by updating its status to inactive.
-- **Responses**:
-  - `200 OK`: Organization suspended successfully.
-  - `404 Not Found`: Organization not found.
-  - `401 Unauthorized`: Unauthorized action.
-
 ## Admin Password Reset
 The admin password reset process consists of endpoints that trigger a password reset email, validate the reset token, and set the new password. This documentation outlines the key endpoints involved in the process.
 
 ### Request Password Reset
-- **Endpoint**: `POST /auth/admin-reset-password`
+- **Endpoint**: `POST /reset_password`
 - **Description**: Request a password reset email for an admin user.
 - **Request Body**:
   - `email`: The admin's registered email address.
 - **Responses**:
   - `200 OK`: Password reset email sent successfully.
   - `400 Bad Request`: Invalid email or missing required information.
-  - `500 Internal Server Error`: Indicates a server error.
-
-### Validate Reset Token
-- **Endpoint**: `GET /auth/admin-validate-reset-token`
-- **Description**: Validates the token from the password reset email to ensure it's correct and hasn't expired.
-- **Query Parameters**:
-  - `token`: The unique token from the reset email.
-- **Responses**:
-  - `200 OK`: Token validated successfully.
-  - `400 Bad Request`: Invalid or expired token.
-  - `500 Internal Server Error`: Indicates a server error.
-
-### Set New Password
-- **Endpoint**: `POST /auth/admin-set-new-password`
-- **Description**: Set a new password for the admin account after the token has been validated.
-- **Request Body**:
-  - `token`: The unique token from the reset email.
-  - `new_password`: The new password to be set.
-  - `confirm_password`: Confirmation of the new password.
-- **Responses**:
-  - `200 OK`: Password reset successfully.
-  - `400 Bad Request`: Invalid token, password mismatch, or other validation error.
   - `500 Internal Server Error`: Indicates a server error.
 
 
@@ -177,7 +124,7 @@ The admin password reset process consists of endpoints that trigger a password r
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Admin Logout
-- **Endpoint**: `POST /auth/admin-logout`
+- **Endpoint**: `POST /logout`
 - **Description**: Logs out the admin and ends the session.
 - **Implementation**:
   - The `href="url_for('auth.logout')"` value in the HTML template points to this endpoint to trigger logout functionality.

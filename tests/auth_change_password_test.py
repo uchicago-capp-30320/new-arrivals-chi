@@ -3,7 +3,7 @@
 File name: auth_change_password_test.py
 
 Associated Files:
-    Templates: change_password.html, login.html, profile.html.
+    Templates: change_password.html, login.html, dashboard.html.
 
 This test suite verifies the functionality of the change password feature,
 including testing various scenarios such as incorrect old password,
@@ -273,10 +273,10 @@ def test_change_password_success(
 
         # if the login is successful, password was changed correctly
         assert response.status_code == 200
-        assert b"Profile" in response.data
+        assert b"dashboard" in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "profile.html"
+            capture_templates[final_template_rendered][0].name == "dashboard.html"
         ), "Wrong template used"
         logger.info("Change password successful.")
     except AssertionError as e:
