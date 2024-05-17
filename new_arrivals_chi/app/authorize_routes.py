@@ -68,24 +68,24 @@ def validate_csrf():
         return redirect(url_for("authorize.login"))
 
 
-@authorize.route("/signup")
+@authorize.route("/signup", methods=["GET"])
 def signup():
     """Establishes route for the user sign up page.
 
     This route is accessible within the 'sign up' button in the navigation bar.
-
 
     Returns:
         Renders sign up page in their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
+    csrf_token = generate_csrf()
     return render_template(
         "signup.html",
         language=language,
         translations=translations,
-        csrf_token=generate_csrf()
-        )
+        csrf_token=csrf_token,
+    )
 
 
 @authorize.route("/signup", methods=["POST"])
@@ -100,10 +100,10 @@ def signup_post():
         Redirects back to the sign-up page if there are validation errors
         or if the email address already exists in the database.
     """
-    validate_csrf()
-    email, password, password_confirm = extract_signup_data(request.form)
+    email = request.form.get("email")
+    password = request.form.get("password")
+    password_confirm = request.form.get("password_confirm")
 
-    # ensure that input meets requirments
     if not validate_email_syntax(email):
         flash(escape("Please enter a valid email address"))
 
