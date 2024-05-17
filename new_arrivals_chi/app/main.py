@@ -362,17 +362,24 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    conn = sqlite3.connect("../../instance/test_fake_data.db")
+    # Implementation with demonstrative data
+    conn = sqlite3.connect("instance/test_fake_data.db")
 
     cursor = conn.cursor()
 
-    # this is a sample from fake data; should be updated with appropriate call
-    # Supplies, Neighborhood, Organization, and Hours (with appropriate join)
-    # Organization should be clickable and lead to their page (info.html)
-    # rendered dynamically
     cursor.execute(
-        "SELECT street_address, zip_code, city, state FROM locations LIMIT 10"
+        "SELECT s.service, l.neighborhood, o.name, "
+        + "strftime('%I:%M %p', h.opening_time) "
+        "|| ' - ' || "
+        "strftime('%I:%M %p', h.closing_time) "
+        "AS opening_closing_time "
+        "FROM organizations o "
+        "JOIN hours h ON o.hours_id = h.id "
+        "JOIN locations l ON o.location_id = l.id "
+        "JOIN organizations_services os ON o.id = os.organization_id "
+        "JOIN services s ON os.service_id = s.id"
     )
+
     services_info = cursor.fetchall()
 
     conn.close()
@@ -385,6 +392,7 @@ def health_search():
         language=language,
         translations=translations,
         services_info=services_info,
+        set=set,
     )
 
 

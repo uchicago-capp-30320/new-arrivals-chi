@@ -7,10 +7,10 @@
 */
 
 function filterTable() {
-    var suppliesDropdown = document.getElementById("street_address");
-    var neighborhoodDropdown = document.getElementById("zip_code");
-    var organizationDropdown = document.getElementById("city");
-    var hoursDropdown = document.getElementById("state");
+    var suppliesDropdown = document.getElementById("supplies");
+    var neighborhoodDropdown = document.getElementById("neighborhood");
+    var organizationDropdown = document.getElementById("organization");
+    var hoursDropdown = document.getElementById("hours");
 
     var tableBody = document.querySelector("#healthTable tbody");
 
@@ -46,10 +46,10 @@ function filterTable() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    var suppliesDropdown = document.getElementById("street_address");
-    var neighborhoodDropdown = document.getElementById("zip_code");
-    var organizationDropdown = document.getElementById("city");
-    var hoursDropdown = document.getElementById("state");
+    var suppliesDropdown = document.getElementById("supplies");
+    var neighborhoodDropdown = document.getElementById("neighborhood");
+    var organizationDropdown = document.getElementById("organization");
+    var hoursDropdown = document.getElementById("hours");
 
     suppliesDropdown.addEventListener("change", filterTable);
     neighborhoodDropdown.addEventListener("change", filterTable);

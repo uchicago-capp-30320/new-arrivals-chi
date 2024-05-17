@@ -14,10 +14,6 @@ Creation:
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="/legal/parole_apply" method="GET">
-        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
-        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-    </form>
     <!-- We still need to make json for this static page-->
     <h1>{{ translations[language]['legal_start']['parole_header'] }}</h1>
     <!-- Update spanish! -->
