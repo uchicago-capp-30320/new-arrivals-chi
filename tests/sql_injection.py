@@ -44,7 +44,7 @@ Creation:
 """
 
 from sqlalchemy import select, text
-from tests.db_test import create_fake_user, create_fake_organization
+from tests.utils import create_fake_user, create_fake_organization
 from tests.setup_fake_db import main
 from new_arrivals_chi.app.database import User
 
