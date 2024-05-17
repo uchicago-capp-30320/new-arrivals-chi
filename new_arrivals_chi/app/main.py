@@ -38,6 +38,7 @@ from new_arrivals_chi.app.database import db, User, Organization
 from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
+import sqlite3
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 
@@ -361,11 +362,37 @@ def health_search():
     Returns:
         Renders the health search page.
     """
+    # Implementation with demonstrative data
+    conn = sqlite3.connect("instance/test_fake_data.db")
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT s.service, l.neighborhood, o.name, "
+        + "strftime('%I:%M %p', h.opening_time) "
+        "|| ' - ' || "
+        "strftime('%I:%M %p', h.closing_time) "
+        "AS opening_closing_time "
+        "FROM organizations o "
+        "JOIN hours h ON o.hours_id = h.id "
+        "JOIN locations l ON o.location_id = l.id "
+        "JOIN organizations_services os ON o.id = os.organization_id "
+        "JOIN services s ON os.service_id = s.id"
+    )
+
+    services_info = cursor.fetchall()
+
+    conn.close()
+
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "health_search.html", language=language, translations=translations
+        "health_search.html",
+        language=language,
+        translations=translations,
+        services_info=services_info,
+        set=set,
     )
 
 

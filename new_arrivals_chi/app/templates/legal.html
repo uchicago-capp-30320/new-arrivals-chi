@@ -16,11 +16,6 @@ Summer Long @sumslong
 {% extends "base.html" %}
 
 {% block content %}
-
-    <form action="/legal" method="GET">
-        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
-        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-    </form>
     <div class="box">
         <div class="box-big-title">{{ translations[language]['legal']['legal_resources'] }}</div>
         <div class="box-title">{{ translations[language]['util']['i_want_to'] }}</div>
