@@ -66,29 +66,39 @@ def test_signup_route(client, capture_templates, setup_logger):
 
 
 @pytest.mark.parametrize(
-    ("email", "password"),
+    ("email", "password", "http_status"),
     [
-        ("bad_email", "TestP@ssword!"),
-        # SQL injection
-        ("test@example.com' OR '1'='1' --", "TestP@ssword!"),
+        ("bad_email", "TestP@ssword!", HTTPStatus.OK),
+        ("test@example.com", "wrongpassword", HTTPStatus.OK),
+        # SQL injections
+        ("test@example.com' OR '1'='1' --", "TestP@ssword!", HTTPStatus.OK),
+        (
+            "test@example.com",
+            "wrongpassword' UNION SELECT 1, username, \
+            password FROM users --",
+            HTTPStatus.OK,
+        ),
     ],
 )
 def test_signup_post_invalid_email(
-    client, capture_templates, setup_logger, email, password
+    client, capture_templates, setup_logger, email, password, http_status
 ):
-    """Tests the signup with an invalid email format and sql injection.
+    """Tests the signup with an invalid email format.
 
     Verifies that the system correctly identifies the email as invalid and
-    returns to the signup page and that it can handle potentially malicious SQL
-    code embedded in the password input without causing SQL errors or
-    unauthorized actions.
+    returns to the signup page.
 
     Args:
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         setup_logger: Setup logger.
+        email: test email to be used in the signup form.
+        password: test password to be used along with the email in the signup
+                form.
+        http_status: Expected HTTP status code to be returned after submitting
+                the signup form with an invalid email
     """
-    setup_logger("test_signup_post_invalid_email")
+    logger = setup_logger("test_signup_post_invalid_email")
     response = client.post(
         "/signup",
         data={
@@ -98,137 +108,56 @@ def test_signup_post_invalid_email(
         },
         follow_redirects=True,
     )
-    assert response.status_code == HTTPStatus.OK
+    assert response.status_code == http_status
     assert b"Please enter a valid email address" in response.data
 
-
-def test_signup_post_invalid_email_old(client, capture_templates, setup_logger):
-    """Tests the signup with an invalid email format and sql injection.
-
-    Verifies that the system correctly identifies the email as invalid and
-    returns to the signup page and that it can handle potentially malicious SQL
-    code embedded in the password input without causing SQL errors or
-    unauthorized actions.
-
-    Args:
-        client: The test client used for making requests.
-        capture_templates: Context manager to capture templates rendered.
-        setup_logger: Setup logger.
-    """
-    logger = setup_logger("test_signup_post_invalid_email")
-    try:
-        response = client.post(
-            "/signup",
-            data={
-                "email": "bad_email",  # invalid email format
-                "password": "TestP@ssword!",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert b"Please enter a valid email address" in response.data
-
-        # Test with SQL injection attempt in the email field
-        sql_injection_attempt = "test@example.com' OR '1'='1' --"
-        response = client.post(
-            "/signup",
-            data={
-                "email": sql_injection_attempt,
-                "password": "TestP@ssword!",
-                "password_confirm": "TestP@ssword!",
-            },
-            follow_redirects=True,
-        )
-        assert (
-            response.status_code == 200
-        ), "Unexpected HTTP status code \
-            received."
-
-        assert (
-            b"error" in response.data
-            or b"Please enter a valid email \
-            address"
-            in response.data
-        ), "SQL Injection may have been processed \
-            incorrectly."
-
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "signup.html"
-        ), "Wrong template used after SQL injection."
-
-        logger.info("Sign up failed successfully with invalid email.")
-        logger.info("SQL injection was handled safely.")
-
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
+    assert len(capture_templates) == 1
+    final_template_rendered = len(capture_templates) - 1
+    assert (
+        capture_templates[final_template_rendered][0].name == "signup.html"
+    ), "Wrong template used"
+    logger.info("Sign up failed successfully with invalid email.")
 
 
-def test_signup_post_invalid_password(client, capture_templates, setup_logger):
-    """Tests the signup with an invalid password and sql injection.
+def test_signup_post_invalid_password(
+    client, capture_templates, setup_logger, email, password, http_status
+):
+    """Tests the signup with an invalid password.
 
     Ensures that the application rejects passwords that do not meet the
-    specified security criteria and that it can handle potentially malicious SQL
-    code embedded in the password input without causing SQL errors or
-    unauthorized actions.
-
+    specified security criteria.
 
     Args:
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         setup_logger: Setup logger.
+        email: test email to be used in the signup form.
+        password: test password to be used along with the email in the signup
+                form.
+        http_status: Expected HTTP status code to be returned after submitting
+                the signup form with an invalid email
     """
     logger = setup_logger("test_signup_post_invalid_password")
-    try:
-        # Test with a simple invalid password first
-        response = client.post(
-            "/signup",
-            data={
-                "email": "test@example.com",  # invalid password
-                "password": "password!",
-                "password_confirm": "password!",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert (
-            b"Please enter a valid password" in response.data
-        ), "Missing or \
-            incorrect error message for weak password."
+    response = client.post(
+        "/signup",
+        data={
+            "email": email,
+            "password": password,
+            "password_confirm": password,
+        },
+        follow_redirects=True,
+    )
+    assert (
+        response.status_code == http_status
+    ), "Unexpected HTTP status code received."
 
-        # Test with SQL injection attempt in the password field
-        sql_injection_attempt = "password'; DROP TABLE users; --"
-        response = client.post(
-            "/signup",
-            data={
-                "email": "test@example.com",
-                "password": sql_injection_attempt,
-                "password_confirm": sql_injection_attempt,
-            },
-            follow_redirects=True,
-        )
-        assert (
-            response.status_code == 200
-        ), "Unexpected HTTP status code \
-            received."
+    assert b"Please enter a valid password" in response.data
 
-        assert (
-            b"Please enter a valid password" in response.data
-            or b"error" in response.data
-        ), "SQL Injection may have been processed."
-
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "signup.html"
-        ), "Wrong template used after SQL injection attempt"
-
-        logger.info("Sign up failed successfully with invalid password.")
-        logger.info("SQL injection was handled safely.")
-
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
+    final_template_rendered = len(capture_templates) - 1
+    assert (
+        capture_templates[final_template_rendered][0].name == "signup.html"
+    ), "Wrong template used."
+    logger.info("Sign up failed successfully with invalid password.")
 
 
 def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
@@ -247,7 +176,7 @@ def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
         response = client.post(
             "/signup",
             data={
-                "email": "new_user@example.com",  # valid email format
+                "email": "new_user@example.com",
                 "password": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
                 "password_confirm": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
             },
@@ -358,64 +287,38 @@ def test_login_valid_credentials(
         raise
 
 
-def test_login_invalid_credentials(client, capture_templates, setup_logger):
-    """Tests login functionality and sql injection.
+def test_login_invalid_credentials(
+    client, capture_templates, setup_logger, email, password, http_status
+):
+    """Tests login functionality.
 
     Tests login functionality with invalid credentials to confirm system
-    correctly identifies incorrect login attempts and prevents access and that
-    it can handle potentially malicious SQL code embedded in the password input
-    without causing SQL errors or unauthorized actions.
+    correctly identifies incorrect login attempts and prevents access.
 
     Args:
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         setup_logger: Setup logger.
+        email: test email to be used in the signup form.
+        password: test password to be used along with the email in the signup
+                form.
+        http_status: Expected HTTP status code to be returned after submitting
+                the signup form with an invalid email
     """
     logger = setup_logger("test_login_invalid_credentials")
-    try:
-        # Test with a simple invalid credentials first
-        response = client.post(
-            "/login",
-            data={"email": "test@example.com", "password": "wrongpassword"},
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert (
-            b"Please check your login details and try again." in response.data
-        )
-        # Test with a sql injection
-        sql_injection_attempt = "wrongpassword' UNION SELECT 1, username, \
-            password FROM users --"
-        response = client.post(
-            "/login",
-            data={
-                "email": "test@example.com",
-                "password": sql_injection_attempt,
-                "password_confirm": sql_injection_attempt,
-            },
-            follow_redirects=True,
-        )
-        assert (
-            response.status_code == 200
-        ), "Unexpected HTTP status code \
-            received."
+    response = client.post(
+        "/login",
+        data={"email": email, "password": password},
+        follow_redirects=True,
+    )
+    assert response.status_code == http_status
+    assert b"Please check your login details and try again." in response.data
+    final_template_rendered = len(capture_templates) - 1
+    assert (
+        capture_templates[final_template_rendered][0].name == "login.html"
+    ), "Wrong template used."
 
-        assert (
-            b"Please enter a valid password" in response.data
-            or b"error" in response.data
-        ), "SQL Injection may have been processed."
-
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "login.html"
-        ), "Wrong template used after SQL injection attempt"
-
-        logger.info("Login failed successfully with invalid credentials.")
-        logger.info("SQL injection was handled safely.")
-
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
+    logger.info("Login failed successfully with invalid credentials.")
 
 
 def test_logout(
