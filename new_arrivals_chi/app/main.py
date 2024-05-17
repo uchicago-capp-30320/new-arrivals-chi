@@ -68,7 +68,7 @@ def home():
     )
 
 
-@main.route("/profile", methods=[HTTPMethod.GET, HTTPMethod.POST])
+@main.route("/profile", methods=[HTTPMethod.GET])
 @login_required
 def profile():
     """Handles both displaying the user's profile and adding an organization.
@@ -78,17 +78,6 @@ def profile():
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    if request.method == "POST":
-        name = bleach.clean(request.form.get("name"))
-        phone = bleach.clean(request.form.get("phone"))
-        status = bleach.clean(request.form.get("status"))
-
-        org_id = create_organization_profile(name, phone, status)
-        if org_id:
-            flash(escape("Organization added successfully."))
-        else:
-            flash(escape("Failed to add organization."))
 
     user = current_user
     organization = Organization.query.get(user.organization_id)

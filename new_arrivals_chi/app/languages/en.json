@@ -76,7 +76,10 @@
       "remember_me": "Remember me"
     },
     "profile": {
-      "profile_information": "Profile information will exist here."
+      "title": "Organization Profile",
+      "view_org_page": "View Organization Page.",
+      "update_org_info": "Update Organization Information",
+      "change_password": "Change My Password"
     },
     "util": {
       "back": "Back",

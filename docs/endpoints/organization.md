@@ -29,7 +29,7 @@ The documentation is divided into the following sections:
 
 ## Organization Page Content
 ### Get Organization Profile
-- **Endpoint**: `GET /organization/profile`
+- **Endpoint**: `GET /profile`
 - **Description**: Retrieve the profile information of the logged-in organization.
 - **Responses**:
   - `200 OK`: Profile information retrieved successfully.
@@ -48,7 +48,7 @@ The documentation is divided into the following sections:
   ```
 
 ### Update Organization Profile
-- **Endpoint**: `POST /organization/profile`
+- **Endpoint**: `POST /update_profile`
 - **Description**: Update the organization's profile information.
 - **Request Body**:
   - Profile details to update (e.g., `address`, `phone`, `hours`, `languages`, `supplies`, `services`).
