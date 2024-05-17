@@ -70,6 +70,21 @@ def extract_new_pw_data(form):
     return old_password, new_password, new_password_confirm
 
 
+def extract_edit_profile(form):
+    """
+    """
+    organization_name = form.get("organization")
+    email = form.get("email")
+    phone = form.get("phone")
+    location = {
+        'street' : form.get("street"),
+        'zip' : form.get("zip"),
+        'city' : form.get("city"),
+        'state' : form.get("state"),
+    }
+
+  
+    
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
 def validate_email_syntax(email):
     """Validates the syntax of an email address.

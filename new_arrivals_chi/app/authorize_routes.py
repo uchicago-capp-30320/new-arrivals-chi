@@ -230,3 +230,39 @@ def edit_profile():
     return render_template(
         "edit_profile.html", language=language, translations=translations
     )
+
+@authorize.route("/change_password", methods=["POST"])
+@login_required
+def edit_profile():
+    """Allows an authorized user to update their current password.
+
+    Returns:
+        Redirects to the user's profile page if password change is successful,
+        otherwise redirects back to the change password page with a flash
+        message.
+    """
+    email, email, phone, location, hours = extract_edit_profile(
+        request.form
+    )
+
+    if not verify_password(current_user.password, old_password):
+        flash(escape("Wrong existing password. Try again"))
+
+    elif old_password == new_password:
+        # Do not need to check password hash because old password is correct
+        flash(
+            escape("New password cannot be the same as your previous password.")
+        )
+
+    elif not new_password == new_password_confirm:
+        flash(escape("New passwords do not match. Try again"))
+
+    elif not validate_password(new_password):
+        flash(escape("New password does not meet requirements. Try again."))
+
+    else:
+        change_db_password(new_password)
+        flash(escape("Password change successful."))
+        return redirect(url_for("main.profile"))
+
+    return redirect(url_for("authorize.change_password"))
