@@ -65,10 +65,12 @@ def test_signup_route(client, capture_templates, setup_logger):
 
 
 def test_signup_post_invalid_email(client, capture_templates, setup_logger):
-    """Tests the signup with an invalid email format.
+    """Tests the signup with an invalid email format and sql injection.
 
-    Verifies that the system
-    correctly identifies the email as invalid and returns to the signup page.
+    Verifies that the system correctly identifies the email as invalid and 
+    returns to the signup page and that it can handle potentially malicious SQL
+    code embedded in the password input without causing SQL errors or 
+    unauthorized actions.
 
     Args:
         client: The test client used for making requests.
@@ -306,11 +308,13 @@ def test_login_valid_credentials(
         raise
 
 
-def test_login_invalid_credentials(client, capture_templates, setup_logger, test_user):
-    """Tests login functionality.
+def test_login_invalid_credentials(client, capture_templates, setup_logger):
+    """Tests login functionality and sql injection.
 
     Tests login functionality with invalid credentials to confirm system
-    correctly identifies incorrect login attempts and prevents access.
+    correctly identifies incorrect login attempts and prevents access and that 
+    it can handle potentially malicious SQL code embedded in the password input 
+    without causing SQL errors or unauthorized actions.
 
     Args:
         client: The test client used for making requests.
