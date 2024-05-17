@@ -30,9 +30,11 @@ import os
 from datetime import datetime
 from new_arrivals_chi.app.main import create_app, db, User
 from new_arrivals_chi.app.database import Organization
-from flask import template_rendered
+from flask import template_rendered, session
 from flask_bcrypt import Bcrypt
 from flask_wtf import CSRFProtect
+from flask_wtf.csrf import generate_csrf
+from tests.utils import get_csrf_token_from_response
 
 bcrypt = Bcrypt()
 
@@ -75,6 +77,22 @@ def client(app):
     """
     return app.test_client()
 
+
+@pytest.fixture
+def csrf_token(csrf_client):
+    """Fixture to get CSRF token."""
+    client, csrf_token = csrf_client
+    return csrf_token
+
+
+@pytest.fixture
+def csrf_client(app):
+    """Client fixture with CSRF protection for testing."""
+    with app.test_client() as client:
+        # Fetch CSRF token by making a GET request to the signup page
+        response = client.get("/signup")
+        csrf_token = get_csrf_token_from_response(response.data.decode())
+        yield client, csrf_token
 
 @pytest.fixture(scope="function")
 def database(app):
