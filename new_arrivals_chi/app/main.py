@@ -41,7 +41,7 @@ from flask_migrate import Migrate
 import sqlite3
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
-
+from datetime import timedelta
 
 migrate = Migrate()
 
@@ -423,6 +423,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
     app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Update app configuration with any provided override config (for testing)

@@ -135,7 +135,7 @@ def login_post():
     """
     email = request.form.get("email").lower()
     password = request.form.get("password")
-    remember = True if request.form.get("remember") else False
+    remember = request.form.get("remember", False)
 
     user = User.query.filter_by(email=email).first()
 
