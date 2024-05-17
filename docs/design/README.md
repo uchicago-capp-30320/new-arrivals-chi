@@ -30,7 +30,7 @@ The design process is iterative. You can review various design iterations below:
 
 This design process was made possible by our incredible community partners who took the time to graciously share their knowledge and advice throughout the process:
 
-- [City of Chicago - Office of Immigrants, Migrant, Refugee Rights](https://www.chicago.gov/city/en/depts/mayor/provdrs/office_of_new_americans.html): Marissa Arrez and Jesus DelToro
+- [City of Chicago - Office of Immigrants, Migrant, Refugee Rights](https://www.chicago.gov/city/en/depts/mayor/provdrs/office_of_new_americans.html): Marissa Arrez and Jesús Del Toro
 - [Illinois Community for Displaced Immigrants](https://icdichicago.org/): Johannes Favi
 - [The Resurrection Project](https://resurrectionproject.org/): Oswaldo Gomez, Laura Mendoza
 - [Chicago Street Medicine](https://www.chicagostreetmedicine.org/): Saara-Anne Azizi, Dan Dolan
