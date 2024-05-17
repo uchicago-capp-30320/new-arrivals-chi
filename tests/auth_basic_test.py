@@ -32,6 +32,7 @@ Creation:
 
 from http import HTTPStatus
 
+import pytest
 from tests.constants import VALID_EMAIL, VALID_PASSWORD
 
 
@@ -64,7 +65,44 @@ def test_signup_route(client, capture_templates, setup_logger):
         raise
 
 
-def test_signup_post_invalid_email(client, capture_templates, setup_logger):
+@pytest.mark.parametrize(
+    ("email", "password"),
+    [
+        ("bad_email", "TestP@ssword!"),
+        # SQL injection
+        ("test@example.com' OR '1'='1' --", "TestP@ssword!"),
+    ],
+)
+def test_signup_post_invalid_email(
+    client, capture_templates, setup_logger, email, password
+):
+    """Tests the signup with an invalid email format and sql injection.
+
+    Verifies that the system correctly identifies the email as invalid and
+    returns to the signup page and that it can handle potentially malicious SQL
+    code embedded in the password input without causing SQL errors or
+    unauthorized actions.
+
+    Args:
+        client: The test client used for making requests.
+        capture_templates: Context manager to capture templates rendered.
+        setup_logger: Setup logger.
+    """
+    setup_logger("test_signup_post_invalid_email")
+    response = client.post(
+        "/signup",
+        data={
+            "email": email,
+            "password": password,
+            "password_confirm": password,
+        },
+        follow_redirects=True,
+    )
+    assert response.status_code == HTTPStatus.OK
+    assert b"Please enter a valid email address" in response.data
+
+
+def test_signup_post_invalid_email_old(client, capture_templates, setup_logger):
     """Tests the signup with an invalid email format and sql injection.
 
     Verifies that the system correctly identifies the email as invalid and
