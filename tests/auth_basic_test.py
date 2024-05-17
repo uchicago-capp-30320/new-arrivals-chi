@@ -67,9 +67,9 @@ def test_signup_route(client, capture_templates, setup_logger):
 def test_signup_post_invalid_email(client, capture_templates, setup_logger):
     """Tests the signup with an invalid email format and sql injection.
 
-    Verifies that the system correctly identifies the email as invalid and 
+    Verifies that the system correctly identifies the email as invalid and
     returns to the signup page and that it can handle potentially malicious SQL
-    code embedded in the password input without causing SQL errors or 
+    code embedded in the password input without causing SQL errors or
     unauthorized actions.
 
     Args:
@@ -95,17 +95,23 @@ def test_signup_post_invalid_email(client, capture_templates, setup_logger):
         response = client.post(
             "/signup",
             data={
-                "email": sql_injection_attempt, 
+                "email": sql_injection_attempt,
                 "password": "TestP@ssword!",
                 "password_confirm": "TestP@ssword!",
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200, "Unexpected HTTP status code \
+        assert (
+            response.status_code == 200
+        ), "Unexpected HTTP status code \
             received."
-        
-        assert b"error" in response.data or b"Please enter a valid email \
-            address" in response.data, "SQL Injection may have been processed \
+
+        assert (
+            b"error" in response.data
+            or b"Please enter a valid email \
+            address"
+            in response.data
+        ), "SQL Injection may have been processed \
             incorrectly."
 
         final_template_rendered = len(capture_templates) - 1
@@ -114,7 +120,7 @@ def test_signup_post_invalid_email(client, capture_templates, setup_logger):
         ), "Wrong template used after SQL injection."
 
         logger.info("Sign up failed successfully with invalid email.")
-        logger.info( "SQL injection was handled safely.")
+        logger.info("SQL injection was handled safely.")
 
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
@@ -126,7 +132,7 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
 
     Ensures that the application rejects passwords that do not meet the
     specified security criteria and that it can handle potentially malicious SQL
-    code embedded in the password input without causing SQL errors or 
+    code embedded in the password input without causing SQL errors or
     unauthorized actions.
 
 
@@ -148,7 +154,9 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
             follow_redirects=True,
         )
         assert response.status_code == 200
-        assert b"Please enter a valid password" in response.data,  "Missing or \
+        assert (
+            b"Please enter a valid password" in response.data
+        ), "Missing or \
             incorrect error message for weak password."
 
         # Test with SQL injection attempt in the password field
@@ -162,11 +170,15 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200, "Unexpected HTTP status code \
+        assert (
+            response.status_code == 200
+        ), "Unexpected HTTP status code \
             received."
 
-        assert b"Please enter a valid password" in response.data or b"error" \
-            in response.data, "SQL Injection may have been processed."
+        assert (
+            b"Please enter a valid password" in response.data
+            or b"error" in response.data
+        ), "SQL Injection may have been processed."
 
         final_template_rendered = len(capture_templates) - 1
         assert (
@@ -174,8 +186,8 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
         ), "Wrong template used after SQL injection attempt"
 
         logger.info("Sign up failed successfully with invalid password.")
-        logger.info( "SQL injection was handled safely.")
-                    
+        logger.info("SQL injection was handled safely.")
+
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
@@ -312,8 +324,8 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
     """Tests login functionality and sql injection.
 
     Tests login functionality with invalid credentials to confirm system
-    correctly identifies incorrect login attempts and prevents access and that 
-    it can handle potentially malicious SQL code embedded in the password input 
+    correctly identifies incorrect login attempts and prevents access and that
+    it can handle potentially malicious SQL code embedded in the password input
     without causing SQL errors or unauthorized actions.
 
     Args:
@@ -345,11 +357,15 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200, "Unexpected HTTP status code \
+        assert (
+            response.status_code == 200
+        ), "Unexpected HTTP status code \
             received."
 
-        assert b"Please enter a valid password" in response.data or b"error" \
-            in response.data, "SQL Injection may have been processed."
+        assert (
+            b"Please enter a valid password" in response.data
+            or b"error" in response.data
+        ), "SQL Injection may have been processed."
 
         final_template_rendered = len(capture_templates) - 1
         assert (
@@ -357,7 +373,7 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
         ), "Wrong template used after SQL injection attempt"
 
         logger.info("Login failed successfully with invalid credentials.")
-        logger.info( "SQL injection was handled safely.")
+        logger.info("SQL injection was handled safely.")
 
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
