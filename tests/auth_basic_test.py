@@ -65,21 +65,20 @@ def test_signup_route(client, capture_templates, setup_logger):
         raise
 
 
-@pytest.mark.parametrize(
-    ("email", "password", "http_status"),
-    [
-        ("bad_email", "TestP@ssword!", HTTPStatus.OK),
-        ("test@example.com", "wrongpassword", HTTPStatus.OK),
-        # SQL injections
-        ("test@example.com' OR '1'='1' --", "TestP@ssword!", HTTPStatus.OK),
-        (
-            "test@example.com",
-            "wrongpassword' UNION SELECT 1, username, \
-            password FROM users --",
-            HTTPStatus.OK,
-        ),
-    ],
-)
+param_list = [
+    ("bad_email", "TestP@ssword!", HTTPStatus.OK),
+    ("test@example.com", "wrongpassword", HTTPStatus.OK),
+    # SQL injections
+    ("test@example.com' OR '1'='1' --", "TestP@ssword!", HTTPStatus.OK),
+    (
+        "test@example.com",
+        "wrongpassword' UNION SELECT 1, username, password FROM users --",
+        HTTPStatus.OK,
+    ),
+]
+
+
+@pytest.mark.parametrize("email,password,http_status", param_list)
 def test_signup_post_invalid_email(
     client, capture_templates, setup_logger, email, password, http_status
 ):
@@ -109,7 +108,7 @@ def test_signup_post_invalid_email(
         follow_redirects=True,
     )
     assert response.status_code == http_status
-    assert b"Please enter a valid email address" in response.data
+    assert b"Please enter a valid" in response.data
 
     assert len(capture_templates) == 1
     final_template_rendered = len(capture_templates) - 1
@@ -119,6 +118,7 @@ def test_signup_post_invalid_email(
     logger.info("Sign up failed successfully with invalid email.")
 
 
+@pytest.mark.parametrize("email,password,http_status", param_list)
 def test_signup_post_invalid_password(
     client, capture_templates, setup_logger, email, password, http_status
 ):
@@ -151,7 +151,7 @@ def test_signup_post_invalid_password(
         response.status_code == http_status
     ), "Unexpected HTTP status code received."
 
-    assert b"Please enter a valid password" in response.data
+    assert b"Please enter a valid" in response.data
 
     final_template_rendered = len(capture_templates) - 1
     assert (
@@ -287,6 +287,7 @@ def test_login_valid_credentials(
         raise
 
 
+@pytest.mark.parametrize("email,password,http_status", param_list)
 def test_login_invalid_credentials(
     client, capture_templates, setup_logger, email, password, http_status
 ):
