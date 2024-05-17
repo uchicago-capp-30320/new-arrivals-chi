@@ -113,7 +113,7 @@ def validate_password(password):
         uppercase=1,  # need min. 1 uppercase letter
         numbers=1,  # need min. 1 digit
         special=1,  # need min. 1 special character
-        strength=0.66,  # Minimum value to be considered a strong password
+        strength=0.4,  
     )
 
     policy_reqs = len(policy.test(password))
