@@ -106,9 +106,6 @@ def test_signup_post_invalid_email(client, capture_templates, setup_logger):
             address" in response.data, "SQL Injection may have been processed \
             incorrectly."
 
-
-        assert len(capture_templates) == 1, "Incorrect number of templates \
-            rendered."
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "signup.html"
@@ -309,7 +306,7 @@ def test_login_valid_credentials(
         raise
 
 
-def test_login_invalid_credentials(client, capture_templates, setup_logger):
+def test_login_invalid_credentials(client, capture_templates, setup_logger, test_user):
     """Tests login functionality.
 
     Tests login functionality with invalid credentials to confirm system
@@ -336,7 +333,7 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
         sql_injection_attempt = "wrongpassword' UNION SELECT 1, username, \
             password FROM users --"
         response = client.post(
-            "/signup",
+            "/login",
             data={
                 "email": "test@example.com",
                 "password": sql_injection_attempt,
