@@ -24,7 +24,9 @@ This document summarizes key design decisions for New Arrivals Chi, specifically
 
 - **Decision**: Focus on three topics in the first version to gather feedback and iterate before expanding.
 - **Reasons**: Gives us time to learn the nuance of the domain and the needs of users. The information provided must be accurate, especially for legal advice. It's also crucial that the tool is user-friendly and so they must be included in the process, even if it slows us down a bit.
-- **Example**: The legal flow has gone through three prototyping stages with feedback from community partners at each stage during this V1 phase. Revisions will continue based on user testing with migrants into V2.
+- **Example**:
+  - The legal flow has gone through three prototyping stages with feedback from community partners at each stage during this V1 phase. Revisions will continue based on user testing with migrants into V2.
+  - We prioritized scaling the Spanish version of the site first to better understand how to properly integrate a new language rather than introducing multiple languages simultaneously. 
 - **Impacts**: This slows development by heavily involving the community, but it leads to a better and more useful tool.
 
 ## Reduce burden of organization information updates through admin/local admin system
