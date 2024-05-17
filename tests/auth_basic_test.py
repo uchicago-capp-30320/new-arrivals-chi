@@ -66,8 +66,8 @@ def test_signup_route(client, capture_templates, setup_logger):
 
 
 param_list = [
-    ("bad_email", "TestP@ssword!", HTTPStatus.OK),
-    ("test@example.com", "wrongpassword", HTTPStatus.OK),
+    ("bad_email", "TestP@ssword!", HTTPStatus.OK), #bad email
+    ("test@example.com", "wrongpassword", HTTPStatus.OK), #wrong password
     # SQL injections
     ("test@example.com' OR '1'='1' --", "TestP@ssword!", HTTPStatus.OK),
     (
