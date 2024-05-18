@@ -319,8 +319,8 @@ def test_page_requiring_login_after_logout(
     """Tests behavior accessing page that requires login after user logged out.
 
     This test ensures that the application redirects to the login page when an
-    unauthenticated user attempts to access a restricted page (e.g., the dashboard
-    page) after logging out.
+    unauthenticated user attempts to access a restricted page (e.g., the
+    dashboard page) after logging out.
 
     Args:
         client: The test client used for making requests.

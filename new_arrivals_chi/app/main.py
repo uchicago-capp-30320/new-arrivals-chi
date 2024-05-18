@@ -376,7 +376,8 @@ def dashboard():
     home page.
 
     Returns:
-        Renders the dashboard page with buttons to view org page, edit org page and change password.
+        Renders the dashboard page with buttons to view org page, edit org page
+        and change password.
     """
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
@@ -404,7 +405,9 @@ def dashboard():
 def org():
     """Establishes route to the organization page.
 
-    This page is dynamically generated based on the org id and contains organization details. It is accessible from the org dashboard and the health filterable table.
+    This page is dynamically generated based on the org id and contains
+    organization details. It is accessible from the org dashboard and the health
+    filterable table.
 
     Returns:
         Renders the organization page (public facing).
@@ -430,7 +433,8 @@ def edit_organization():
     home page.
 
     Returns:
-        Renders the edit organization page where admin or organizations can update their info.
+        Renders the edit organization page where admin or organizations can
+        update their info.
     """
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]

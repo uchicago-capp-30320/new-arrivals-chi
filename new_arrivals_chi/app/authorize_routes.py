@@ -169,7 +169,7 @@ def logout():
 def change_password():
     """Establishes route for the change password page.
 
-    This route is accessible within the 'change password' button in the dashboard
+    This route is accessible within the 'change password' button in dashboard
     page (will likely change location in the future).
 
     Returns:
