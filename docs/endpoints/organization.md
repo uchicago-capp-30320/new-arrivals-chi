@@ -48,7 +48,7 @@ The documentation is divided into the following sections:
   ```
 
 ### Update Organization Profile
-- **Endpoint**: `POST /edit_organization`
+- **Endpoint**: `POST /edit_organization/{name}`
 - **Description**: Update the organization's profile information.
 - **Request Body**:
   - Profile details to update (e.g., `address`, `phone`, `hours`, `languages`, `supplies`, `services`).
@@ -85,9 +85,9 @@ The documentation is divided into the following sections:
 ## Organization Setup
 Organizations can set up new accounts via a direct link, creating a username (email), password, and other profile information.
 
- ### Register new organization on initial setup
+### Register New Organization on Initial Setup
 - **Endpoint**: `POST /register_organization`
-- **Description**:  Validates the token from the email to ensure it's valid for resetting the organization's password. Set a new password for the organization account after validating the token.
+- **Description**: Validates the token from the email to ensure it's valid for resetting the organization's password. Set a new password for the organization account after validating the token.
 - **Request Body**:
   - `token`: The unique token from the reset email.
   - `new_password`: The new password to be set.
@@ -97,9 +97,9 @@ Organizations can set up new accounts via a direct link, creating a username (em
   - `400 Bad Request`: Invalid token, password mismatch, or other validation error.
   - `500 Internal Server Error`: Indicates a server error.
 
- ### View Organization Profile
-- **Endpoint**: `POST /{name}`
-- **Description**:  Shows the orgnaization profile that is viewable to the public
+### View Organization Profile
+- **Endpoint**: `POST /org/{name}`
+- **Description**: Shows the organization profile that is viewable to the public.
 - **Request Body**:
   - `token`: The unique token from the reset email.
   - `new_password`: The new password to be set.
@@ -113,8 +113,8 @@ Organizations can set up new accounts via a direct link, creating a username (em
 This section describes the buttons and links on the organization page, providing navigation options and other common actions.
 
 ### Return to Home Page
-- **Endpoint**: ``GET /`
-- **Description**:   Button to navigate back to the home page.
+- **Endpoint**: `GET /`
+- **Description**: Button to navigate back to the home page.
 - **Responses**:
   - `200 OK`: Home page content retrieved successfully.
   - `500 Internal Server Error`: Indicates a server error.

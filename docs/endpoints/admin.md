@@ -5,8 +5,8 @@ The admin page provides administrative functions for managing organizations and 
 The documentation is divided into the following sections:
 - [Admin Login](#admin-login)
 - [Retrieve Admin Page](#retrieve-admin-page)
-- [Set Up a New Organization](#set-up-a-new-organization)
-- [Update Organization Information](#update-organization-information)
+- [Set Up and Update a New Organization](#set-up-and-update-a-new-organization)
+- [Admin Password Reset](#admin-password-reset)
 - [Admin Page Buttons and Links](#admin-page-buttons-and-links)
 
 ## Admin Login
@@ -14,7 +14,7 @@ The documentation is divided into the following sections:
 - **Endpoint**: `POST /login`
 - **Description**: Log in to the admin page with admin credentials.
 - **Request Body**:
-  - `email`: Admin's email
+  - `email`: Admin's email.
   - `password`: Admin's password.
 - **Responses**:
   - `200 OK`: Login successful.
@@ -24,7 +24,7 @@ The documentation is divided into the following sections:
 ## Retrieve Admin Page
 ### Get Admin Page Content
 - **Endpoint**: `GET /dashboard`
-- **Description**: Retrieve the admin dashboard content, which includes an overview of organizations and admin-related tasks. 
+- **Description**: Retrieve the admin dashboard content, which includes an overview of organizations and admin-related tasks.
 - **Responses**:
   - `200 OK`: Admin page content retrieved successfully.
   - `401 Unauthorized`: Unauthorized access attempt.
@@ -70,34 +70,33 @@ The documentation is divided into the following sections:
   }
   ```
 
-### From the admin dashboard, change org status
+### Change Organization Status from Admin Dashboard
 - **Endpoint**: `POST /status`
-- **Description**: Update org status to VISIBLE, INVISIBLE, SUSPEND
+- **Description**: Update organization status to VISIBLE, INVISIBLE, or SUSPEND.
 - **Responses**:
-  - `200 OK`: Admin page content retrieved successfully.
-  - `401 Unauthorized`: Unauthorized access attempt.
+  - `200 OK`: Organization status updated successfully.
+  - `401 Unauthorized`: Unauthorized action.
   - `500 Internal Server Error`: Indicates a server error.
 
 ## Set Up and Update a New Organization
 
 ### Create Organization Account
 - **Endpoint**: `POST /add_organization`
-- **Description**: Admins add a new organization with required information like username (email), temporary password, and other profile details and sends an email with a temporary password and a link for the organization to reset their password
+- **Description**: Admins add a new organization with required information like username (email), temporary password, and other profile details. An email is sent with a temporary password and a link for the organization to reset their password.
 - **Responses**:
   - `200 OK`: Organization created successfully.
   - `400 Bad Request`: Invalid data provided.
   - `500 Internal Server Error`: Indicates a server error.
 
-
-  ### Edit Organization Info
+### Edit Organization Info
 - **Endpoint**: `POST /edit_organization`
-- **Description**:  Validates the token from the email to ensure it's valid for resetting the organization's password. Set a new password for the organization account after validating the token.
+- **Description**: Update the organization's profile information. Validates the token from the email to ensure it's valid for resetting the organization's password. Set a new password for the organization account after validating the token.
 - **Request Body**:
   - `token`: The unique token from the reset email.
   - `new_password`: The new password to be set.
   - `confirm_password`: Confirmation of the new password.
 - **Responses**:
-  - `200 OK`: Password reset successfully.
+  - `200 OK`: Organization profile updated successfully.
   - `400 Bad Request`: Invalid token, password mismatch, or other validation error.
   - `500 Internal Server Error`: Indicates a server error.
 
@@ -113,7 +112,6 @@ The admin password reset process consists of endpoints that trigger a password r
   - `200 OK`: Password reset email sent successfully.
   - `400 Bad Request`: Invalid email or missing required information.
   - `500 Internal Server Error`: Indicates a server error.
-
 
 ## Admin Page Buttons and Links
 ### Return to Home Page
