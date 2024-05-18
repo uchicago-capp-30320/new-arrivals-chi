@@ -19,5 +19,8 @@ HTML for organization dashboard page.
     <button class="button orange" onclick="location.href='{{ '/change_password' | escape }}'">
       {{ translations[language]['profile']['change_password'] | escape }}
   </button>
+  <button class="yellow-button" onclick="location.href='{{ '/' | escape }}'">
+    {{ translations[language]['util']['back'] | escape }}
+</button>
 </div>
 {% endblock %}
