@@ -89,24 +89,22 @@ Organizations can set up new accounts via a direct link, creating a username (em
 - **Endpoint**: `POST /register_organization`
 - **Description**: Validates the token from the email to ensure it's valid for resetting the organization's password. Set a new password for the organization account after validating the token.
 - **Request Body**:
-  - `token`: The unique token from the reset email.
   - `new_password`: The new password to be set.
   - `confirm_password`: Confirmation of the new password.
 - **Responses**:
   - `200 OK`: Password reset successfully.
-  - `400 Bad Request`: Invalid token, password mismatch, or other validation error.
+  - `400 Bad Request`: Invalid password mismatch, or other validation error.
   - `500 Internal Server Error`: Indicates a server error.
 
 ### View Organization Profile
 - **Endpoint**: `POST /org/{name}`
 - **Description**: Shows the organization profile that is viewable to the public.
 - **Request Body**:
-  - `token`: The unique token from the reset email.
   - `new_password`: The new password to be set.
   - `confirm_password`: Confirmation of the new password.
 - **Responses**:
   - `200 OK`: Password reset successfully.
-  - `400 Bad Request`: Invalid token, password mismatch, or other validation error.
+  - `400 Bad Request`: Invalid password mismatch, or other validation error.
   - `500 Internal Server Error`: Indicates a server error.
 
 ## Organization Page Buttons and Links
@@ -117,6 +115,17 @@ This section describes the buttons and links on the organization page, providing
 - **Description**: Button to navigate back to the home page.
 - **Responses**:
   - `200 OK`: Home page content retrieved successfully.
+  - `500 Internal Server Error`: Indicates a server error.
+
+### Change Password
+- **Endpoint**: `POST /change_password`
+- **Description**: Request a password reset email for an admin user.
+- **Request Body**:
+  - `email`: Email
+  - `old_password`: Old password
+- **Responses**:
+  - `200 OK`: Password change successful
+  - `400 Bad Request`: Invalid email or missing required information.
   - `500 Internal Server Error`: Indicates a server error.
 
 ### Org Logout

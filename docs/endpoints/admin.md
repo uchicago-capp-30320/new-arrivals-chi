@@ -90,26 +90,25 @@ The documentation is divided into the following sections:
 
 ### Edit Organization Info
 - **Endpoint**: `POST /edit_organization`
-- **Description**: Update the organization's profile information. Validates the token from the email to ensure it's valid for resetting the organization's password. Set a new password for the organization account after validating the token.
+- **Description**: Update the organization's profile information.
 - **Request Body**:
-  - `token`: The unique token from the reset email.
   - `new_password`: The new password to be set.
   - `confirm_password`: Confirmation of the new password.
 - **Responses**:
   - `200 OK`: Organization profile updated successfully.
-  - `400 Bad Request`: Invalid token, password mismatch, or other validation error.
+  - `400 Bad Request`: Invalid password mismatch, or other validation error.
   - `500 Internal Server Error`: Indicates a server error.
 
 ## Admin Password Reset
-The admin password reset process consists of endpoints that trigger a password reset email, validate the reset token, and set the new password. This documentation outlines the key endpoints involved in the process.
 
-### Request Password Reset
-- **Endpoint**: `POST /reset_password`
+### Change Password
+- **Endpoint**: `POST /change_password`
 - **Description**: Request a password reset email for an admin user.
 - **Request Body**:
-  - `email`: The admin's registered email address.
+  - `email`: Email
+  - `old_password`: Old password
 - **Responses**:
-  - `200 OK`: Password reset email sent successfully.
+  - `200 OK`: Password change successful
   - `400 Bad Request`: Invalid email or missing required information.
   - `500 Internal Server Error`: Indicates a server error.
 
