@@ -131,6 +131,7 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
         logger.error(f"Test failed: {str(e)}")
         raise
 
+
 def test_signup_post_weak_password(client, capture_templates, setup_logger):
     """Tests the signup functionality with a weak password.
 
@@ -217,7 +218,8 @@ def test_login_valid_credentials(
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "dashboard.html"
+            capture_templates[final_template_rendered][0].name
+            == "dashboard.html"
         ), "Wrong template used"
         logger.info("Login successfully with valid credentials.")
     except AssertionError as e:
@@ -336,7 +338,9 @@ def test_page_requiring_login_after_logout(
     try:
         dashboard_response = client.get("/dashboard", follow_redirects=True)
         assert dashboard_response.status_code == HTTPStatus.OK
-        assert b"Login" in dashboard_response.data, "User not prompted to log in"
+        assert (
+            b"Login" in dashboard_response.data
+        ), "User not prompted to log in"
         assert len(capture_templates) == 3
         assert (
             capture_templates[2][0].name == "login.html"

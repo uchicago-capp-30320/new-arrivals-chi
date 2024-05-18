@@ -276,7 +276,8 @@ def test_change_password_success(
         assert b"dashboard" in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "dashboard.html"
+            capture_templates[final_template_rendered][0].name
+            == "dashboard.html"
         ), "Wrong template used"
         logger.info("Change password successful.")
     except AssertionError as e:

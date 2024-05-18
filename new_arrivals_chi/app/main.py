@@ -21,10 +21,15 @@ Creation:
 @Date: 04/19/2024
 """
 
-from http import HTTPMethod
 
-from flask import Flask, Blueprint, render_template, request, current_app, flash
-from markupsafe import escape
+from flask import (
+    Flask,
+    Blueprint,
+    render_template,
+    request,
+    current_app,
+    url_for,
+)
 import os
 import bleach
 from dotenv import load_dotenv
@@ -64,32 +69,6 @@ def home():
 
     return render_template(
         "home.html", language=language, translations=translations
-    )
-
-
-@main.route("/dashboard", methods=[HTTPMethod.GET])
-@login_required
-def dashboard():
-    """Handles both displaying the user's dashboard and adding an organization.
-
-    GET: Renders dashboard page with user's organization info.
-    POST: Adds a new organization to the database and redirects to dashboard page.
-    """
-    # if admin -> admin_dash.html
-    # if org -> org_dash.html
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    user = current_user
-    organization = Organization.query.get(user.organization_id)
-    organization_name = organization.name
-
-    return render_template(
-        "dashboard.html",
-        organization=organization,
-        translations=translations,
-        language=language,
-        organization_name=organization_name,
     )
 
 
@@ -388,22 +367,83 @@ def health_search():
     )
 
 
-@main.route("/info")
-def info():
-    """Establishes route for an unauthenticated view of an org's information.
+@main.route("/dashboard", methods=["GET"])
+@login_required
+def dashboard():
+    """Establishes route to the organization dashboard.
 
-    This will be accessible when search is implemented.
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
 
     Returns:
-        Renders information of an organization.
+        Renders the dashboard page with buttons to view org page, edit org page and change password.
     """
-    language = bleach.clean(
-        request.args.get(KEY_TRANSLATIONS, DEFAULT_LANGUAGE)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    user = current_user
+    organization = Organization.query.get(user.organization_id)
+    if not organization:
+        return "Organization not found", 404
+
+    # generate URL for edit_organization endpoint
+    edit_org_url = url_for(
+        "main.edit_organization", org_name=organization.name, lang=language
     )
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "info.html", language=language, translations=translations
+        "dashboard.html",
+        organization=organization,
+        language=language,
+        translations=translations,
+        edit_org_url=edit_org_url,
+    )
+
+
+@main.route("/org", methods=["GET"])
+@login_required
+def org():
+    """Establishes route to the organization page.
+
+    This page is dynamically generated based on the org id and contains organization details. It is accessible from the org dashboard and the health filterable table.
+
+    Returns:
+        Renders the organization page (public facing).
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    user = current_user
+    organization = User.query.get(user.organization_id)
+    return render_template(
+        "organization.html",
+        organization=organization,
+        language=language,
+        translations=translations,
+    )
+
+
+@main.route("/edit_organization", methods=["GET", "POST"])
+@login_required
+def edit_organization():
+    """Establishes route to the edit organization page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the edit organization page where admin or organizations can update their info.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    user = current_user
+    organization = User.query.get(user.organization_id)
+    if request.method == "POST":
+        # Handle the form submission
+        pass
+    return render_template(
+        "edit_organization.html",
+        organization=organization,
+        language=language,
+        translations=translations,
     )
 
 

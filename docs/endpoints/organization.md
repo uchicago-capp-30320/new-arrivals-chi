@@ -128,6 +128,3 @@ This section describes the buttons and links on the organization page, providing
   - `200 OK`: Logout successful.
   - `401 Unauthorized`: Unauthorized action.
   - `500 Internal Server Error`: Server error.
-
-
-

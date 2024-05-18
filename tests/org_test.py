@@ -20,7 +20,6 @@ Creation:
 @Author: Kathryn Link-Oberstar @klinkoberstar
 @Date: 05/12/2024
 """
-from http import HTTPStatus
 
 from new_arrivals_chi.app.database import Organization
 from new_arrivals_chi.app.data_handler import create_organization_profile
@@ -68,11 +67,10 @@ def test_organization_dashboard_page(
 
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "dashboard.html"
+            capture_templates[final_template_rendered][0].name
+            == "dashboard.html"
         ), "Wrong template used"
         logger.info("Organization dashboard page rendered.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise
-
-

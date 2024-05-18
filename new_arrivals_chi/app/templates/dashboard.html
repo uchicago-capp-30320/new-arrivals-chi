@@ -1,39 +1,23 @@
 <!--
 Project: new_arrivals_chi
-File name: profile.html
+File name: dashboard.html
 Associated Files:
-    base.html, main.py
+    base.html, main.py, edit_organization.html, organization.html
 
-Skeleton HTML for user profile page.
-
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 04/24/2024
+HTML for organization dashboard page.
 -->
-
 {% extends "base.html" %}
-"view_org_page": "View Organization Page.",
-"update_org_info": "Update Organization Information",
-"change_password": "Change My Password"
 {% block content %}
-
-    <div class="box">
-        <div class="box-big-title">{{ organization_name | escape }}</div>
-        <div class="button-container">
-            <button class="button orange" onclick="navigateTo('/health/search', '{{ language | escape }}')">
-                {{ translations[language]['profile']['view_org_page'] | escape }}
-              </button>
-            <button class="button green" onclick="navigateTo('/edit_organization', '{{ language | escape }}')">
-                {{ translations[language]['health']['update_org_info'] | escape }}
-              </button>
-              <button class="yellow-button" onclick="navigateTo('/change_password', '{{ language | escape }}')">
-                {{ translations[language]['profile']['change_password'] | escape }}
-              </button>
-            <p class="bottom-left">
-                <a href="/">{{ translations[language]['util']['back'] | escape }}</a>
-            </p>
-            <p>
-        </div>
-
-    </div>
+<div class="box">
+    <div class="box-big-title">{{ organization.name | escape }}</div>
+    <button class="button blue" onclick="location.href='{{ url_for('main.org', organization_id=organization.id) | escape }}'">
+      {{ translations[language]['profile']['view_org_page'] | escape }}
+    </button>
+    <button class="button green" onclick="location.href='{{ url_for('main.edit_organization', organization_id=organization.id) | escape }}'">
+        {{ translations[language]['profile']['update_org_info'] | escape }}
+    </button>
+    <button class="button orange" onclick="location.href='{{ '/change_password' | escape }}'">
+      {{ translations[language]['profile']['change_password'] | escape }}
+  </button>
+</div>
 {% endblock %}
