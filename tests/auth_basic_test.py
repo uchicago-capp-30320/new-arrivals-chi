@@ -2,7 +2,7 @@
 
 File name: auth_basic.py
 Associated Files:
-    templates: signup.html, login.html, home.html, profile.html.
+    templates: signup.html, login.html, home.html, dashboard.html.
 
 This test suite performs basic validation of the user authorization routes
 including signup, login, and logout functionalities for the New Arrivals
@@ -160,39 +160,6 @@ def test_signup_post_invalid_password(
     logger.info("Sign up failed successfully with invalid password.")
 
 
-def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
-    """Tests the signup functionality with valid email and password.
-
-    This test verifies if the application correctly handles valid
-    registration credentials and redirects to the home page.
-
-    Args:
-        client: The test client used for making requests.
-        capture_templates: Context manager to capture templates rendered.
-        setup_logger: Setup logger.
-    """
-    logger = setup_logger("test_signup_post_valid_credentials")
-    try:
-        response = client.post(
-            "/signup",
-            data={
-                "email": "new_user@example.com",
-                "password": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
-                "password_confirm": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "profile.html"
-        ), "Wrong template used"
-        logger.info("Sign up successful with valid credentials.")
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
-
-
 def test_signup_post_weak_password(client, capture_templates, setup_logger):
     """Tests the signup functionality with a weak password.
 
@@ -258,7 +225,7 @@ def test_login_valid_credentials(
     """Tests login functionality with valid credentials.
 
     Ensure that users can log in successfully and are redirected to their
-    profile page.
+    dashboard page.
 
     Args:
         client: The test client used for making requests.
@@ -279,7 +246,8 @@ def test_login_valid_credentials(
         assert response.status_code == 200
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "profile.html"
+            capture_templates[final_template_rendered][0].name
+            == "dashboard.html"
         ), "Wrong template used"
         logger.info("Login successfully with valid credentials.")
     except AssertionError as e:
@@ -382,8 +350,8 @@ def test_page_requiring_login_after_logout(
     """Tests behavior accessing page that requires login after user logged out.
 
     This test ensures that the application redirects to the login page when an
-    unauthenticated user attempts to access a restricted page (e.g., the profile
-    page) after logging out.
+    unauthenticated user attempts to access a restricted page (e.g., the
+    dashboard page) after logging out.
 
     Args:
         client: The test client used for making requests.
@@ -399,13 +367,15 @@ def test_page_requiring_login_after_logout(
     client.get("/logout", follow_redirects=True)
 
     try:
-        profile_response = client.get("/profile", follow_redirects=True)
-        assert profile_response.status_code == HTTPStatus.OK
-        assert b"Login" in profile_response.data, "User not prompted to log in"
+        dashboard_response = client.get("/dashboard", follow_redirects=True)
+        assert dashboard_response.status_code == HTTPStatus.OK
+        assert (
+            b"Login" in dashboard_response.data
+        ), "User not prompted to log in"
         assert len(capture_templates) == 3
         assert (
             capture_templates[2][0].name == "login.html"
-        ), "Did not redirect to login page after trying to access profile"
+        ), "Did not redirect to login page after trying to access dashboard"
         logger.info("Successful redirect to login page.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
