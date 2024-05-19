@@ -65,17 +65,19 @@ def test_signup_route(client, capture_templates, setup_logger):
 
 
 @pytest.mark.parametrize(
-        "email, password, password_confirm" , [
+    "email, password, password_confirm",
+    [
         ("bad_email", "TestP@ssword!", "TestP@ssword!"),
         ("test@example.com", "wrongpassword", "wrongpassword"),
-        #SQL Injections
+        # SQL Injections
         ("test@example.com' OR '1'='1' --", "TestP@ssword!", "TestP@ssword!"),
         (
-        "test@example.com",
-        "wrongpassword' UNION SELECT 1, username, password FROM users --",
-        "wrongpassword' UNION SELECT 1, username, password FROM users --"),
-        ])
-
+            "test@example.com",
+            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+        ),
+    ],
+)
 def test_signup_post_invalid_email(
     client, capture_templates, setup_logger, email, password, password_confirm
 ):
@@ -91,7 +93,7 @@ def test_signup_post_invalid_email(
         email: test email to be used in the signup form.
         password: test password to be used along with the email in the signup
                 form.
-        password_confirm: test confirm password to be used along with the email 
+        password_confirm: test confirm password to be used along with the email
                         in the signup form.
     """
     logger = setup_logger("test_signup_post_invalid_email")
@@ -116,17 +118,19 @@ def test_signup_post_invalid_email(
 
 
 @pytest.mark.parametrize(
-        "email, password, password_confirm", [
+    "email, password, password_confirm",
+    [
         ("bad_email", "TestP@ssword!", "TestP@ssword!"),
         ("test@example.com", "wrongpassword", "wrongpassword"),
-        #SQL injections
+        # SQL injections
         ("test@example.com' OR '1'='1' --", "TestP@ssword!", "TestP@ssword!"),
         (
-        "test@example.com",
-        "wrongpassword' UNION SELECT 1, username, password FROM users --",
-        "wrongpassword' UNION SELECT 1, username, password FROM users --")
-        ])
-
+            "test@example.com",
+            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+        ),
+    ],
+)
 def test_signup_post_invalid_password(
     client, capture_templates, setup_logger, email, password, password_confirm
 ):
@@ -264,15 +268,18 @@ def test_login_valid_credentials(
 
 
 @pytest.mark.parametrize(
-        "email, password", [
+    "email, password",
+    [
         ("bad_email", "TestP@ssword!"),
         ("test@example.com", "wrongpassword"),
-        #SQL Injections
+        # SQL Injections
         ("test@example.com' OR '1'='1' --", "TestP@ssword!"),
         (
-        "test@example.com",
-        "wrongpassword' UNION SELECT 1, username, password FROM users --"),
-        ])
+            "test@example.com",
+            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+        ),
+    ],
+)
 def test_login_invalid_credentials(
     client, capture_templates, setup_logger, email, password
 ):
