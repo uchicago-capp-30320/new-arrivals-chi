@@ -32,7 +32,7 @@ Madeleine Roberts @MadeleineKRoberts
     <nav class="navbar" style="position: absolute; top: 20px; left: 20px;">
         <button onclick="navigateTo('/', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['home'] | escape }}</button>
         {% if current_user.is_authenticated %}
-        <button onclick="navigateTo('/profile', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['profile'] | escape }}</button>
+        <button onclick="navigateTo('/dashboard', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['dashboard'] | escape }}</button>
         <button onclick="navigateTo('/logout', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['logout'] | escape }}</button>
         {% endif %}
         {% if not current_user.is_authenticated %}

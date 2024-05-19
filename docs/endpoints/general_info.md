@@ -9,7 +9,7 @@ The documentation is divided into the following sections:
 
 ## Retrieve General Information Content
 ### Get General Information Content
-- **Endpoint**: `GET /information/general`
+- **Endpoint**: `GET /general_information`
 - **Description**: Retrieve static content for the general information page, providing information about Chicago and resources for new migrants.
 - **Responses**:
   - `200 OK`: General information retrieved successfully.
