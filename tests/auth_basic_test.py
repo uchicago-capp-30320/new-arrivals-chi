@@ -31,7 +31,6 @@ Creation:
 """
 
 from http import HTTPStatus
-
 import pytest
 from tests.constants import VALID_EMAIL, VALID_PASSWORD
 
@@ -51,7 +50,7 @@ def test_signup_route(client, capture_templates, setup_logger):
     logger = setup_logger("test_signup_route")
     try:
         response = client.get("/signup")
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         assert b"Sign Up" in response.data, "Sign Up text not found in response"
         final_template_rendered = len(capture_templates) - 1
         assert (
@@ -65,22 +64,20 @@ def test_signup_route(client, capture_templates, setup_logger):
         raise
 
 
-param_list = [
-    ("bad_email", "TestP@ssword!", HTTPStatus.OK),  # bad email
-    ("test@example.com", "wrongpassword", HTTPStatus.OK),  # wrong password
-    # SQL injections
-    ("test@example.com' OR '1'='1' --", "TestP@ssword!", HTTPStatus.OK),
-    (
+@pytest.mark.parametrize(
+        "email, password, password_confirm" , [
+        ("bad_email", "TestP@ssword!", "TestP@ssword!"),
+        ("test@example.com", "wrongpassword", "wrongpassword"),
+        #SQL Injections
+        ("test@example.com' OR '1'='1' --", "TestP@ssword!", "TestP@ssword!"),
+        (
         "test@example.com",
         "wrongpassword' UNION SELECT 1, username, password FROM users --",
-        HTTPStatus.OK,
-    ),
-]
+        "wrongpassword' UNION SELECT 1, username, password FROM users --"),
+        ])
 
-
-@pytest.mark.parametrize("email,password,http_status", param_list)
 def test_signup_post_invalid_email(
-    client, capture_templates, setup_logger, email, password, http_status
+    client, capture_templates, setup_logger, email, password, password_confirm
 ):
     """Tests the signup with an invalid email format.
 
@@ -94,8 +91,8 @@ def test_signup_post_invalid_email(
         email: test email to be used in the signup form.
         password: test password to be used along with the email in the signup
                 form.
-        http_status: Expected HTTP status code to be returned after submitting
-                the signup form with an invalid email
+        password_confirm: test confirm password to be used along with the email 
+                        in the signup form.
     """
     logger = setup_logger("test_signup_post_invalid_email")
     response = client.post(
@@ -103,11 +100,11 @@ def test_signup_post_invalid_email(
         data={
             "email": email,
             "password": password,
-            "password_confirm": password,
+            "password_confirm": password_confirm,
         },
         follow_redirects=True,
     )
-    assert response.status_code == http_status
+    assert response.status_code == HTTPStatus.OK
     assert b"Please enter a valid" in response.data
 
     assert len(capture_templates) == 1
@@ -118,9 +115,20 @@ def test_signup_post_invalid_email(
     logger.info("Sign up failed successfully with invalid email.")
 
 
-@pytest.mark.parametrize("email,password,http_status", param_list)
+@pytest.mark.parametrize(
+        "email, password, password_confirm", [
+        ("bad_email", "TestP@ssword!", "TestP@ssword!"),
+        ("test@example.com", "wrongpassword", "wrongpassword"),
+        #SQL injections
+        ("test@example.com' OR '1'='1' --", "TestP@ssword!", "TestP@ssword!"),
+        (
+        "test@example.com",
+        "wrongpassword' UNION SELECT 1, username, password FROM users --",
+        "wrongpassword' UNION SELECT 1, username, password FROM users --")
+        ])
+
 def test_signup_post_invalid_password(
-    client, capture_templates, setup_logger, email, password, http_status
+    client, capture_templates, setup_logger, email, password, password_confirm
 ):
     """Tests the signup with an invalid password.
 
@@ -134,8 +142,8 @@ def test_signup_post_invalid_password(
         email: test email to be used in the signup form.
         password: test password to be used along with the email in the signup
                 form.
-        http_status: Expected HTTP status code to be returned after submitting
-                the signup form with an invalid email
+        password_confirm: test confirm password to be used along with the email
+                         in the signup form.
     """
     logger = setup_logger("test_signup_post_invalid_password")
     response = client.post(
@@ -143,12 +151,12 @@ def test_signup_post_invalid_password(
         data={
             "email": email,
             "password": password,
-            "password_confirm": password,
+            "password_confirm": password_confirm,
         },
         follow_redirects=True,
     )
     assert (
-        response.status_code == http_status
+        response.status_code == HTTPStatus.OK
     ), "Unexpected HTTP status code received."
 
     assert b"Please enter a valid" in response.data
@@ -181,7 +189,7 @@ def test_signup_post_weak_password(client, capture_templates, setup_logger):
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         print(response.data)
         assert b"Please enter a valid password" in response.data
         final_template_rendered = len(capture_templates) - 1
@@ -207,7 +215,7 @@ def test_login_route(client, capture_templates, setup_logger):
     logger = setup_logger("test_login_route")
     try:
         response = client.get("/login")
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         assert b"Login" in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
@@ -243,7 +251,7 @@ def test_login_valid_credentials(
         response = client.get(
             response.headers.get("Location"), follow_redirects=True
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -255,9 +263,18 @@ def test_login_valid_credentials(
         raise
 
 
-@pytest.mark.parametrize("email,password,http_status", param_list)
+@pytest.mark.parametrize(
+        "email, password", [
+        ("bad_email", "TestP@ssword!"),
+        ("test@example.com", "wrongpassword"),
+        #SQL Injections
+        ("test@example.com' OR '1'='1' --", "TestP@ssword!"),
+        (
+        "test@example.com",
+        "wrongpassword' UNION SELECT 1, username, password FROM users --"),
+        ])
 def test_login_invalid_credentials(
-    client, capture_templates, setup_logger, email, password, http_status
+    client, capture_templates, setup_logger, email, password
 ):
     """Tests login functionality.
 
@@ -271,8 +288,6 @@ def test_login_invalid_credentials(
         email: test email to be used in the signup form.
         password: test password to be used along with the email in the signup
                 form.
-        http_status: Expected HTTP status code to be returned after submitting
-                the signup form with an invalid email
     """
     logger = setup_logger("test_login_invalid_credentials")
     response = client.post(
@@ -280,7 +295,7 @@ def test_login_invalid_credentials(
         data={"email": email, "password": password},
         follow_redirects=True,
     )
-    assert response.status_code == http_status
+    assert response.status_code == HTTPStatus.OK
     assert b"Please check your login details and try again." in response.data
     final_template_rendered = len(capture_templates) - 1
     assert (
@@ -308,7 +323,7 @@ def test_logout(
     logger = setup_logger("test_logout")
     try:
         response = client.get("/logout", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "home.html"
@@ -333,7 +348,7 @@ def test_logout_not_logged_in(client, capture_templates, setup_logger):
     logger = setup_logger("test_logout_not_logged_in")
     try:
         response = client.get("/logout", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "login.html"
