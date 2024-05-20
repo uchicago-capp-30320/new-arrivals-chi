@@ -78,7 +78,7 @@ def extract_registration_info(form):
         'street' : bleach.clean(form.get("street")),
         'city' : bleach.clean(form.get("city")),
         'state' : bleach.clean(form.get("state")),
-        'zip' : bleach.clean(form.get("zip-code")),
+        'zip' : validate_zip_code(bleach.clean(form.get("zip-code"))),
     }
 
     hours = {
@@ -234,6 +234,14 @@ def load_translations():
         with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
             translations[lang] = json.load(file)
     return translations
+
+def validate_zip_code(zip_code):
+    pattern = re.compile(r'^\d{5}(?:-\d{4})?$')
+
+    if zip_code is  None or not bool(pattern.match(zip_code)):
+        return None
+    
+    return zip_code
 
 def validate_hours(open_time, close_time, prev_close):
     # Clean the input times
