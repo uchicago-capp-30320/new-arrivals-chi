@@ -189,13 +189,14 @@
             const dayGroup = document.getElementById(dayId).querySelector('.day-intervals');
             const newInterval = document.createElement('div');
             newInterval.className = 'day-group';
-            const day = dayId.slice(0, -6) + '-' +dayGroup.parentNode.children.length;
+            const day = dayId.slice(0, -6);
+            const number = dayGroup.parentNode.children.length + 1;
 
             newInterval.innerHTML = `
                 <label class="day-label"></label>
                 <div>
-                    <input type="time" name="${day}-open" class="time-input">
-                    <input type="time" name="${day}-close" class="time-input">
+                    <input type="time" name="${day}-open-${number}" class="time-input">
+                    <input type="time" name="${day}-close-${number}" class="time-input">
                 </div>
                 <div class="buttons-group">
                     <button type="button" onclick="addInterval('${dayId}')">Add Break</button>
