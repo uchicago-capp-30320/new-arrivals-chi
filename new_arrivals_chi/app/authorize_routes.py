@@ -243,4 +243,11 @@ def register():
 def post_register():
     location, hours = extract_registration_info(request.form)
 
-    return location, hours
+    if (any(value is None for value in location.values())):
+        flash(escape("Please confirm that the entered location is correct."))
+    elif (any(value is None for value in hours.values())):
+        flash(escape("Please confirm that the entered hours are correct."))
+    else:
+        # Add information to the database
+        return redirect(url_for("main.profile"))
+    return redirect(url_for("authorize.register"))
