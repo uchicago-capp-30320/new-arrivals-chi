@@ -1,4 +1,4 @@
-name: run-tests # add comment to trigger workflow
+name: run-tests
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history for all branches and tags
 
@@ -22,11 +22,13 @@ jobs:
         id: check-deps
         run: |
           echo "Checking pyproject.toml and poetry.lock for changes..."
-          CHANGES=$(git diff --name-only origin/main ${{ github.head_ref }} | grep -E "^(pyproject.toml|poetry.lock)$" || true)
+          BASE_BRANCH=${{ github.event.pull_request.base.ref }}
+          HEAD_BRANCH=${{ github.head_ref }}
+          CHANGES=$(git diff --name-only origin/$BASE_BRANCH $HEAD_BRANCH | grep -E "^(pyproject.toml|poetry.lock)$" || true)
           echo "Changed files: $CHANGES"
           if [ ! -z "$CHANGES" ]; then
             echo "Checking if requirements.txt has also been updated..."
-            if ! git diff --name-only origin/main ${{ github.head_ref }} | grep -q "requirements.txt"; then
+            if ! git diff --name-only origin/$BASE_BRANCH $HEAD_BRANCH | grep -q "requirements.txt"; then
               echo "ERROR: pyproject.toml or poetry.lock has changed, but requirements.txt has not been updated."
               echo "Please update requirements.txt by running 'make'."
               exit 1
@@ -36,7 +38,9 @@ jobs:
       - name: validate requirements.txt update
         if: steps.check-deps.outputs.poetry_updated == 'true'
         run: |
-          REQUIREMENTS_CHANGE=$(git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} | grep -q "requirements.txt")
+          BASE_BRANCH=${{ github.event.pull_request.base.ref }}
+          HEAD_BRANCH=${{ github.head_ref }}
+          REQUIREMENTS_CHANGE=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH | grep -q "requirements.txt")
           echo "requirements.txt changed: $REQUIREMENTS_CHANGE"
           if [ ! -z "$REQUIREMENTS_CHANGE" ]; then
             echo "requirements.txt updated correctly."
@@ -45,19 +49,19 @@ jobs:
             echo "Please update requirements.txt by running 'make'."
             exit 1
           fi
-  Test:
+  test:
     needs: validate-dependencies
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ['3.11', '3.12']
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: cache local deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .venv
           key: pydeps-${{ hashFiles('**/poetry.lock') }}-${{ matrix.python-version }}
@@ -68,7 +72,7 @@ jobs:
           virtualenvs-in-project: true
       - name: cache deps
         id: cache-deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.local
           key: poetry-1.5.1-${{ matrix.python-version }}
