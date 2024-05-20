@@ -13,7 +13,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch all history for all branches and tags
+          fetch-depth: 0
 
       - name: fetch all history
         run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
@@ -51,7 +51,6 @@ jobs:
           fi
 
   test:
-    needs: validate-dependencies
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -80,4 +79,7 @@ jobs:
       - run: poetry install --no-interaction --no-root
         if: steps.cache-deps.outputs.cache-hit != 'true'
       - run: poetry install --no-interaction
-      - run: poetry run pytest
+      - name: Run pytest
+        run: poetry run pytest
+      - name: Debug output
+        run: echo "Testing completed for Python ${{ matrix.python-version }}"
