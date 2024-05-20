@@ -22,7 +22,7 @@ Creation:
 @Date: 05/09/2024
 """
 
-from new_arrivals_chi.app.database import db, User, Organization, Location
+from new_arrivals_chi.app.database import db, User, Organization, Location, Hours
 from flask_login import current_user
 from flask_bcrypt import Bcrypt
 
@@ -99,15 +99,20 @@ def org_registration(location, hours):
         city = location['city'],
         state = location['state'],
         primary_location = True,
-        neighborhood = 'Test',
-        created_by = current_user.id
+        neighborhood = location['neighborhood']
         #organization = db.relationship("Organization", back_populates="locations")
         #services = db.relationship("Service", secondary=location_services, back_populates="locations")
     )
     
-    
+    for day in hours:
+        for hours_segment in hours[day]:
+            opening_time, closing_time = hours_segment
+            add_hours(
+                day_of_week = day,
+                opening_time = opening_time,
+                closing_time = closing_time
+            )
 
-    return True
 
 def add_location(street_address, zip_code, city, state, primary_location, neighborhood):
     new_location = Location(
@@ -121,6 +126,21 @@ def add_location(street_address, zip_code, city, state, primary_location, neighb
     )
     
     db.session.add(new_location)
+    db.session.commit()
+
+    return True
+
+def add_hours(day_of_week, opening_time, closing_time):
+    new_hours = Hours(
+        day_of_week = day_of_week, 
+        opening_time = opening_time, 
+        closing_time = closing_time,
+        created_by = current_user.id
+
+        #organizations = db.relationship("Organization", secondary=organizations_hours, back_populates="hours"
+    )
+    
+    db.session.add(new_hours)
     db.session.commit()
 
     return True
