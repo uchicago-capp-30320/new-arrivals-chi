@@ -452,7 +452,7 @@ def edit_organization():
     )
 
 
-@main.route("/add_organization", methods=["GET"])
+@main.route("/add_organization", methods=["GET", "POST"])
 @login_required
 def add_organization():
     """Establishes route to the add organization page.
