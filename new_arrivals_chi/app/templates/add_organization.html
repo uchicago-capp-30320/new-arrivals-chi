@@ -10,10 +10,42 @@ Landing page for user to navigate through undocumented resources.
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- We still need to make json for this static page-->
+    <!--Update with add org info-->
 
-    <h1>{{translations[language]['legal_start']['undocumented']}}</h1>
-    <!-- Update spanish! -->
+    <h1>{{translations[language]['profile']['title']}}</h1>
+    
+    <!-- Form to add stuff -->
+
+    <div class="column is-4 is-offset-4">
+        <div class="box">
+            <form method="POST" action="/signup">
+
+
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="email" name="email" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="email-confirm" name="email-confirm" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+                    </div>
+                </div>
+
+                <div class="content">
+                    {{ 'Confirm e-mail' if language == 'en' else 'Confirmar correo'
+                    }}
+                </div>
+
+                <button class="button is-block is-info is-large is-fullwidth">{{ 'Add organization' if language == 'en' else 'Agregar organization' }}</button>
+            </form>
+        </div>
+    </div>
+
+
 
 
 {% endblock %}
