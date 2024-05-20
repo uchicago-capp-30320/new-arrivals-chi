@@ -93,17 +93,31 @@ def org_registration(location, hours):
     Returns:
         
     """
-    new_location = Location(
+    add_location(
         street_address = location['street'],
         zip_code = location['zip-code'],
         city = location['city'],
         state = location['state'],
         primary_location = True,
-        neighborhood = 'Test'
-        #created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-       
+        neighborhood = 'Test',
+        created_by = current_user.id
         #organization = db.relationship("Organization", back_populates="locations")
         #services = db.relationship("Service", secondary=location_services, back_populates="locations")
+    )
+    
+    
+
+    return True
+
+def add_location(street_address, zip_code, city, state, primary_location, neighborhood):
+    new_location = Location(
+        street_address = street_address,
+        zip_code = zip_code,
+        city = city,
+        state = state,
+        primary_location = primary_location,
+        neighborhood = neighborhood,
+        created_by = current_user.id
     )
     
     db.session.add(new_location)
