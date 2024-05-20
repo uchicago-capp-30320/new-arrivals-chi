@@ -1,0 +1,44 @@
+<!--
+Project: new_arrivals_chi
+File name: org_management.html
+Associated Files:
+    base.html, main.py, org_management.css
+
+HTML for edit organization page.
+-->
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+<link rel="stylesheet" href="org_management.css">
+</head>
+<body>
+    <h1>{{translations[language]['admin']['org_management']}}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>{{translations[language]['admin']['name_of_org']}}</th>
+                <th>{{translations[language]['admin']['status']}}</th>
+                <th>{{translations[language]['admin']['action']}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for org in organizations %}
+            <tr>
+                <td>{{ org.name }}</td>
+                <td>{% if org.active %} {{translations[language]['admin']['active']}}
+                    {% else %}{{translations[language]['admin']['inactive']}}{% endif %}</td>
+                <td>
+                    <button class="btn-edit" onclick="location.href='{{ url_for('main.edit_organization', organization_id=org.id) | escape }}'">
+                    {{translations[language]['admin']['edit']}}</button>
+                    <button class="btn-suspend">{{translations[language]['admin']['suspend']}}</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class="yellow-button" onclick="location.href='{{ '/' | escape }}'">
+        {{ translations[language]['util']['back'] | escape }}
+    </button>
+</body>
+{% endblock %}

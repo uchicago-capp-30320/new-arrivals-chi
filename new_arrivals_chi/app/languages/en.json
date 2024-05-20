@@ -1,5 +1,17 @@
 {
   "en": {
+    "admin": {
+      "org_management": "Organization Management",
+      "name_of_org": "Name of Organization",
+      "add_org": "Add Organization",
+      "suspend": "Suspend",
+      "edit": "Edit",
+      "error_reports": "Website error reports",
+      "status": "Status",
+      "action": "Action",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
     "base": {
       "dashboard": "Dashboard",
       "home": "Home",

@@ -1,0 +1,37 @@
+/**
+Project: new_arrivals_chi
+File name: org_management.css
+Associated Files:
+    base.html, main.py, org_management.html
+
+This file contains the CSS for formatting the Legal Flow page.
+**/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.btn-edit, .btn-suspend {
+    padding: 6px 12px;
+    margin-right: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-suspend {
+    background-color: #f44336;
+}

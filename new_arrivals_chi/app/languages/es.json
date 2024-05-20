@@ -1,5 +1,17 @@
 {
   "es": {
+    "admin": {
+      "org_management": "Administraci\u00f3n de Organizaci\u00f3nes",
+      "name_of_org": "Nombre de la Organizaci\u00f3n",
+      "add_org": "Añadir una Organización.",
+      "suspend": "Suspender",
+      "edit": "Editar",
+      "error_reports": "Informes de errores del sitio web",
+      "status": "Estado",
+      "action": "Acci\u00f3n",
+      "active": "Activo",
+      "inactive": "Inactivo"
+    },
     "base": {
       "dashboard": "Panel de Control",
       "home": "P\u00e1gina de inicio",

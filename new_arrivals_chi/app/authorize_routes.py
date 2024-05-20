@@ -35,7 +35,7 @@ from flask import (
     flash,
     current_app,
 )
-from new_arrivals_chi.app.database import User
+from new_arrivals_chi.app.database import User, Organization
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
     validate_password,
@@ -217,3 +217,55 @@ def post_change_password():
         return redirect(url_for("main.dashboard"))
 
     return redirect(url_for("authorize.change_password"))
+
+
+@authorize.route('/admin_management')
+@login_required
+def admin_dashboard():
+    """
+    Establishes route to admin management or redirects to home based on user.
+
+    This route checks if the current user is an admin. If yes, it renders
+    the admin dashboard template. If not, it redirects the user to the home
+    page.
+
+    Returns:
+        Renders the admin dashboard page where admin can select to manage
+        organizations or look at website error reports. If user is not admin,
+        it redirects to home page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    if current_user.is_admin:
+        return render_template('admin_management.html', 
+                               language=language,
+                               translations=translations)
+    else:
+        return render_template('home.html',
+                               language=language,
+                               translations=translations )
+    
+@authorize.route("/org_management", methods=["GET"])
+@login_required 
+def admin_organizations():
+    """
+    Establishes route to the organization management page with a list of 
+    organizations.
+
+    This route fetches a list of organizations from the database and renders
+    the organization management template with the list.
+
+    Returns:
+        Renders template with organizations.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    organizations = Organization.query.with_entities(Organization.name,
+                                                     Organization.status).all()
+    return render_template("org_management.html", \
+                           organizations=organizations,
+                           language=language,
+                           translations=translations)
+
