@@ -451,6 +451,7 @@ def edit_organization():
 
 
 @main.route("/add_organization", methods=["GET"])
+@login_required
 def add_organization():
     """Establishes route to the add organization page.
 
@@ -461,11 +462,22 @@ def add_organization():
         Renders the add organization page where admin can add
         a new organization.
     """
+    # Check if the user is an admin
+    if not current_user.is_admin:
+        return "Unauthorized", 401
+
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
     if request.method == "POST":
+        email = request.form.get("email")
+        confirmed_email = request.form.get("email-confirm")
+
+        # Check if the email and confirmed email match
+        if email != confirmed_email:
+            return "Emails do not match", 400
         # Handle the form submission
         pass
+
     return render_template(
         "add_organization.html",
         language=language,
