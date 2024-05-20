@@ -26,6 +26,7 @@ Madeleine Roberts @MadeleineKRoberts
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    {% block styles %}{% endblock %}
 </head>
 
 <body>
@@ -53,7 +54,7 @@ Madeleine Roberts @MadeleineKRoberts
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
 </form>
 
-<div class="container has-text-centered">
+<div class="container">
     {% block content %}
     {% endblock %}
  </div>
