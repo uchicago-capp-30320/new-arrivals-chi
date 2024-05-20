@@ -28,9 +28,11 @@ from flask import (
     request,
     current_app,
     url_for,
+    flash,
 )
 import os
 import bleach
+from markupsafe import escape
 from dotenv import load_dotenv
 
 from new_arrivals_chi.app.constants import (
@@ -474,7 +476,7 @@ def add_organization():
 
         # Check if the email and confirmed email match
         if email != confirmed_email:
-            return "Emails do not match", 400
+            flash(escape("Emails do not match. Try again"))
         # Handle the form submission
         pass
 
