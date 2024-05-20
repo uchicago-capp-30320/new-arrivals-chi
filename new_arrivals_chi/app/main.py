@@ -458,7 +458,8 @@ def add_organization():
     home page.
 
     Returns:
-        Renders the add organization page where admin can add a new organization.
+        Renders the add organization page where admin can add
+        a new organization.
     """
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
