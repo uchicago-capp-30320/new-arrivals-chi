@@ -28,6 +28,7 @@ import json
 import re
 import os
 import bleach
+import us
 from datetime import datetime
 from password_strength import PasswordPolicy
 from flask_bcrypt import Bcrypt
@@ -77,7 +78,7 @@ def extract_registration_info(form):
     location = {
         'street' : bleach.clean(form.get("street")),
         'city' : bleach.clean(form.get("city")),
-        'state' : bleach.clean(form.get("state")),
+        'state' : validate_state(bleach.clean(form.get("state"))),
         'zip' : validate_zip_code(bleach.clean(form.get("zip-code"))),
     }
 
@@ -235,13 +236,19 @@ def load_translations():
             translations[lang] = json.load(file)
     return translations
 
+def validate_state(state_code):
+    if state_code is None or us.states.lookup(state_code) is None:
+        return None
+    return state_code
+
+
 def validate_zip_code(zip_code):
     pattern = re.compile(r'^\d{5}(?:-\d{4})?$')
 
-    if zip_code is  None or not bool(pattern.match(zip_code)):
+    if zip_code is None or not bool(pattern.match(zip_code)):
         return None
-    
     return zip_code
+
 
 def validate_hours(open_time, close_time, prev_close):
     # Clean the input times
