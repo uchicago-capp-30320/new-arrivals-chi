@@ -286,5 +286,9 @@ input[type="text"], select {
     height: 25px;
 }
 
+.flashed_error_message {
+    color: red;
+ /* Optional, for emphasis */
+}
 
 
