@@ -111,6 +111,8 @@ def org_registration(location, hours):
                 day_of_week = day,
                 opening_time = opening_time,
                 closing_time = closing_time
+
+                #organizations = db.relationship("Organization", secondary=organizations_hours, back_populates="hours"
             )
 
 
@@ -123,6 +125,9 @@ def add_location(street_address, zip_code, city, state, primary_location, neighb
         primary_location = primary_location,
         neighborhood = neighborhood,
         created_by = current_user.id
+
+        #organization = db.relationship("Organization", back_populates="locations")
+        #services = db.relationship("Service", secondary=location_services, back_populates="locations")
     )
     
     db.session.add(new_location)
