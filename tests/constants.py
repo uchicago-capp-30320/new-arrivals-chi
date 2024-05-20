@@ -2,9 +2,13 @@
 
 import datetime
 
-# Valid Values
-VALID_EMAIL = "test@example.com"
-VALID_PASSWORD = "TestPassword123!"
+# Param Values
+PARAM_PASS_SQL_INJECTION = (
+    "wrongpassword' UNION SELECT 1, username, password FROM users --"
+)
+PARAM_USER_SQL_INJECTION = "test@example.com' OR '1'='1' --"
+PARAM_VALID_EMAIL = "test@example.com"
+PARAM_VALID_PASSWORD = "TestPassword123!"
 
 # FAKE NEIGHBORHOODS
 FAKE_NEIGHBORHOODS = [

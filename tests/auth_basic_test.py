@@ -32,7 +32,12 @@ Creation:
 
 from http import HTTPStatus
 import pytest
-from tests.constants import VALID_EMAIL, VALID_PASSWORD
+from tests.constants import (
+    PARAM_VALID_EMAIL,
+    PARAM_VALID_PASSWORD,
+    PARAM_PASS_SQL_INJECTION,
+    PARAM_USER_SQL_INJECTION,
+)
 
 
 def test_signup_route(client, capture_templates, setup_logger):
@@ -68,13 +73,13 @@ def test_signup_route(client, capture_templates, setup_logger):
     "email, password, password_confirm",
     [
         ("bad_email", "TestP@ssword!", "TestP@ssword!"),
-        ("test@example.com", "wrongpassword", "wrongpassword"),
+        (PARAM_VALID_EMAIL, "wrongpassword", "wrongpassword"),
         # SQL Injections
-        ("test@example.com' OR '1'='1' --", "TestP@ssword!", "TestP@ssword!"),
+        (PARAM_USER_SQL_INJECTION, "TestP@ssword!", "TestP@ssword!"),
         (
-            "test@example.com",
-            "wrongpassword' UNION SELECT 1, username, password FROM users --",
-            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+            PARAM_VALID_EMAIL,
+            PARAM_PASS_SQL_INJECTION,
+            PARAM_PASS_SQL_INJECTION,
         ),
     ],
 )
@@ -121,13 +126,13 @@ def test_signup_post_invalid_email(
     "email, password, password_confirm",
     [
         ("bad_email", "TestP@ssword!", "TestP@ssword!"),
-        ("test@example.com", "wrongpassword", "wrongpassword"),
+        (PARAM_VALID_EMAIL, "wrongpassword", "wrongpassword"),
         # SQL injections
-        ("test@example.com' OR '1'='1' --", "TestP@ssword!", "TestP@ssword!"),
+        (PARAM_USER_SQL_INJECTION, "TestP@ssword!", "TestP@ssword!"),
         (
-            "test@example.com",
-            "wrongpassword' UNION SELECT 1, username, password FROM users --",
-            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+            PARAM_VALID_EMAIL,
+            PARAM_PASS_SQL_INJECTION,
+            PARAM_PASS_SQL_INJECTION,
         ),
     ],
 )
@@ -249,7 +254,7 @@ def test_login_valid_credentials(
     try:
         response = client.post(
             "/login",
-            data={"email": "test@example.com", "password": "TestP@ssword!"},
+            data={"email": PARAM_VALID_EMAIL, "password": "TestP@ssword!"},
             follow_redirects=False,
         )
         response = client.get(
@@ -271,12 +276,12 @@ def test_login_valid_credentials(
     "email, password",
     [
         ("bad_email", "TestP@ssword!"),
-        ("test@example.com", "wrongpassword"),
+        (PARAM_VALID_EMAIL, "wrongpassword"),
         # SQL Injections
-        ("test@example.com' OR '1'='1' --", "TestP@ssword!"),
+        (PARAM_USER_SQL_INJECTION, "TestP@ssword!"),
         (
-            "test@example.com",
-            "wrongpassword' UNION SELECT 1, username, password FROM users --",
+            PARAM_VALID_EMAIL,
+            PARAM_PASS_SQL_INJECTION,
         ),
     ],
 )
@@ -383,7 +388,7 @@ def test_page_requiring_login_after_logout(
     logger = setup_logger("test_page_requiring_login_after_logout")
     client.post(
         "/login",
-        data={"email": VALID_EMAIL, "password": VALID_PASSWORD},
+        data={"email": PARAM_VALID_EMAIL, "password": PARAM_VALID_PASSWORD},
         follow_redirects=True,
     )
     client.get("/logout", follow_redirects=True)
