@@ -21,7 +21,6 @@ Creation:
 @Date: 04/19/2024
 """
 
-
 from flask import (
     Flask,
     Blueprint,
@@ -446,6 +445,28 @@ def edit_organization():
     return render_template(
         "edit_organization.html",
         organization=organization,
+        language=language,
+        translations=translations,
+    )
+
+
+@main.route("/add_organization", methods=["GET"])
+def add_organization():
+    """Establishes route to the add organization page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the add organization page where admin can add a new organization.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    if request.method == "POST":
+        # Handle the form submission
+        pass
+    return render_template(
+        "add_organization.html",
         language=language,
         translations=translations,
     )
