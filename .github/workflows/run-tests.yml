@@ -1,4 +1,4 @@
-name: run-tests
+name: run-tests # add comment to trigger workflow
 
 on:
   push:
