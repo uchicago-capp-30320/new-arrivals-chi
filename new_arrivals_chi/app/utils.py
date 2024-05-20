@@ -239,14 +239,14 @@ def load_translations():
 def validate_street(street):
     pattern = re.compile(r"^[0-9a-zA-Z\s,'-\.#]+$")
    
-    if street is not None or not bool(pattern.match(street)):
+    if street is None or not bool(pattern.match(street)):
         return None
     return street
 
 def validate_city(city):
-    pattern = re.compile(r"^[a-zA-Z]+(?:[\s-'][a-zA-Z]+)*$")
+    pattern = re.compile(r"^[a-zA-Z]+(?:[\s\-'][a-zA-Z]+)*$")
    
-    if city is not None or not bool(pattern.match(city)):
+    if city is None or not bool(pattern.match(city)):
         return None
     return city
 
