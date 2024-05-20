@@ -17,7 +17,7 @@ The core configurations for our tests are managed through `conftest.py`, which i
 - `capture_templates`: Create a function to retrieve the templates rendered
 - `test_user`: Create a test user in the database before each test and remove after
 - `logged_in_state`(client): Logs in a user for testing routes that require authentication
-- 
+
 
 ## Writing Tests
 
@@ -27,8 +27,6 @@ Test files are organized by their respective application components.
 
 The `utils.py` file contains functions for creating the fake database.
 The `setup_fake_db.py` script is used to create a fake database instance and fill it with data.
-
-**IN PROGRESS** The `sql_injection.py` file focuses on testing the fake database instance for SQL injections to ensure that input handling is secure and prevents unauthorized database access or manipulation.
 
 ### Tests Included
 
