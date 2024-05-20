@@ -76,7 +76,7 @@ def extract_registration_info(form):
     """
     """
     location = {
-        'street' : bleach.clean(form.get("street")),
+        'street' : validate_street(bleach.clean(form.get("street"))),
         'city' : validate_city(bleach.clean(form.get("city"))),
         'state' : validate_state(bleach.clean(form.get("state"))),
         'zip' : validate_zip_code(bleach.clean(form.get("zip-code"))),
@@ -235,6 +235,13 @@ def load_translations():
         with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
             translations[lang] = json.load(file)
     return translations
+
+def validate_street(street):
+    pattern = re.compile(r"^[0-9a-zA-Z\s,'-\.#]+$")
+   
+    if street is not None or not bool(pattern.match(street)):
+        return None
+    return street
 
 def validate_city(city):
     pattern = re.compile(r"^[a-zA-Z]+(?:[\s-'][a-zA-Z]+)*$")
