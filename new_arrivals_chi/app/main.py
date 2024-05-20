@@ -21,15 +21,24 @@ Creation:
 @Date: 04/19/2024
 """
 
+from http import HTTPMethod
+
 from flask import Flask, Blueprint, render_template, request, current_app, flash
 from markupsafe import escape
 import os
 import bleach
 from dotenv import load_dotenv
+
+from new_arrivals_chi.app.constants import (
+    KEY_LANGUAGE,
+    KEY_TRANSLATIONS,
+    DEFAULT_LANGUAGE,
+)
 from new_arrivals_chi.app.database import db, User, Organization
 from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
+import sqlite3
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 
@@ -51,15 +60,15 @@ def home():
     Returns:
         Renders home page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "home.html", language=language, translations=translations
     )
 
 
-@main.route("/profile", methods=["GET", "POST"])
+@main.route("/profile", methods=[HTTPMethod.GET, HTTPMethod.POST])
 @login_required
 def profile():
     """Handles both displaying the user's profile and adding an organization.
@@ -67,8 +76,8 @@ def profile():
     GET: Renders profile page with user's organization info.
     POST: Adds a new organization to the database and redirects to profile page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     if request.method == "POST":
         name = bleach.clean(request.form.get("name"))
@@ -101,11 +110,228 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "legal.html", language=language, translations=translations
+        "legal_flow.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/tps_info")
+def legal_tps_info():
+    """Establishes route for the TPS info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - TPS info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "tps_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/tps_apply")
+def legal_tps_apply():
+    """Establishes route for the TPS apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - TPS apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "tps_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/vttc_info")
+def legal_vttc_info():
+    """Establishes route for the VTTC info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal VTTC info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "vttc_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/vttc_apply")
+def legal_vttc_apply():
+    """Establishes route for the VTTC apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - VTTC apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "vttc_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/asylum_info")
+def legal_asylum_info():
+    """Establishes route for the Asylum info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Asylum info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "asylum_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/asylum_apply")
+def legal_asylum_apply():
+    """Establishes route for the Asylum apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Asylum apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "asylum_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/parole_info")
+def legal_parole_info():
+    """Establishes route for the Parole info page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Parole info page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "parole_info.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/parole_apply")
+def legal_parole_apply():
+    """Establishes route for the Parole apply page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Parole apply page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "parole_apply.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/undocumented_resources")
+def legal_undocumented_resources():
+    """Establishes route for the Undocumented Resources page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Undocumented Resources page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "undocumented_resources.html",
+        language=language,
+        translations=translations,
+    )
+
+
+@main.route("/legal/help")
+def legal_help():
+    """Establishes route for the Legal Help page.
+
+    This route is accessible within the legal section.
+
+    Returns:
+        Renders legal flow - Legal Help page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "help.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/work_rights")
+def workers_rights():
+    """Route for information about workers' rights.
+
+    Returns:
+        Renders the workers' rights page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "work_rights.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/renters_rights")
+def renters_rights():
+    """Route for information about renters' rights.
+
+    Returns:
+        Renders the renters' rights page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "renters_rights.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/general")
+def legal_general():
+    """Route for general legal information.
+
+    Returns:
+        Renders the legal general page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "general.html", language=language, translations=translations
     )
 
 
@@ -118,8 +344,8 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "health.html", language=language, translations=translations
@@ -136,11 +362,37 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    # Implementation with demonstrative data
+    conn = sqlite3.connect("instance/test_fake_data.db")
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT s.service, l.neighborhood, o.name, "
+        + "strftime('%I:%M %p', h.opening_time) "
+        "|| ' - ' || "
+        "strftime('%I:%M %p', h.closing_time) "
+        "AS opening_closing_time "
+        "FROM organizations o "
+        "JOIN hours h ON o.hours_id = h.id "
+        "JOIN locations l ON o.location_id = l.id "
+        "JOIN organizations_services os ON o.id = os.organization_id "
+        "JOIN services s ON os.service_id = s.id"
+    )
+
+    services_info = cursor.fetchall()
+
+    conn.close()
+
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "health_search.html", language=language, translations=translations
+        "health_search.html",
+        language=language,
+        translations=translations,
+        services_info=services_info,
+        set=set,
     )
 
 
@@ -153,8 +405,10 @@ def info():
     Returns:
         Renders information of an organization.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(
+        request.args.get(KEY_TRANSLATIONS, DEFAULT_LANGUAGE)
+    )
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "info.html", language=language, translations=translations
@@ -169,7 +423,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    app.config["TRANSLATIONS"] = load_translations()
+    app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
@@ -200,4 +454,4 @@ if __name__ == "__main__":
     # certificate, though you can continue to proceed and visit the development
     # site. For the production deployment, we will ensure a valid certificate
     # from CA for our domain.
-    app.run(ssl_context=("adhoc"), debug=True)
+    app.run(ssl_context="adhoc", debug=True)

@@ -17,6 +17,24 @@ title {
     margin-bottom: 20px;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    padding: 4px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+.table-header select {
+    position: relative;
+    margin-top: 5px;
+}
+
 input[type="text"], select {
     width: 22%;
     padding: 5px;
@@ -59,7 +77,7 @@ input[type="text"], select {
 }
 
 .button-blue:hover {
-    background-color: #2980b9;
+    background-color: #297def;
 }
 
 .button-yellow {
@@ -68,7 +86,7 @@ input[type="text"], select {
 }
 
 .button-yellow:hover {
-    background-color: #d4ac0d;
+    background-color: #FFBE00;
 }
 
 .button-green {
@@ -80,12 +98,12 @@ input[type="text"], select {
     background-color: #27ae60;
 }
 
-.button.orange {
+.button-orange {
     background-color: #F9E3CE;
     color: black;
 }
 
-.button.orange:hover {
+.button-orange:hover {
     background-color: #FF8C00;
 }
 
@@ -162,7 +180,7 @@ input[type="text"], select {
 }
 
 .yellow-button:hover {
-    background-color: #FFD700;
+    background-color: #FFBE00;
 }
 
 .button.orange {
@@ -180,7 +198,7 @@ input[type="text"], select {
 }
 
 .button.green:hover {
-    background-color: #006400;
+    background-color: #27ae60;
 }
 
 .button.blue {
@@ -189,7 +207,7 @@ input[type="text"], select {
 }
 
 .button.blue:hover {
-    background-color: #00008B;
+    background-color: #297def;
 }
 
 .register-container {

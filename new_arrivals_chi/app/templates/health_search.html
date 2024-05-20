@@ -1,25 +1,78 @@
-<!--
-Project: new_arrivals_chi
-File name: health.html
-Associated Files:
-    base.html, main.py, health.html
-
-Search interface for health resources for a user.
-
-Creation:
-@Author: Summer Long @sumslong
-@Date: 05/03/2024
-
-Contributors:
-Summer Long @sumslong
--->
-
 {% extends "base.html" %}
 
 {% block content %}
 <form action="/health/search" method="GET">
-    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' | escape }}</button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-</form>
-<h1>Placeholder for search interface</h1>
+    <button type="submit" class="language-button">{{ 'Español' if language == 'en' else 'English' }}</button>
+    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' }}">
+    <h3>
+        Search for Resources
+    </h3>
+    <div>
+        <select id="supplies">
+            <option value="">Available Supplies and Services</option>
+            {% set supplies_set = set() %}
+            {% for row in services_info %}
+                {% if row[0] not in supplies_set %}
+                    {% set _ = supplies_set.add(row[0]) %}
+                    <option value="{{ row[0] }}">{{ row[0] }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+        <select id="neighborhood">
+            <option value="">Neighborhood</option>
+            {% set neighborhood_set = set() %}
+            {% for row in services_info %}
+                {% if row[1] not in neighborhood_set %}
+                    {% set _ = neighborhood_set.add(row[1]) %}
+                    <option value="{{ row[1] }}">{{ row[1] }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+        <select id="organization">
+            <option value="">Organization</option>
+            {% set organization_set = set() %}
+            {% for row in services_info %}
+                {% if row[2] not in organization_set %}
+                    {% set _ = organization_set.add(row[2]) %}
+                    <option value="{{ row[2] }}">{{ row[2] }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+        <select id="hours">
+            <option value="">Hours</option>
+            {% set hours_set = set() %}
+            {% for row in services_info %}
+                {% if row[3] not in hours_set %}
+                    {% set _ = hours_set.add(row[3]) %}
+                    <option value="{{ row[3] }}">{{ row[3] }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <table id="healthTable">
+        <thead>
+            <tr>
+                <th class="table-header">Supplies and Services</th>
+                <th class="table-header">Neighborhood</th>
+                <th class="table-header">Organization</th>
+                <th class="table-header">Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in services_info %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/filter.js') }}"></script>
 {% endblock %}

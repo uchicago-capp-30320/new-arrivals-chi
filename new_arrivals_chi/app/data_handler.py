@@ -4,8 +4,8 @@ File name: data_handler.py
 Associated Files:
    authorize_routes.py.
 
-This file contains utility methods for validating user input and handling d
-atabase operations.
+This file contains utility methods for validating user input and handling
+database operations.
 
 Methods:
     * create_user - Creates a new user in the database.

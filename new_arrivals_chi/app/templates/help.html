@@ -1,0 +1,36 @@
+<!--
+Project: new_arrivals_chi
+File name: legal_help.html
+Associated Files:
+    base.html, main.py
+
+Landing page for user to navigate through legal resources.
+
+Creation:
+@Author: Xiomara Salazar @xiomara0
+@Date: 05/12/2024
+
+-->
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- We still need to make json for this static page-->
+
+    <h1>{{ 'Legal Help Resources' }}</h1>
+    <!-- Update spanish! -->
+
+    <div class="info-section">
+        <h2>{{ 'Application Instructions'  }}</h2>
+        <p>{{ 'Provide instructions and guidance for Aslyum.' }}</p>
+    </div>
+
+    <div class="info-section">
+        <h2>{{ 'Important Documents' }}</h2>
+        <ul>
+            <li>{{ 'Document 1' }}</li>
+            <li>{{ 'Document 2' }}</li>
+            <li>{{ 'Document 3' }}</li>
+        </ul>
+    </div>
+
+{% endblock %}

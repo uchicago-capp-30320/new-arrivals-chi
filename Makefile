@@ -6,7 +6,7 @@ create_requirements:
 
 .PHONY: update_db
 update_db:
-	web alembic --config=./new_arrivals_chi/migrations/alembic.ini upgrade head
+	alembic --config=./new_arrivals_chi/migrations/alembic.ini upgrade head
 
 .PHONY: lint
 lint:

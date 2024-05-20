@@ -1,0 +1,27 @@
+<!--
+Project: new_arrivals_chi
+File name: legal_flow.html
+Associated Files:
+    base.html, main.py, legal_data.js, legal_flow.js, legal.css
+
+HTML template for the decision tree for legal resources.
+-->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="box">
+    <div id="buttonContainer" class="button-container"></div>
+</div>
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal.css') }}">
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/legal_data.js') }}"></script>
+<script>
+    let languageData = {{ translations[language].legal_start | tojson | escape}};
+</script>
+<script src="{{ url_for('static', filename='js/legal_flow.js') }}"></script>
+
+{% endblock %}
