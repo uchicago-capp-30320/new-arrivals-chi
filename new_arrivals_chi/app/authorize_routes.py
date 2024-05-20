@@ -47,7 +47,7 @@ from new_arrivals_chi.app.utils import (
     
 )
 from flask_login import login_user, login_required, logout_user, current_user
-from new_arrivals_chi.app.data_handler import create_user, change_db_password
+from new_arrivals_chi.app.data_handler import create_user, change_db_password, org_registration
 
 import logging
 
@@ -249,5 +249,6 @@ def post_register():
         flash(escape("Please confirm that the entered hours are correct."))
     else:
         # Add information to the database
+        org_registration(location, hours)
         return redirect(url_for("main.profile"))
     return redirect(url_for("authorize.register"))

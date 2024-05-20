@@ -79,7 +79,7 @@ def extract_registration_info(form):
         'street' : validate_street(bleach.clean(form.get("street"))),
         'city' : validate_city(bleach.clean(form.get("city"))),
         'state' : validate_state(bleach.clean(form.get("state"))),
-        'zip' : validate_zip_code(bleach.clean(form.get("zip-code"))),
+        'zip-code' : validate_zip_code(bleach.clean(form.get("zip-code"))),
     }
 
     hours = {

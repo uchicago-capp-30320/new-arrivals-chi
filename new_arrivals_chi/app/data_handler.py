@@ -22,7 +22,7 @@ Creation:
 @Date: 05/09/2024
 """
 
-from new_arrivals_chi.app.database import db, User, Organization
+from new_arrivals_chi.app.database import db, User, Organization, Location
 from flask_login import current_user
 from flask_bcrypt import Bcrypt
 
@@ -84,3 +84,29 @@ def create_organization_profile(name, phone, status):
     db.session.add(new_organization)
     db.session.commit()
     return new_organization.id
+
+def org_registration(location, hours):
+    """Creates org information in the database.
+
+    Parameters:
+
+    Returns:
+        
+    """
+    new_location = Location(
+        street_address = location['street'],
+        zip_code = location['zip-code'],
+        city = location['city'],
+        state = location['state'],
+        primary_location = True,
+        neighborhood = 'Test'
+        #created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+       
+        #organization = db.relationship("Organization", back_populates="locations")
+        #services = db.relationship("Service", secondary=location_services, back_populates="locations")
+    )
+    
+    db.session.add(new_location)
+    db.session.commit()
+
+    return True
