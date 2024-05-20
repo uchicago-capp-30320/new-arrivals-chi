@@ -465,7 +465,7 @@ def add_organization():
         a new organization.
     """
     # Check if the user is an admin
-    if not current_user.is_admin:
+    if current_user.role != "admin":
         return "Unauthorized", 401
 
     language = bleach.clean(request.args.get("lang", "en"))
