@@ -1,21 +1,45 @@
 <!--
 Project: new_arrivals_chi
-File name: legal_tps_info.html
+File name: ps_info.html
 Associated Files:
-    base.html, main.py
-
-Landing page for user to navigate through health information.
-
-Creation:
-@Author: Xiomara Salazar @xiomara0
-@Date: 05/12/2024
-
+    base.html, main.py, legal_page.css
 -->
+
 {% extends "base.html" %}
 
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
+{% endblock %}
+
 {% block content %}
-    <!-- We still need to make json for this static page-->
+<div class="white-container">
+  {% set content = translations[language]['tps_info'] %}
+  {% if content.title %}
+    <h1>{{ content.title }}</h1>
+  {% endif %}
+  {% for section in content.content %}
+    {% if section.header %}
+        <h2>{{ section.header }}</h2>
+    {% endif %}
+    {% if section.sub %}
+      <h3>{{ section.sub }}</h3>
+    {% endif %}
+    {% if section.body %}
+      <p>{{ section.body }}</p>
+    {% endif %}
+    {% if section.list %}
+      <ul>
+        {% for item in section.list %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+  <button class="yellow-button" onclick="location.href='{{ url_for('main.legal') | escape }}'">{{ translations[language]['util']['back'] }}</button>
+</div>
+{% endblock %}
 
-    <h1>{{ translations[language]['legal_start']['tps_header']}}</h1>
 
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/legal_tps_info.js') }}"></script>
 {% endblock %}

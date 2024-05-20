@@ -81,6 +81,94 @@
       "update_org_info": "Update My Information",
       "view_org_page": "View My Page"
     },
+    "tps_info": {
+      "content": [
+        {
+          "body": "Temporary Protected Status (TPS) allows people from certain countries to live and work in the United States.",
+          "header": "What is Temporary Protective Status?"
+        },
+        {
+          "sub": "The Secretary of Homeland Security may designate a foreign country for TPS due to:"
+        },
+        {
+          "list": [
+            "Ongoing civil war or conflict in the country,",
+            "An environmental disaster or an epidemic, or",
+            "Other extraordinary or temporary conditions.",
+            "Eligible individuals without nationality who last resided in the designated country may be able to receive TPS."
+          ]
+        },
+        {
+          "header": "Am I eligible for TPS?",
+          "sub": "To qualify for TPS, you must:"
+        },
+        {
+          "list": [
+            "Be from a foreign country with a TPS designation, and",
+            "Be continuously physically present and residing in the US from the date the designation went into effect."
+          ]
+        },
+        {
+          "sub": "You may not be eligible for TPS or maintain your existing TPS if:"
+        },
+        {
+          "list": [
+            "You have been convicted of a felony in the US,",
+            "You have been convicted of two or more misdemeanors in the US,",
+            "You meet any of the mandatory asylum bars, or",
+            "You fail to meet the requirements for TPS."
+          ]
+        },
+        {
+          "sub": "If you are from one of the following countries and arrived in the US before the date listed, you are likely eligible for TPS:"
+        },
+        {
+          "list": [
+            "Afghanistan (May 20, 2022)",
+            "Burma (Myanmar) (March 25, 2024)",
+            "Cameroon (June 7, 2022)",
+            "El Salvador (December 14, 2023)",
+            "Ethiopia (April 15, 2024)",
+            "Haiti (December 14, 2023)",
+            "Honduras (December 14, 2023)",
+            "Nepal (December 14, 2023)",
+            "Nicaragua (December 14, 2023)",
+            "Somalia (March 13, 2023)",
+            "South Sudan (August 21, 2023)",
+            "Sudan (December 14, 2023)",
+            "Syria (January 29, 2024)",
+            "Ukraine (August 21, 2023)",
+            "Venezuela (November 17, 2023)",
+            "Yemen (January 3, 2023)"
+          ]
+        },
+        {
+          "header": "What are the benefits of TPS?",
+          "sub": "If you receive TPS:"
+        },
+        {
+          "list": [
+            "You cannot be detained by the Department of Homeland Security,",
+            "You cannot be deported from the US,",
+            "You can apply for a work permit,",
+            "You can apply to get permission to travel outside the US and return to the US, and",
+            "You can apply for asylum and other immigration benefits."
+          ]
+        },
+        {
+          "header": "What are the cons of TPS?",
+          "list": [
+            "It is a temporary benefit that doesn't lead to lawful permanent residence or citizenship,",
+            "Only applies to people already in the US, and",
+            "Cannot be used to apply for entry to the US."
+          ]
+        },
+        {
+          "body": "SOURCE: Illinois Legal Aid"
+        }
+      ],
+      "title": "Rights and Privileges of Temporary Protective Status Recipients"
+    },
     "util": {
       "back": "Back",
       "i_want_to": "I want to...",
