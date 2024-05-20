@@ -241,9 +241,6 @@ def register():
 @authorize.route("/register", methods=["POST"])
 @login_required
 def post_register():
-    print(request.form)
     location, hours = extract_registration_info(request.form)
-    
-    validate_hours(hours)
 
-    return location
+    return location, hours

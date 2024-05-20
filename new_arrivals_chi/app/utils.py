@@ -82,39 +82,46 @@ def extract_registration_info(form):
     }
 
     hours = {
-        '1':{
-            'open' : bleach.clean(form.get("monday-open")),
-            'close' : bleach.clean(form.get("monday-close"))
-        },
-        '2':{
-            'open' : bleach.clean(form.get("tuesday-open")),
-            'close' : bleach.clean(form.get("tuesday-close"))
-        },
-        '3':{
-            'open' : bleach.clean(form.get("wednesday-open")),
-            'close' : bleach.clean(form.get("wednesday-close"))
-        },
-        '4':{
-            'open' : bleach.clean(form.get("thursday-open")),
-            'close' : bleach.clean(form.get("thursday-close"))
-        },
-        '5':{
-            'open' : bleach.clean(form.get("friday-open")),
-            'close' : bleach.clean(form.get("friday-close"))
-        },
-        '6':{
-            'open' : bleach.clean(form.get("saturday-open")),
-            'close' : bleach.clean(form.get("saturday-close"))
-        },
-        '7':{
-            'open' : bleach.clean(form.get("sunday-open")),
-            'close' : bleach.clean(form.get("sunday-close"))
-        }
+        '1': extract_hours(form, 'monday'),
+        '2': extract_hours(form, 'tuesday'),
+        '3': extract_hours(form, 'wednesday'),
+        '4': extract_hours(form, 'thursday'),
+        '5': extract_hours(form, 'friday'),
+        '6': extract_hours(form, 'saturday'),
+        '7': extract_hours(form, 'sunday')
     }
+
+    print(hours)
 
     return location, hours
 
-    
+def extract_hours(form, day):
+    hours_list = []
+    prev_close = None
+
+    # Calculate the count of hour entries for the specified day
+    count = sum(1 for key in form.keys() if key.startswith(f'{day}-open-'))
+
+    # Process each hour entry
+    for curr_hour in range(1, count + 1):
+        open_time = form.get(f'{day}-open-{curr_hour}')
+        close_time = form.get(f'{day}-close-{curr_hour}')
+        
+        # Validate the hours
+        if open_time and close_time:
+            valid_hours = validate_hours(open_time, close_time, prev_close)
+
+            if valid_hours is None:
+                # If an invalid entry is found, return None
+                return None
+            
+            hours_list.append(valid_hours)
+            # Update prev_close with the new close time
+            _, new_close = valid_hours
+            prev_close = new_close
+
+    return hours_list
+
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
 def validate_email_syntax(email):
     """Validates the syntax of an email address.
@@ -215,7 +222,6 @@ def setup_logger(name):
     logger.addHandler(console_handler)
     return logger
 
-
 def load_translations():
     """Loads translations from JSON files for supported languages.
 
@@ -229,8 +235,16 @@ def load_translations():
             translations[lang] = json.load(file)
     return translations
 
-def validate_hours(hours):
-    for day, time in hours.items():
-        if time['open'] > time['close']:
-            return False
-    return True
+def validate_hours(open_time, close_time, prev_close):
+    # Clean the input times
+    open_cleaned = bleach.clean(open_time)
+    close_cleaned = bleach.clean(close_time)
+
+    # Validate the times
+    if (prev_close is None or open_cleaned > prev_close) and open_cleaned < close_cleaned:
+        return open_cleaned, close_cleaned
+
+    return None
+
+
+
