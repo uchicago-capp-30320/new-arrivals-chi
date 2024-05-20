@@ -27,6 +27,7 @@ import logging
 import json
 import re
 import os
+import bleach
 from datetime import datetime
 from password_strength import PasswordPolicy
 from flask_bcrypt import Bcrypt
@@ -70,20 +71,49 @@ def extract_new_pw_data(form):
     return old_password, new_password, new_password_confirm
 
 
-def extract_edit_profile(form):
+def extract_registration_info(form):
     """
     """
-    organization_name = form.get("organization")
-    email = form.get("email")
-    phone = form.get("phone")
     location = {
-        'street' : form.get("street"),
-        'zip' : form.get("zip"),
-        'city' : form.get("city"),
-        'state' : form.get("state"),
+        'street' : bleach.clean(form.get("street")),
+        'city' : bleach.clean(form.get("city")),
+        'state' : bleach.clean(form.get("state")),
+        'zip' : bleach.clean(form.get("zip-code")),
     }
 
-  
+    hours = {
+        '1':{
+            'open' : bleach.clean(form.get("monday-open")),
+            'close' : bleach.clean(form.get("monday-close"))
+        },
+        '2':{
+            'open' : bleach.clean(form.get("tuesday-open")),
+            'close' : bleach.clean(form.get("tuesday-close"))
+        },
+        '3':{
+            'open' : bleach.clean(form.get("wednesday-open")),
+            'close' : bleach.clean(form.get("wednesday-close"))
+        },
+        '4':{
+            'open' : bleach.clean(form.get("thursday-open")),
+            'close' : bleach.clean(form.get("thursday-close"))
+        },
+        '5':{
+            'open' : bleach.clean(form.get("friday-open")),
+            'close' : bleach.clean(form.get("friday-close"))
+        },
+        '6':{
+            'open' : bleach.clean(form.get("saturday-open")),
+            'close' : bleach.clean(form.get("saturday-close"))
+        },
+        '7':{
+            'open' : bleach.clean(form.get("sunday-open")),
+            'close' : bleach.clean(form.get("sunday-close"))
+        }
+    }
+
+    return location, hours
+
     
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
 def validate_email_syntax(email):
@@ -198,3 +228,9 @@ def load_translations():
         with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
             translations[lang] = json.load(file)
     return translations
+
+def validate_hours(hours):
+    for day, time in hours.items():
+        if time['open'] > time['close']:
+            return False
+    return True

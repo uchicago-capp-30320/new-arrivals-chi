@@ -42,9 +42,16 @@ from new_arrivals_chi.app.utils import (
     extract_signup_data,
     extract_new_pw_data,
     verify_password,
+    extract_registration_info,
+    validate_hours
+    
 )
 from flask_login import login_user, login_required, logout_user, current_user
 from new_arrivals_chi.app.data_handler import create_user, change_db_password
+
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
@@ -214,9 +221,9 @@ def post_change_password():
     return redirect(url_for("authorize.change_password"))
 
 
-@authorize.route("/edit_profile")
+@authorize.route("/register")
 @login_required
-def edit_profile():
+def register():
     """Establishes route for editing a uster's page.
 
     This route is accessible within the 'edit profile' button in the profile
@@ -228,41 +235,15 @@ def edit_profile():
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
     return render_template(
-        "edit_profile.html", language=language, translations=translations
+        "register.html", language=language, translations=translations
     )
 
-@authorize.route("/change_password", methods=["POST"])
+@authorize.route("/register", methods=["POST"])
 @login_required
-def edit_profile():
-    """Allows an authorized user to update their current password.
+def post_register():
+    print(request.form)
+    location, hours = extract_registration_info(request.form)
+    
+    validate_hours(hours)
 
-    Returns:
-        Redirects to the user's profile page if password change is successful,
-        otherwise redirects back to the change password page with a flash
-        message.
-    """
-    email, email, phone, location, hours = extract_edit_profile(
-        request.form
-    )
-
-    if not verify_password(current_user.password, old_password):
-        flash(escape("Wrong existing password. Try again"))
-
-    elif old_password == new_password:
-        # Do not need to check password hash because old password is correct
-        flash(
-            escape("New password cannot be the same as your previous password.")
-        )
-
-    elif not new_password == new_password_confirm:
-        flash(escape("New passwords do not match. Try again"))
-
-    elif not validate_password(new_password):
-        flash(escape("New password does not meet requirements. Try again."))
-
-    else:
-        change_db_password(new_password)
-        flash(escape("Password change successful."))
-        return redirect(url_for("main.profile"))
-
-    return redirect(url_for("authorize.change_password"))
+    return location
