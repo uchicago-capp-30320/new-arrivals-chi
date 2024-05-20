@@ -10,13 +10,6 @@ Class description
 Methods:
 	*Method Name — Short description
 
-Last updated:
-@Author: Name + Github username
-@Date:
-
-Creation:
-@Author: Name + Github username
-@Date:
 """
 
 *.html Files*:
@@ -29,14 +22,6 @@ Class description
 
 Methods:
 	*Method Name — Short description
-
-Last updated:
-@Author: Name + Github username
-@Date:
-
-Creation:
-@Author: Name + Github username
-@Date:
 -->
 
 ## Method Headers

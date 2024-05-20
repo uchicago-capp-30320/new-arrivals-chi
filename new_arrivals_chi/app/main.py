@@ -11,14 +11,6 @@ Methods:
     * home — Route to homepage of application.
     * profile - Route to user's profile.
     * legal - Route to legal portion of application.
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/13/2024
-
-Creation:
-@Author: Summer Long @Sumslong
-@Date: 04/19/2024
 """
 
 from http import HTTPMethod
