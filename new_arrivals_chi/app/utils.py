@@ -34,6 +34,9 @@ from password_strength import PasswordPolicy
 from flask_bcrypt import Bcrypt
 from new_arrivals_chi.app.constants import LANGUAGES
 
+from flask import current_app
+
+
 bcrypt = Bcrypt()
 
 
@@ -81,6 +84,7 @@ def extract_registration_info(form):
         'city' : validate_city(bleach.clean(form.get("city"))),
         'state' : validate_state(bleach.clean(form.get("state"))),
         'zip-code' : validate_zip_code(bleach.clean(form.get("zip-code"))),
+        'neighborhood' : validate_neighborhood(bleach.clean(form.get("neighborhood")))
     }
 
     hours = {
@@ -90,9 +94,10 @@ def extract_registration_info(form):
         '4': extract_hours(form, 'thursday'),
         '5': extract_hours(form, 'friday'),
         '6': extract_hours(form, 'saturday'),
-        '7': extract_hours(form, 'sunday')
+        '7': extract_hours(form, 'sunday'),
     }
 
+    print(location)
     print(hours)
 
     return location, hours
@@ -246,12 +251,14 @@ def validate_street(street):
 def validate_city(city):
     pattern = re.compile(r"^[a-zA-Z]+(?:[\s\-'][a-zA-Z]+)*$")
    
-    if city is None or not bool(pattern.match(city)):
+   # Contrained to Illinois for the first iteration
+    if city is None or not bool(pattern.match(city)) or city != "Chicago":
         return None
     return city
 
 def validate_state(state_code):
-    if state_code is None or us.states.lookup(state_code) is None:
+    # Contrained to Illinois for the first iteration
+    if state_code is None or us.states.lookup(state_code) is None or state_code !="IL":
         return None
     return state_code
 
@@ -262,6 +269,19 @@ def validate_zip_code(zip_code):
     if zip_code is None or not bool(pattern.match(zip_code)):
         return None
     return zip_code
+
+def load_neighborhoods():
+    with open(f"new_arrivals_chi/app/static/neighborhood_values.txt", "r") as file:
+        return file.read().splitlines()
+
+def validate_neighborhood(neighborhood):
+    chicago_neighborhood = (neighborhood in current_app.config['NEIGHBORHOODS'])
+    print(chicago_neighborhood)
+    pattern = re.compile(r'^[A-Za-z_]+$')
+
+    if neighborhood is None or not bool(pattern.match(neighborhood)) or not chicago_neighborhood:
+        return None
+    return neighborhood
 
 
 def validate_hours(open_time, close_time, prev_close):
@@ -274,6 +294,7 @@ def validate_hours(open_time, close_time, prev_close):
         return open_cleaned, close_cleaned
 
     return None
+
 
 
 
