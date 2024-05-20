@@ -23,23 +23,6 @@ FAKE_NEIGHBORHOODS = [
     "Irving Park",
 ]
 
-# FAKE NEIGHBORHOODS
-FAKE_NEIGHBORHOODS = [
-    "Albany Park",
-    "Andersonville",
-    "Avondale",
-    "Bridgeport",
-    "Bronzeville",
-    "Chinatown",
-    "Edgewater",
-    "Englewood",
-    "Garfield Park",
-    "Gold Coast",
-    "Humboldt Park",
-    "Hyde Park",
-    "Irving Park",
-]
-
 # Constants for opening and closing times in full hours
 OPENING_TIMES = [
     datetime.time(hour=7, minute=0),
