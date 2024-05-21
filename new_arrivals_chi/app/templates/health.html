@@ -11,10 +11,10 @@ Landing page for user to navigate through health information.
 {% block content %}
 <div class="wrapper">
   <div class="text-container">
-   <h1>{{ translations[language]['health']['health_information'] }}</h1> 
+   <h1>{{ translations[language]['health']['health_information'] }}</h1>
   </div>
   <div class="button-container">
-    <h2>{{ translations[language]['util']['i_want_to'] | escape }}</h2> 
+    <h2>{{ translations[language]['util']['i_want_to'] | escape }}</h2>
     <button class="button button-orange" onclick="navigateTo('/health/search', '{{ language | escape }}')">
         {{ translations[language]['health']['receive_assistance'] | escape }}
       </button>

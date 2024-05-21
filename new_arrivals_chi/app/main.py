@@ -297,6 +297,7 @@ def lawyers():
         "lawyers.html", language=language, translations=translations
     )
 
+
 @main.route("/health")
 def health():
     """Establishes route for the health page.

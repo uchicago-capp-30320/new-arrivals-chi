@@ -10,7 +10,7 @@ HTML for organization dashboard page.
 {% block content %}
 <div class="wrapper">
   <div class="text-container">
-   <h1>{{ organization.name | escape }}</h1> 
+   <h1>{{ organization.name | escape }}</h1>
   </div>
   <div class="button-container">
         <button class="button button-blue" onclick="location.href='{{ url_for('main.org', organization_id=organization.id) | escape }}'">
