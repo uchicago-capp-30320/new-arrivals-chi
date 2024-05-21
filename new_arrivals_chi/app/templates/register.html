@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="register-container">
-    <h1>Register Profile</h1>
+    <h1>Register Organization Profile</h1>
     <form method="POST" action="{{ url_for('authorize.post_register') }}">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
