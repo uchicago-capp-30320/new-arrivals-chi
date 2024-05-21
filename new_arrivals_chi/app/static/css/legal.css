@@ -67,3 +67,7 @@ This file contains the CSS for formatting the Legal Flow page.
     color: blue;
     text-decoration: underline;
 }
+
+#buttonContainer {
+    margin-top: 60px;
+}
