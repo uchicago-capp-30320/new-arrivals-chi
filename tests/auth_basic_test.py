@@ -2,7 +2,7 @@
 
 File name: auth_basic.py
 Associated Files:
-    templates: signup.html, login.html, home.html, profile.html.
+    templates: signup.html, login.html, home.html, dashboard.html.
 
 This test suite performs basic validation of the user authorization routes
 including signup, login, and logout functionalities for the New Arrivals
@@ -31,8 +31,13 @@ Creation:
 """
 
 from http import HTTPStatus
-
-from tests.constants import VALID_EMAIL, VALID_PASSWORD
+import pytest
+from tests.constants import (
+    PARAM_VALID_EMAIL,
+    PARAM_VALID_PASSWORD,
+    PARAM_PASS_SQL_INJECTION,
+    PARAM_USER_SQL_INJECTION,
+)
 
 
 def test_signup_route(client, capture_templates, setup_logger):
@@ -50,7 +55,7 @@ def test_signup_route(client, capture_templates, setup_logger):
     logger = setup_logger("test_signup_route")
     try:
         response = client.get("/signup")
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         assert b"Sign Up" in response.data, "Sign Up text not found in response"
         final_template_rendered = len(capture_templates) - 1
         assert (
@@ -64,41 +69,76 @@ def test_signup_route(client, capture_templates, setup_logger):
         raise
 
 
-def test_signup_post_invalid_email(client, capture_templates, setup_logger):
+@pytest.mark.parametrize(
+    "email, password, password_confirm",
+    [
+        ("bad_email", "TestP@ssword!", "TestP@ssword!"),
+        (PARAM_VALID_EMAIL, "wrongpassword", "wrongpassword"),
+        # SQL Injections
+        (PARAM_USER_SQL_INJECTION, "TestP@ssword!", "TestP@ssword!"),
+        (
+            PARAM_VALID_EMAIL,
+            PARAM_PASS_SQL_INJECTION,
+            PARAM_PASS_SQL_INJECTION,
+        ),
+    ],
+)
+def test_signup_post_invalid_email(
+    client, capture_templates, setup_logger, email, password, password_confirm
+):
     """Tests the signup with an invalid email format.
 
-    Verifies that the system
-    correctly identifies the email as invalid and returns to the signup page.
+    Verifies that the system correctly identifies the email as invalid and
+    returns to the signup page.
 
     Args:
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         setup_logger: Setup logger.
+        email: test email to be used in the signup form.
+        password: test password to be used along with the email in the signup
+                form.
+        password_confirm: test confirm password to be used along with the email
+                        in the signup form.
     """
     logger = setup_logger("test_signup_post_invalid_email")
-    try:
-        response = client.post(
-            "/signup",
-            data={
-                "email": "bad_email",  # invalid email format
-                "password": "TestP@ssword!",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert b"Please enter a valid email address" in response.data
-        assert len(capture_templates) == 1
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "signup.html"
-        ), "Wrong template used"
-        logger.info("Sign up failed successfully with invalid email.")
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
+    response = client.post(
+        "/signup",
+        data={
+            "email": email,
+            "password": password,
+            "password_confirm": password_confirm,
+        },
+        follow_redirects=True,
+    )
+    assert response.status_code == HTTPStatus.OK
+    assert b"Please enter a valid" in response.data
+
+    assert len(capture_templates) == 1
+    final_template_rendered = len(capture_templates) - 1
+    assert (
+        capture_templates[final_template_rendered][0].name == "signup.html"
+    ), "Wrong template used"
+    logger.info("Sign up failed successfully with invalid email.")
 
 
-def test_signup_post_invalid_password(client, capture_templates, setup_logger):
+@pytest.mark.parametrize(
+    "email, password, password_confirm",
+    [
+        ("bad_email", "TestP@ssword!", "TestP@ssword!"),
+        (PARAM_VALID_EMAIL, "wrongpassword", "wrongpassword"),
+        # SQL injections
+        (PARAM_USER_SQL_INJECTION, "TestP@ssword!", "TestP@ssword!"),
+        (
+            PARAM_VALID_EMAIL,
+            PARAM_PASS_SQL_INJECTION,
+            PARAM_PASS_SQL_INJECTION,
+        ),
+    ],
+)
+def test_signup_post_invalid_password(
+    client, capture_templates, setup_logger, email, password, password_confirm
+):
     """Tests the signup with an invalid password.
 
     Ensures that the application rejects passwords that do not meet the
@@ -108,61 +148,33 @@ def test_signup_post_invalid_password(client, capture_templates, setup_logger):
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         setup_logger: Setup logger.
+        email: test email to be used in the signup form.
+        password: test password to be used along with the email in the signup
+                form.
+        password_confirm: test confirm password to be used along with the email
+                         in the signup form.
     """
     logger = setup_logger("test_signup_post_invalid_password")
-    try:
-        response = client.post(
-            "/signup",
-            data={
-                "email": "test@example.com",  # invalid password
-                "password": "password!",
-                "password_confirm": "password!",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert b"Please enter a valid password" in response.data
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "signup.html"
-        ), "Wrong template used"
-        logger.info("Sign up failed successfully with invalid password.")
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
+    response = client.post(
+        "/signup",
+        data={
+            "email": email,
+            "password": password,
+            "password_confirm": password_confirm,
+        },
+        follow_redirects=True,
+    )
+    assert (
+        response.status_code == HTTPStatus.OK
+    ), "Unexpected HTTP status code received."
 
+    assert b"Please enter a valid" in response.data
 
-def test_signup_post_valid_credentials(client, capture_templates, setup_logger):
-    """Tests the signup functionality with valid email and password.
-
-    This test verifies if the application correctly handles valid
-    registration credentials and redirects to the home page.
-
-    Args:
-        client: The test client used for making requests.
-        capture_templates: Context manager to capture templates rendered.
-        setup_logger: Setup logger.
-    """
-    logger = setup_logger("test_signup_post_valid_credentials")
-    try:
-        response = client.post(
-            "/signup",
-            data={
-                "email": "new_user@example.com",  # valid email format
-                "password": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
-                "password_confirm": "Str0ngP@$$word123!C0ntre$namUyfue&t3",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "profile.html"
-        ), "Wrong template used"
-        logger.info("Sign up successful with valid credentials.")
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
+    final_template_rendered = len(capture_templates) - 1
+    assert (
+        capture_templates[final_template_rendered][0].name == "signup.html"
+    ), "Wrong template used."
+    logger.info("Sign up failed successfully with invalid password.")
 
 
 def test_signup_post_weak_password(client, capture_templates, setup_logger):
@@ -186,7 +198,7 @@ def test_signup_post_weak_password(client, capture_templates, setup_logger):
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         print(response.data)
         assert b"Please enter a valid password" in response.data
         final_template_rendered = len(capture_templates) - 1
@@ -212,7 +224,7 @@ def test_login_route(client, capture_templates, setup_logger):
     logger = setup_logger("test_login_route")
     try:
         response = client.get("/login")
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         assert b"Login" in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
@@ -230,7 +242,7 @@ def test_login_valid_credentials(
     """Tests login functionality with valid credentials.
 
     Ensure that users can log in successfully and are redirected to their
-    profile page.
+    dashboard page.
 
     Args:
         client: The test client used for making requests.
@@ -242,16 +254,17 @@ def test_login_valid_credentials(
     try:
         response = client.post(
             "/login",
-            data={"email": "test@example.com", "password": "TestP@ssword!"},
+            data={"email": PARAM_VALID_EMAIL, "password": "TestP@ssword!"},
             follow_redirects=False,
         )
         response = client.get(
             response.headers.get("Location"), follow_redirects=True
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
-            capture_templates[final_template_rendered][0].name == "profile.html"
+            capture_templates[final_template_rendered][0].name
+            == "dashboard.html"
         ), "Wrong template used"
         logger.info("Login successfully with valid credentials.")
     except AssertionError as e:
@@ -259,7 +272,22 @@ def test_login_valid_credentials(
         raise
 
 
-def test_login_invalid_credentials(client, capture_templates, setup_logger):
+@pytest.mark.parametrize(
+    "email, password",
+    [
+        ("bad_email", "TestP@ssword!"),
+        (PARAM_VALID_EMAIL, "wrongpassword"),
+        # SQL Injections
+        (PARAM_USER_SQL_INJECTION, "TestP@ssword!"),
+        (
+            PARAM_VALID_EMAIL,
+            PARAM_PASS_SQL_INJECTION,
+        ),
+    ],
+)
+def test_login_invalid_credentials(
+    client, capture_templates, setup_logger, email, password
+):
     """Tests login functionality.
 
     Tests login functionality with invalid credentials to confirm system
@@ -269,26 +297,24 @@ def test_login_invalid_credentials(client, capture_templates, setup_logger):
         client: The test client used for making requests.
         capture_templates: Context manager to capture templates rendered.
         setup_logger: Setup logger.
+        email: test email to be used in the signup form.
+        password: test password to be used along with the email in the signup
+                form.
     """
     logger = setup_logger("test_login_invalid_credentials")
-    try:
-        response = client.post(
-            "/login",
-            data={"email": "test@example.com", "password": "wrongpassword"},
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert (
-            b"Please check your login details and try again." in response.data
-        )
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name == "login.html"
-        ), "Wrong template used"
-        logger.info("Login failed successfully with invalid credentials.")
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
+    response = client.post(
+        "/login",
+        data={"email": email, "password": password},
+        follow_redirects=True,
+    )
+    assert response.status_code == HTTPStatus.OK
+    assert b"Please check your login details and try again." in response.data
+    final_template_rendered = len(capture_templates) - 1
+    assert (
+        capture_templates[final_template_rendered][0].name == "login.html"
+    ), "Wrong template used."
+
+    logger.info("Login failed successfully with invalid credentials.")
 
 
 def test_logout(
@@ -309,7 +335,7 @@ def test_logout(
     logger = setup_logger("test_logout")
     try:
         response = client.get("/logout", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "home.html"
@@ -334,7 +360,7 @@ def test_logout_not_logged_in(client, capture_templates, setup_logger):
     logger = setup_logger("test_logout_not_logged_in")
     try:
         response = client.get("/logout", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name == "login.html"
@@ -351,8 +377,8 @@ def test_page_requiring_login_after_logout(
     """Tests behavior accessing page that requires login after user logged out.
 
     This test ensures that the application redirects to the login page when an
-    unauthenticated user attempts to access a restricted page (e.g., the profile
-    page) after logging out.
+    unauthenticated user attempts to access a restricted page (e.g., the
+    dashboard page) after logging out.
 
     Args:
         client: The test client used for making requests.
@@ -362,19 +388,21 @@ def test_page_requiring_login_after_logout(
     logger = setup_logger("test_page_requiring_login_after_logout")
     client.post(
         "/login",
-        data={"email": VALID_EMAIL, "password": VALID_PASSWORD},
+        data={"email": PARAM_VALID_EMAIL, "password": PARAM_VALID_PASSWORD},
         follow_redirects=True,
     )
     client.get("/logout", follow_redirects=True)
 
     try:
-        profile_response = client.get("/profile", follow_redirects=True)
-        assert profile_response.status_code == HTTPStatus.OK
-        assert b"Login" in profile_response.data, "User not prompted to log in"
+        dashboard_response = client.get("/dashboard", follow_redirects=True)
+        assert dashboard_response.status_code == HTTPStatus.OK
+        assert (
+            b"Login" in dashboard_response.data
+        ), "User not prompted to log in"
         assert len(capture_templates) == 3
         assert (
             capture_templates[2][0].name == "login.html"
-        ), "Did not redirect to login page after trying to access profile"
+        ), "Did not redirect to login page after trying to access dashboard"
         logger.info("Successful redirect to login page.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")

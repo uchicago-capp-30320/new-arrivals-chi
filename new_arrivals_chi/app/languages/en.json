@@ -1,9 +1,9 @@
 {
   "en": {
     "base": {
+      "dashboard": "Dashboard",
       "home": "Home",
       "logout": "Logout",
-      "profile": "Profile",
       "report_error": "Report website error",
       "sign_up": "Sign Up"
     },
@@ -76,7 +76,10 @@
       "remember_me": "Remember me"
     },
     "profile": {
-      "profile_information": "Profile information will exist here."
+      "change_password": "Change My Password",
+      "title": "Organization Profile",
+      "update_org_info": "Update My Information",
+      "view_org_page": "View My Page"
     },
     "util": {
       "back": "Back",

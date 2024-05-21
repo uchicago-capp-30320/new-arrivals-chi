@@ -1,0 +1,26 @@
+<!--
+Project: new_arrivals_chi
+File name: dashboard.html
+Associated Files:
+    base.html, main.py, edit_organization.html, organization.html
+
+HTML for organization dashboard page.
+-->
+{% extends "base.html" %}
+{% block content %}
+<div class="box">
+    <div class="box-big-title">{{ organization.name | escape }}</div>
+    <button class="button blue" onclick="location.href='{{ url_for('main.org', organization_id=organization.id) | escape }}'">
+      {{ translations[language]['profile']['view_org_page'] | escape }}
+    </button>
+    <button class="button green" onclick="location.href='{{ url_for('main.edit_organization', organization_id=organization.id) | escape }}'">
+        {{ translations[language]['profile']['update_org_info'] | escape }}
+    </button>
+    <button class="button orange" onclick="location.href='{{ '/change_password' | escape }}'">
+      {{ translations[language]['profile']['change_password'] | escape }}
+  </button>
+  <button class="yellow-button" onclick="location.href='{{ '/' | escape }}'">
+    {{ translations[language]['util']['back'] | escape }}
+</button>
+</div>
+{% endblock %}

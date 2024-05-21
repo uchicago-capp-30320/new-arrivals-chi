@@ -1,9 +1,9 @@
 {
   "es": {
     "base": {
+      "dashboard": "Panel de Control",
       "home": "P\u00e1gina de inicio",
       "logout": "Cerrar Sesi\u00f3n",
-      "profile": "Perfil",
       "report_error": "Reportar error del sitio web",
       "sign_up": "Registrarse"
     },
@@ -76,7 +76,10 @@
       "remember_me": "Recordarme"
     },
     "profile": {
-      "profile_information": "La informaci\u00f3n del perfil existir\u00e1 aqu\u00ed."
+      "change_password": "Cambiar Mi Contrase\u00f1a",
+      "title": "Perfil de la Organizaci\u00f3n",
+      "update_org_info": "Actualizar Mi Informaci\u00f3n",
+      "view_org_page": "Ver Mi P\u00e1gina"
     },
     "util": {
       "back": "Atr\u00e1s",
