@@ -1,9 +1,8 @@
 <!--
 Project: new_arrivals_chi
-File name: vttc_apply.html
+File name: lawyers.html
 Associated Files:
     base.html, main.py, legal_page.css, lawyers.html
-
 -->
 {% extends "base.html" %}
 
@@ -13,7 +12,7 @@ Associated Files:
 
 {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['vttc_apply'] %}
+  {% set content = translations[language]['lawyers'] %}
   {% if content.title %}
     <h1>{{ content.title }}</h1>
   {% endif %}
@@ -27,9 +26,6 @@ Associated Files:
     {% if section.body %}
       <p>{{ section.body }}</p>
     {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
     {% if section.list %}
       <ul>
         {% for item in section.list %}
@@ -38,6 +34,5 @@ Associated Files:
       </ul>
     {% endif %}
   {% endfor %}
-  <button class="blue-button" onclick="location.href='{{ url_for('main.home') | escape }}'">{{ translations[language]['legal']['find_lawyers'] }}</button>
 </div>
 {% endblock %}

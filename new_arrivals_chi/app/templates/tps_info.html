@@ -1,10 +1,9 @@
 <!--
 Project: new_arrivals_chi
-File name: ps_info.html
+File name: tps_info.html
 Associated Files:
-    base.html, main.py
+    base.html, main.py, legal_page.css, lawyers.html
 -->
-
 {% extends "base.html" %}
 
 {% block styles %}
@@ -27,6 +26,9 @@ Associated Files:
     {% if section.body %}
       <p>{{ section.body }}</p>
     {% endif %}
+    {% if section.link_text and section.source_link %}
+      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
+    {% endif %}
     {% if section.list %}
       <ul>
         {% for item in section.list %}
@@ -35,11 +37,6 @@ Associated Files:
       </ul>
     {% endif %}
   {% endfor %}
-  <button class="yellow-button" onclick="location.href='{{ url_for('main.legal') | escape }}'">{{ translations[language]['util']['back'] }}</button>
+  <button class="blue-button" onclick="location.href='{{ url_for('main.home') | escape }}'">{{ translations[language]['legal']['find_lawyers'] }}</button>
 </div>
 {% endblock %}
-
-{% block scripts %}
-<script src="{{ url_for('static', filename='js/legal_tps_info.js') }}"></script>
-{% endblock %}
-

@@ -1,5 +1,108 @@
 {
   "es": {
+    "asylum_apply": {
+      "content": [
+        {
+          "body": "La Sociedad de Asistencia Legal de los Servicios Familiares Metropolitanos est\u00e1 coordinando un Centro Centralizado de Servicios Legales de Inmigraci\u00f3n para los reci\u00e9n llegados para apoyar en casos de asilo, cambio de direcci\u00f3n o cambio de lugar.",
+          "header": "Cl\u00ednicas de Asilo"
+        },
+        {
+          "body": "El Centro proporciona informaci\u00f3n y asistencia legal gratuita a individuos que ingresaron el 1 de enero de 2022 o antes."
+        },
+        {
+          "body": "La Cl\u00ednica Centralizada de Servicios Legales de Inmigraci\u00f3n est\u00e1 ubicada en 401 S. Clinton St, Chicago IL 60607, dentro del Edificio del Departamento de Servicios Humanos de Illinois (IDHS) en el primer piso."
+        },
+        {
+          "link_text": "Haga clic aqu\u00ed para programar una cita.",
+          "source_link": "https://cilsc.metrofamily.org/"
+        },
+        {
+          "link_text": "Bienvenido a IL",
+          "source_link": "https://welcometoil.org/resources/"
+        }
+      ],
+      "title": "Cl\u00ednicas de Asilo"
+    },
+    "asylum_info": {
+      "content": [
+        {
+          "body": "El estado de asilo protege a las personas que temen persecuci\u00f3n en sus pa\u00edses de origen debido a su:",
+          "header": "Qu\u00e9 es el Asilo"
+        },
+        {
+          "list": [
+            "Raza",
+            "Religi\u00f3n",
+            "Nacionalidad",
+            "Opini\u00f3n pol\u00edtica",
+            "Membres\u00eda en un grupo social particular (esto incluye orientaci\u00f3n sexual o identidad de g\u00e9nero)"
+          ]
+        },
+        {
+          "body": "Si alguien debe solicitar estatus de refugiado o asilado depende de si ya est\u00e1 en los EE. UU. Si la persona ya est\u00e1 en los EE. UU., puede solicitar el programa de asilo de los EE. UU. Obtenga m\u00e1s informaci\u00f3n sobre refugiados y asilo. (Si la persona no est\u00e1 en los EE. UU., puede solicitar el programa de refugiados de los EE. UU.)"
+        },
+        {
+          "body": "El asilo es una forma de protecci\u00f3n. Protege a las personas de ser expulsadas a un pa\u00eds donde temen persecuci\u00f3n. Les permite permanecer en los EE. UU. Luego pueden convertirse en residentes permanentes legales.",
+          "header": "Beneficios del Asilo"
+        },
+        {
+          "body": "El asilo se otorga a los refugiados que ya est\u00e1n en los EE. UU. y temen regresar a sus pa\u00edses de origen."
+        },
+        {
+          "body": "Hay tres formas de solicitar asilo:",
+          "header": "V\u00edas hacia el Asilo"
+        },
+        {
+          "list": [
+            "De forma afirmativa, es decir, no ya tiene un caso ante un juez de inmigraci\u00f3n y est\u00e1 presentando una solicitud de asilo",
+            "De forma defensiva, es decir, ya hay un caso de expulsi\u00f3n o deportaci\u00f3n en su contra ante un juez de inmigraci\u00f3n y le pide al juez asilo",
+            "Est\u00e1 en procedimientos de expulsi\u00f3n expedita y dice que necesita asilo"
+          ]
+        },
+        {
+          "body": "Debe solicitar asilo dentro del primer a\u00f1o de haber llegado a los EE. UU., a menos que califique para una excepci\u00f3n. Su c\u00f3nyuge y sus hijos que est\u00e1n en los EE. UU. pueden incluirse en la solicitud. Un ni\u00f1o debe tener menos de 21 a\u00f1os y estar soltero para ser incluido."
+        },
+        {
+          "body": "Es posible que no sea elegible para solicitar asilo si present\u00f3 la solicitud despu\u00e9s de haber estado en los EE. UU. por m\u00e1s de un a\u00f1o. Hay excepciones. Debe demostrar:",
+          "header": "Qui\u00e9n no puede solicitar asilo"
+        },
+        {
+          "list": [
+            "Circunstancias cambiadas que afecten materialmente su elegibilidad, o",
+            "Circunstancias extraordinarias relacionadas con su demora en la presentaci\u00f3n."
+          ]
+        },
+        {
+          "body": "Las circunstancias cambiadas incluyen:"
+        },
+        {
+          "list": [
+            "Cambios en las condiciones del pa\u00eds",
+            "Cambios en las leyes que afectan su elegibilidad",
+            "Cambios en la din\u00e1mica familiar, como matrimonio, divorcio y muerte",
+            "Cambios en las edades de los hijos"
+          ]
+        },
+        {
+          "body": "Las circunstancias extraordinarias incluyen:"
+        },
+        {
+          "list": [
+            "Enfermedad grave",
+            "Discapacidades mentales o f\u00edsicas",
+            "Discapacidad legal, como su estatus de menor no acompa\u00f1ado o una discapacidad mental"
+          ]
+        },
+        {
+          "body": "No puede solicitar asilo si ya solicit\u00f3 y fue denegado a menos que las circunstancias hayan cambiado."
+        },
+        {
+          "link_text": "Asistencia Legal de Illinois",
+          "source_link": "https://www.illinoislegalaid.org/legal-information/asylum-and-refugee-basics"
+        }
+      ],
+      "title": "Derechos y Privilegios del Asilo"
+    },
     "base": {
       "dashboard": "Panel de Control",
       "home": "P\u00e1gina de inicio",
@@ -33,11 +136,401 @@
       "organization_name": "Nombre de la Organizaci\u00f3n",
       "supplies_and_services": "Recursos y Servicios: Comida"
     },
+    "lawyers": {
+      "content": [
+        {
+          "body": "4910 S. King Dr., 1st Floor, Chicago, IL 60615",
+          "header": "Organizaci\u00f3n Africana Unida",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Llame al: 312-949-9980 o visite www.uniteafricans.org",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://uniteafricans.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "1100 W Cermak Road, Ste 422, Chicago IL 60608",
+          "header": "Centro Legal para Ni\u00f1os",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Llame al (312) 722-6642, env\u00ede un correo electr\u00f3nico a intake@childrenslegalcenter.org o visite www.childrenslegalcenter.org para solicitar una cita",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://www.childrenslegalcenterchicago.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Asilo; Consulta para personas menores de 21 a\u00f1os; Defensa de deportaci\u00f3n",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "1805 S. Paulina St., Chicago IL, 60608",
+          "header": "Proyecto Resurrecci\u00f3n",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "L\u00ednea de admisi\u00f3n de inmigraci\u00f3n 312-666-3062",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://trplegalservices.as.me/schedule.php, https://resurrectionproject.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo; Defensa de deportaci\u00f3n; Personas detenidas; Consulta para personas menores de 21 a\u00f1os",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n; Educaci\u00f3n y capacitaci\u00f3n en derechos legales de inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "2520 S Western Ave; Chicago, IL; 60608",
+          "header": "Instituto del Progreso Latino",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Visite www.Institutochicago.org o llame al 773 890 0055 x 4515",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://www.institutochicago.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n; Educaci\u00f3n y capacitaci\u00f3n en derechos legales de inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "17 N. State St. Ste 1390, Chicago, IL 60602",
+          "header": "Ascend Justice",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a intake@ascendjustice.org o visite https://www.ascendjustice.org/apply-for-services/",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Consulta para personas menores de 21 a\u00f1os; Derecho de familia relacionado con la violencia dom\u00e9stica: Divorcio; Custodia de los hijos; \u00d3rdenes de protecci\u00f3n",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n; Servicios Legales Penales; Servicios Legales de Familia",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "224 S. Michigan Ave., Suite 600, Chicago, IL 60604",
+          "header": "Centro Nacional de Justicia para Inmigrantes",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Llame al 312-660-1370 para admisi\u00f3n regular. Llame a la l\u00ednea directa de detenci\u00f3n al 773-672-6599 si usted o un ser querido est\u00e1n detenidos",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://immigrantjustice.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo; Defensa de deportaci\u00f3n; Personas detenidas; Consulta para personas menores de 21 a\u00f1os",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "120 S. LaSalle St., Ste 900, Chicago, IL 60603",
+          "header": "Asistencia Legal Chicago",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Para asuntos no relacionados con inmigraci\u00f3n, los clientes pueden visitar nuestro sitio web (www.legalaidchicago.org) o llamar a la l\u00ednea de admisi\u00f3n de Legal Aid al (312) 341-1070.",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo; Defensa de deportaci\u00f3n; Alivio de registros penales; Protecci\u00f3n al consumidor; Empleo; Derecho de familia relacionado con la violencia dom\u00e9stica (Divorcio; Custodia de los hijos); Vivienda, Mantenimiento de ingresos y Beneficios p\u00fablicos; Licencias",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales Civiles; Servicios Legales de Inmigraci\u00f3n; Servicios Legales Penales",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "101 N Wacker Dr., Ste. 1700, Chicago, IL 60606",
+          "header": "Sociedad de Asistencia Legal de los Servicios Familiares Metropolitanos",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Llame al 312-986-4105 y deje un mensaje de voz con su nombre y n\u00famero de tel\u00e9fono o visite laschicago.org para solicitar una cita",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "V\u00edctimas de violencia",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "17 N. State St. Ste 1380, Chicago IL 60602",
+          "header": "Beyond Legal Aid",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a info@beyondlegalaid.org, llame al 312-990-0056, o visite www.beyondlegalaid.org y @BeyondLegalAid en Facebook, Instagram y Twitter",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://www.beyondlegalaid.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo; Defensa de deportaci\u00f3n; Personas detenidas; Derecho de familia (Divorcio; Custodia de los hijos; Manutenci\u00f3n de los hijos); Empleo; Alivio de registros penales; Vivienda",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales Civiles; Servicios Legales de Inmigraci\u00f3n; Servicios Legales Penales; Servicios Legales de Familia",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "33 N. Dearborn, Chicago, IL 60602",
+          "header": "Servicios Legales Voluntarios de Chicago",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Llame al 312-332-1624 o solicite en l\u00ednea en https://www.cvls.org",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Personas detenidas; Derecho de familia (Divorcio; Custodia de los hijos; Manutenci\u00f3n de los hijos; Tutela; Adopci\u00f3n; Visitas); Herencias, Testamentos y Directivas Avanzadas; Ejecuci\u00f3n hipotecaria; Bancarrota; Disputas de contratos y deudas; Problemas de seguros",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales Civiles; Servicios Legales de Inmigraci\u00f3n; Servicios Legales Penales; Servicios Legales de Familia",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "2751 W. 16th St. Chicago, IL 60608",
+          "header": "Instituto Binacional de Desarrollo Humano",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a info@binationalinstitute.com, llame al 312-772-3410 o visite www.centrolegalusa.com",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo; Defensa de deportaci\u00f3n; Personas detenidas",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n; Educaci\u00f3n y capacitaci\u00f3n en derechos legales de inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "721 N. La Salle St. Chicago, IL 60654",
+          "header": "Caridades Cat\u00f3licas",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Llame al 312-655-7000 o visite www.catholiccharities.net",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "1347 W Erie St. Chicago, IL 60642; 1636 W Van Buren St, Chicago, IL 60612",
+          "header": "Casa de Vecindad Erie",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Llame al (773) 231-7884 o env\u00ede un correo electr\u00f3nico a eriehouseimmigration@gmail.com los lunes de 9 am a 5 pm para solicitar una cita",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo; Defensa de deportaci\u00f3n; Personas detenidas",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n; Educaci\u00f3n y capacitaci\u00f3n en derechos legales de inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "4300 N California Ave. Chicago, IL 60618; 664 N Milwaukee Ave, #213, Prospect Heights, IL 60070",
+          "header": "Centro HANA",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a immigration@hanacenter.org, visite www.hanacenter.org y use el c\u00f3digo QR, o contacte al 773.583.5501 (llamada) 773.917.7856 (mensaje de texto) para solicitar una cita",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://www.hanacenter.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n; Educaci\u00f3n y capacitaci\u00f3n en derechos legales de inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "5110 N Broadway St, Chicago IL 60640",
+          "header": "Asociaci\u00f3n Vietnamita de Illinois",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a vaiappointments@hnvi.org Llame al 773-728-3700",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; Asilo; Defensa de deportaci\u00f3n",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "5439 N Broadway Ave, Unit 1 Chicago, IL 60640",
+          "header": "Red Comunitaria Siria",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a info@syriancommunitynetwork.org, llame al 773.654.1218, o visite www.syriancommunitynetwork.org",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://www.syriancommunitynetwork.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia; Asilo",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "5705 N Lincoln Ave, Chicago IL 60659",
+          "header": "RefugeeOne",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Visite www.refugeeone.org",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://www.refugeeone.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; Asilo",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "6216 N. Clark St., Chicago, IL 60660",
+          "header": "Centro Romero",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Visite https://centroromero.org/legal-services/ para abrir una consulta en l\u00ednea directamente",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "https://centroromero.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "6328 N. California Ave., Chicago, IL 60659",
+          "header": "Centro Indoamericano",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a skhalid@indoamerican.org, llame al 773-973-4444 ext 103, o visite www.indoamerican.org. Tenga en cuenta que la extensi\u00f3n 103 es un buz\u00f3n de voz que se revisa diariamente, no hay un operador en vivo",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "Centro Indoamericano",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; V\u00edctimas de violencia",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n; Educaci\u00f3n y capacitaci\u00f3n en derechos legales de inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        },
+        {
+          "body": "2828 W. Devon Ave., Chicago, IL 60659",
+          "header": "Centro de Recursos para Mujeres Musulmanas",
+          "sub": "Direcci\u00f3n Principal:"
+        },
+        {
+          "body": "Env\u00ede un correo electr\u00f3nico a nadiya@mwrcnfp.org, llame al 773-764-1686 o visite www.mwrcnfp.org",
+          "sub": "Informaci\u00f3n de Contacto:"
+        },
+        {
+          "body": "http://www.mwrcnfp.org/",
+          "sub": "Sitio web:"
+        },
+        {
+          "body": "Inmigraci\u00f3n general; Evaluaci\u00f3n y derivaciones de asilo",
+          "sub": "Servicios Legales Ofrecidos:"
+        },
+        {
+          "body": "Servicios Legales de Inmigraci\u00f3n",
+          "sub": "Servicios Ofrecidos:"
+        }
+      ],
+      "title": "Informaci\u00f3n sobre Servicios Legales"
+    },
     "legal": {
-      "apply_for": "Aplicar para la Identificaci\u00f3n de Chicago",
-      "legal_resources": "Recursos y Servicios Legales",
-      "receive_legal": "Recibir asistencia legal",
-      "understand_rights": "Entender mis derechos legales"
+      "find_lawyers": "Encontrar un Abogado"
     },
     "legal_start": {
       "asylum": "Tengo un temor cre\u00edble de persecuci\u00f3n o tortura en mi pa\u00eds de origen.",
@@ -75,11 +568,486 @@
       "password": "Contrase\u00f1a",
       "remember_me": "Recordarme"
     },
+    "parole_apply": {
+      "content": [
+        {
+          "body": "A veces, el gobierno de los EE. UU. otorga a una persona un permiso temporal cuando ingresa a los Estados Unidos. El permiso temporal es un tipo de permiso discrecional para ingresar a los Estados Unidos. Solo se otorga a algunas personas en ciertas situaciones.",
+          "header": "\u00bfQui\u00e9n es elegible para el permiso temporal?"
+        },
+        {
+          "body": "Las personas que tienen un permiso temporal vigente pueden solicitar un permiso de trabajo o un 'Documento de Autorizaci\u00f3n de Empleo' (EAD)."
+        },
+        {
+          "body": "Hay varios documentos que muestran que una persona puede tener un permiso temporal. A continuaci\u00f3n se presentan ejemplos de documentos que indican si alguien ingres\u00f3 con permiso temporal, junto con la fecha de vencimiento del permiso.",
+          "header": "Determinar mi elegibilidad"
+        },
+        {
+          "body": "Si no tiene una foto o un documento f\u00edsico como los ejemplos anteriores, puede buscar los detalles de la \u00faltima entrada del solicitante en l\u00ednea:"
+        },
+        {
+          "link_text": "Enlace a I-94",
+          "list": [
+            "Despl\u00e1cese hasta '\u00bfYa est\u00e1 de visita y necesita prueba de estado de visitante?' y seleccione OBTENER EL I-94 M\u00c1S RECIENTE",
+            "Lea y acepte los T\u00e9rminos del Servicio. Seleccione RECONOZCO Y ACEPTO.",
+            "Ingrese su informaci\u00f3n de viajero tal como aparece en sus documentos de inmigraci\u00f3n. En 'N\u00famero de Documento', ingrese su N\u00daMERO A. Seleccione SIGUIENTE cuando termine.",
+            "Si su entrada devuelve un resultado, seleccione IMPRIMIR en la p\u00e1gina siguiente. Si no, verifique su informaci\u00f3n.",
+            "Imprima o tome una captura de pantalla de su Registro I-94."
+          ],
+          "source_link": "https://i94.cbp.dhs.gov/I94/#/home",
+          "sub": "Instrucciones de b\u00fasqueda de I-94"
+        },
+        {
+          "body": "El Estado de Illinois y la Ciudad de Chicago, en colaboraci\u00f3n con organizaciones comunitarias locales, brindan asistencia para ayudar a los inmigrantes elegibles a solicitar permanecer o trabajar legalmente en los EE. UU. Ciertos inmigrantes que han llegado recientemente son elegibles para participar en talleres de solicitud centralizados para TPS y permisos de trabajo basados en el permiso temporal. Los talleres son gratuitos. Siga los pasos a continuaci\u00f3n para saber si es elegible y para inscribirse para participar:",
+          "header": "Obtenga ayuda para solicitar: Talleres de solicitud de inmigraci\u00f3n de TPS y autorizaci\u00f3n de trabajo para reci\u00e9n llegados"
+        },
+        {
+          "list": [
+            "Paso 1: Determine si es elegible para asistir a un taller \u2013 complete un formulario de evaluaci\u00f3n para determinar si es elegible.",
+            "Paso 2: El Estado de Illinois y/o la Ciudad de Chicago completar\u00e1n un proceso de verificaci\u00f3n dentro de ~2 semanas de enviar su formulario de evaluaci\u00f3n. Si se necesita informaci\u00f3n adicional, recibir\u00e1 un mensaje de texto y/o correo electr\u00f3nico solicitando esa informaci\u00f3n.",
+            "Paso 3: Una vez que se determine que es elegible para asistir a un taller, se le enviar\u00e1 un enlace para programar una cita para el taller por mensaje de texto y/o correo electr\u00f3nico. Responda a la invitaci\u00f3n e inscr\u00edbase en una cita para el taller. Las citas para los talleres se asignan por orden de llegada, de martes a viernes. Se agregan nuevas citas con frecuencia \u2013 siga verificando si a\u00fan no ve una cita disponible.",
+            "Paso 4: Complete su cuaderno de trabajo y prepare sus documentos. Puede descargar el cuaderno de trabajo aqu\u00ed. Puede imprimir el cuaderno de trabajo en cualquier Biblioteca P\u00fablica de Chicago utilizando su CityKey Chicago ID.",
+            "Paso 5: Asista al taller seg\u00fan las instrucciones enviadas por mensaje de texto o correo electr\u00f3nico. \u00a1Aseg\u00farese de llevar su cuaderno de trabajo y documentos completados!",
+            "Paso 6: En el taller, un representante legal revisar\u00e1 su elegibilidad para TPS o un permiso de trabajo basado en el permiso temporal. Si es elegible, se preparar\u00e1 su solicitud de inmigraci\u00f3n. Muchos solicitantes tambi\u00e9n pueden proceder con el procesamiento de USCIS para que su solicitud sea enviada a USCIS (Inmigraci\u00f3n) y sus huellas dactilares sean tomadas el mismo d\u00eda. Algunos solicitantes ser\u00e1n programados para una segunda cita para el procesamiento de USCIS.",
+            "Paso 7: Asista a su cita con USCIS, en la cual se le emitir\u00e1 un n\u00famero de recibo, y puede que le tomen una foto o huellas dactilares.",
+            "Paso 8: Espere recibir notificaciones de USCIS por correo. USCIS generalmente procesar\u00e1 su solicitud en ~30 d\u00edas y le enviar\u00e1 una decisi\u00f3n por correo. Si es aprobado, recibir\u00e1 su permiso de trabajo y n\u00famero de seguro social por correo."
+          ],
+          "sub": "Pasos para participar"
+        },
+        {
+          "body": "\u00bfNecesita ayuda con la inscripci\u00f3n? Llame al 312-668-0114 de lunes a viernes, de 12pm a 4pm para asistencia."
+        },
+        {
+          "link_text": "Bienvenido a IL",
+          "source_link": "https://welcometoil.org/resources/"
+        },
+        {
+          "link_text": "Haga clic aqu\u00ed para el formulario del taller.",
+          "source_link": "https://welcometoil.org/public/"
+        },
+        {
+          "link_text": "Descargue el cuaderno de trabajo aqu\u00ed.",
+          "source_link": "https://welcometoil.org/pdfviewer/tps-ead-workbook/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+        }
+      ],
+      "title": "Recursos para solicitar permiso temporal humanitario"
+    },
+    "parole_info": {
+      "content": [
+        {
+          "body": "Si bien el permiso temporal humanitario est\u00e1 expl\u00edcitamente autorizado por la INA por 'razones humanitarias urgentes,' no existe una definici\u00f3n legal o reglamentaria de una 'raz\u00f3n humanitaria urgente.' Sin embargo, USCIS ha declarado que considerar\u00e1 factores como la sensibilidad temporal de las circunstancias y el grado de sufrimiento que podr\u00eda resultar si el permiso no es autorizado.",
+          "header": "\u00bfQu\u00e9 es el permiso temporal humanitario?"
+        },
+        {
+          "body": "Seg\u00fan USCIS, los ejemplos de circunstancias humanitarias urgentes podr\u00edan incluir, entre otros:"
+        },
+        {
+          "list": [
+            "Recibir tratamiento m\u00e9dico cr\u00edtico en los Estados Unidos",
+            "Convertirse en donante de \u00f3rganos para una persona en los Estados Unidos",
+            "Visitar o cuidar a un pariente enfermo en los Estados Unidos",
+            "Asistir a un funeral o arreglar los asuntos de un pariente fallecido en los Estados Unidos",
+            "Venir a los Estados Unidos para protecci\u00f3n contra da\u00f1os dirigidos o individualizados"
+          ]
+        },
+        {
+          "body": "Las personas que reciben un permiso temporal pueden solicitar autorizaci\u00f3n de trabajo mientras permanecen en los EE. UU. bajo un permiso temporal y, si son aprobados, se vuelven elegibles para trabajar. Ciertos afganos y ucranianos con permiso temporal est\u00e1n autorizados para trabajar incidentalmente a su permiso temporal y tienen derecho a trabajar sin presentar una solicitud separada de autorizaci\u00f3n de empleo. La autorizaci\u00f3n de trabajo dura tanto como los solicitantes est\u00e9n bajo el permiso temporal.",
+          "header": "\u00bfSon elegibles para trabajar las personas con permiso temporal?"
+        },
+        {
+          "body": "Cada componente de DHS tiene su propia metodolog\u00eda para tomar decisiones sobre el permiso temporal. Adem\u00e1s, los factores a considerar variar\u00e1n seg\u00fan el tipo de permiso solicitado. Sin embargo, en general, dado que el permiso temporal es un beneficio discrecional, todas las decisiones de permiso se tomar\u00e1n caso por caso, con el oficial de inmigraci\u00f3n considerando la raz\u00f3n de la solicitud y si constituye una base para el permiso, y luego sopesando los factores positivos en el caso del no ciudadano contra cualquier factor negativo.",
+          "header": "\u00bfQu\u00e9 factores se consideran para tomar una decisi\u00f3n sobre el permiso temporal?"
+        },
+        {
+          "body": "Al decidir si ejercer favorablemente la discreci\u00f3n, el oficial de inmigraci\u00f3n eval\u00faa una serie de factores, incluidos:"
+        },
+        {
+          "list": [
+            "La raz\u00f3n de la solicitud de permiso temporal",
+            "Si hay evidencia de antecedentes penales o violaciones previas de inmigraci\u00f3n",
+            "Si hay evidencia de participaci\u00f3n previa en fraude",
+            "Si la presencia del no ciudadano beneficiar\u00eda a un ciudadano estadounidense, residente permanente legal (LPR) o comunidad en los Estados Unidos",
+            "Evidencia del car\u00e1cter del no ciudadano",
+            "Si hay otros medios disponibles para que el no ciudadano ingrese a los Estados Unidos para el prop\u00f3sito del permiso, como una visa"
+          ]
+        },
+        {
+          "body": "El permiso temporal se revisa caso por caso por una agencia dentro de DHS, y la carga de la prueba recae en el solicitante para establecer que se debe autorizar el permiso temporal. Si se autoriza el permiso temporal, la agencia que lo autoriza especificar\u00e1 cu\u00e1nto tiempo puede durar, adaptado para cumplir con el prop\u00f3sito del permiso. El permiso termina en la fecha en que est\u00e1 programado para expirar, cuando el beneficiario sale de los Estados Unidos o cuando la persona adquiere un estatus de inmigraci\u00f3n. DHS puede revocar el permiso temporal en cualquier momento si ya no est\u00e1 justificado o si el beneficiario viola las condiciones del permiso. Un beneficiario tambi\u00e9n puede solicitar extender o renovar su permiso temporal con la agencia que lo emiti\u00f3 originalmente.",
+          "header": "El proceso de permiso temporal y c\u00f3mo funciona: paso a paso"
+        },
+        {
+          "link_text": "Consejo Americano de Inmigraci\u00f3n",
+          "source_link": "https://www.americanimmigrationcouncil.org/research/use-parole-under-immigration-law"
+        }
+      ],
+      "title": "Acerca del permiso temporal humanitario"
+    },
     "profile": {
       "change_password": "Cambiar Mi Contrase\u00f1a",
       "title": "Perfil de la Organizaci\u00f3n",
       "update_org_info": "Actualizar Mi Informaci\u00f3n",
       "view_org_page": "Ver Mi P\u00e1gina"
+    },
+    "renters_rights": {
+      "content": [
+        {
+          "body": "Todas las personas tienen derecho a un hogar seguro y estable para construir un mejor futuro para ellos y sus familias. En Illinois, tienes el derecho a:",
+          "header": "Derechos B\u00e1sicos"
+        },
+        {
+          "body": "Tu arrendador es responsable de mantener el agua corriente, la electricidad y la calefacci\u00f3n, seg\u00fan los requisitos espec\u00edficos de los c\u00f3digos de construcci\u00f3n locales. Si tu calefacci\u00f3n no funciona durante el invierno, tu arrendador tiene 24 horas para responder a tu queja con planes para resolver el problema.",
+          "sub": "Vivir en un Hogar Seguro y Razonablemente Mantenido"
+        },
+        {
+          "body": "Tienes derecho a reparaciones realizadas dentro de los 14 d\u00edas (o 72 horas en una emergencia) que no excedan los $500 o la mitad del alquiler mensual, lo que sea menor.",
+          "sub": "Solicitar reparaciones para tu unidad de alquiler"
+        },
+        {
+          "list": [
+            "Solicitar reparaciones por escrito, incluyendo la fecha.",
+            "Si el arrendador se niega a hacer las reparaciones, env\u00eda una carta formal con tu alquiler.",
+            "Si el arrendador a\u00fan no realiza la reparaci\u00f3n dentro del plazo dado, tienes derecho a contratar a un profesional con licencia para hacer las reparaciones y deducir los costos de tu alquiler con un recibo."
+          ]
+        },
+        {
+          "body": "Quejarte ante cualquier autoridad gubernamental o testificar en el tribunal sobre el estado de tu unidad y disfrutar de la protecci\u00f3n igualitaria bajo la ley."
+        },
+        {
+          "body": "Tienes el derecho a presentar una queja ante cualquier autoridad gubernamental sobre una violaci\u00f3n de un c\u00f3digo de construcci\u00f3n, ordenanza de salud o regulaci\u00f3n similar sin amenaza de desalojo o negativa a renovar el contrato de arrendamiento.",
+          "sub": "Ley de Desalojo Retaliatorio"
+        },
+        {
+          "body": "En Illinois, los arrendadores no pueden aumentar el alquiler* durante el per\u00edodo de un contrato de arrendamiento escrito o verbal. Para los inquilinos mensuales, el arrendador debe proporcionar un aviso con 30 d\u00edas de antelaci\u00f3n, y para los inquilinos semanales, deben proporcionar un aviso con siete d\u00edas de antelaci\u00f3n antes de que el alquiler venza. (*Se aplican reglas separadas para notificar aumentos de alquiler en viviendas subsidiadas federalmente.)",
+          "sub": "Aumentos de Alquiler"
+        },
+        {
+          "body": "Todos los inquilinos en Illinois est\u00e1n cubiertos por las leyes de Illinois, pero Chicago tiene leyes locales, llamadas ordenanzas, que se aplican a los arrendadores e inquilinos independientemente del estado migratorio. Estas ordenanzas cubren los derechos y responsabilidades tanto de los inquilinos como de los arrendadores. Tu arrendador debe proporcionarte un resumen escrito de la RTLO con tu contrato de arrendamiento.",
+          "header": "Ordenanza Residencial de Arrendadores e Inquilinos"
+        },
+        {
+          "list": [
+            "Impide que los arrendadores cobren cargos por pagos atrasados superiores a $10 al mes para alquileres mensuales de hasta $1,000, m\u00e1s 5% al mes para alquileres mensuales superiores a $1,000.",
+            "Limita los dep\u00f3sitos de seguridad a no m\u00e1s de un mes y medio de alquiler. Los dep\u00f3sitos de seguridad deben ser devueltos dentro de los 30 d\u00edas despu\u00e9s de que el inquilino haya dejado la unidad. Si se ha deducido una cantidad razonable para reparaciones, el arrendador debe proporcionar una lista detallada de los da\u00f1os y costos de reparaciones.",
+            "Los arrendadores no pueden amenazar, intentar o desalojar por la fuerza a un inquilino sin la autoridad de la ley. Por ejemplo, los arrendadores no pueden cambiar las cerraduras, cortar los servicios p\u00fablicos o hacer cualquier otra cosa que interfiera con el uso del apartamento por parte del inquilino.",
+            "Los desalojos siempre son ilegales, pero la RTLO del Condado de Cook agrega protecciones adicionales. En el Condado de Cook, puedes demandar a tu arrendador por hasta dos meses de alquiler o el doble de los da\u00f1os sufridos por el inquilino, lo que sea mayor. En los municipios fuera de la Ciudad de Chicago, las violaciones deben ser reportadas a la Oficina del Sheriff del Condado de Cook al 773-674-4357."
+          ],
+          "sub": "Ordenanza Residencial de Arrendadores e Inquilinos del Condado de Cook"
+        },
+        {
+          "list": [
+            "Impide que los arrendadores cobren cargos por pagos atrasados superiores a $10 al mes para alquileres mensuales de hasta $500, m\u00e1s 5% al mes para alquileres mensuales superiores a $500.",
+            "Los dep\u00f3sitos de seguridad deben ser devueltos, menos los gastos por da\u00f1os, dentro de los 45 d\u00edas despu\u00e9s de que el inquilino haya dejado la unidad.",
+            "Antes de que el arrendador pueda deducir los gastos por da\u00f1os, primero debe proporcionar al inquilino una lista detallada de los da\u00f1os dentro de los 30 d\u00edas despu\u00e9s de que el inquilino haya dejado la unidad.",
+            "Los arrendadores no pueden amenazar, intentar o desalojar por la fuerza a un inquilino sin la autoridad de la ley. Por ejemplo, los arrendadores no pueden cambiar las cerraduras, cortar los servicios p\u00fablicos o hacer cualquier otra cosa que interfiera con el uso del apartamento por parte del inquilino.",
+            "Los desalojos siempre son ilegales, pero la RTLO de Chicago agrega protecciones adicionales. La Ciudad de Chicago multar\u00e1 al arrendador con $200 a $500 por cada d\u00eda que ocurra el desalojo. Las violaciones deben ser reportadas al Departamento de Polic\u00eda de Chicago. Llama al 311 para asistencia."
+          ],
+          "sub": "Ordenanza Residencial de Arrendadores e Inquilinos de Chicago"
+        },
+        {
+          "body": "Un arrendador no puede entrar por la fuerza a tu hogar, cambiar las cerraduras, romper la puerta o cortar el acceso a los servicios p\u00fablicos en un intento de desalojarte, seg\u00fan la Ley de Entrada Forzada y Detenci\u00f3n. El Sheriff del Condado solo puede retomar la posesi\u00f3n por la fuerza para un arrendador por orden de un juez, solo despu\u00e9s de que el arrendador gane una demanda de desalojo y el inquilino se niegue a irse.",
+          "sub": "Desalojos y Desalojos Ilegales"
+        },
+        {
+          "body": "\u00a1NO TE AUTO DESALOJES! Una notificaci\u00f3n de desalojo no es lo mismo que un desalojo. Una notificaci\u00f3n inicial de desalojo es solo el primer paso en el proceso de desalojo. No significa que el inquilino tenga que mudarse de inmediato, y no necesariamente significa que el inquilino tendr\u00e1 que presentarse en el tribunal. A\u00fan habr\u00e1 una oportunidad para resolver el problema directamente con el arrendador, fuera del tribunal."
+        },
+        {
+          "header": "Proceso de Desalojo",
+          "list": [
+            {
+              "body": "El arrendador entrega personalmente una notificaci\u00f3n escrita y firmada al inquilino o a cualquier persona de 13 a\u00f1os o m\u00e1s que viva en la propiedad, o env\u00eda una por correo certificado con un recibo firmado de devoluci\u00f3n.",
+              "sub": "1. Notificaci\u00f3n de Desalojo"
+            },
+            {
+              "body": "SOLO SI el inquilino y el arrendador no resuelven el problema dentro del per\u00edodo de notificaci\u00f3n, se entrega una citaci\u00f3n y una demanda con el sello del tribunal, llamando al inquilino al tribunal.",
+              "sub": "2. Citaci\u00f3n y Demanda del Tribunal"
+            },
+            {
+              "body": "Si el inquilino no se presenta, se podr\u00eda emitir un fallo por defecto a favor del arrendador, y el inquilino debe mudarse. Si el inquilino gana, el inquilino se queda en la unidad y el proceso termina.",
+              "sub": "3. Audiencia Judicial"
+            },
+            {
+              "body": "Luego se emite una orden de desalojo como la advertencia final del inquilino para mudarse y el desalojo podr\u00eda aparecer en el registro del inquilino.",
+              "sub": "Si el Arrendador Gana"
+            },
+            {
+              "body": "El inquilino es removido por la fuerza (solo por la polic\u00eda, nunca el arrendador).",
+              "sub": "Si el Inquilino Permanece Despu\u00e9s de la Orden de Desalojo"
+            }
+          ]
+        },
+        {
+          "body": "La raz\u00f3n del desalojo determina algunos aspectos del proceso de desalojo, principalmente, cu\u00e1ntos d\u00edas tiene un inquilino para resolver el problema o luchar contra el desalojo en el tribunal.",
+          "header": "Tipos de Notificaciones de Desalojo"
+        },
+        {
+          "body": "Falta de Pago del Alquiler: Al recibir esta notificaci\u00f3n escrita, el inquilino puede evitar ir al tribunal pagando el alquiler atrasado en su totalidad dentro de cinco d\u00edas. En Illinois, si el arrendador acepta el pago parcial del alquiler, el desalojo se vuelve inv\u00e1lido, a menos que la notificaci\u00f3n indique que solo el pago completo del alquiler renunciar\u00e1 al derecho del arrendador de terminar el contrato de arrendamiento. En Chicago, el proceso de desalojo se vuelve inv\u00e1lido si el arrendador acepta cualquier pago parcial del alquiler.",
+          "sub": "Notificaci\u00f3n de 5 D\u00edas"
+        },
+        {
+          "body": "Actividad Ilegal: Un inquilino puede recibir esta notificaci\u00f3n escrita si ha cometido un delito de clase X, como robo a mano armada, agresi\u00f3n agravada o incendio agravado."
+        },
+        {
+          "body": "Incumplimiento: Un inquilino puede recibir esta notificaci\u00f3n escrita de desalojo por violar los t\u00e9rminos del contrato de arrendamiento o acuerdo de alquiler, incluyendo m\u00e1s personas de las permitidas que residen en la unidad, da\u00f1ar la propiedad de alquiler o tener mascotas si no est\u00e1n permitidas en la unidad.",
+          "sub": "Notificaci\u00f3n de 10 D\u00edas"
+        },
+        {
+          "body": "Terminaci\u00f3n del Contrato de Arrendamiento a Voluntad: Tanto un inquilino como un arrendador pueden presentar una notificaci\u00f3n por escrito para terminar el contrato de arrendamiento si el acuerdo de arrendamiento no especifica una fecha de mudanza.",
+          "sub": "Notificaci\u00f3n de 7/30/60 D\u00edas"
+        },
+        {
+          "list": [
+            "Al menos una semana: notificaci\u00f3n de 7 d\u00edas",
+            "Entre una semana y un a\u00f1o: notificaci\u00f3n de 30 d\u00edas",
+            "Al menos un a\u00f1o: notificaci\u00f3n de 60 d\u00edas"
+          ]
+        },
+        {
+          "body": "Los inquilinos deben ser informados de que la propiedad ha sido vendida y tienen un nuevo arrendador dentro de los 10 d\u00edas posteriores a la compra. Si un edificio/unidad se vende, todos los contratos de arrendamiento orales o escritos siguen siendo v\u00e1lidos durante la duraci\u00f3n del contrato de arrendamiento. Los nuevos arrendadores no pueden aumentar los alquileres, desalojar a los inquilinos, obligar a los inquilinos a firmar un nuevo contrato de arrendamiento o retener los dep\u00f3sitos de seguridad para una propiedad comprada. El nuevo arrendador es responsable de obtener todos los documentos y dep\u00f3sitos pertinentes del propietario anterior y devolver los dep\u00f3sitos de seguridad cuando el inquilino se mude.",
+          "sub": "Protecciones Cuando se Vende tu Residencia"
+        },
+        {
+          "body": "Ejecuci\u00f3n Hipotecaria de la Unidad: Un inquilino puede recibir esta notificaci\u00f3n escrita si su unidad es parte de una propiedad que ha sido ejecutada y su alquiler no puede continuar. Los inquilinos tienen 90 d\u00edas para mudarse, independientemente de si tienen un contrato de arrendamiento verbal o escrito.",
+          "sub": "Notificaci\u00f3n de 90 D\u00edas"
+        },
+        {
+          "body": "Los arrendadores no pueden discriminarte debido al pa\u00eds de donde t\u00fa o tu familia son. Si los arrendadores preguntan sobre el estado migratorio, deben preguntar a TODOS los solicitantes. Las agencias de vivienda justa no deben preguntar sobre el estado migratorio.",
+          "header": "Protecciones Basadas en el Estado Migratorio",
+          "sub": "Divulgaci\u00f3n del Estado Migratorio"
+        },
+        {
+          "body": "Es ilegal exigir tarifas o documentaci\u00f3n adicionales debido a la percepci\u00f3n de origen nacional o ascendencia, independientemente del estado migratorio.",
+          "sub": "Documentaci\u00f3n"
+        },
+        {
+          "list": [
+            "Tarjeta consular, pasaporte extranjero vigente con sello I-551 o formulario I-94 (registro de llegada), formulario I-864 (verificaci\u00f3n de patrocinio), tarjeta de identificaci\u00f3n escolar con fotograf\u00eda, registros hospitalarios o Chicago CityKey, entre otras opciones. Contacta a una organizaci\u00f3n de vivienda de confianza para m\u00e1s detalles.",
+            "Registros escolares, carta de la compa\u00f1\u00eda de servicios p\u00fablicos (energ\u00eda, agua, gas, etc.), copia del contrato de arrendamiento de la residencia anterior o carta del arrendador anterior con un n\u00famero de tel\u00e9fono.",
+            "Carta del empleador o talones de pago actuales, cartas de patrocinio o formulario I-864, o vale de la Secci\u00f3n 8, entre otras opciones."
+          ],
+          "sub": "Documentos Alternativos que un Inquilino Puede Solicitar a un Arrendador que Acepte al Solicitar Alquiler"
+        },
+        {
+          "body": "Esta ley entr\u00f3 en vigor en agosto de 2019. Proh\u00edbe que los arrendadores de Illinois acosen, amenacen o desalojen a los inquilinos bas\u00e1ndose en su estado migratorio o de ciudadan\u00eda real o percibido.",
+          "sub": "Ley de Protecci\u00f3n del Inquilino Inmigrante (ITPA)"
+        },
+        {
+          "list": [
+            "Protege a todos los inquilinos, independientemente del estado migratorio.",
+            "Protege a todos los que viven en el hogar, no solo a las personas nombradas en el contrato de arrendamiento.",
+            "Protege a los inquilinos con contratos de arrendamiento escritos y verbales."
+          ]
+        },
+        {
+          "body": "Los arrendadores no pueden usar tu estado migratorio para:"
+        },
+        {
+          "list": [
+            "Amenazar con llamar a Inmigraci\u00f3n y Control de Aduanas (ICE), desalojarte o cortar los servicios p\u00fablicos por ejercer tus derechos.",
+            "Intimidarte, acosarte o obligarte a mudarte.",
+            "Requerir que los inquilinos compartan su estado migratorio o mencionen su estado migratorio o de ciudadan\u00eda durante los procedimientos judiciales civiles (a menos que lo menciones t\u00fa o la vivienda est\u00e9 subsidiada federalmente, excluyendo la asistencia federal de emergencia)."
+          ]
+        },
+        {
+          "body": "Si ganas una demanda contra tu arrendador, podr\u00edas ganar:"
+        },
+        {
+          "list": [
+            "Dinero por da\u00f1os f\u00edsicos, financieros o emocionales sufridos como resultado de la discriminaci\u00f3n.",
+            "Un adicional de $2,000 por cada incidente.",
+            "Dinero para pagar a tu abogado."
+          ]
+        },
+        {
+          "body": "Solo protege a los inquilinos en los lugares donde ya alquilan o alquilaron en el pasado (a partir de agosto de 2019). No cubre viviendas financiadas federalmente que requieren que los arrendadores verifiquen el estado migratorio. No proh\u00edbe a los arrendadores pedir referencias o verificaciones de cr\u00e9dito. Los inquilinos deben seguir pagando el alquiler hasta que se muden.",
+          "sub": "Limitaci\u00f3n de la Ley de Protecci\u00f3n del Inquilino Inmigrante"
+        },
+        {
+          "body": "Si un posible inquilino trae un int\u00e9rprete/traductor, los arrendadores deben trabajar con el int\u00e9rprete/traductor. Los arrendadores deben asegurarse de que los inquilinos entiendan el contrato de arrendamiento y proporcionarlo en formatos alternativos (por ejemplo, proporcionar el contrato de arrendamiento escrito en espa\u00f1ol). Si el arrendador se niega a proporcionar un contrato de arrendamiento en un idioma determinado, podr\u00eda ser una violaci\u00f3n de las leyes de Vivienda Justa u otras leyes de derechos civiles, y debes consultar a un abogado.",
+          "sub": "Derecho a Servicios Gratuitos de Interpretaci\u00f3n y Traducci\u00f3n"
+        },
+        {
+          "body": "Todas las personas tienen derecho a solicitar un int\u00e9rprete en cualquier tribunal de Illinois cuando se registren con el secretario para casos civiles. Los servicios de int\u00e9rpretes de idiomas extranjeros en el tribunal se proporcionan sin costo para la persona que necesita el servicio, de acuerdo con el C\u00f3digo de Procedimiento Civil de Illinois y el Plan de Acceso al Idioma del circuito judicial (735 ILCS 5/8-1403)."
+        },
+        {
+          "body": "Los desalojos siempre son ilegales, independientemente del estado migratorio. Llama a un abogado o a una organizaci\u00f3n de vivienda de confianza para presentar un informe policial con el sheriff del condado. Si est\u00e1s en Chicago, rep\u00f3rtalo al Departamento de Polic\u00eda de Chicago. Consulta los recursos en las p\u00e1ginas 15-24. En una emergencia, llama al 911. Prep\u00e1rate para dar al polic\u00eda o despachador tu nombre y direcci\u00f3n, as\u00ed como el nombre y n\u00famero de tel\u00e9fono del arrendador. Si el despachador o el oficial responden que es un 'asunto civil', pide hablar con el comandante de guardia, o llama al 911 nuevamente y solicita hablar con el comandante de guardia desde el comienzo de la llamada. Aseg\u00farate de tener una identificaci\u00f3n o una foto de tu identificaci\u00f3n que muestre tu direcci\u00f3n. Una identificaci\u00f3n consular (matr\u00edcula consular), Chicago CityKey o TVDL (Licencia de Conducir Temporal) son todas aceptables.",
+          "header": "Qu\u00e9 Hacer Si Te Desalojan Ilegalmente o Te Bloquean la Entrada"
+        },
+        {
+          "body": "Si el arrendador no pone fin al bloqueo de la entrada:"
+        },
+        {
+          "list": [
+            "Puedes presentar cargos en el tribunal para obtener una orden de restricci\u00f3n temporal y que la propiedad te sea devuelta hasta que se resuelva el problema.",
+            "En Chicago: Puedes presentar una queja llamando al 311. La ciudad puede multar a tu arrendador con $200-$500 por cada d\u00eda que ocurra el bloqueo. Necesitar\u00e1s una copia del informe policial para presentar la queja.",
+            "En el Condado de Cook: Puedes demandar a tu arrendador por hasta 2 meses de alquiler o el doble de los da\u00f1os incurridos, lo que sea mayor. Necesitar\u00e1s una copia del informe policial para presentar la queja."
+          ]
+        },
+        {
+          "list": [
+            "Mant\u00e9n la calma. No corras, discutas, resistas o obstruyas al oficial, incluso si crees que se est\u00e1n violando tus derechos. Mant\u00e9n tus manos donde la polic\u00eda pueda verlas.",
+            "No tienes que consentir en un registro de ti mismo o de tus pertenencias.",
+            "No tienes que responder preguntas sobre d\u00f3nde naciste, si eres ciudadano estadounidense o c\u00f3mo entraste al pa\u00eds. Cualquier cosa que le digas a un oficial puede usarse en tu contra m\u00e1s tarde en un tribunal de inmigraci\u00f3n.",
+            "No mientas ni produzcas documentos falsos. No firmes nada sin hablar primero con un abogado, y no firmes ning\u00fan documento en ingl\u00e9s si solo entiendes ingl\u00e9s limitado.",
+            "Los inquilinos de viviendas subsidiadas tienen derecho a preparar una defensa contra"
+          ],
+          "sub": "En general, si un inquilino indocumentado debe llamar o interactuar con la polic\u00eda, la ACLU recomienda:"
+        },
+        {
+          "body": "La discriminaci\u00f3n basada en el sexo y el g\u00e9nero incluye el acoso sexual. Es ilegal que un arrendador haga avances sexuales no deseados a un inquilino o lo coaccione de alguna manera que pueda interferir con el alquiler o la compra de una propiedad o crear un ambiente intimidante, hostil u ofensivo. Por ejemplo, los arrendadores no pueden escribir favores sexuales en los t\u00e9rminos de un contrato de arrendamiento o negarse a alquilar a un inquilino debido a su respuesta al acoso.",
+          "header": "Protecciones Basadas en el Sexo y el G\u00e9nero"
+        },
+        {
+          "body": "Si has estado en una situaci\u00f3n de vivienda violenta o abusiva (como violencia dom\u00e9stica, abuso infantil o abuso de ancianos), t\u00fa y tu familia tienen derecho a: Romper tu contrato de arrendamiento y dejar el hogar sin tener que seguir pagando el alquiler, siempre y cuando le des al arrendador un aviso por escrito tres d\u00edas antes o despu\u00e9s de dejar el hogar, y/o Solicitar un cambio de cerradura de emergencia mediante un aviso por escrito para mantener al abusador fuera del hogar en una situaci\u00f3n de emergencia. Esta ley cubre la vivienda de alquiler y la vivienda subsidiada (como los vales de elecci\u00f3n de vivienda de la Secci\u00f3n 8) y se aplica a los contratos de arrendamiento escritos y orales. Puedes obtener m\u00e1s informaci\u00f3n aqu\u00ed.",
+          "header": "Ley de Hogares Seguros"
+        },
+        {
+          "list": [
+            "La raz\u00f3n para abandonar las instalaciones fue por violencia dom\u00e9stica o sexual contra el inquilino o miembro del hogar del inquilino.",
+            "La fecha de la violencia dom\u00e9stica o sexual.",
+            "Al menos una forma de los siguientes tipos de evidencia: evidencia m\u00e9dica, judicial o policial de violencia, o declaraci\u00f3n de un empleado de una organizaci\u00f3n de servicios para v\u00edctimas o de crisis de violaci\u00f3n a la que el inquilino o un miembro del hogar del inquilino busc\u00f3 servicios."
+          ],
+          "sub": "Qu\u00e9 Incluir en el Aviso por Escrito:"
+        },
+        {
+          "body": "Las leyes de vivienda justa de Illinois requieren que a los inquilinos con discapacidades se les otorguen Acomodaciones y Modificaciones Razonables a sus unidades de alquiler.",
+          "header": "Protecciones para Inquilinos con Discapacidades"
+        },
+        {
+          "list": [
+            "Tienes derecho a solicitar un cambio en una pol\u00edtica o pr\u00e1ctica para permitirte igual acceso a la vivienda, como espacios de estacionamiento m\u00e1s cercanos o m\u00e1s amplios o una excepci\u00f3n a una regla de no mascotas.",
+            "Tambi\u00e9n tienes derecho a solicitar modificaciones f\u00edsicas en la estructura de la unidad de alquiler para permitirte igual acceso, como barras en el ba\u00f1o o una rampa en las \u00e1reas comunes. El inquilino puede ser responsable de pagar por estos cambios. Contacta a una organizaci\u00f3n de defensa de la vivienda para obtener informaci\u00f3n sobre asistencia financiera.",
+            "Un arrendador no puede hacer preguntas generales sobre la discapacidad de un inquilino."
+          ]
+        },
+        {
+          "body": "A partir del 23 de diciembre de 2022, la Administraci\u00f3n Biden finaliz\u00f3 una nueva regulaci\u00f3n de carga p\u00fablica que agrega protecciones para asegurar el acceso de las familias inmigrantes a la red de servicios sociales y de salud.",
+          "header": "La Regla Final de Carga P\u00fablica de 2022 Ahora Est\u00e1 en Vigor"
+        },
+        {
+          "body": "La carga p\u00fablica es parte de la ley de inmigraci\u00f3n federal bajo la cual se puede negar al inmigrante que solicita la residencia legal permanente (tarjeta verde) o una visa para ingresar a los EE. UU. si se considera que 'probablemente se convertir\u00e1n en dependientes principalmente del gobierno para subsistir.'",
+          "sub": "\u00bfQu\u00e9 es la Carga P\u00fablica?"
+        },
+        {
+          "body": "Seg\u00fan la gu\u00eda actual, los funcionarios de inmigraci\u00f3n considerar\u00e1n la edad del solicitante, los ingresos, la competencia en ingl\u00e9s y el patrocinio financiero, as\u00ed como el uso anterior de los siguientes dos programas:"
+        },
+        {
+          "list": [
+            "Institucionalizaci\u00f3n a largo plazo pagada por el gobierno, como: Cuidado en un asilo de ancianos Institucionalizaci\u00f3n por salud mental",
+            "Asistencia en efectivo para el mantenimiento de ingresos, como: Ingreso de Seguridad Suplementaria (SSI) Asistencia Temporal para Familias Necesitadas (TANF) Ayuda general estatal, local o tribal (por ejemplo, Asistencia General, asistencia en efectivo para AABD)."
+          ]
+        },
+        {
+          "body": "Los siguientes programas de vivienda NO se contar\u00e1n para la carga p\u00fablica:"
+        },
+        {
+          "list": [
+            "Vale de Elecci\u00f3n de Vivienda de la Secci\u00f3n 8",
+            "Asistencia de Alquiler Basada en Proyectos de la Secci\u00f3n 8 (incluyendo el Programa de Rehabilitaci\u00f3n Moderada)",
+            "Vivienda P\u00fablica"
+          ]
+        },
+        {
+          "body": "Todas las familias inmigrantes, independientemente de su estado migratorio, pueden y deben acceder a los programas de asistencia de emergencia para el alquiler, la hipoteca y en efectivo para los cuales son elegibles, as\u00ed como a: Refugios de Emergencia y Vivienda de Transici\u00f3n HUD Continuo de Atenci\u00f3n Local Refugios de Emergencia y Vivienda de Transici\u00f3n."
+        },
+        {
+          "link_text": "Obt\u00e9n m\u00e1s informaci\u00f3n aqu\u00ed.",
+          "source_link": "https://www.latinopolicyforum.org/publications/body/HousingRightsforImmigrantTenants-English_MARCH2023.pdf"
+        }
+      ],
+      "title": "Derechos de los Inquilinos"
+    },
+    "tps_apply": {
+      "content": [
+        {
+          "body": "Talleres de solicitud de inmigraci\u00f3n para TPS y permisos de trabajo para reci\u00e9n llegados. El registro para talleres centralizados para permisos de trabajo a trav\u00e9s del Estatus de Protecci\u00f3n Temporal y permiso temporal est\u00e1 actualmente cerrado.",
+          "header": "Talleres"
+        },
+        {
+          "link_text": "Bienvenido a IL",
+          "source_link": "https://welcometoil.org/resources/"
+        },
+        {
+          "body": "Para solicitar TPS o volver a registrarte, presenta el Formulario I-821, Solicitud de Estatus de Protecci\u00f3n Temporal I-821 a USCIS. Hay instrucciones sobre c\u00f3mo aplicar en el sitio web de USCIS.",
+          "header": "\u00bfC\u00f3mo puedo solicitar TPS?",
+          "link_text": "Ver y enviar el Formulario I-821 aqu\u00ed.",
+          "source_link": "https://www.uscis.gov/i-821"
+        },
+        {
+          "body": "Tambi\u00e9n puedes solicitar un documento de autorizaci\u00f3n de empleo (EAD) al mismo tiempo. Utiliza el Formulario I-765, Solicitud de Autorizaci\u00f3n de Empleo. Tambi\u00e9n puedes presentarlo m\u00e1s tarde."
+        },
+        {
+          "body": "Junto con tu solicitud, tambi\u00e9n debes presentar pruebas que demuestren:",
+          "sub": "Pruebas"
+        },
+        {
+          "list": [
+            "Tu identidad y nacionalidad,",
+            "La fecha en que entraste a los EE. UU.,",
+            "Residencia en los EE. UU., y",
+            "Registro de disposici\u00f3n judicial (si fuiste arrestado, acusado o condenado)."
+          ]
+        },
+        {
+          "list": [
+            "Hay una tarifa para presentar la solicitud. La tarifa se basa en factores como tu edad.",
+            "Si est\u00e1s solicitando por primera vez, la tarifa para presentar el Formulario I-821 es de $50.",
+            "Si tienes TPS y te est\u00e1s volviendo a registrar, no hay tarifa para el formulario.",
+            "Si tambi\u00e9n solicitas autorizaci\u00f3n de empleo, la tarifa es de $410 para el Formulario I-765.",
+            "Si tienes menos de 14 a\u00f1os o m\u00e1s de 65, no tienes que pagar por el EAD cuando presentas una solicitud de TPS.",
+            "Si tienes 14 a\u00f1os o m\u00e1s, hay una tarifa de $85 por los servicios biom\u00e9tricos.",
+            "Tambi\u00e9n puedes usar su calculadora de tarifas para determinar tu tarifa."
+          ],
+          "sub": "Tarifas:"
+        },
+        {
+          "link_text": "Formulario I-912, Solicitud de Exenci\u00f3n de Tarifas.",
+          "list": [
+            "Si no puedes pagar las tarifas de presentaci\u00f3n o los servicios biom\u00e9tricos"
+          ],
+          "source_link": "https://www.uscis.gov/i-912",
+          "sub": "Exenci\u00f3n de Tarifas"
+        },
+        {
+          "list": [
+            "Puedes usar un formulario para ambas tarifas, la de presentaci\u00f3n y la de servicios biom\u00e9tricos.",
+            "Si USCIS aprueba tu solicitud, ambas tarifas ser\u00e1n eximidas.",
+            "Si est\u00e1s solicitando una exenci\u00f3n de tarifas, debes presentar versiones en papel de la solicitud y la solicitud de exenci\u00f3n de tarifas.",
+            "Puedes presentar un Formulario I-912 para las solicitudes de todos los miembros de la familia. Todos los formularios deben enviarse juntos.",
+            "Para recibir una exenci\u00f3n de tarifas, debes demostrar que:",
+            "Est\u00e1s recibiendo un beneficio p\u00fablico basado en tus ingresos (como Medicaid, SNAP, TANF o SSI),",
+            "Los ingresos de tu hogar est\u00e1n por debajo del 150% de las pautas federales de pobreza, o",
+            "Est\u00e1s experimentando dificultades financieras.",
+            "Si se niega tu solicitud de exenci\u00f3n de tarifas, puedes volver a presentar y pagar las tarifas. Debes pagar las tarifas antes de la fecha l\u00edmite de registro o dentro de los 45 d\u00edas posteriores a la fecha de la carta de denegaci\u00f3n de exenci\u00f3n de tarifas, lo que ocurra m\u00e1s tarde."
+          ],
+          "sub": "Presentar la solicitud de exenci\u00f3n de tarifas con tu solicitud."
+        },
+        {
+          "link_text": "Obt\u00e9n m\u00e1s informaci\u00f3n sobre c\u00f3mo presentar una exenci\u00f3n de tarifas aqu\u00ed.",
+          "source_link": "https://www.uscis.gov/forms/filing-fees/additional-information-on-filing-a-fee-waiver"
+        },
+        {
+          "body": "Puedes llamar a USCIS al (800)375-5283 para solicitar un formulario en papel. Para TTY, llama al (800)767-1833."
+        },
+        {
+          "header": "\u00bfQu\u00e9 pasa despu\u00e9s de que solicito?",
+          "list": [
+            "Si USCIS aprueba tu solicitud de TPS, te enviar\u00e1n una notificaci\u00f3n de aprobaci\u00f3n con un I-94, Registro de Llegada/Salida. Esto es evidencia de tu TPS.",
+            "Si solicitaste autorizaci\u00f3n de empleo, recibir\u00e1s un Documento de Autorizaci\u00f3n de Empleo (EAD)."
+          ],
+          "sub": "Si eres aprobado:"
+        },
+        {
+          "list": [
+            "SI USCIS niega tu solicitud, recibir\u00e1s una carta de denegaci\u00f3n.",
+            "Si eres elegible, la carta indicar\u00e1 que tienes 30 d\u00edas para apelar ante la Oficina de Apelaciones Administrativas de USCIS (AAO)."
+          ],
+          "sub": "Si eres denegado:"
+        },
+        {
+          "link_text": "Asistencia Legal de Illinois",
+          "source_link": "https://www.illinoislegalaid.org/"
+        }
+      ],
+      "title": "Recursos para Solicitar TPS"
     },
     "tps_info": {
       "content": [
@@ -169,12 +1137,324 @@
       ],
       "title": "Derechos y Privilegios de los Beneficiarios del Estatus de Protecci\u00f3n Temporal"
     },
+    "undocumented": {
+      "content": [
+        {
+          "sub": "Para aquellos que no califican para el estatus"
+        },
+        {
+          "body": "Hay 11 millones de personas indocumentadas en los EE. UU. que encuentran formas de vivir y trabajar en sus comunidades. Chicago es conocida por su comunidad acogedora:"
+        },
+        {
+          "list": [
+            "Educaci\u00f3n: Los ni\u00f1os pueden asistir a la escuela independientemente de su estatus migratorio.",
+            "Aplicaci\u00f3n de la ley: A los oficiales de polic\u00eda no se les permite preguntar sobre el estatus migratorio de una persona.",
+            "Conducir: Despu\u00e9s de un a\u00f1o de residencia, las personas pueden conducir sin licencia.",
+            "Empleo: Los empleadores tienen la autoridad para verificar la autorizaci\u00f3n de empleo. Si una persona no puede proporcionar esto, el empleador no puede contratarla legalmente."
+          ]
+        },
+        {
+          "body": "Aunque el estatus indocumentado puede hacer que sea un desaf\u00edo:"
+        },
+        {
+          "list": [
+            "Venta ambulante: Muchas personas trabajan como vendedores ambulantes y deben conocer sus derechos en este rol.",
+            "Propiedad de negocios: Es posible abrir tu propio negocio en la Ciudad de Chicago.",
+            "Derechos de los trabajadores: Incluso sin la documentaci\u00f3n adecuada, los trabajadores tienen derecho a protecci\u00f3n legal, incluyendo pago justo, horas de trabajo y c\u00f3mo denunciar abusos."
+          ]
+        },
+        {
+          "body": "La econom\u00eda informal ofrece diversas oportunidades, pero es crucial entender los derechos y protecciones disponibles."
+        }
+      ],
+      "title": "Recursos Legales para Migrantes Indocumentados"
+    },
     "util": {
       "back": "Atr\u00e1s",
       "i_want_to": "Quiero...",
       "language": "Espa\u00f1ol",
       "login": "Iniciar Sesi\u00f3n",
       "something_else": "Algo m\u00e1s"
+    },
+    "vttc_apply": {
+      "content": [
+        {
+          "header": "C\u00f3mo Aplicar",
+          "list": [
+            "1. Aplica en l\u00ednea a trav\u00e9s de https://abe.illinois.gov.",
+            "2. Al completar la solicitud, sube los documentos requeridos necesarios para complementar la solicitud. Si no tienes estos documentos disponibles de inmediato, puedes enviarlos despu\u00e9s de la presentaci\u00f3n."
+          ]
+        },
+        {
+          "list": [
+            "Identificaci\u00f3n con foto emitida por el gobierno (se acepta un pasaporte)",
+            "Prueba de ingresos de todos los \u201cganadores\u201d en el hogar (talones de pago, carta de tu empleador, W-2, impuestos)",
+            "Prueba de residencia (identificaci\u00f3n con foto, contrato de arrendamiento, correo oficial, seguro del autom\u00f3vil)",
+            "N\u00fameros de Seguro Social para todos los miembros del hogar que tengan uno",
+            "Certificados de nacimiento para todos los miembros que tengan uno",
+            "Declaraci\u00f3n jurada del cliente indicando que eres elegible y planeas aplicar",
+            "Declaraci\u00f3n jurada de un proveedor de servicios/abogado indicando que eres elegible debido a la visa para la que est\u00e1s aplicando",
+            "Si ya has presentado la solicitud, puedes enviar un recibo de tu solicitud"
+          ],
+          "sub": "Documentos Requeridos"
+        },
+        {
+          "body": "Todos los beneficios de VTTC se est\u00e1n procesando a trav\u00e9s de la oficina de Unidades Especiales de DHS. Las Unidades Especiales tambi\u00e9n manejar\u00e1n cualquier caso relacionado con los casos de VTTC. Al enviar tu solicitud, env\u00eda un correo electr\u00f3nico a DHS.FCS.VTTC@illinois.gov con el n\u00famero de solicitud e indica que aplicaste para tu(s) cliente(s) para beneficios de VTTC. Puedes enviar documentaci\u00f3n complementaria en ese momento."
+        },
+        {
+          "body": "A veces, una oficina local recibe la solicitud antes de que las Unidades Especiales puedan sacarla de la cola. En ese caso, la oficina local debe aceptar la solicitud y enviarla a las Unidades Especiales para su procesamiento."
+        },
+        {
+          "body": "Talleres de Solicitud de TPS y Permiso de Trabajo para Nuevas Llegadas. El registro para talleres centralizados para permisos de trabajo a trav\u00e9s del Estatus de Protecci\u00f3n Temporal y el parole est\u00e1 actualmente cerrado.",
+          "header": "Obt\u00e9n Ayuda para Aplicar: Talleres de Solicitud de Inmigraci\u00f3n para Permiso de Trabajo y TPS para Nuevas Llegadas"
+        },
+        {
+          "link_text": "Bienvenido a IL",
+          "source_link": "https://welcometoil.org/resources/"
+        },
+        {
+          "body": "El Estado de Illinois y la Ciudad de Chicago, en asociaci\u00f3n con organizaciones comunitarias locales, brindan asistencia para ayudar a los inmigrantes elegibles a solicitar permanecer o trabajar legalmente en los EE. UU. Ciertos inmigrantes reci\u00e9n llegados son elegibles para participar en talleres centralizados de solicitud para TPS y Permisos de Trabajo basados en el parole. Los talleres son gratuitos. Sigue los pasos a continuaci\u00f3n para saber si eres elegible y registrarte para participar:"
+        },
+        {
+          "list": [
+            "Paso 1: Determina si eres elegible para asistir a un taller \u2013 completa un formulario de evaluaci\u00f3n para determinar si eres elegible: Haz clic aqu\u00ed para completar.",
+            "Paso 2: El Estado de Illinois y/o la Ciudad de Chicago completar\u00e1n un proceso de verificaci\u00f3n dentro de aproximadamente 2 semanas despu\u00e9s de enviar tu formulario de evaluaci\u00f3n. Si se necesita informaci\u00f3n adicional, recibir\u00e1s un mensaje de texto y/o correo electr\u00f3nico solicitando esa informaci\u00f3n.",
+            "Paso 3: Una vez determinado que eres elegible para asistir a un taller, se te enviar\u00e1 un enlace para programar una cita para el taller por mensaje de texto y/o correo electr\u00f3nico. Responde a la invitaci\u00f3n y reg\u00edstrate para una cita en el taller. Las citas para los talleres son por orden de llegada, de martes a viernes. Se agregan nuevas citas con frecuencia \u2013 sigue revisando si a\u00fan no ves una cita disponible.",
+            "Paso 4: Completa tu libro de trabajo y prepara tus documentos. Puedes descargar el libro de trabajo aqu\u00ed. Puedes imprimir el libro de trabajo en cualquier Biblioteca P\u00fablica de Chicago usando tu CityKey Chicago ID.",
+            "Paso 5: Asiste al taller seg\u00fan las instrucciones enviadas por mensaje de texto o correo electr\u00f3nico. \u00a1Aseg\u00farate de traer tu libro de trabajo y documentos completos!",
+            "Paso 6: En el taller, un representante legal revisar\u00e1 tu elegibilidad para TPS o un permiso de trabajo basado en el parole. Si eres elegible, se preparar\u00e1 tu solicitud de inmigraci\u00f3n. Muchos solicitantes tambi\u00e9n pueden proceder con el procesamiento de USCIS para que tu solicitud sea presentada a USCIS (Inmigraci\u00f3n) y tus huellas dactilares tomadas el mismo d\u00eda. Algunos solicitantes ser\u00e1n programados para una segunda cita para el procesamiento de USCIS.",
+            "Paso 7: Asiste a tu cita de USCIS en la cual se te emitir\u00e1 un n\u00famero de recibo, y es posible que te tomen una foto o tus huellas dactilares.",
+            "Paso 8: Espera recibir avisos de USCIS por correo. USCIS generalmente procesar\u00e1 tu solicitud en aproximadamente 30 d\u00edas y te enviar\u00e1 una decisi\u00f3n por correo. Si se aprueba, recibir\u00e1s tu permiso de trabajo y tu n\u00famero de Seguro Social por correo."
+          ],
+          "sub": "Pasos para Participar"
+        },
+        {
+          "body": "\u00bfNecesitas ayuda con la inscripci\u00f3n? Llama al 312-668-0114 de lunes a viernes, de 12 p.m. a 4 p.m. para obtener asistencia."
+        },
+        {
+          "link_text": "Bienvenido a IL",
+          "source_link": "https://welcometoil.org/resources/"
+        }
+      ],
+      "title": "Recursos para Solicitar Autorizaci\u00f3n de Trabajo a Trav\u00e9s de VTTC"
+    },
+    "vttc_info": {
+      "content": [
+        {
+          "body": "Un ciudadano extranjero que ha experimentado la trata de personas puede recibir una autorizaci\u00f3n de inmigraci\u00f3n temporal. Esto significa que son elegibles para solicitar asistencia gubernamental, servicios de salud mental y f\u00edsica, ayuda financiera para pagar la educaci\u00f3n superior, permisos de trabajo y vivienda.",
+          "header": "Recursos para V\u00edctimas de la Trata de Personas"
+        },
+        {
+          "body": "Para v\u00edctimas de la trata",
+          "header": "Estatus de No Inmigrante T-1 (Visa T)",
+          "sub": "Qui\u00e9n"
+        },
+        {
+          "body": "Hasta cuatro a\u00f1os de estatus de no inmigrante temporal con un camino hacia la residencia permanente legal (tarjeta verde) y la ciudadan\u00eda",
+          "sub": "Qu\u00e9"
+        },
+        {
+          "list": [
+            "Beneficios y servicios federales y estatales en la misma medida que los refugiados",
+            "Los beneficios estatales para Illinois se detallan a continuaci\u00f3n"
+          ],
+          "sub": "Beneficios"
+        },
+        {
+          "list": [
+            "Carta de Certificaci\u00f3n de HHS o Carta de Elegibilidad",
+            "Documento de Autorizaci\u00f3n de Empleo o N\u00famero de Seguro Social (SSN)"
+          ],
+          "sub": "Documentos"
+        },
+        {
+          "body": "Para v\u00edctimas de varios delitos, incluida la trata",
+          "header": "Estatus de No Inmigrante U-1 (Visa U)",
+          "sub": "Qui\u00e9n"
+        },
+        {
+          "body": "Hasta cuatro a\u00f1os de estatus de no inmigrante temporal con un camino hacia la residencia permanente legal y la ciudadan\u00eda",
+          "sub": "Qu\u00e9"
+        },
+        {
+          "list": [
+            "Beneficios y servicios federales y estatales",
+            "Los beneficios estatales para Illinois se detallan a continuaci\u00f3n"
+          ],
+          "sub": "Beneficios"
+        },
+        {
+          "list": [
+            "Documento de Autorizaci\u00f3n de Empleo o SSN"
+          ],
+          "sub": "Documentos"
+        },
+        {
+          "body": "Para v\u00edctimas de la trata",
+          "header": "Presencia Continua (CP)",
+          "sub": "Qui\u00e9n"
+        },
+        {
+          "list": [
+            "Autorizaci\u00f3n por dos a\u00f1os, renovable hasta que el caso se resuelva en incrementos de hasta dos a\u00f1os",
+            "No hay camino hacia la residencia permanente legal",
+            "Se puede solicitar una visa T o U con la Presencia Continua"
+          ],
+          "sub": "Qu\u00e9"
+        },
+        {
+          "list": [
+            "Beneficios y servicios federales y estatales en la misma medida que los refugiados",
+            "Los beneficios estatales para Illinois se detallan a continuaci\u00f3n"
+          ],
+          "sub": "Beneficios"
+        },
+        {
+          "list": [
+            "Carta de Certificaci\u00f3n de HHS o Carta de Elegibilidad",
+            "Documento de Autorizaci\u00f3n de Empleo o SSN"
+          ],
+          "sub": "Documentos"
+        },
+        {
+          "link_text": "Centro Nacional de Capacitaci\u00f3n y Asistencia T\u00e9cnica sobre la Trata de Personas",
+          "source_link": "https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%26U%20Visa%20and%20Continued%20Presence%20Fact%20Sheet%20508c_0.pdf"
+        },
+        {
+          "body": "Cuando una persona recibe un permiso de trabajo a trav\u00e9s de una visa T, una visa U o Presencia Continua, es elegible para trabajar. Una persona puede demostrar elegibilidad para el empleo con el Documento de Autorizaci\u00f3n de Empleo (EAD) u otra documentaci\u00f3n permitida en el proceso de elegibilidad para el empleo I-9, como un documento de identificaci\u00f3n estatal. Si una persona usa un SSN que dice, \u201cV\u00e1lido solo para empleo con autorizaci\u00f3n de DHS,\u201d necesitar\u00e1 mostrar su EAD. Los empleadores no deben usar el formulario I-9 como una herramienta de selecci\u00f3n y solo deben solicitarlo al momento de la contrataci\u00f3n, hasta e incluyendo el primer d\u00eda de trabajo. Las personas con visas T o U generalmente son elegibles para una tarjeta verde despu\u00e9s de tres a\u00f1os. Presentar una solicitud para una tarjeta verde extiende el estatus de no inmigrante T o U, por lo que la expiraci\u00f3n del permiso de trabajo mientras la solicitud de tarjeta verde est\u00e1 pendiente no necesariamente significa que estas personas no son elegibles para trabajar. Las personas pueden solicitar un EAD mientras esperan la residencia permanente legal.",
+          "header": "Elegibilidad para el Empleo"
+        },
+        {
+          "link_text": "Centro Nacional de Capacitaci\u00f3n y Asistencia T\u00e9cnica sobre la Trata de Personas",
+          "source_link": "https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%26U%20Visa%20and%20Continued%20Presence%20Fact%20Sheet%20508c_0.pdf"
+        },
+        {
+          "header": "Elegibilidad para Beneficios P\u00fablicos - Federales",
+          "link_text": "Aprende m\u00e1s sobre la elegibilidad para beneficios p\u00fablicos federales aqu\u00ed.",
+          "source_link": "https://www.google.com/url?q=https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%2526U%2520Visa%2520and%2520Continued%2520Presence%2520Fact%2520Sheet%2520508c_0.pdf&sa=D&source=docs&ust=1716238382552500&usg=AOvVaw1yiDJxJJ8P7TxMBLyRcgpQ"
+        },
+        {
+          "body": "A partir del 1 de enero de 2018, las personas que tienen la intenci\u00f3n de presentar o han presentado una solicitud de Visa U, Visa T y/o asilo califican para beneficios p\u00fablicos financiados por el estado:",
+          "header": "Elegibilidad para Beneficios P\u00fablicos - Estatales"
+        },
+        {
+          "list": [
+            "Asistencia m\u00e9dica (Medicaid/Medicare)",
+            "Un programa de alimentos financiado por el estado similar a SNAP/cupones de alimentos",
+            "Asistencia en efectivo de TANF"
+          ]
+        },
+        {
+          "body": "El programa a trav\u00e9s del Departamento de Servicios Humanos de Illinois (IL DHS) se conoce como V\u00edctimas de la Trata, Tortura y Otros Delitos Graves (VTTC)."
+        },
+        {
+          "list": [
+            "Dentro de los requisitos espec\u00edficos de ingresos para beneficios",
+            "9 a\u00f1os o m\u00e1s",
+            "Prepar\u00e1ndose para presentar o haber presentado una de las solicitudes de visa mencionadas anteriormente",
+            "Residente de Illinois"
+          ],
+          "sub": "Para aplicar, debes ser:"
+        },
+        {
+          "body": "Cada tipo de beneficio p\u00fablico tiene diferentes requisitos seg\u00fan tus ingresos, tu edad, discapacidades, tama\u00f1o del hogar, etc. Los requisitos incluyen:",
+          "sub": "Requisitos Espec\u00edficos de Ingresos para Beneficios"
+        },
+        {
+          "list": [
+            "Asistencia alimentaria: El l\u00edmite de ingresos brutos es el 165% del FPL y el 200% del FPL para personas de 60 a\u00f1os o m\u00e1s O discapacitadas",
+            "Asistencia en efectivo: El l\u00edmite de ingresos brutos es el 50% del FPL",
+            "Asistencia m\u00e9dica: El l\u00edmite de ingresos brutos es el 100% del FPL y no debe ser elegible para recibir ning\u00fan otro programa m\u00e9dico"
+          ]
+        },
+        {
+          "body": "Un hogar para una persona que solicita el Programa de Alimentos del Estado incluye al solicitante principal/sobreviviente, ni\u00f1os menores de 22 a\u00f1os que viven con el solicitante/sobreviviente, c\u00f3nyuge/padre de los ni\u00f1os si viven en el hogar. Todos los dem\u00e1s que viven contigo y compran alimentos por separado no forman parte de tu hogar."
+        },
+        {
+          "body": "Un hogar para una persona que solicita Asistencia en Efectivo TANF y/o Medicaid incluye: el solicitante principal/sobreviviente, el c\u00f3nyuge del solicitante principal/sobreviviente y los hijos del solicitante/sobreviviente menores de 19 a\u00f1os. Todos los dem\u00e1s en el hogar deben aplicar por separado."
+        },
+        {
+          "body": "La asistencia alimentaria y m\u00e9dica de VTTC no se considera como parte de la prueba de carga p\u00fablica. Las personas que est\u00e1n solicitando y se les ha concedido asilo, una Visa U o una Visa T est\u00e1n exentas de la prueba de carga p\u00fablica por inadmisibilidad.",
+          "sub": "Carga P\u00fablica"
+        },
+        {
+          "link_text": "Bienvenido a IL/Heartland Alliance",
+          "source_link": "https://welcometoil.org/pdfviewer/victims-factsheet/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+        }
+      ],
+      "title": "Acerca de la Autorizaci\u00f3n de Trabajo a trav\u00e9s de VTTC"
+    },
+    "workers_rights": {
+      "content": [
+        {
+          "header": "Derechos de los Trabajadores"
+        },
+        {
+          "sub": "Todos los trabajadores tienen derechos, independientemente de su estatus migratorio. En Chicago, tienes derecho a:"
+        },
+        {
+          "list": [
+            "Recibir pago por cada hora que trabajas.",
+            "Recibir pago por horas extras (tiempo y medio) despu\u00e9s de trabajar m\u00e1s de 40 horas en una semana laboral.",
+            "Recibir al menos el salario m\u00ednimo en el \u00e1rea donde trabajas. En Chicago, esto es $14.50-$15.40/hora, dependiendo del n\u00famero de empleados.",
+            "Recibir el 66% de tu salario y las facturas m\u00e9dicas pagadas si sufres un accidente en el trabajo.",
+            "Un lugar de trabajo seguro y saludable, incluso durante tiempos de COVID-19.",
+            "Un lugar de trabajo libre de discriminaci\u00f3n, acoso sexual o intimidaci\u00f3n.",
+            "Organizarte para mejores condiciones laborales a trav\u00e9s de acciones colectivas."
+          ]
+        },
+        {
+          "sub": "\u00bfD\u00f3nde puedo acudir por ayuda?"
+        },
+        {
+          "body": "Derechos de la Comunidad y Trabajadores de Chicago",
+          "list": [
+            "\u00c1rea de servicio: Estado de Illinois",
+            "Tel\u00e9fono: 773-653-3664",
+            "Facebook: @chicagoworkersrights",
+            "Sitio web: chicagoworkersrights.org"
+          ]
+        },
+        {
+          "body": "Centro de Trabajadores Unidos",
+          "list": [
+            "\u00c1rea de servicio: Sureste de Chicago + Suburbios del Sur",
+            "Tel\u00e9fono: 733-720-7111",
+            "Facebook: @CentroDeTrabajadoresUnidos",
+            "Sitio web: centrodetrabajadoresunidos.org"
+          ]
+        },
+        {
+          "body": "Colaborativa de Trabajadores de Chicago",
+          "list": [
+            "\u00c1rea de servicio: Chicago + Suburbios",
+            "Tel\u00e9fono: 847-596-7491",
+            "Facebook: @ChiTemps",
+            "Sitio web: chicagoworkerscollaborative.org"
+          ]
+        },
+        {
+          "body": "Proyecto de Defensa de Trabajadores Agr\u00edcolas y Paisajistas: FLAP",
+          "list": [
+            "\u00c1rea de servicio: Estado de Illinois",
+            "Tel\u00e9fono: 1-888-451-3527",
+            "Facebook: @farmworkerlandscaper.advocacyproject",
+            "Sitio web: flapillinois.org"
+          ]
+        },
+        {
+          "list": [
+            "En la ciudad de Chicago, puedes llamar al 311 para presentar una queja.",
+            "Las investigaciones son confidenciales y la ciudad no preguntar\u00e1 sobre el estatus migratorio."
+          ],
+          "sub": "\u00bfC\u00f3mo puedo presentar una queja?"
+        },
+        {
+          "link_text": "Bienvenido a IL/Illinois Access to Justice",
+          "source_link": "https://welcometoil.org/pdfviewer/immigrant-rights-english/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+        }
+      ],
+      "title": "Derechos de los Trabajadores"
     }
   }
 }

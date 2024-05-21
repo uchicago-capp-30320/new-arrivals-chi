@@ -218,10 +218,10 @@ def test_access_legal_help(client, capture_templates, setup_logger):
     """Test Access Legal Help Page."""
     logger = setup_logger("test_access_legal_help")
     try:
-        response = client.get("/legal/help", follow_redirects=True)
+        response = client.get("/legal/lawyers", follow_redirects=True)
         assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
-        assert capture_templates[final_template_rendered][0].name == "help.html"
+        assert capture_templates[final_template_rendered][0].name == "lawyers.html"
         logger.info("Legal Help page rendered correctly.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
