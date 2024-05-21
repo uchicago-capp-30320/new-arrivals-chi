@@ -27,7 +27,7 @@ Creation:
 import pytest
 import logging
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from new_arrivals_chi.app.main import create_app, db, User
 from new_arrivals_chi.app.database import Organization
 from flask import template_rendered
@@ -49,15 +49,16 @@ def app():
         "PREFERRED_URL_SCHEME": "http",
         "TESTING": True,
         "DEBUG": False,
-        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///test_fake_data.db",
         "SECRET_KEY": "testing_key",
+        "PERMANENT_SESSION_LIFETIME": timedelta(hours=12),
     }
     app = create_app(config_override=test_config)
     with app.app_context():
-        db.create_all()
+        # db.create_all()
         yield app
-        db.session.remove()
-        db.drop_all()
+        # db.session.remove()
+        # db.drop_all()
 
 
 @pytest.fixture(scope="module")
@@ -71,6 +72,16 @@ def client(app):
         The test client for the given Flask app.
     """
     return app.test_client()
+
+
+@pytest.fixture(scope="function")
+def query_test_user(app):
+    """Fixture to query an existing test user from the database."""
+    with app.app_context():
+        user = User.query.get(1)
+        if user is None:
+            raise ValueError("Test user with id=1 not found in the database.")
+        yield user
 
 
 @pytest.fixture(scope="function")

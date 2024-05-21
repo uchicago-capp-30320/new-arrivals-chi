@@ -37,7 +37,7 @@ from new_arrivals_chi.app.database import organizations_hours
 
 def add_user(session):
     """Create and add a fake user to the session."""
-    user = create_fake_user()
+    user = create_fake_user(setup_logger)
     session.add(user)
     session.flush()
     return user

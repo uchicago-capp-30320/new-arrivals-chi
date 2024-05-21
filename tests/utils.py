@@ -26,8 +26,12 @@ Creation:
 @Date: 2024-05-16
 """
 
+import re
 import random
+import string
 from faker import Faker
+from password_strength import PasswordPolicy
+from flask_bcrypt import Bcrypt
 from new_arrivals_chi.app.database import (
     User,
     Organization,
@@ -47,19 +51,30 @@ from tests.constants import (
     FAKE_NEIGHBORHOODS,
 )
 
+bcrypt = Bcrypt()
 fake = Faker()
 
+def generate_strong_password():
+    """Generates a password that meets the strength requirements."""
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(12))
+    return password
 
-def create_fake_user():
+
+def create_fake_user(setup_logger):
     """Create a single fake user instance.
 
     Returns:
-        A User instance with a randomly generated email and role.
+        A User instance with a randomly generated email, role, and password.
     """
+    logger = setup_logger("create_fake_user")
+    password = generate_strong_password()
+    logger.info(f"Generated password for testing fake user: {password}")
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
     return User(
         email=fake.email(),
         role=fake.random_element(elements=("admin", "standard")),
-        password=fake.password(),
+        password=hashed_password,
     )
 
 
