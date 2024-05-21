@@ -389,7 +389,7 @@ def dashboard():
         edit_org_url=edit_org_url,
     )
 
-  
+
 # @main.route("/org", methods=["GET"])
 # @login_required
 # def org():
@@ -415,7 +415,6 @@ def dashboard():
 
 @main.route("/org/<int:org_id>", methods=["GET"])
 def org(org_id):
-
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
