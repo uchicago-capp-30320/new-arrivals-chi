@@ -35,8 +35,10 @@ Associated Files:
           <li>{{ item }}</li>
         {% endfor %}
       </ul>
-    {% endif %}
-  {% endfor %}
-  <button class="blue-button" onclick="location.href='{{ url_for('main.lawyers') | escape }}'">{{ translations[language]['legal']['find_lawyers'] }}</button>
-</div>
-{% endblock %}
+      {% endif %}
+    {% endfor %}
+    <div class="container">
+      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers') | escape }}'">{{ translations[language]['legal']['find_lawyers'] }}
+    </div>
+  </div>
+  {% endblock %}

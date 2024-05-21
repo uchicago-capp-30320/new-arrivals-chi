@@ -143,3 +143,13 @@ body {
 .yellow-button:hover {
     background-color: #FFBE00;
 }
+
+.button-orange {
+    background-color: #F9E3CE;
+    color: black;
+}
+
+.button-orange:hover {
+    background-color: #FF8C00;
+}
+

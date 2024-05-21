@@ -6,24 +6,23 @@ Associated Files:
 
 Landing page for user to navigate through health information.
 -->
+
 {% extends "base.html" %}
-
 {% block content %}
-
-    <div class="box">
-        <div class="box-big-title">{{ translations[language]['health']['health_information'] | escape }}</div>
-        <div class="box-title">{{ translations[language]['util']['i_want_to'] | escape }} </div>
-        <div class="button-container">
-            <button class="button orange" onclick="navigateTo('/health/search', '{{ language | escape }}')">
-                {{ translations[language]['health']['receive_assistance'] | escape }}
-              </button>
-            <button class="button green">{{ translations[language]['health']['learn_more'] | escape }}</button>
-            <button class="yellow-button">{{ translations[language]['util']['something_else'] | escape }}</button>
-            <p class="bottom-left">
-                <a href="/">{{ translations[language]['util']['back'] | escape }}</a>
-            </p>
-            <p>
-        </div>
-
+<div class="wrapper">
+  <div class="text-container">
+   <h1>{{ translations[language]['health']['health_information'] }}</h1> 
+  </div>
+  <div class="button-container">
+    <h2>{{ translations[language]['util']['i_want_to'] | escape }}</h2> 
+    <button class="button button-orange" onclick="navigateTo('/health/search', '{{ language | escape }}')">
+        {{ translations[language]['health']['receive_assistance'] | escape }}
+      </button>
+    <button class="button button-blue">{{ translations[language]['health']['learn_more'] | escape }}</button>
+    <button class="button button-green">{{ translations[language]['util']['something_else'] | escape }}</button>
+    <button class="yellow-button" onclick="location.href='{{ '/' | escape }}'">
+        {{ translations[language]['util']['back'] | escape }}
+    </button>
     </div>
+</div>
 {% endblock %}

@@ -297,22 +297,6 @@ def lawyers():
         "lawyers.html", language=language, translations=translations
     )
 
-
-@main.route("/legal/lawyers")
-def lawyers():
-    """Route for lawyers.
-
-    Returns:
-        Renders the page with contact information for lawyers
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "lawyers.html", language=language, translations=translations
-    )
-
-
 @main.route("/health")
 def health():
     """Establishes route for the health page.
