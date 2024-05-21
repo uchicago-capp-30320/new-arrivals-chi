@@ -1,5 +1,48 @@
 {
     "en": {
+        "about_us": {
+            "content": [
+                {
+                    "body": "New Arrivals Chi is a resource guide developed by six graduate students from the University of Chicago to help newly arrived individuals navigate the City of Chicago and its available resources. Our goal is to provide accurate, up-to-date, and actionable information to address common challenges faced by newcomers."
+                },
+                {
+                    "header": "Team Members",
+                    "list": [
+                        "Federico Dominguez Molina",
+                        "Aaron Haefner",
+                        "Summer Long",
+                        "Kathryn Link-Oberstar",
+                        "Madeleine Roberts",
+                        "Xiomara Salazar Flores"
+                    ]
+                },
+                {
+                    "body": "We would like to express our sincere gratitude to our advisors, James Turk and Michael Plunkett, for their invaluable guidance and support throughout this project."
+                },
+                {
+                    "body": "This resource guide was made possible by our incredible community partners who graciously shared their knowledge and advice during the development process.",
+                    "header": "Acknowledgements"
+                },
+                {
+                    "list": [
+                        "City of Chicago - Office of Immigrants, Migrant, Refugee Rights: Marissa Arrez and Jes\u00fas Del Toro",
+                        "Illinois Community for Displaced Immigrants: Johannes Favi",
+                        "The Resurrection Project: Oswaldo Gomez, Laura Mendoza",
+                        "Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan"
+                    ]
+                },
+                {
+                    "body": "The codebase for this project is publicly available on GitHub.",
+                    "header": "Get in touch",
+                    "link_text": "View repository",
+                    "source_link": "https://github.com/uchicago-capp-30320/new-arrivals-chi/tree/main"
+                },
+                {
+                    "body": "For questions or inquiries, please contact us at newarrivalschi.contact@gmail.com."
+                }
+            ],
+            "title": "About Us"
+        },
         "asylum_apply": {
             "content": [
                 {
@@ -104,9 +147,11 @@
             "title": "Rights and Privileges of Asylum"
         },
         "base": {
+            "about_us": "About Us",
             "dashboard": "Dashboard",
             "home": "Home",
             "logout": "Logout",
+            "note": "This site does not collect any personal information.",
             "report_error": "Report website error",
             "sign_up": "Sign Up"
         },
@@ -123,12 +168,14 @@
             "receive_assistance": "Receive Assistance Now"
         },
         "home": {
-            "find_support": "Find essential support for legal, health, and food needs.",
-            "food": "Food",
-            "health": "Health",
-            "legal": "Legal",
+            "description": "This resource guide is designed for new migrants to welcome to your new home. In this guide you will find information about your rights as an immigrant and resident of Chicago, and information on how to access resources offered by the City of Chicago, the State government and community organizations.",
+            "find_support": "This resource guide is a collaboration between Chicago Area Student, Chicago-based organizations, and the City of Chicago. To learn more visit About Us.",
+            "general": "Getting Started",
+            "health": "Health Resources",
+            "legal": "Legal Support",
             "please_click": "Please click below to begin:",
-            "welcome": "Welcome"
+            "subheader": "A Resource Guide for New Migrants",
+            "welcome": "Welcome to Chicago!"
         },
         "info": {
             "languages_spoken": "Languages Spoken: English, Spanish",

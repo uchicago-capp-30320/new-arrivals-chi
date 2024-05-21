@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="wrapper">
     <h3>
         Search for Resources
     </h3>
@@ -70,6 +71,7 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
 
     <script src="{{ url_for('static', filename='js/filter.js') }}"></script>
 {% endblock %}
