@@ -1,5 +1,5 @@
 /**
- Project: new_arrivals_chi
+Project: new_arrivals_chi
 File name: legal_data.js
 Associated Files:
     base.html, main.py, legal_flow.html, legal_flow.js, legal.css
