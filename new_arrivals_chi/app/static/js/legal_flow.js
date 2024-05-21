@@ -64,7 +64,7 @@ function getColorClass(key, parentColor) {
         case 'something_else':
             return 'button-orange';
         default:
-            return parentColor;
+            return 'button-blue';
     }
 }
 

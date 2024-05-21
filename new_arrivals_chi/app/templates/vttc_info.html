@@ -1,21 +1,42 @@
 <!--
 Project: new_arrivals_chi
-File name: legal_vttc_info.html
+File name: vttc_info.html
 Associated Files:
-    base.html, main.py
-
-Landing page for user to navigate through health information.
+    base.html, main.py, legal_page.css, lawyers.html
 -->
 {% extends "base.html" %}
 
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
+{% endblock %}
+
 {% block content %}
-    <form action="/legal/vttc_info" method="GET">
-        <button type="submit" class="language-button">{{ translations[language]['util']['language'] | escape }}</button>
-        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-    </form>
-    <!-- We still need to make json for this static page-->
-
-    <h1>{{ translations[language]['legal_start']['vttc_header'] }}</h1>
-
-
+<div class="white-container">
+  {% set content = translations[language]['vttc_info'] %}
+  {% if content.title %}
+    <h1>{{ content.title }}</h1>
+  {% endif %}
+  {% for section in content.content %}
+    {% if section.header %}
+        <h2>{{ section.header }}</h2>
+    {% endif %}
+    {% if section.sub %}
+      <h3>{{ section.sub }}</h3>
+    {% endif %}
+    {% if section.body %}
+      <p>{{ section.body }}</p>
+    {% endif %}
+    {% if section.link_text and section.source_link %}
+      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
+    {% endif %}
+    {% if section.list %}
+      <ul>
+        {% for item in section.list %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+  <button class="blue-button" onclick="location.href='{{ url_for('main.lawyers') | escape }}'">{{ translations[language]['legal']['find_lawyers'] }}</button>
+</div>
 {% endblock %}
