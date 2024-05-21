@@ -32,6 +32,7 @@ from new_arrivals_chi.app.constants import (
     KEY_TRANSLATIONS,
     DEFAULT_LANGUAGE,
 )
+from new_arrivals_chi.app.utils import validate_email_syntax
 from new_arrivals_chi.app.database import db, User, Organization
 from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
@@ -544,6 +545,9 @@ def add_organization():
         if email != confirmed_email:
             flash(escape("Emails do not match. Try again"))
         # Handle the form submission
+        if not validate_email_syntax(email):
+            flash(escape("Invalid email address. Try again"))
+
         pass
 
     return render_template(

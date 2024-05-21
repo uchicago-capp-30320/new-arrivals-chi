@@ -115,6 +115,22 @@ def validate_password(password):
     return policy_reqs == 0 and no_space
 
 
+def validate_phone_number(phone_number):
+    """Validates the format of a phone number.
+
+    This function checks if the provided phone number is in a valid format.
+    The phone number should contain only digits and have a length between 8 and
+    15 characters.
+
+    Parameters:
+        phone_number (str): The phone number to be validated.
+
+    Returns:
+        bool: True if the phone number is in a valid format, False otherwise.
+    """
+    return re.match(r"^\d{8,15}$", phone_number) is not None
+
+
 def verify_password(pw_hash, candidate):
     """Verifies a candidate password against a hashed password.
 
