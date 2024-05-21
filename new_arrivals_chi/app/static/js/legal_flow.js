@@ -13,7 +13,7 @@ The page includes functionality for creating buttons, managing navigation, and h
 const previousOptions = [];
 
 // create buttons based on the current options based on decision tree level
-function createButtons(currentOptions, parentColor = '') {
+function createButtons(currentOptions, language, parentColor = '') {
     $('#buttonContainer').empty();
 
     // get the header text from the language data
@@ -26,14 +26,14 @@ function createButtons(currentOptions, parentColor = '') {
     // create children buttons
     Object.keys(currentOptions.children).forEach(key => {
         const childOption = currentOptions.children[key];
-        buttonGroup.append(createChildButton(childOption, key, parentColor, currentOptions));
+        buttonGroup.append(createChildButton(childOption, key, parentColor, currentOptions, language));
     });
 
     $('#buttonContainer').append(buttonGroup);
 
     // add to back button
     if (previousOptions.length > 0) {
-        const backBtn = createBackButton();
+        const backBtn = createBackButton(language);
         $('#buttonContainer').append(backBtn);
     }
 }
@@ -53,7 +53,7 @@ function getButtonDescription(childOption) {
 }
 
 // determine the color class for the button
-function getColorClass(key, parentColor) {
+function getColorClass(key) {
     switch (key) {
         case 'work_auth':
             return 'button-blue';
@@ -69,7 +69,7 @@ function getColorClass(key, parentColor) {
 }
 
 // create a button element
-function createButton(btnText, colorClass, childOption, currentOptions) {
+function createButton(btnText, colorClass, childOption, currentOptions, language) {
     return $('<button>')
         .addClass('button')
         .addClass(colorClass)
@@ -77,19 +77,19 @@ function createButton(btnText, colorClass, childOption, currentOptions) {
         .on('click', () => {
             if (childOption.children) {
                 previousOptions.push(currentOptions);
-                createButtons(childOption, colorClass);
+                createButtons(childOption, language, colorClass);
             } else if (childOption.link) {
-                window.location.href = childOption.link;
+                navigateTo(childOption.link, language);
             }
         });
 }
 
 // create a child button element
-function createChildButton(childOption, key, parentColor, currentOptions) {
+function createChildButton(childOption, key, parentColor, currentOptions, language) {
     const btnText = languageData[childOption.key] || 'Key not found';
     const btnDesc = getButtonDescription(childOption);
-    const colorClass = getColorClass(key, parentColor);
-    const btn = createButton(btnText, colorClass, childOption, currentOptions);
+    const colorClass = getColorClass(key);
+    const btn = createButton(btnText, colorClass, childOption, currentOptions, language);
 
     const collapsible = $('<div>').addClass('collapsible').html(btnDesc);
     const buttonWrapper = $('<div>').addClass('button-wrapper').append(btn);
@@ -114,17 +114,24 @@ function createToggleLink(collapsible) {
 }
 
 // create a back button element
-function createBackButton() {
+function createBackButton(language) {
     return $('<button>')
         .addClass('button yellow-button')
         .text('Back')
         .on('click', () => {
             const prevOptions = previousOptions.pop();
-            createButtons(prevOptions);
+            createButtons(prevOptions, language);
         });
+}
+
+// navigate to a specific URL with language parameter
+function navigateTo(destination, language) {
+    const url = new URL(destination, window.location.origin);
+    url.searchParams.set('lang', language);
+    window.location.href = url.toString();
 }
 
 // document ready function
 $(document).ready(function() {
-    createButtons(options.legal_start);
+    createButtons(options.legal_start, language);
 });

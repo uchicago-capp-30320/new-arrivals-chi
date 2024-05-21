@@ -64,6 +64,23 @@ def home():
     )
 
 
+@main.route("/about")
+def about():
+    """Establishes route for the about us page.
+
+    This route is accessible from the footer of every page.
+
+    Returns:
+        Renders about us page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "about.html", language=language, translations=translations
+    )
+
+
 @main.route("/legal")
 def legal():
     """Establishes route for the legal page.
@@ -266,21 +283,6 @@ def renters_rights():
     )
 
 
-@main.route("/legal/general")
-def legal_general():
-    """Route for general legal information.
-
-    Returns:
-        Renders the legal general page.
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "general.html", language=language, translations=translations
-    )
-
-
 @main.route("/legal/lawyers")
 def lawyers():
     """Route for lawyers.
@@ -354,6 +356,21 @@ def health_search():
         translations=translations,
         services_info=services_info,
         set=set,
+    )
+
+
+@main.route("/general")
+def general():
+    """Route for Chicago 101 page.
+
+    Returns:
+        Chicago 101 page
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "general.html", language=language, translations=translations
     )
 
 
