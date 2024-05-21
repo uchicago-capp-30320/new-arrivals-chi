@@ -77,6 +77,8 @@
     },
     "profile": {
       "change_password": "Change My Password",
+      "confirm_email": "Confirm email",
+      "name": "Organization Name",
       "title": "Organization Profile",
       "update_org_info": "Update My Information",
       "view_org_page": "View My Page"

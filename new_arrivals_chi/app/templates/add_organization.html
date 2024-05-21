@@ -27,6 +27,19 @@ Landing page for user to navigate through undocumented resources.
             {% endif %}
             {% endwith %}
         <form method="POST" action="/add_organization">
+
+        <div class="field">
+            <div class="control">
+                <input class="input is-large" type="org-name" name="org-name" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input class="input is-large" type="phone-number" name="phone-number" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+            </div>
+        </div>
+
         <div class="field">
             <div class="control">
                 <input class="input is-large" type="email" name="email" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">

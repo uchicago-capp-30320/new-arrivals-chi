@@ -77,6 +77,8 @@
     },
     "profile": {
       "change_password": "Cambiar Mi Contrase\u00f1a",
+      "confirm_email": "Confirmar correo electr\u00f3nico",
+      "name": "Nombre de la Organizaci\u00f3n",
       "title": "Perfil de la Organizaci\u00f3n",
       "update_org_info": "Actualizar Mi Informaci\u00f3n",
       "view_org_page": "Ver Mi P\u00e1gina"
