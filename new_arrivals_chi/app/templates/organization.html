@@ -2,9 +2,9 @@
 Project: new_arrivals_chi
 File name: organization.html
 Associated Files:
-    main.py, dashboard.html
+    main.py, dashboard.html, health_search.html
 
-Skeleton html of unauthenticated view of an organization's website.
+Uauthenticated view of an organization's website.
 -->
 
 {% extends "base.html" %}
@@ -12,11 +12,14 @@ Skeleton html of unauthenticated view of an organization's website.
 {% block content %}
 
 <div class="box">
-    <div class="box-big-title">{{ organization.name if language == 'es' else 'Organization Name' | escape }} </div>
-    <div class="box-contact-info"> <i class="fa-solid fa-diamond-turn-right"></i> 123 Main St&nbsp;&nbsp;<i class="fa-solid fa-phone"></i> 234-567-8901</div>
-    <div class="box-contact-info">{{ 'Horas de Atención:' if language =='es' else 'Open Hours:' | escape }}</div>
-    <div class="box-contact-info">{{ 'Idiomas hablados:' if language == 'es' else 'Languages Spoken:' | escape }}</div>
-    <div class="box-contact-info">{{ 'Recursos y Servicios:' if language == 'es' else 'Supplies and Services:'| escape }}</div>
+    <div class="box-big-title">{{ organization.name }} </div>
+    <div class="box-contact-info">
+        <i class="fa-solid fa-diamond-turn-right"></i> {{ organization.address }}&nbsp;&nbsp;
+        <i class="fa-solid fa-phone"></i> {{ organization.phone }}
+    </div>
+    <div class="box-contact-info">{{ 'Horas de Atención:' if language =='es' else 'Open Hours:' | escape }} {{ organization.hours }}</div>
+    <div class="box-contact-info">{{ 'Idiomas hablados:' if language == 'es' else 'Languages Spoken:' | escape }} {{organization.language}} </div>
+    <div class="box-contact-info">{{ 'Recursos y Servicios:' if language == 'es' else 'Supplies and Services:'| escape }} {{organization.service}} </div>
 </div>
 
 {% endblock %}
