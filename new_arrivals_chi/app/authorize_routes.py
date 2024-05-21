@@ -217,3 +217,70 @@ def post_change_password():
         return redirect(url_for("main.dashboard"))
 
     return redirect(url_for("authorize.change_password"))
+
+@authorize.route("/registration_change_password")
+def registration_change_password():
+    """Establishes route for the change password page for a new user..
+
+    This route is accessible within the email that is sent to new users and
+    will be publically accessible.
+
+    Returns:
+        Renders change password page for user with their selected language.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+    return render_template(
+        "registration_change_password.html", language=language, translations=translations
+    )
+
+
+@authorize.route("/registration_change_password", methods=["POST"])
+def post_registration_change_password():
+    """Allows an authorized user to update their current password.
+
+    Returns:
+        Redirects to the user's dashboard page if password change is successful,
+        otherwise redirects back to the change password page with a flash
+        message.
+    """
+
+    email = request.form.get("email").lower()
+
+    temp_password, new_password, new_password_confirm = extract_new_pw_data(
+        request.form
+    )
+
+     # ensure that input meets requirments
+    if not validate_email_syntax(email):
+        flash(escape("Please enter a valid email address"))
+
+    # Confirm that email exists as a user
+    user = User.query.filter_by(email=email).first()
+
+     # check if the user actually exists & password is correct
+    if not user or not verify_password(user.password, temp_password):
+        flash(escape("Please check that your email and registration password are correct and try again."))
+        return redirect(
+            url_for("authorize.registration_change_password")
+        )
+   
+    elif temp_password == new_password:
+        # Do not need to check password hash because old password is correct
+        flash(
+            escape("New password cannot be the same as your previous password.")
+        )
+
+    elif not new_password == new_password_confirm:
+        flash(escape("New passwords do not match. Try again"))
+
+    elif not validate_password(new_password):
+        flash(escape("New password does not meet requirements. Try again."))
+
+    else:
+        change_db_password(new_password)
+        flash(escape("Password change successful."))
+        return redirect(url_for("authorize.register"))
+
+    return redirect(url_for("authorize.registration_change_password"))
+
