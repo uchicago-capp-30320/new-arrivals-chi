@@ -18,6 +18,8 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    {% block styles %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -34,7 +36,7 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     </nav>
 </body>
 
-<form action="{{ url_for(request.endpoint) }}" method="GET">
+<form action="{{ url_for(request.endpoint, organization_id=organization_id) }}" method="GET">
     <button type="submit" class="language-button">
         {% if language == 'es' %}
             English
@@ -45,7 +47,7 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
 </form>
 
-<div class="container has-text-centered">
+<div class="container">
     {% block content %}
     {% endblock %}
  </div>

@@ -199,3 +199,18 @@ table {
 .button.blue:hover {
     background-color: #297def;
 }
+.blue-button {
+    background-color: #E7F0FE;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    justify-content: right;
+}
+
+.blue-button:hover {
+    background-color: #297def;
+}
