@@ -413,8 +413,8 @@ def dashboard():
 #     )
 
 
-@main.route("/org/<int:org_id>", methods=["GET"])
-def org(org_id):
+@main.route("/org/<int:organization_id>", methods=["GET"])
+def org(organization_id):
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
@@ -441,7 +441,7 @@ def org(org_id):
         "JOIN languages_organizations ol ON o.id = ol.organization_id "
         "JOIN languages lg ON ol.language_id = lg.id "
         "WHERE o.id = ?",
-        (org_id,),
+        (organization_id,),
     )
 
     organization_info = cursor.fetchall()
@@ -469,7 +469,7 @@ def org(org_id):
         organization=organization,
         language=language,
         translations=translations,
-        org_id=org_id,
+        organization_id=organization_id,
     )
 
 
