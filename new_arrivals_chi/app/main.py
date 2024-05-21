@@ -236,23 +236,6 @@ def legal_undocumented_resources():
     )
 
 
-@main.route("/legal/help")
-def legal_help():
-    """Establishes route for the Legal Help page.
-
-    This route is accessible within the legal section.
-
-    Returns:
-        Renders legal flow - Legal Help page.
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "help.html", language=language, translations=translations
-    )
-
-
 @main.route("/legal/work_rights")
 def workers_rights():
     """Route for information about workers' rights.
@@ -295,6 +278,21 @@ def legal_general():
 
     return render_template(
         "general.html", language=language, translations=translations
+    )
+
+
+@main.route("/legal/lawyers")
+def lawyers():
+    """Route for lawyers.
+
+    Returns:
+        Renders the page with contact information for lawyers
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "lawyers.html", language=language, translations=translations
     )
 
 
@@ -391,7 +389,7 @@ def dashboard():
         edit_org_url=edit_org_url,
     )
 
-
+  
 # @main.route("/org", methods=["GET"])
 # @login_required
 # def org():
@@ -417,6 +415,7 @@ def dashboard():
 
 @main.route("/org/<int:org_id>", methods=["GET"])
 def org(org_id):
+
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
