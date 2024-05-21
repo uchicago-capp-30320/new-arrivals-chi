@@ -36,7 +36,7 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     </nav>
 </body>
 
-<form action="{{ url_for(request.endpoint, org_id=org_id) }}" method="GET">
+<form action="{{ url_for(request.endpoint, org_id=org_id), organization_id=organization_id }}" method="GET">
     <button type="submit" class="language-button">
         {% if language == 'es' %}
             English
