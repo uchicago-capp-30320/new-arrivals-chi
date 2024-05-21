@@ -1,5 +1,48 @@
 {
   "es": {
+    "about_us": {
+      "content": [
+        {
+          "body": "New Arrivals Chi es una gu\u00eda de recursos desarrollada por seis estudiantes de posgrado de la Universidad de Chicago para ayudar a las personas reci\u00e9n llegadas a navegar por la Ciudad de Chicago y sus recursos disponibles. Nuestro objetivo es proporcionar informaci\u00f3n precisa, actualizada y pr\u00e1ctica para abordar los desaf\u00edos comunes que enfrentan los reci\u00e9n llegados."
+        },
+        {
+          "header": "Miembros del Equipo",
+          "list": [
+            "Federico Dominguez Molina",
+            "Aaron Haefner",
+            "Summer Long",
+            "Kathryn Link-Oberstar",
+            "Madeleine Roberts",
+            "Xiomara Salazar Flores"
+          ]
+        },
+        {
+          "body": "Nos gustar\u00eda expresar nuestro m\u00e1s sincero agradecimiento a nuestros asesores, James Turk y Michael Plunkett, por su invaluable orientaci\u00f3n y apoyo durante todo este proyecto."
+        },
+        {
+          "body": "Esta gu\u00eda de recursos fue posible gracias a nuestros incre\u00edbles socios comunitarios que compartieron generosamente su conocimiento y asesoramiento durante el proceso de desarrollo.",
+          "header": "Agradecimientos"
+        },
+        {
+          "list": [
+            "City of Chicago - Office of Immigrants, Migrant, Refugee Rights: Marissa Arrez y Jes\u00fas Del Toro",
+            "Illinois Community for Displaced Immigrants: Johannes Favi",
+            "The Resurrection Project: Oswaldo Gomez, Laura Mendoza",
+            "Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan"
+          ]
+        },
+        {
+          "body": "El c\u00f3digo fuente de este proyecto est\u00e1 disponible p\u00fablicamente en GitHub.",
+          "header": "Ponerse en contacto",
+          "link_text": "Ver repositorio",
+          "source_link": "https://github.com/uchicago-capp-30320/new-arrivals-chi/tree/main"
+        },
+        {
+          "body": "Para preguntas o consultas, por favor cont\u00e1ctenos en newarrivalschi.contact@gmail.com."
+        }
+      ],
+      "title": "Acerca de Nosotros"
+    },
     "asylum_apply": {
       "content": [
         {
@@ -104,9 +147,11 @@
       "title": "Derechos y Privilegios del Asilo"
     },
     "base": {
+      "about_us": "Acerca de Nosotros",
       "dashboard": "Panel de Control",
       "home": "P\u00e1gina de inicio",
       "logout": "Cerrar Sesi\u00f3n",
+      "note": "Este sitio no recopila ninguna informaci\u00f3n personal.",
       "report_error": "Reportar error del sitio web",
       "sign_up": "Registrarse"
     },
@@ -123,12 +168,14 @@
       "receive_assistance": "Recibir Asistencia Inmediata"
     },
     "home": {
-      "find_support": "Encuentra apoyo para tus necesidades legales, de salud o de comida.",
-      "food": "Comida",
-      "health": "Salud",
-      "legal": "Legal",
-      "please_click": "Por favor haz click abajo para comenzar:",
-      "welcome": "Bienvenido"
+      "description": "Esta gu\u00eda de recursos est\u00e1 dise\u00f1ada para nuevos migrantes para darles la bienvenida a su nuevo hogar. En esta gu\u00eda encontrar\u00e1 informaci\u00f3n sobre sus derechos como inmigrante y residente de Chicago, y sobre c\u00f3mo acceder a los recursos ofrecidos por la Ciudad de Chicago, el gobierno estatal y las organizaciones comunitarias.",
+      "find_support": "Esta gu\u00eda de recursos es una colaboraci\u00f3n entre estudiantes del \u00c1rea de Chicago, organizaciones con sede en Chicago y la Ciudad de Chicago. Para obtener m\u00e1s informaci\u00f3n, visite Acerca de Nosotros.",
+      "general": "Primeros Pasos",
+      "health": "Recursos de Salud",
+      "legal": "Apoyo Legal",
+      "please_click": "Por favor, haga clic a continuaci\u00f3n para comenzar:",
+      "subheader": "Una Gu\u00eda de Recursos para Nuevos Migrantes",
+      "welcome": "\u00a1Bienvenido a Chicago!"
     },
     "info": {
       "languages_spoken": "Idiomas hablados: English, Spanish",

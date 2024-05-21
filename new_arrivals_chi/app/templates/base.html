@@ -52,9 +52,14 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     {% endblock %}
  </div>
 
- <p class="report-error">
+<p class="footer-links">
+    <a href="/about">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
+    <span>|</span>
     <a href="/report-error">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
+    <span>|</span>
+    <span>{{ translations[language]['base']['note'] | escape }}</span><i class="fa-solid fa-shield"></i>
 </p>
+
 
 </html>
 
