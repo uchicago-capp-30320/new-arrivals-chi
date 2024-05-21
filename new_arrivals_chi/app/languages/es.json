@@ -1,94 +1,96 @@
 {
-  "es": {
-    "base": {
-      "dashboard": "Panel de Control",
-      "home": "P\u00e1gina de inicio",
-      "logout": "Cerrar Sesi\u00f3n",
-      "report_error": "Reportar error del sitio web",
-      "sign_up": "Registrarse"
-    },
-    "change_password": {
-      "change_password": "Cambiar su contrase\u00f1a",
-      "new_password": "Contrase\u00f1a nueva",
-      "new_password_confirm": "Contrase\u00f1a nueva",
-      "old_password": "Contrase\u00f1a anterior",
-      "password_must_include": "Su contrase\u00f1a debe incluir al menos una letra may\u00fascula, una letra min\u00fascula, un n\u00famero, un s\u00edmbolo especial y tener m\u00e1s de 8 caracteres."
-    },
-    "health": {
-      "health_information": "Informaci\u00f3n M\u00e9dica",
-      "learn_more": "Aprende M\u00e1s de Otros Recursos",
-      "receive_assistance": "Recibir Asistencia Inmediata"
-    },
-    "home": {
-      "find_support": "Encuentra apoyo para tus necesidades legales, de salud o de comida.",
-      "food": "Comida",
-      "health": "Salud",
-      "legal": "Legal",
-      "please_click": "Por favor haz click abajo para comenzar:",
-      "welcome": "Bienvenido"
-    },
-    "info": {
-      "languages_spoken": "Idiomas hablados: English, Spanish",
-      "open_hours": "Horas de Atenci\u00f3n: Lunes - Viernes, 9:00 AM - 5:00 PM",
-      "organization_name": "Nombre de la Organizaci\u00f3n",
-      "supplies_and_services": "Recursos y Servicios: Comida"
-    },
-    "legal": {
-      "apply_for": "Aplicar para la Identificaci\u00f3n de Chicago",
-      "legal_resources": "Recursos y Servicios Legales",
-      "receive_legal": "Recibir asistencia legal",
-      "understand_rights": "Entender mis derechos legales"
-    },
-    "legal_start": {
-      "asylum": "Tengo un temor cre\u00edble de persecuci\u00f3n o tortura en mi pa\u00eds de origen.",
-      "asylum_apply": "Quiero ayuda para solicitar asilo.",
-      "asylum_header": "Creemos que usted podr\u00eda ser elegible para asilo.",
-      "asylum_info": "He solicitado o recibido asilo.",
-      "lawyers": "Encuentre asistencia legal personalizada.",
-      "other": "Ninguna de las opciones anteriores se aplica a m\u00ed.",
-      "other_header": "No podemos determinar su elegibilidad para Asilo, Libertad Condicional, o Estatus de Protecci\u00f3n Temporal",
-      "parole": "Una de las siguientes circunstancias se aplica a m\u00ed.",
-      "parole_apply": "Quiero ayuda para solicitar la libertad condicional humanitaria.",
-      "parole_desc": "Soy ciudadano de Ucrania, Afganist\u00e1n, Cuba, Hait\u00ed, Nicaragua o Venezuela y estoy viviendo condiciones peligrosas, violencia o dificultades econ\u00f3micas severas en mi pa\u00eds de origen.\nVine a los EE. UU. para la reunificaci\u00f3n familiar m\u00e9dica (adultos y ni\u00f1os).\nVine a los EE. UU. para procedimientos judiciales civiles o criminales.",
-      "parole_header": "Creemos que usted podr\u00eda ser elegible para libertad condicional humanitaria.",
-      "parole_info": "He solicitado o recibido libertad condicional humanitaria.",
-      "renters_rights": "Necesito aprender m\u00e1s sobre mis derechos como inquilino",
-      "something_else": "Necesito ayuda con algo m\u00e1s",
-      "tps": "Soy de uno de los pa\u00edses listados a continuaci\u00f3n y llegu\u00e9 antes de la fecha correspondiente:",
-      "tps_apply": "Quiero ayuda para solicitar el Estatus de Protecci\u00f3n Temporal (TPS).",
-      "tps_desc": "Afganist\u00e1n (20 de mayo de 2022)\nBirmania (Myanmar) (25 de marzo de 2024)\nCamer\u00fan (7 de junio de 2022)\nEl Salvador (14 de diciembre de 2023)\nEtiop\u00eda (15 de abril de 2024)\nHait\u00ed (14 de diciembre de 2023)\nHonduras (14 de diciembre de 2023)\nNepal (14 de diciembre de 2023)\nNicaragua (14 de diciembre de 2023)\nSomalia (13 de marzo de 2023)\nSud\u00e1n del Sur (21 de agosto de 2023)\nSud\u00e1n (14 de diciembre de 2023)\nSiria (29 de enero de 2024)\nUcrania (21 de agosto de 2023)\nVenezuela (17 de noviembre de 2023)\nYemen (3 de enero de 2023)",
-      "tps_header": "Creemos que usted podr\u00eda ser elegible para el Estatus de Protecci\u00f3n Temporal (TPS)",
-      "tps_info": "He solicitado o recibido el Estatus de Protecci\u00f3n Temporal (TPS)",
-      "undocumented": "Aprenda m\u00e1s sobre los recursos para immigrantes indocumentados.",
-      "vttc": "Soy v\u00edctima de una de las siguientes:",
-      "vttc_apply": "Quiero ayuda para solicitar autorizaci\u00f3n de trabajo.",
-      "vttc_desc": "Trata de personas\nViolencia dom\u00e9stica\nAsalto sexual\nCr\u00edmenes de odio\nTrata de personas\nServidumbre involuntaria\nOtro delito grave.",
-      "vttc_header": "Creemos que usted podr\u00eda ser elegible para autorizaci\u00f3n de trabajo.",
-      "vttc_info": "He solicitado o recibido autorizaci\u00f3n de trabajo.",
-      "what_help": "\u00bfEn qu\u00e9 puedo ayudarle?",
-      "work_auth": "Necesito ayuda para obtener autorizaci\u00f3n para trabajar",
-      "work_auth_question": "\u00bfTiene alguna de las siguentes circunstancias",
-      "work_rights": "Necesito aprender m\u00e1s sobre mis derechos como trabajador"
-    },
-    "login": {
-      "email": "Correo electr\u00f3nico",
-      "password": "Contrase\u00f1a",
-      "remember_me": "Recordarme"
-    },
-    "profile": {
-      "change_password": "Cambiar Mi Contrase\u00f1a",
-      "confirm_email": "Confirmar correo electr\u00f3nico",
-      "name": "Nombre de la Organizaci\u00f3n",
-      "title": "Perfil de la Organizaci\u00f3n",
-      "update_org_info": "Actualizar Mi Informaci\u00f3n",
-      "view_org_page": "Ver Mi P\u00e1gina"
-    },
-    "util": {
-      "back": "Atr\u00e1s",
-      "i_want_to": "Quiero...",
-      "language": "Espa\u00f1ol",
-      "login": "Iniciar Sesi\u00f3n",
-      "something_else": "Algo m\u00e1s"
+    "es": {
+        "base": {
+            "dashboard": "Panel de Control",
+            "home": "P\u00e1gina de inicio",
+            "logout": "Cerrar Sesi\u00f3n",
+            "report_error": "Reportar error del sitio web",
+            "sign_up": "Registrarse"
+        },
+        "change_password": {
+            "change_password": "Cambiar su contrase\u00f1a",
+            "new_password": "Contrase\u00f1a nueva",
+            "new_password_confirm": "Contrase\u00f1a nueva",
+            "old_password": "Contrase\u00f1a anterior",
+            "password_must_include": "Su contrase\u00f1a debe incluir al menos una letra may\u00fascula, una letra min\u00fascula, un n\u00famero, un s\u00edmbolo especial y tener m\u00e1s de 8 caracteres."
+        },
+        "health": {
+            "health_information": "Informaci\u00f3n M\u00e9dica",
+            "learn_more": "Aprende M\u00e1s de Otros Recursos",
+            "receive_assistance": "Recibir Asistencia Inmediata"
+        },
+        "home": {
+            "find_support": "Encuentra apoyo para tus necesidades legales, de salud o de comida.",
+            "food": "Comida",
+            "health": "Salud",
+            "legal": "Legal",
+            "please_click": "Por favor haz click abajo para comenzar:",
+            "welcome": "Bienvenido"
+        },
+        "info": {
+            "languages_spoken": "Idiomas hablados: English, Spanish",
+            "open_hours": "Horas de Atenci\u00f3n: Lunes - Viernes, 9:00 AM - 5:00 PM",
+            "organization_name": "Nombre de la Organizaci\u00f3n",
+            "supplies_and_services": "Recursos y Servicios: Comida"
+        },
+        "legal": {
+            "apply_for": "Aplicar para la Identificaci\u00f3n de Chicago",
+            "legal_resources": "Recursos y Servicios Legales",
+            "receive_legal": "Recibir asistencia legal",
+            "understand_rights": "Entender mis derechos legales"
+        },
+        "legal_start": {
+            "asylum": "Tengo un temor cre\u00edble de persecuci\u00f3n o tortura en mi pa\u00eds de origen.",
+            "asylum_apply": "Quiero ayuda para solicitar asilo.",
+            "asylum_header": "Creemos que usted podr\u00eda ser elegible para asilo.",
+            "asylum_info": "He solicitado o recibido asilo.",
+            "lawyers": "Encuentre asistencia legal personalizada.",
+            "other": "Ninguna de las opciones anteriores se aplica a m\u00ed.",
+            "other_header": "No podemos determinar su elegibilidad para Asilo, Libertad Condicional, o Estatus de Protecci\u00f3n Temporal",
+            "parole": "Una de las siguientes circunstancias se aplica a m\u00ed.",
+            "parole_apply": "Quiero ayuda para solicitar la libertad condicional humanitaria.",
+            "parole_desc": "Soy ciudadano de Ucrania, Afganist\u00e1n, Cuba, Hait\u00ed, Nicaragua o Venezuela y estoy viviendo condiciones peligrosas, violencia o dificultades econ\u00f3micas severas en mi pa\u00eds de origen.\nVine a los EE. UU. para la reunificaci\u00f3n familiar m\u00e9dica (adultos y ni\u00f1os).\nVine a los EE. UU. para procedimientos judiciales civiles o criminales.",
+            "parole_header": "Creemos que usted podr\u00eda ser elegible para libertad condicional humanitaria.",
+            "parole_info": "He solicitado o recibido libertad condicional humanitaria.",
+            "renters_rights": "Necesito aprender m\u00e1s sobre mis derechos como inquilino",
+            "something_else": "Necesito ayuda con algo m\u00e1s",
+            "tps": "Soy de uno de los pa\u00edses listados a continuaci\u00f3n y llegu\u00e9 antes de la fecha correspondiente:",
+            "tps_apply": "Quiero ayuda para solicitar el Estatus de Protecci\u00f3n Temporal (TPS).",
+            "tps_desc": "Afganist\u00e1n (20 de mayo de 2022)\nBirmania (Myanmar) (25 de marzo de 2024)\nCamer\u00fan (7 de junio de 2022)\nEl Salvador (14 de diciembre de 2023)\nEtiop\u00eda (15 de abril de 2024)\nHait\u00ed (14 de diciembre de 2023)\nHonduras (14 de diciembre de 2023)\nNepal (14 de diciembre de 2023)\nNicaragua (14 de diciembre de 2023)\nSomalia (13 de marzo de 2023)\nSud\u00e1n del Sur (21 de agosto de 2023)\nSud\u00e1n (14 de diciembre de 2023)\nSiria (29 de enero de 2024)\nUcrania (21 de agosto de 2023)\nVenezuela (17 de noviembre de 2023)\nYemen (3 de enero de 2023)",
+            "tps_header": "Creemos que usted podr\u00eda ser elegible para el Estatus de Protecci\u00f3n Temporal (TPS)",
+            "tps_info": "He solicitado o recibido el Estatus de Protecci\u00f3n Temporal (TPS)",
+            "undocumented": "Aprenda m\u00e1s sobre los recursos para immigrantes indocumentados.",
+            "vttc": "Soy v\u00edctima de una de las siguientes:",
+            "vttc_apply": "Quiero ayuda para solicitar autorizaci\u00f3n de trabajo.",
+            "vttc_desc": "Trata de personas\nViolencia dom\u00e9stica\nAsalto sexual\nCr\u00edmenes de odio\nTrata de personas\nServidumbre involuntaria\nOtro delito grave.",
+            "vttc_header": "Creemos que usted podr\u00eda ser elegible para autorizaci\u00f3n de trabajo.",
+            "vttc_info": "He solicitado o recibido autorizaci\u00f3n de trabajo.",
+            "what_help": "\u00bfEn qu\u00e9 puedo ayudarle?",
+            "work_auth": "Necesito ayuda para obtener autorizaci\u00f3n para trabajar",
+            "work_auth_question": "\u00bfTiene alguna de las siguentes circunstancias",
+            "work_rights": "Necesito aprender m\u00e1s sobre mis derechos como trabajador"
+        },
+        "login": {
+            "email": "Correo electr\u00f3nico",
+            "password": "Contrase\u00f1a",
+            "remember_me": "Recordarme"
+        },
+        "profile": {
+            "add_organization": "A\u00f1adir Organizaci\u00f3n",
+            "change_password": "Cambiar Mi Contrase\u00f1a",
+            "confirm_email": "Confirmar correo electr\u00f3nico",
+            "name": "Nombre de la Organizaci\u00f3n",
+            "title": "Perfil de la Organizaci\u00f3n",
+            "update_org_info": "Actualizar Mi Informaci\u00f3n",
+            "view_org_page": "Ver Mi P\u00e1gina",
+            "phone_number": "Número de teléfono"
+        },
+        "util": {
+            "back": "Atr\u00e1s",
+            "i_want_to": "Quiero...",
+            "language": "Espa\u00f1ol",
+            "login": "Iniciar Sesi\u00f3n",
+            "something_else": "Algo m\u00e1s"
+        }
     }
-  }
 }

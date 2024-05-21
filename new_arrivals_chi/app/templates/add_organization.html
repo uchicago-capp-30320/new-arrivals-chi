@@ -30,13 +30,13 @@ Landing page for user to navigate through undocumented resources.
 
         <div class="field">
             <div class="control">
-                <input class="input is-large" type="org-name" name="org-name" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+                <input class="input is-large" type="org-name" name="org-name" placeholder="{{ translations[language]['profile']['name'] | escape }}" autofocus="">
             </div>
         </div>
 
         <div class="field">
             <div class="control">
-                <input class="input is-large" type="phone-number" name="phone-number" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+                <input class="input is-large" type="phone-number" name="phone-number" placeholder="{{ translations[language]['profile']['phone_number'] | escape }}" autofocus="">
             </div>
         </div>
 
@@ -48,14 +48,10 @@ Landing page for user to navigate through undocumented resources.
 
         <div class="field">
             <div class="control">
-                <input class="input is-large" type="email-confirm" name="email-confirm" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+                <input class="input is-large" type="email-confirm" name="email-confirm" placeholder="{{ translations[language]['profile']['confirm_email'] | escape }}" autofocus="">
             </div>
         </div>
-
-        <div class="content">
-            {{ 'Confirm e-mail' if language == 'en' else 'Confirmar correo'}}
-        </div>
-            <button class="yellow-button">{{ 'Add organization' if language == 'en' else 'Agregar organización' }}</button>
+            <button class="yellow-button">{{ translations[language]['profile']['add_organization'] | escape }}</button>
     </form>
 </div>
 
