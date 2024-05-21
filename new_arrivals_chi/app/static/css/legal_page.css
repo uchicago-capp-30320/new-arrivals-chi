@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    width: 65%;
+    width: 60%;
     margin: 0 auto;
     padding: 10px;
     overflow-x: hidden;
@@ -14,10 +14,18 @@ body {
     padding: 40px 20px;
 }
 
+/* Adjust the container width for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px 10px;
+    }
+}
+
 .white-container {
     background-color: white;
     border-radius: 8px;
-    padding: 40px;
+    padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 

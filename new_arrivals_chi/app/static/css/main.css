@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 25px;
 }
 
 .text-container {
@@ -89,6 +89,10 @@ body {
 }
 
 .footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links .underline {
     text-decoration: underline;
 }
 
