@@ -49,10 +49,12 @@ from new_arrivals_chi.app.constants import (
     DEFAULT_LANGUAGE,
 )
 from flask_login import login_user, login_required, logout_user, current_user
-from new_arrivals_chi.app.data_handler import create_user, change_db_password
+from new_arrivals_chi.app.data_handler import create_user, change_db_password, \
+                                            change_organization_status
 
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
+admin = Blueprint("admin", __name__, static_folder="/static")
 
 
 @authorize.route("/signup")
@@ -246,7 +248,7 @@ def admin_dashboard():
                                language=language,
                                translations=translations )
     
-@authorize.route("/org_management", methods=["GET"])
+@admin.route("/org_management", methods=["GET"])
 @login_required 
 def admin_organizations():
     """
@@ -262,10 +264,41 @@ def admin_organizations():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
-    organizations = Organization.query.with_entities(Organization.name,
+    organizations = Organization.query.with_entities(Organization.id,
+                                                     Organization.name,
                                                      Organization.status).all()
     return render_template("org_management.html", \
                            organizations=organizations,
                            language=language,
                            translations=translations)
+
+@admin.route("/suspend_organization", methods=["POST"])
+@login_required
+def toggle_suspend_organization():
+    """
+    Establishes route to toggle the status of an organization to suspend it.
+
+    This route suspends an organization by toggling its status. It expects the 
+    organization_id to be provided in the form data. If the organization is 
+    successfully suspended, a success message is flashed. If the organization is
+    not found or if the request is invalid, appropriate error messages are 
+    flashed. After processing the request, the user is redirected to the 
+    org_management page.
+
+    Returns:
+        Response: Redirects to org_management page with flashed messages.
+    """
+    org_id = request.form.get("organization_id")
+
+    if org_id:
+        updated_organization = change_organization_status(org_id)
+        if updated_organization:
+            flash(escape(f"Organization status change to \
+                         {updated_organization.status}"), "success")
+        else:
+            flash(escape("Organization not found."), "error")
+    else:
+        flash(escape("Invalid request."), "error")
+    #redirect to org management page in all cases? should i do that?
+    return redirect(url_for("authorize.org_management"))
 

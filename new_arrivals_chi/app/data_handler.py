@@ -84,3 +84,30 @@ def create_organization_profile(name, phone, status):
     db.session.add(new_organization)
     db.session.commit()
     return new_organization.id
+
+def change_organization_status(org_id):
+    """Changes the status of an organization in the database.
+
+    This function changes the status of an organization between 'VISIBLE' and
+    'SUSPEND' in the database.
+
+    Parameters:
+        org_id (int): The ID of the organization whose status needs to be toggled.
+
+    Returns:
+        Organization: The updated Organization object with the toggled status,
+            or None if the organization is not found.
+    """
+    organization = Organization.query.get(org_id)
+
+    if organization:
+        # changes status to suspend if status is visible and vice-versa
+        if organization.status == 'ACTIVE':
+            organization.status = 'SUSPENDED'
+        else:
+            organization.status = 'ACTIVE'
+
+        db.session.commit()
+        return organization
+    else:
+        return None
