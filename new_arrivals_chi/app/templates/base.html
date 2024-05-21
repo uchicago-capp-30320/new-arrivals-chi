@@ -47,10 +47,12 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
 </form>
 
-<div class="container">
-    {% block content %}
-    {% endblock %}
- </div>
+<div class="wrapper">
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
 
 <p class="footer-links">
     <a href="/about">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>

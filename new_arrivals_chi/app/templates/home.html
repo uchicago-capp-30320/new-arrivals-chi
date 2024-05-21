@@ -9,20 +9,23 @@ Main landing page for the user. Does not require authentication to access.
 {% extends "base.html" %}
 
 {% block content %}
-<div class="text-container">
-    <h1>{{ translations[language]['home']['welcome'] | escape }}</h1>
-    <h3>{{ translations[language]['home']['subheader'] | escape }}</h3>
-    <p>{{ translations[language]['home']['description'] | escape }}</p>
-</div>
-<div class="home-button-container">
-    <div class="button-container">
-        <h3>{{ translations[language]['home']['please_click'] | escape }}</h3>
-        <button class="button button-green" onclick="window.location.href='/general'">{{ translations[language]['home']['general'] | escape }}</button>
-        <button class="button button-blue" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['legal'] | escape }}</button>
-        <button class="button button-yellow" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['health'] | escape }}</button>
+<div class="wrapper">
+    <div class="text-container">
+        <h1>{{ translations[language]['home']['welcome'] | escape }}</h1>
+        <h3>{{ translations[language]['home']['subheader'] | escape }}</h3>
+        <p>{{ translations[language]['home']['description'] | escape }}</p>
+    </div>
+    <div class="home-button-container">
+        <div class="button-container">
+            <h3>{{ translations[language]['home']['please_click'] | escape }}</h3>
+            <button class="button button-green" onclick="window.location.href='/general'">{{ translations[language]['home']['general'] | escape }}</button>
+            <button class="button button-blue" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['legal'] | escape }}</button>
+            <button class="button button-yellow" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['health'] | escape }}</button>
+        </div>
+    </div>
+    <div class="text-container">
+        <i>{{ translations[language]['home']['find_support'] | escape }}</i>
     </div>
 </div>
-<div class="text-container">
-    <i>{{ translations[language]['home']['find_support'] | escape }}</i>
-</div>
 {% endblock %}
+
