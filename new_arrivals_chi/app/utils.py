@@ -128,7 +128,9 @@ def validate_phone_number(phone_number):
     Returns:
         bool: True if the phone number is in a valid format, False otherwise.
     """
-    return re.match(r"^\d{8,15}$", phone_number) is not None
+    does_match = re.match(r"^\d{3}-\d{3}-\d{4}$", phone_number)
+
+    return does_match is not None
 
 
 def verify_password(pw_hash, candidate):
