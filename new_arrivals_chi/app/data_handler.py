@@ -12,10 +12,11 @@ Methods:
     * change_db_password - Changes the password for the current user in the
       database.
     * create_organization_profile: Creates organization in the database.
-    * org_registration - Registers an organization's location and operating hours.
+    * org_registration - Registers an organization's location and hours.
     * add_location - Adds a new location to the database.
     * add_hours - Adds new operating hours to the database.
-    * assign_location_foreign_key_org_table - Assigns a location ID to an organization.
+    * assign_location_foreign_key_org_table - Assigns a location ID to
+        an organization.
 
 Last updated:
 @Author: Kathryn Link-Oberstar @klinkoberstar
@@ -26,7 +27,14 @@ Creation:
 @Date: 05/09/2024
 """
 
-from new_arrivals_chi.app.database import db, User, Organization, Location, Hours, organizations_hours
+from new_arrivals_chi.app.database import (
+    db,
+    User,
+    Organization,
+    Location,
+    Hours,
+    organizations_hours,
+)
 from flask_login import current_user
 from flask_bcrypt import Bcrypt
 from sqlalchemy import insert
@@ -91,55 +99,63 @@ def create_organization_profile(name, phone, status):
     db.session.commit()
     return new_organization.id
 
+
 def org_registration(location, hours):
     """Create organization location and hours information in the database.
 
-    This function registers an organization's location and its operating hours 
+    This function registers an organization's location and its operating hours
     in the database, associating them with the current user’s organization.
 
     Parameters:
-        location (dict): A dictionary containing the location details with keys 
-                         'street', 'zip-code', 'city', 'state', and 'neighborhood'.
-        hours (dict): A dictionary containing the operating hours with keys being 
-                      days of the week and values being lists of opening and 
-                      closing time tuples.
+        location (dict): A dictionary containing the location details with keys
+                    'street', 'zip-code', 'city', 'state', and 'neighborhood'.
+        hours (dict): A dictionary containing the operating hours with keys
+                      being days of the week and values being lists of opening
+                      and closing time tuples.
 
     Returns:
         None
     """
-
     new_location = add_location(
-        street_address = location['street'],
-        zip_code = location['zip-code'],
-        city = location['city'],
-        state = location['state'],
-        primary_location = True,
-        neighborhood = location['neighborhood']
+        street_address=location["street"],
+        zip_code=location["zip-code"],
+        city=location["city"],
+        state=location["state"],
+        primary_location=True,
+        neighborhood=location["neighborhood"],
     )
 
     # Associate location with organization
-    assign_location_foreign_key_org_table(organization_id=current_user.organization.id, new_location_id=new_location.id)
-    
-    hours_ids = []
+    assign_location_foreign_key_org_table(
+        organization_id=current_user.organization.id,
+        new_location_id=new_location.id,
+    )
+
     for day in hours:
         for hours_segment in hours[day]:
             opening_time, closing_time = hours_segment
             new_hours = add_hours(
-                day_of_week = day,
-                opening_time = opening_time,
-                closing_time = closing_time
+                day_of_week=day,
+                opening_time=opening_time,
+                closing_time=closing_time,
             )
 
-            db.session.execute(insert(organizations_hours).values(hours_id=new_hours.id, organization_id=current_user.organization.id))
+            db.session.execute(
+                insert(organizations_hours).values(
+                    hours_id=new_hours.id,
+                    organization_id=current_user.organization.id,
+                )
+            )
 
     db.session.commit()
 
-  
 
-def add_location(street_address, zip_code, city, state, primary_location, neighborhood):
+def add_location(
+    street_address, zip_code, city, state, primary_location, neighborhood
+):
     """Add a new location to the database.
 
-    This function creates a new location with the provided details and adds it 
+    This function creates a new location with the provided details and adds it
     to the database.
 
     Parameters:
@@ -154,24 +170,25 @@ def add_location(street_address, zip_code, city, state, primary_location, neighb
         Location: The newly created Location object.
     """
     new_location = Location(
-        street_address = street_address,
-        zip_code = zip_code,
-        city = city,
-        state = state,
-        primary_location = primary_location,
-        neighborhood = neighborhood,
-        created_by = current_user.id
+        street_address=street_address,
+        zip_code=zip_code,
+        city=city,
+        state=state,
+        primary_location=primary_location,
+        neighborhood=neighborhood,
+        created_by=current_user.id,
     )
-    
+
     db.session.add(new_location)
     db.session.commit()
 
     return new_location
 
+
 def add_hours(day_of_week, opening_time, closing_time):
     """Add new operating hours to the database.
 
-    This function creates a new operating hours entry with the provided details 
+    This function creates a new operating hours entry with the provided details
     and adds it to the database.
 
     Parameters:
@@ -183,12 +200,12 @@ def add_hours(day_of_week, opening_time, closing_time):
         Hours: The newly created Hours object.
     """
     new_hours = Hours(
-        day_of_week = day_of_week, 
-        opening_time = opening_time, 
-        closing_time = closing_time,
-        created_by = current_user.id
+        day_of_week=day_of_week,
+        opening_time=opening_time,
+        closing_time=closing_time,
+        created_by=current_user.id,
     )
-    
+
     db.session.add(new_hours)
     db.session.commit()
 
@@ -211,11 +228,12 @@ def assign_location_foreign_key_org_table(organization_id, new_location_id):
 
     try:
         if not organization_row:
-            raise ValueError(f"Organization with id: {organization_id} cannot be found in database")
+            raise ValueError(
+                f"Organization id: {organization_id} isn't found in database"
+            )
     except ValueError as e:
-            print(e) 
-    
+        print(e)
+
     organization_row.location_id = new_location_id
     db.session.commit()
     return
-

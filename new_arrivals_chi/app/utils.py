@@ -9,8 +9,10 @@ This file contains utility methods for validating user input.
 Methods:
     * extract_signup_data - Extracts signup data from a request object.
     * extract_new_pw_data - Extracts new password data from a request object.
-    * extract_registration_info - Extracts and validates registration information from a form.
-    * extract_hours - Extracts and validates operating hours for a specific day from a form.
+    * extract_registration_info - Extracts and validates registration
+        information from a form.
+    * extract_hours - Extracts and validates operating hours for a specific day
+        from a form.
     * validate_email_syntax — Validates the syntax of an email address.
     * validate_password - Validates the strength of a password.
     * verify_password - Verifies a candidate password against a hashed password.
@@ -89,82 +91,86 @@ def extract_new_pw_data(form):
 def extract_registration_info(form):
     """Extracts and validates registration information from a form.
 
-    This function retrieves location and hours information from a form, 
+    This function retrieves location and hours information from a form,
     validates each field, and returns the validated data.
 
     Parameters:
-        form (dict): A dictionary containing form data with keys for street, 
-                     city, state, zip-code, neighborhood, and operating hours 
+        form (dict): A dictionary containing form data with keys for street,
+                     city, state, zip-code, neighborhood, and operating hours
                      for each day of the week.
 
     Returns:
         tuple: A tuple containing two dictionaries:
-               - location (dict): The validated location information with keys 
+               - location (dict): The validated location information with keys
                  'street', 'city', 'state', 'zip-code', and 'neighborhood'.
-               - hours (dict): The validated operating hours for each day of 
-                 the week, with keys as day numbers (1 for Monday, 2 for 
-                 Tuesday, etc.) and values as lists of tuples with opening and 
+               - hours (dict): The validated operating hours for each day of
+                 the week, with keys as day numbers (1 for Monday, 2 for
+                 Tuesday, etc.) and values as lists of tuples with opening and
                  closing times.
     """
     location = {
-        'street' : validate_street(bleach.clean(form.get("street"))),
-        'city' : validate_city(bleach.clean(form.get("city"))),
-        'state' : validate_state(bleach.clean(form.get("state"))),
-        'zip-code' : validate_zip_code(bleach.clean(form.get("zip-code"))),
-        'neighborhood' : validate_neighborhood(bleach.clean(form.get("neighborhood")))
+        "street": validate_street(bleach.clean(form.get("street"))),
+        "city": validate_city(bleach.clean(form.get("city"))),
+        "state": validate_state(bleach.clean(form.get("state"))),
+        "zip-code": validate_zip_code(bleach.clean(form.get("zip-code"))),
+        "neighborhood": validate_neighborhood(
+            bleach.clean(form.get("neighborhood"))
+        ),
     }
 
     hours = {
-        '1': extract_hours(form, 'monday'),
-        '2': extract_hours(form, 'tuesday'),
-        '3': extract_hours(form, 'wednesday'),
-        '4': extract_hours(form, 'thursday'),
-        '5': extract_hours(form, 'friday'),
-        '6': extract_hours(form, 'saturday'),
-        '7': extract_hours(form, 'sunday'),
+        "1": extract_hours(form, "monday"),
+        "2": extract_hours(form, "tuesday"),
+        "3": extract_hours(form, "wednesday"),
+        "4": extract_hours(form, "thursday"),
+        "5": extract_hours(form, "friday"),
+        "6": extract_hours(form, "saturday"),
+        "7": extract_hours(form, "sunday"),
     }
 
     return location, hours
 
+
 def extract_hours(form, day):
     """Extracts and validates operating hours for a specific day from a form.
 
-    This function retrieves operating hours entries for a specified day, 
+    This function retrieves operating hours entries for a specified day,
     validates each entry, and returns a list of validated hours.
 
     Parameters:
-        form (dict): A dictionary containing form data with keys for opening 
+        form (dict): A dictionary containing form data with keys for opening
                      and closing times for each day of the week.
-        day (str): The day of the week for which to extract hours (e.g., 'monday').
+        day (int): The day of the week for which to extract hours.
 
     Returns:
-        list: A list of tuples containing validated opening and closing times 
+        list: A list of tuples containing validated opening and closing times
               for the specified day, or None if validation fails.
     """
     hours_list = []
     prev_close = None
 
     # Calculate the count of hour entries for the specified day
-    count = sum(1 for key in form.keys() if key.startswith(f'{day}-open-'))
+    count = sum(1 for key in form.keys() if key.startswith(f"{day}-open-"))
 
     # Process each hour entry
     for curr_hour in range(1, count + 1):
-        open_time = form.get(f'{day}-open-{curr_hour}')
-        close_time = form.get(f'{day}-close-{curr_hour}')
-        
+        open_time = form.get(f"{day}-open-{curr_hour}")
+        close_time = form.get(f"{day}-close-{curr_hour}")
+
         # Validate the hours
         if open_time and close_time:
             valid_hours = validate_hours(open_time, close_time, prev_close)
 
             if valid_hours is None:
                 return None
-            
+
             hours_list.append(valid_hours)
             # Update prev_close with the new close time
             _, new_close = valid_hours
             prev_close = new_close
 
     return hours_list
+
 
 # Reference: https://docs.kickbox.com/docs/python-validate-an-email-address
 def validate_email_syntax(email):
@@ -234,6 +240,7 @@ def verify_password(pw_hash, candidate):
     """
     return bcrypt.check_password_hash(pw_hash, candidate)
 
+
 def load_translations():
     """Loads translations from JSON files for supported languages.
 
@@ -246,11 +253,12 @@ def load_translations():
             translations[lang] = json.load(file)
     return translations
 
+
 def validate_street(street):
     """Validates the street address format.
 
-    This function checks if the given street address matches the expected 
-    pattern, which includes alphanumeric characters, spaces, commas, 
+    This function checks if the given street address matches the expected
+    pattern, which includes alphanumeric characters, spaces, commas,
     hyphens, periods, and hash symbols.
 
     Parameters:
@@ -260,15 +268,16 @@ def validate_street(street):
         str: The validated street address if valid, None otherwise.
     """
     pattern = re.compile(r"^[0-9a-zA-Z\s,'-\.#]+$")
-   
+
     if street is None or not bool(pattern.match(street)):
         return None
     return street
 
+
 def validate_city(city):
     """Validates the city name.
 
-    This function checks if the given city name matches the expected pattern 
+    This function checks if the given city name matches the expected pattern
     and is constrained to "Chicago" for the first iteration.
 
     Parameters:
@@ -278,16 +287,17 @@ def validate_city(city):
         str: The validated city name if valid, None otherwise.
     """
     pattern = re.compile(r"^[a-zA-Z]+(?:[\s\-'][a-zA-Z]+)*$")
-   
-   # Contrained to Illinois for the first iteration
+
+    # Contrained to Illinois for the first iteration
     if city is None or not bool(pattern.match(city)) or city != "Chicago":
         return None
     return city
 
+
 def validate_state(state_code):
     """Validates the state code.
 
-    This function checks if the given state code is valid and is constrained to 
+    This function checks if the given state code is valid and is constrained to
     "IL" (Illinois) for the first iteration.
 
     Parameters:
@@ -297,7 +307,11 @@ def validate_state(state_code):
         str: The validated state code if valid, None otherwise.
     """
     # Contrained to Illinois for the first iteration
-    if state_code is None or us.states.lookup(state_code) is None or state_code !="IL":
+    if (
+        state_code is None
+        or us.states.lookup(state_code) is None
+        or state_code != "IL"
+    ):
         return None
     return state_code
 
@@ -313,29 +327,33 @@ def validate_zip_code(zip_code):
     Returns:
         str: The validated ZIP code if valid, None otherwise.
     """
-    pattern = re.compile(r'^\d{5}(?:-\d{4})?$')
+    pattern = re.compile(r"^\d{5}(?:-\d{4})?$")
 
     if zip_code is None or not bool(pattern.match(zip_code)):
         return None
     return zip_code
 
+
 def load_neighborhoods():
     """Loads Chicago neighborhood values from a file in static folder.
 
-    This function reads neighborhood values from a specified text file and 
+    This function reads neighborhood values from a specified text file and
     returns them as a list.
 
     Returns:
         list: A list of neighborhood values.
     """
-    with open(f"new_arrivals_chi/app/static/neighborhood_values.txt", "r") as file:
+    with open(
+        "new_arrivals_chi/app/static/neighborhood_values.txt", "r"
+    ) as file:
         return file.read().splitlines()
+
 
 def validate_neighborhood(neighborhood):
     """Validates the neighborhood name.
 
-    This function checks if the given neighborhood name matches the expected 
-    pattern and is a valid neighborhood in Chicago as defined in the 
+    This function checks if the given neighborhood name matches the expected
+    pattern and is a valid neighborhood in Chicago as defined in the
     configuration.
 
     Parameters:
@@ -345,11 +363,15 @@ def validate_neighborhood(neighborhood):
         str: The validated neighborhood name if valid, None otherwise.
     """
     # Constrained to Chicago neighborhoods for the first iteration
-    chicago_neighborhood = (neighborhood in current_app.config['NEIGHBORHOODS'])
-    
-    pattern = re.compile(r'^[A-Za-z_]+$')
+    chicago_neighborhood = neighborhood in current_app.config["NEIGHBORHOODS"]
 
-    if neighborhood is None or not bool(pattern.match(neighborhood)) or not chicago_neighborhood:
+    pattern = re.compile(r"^[A-Za-z_]+$")
+
+    if (
+        neighborhood is None
+        or not bool(pattern.match(neighborhood))
+        or not chicago_neighborhood
+    ):
         return None
     return neighborhood
 
@@ -357,8 +379,8 @@ def validate_neighborhood(neighborhood):
 def validate_hours(open_time, close_time, prev_close):
     """Validates the operating hours.
 
-    This function cleans and validates the given opening and closing times, 
-    ensuring that the opening time is earlier than the closing time and later 
+    This function cleans and validates the given opening and closing times,
+    ensuring that the opening time is earlier than the closing time and later
     than the previous closing time if provided.
 
     Parameters:
@@ -367,7 +389,7 @@ def validate_hours(open_time, close_time, prev_close):
         prev_close (str): The previous closing time in HH:MM format, if any.
 
     Returns:
-        tuple: A tuple containing the validated opening and closing times if 
+        tuple: A tuple containing the validated opening and closing times if
                valid, None otherwise.
     """
     # Clean the input times
@@ -375,10 +397,13 @@ def validate_hours(open_time, close_time, prev_close):
     close_cleaned = bleach.clean(close_time)
 
     # Validate the times
-    if (prev_close is None or open_cleaned > prev_close) and open_cleaned < close_cleaned:
+    if (
+        prev_close is None or open_cleaned > prev_close
+    ) and open_cleaned < close_cleaned:
         return open_cleaned, close_cleaned
 
     return None
+
 
 def setup_logger(name):
     """Create a logger for recording the output of the script.
@@ -410,7 +435,3 @@ def setup_logger(name):
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
     return logger
-
-
-
-

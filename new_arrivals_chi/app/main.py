@@ -426,7 +426,7 @@ def create_app(config_override=None):
     app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Load neighborhoods from file and store in app config
-    app.config['NEIGHBORHOODS'] = load_neighborhoods()
+    app.config["NEIGHBORHOODS"] = load_neighborhoods()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:

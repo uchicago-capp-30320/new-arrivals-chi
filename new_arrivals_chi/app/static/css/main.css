@@ -274,7 +274,7 @@ input[type="text"], select {
 
 .location-section {
     flex-direction: column;
-    
+
 }
 
 .location-label {
@@ -285,18 +285,18 @@ input[type="text"], select {
 
 .location-section input, .location-section select {
     flex: 1;
-    margin-right: 10px; 
+    margin-right: 10px;
     margin-bottom: 20px;
 }
 
 .street-input {
     display: flex;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 .street-section input, .street-section select {
     width: 40%;
-    box-sizing: border-box; 
-    margin-bottom: 10px; 
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 .time-input {
@@ -308,5 +308,3 @@ input[type="text"], select {
     color: red;
  /* Optional, for emphasis */
 }
-
-

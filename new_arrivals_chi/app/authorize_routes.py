@@ -52,7 +52,11 @@ from new_arrivals_chi.app.constants import (
     DEFAULT_LANGUAGE,
 )
 from flask_login import login_user, login_required, logout_user, current_user
-from new_arrivals_chi.app.data_handler import create_user, change_db_password, org_registration
+from new_arrivals_chi.app.data_handler import (
+    create_user,
+    change_db_password,
+    org_registration,
+)
 
 import logging
 
@@ -242,21 +246,22 @@ def register():
         "register.html", language=language, translations=translations
     )
 
+
 @authorize.route("/register", methods=["POST"])
 @login_required
 def post_register():
-    """Allows an new, authorized user to set up their organization's information
+    """Allows an new authorized user to set up their organization's information.
 
     Returns:
-        Redirects to the organization's profile page if password change is successful,
-        otherwise redirects back to the registrations page with a flash
-        message.
+        Redirects to the organization's profile page if password change is
+        successful, otherwise redirects back to the registrations page with a
+        flash message.
     """
     location, hours = extract_registration_info(request.form)
 
-    if (any(value is None for value in location.values())):
+    if any(value is None for value in location.values()):
         flash(escape("Please confirm that the entered location is correct."))
-    elif (any(value is None for value in hours.values())):
+    elif any(value is None for value in hours.values()):
         flash(escape("Please confirm that the entered hours are correct."))
     else:
         # Add information to the database
