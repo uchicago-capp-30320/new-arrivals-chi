@@ -899,7 +899,14 @@
       "title": "Acerca del permiso temporal humanitario"
     },
     "profile": {
+      "add_organization": "A\u00f1adir Organizaci\u00f3n",
       "change_password": "Cambiar Mi Contrase\u00f1a",
+      "confirm_email": "Confirmar Correo",
+      "enter_information": "Ingresa la siguiente informaci\u00f3n",
+      "further_info": "Recibir\u00e1s un correo con informaci\u00f3n adicional",
+      "name": "Nombre de la Organizaci\u00f3n",
+      "phone_number": "N\u00famero de Tel\u00e9fono",
+      "success": "\u00a1Organizaci\u00f3n a\u00f1adida correctamente!",
       "title": "Perfil de la Organizaci\u00f3n",
       "update_org_info": "Actualizar Mi Informaci\u00f3n",
       "view_org_page": "Ver Mi P\u00e1gina"
