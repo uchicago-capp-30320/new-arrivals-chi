@@ -13,14 +13,6 @@ Methods:
     * validate_password - Validates the strength of a password.
     * verify_password - Verifies a candidate password against a hashed password.
     * setup_logger - Creates a logger for recording the output of the script.
-
-Last Updated:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/19/2024
-
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 04/19/2024
 """
 
 import logging

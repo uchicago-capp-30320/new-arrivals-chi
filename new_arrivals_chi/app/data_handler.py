@@ -12,14 +12,6 @@ Methods:
     * change_db_password - Changes the password for the current user in the
       database.
     * create_organization_profile: Creates organization in the database.
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/13/2024
-
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/09/2024
 """
 
 from new_arrivals_chi.app.database import db, User, Organization
