@@ -600,12 +600,12 @@ def add_organization():
             new_user = create_user(email, temp_pwd)
 
             # Update the user with the new organization
-            user = User.query.get(new_user.id)
-            if user:
+            try:
+                user = User.query.get(new_user.id)
                 user.organization_id = new_org_id
                 db.session.commit()
-            else:
-                raise Exception("User not found")
+            except Exception as error:
+                print(f"Error updating user with organization: {error}")
 
             # Redirect to the success page
             return render_template(
