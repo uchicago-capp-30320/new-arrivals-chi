@@ -230,3 +230,31 @@ def assign_location_foreign_key_org_table(organization_id, new_location_id):
     organization_row.location_id = new_location_id
     db.session.commit()
     return
+
+
+def change_organization_status(org_id):
+    """Changes the status of an organization in the database.
+
+    This function changes the status of an organization between 'VISIBLE' and
+    'SUSPEND' in the database.
+
+    Parameters:
+        org_id (int): The ID of the org whose status needs to be toggled.
+
+    Returns:
+        Organization: The updated Organization object with the toggled status,
+            or None if the organization is not found.
+    """
+    organization = Organization.query.get(org_id)
+
+    if organization:
+        # changes status to suspend if status is visible and vice-versa
+        if organization.status == "ACTIVE":
+            organization.status = "SUSPENDED"
+        else:
+            organization.status = "ACTIVE"
+
+        db.session.commit()  # test on test db
+        return organization
+    else:
+        return None

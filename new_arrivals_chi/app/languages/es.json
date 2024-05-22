@@ -43,6 +43,21 @@
       ],
       "title": "Acerca de Nosotros"
     },
+    "admin": {
+      "action": "Acci\u00f3n",
+      "active": "Activo",
+      "add_org": "A\u00f1adir una Organizaci\u00f3n.",
+      "edit": "Editar",
+      "error_reports": "Informes de errores del sitio web",
+      "hidden": "Ocultada",
+      "name_of_org": "Nombre de la Organizaci\u00f3n",
+      "org_management": "Administraci\u00f3n de Organizaci\u00f3nes",
+      "status": "Estado",
+      "suspend": "Suspender",
+      "suspended": "Suspendido",
+      "unsuspend": "Reactivar",
+      "welcome": "Bienvenido al Panel de Administraci\u00f3n"
+    },
     "asylum_apply": {
       "content": [
         {

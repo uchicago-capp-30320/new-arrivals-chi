@@ -19,8 +19,8 @@ from flask import (
     render_template,
     request,
     current_app,
-    url_for,
     flash,
+    url_for,
 )
 import os
 import bleach
@@ -436,22 +436,33 @@ def dashboard():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
-    organization = Organization.query.get(user.organization_id)
-    if not organization:
-        return "Organization not found", 404
 
-    # generate URL for edit_organization endpoint
-    edit_org_url = url_for(
-        "main.edit_organization", org_name=organization.name, lang=language
-    )
+    if current_user.role == "admin":
+        return render_template(
+            "admin_management.html",
+            language=language,
+            translations=translations,
+        )
+    else:
+        organization = Organization.query.get(user.organization_id)
 
-    return render_template(
-        "dashboard.html",
-        organization=organization,
-        language=language,
-        translations=translations,
-        edit_org_url=edit_org_url,
-    )
+        if not organization:
+            return "Organization not found", 404
+
+        # generate URL for edit_organization endpoint
+        edit_org_url = url_for(
+            "main.edit_organization",
+            organization_id=organization.id,
+            lang=language,
+        )
+
+        return render_template(
+            "dashboard.html",
+            language=language,
+            organization=organization,
+            translations=translations,
+            edit_org_url=edit_org_url,
+        )
 
 
 @main.route("/org/<int:organization_id>", methods=["GET"])
@@ -459,12 +470,12 @@ def org(organization_id):
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
-    organization details. It is accessible from the org dashboard and the health
-    filterable table.
+    organization details. It is accessible from the org dashboard.
 
     Returns:
         Renders the organization page (public facing).
     """
+    print(f"Hi, {organization_id}")
     stmt = (
         select(
             Organization.name,
@@ -522,10 +533,10 @@ def org(organization_id):
 
     return render_template(
         "organization.html",
+        organization_id=organization_id,
         organization=organization,
         language=language,
         translations=translations,
-        organization_id=organization_id,
     )
 
 
@@ -544,7 +555,17 @@ def edit_organization():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
+
+    # if user.role == "admin":
+    #     # Query DB to get the organization's Data
+    #     # organzation id is the one in the url
+    #     organization_id = bleach(request.args.get("organization_id"))
+    #     organization = Organization.query.get(organization_id)
+
+    # else:
     organization = User.query.get(user.organization_id)
+
+    # organization = User.query.get(user.organization_id)
     if request.method == "POST":
         # Handle the form submission
         pass
