@@ -55,7 +55,8 @@
       "status": "Status",
       "suspend": "Suspend",
       "suspended": "Suspended",
-      "unsuspend": "Unsuspend"
+      "unsuspend": "Unsuspend",
+      "welcome":  "Welcome to the Admin Dashboard"
     },
     "asylum_apply": {
       "content": [

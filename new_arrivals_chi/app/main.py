@@ -436,23 +436,31 @@ def dashboard():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
-    organization = Organization.query.get(user.organization_id)
-    
-    if not organization:
-        return "Organization not found", 404
 
-    # generate URL for edit_organization endpoint
-    edit_org_url = url_for(
-        "main.edit_organization", organization_id=organization.id, lang=language
-    )
+    if current_user.role == "admin":
+        return render_template(
+            "admin_management.html",
+            language=language,
+            translations=translations,
+        )
+    else: 
+        organization = Organization.query.get(user.organization_id)
+        
+        if not organization:
+            return "Organization not found", 404
 
-    return render_template(
-        "dashboard.html",
-        organization=organization,
-        language=language,
-        translations=translations,
-        edit_org_url=edit_org_url,
-    )
+        # generate URL for edit_organization endpoint
+        edit_org_url = url_for(
+            "main.edit_organization", organization_id=organization.id, lang=language
+        )
+
+        return render_template(
+            "dashboard.html",
+            organization=organization,
+            language=language,
+            translations=translations,
+            edit_org_url=edit_org_url,
+        )
 
 
 @main.route("/org/<int:organization_id>", methods=["GET"])

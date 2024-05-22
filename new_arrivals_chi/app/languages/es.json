@@ -55,7 +55,8 @@
       "status": "Estado",
       "suspend": "Suspender",
       "suspended": "Suspendido",
-      "unsuspend": "Reactivar"
+      "unsuspend": "Reactivar",
+      "welcome": "Bienvenido al Panel de Administración"
     },
     "asylum_apply": {
       "content": [
