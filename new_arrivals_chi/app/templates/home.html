@@ -18,7 +18,7 @@ Main landing page for the user. Does not require authentication to access.
     <div class="home-button-container">
         <div class="button-container">
             <h3>{{ translations[language]['home']['please_click'] | escape }}</h3>
-            <button class="button button-green" onclick="window.location.href='/general'">{{ translations[language]['home']['general'] | escape }}</button>
+            <button class="button button-green" onclick="navigateTo('/general', '{{ language | escape }}')">{{ translations[language]['home']['general'] | escape }}</button>
             <button class="button button-blue" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['legal'] | escape }}</button>
             <button class="button button-yellow" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['health'] | escape }}</button>
         </div>

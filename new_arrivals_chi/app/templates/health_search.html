@@ -3,11 +3,11 @@
 {% block content %}
 <div class="wrapper">
     <h3>
-        Search for Resources
+        {{ translations[language]['health']['search_rec'] | escape }}
     </h3>
     <div>
         <select id="supplies">
-            <option value="">Available Supplies and Services</option>
+            <option value="">{{ translations[language]['health']['supply_service'] | escape }}</option>
             {% set supplies_set = set() %}
             {% for row in services_info %}
                 {% if row[0] not in supplies_set %}
@@ -18,7 +18,7 @@
         </select>
 
         <select id="neighborhood">
-            <option value="">Neighborhood</option>
+            <option value="">{{ translations[language]['health']['neighborhood'] | escape }}</option>
             {% set neighborhood_set = set() %}
             {% for row in services_info %}
                 {% if row[1] not in neighborhood_set %}
@@ -29,7 +29,7 @@
         </select>
 
         <select id="organization">
-            <option value="">Organization</option>
+            <option value="">{{ translations[language]['health']['organization'] | escape }}</option>
             {% set organization_set = set() %}
             {% for row in services_info %}
                 {% if row[2] not in organization_set %}
@@ -40,12 +40,12 @@
         </select>
 
         <select id="hours">
-            <option value="">Hours</option>
+            <option value="">{{ translations[language]['health']['hours'] | escape }}</option>
             {% set hours_set = set() %}
             {% for row in services_info %}
-                {% if row[3] not in hours_set %}
-                    {% set _ = hours_set.add(row[3]) %}
-                    <option value="{{ row[3] }}">{{ row[3] }}</option>
+                {% if row[4] not in hours_set %}
+                    {% set _ = hours_set.add(row[4]) %}
+                    <option value="{{ row[4] }}">{{ row[4] }}</option>
                 {% endif %}
             {% endfor %}
         </select>
@@ -54,10 +54,10 @@
     <table id="healthTable">
         <thead>
             <tr>
-                <th class="table-header">Supplies and Services</th>
-                <th class="table-header">Neighborhood</th>
-                <th class="table-header">Organization</th>
-                <th class="table-header">Hours</th>
+                <th class="table-header">{{ translations[language]['health']['supply_service'] | escape }}</th>
+                <th class="table-header">{{ translations[language]['health']['neighborhood'] | escape }}</th>
+                <th class="table-header">{{ translations[language]['health']['organization'] | escape }}</th>
+                <th class="table-header">{{ translations[language]['health']['hours'] | escape }}</th>
             </tr>
         </thead>
         <tbody>

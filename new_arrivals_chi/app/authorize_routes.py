@@ -14,6 +14,8 @@ Methods:
     * signout - Routes and executes user sign out logic.
     * change_password - Route to the change password page.
     * post_change_password - Executes change password logic.
+    * register - Route to the organization's inital register page.
+    * post_register - Executes inital organization registration logic.
 """
 
 import bleach
@@ -34,6 +36,7 @@ from new_arrivals_chi.app.utils import (
     extract_signup_data,
     extract_new_pw_data,
     verify_password,
+    extract_registration_info,
 )
 from new_arrivals_chi.app.constants import (
     KEY_TRANSLATIONS,
@@ -46,7 +49,12 @@ from new_arrivals_chi.app.data_handler import (
     create_user,
     change_db_password,
     change_organization_status,
+    org_registration,
 )
+
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
@@ -247,6 +255,118 @@ def post_change_password():
         return redirect(url_for("main.dashboard"))
 
     return redirect(url_for("authorize.change_password"))
+
+
+@authorize.route("/registration_change_password")
+def registration_change_password():
+    """Establishes route for the change password page for a new user.
+
+    This route is accessible within the email that is sent to new users and
+    will be publically accessible.
+
+    Returns:
+        Renders change password page for user with their selected language.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "registration_change_password.html",
+        language=language,
+        translations=translations,
+    )
+
+
+@authorize.route("/registration_change_password", methods=["POST"])
+def post_registration_change_password():
+    """Handles the POST request for changing the password for a new user.
+
+    This function processes the form data, validates it, and flashes
+    messages to the user in the appropriate language based on their
+    selection. If the validation passes, it updates the user's password
+    and redirects to the registration page.
+    """
+    email = request.form.get("email").lower()
+
+    temp_password, new_password, new_password_confirm = extract_new_pw_data(
+        request.form
+    )
+
+    # ensure that input meets requirments
+    if not validate_email_syntax(email):
+        flash(escape("Please enter a valid email address"))
+
+    # Confirm that email exists as a user
+    user = User.query.filter_by(email=email).first()
+
+    # check if the user actually exists & password is correct
+    if not user or not verify_password(user.password, temp_password):
+        flash(escape("Please check your email and registration password."))
+        return redirect(url_for("authorize.registration_change_password"))
+
+    elif temp_password == new_password:
+        # Do not need to check password hash because old password is correct
+        flash(
+            escape("New password cannot be the same as your previous password.")
+        )
+
+    elif not new_password == new_password_confirm:
+        flash(escape("New passwords do not match. Try again"))
+
+    elif not validate_password(new_password):
+        flash(escape("New password does not meet requirements. Try again."))
+
+    else:
+        change_db_password(new_password)
+        return redirect(url_for("authorize.register"))
+
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+    return render_template(
+        "registration_change_password.html",
+        language=language,
+        translations=translations,
+    )
+
+
+@authorize.route("/register", methods=["POST"])
+@login_required
+def post_register():
+    """Allows an new authorized user to set up their organization's information.
+
+    Returns:
+        Redirects to the organization's dashboard page if password change is
+        successful, otherwise redirects back to the registrations page with a
+        flash message.
+    """
+    location, hours = extract_registration_info(request.form)
+
+    if any(value is None for value in location.values()):
+        flash(escape("Please confirm that the entered location is correct."))
+    elif any(value is None for value in hours.values()):
+        flash(escape("Please confirm that the entered hours are correct."))
+    else:
+        # Add information to the database
+        org_registration(location, hours)
+        return redirect(url_for("main.dashboard"))
+    return redirect(url_for("authorize.register"))
+
+
+@authorize.route("/register")
+@login_required
+def register():
+    """Establishes route for registering an organizations information.
+
+    This route is accessible once a new user changes their password and logs in.
+
+    Returns:
+        Renders register page for user with their selected language.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "register.html", language=language, translations=translations
+    )
 
 
 @authorize.route("/admin")

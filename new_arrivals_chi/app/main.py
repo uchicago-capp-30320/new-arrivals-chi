@@ -13,7 +13,6 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-
 from flask import (
     Flask,
     Blueprint,
@@ -21,9 +20,11 @@ from flask import (
     request,
     current_app,
     url_for,
+    flash,
 )
 import os
 import bleach
+from markupsafe import escape
 from dotenv import load_dotenv
 
 from new_arrivals_chi.app.constants import (
@@ -31,13 +32,38 @@ from new_arrivals_chi.app.constants import (
     KEY_TRANSLATIONS,
     DEFAULT_LANGUAGE,
 )
-from new_arrivals_chi.app.database import db, User, Organization
-from new_arrivals_chi.app.utils import load_translations
+
+from new_arrivals_chi.app.database import (
+    db,
+    User,
+    Organization,
+    Language,
+    Hours,
+    Service,
+    Location,
+    organizations_services,
+    organizations_hours,
+    languages_organizations,
+)
+
+from new_arrivals_chi.app.utils import (
+    validate_email_syntax,
+    load_translations,
+    validate_phone_number,
+    create_temp_pwd,
+    load_neighborhoods,
+)
+
+from new_arrivals_chi.app.data_handler import (
+    create_user,
+    create_organization_profile,
+)
+
 from flask_migrate import Migrate
-import sqlite3
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
+from sqlalchemy import select, join
 
 migrate = Migrate()
 
@@ -326,36 +352,57 @@ def health_search():
         Renders the health search page.
     """
     # Implementation with demonstrative data
-    conn = sqlite3.connect("instance/test_fake_data.db")
 
-    cursor = conn.cursor()
-
-    cursor.execute(
-        "SELECT s.service, l.neighborhood, o.name, o.id, "
-        + "strftime('%I:%M %p', h.opening_time) "
-        "|| ' - ' || "
-        "strftime('%I:%M %p', h.closing_time) "
-        "AS opening_closing_time "
-        "FROM organizations o "
-        "JOIN hours h ON o.hours_id = h.id "
-        "JOIN locations l ON o.location_id = l.id "
-        "JOIN organizations_services os ON o.id = os.organization_id "
-        "JOIN services s ON os.service_id = s.id"
+    stmt = select(
+        Service.service,
+        Location.neighborhood,
+        Organization.name,
+        Organization.id,
+        db.func.concat(
+            db.func.to_char(Hours.opening_time, "HH:MI AM"),
+            " - ",
+            db.func.to_char(Hours.closing_time, "HH:MI AM"),
+        ).label("opening_closing_time"),
+    ).select_from(
+        join(
+            Organization,
+            organizations_hours,
+            Organization.id == organizations_hours.c.organization_id,
+        )
+        .join(Hours, organizations_hours.c.hours_id == Hours.id)
+        .join(Location, Organization.location_id == Location.id)
+        .join(
+            organizations_services,
+            Organization.id == organizations_services.c.organization_id,
+        )
+        .join(Service, organizations_services.c.service_id == Service.id)
     )
 
-    services_info = cursor.fetchall()
-
-    conn.close()
+    services_info = db.session.execute(stmt).fetchall()
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
-
     return render_template(
         "health_search.html",
         language=language,
         translations=translations,
         services_info=services_info,
         set=set,
+    )
+
+
+@main.route("/health_general")
+def health_general():
+    """Route for general health static page.
+
+    Returns:
+        Health Static Page
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "health_general.html", language=language, translations=translations
     )
 
 
@@ -407,9 +454,8 @@ def dashboard():
     )
 
 
-@main.route("/org", methods=["GET"])
-# @login_required
-def org():
+@main.route("/org/<int:organization_id>", methods=["GET"])
+def org(organization_id):
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
@@ -418,13 +464,61 @@ def org():
     Returns:
         Renders the organization page (public facing).
     """
-    # organization_id = bleach.clean(request.args.get("organization_id"))
+    stmt = (
+        select(
+            Organization.name,
+            Location.street_address,
+            Organization.phone,
+            Language.language,
+            Service.service,
+            db.func.concat(
+                db.func.to_char(Hours.opening_time, "HH:MI AM"),
+                " - ",
+                db.func.to_char(Hours.closing_time, "HH:MI AM"),
+            ).label("opening_closing_time"),
+        )
+        .select_from(
+            join(
+                Organization,
+                organizations_hours,
+                Organization.id == organizations_hours.c.organization_id,
+            )
+            .join(Hours, organizations_hours.c.hours_id == Hours.id)
+            .join(Location, Organization.location_id == Location.id)
+            .join(
+                organizations_services,
+                Organization.id == organizations_services.c.organization_id,
+            )
+            .join(Service, organizations_services.c.service_id == Service.id)
+            .join(
+                languages_organizations,
+                Organization.id == languages_organizations.c.organization_id,
+            )
+            .join(
+                Language, languages_organizations.c.language_id == Language.id
+            )
+        )
+        .where(Organization.id == organization_id)
+    )
 
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-    # organization = Organization.query(organization_id)
-    user = current_user
-    organization = User.query.get(user.organization_id)
+    organization_info = db.session.execute(stmt).fetchall()
+
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    if organization_info:
+        organization = {
+            "name": organization_info[0][0],
+            "address": organization_info[0][1],
+            "phone": organization_info[0][2],
+            "language": organization_info[0][3],
+            "service": (", ").join({info[4] for info in organization_info}),
+            "hours": organization_info[0][5],
+        }
+
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
     return render_template(
         "organization.html",
         organization=organization,
@@ -470,6 +564,97 @@ def edit_organization():
     )
 
 
+@main.route("/add_organization_success", methods=["GET"])
+@login_required
+def add_organization_success():
+    """Establishes route to the add organization success page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the add organization success page where admin can view
+        a success message after adding a new organization.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "add_organization_success.html",
+        language=language,
+        translations=translations,
+    )
+
+
+@main.route("/add_organization", methods=["GET", "POST"])
+@login_required
+def add_organization():
+    """Establishes route to the add organization page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the add organization page where admin can add
+        a new organization.
+    """
+    # Check if the user is an admin
+    if current_user.role != "admin":
+        return "Unauthorized", 401
+
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    if request.method == "POST":
+        email = request.form.get("email")
+        confirmed_email = request.form.get("email-confirm")
+        phone_number = request.form.get("phone-number")
+        org_name = request.form.get("org-name")
+
+        # Check if the email and confirmed email match
+        if email != confirmed_email:
+            flash(escape("Emails do not match. Try again"))
+        # Handle the form submission
+        elif not validate_email_syntax(email):
+            flash(escape("Invalid email address. Try again"))
+
+        elif not validate_phone_number(phone_number):
+            flash(
+                escape("Invalid phone number (correct example: ###-###-####)")
+            )
+        else:
+            # Create the organization as HIDDEN
+            new_org_id = create_organization_profile(
+                org_name, phone_number, "HIDDEN"
+            )
+
+            # Create a temporary password for the user
+            temp_pwd = create_temp_pwd(email, phone_number)
+
+            # Create the user with the provided email and a default password
+            new_user = create_user(email, temp_pwd)
+
+            # Update the user with the new organization
+            try:
+                user = User.query.get(new_user.id)
+                user.organization_id = new_org_id
+                db.session.commit()
+            except Exception as error:
+                print(f"Error updating user with organization: {error}")
+
+            # Redirect to the success page
+            return render_template(
+                "add_organization_success.html",
+                language=language,
+                translations=translations,
+            )
+
+    return render_template(
+        "add_organization.html",
+        language=language,
+        translations=translations,
+    )
+
+
 def create_app(config_override=None):
     """This function creates the flask application for the web portal."""
     app = Flask(__name__)
@@ -480,6 +665,9 @@ def create_app(config_override=None):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
     app.config[KEY_TRANSLATIONS] = load_translations()
+
+    # Load neighborhoods from file and store in app config
+    app.config["NEIGHBORHOODS"] = load_neighborhoods()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
