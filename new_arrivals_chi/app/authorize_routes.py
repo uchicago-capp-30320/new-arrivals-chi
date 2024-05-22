@@ -269,5 +269,9 @@ def post_registration_change_password():
         flash(escape("Password change successful."))
         return redirect(url_for("authorize.register"))
 
-    return redirect(url_for("authorize.registration_change_password"))
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+    return render_template(
+        "registration_change_password.html", language=language, translations=translations
+    )
 
