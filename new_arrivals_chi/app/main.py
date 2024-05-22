@@ -32,7 +32,6 @@ from new_arrivals_chi.app.constants import (
     DEFAULT_LANGUAGE,
 )
 from new_arrivals_chi.app.database import db, User, Organization
-from new_arrivals_chi.app.data_handler import create_organization_profile
 from new_arrivals_chi.app.utils import load_translations, load_neighborhoods
 from flask_migrate import Migrate
 import sqlite3

@@ -245,7 +245,7 @@ def post_register():
     """Allows an new authorized user to set up their organization's information.
 
     Returns:
-        Redirects to the organization's profile page if password change is
+        Redirects to the organization's dashboard page if password change is
         successful, otherwise redirects back to the registrations page with a
         flash message.
     """
@@ -258,5 +258,5 @@ def post_register():
     else:
         # Add information to the database
         org_registration(location, hours)
-        return redirect(url_for("main.profile"))
+        return redirect(url_for("main.dashboard"))
     return redirect(url_for("authorize.register"))
