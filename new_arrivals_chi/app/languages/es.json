@@ -60,7 +60,7 @@
           "source_link": "https://cilsc.metrofamily.org/"
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         }
       ],
@@ -140,7 +140,7 @@
           "body": "No puede solicitar asilo si ya solicit\u00f3 y fue denegado a menos que las circunstancias hayan cambiado."
         },
         {
-          "link_text": "Asistencia Legal de Illinois",
+          "link_text": "Illinois Legal Aid",
           "source_link": "https://www.illinoislegalaid.org/legal-information/asylum-and-refugee-basics"
         }
       ],
@@ -664,7 +664,7 @@
           "body": "\u00bfNecesita ayuda con la inscripci\u00f3n? Llame al 312-668-0114 de lunes a viernes, de 12pm a 4pm para asistencia."
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         },
         {
@@ -798,28 +798,7 @@
         },
         {
           "header": "Proceso de Desalojo",
-          "list": [
-            {
-              "body": "El arrendador entrega personalmente una notificaci\u00f3n escrita y firmada al inquilino o a cualquier persona de 13 a\u00f1os o m\u00e1s que viva en la propiedad, o env\u00eda una por correo certificado con un recibo firmado de devoluci\u00f3n.",
-              "sub": "1. Notificaci\u00f3n de Desalojo"
-            },
-            {
-              "body": "SOLO SI el inquilino y el arrendador no resuelven el problema dentro del per\u00edodo de notificaci\u00f3n, se entrega una citaci\u00f3n y una demanda con el sello del tribunal, llamando al inquilino al tribunal.",
-              "sub": "2. Citaci\u00f3n y Demanda del Tribunal"
-            },
-            {
-              "body": "Si el inquilino no se presenta, se podr\u00eda emitir un fallo por defecto a favor del arrendador, y el inquilino debe mudarse. Si el inquilino gana, el inquilino se queda en la unidad y el proceso termina.",
-              "sub": "3. Audiencia Judicial"
-            },
-            {
-              "body": "Luego se emite una orden de desalojo como la advertencia final del inquilino para mudarse y el desalojo podr\u00eda aparecer en el registro del inquilino.",
-              "sub": "Si el Arrendador Gana"
-            },
-            {
-              "body": "El inquilino es removido por la fuerza (solo por la polic\u00eda, nunca el arrendador).",
-              "sub": "Si el Inquilino Permanece Despu\u00e9s de la Orden de Desalojo"
-            }
-          ]
+          "list": ["Notificaci\u00f3n de Desalojo: El arrendador entrega personalmente una notificaci\u00f3n escrita y firmada al inquilino o a cualquier persona de 13 a\u00f1os o m\u00e1s que viva en la propiedad, o env\u00eda una por correo certificado con un recibo firmado de devoluci\u00f3n.", "Citaci\u00f3n y Demanda del Tribunal: SOLO SI el inquilino y el arrendador no resuelven el problema dentro del per\u00edodo de notificaci\u00f3n, se entrega una citaci\u00f3n y una demanda con el sello del tribunal, llamando al inquilino al tribunal.", "Audiencia Judicial: Si el inquilino no se presenta, se podr\u00eda emitir un fallo por defecto a favor del arrendador, y el inquilino debe mudarse. Si el inquilino gana, el inquilino se queda en la unidad y el proceso termina.", "Si el Arrendador Gana: Luego se emite una orden de desalojo como la advertencia final del inquilino para mudarse y el desalojo podr\u00eda aparecer en el registro del inquilino.", "Si el Inquilino Permanece Despu\u00e9s de la Orden de Desalojo: El inquilino es removido por la fuerza (solo por la polic\u00eda, nunca el arrendador)."]
         },
         {
           "body": "La raz\u00f3n del desalojo determina algunos aspectos del proceso de desalojo, principalmente, cu\u00e1ntos d\u00edas tiene un inquilino para resolver el problema o luchar contra el desalojo en el tribunal.",
@@ -1009,7 +988,7 @@
           "header": "Talleres"
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         },
         {
@@ -1090,7 +1069,7 @@
           "sub": "Si eres denegado:"
         },
         {
-          "link_text": "Asistencia Legal de Illinois",
+          "link_text": "Illinois Legal Aid",
           "source_link": "https://www.illinoislegalaid.org/"
         }
       ],
@@ -1179,7 +1158,8 @@
           ]
         },
         {
-          "body": "FUENTE: Illinois Legal Aid"
+          "link_text": "Illinois Legal Aid",
+          "source_link": "https://www.illinoislegalaid.org/"
         }
       ],
       "title": "Derechos y Privilegios de los Beneficiarios del Estatus de Protecci\u00f3n Temporal"
@@ -1256,7 +1236,7 @@
           "header": "Obt\u00e9n Ayuda para Aplicar: Talleres de Solicitud de Inmigraci\u00f3n para Permiso de Trabajo y TPS para Nuevas Llegadas"
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         },
         {
@@ -1279,7 +1259,7 @@
           "body": "\u00bfNecesitas ayuda con la inscripci\u00f3n? Llama al 312-668-0114 de lunes a viernes, de 12 p.m. a 4 p.m. para obtener asistencia."
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         }
       ],
@@ -1425,7 +1405,7 @@
           "sub": "Carga P\u00fablica"
         },
         {
-          "link_text": "Bienvenido a IL/Heartland Alliance",
+          "link_text": "Welcome to IL/Heartland Alliance",
           "source_link": "https://welcometoil.org/pdfviewer/victims-factsheet/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
         }
       ],
@@ -1497,11 +1477,12 @@
           "sub": "\u00bfC\u00f3mo puedo presentar una queja?"
         },
         {
-          "link_text": "Bienvenido a IL/Illinois Access to Justice",
-          "source_link": "https://welcometoil.org/pdfviewer/immigrant-rights-english/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+          "link_text": "Welcome to IL/Illinois Access to Justice",
+          "source_link": "https://www.latinopolicyforum.org/publications/body/es-housing-rights-for-immigrant-tenants-updated-march-2024.pdf"
         }
       ],
       "title": "Derechos de los Trabajadores"
     }
   }
 }
+

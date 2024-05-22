@@ -798,28 +798,7 @@
         },
         {
           "header": "Eviction Process",
-          "list": [
-            {
-              "body": "The landlord personally serves a signed, written notice on the tenant or on anyone 13 years or older who lives at the property, or sends one by certified mail with a signed returned receipt.",
-              "sub": "1. Eviction Notice"
-            },
-            {
-              "body": "ONLY IF the tenant and landlord do not resolve the issue within the notice period, a summons and complaint with the court seal is served, calling the tenant to court.",
-              "sub": "2. Court Summons and Complaint"
-            },
-            {
-              "body": "If the tenant does not appear, a default judgment could be issued in favor of the landlord, and the tenant must move out. If the tenant wins, the tenant stays in the unit and the process ends.",
-              "sub": "3. Court Hearing"
-            },
-            {
-              "body": "Eviction order is then issued as the tenant\u2019s final warning to move out and eviction could appear on tenant\u2019s record.",
-              "sub": "If Landlord Wins"
-            },
-            {
-              "body": "The tenant is forcibly removed (only by law enforcement, never the landlord).",
-              "sub": "If Tenant Stays After Eviction Order"
-            }
-          ]
+          "list": ["Eviction Notice: The landlord personally serves a signed, written notice on the tenant or on anyone 13 years or older who lives at the property, or sends one by certified mail with a signed returned receipt.","Court Summons and Complaint: ONLY IF the tenant and landlord do not resolve the issue within the notice period, a summons and complaint with the court seal is served, calling the tenant to court.", "Court Hearing: If the tenant does not appear, a default judgment could be issued in favor of the landlord, and the tenant must move out. If the tenant wins, the tenant stays in the unit and the process ends.", "If Landlord Wins: Eviction order is then issued as the tenant\u2019s final warning to move out and eviction could appear on tenant\u2019s record.", "If Tenant Stays After Eviction Order: The tenant is forcibly removed (only by law enforcement, never the landlord)."]
         },
         {
           "body": "The reason for eviction determines some aspects of the eviction process\u2014mainly, how many days a tenant has to resolve the issue or fight the eviction in court.",
