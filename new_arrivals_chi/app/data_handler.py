@@ -75,4 +75,5 @@ def create_organization_profile(name, phone, status):
     new_organization = Organization(name=name, phone=phone, status=status)
     db.session.add(new_organization)
     db.session.commit()
+
     return new_organization.id

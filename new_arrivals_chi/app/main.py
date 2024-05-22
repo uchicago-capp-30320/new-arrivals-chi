@@ -529,6 +529,27 @@ def edit_organization():
     )
 
 
+@main.route("/add_organization_success", methods=["GET"])
+@login_required
+def add_organization_success():
+    """Establishes route to the add organization success page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the add organization success page where admin can view
+        a success message after adding a new organization.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "add_organization_success.html",
+        language=language,
+        translations=translations,
+    )
+
+
 @main.route("/add_organization", methods=["GET", "POST"])
 @login_required
 def add_organization():
@@ -547,6 +568,7 @@ def add_organization():
 
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
+
     if request.method == "POST":
         email = request.form.get("email")
         confirmed_email = request.form.get("email-confirm")
@@ -583,6 +605,13 @@ def add_organization():
                 db.session.commit()
             else:
                 raise Exception("User not found")
+
+            # Redirect to the success page
+            return render_template(
+                "add_organization_success.html",
+                language=language,
+                translations=translations,
+            )
 
     return render_template(
         "add_organization.html",
