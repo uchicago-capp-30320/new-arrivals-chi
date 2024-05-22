@@ -24,20 +24,20 @@ HTML for edit organization page.
             </tr>
         </thead>
         <tbody>
-            {% for org in organizations %}
+            {% for organization in organizations %}
             <tr>
-                <td>{{ org.name }}</td>
-                <td>{% if org.status == 'ACTIVE' %}{{ translations[language]['admin']['active'] }}
-                    {% elif org.status == 'HIDDEN' %}{{ translations[language]['admin']['hidden'] }}
-                    {% elif org.status == 'SUSPENDED' %}{{ translations[language]['admin']['suspended']}}
+                <td>{{ organization.name }}</td>
+                <td>{% if organization.status == 'ACTIVE' %}{{ translations[language]['admin']['active'] }}
+                    {% elif organization.status == 'HIDDEN' %}{{ translations[language]['admin']['hidden'] }}
+                    {% elif organization.status == 'SUSPENDED' %}{{ translations[language]['admin']['suspended']}}
                     {% endif %}
                 </td>
                 <td>
-                    <button type="button" class="btn-edit" onclick="navigateTo('{{ url_for('authorize.admin_edit_organization', organization_id=org.id) }}', '{{ language }}')">
+                    <button type="button" class="btn-edit" onclick="navigateTo('{{ url_for('authorize.admin_edit_organization', organization_id=organization.id) }}', '{{ language }}')">
                         {{ translations[language]['admin']['edit'] }}
                     </button>
-                    <button type="button" class="btn-suspend" onclick="navigateTo('{{ url_for('authorize.toggle_suspend_organization', organization_id=org.id) }}', '{{ language }}')">
-                        {% if org.status == 'ACTIVE' %}{{ translations[language]['admin']['suspend'] }}
+                    <button type="button" class="btn-suspend" onclick="navigateTo('{{ url_for('authorize.toggle_suspend_organization', organization_id=organization.id) }}', '{{ language }}')">
+                        {% if organization.status == 'ACTIVE' %}{{ translations[language]['admin']['suspend'] }}
                         {% else %}{{ translations[language]['admin']['unsuspend']}}
                         {% endif %}
                     </button>
