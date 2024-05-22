@@ -14,6 +14,13 @@ HTML for edit organization page.
 
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] | escape }}
+        </div>
+    {% endif %}
+    {% endwith %}
     <h1>{{ translations[language]['admin']['org_management'] }}</h1>
     <table>
         <thead>
