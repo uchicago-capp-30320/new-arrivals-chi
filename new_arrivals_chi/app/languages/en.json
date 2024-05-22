@@ -164,8 +164,182 @@
     },
     "health": {
       "health_information": "Health Information",
+      "hours": "Hours",
       "learn_more": "Learn More About Resources",
-      "receive_assistance": "Receive Assistance Now"
+      "neighborhood": "Neighborhood",
+      "organization": "Organization",
+      "receive_assistance": "Receive Assistance Now",
+      "search_rec": "Search for Resources",
+      "supply_service": "Available Supplies and Services"
+    },
+    "health_gen": {
+      "content": [
+        {
+          "header": "Welcome"
+        },
+        {
+          "body": "Welcome to our healthcare resource page designed to assist you in navigating the healthcare system in Chicago. Here's what you'll find:"
+        },
+        {
+          "list": [
+            "Information about navigating healthcare access",
+            "Understanding healthcare access based on your legal status and/or age group",
+            "Guidance on finding healthcare providers, emergency and urgent care services, mental health and well-being resources, physical therapy options, and community health programs."
+          ]
+        },
+        {
+          "header": "Navigating the Healthcare System"
+        },
+        {
+          "body": "In the United States, we have a system where people can choose their doctors and hospitals. Patients have the option of paying out-of-pocket for services provided or can pay for health insurance to help reduce the cost of medical care."
+        },
+        {
+          "sub": "What is Health Insurance?"
+        },
+        {
+          "body": "Health insurance is like a membership that helps cover the cost of doctor visits, hospital stays, medications, and more."
+        },
+        {
+          "sub": "Obtaining Health Insurance"
+        },
+        {
+          "body": "Health insurance may be purchased through healthcare.gov or secured through your employer. You must have a qualifying legal status to qualify for health insurance:"
+        },
+        {
+          "list": [
+            "U.S. Citizen",
+            "Green Card",
+            "Asylum Status \u2013 only if you've been granted employment authorization or are under age 14 and have an application pending for at least 180 days",
+            "Refugee Status",
+            "Cuban/Haitian Entrant",
+            "Paroled into the U.S.",
+            "Temporary Protected Status (TPS)",
+            "Battered Spouse, Child and Parent",
+            "Victim of Trafficking and his/her Spouse, Child, Sibling or Parent",
+            "Granted Withholding of Deportation or Withholding of Removal, under the immigration laws or under the Convention against Torture (CAT)",
+            "Individual with Non-immigrant Status, includes worker visas (such as H1, H-2A, H-2B), student visas, U-visa, T-visa, and other visas, and citizens of Micronesia, the Marshall Islands, and Palau",
+            "Deferred Enforced Departure (DED)",
+            "Deferred Action Status (Exception: Deferred Action for Childhood Arrivals (DACA) is not an eligible immigration status for applying for health insurance)",
+            "Lawful Temporary Resident",
+            "Administrative order staying removal issued by the Department of Homeland Security",
+            "Conditional Entrant Granted before 1980"
+          ]
+        },
+        {
+          "body": "If you are undocumented, you may not be able to obtain health insurance, but you can still receive emergency medical care and preventative medical services at low-cost health centers in the City of Chicago."
+        },
+        {
+          "header": "Accessing Health Insurance Based on Legal Status and Age Group"
+        },
+        {
+          "body": "Accessing health insurance can vary based on an individual's legal status and age group."
+        },
+        {
+          "sub": "Legal Status"
+        },
+        {
+          "body": "Temporary Protected Status (TPS), Humanitarian Parole, Asylum or Refugee: As someone with TPS, Parole, Asylum or Refugee Status, you qualify for Medicaid or can buy a health insurance plan at healthcare.gov."
+        },
+        {
+          "sub": "What is Medicaid?"
+        },
+        {
+          "body": "Medicaid is a government program that helps people with low income and limited resources pay for healthcare. It is a free or low-cost health insurance that covers various medical services like doctor visits, hospital stays, prescription medications, and more."
+        },
+        {
+          "sub": "Where do I Apply for Medicaid?"
+        },
+        {
+          "body": "In the state of Illinois, you can apply online, over the phone, in person, or submit a paper application. Please see the following links for details on how to apply:"
+        },
+        {
+          "link_text": "Get Care Illinois - Apply for Medicaid",
+          "source_link": "https://getcareillinois.org/need-health-coverage/medicaid/"
+        },
+        {
+          "link_text": "Illinois Healthcare and Family Services - Medicaid Guide",
+          "source_link": "https://hfs.illinois.gov/medicalclients/medicaidguide/applying.html"
+        },
+        {
+          "sub": "Undocumented"
+        },
+        {
+          "body": "If you are undocumented, you may not be able to access a health insurance plan. However, you can still receive emergency medical care and preventative medical services at low-cost health centers in the City of Chicago. Please see the next section on \u201cAccessing Healthcare Services Regardless of Legal Status.\u201d"
+        },
+        {
+          "body": "If you are an undocumented child, you qualify for All Kids, a health insurance plan for children from low-income households who live in Illinois. To apply for All Kids, please click the following links for more details:"
+        },
+        {
+          "link_text": "All Kids - About",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/about.html"
+        },
+        {
+          "link_text": "All Kids - Application",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+        },
+        {
+          "body": "If you are undocumented and pregnant, you qualify for two programs:"
+        },
+        {
+          "list": [
+            "Moms and Babies, a health insurance plan for women while they are pregnant for up to 12 months after the baby is born. To apply for Moms and Babies, you can also use the All Kids application. Please click the following links to apply.",
+            "Medicaid Presumptive Eligibility (MPE), a plan that offers immediate, temporary coverage for outpatient health services to pregnant women who meet income requirements. To learn more about MPE, please see the following links."
+          ]
+        },
+        {
+          "link_text": "Moms and Babies - Application",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+        },
+        {
+          "link_text": "Moms and Babies - About",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/momsandbabies.html"
+        },
+        {
+          "header": "Accessing Healthcare Services Regardless of Legal Status"
+        },
+        {
+          "body": "Accessing healthcare services is a fundamental right, regardless of legal status. Below are resources and options available to ensure that everyone can access essential healthcare services and support in Chicago."
+        },
+        {
+          "sub": "Low-Cost Healthcare Providers"
+        },
+        {
+          "body": "Below are different clinics that provide low-cost or free services:"
+        },
+        {
+          "list": [
+            "Low-cost clinics that are called Federally Qualified Health Centers: please click the following links to find a center near you.",
+            "Free or low-cost clinics that are called Free & Charitable Clinics: please click the following links to find a center near you."
+          ]
+        },
+        {
+          "link_text": "What is an FQHC",
+          "source_link": "https://www.fqhc.org/what-is-an-fqhc"
+        },
+        {
+          "link_text": "Find a Health Center",
+          "source_link": "https://findahealthcenter.hrsa.gov/"
+        },
+        {
+          "link_text": "What's a Free & Charitable Clinic",
+          "source_link": "https://www.illinoisfreeclinics.org/clinic-search/whats-a-free-charitable-clinic/"
+        },
+        {
+          "link_text": "Clinic Directory",
+          "source_link": "https://www.illinoisfreeclinics.org/clinic-search/clinic-directory/"
+        },
+        {
+          "sub": "Emergency and Urgent Care"
+        },
+        {
+          "body": "All non-profit hospitals are required to provide a set amount of emergency care and financial assistance to uninsured patients, regardless of status. Please click the following link to find a non-profit hospital."
+        },
+        {
+          "link_text": "Illinois Alliance for Welcoming Health Care - Healthcare Access Programs",
+          "source_link": "https://www.ilalliancehealth.org/healthcare-access-programs"
+        }
+      ],
+      "title": "Navigating Healthcare in Chicago"
     },
     "home": {
       "description": "This resource guide is designed for new migrants to welcome to your new home. In this guide you will find information about your rights as an immigrant and resident of Chicago, and information on how to access resources offered by the City of Chicago, the State government and community organizations.",
@@ -584,6 +758,7 @@
       "asylum_apply": "I want help applying for asylum.",
       "asylum_header": "We think you may be eligible for asylum.",
       "asylum_info": "I have applied for or received asylum.",
+      "hide_options": "Hide Options",
       "lawyers": "Find Personalized Legal Assistance.",
       "other": "None of these apply to me.",
       "other_header": "We cannot determine your eligibility for Asylum, Parole, or Temporary Protected Status",
@@ -593,6 +768,7 @@
       "parole_header": "We think you may be eligible for humanitarian parole.",
       "parole_info": "I have applied for or received humanitarian parole.",
       "renters_rights": "I need to learn more about my rights as a renter",
+      "see_options": "See Options",
       "something_else": "I need help with something else",
       "tps": "I am from one of the countries listed below & arrived before the date listed:",
       "tps_apply": "I want help applying for Temporary Protected Status (TPS)",
@@ -806,26 +982,11 @@
         {
           "header": "Eviction Process",
           "list": [
-            {
-              "body": "The landlord personally serves a signed, written notice on the tenant or on anyone 13 years or older who lives at the property, or sends one by certified mail with a signed returned receipt.",
-              "sub": "1. Eviction Notice"
-            },
-            {
-              "body": "ONLY IF the tenant and landlord do not resolve the issue within the notice period, a summons and complaint with the court seal is served, calling the tenant to court.",
-              "sub": "2. Court Summons and Complaint"
-            },
-            {
-              "body": "If the tenant does not appear, a default judgment could be issued in favor of the landlord, and the tenant must move out. If the tenant wins, the tenant stays in the unit and the process ends.",
-              "sub": "3. Court Hearing"
-            },
-            {
-              "body": "Eviction order is then issued as the tenant\u2019s final warning to move out and eviction could appear on tenant\u2019s record.",
-              "sub": "If Landlord Wins"
-            },
-            {
-              "body": "The tenant is forcibly removed (only by law enforcement, never the landlord).",
-              "sub": "If Tenant Stays After Eviction Order"
-            }
+            "Eviction Notice: The landlord personally serves a signed, written notice on the tenant or on anyone 13 years or older who lives at the property, or sends one by certified mail with a signed returned receipt.",
+            "Court Summons and Complaint: ONLY IF the tenant and landlord do not resolve the issue within the notice period, a summons and complaint with the court seal is served, calling the tenant to court.",
+            "Court Hearing: If the tenant does not appear, a default judgment could be issued in favor of the landlord, and the tenant must move out. If the tenant wins, the tenant stays in the unit and the process ends.",
+            "If Landlord Wins: Eviction order is then issued as the tenant\u2019s final warning to move out and eviction could appear on tenant\u2019s record.",
+            "If Tenant Stays After Eviction Order: The tenant is forcibly removed (only by law enforcement, never the landlord)."
           ]
         },
         {
@@ -1438,6 +1599,142 @@
         }
       ],
       "title": "About Work Authorization through VTTC"
+    },
+    "welcome": {
+      "content": [
+        {
+          "header": "Welcome"
+        },
+        {
+          "body": "Known for its vibrant culture, diverse communities, and bustling city life, Chicago is a welcoming city that embraces people from all walks of life. A group of university students in collaboration with the City of Chicago and local community organizations created this website to help New Arrivals, who are immigrants, migrants, and refugees from around the world, understand the resources and services they have available to them in Chicago. We understand that this transition is challenging and we hope to provide clear information to help you begin your new life in Chicago. On this page, you will find general information about:"
+        },
+        {
+          "list": [
+            "Chicago CityKey ID, a form of identification",
+            "Using the CTA, Chicago\u2019s public transit system",
+            "Public Education for Kids",
+            "Access to food banks",
+            "Driver's insurance"
+          ]
+        },
+        {
+          "header": "Chicago CityKey ID"
+        },
+        {
+          "body": "The Chicago CityKey ID is an optional, valid, government-issued ID card offered to all Chicago residents, including New Arrivals. It serves as a four-in-one card by serving as a government-issued ID card, a Chicago Public Library card, a Ventra card, and a pharmaceutical discount card."
+        },
+        {
+          "body": "To apply for a CityKey ID, you will need three documents that prove your identity, including a photo and date of birth, and that prove that you are a resident of the City of Chicago. For more information about applying, please click the following links:"
+        },
+        {
+          "link_text": "How to Apply",
+          "source_link": "https://www.chicityclerk.com/about-citykey/how-apply"
+        },
+        {
+          "link_text": "Book an Appointment",
+          "source_link": "https://www.getcitykey.com/scheduling/bydate"
+        },
+        {
+          "link_text": "Application Materials",
+          "source_link": "https://www.chicityclerk.com/about-citykey/how-apply/application-materials/#ckdocs"
+        },
+        {
+          "header": "Using the CTA"
+        },
+        {
+          "body": "The easiest way to get around Chicago is by leveraging the CTA, which is the Chicago Transit Authority. With its comprehensive network of buses and trains, the CTA offers convenient and affordable transportation options for navigating the city."
+        },
+        {
+          "sub": "Figuring out travel route"
+        },
+        {
+          "body": "You can plan your trip using Google Maps by clicking on the train icon to find the quickest way to your destination. As a reminder, Google Maps provides an estimate and buses or trains may be delayed due to construction or traffic."
+        },
+        {
+          "body": "Another way to see how far the bus is away is the Ventra app. On the home page, it tells you which buses/trains or bikes are nearby. If you click on nearby, you can expand the view or move your position around."
+        },
+        {
+          "sub": "Paying for CTA"
+        },
+        {
+          "body": "To pay for CTA buses, you must have the exact fare to pay for the bus or use your Ventra card. For trains, you must have a Ventra card which you can get at a kiosk before entering the train or by downloading the app. To find a physical location to buy a Ventra card, please see the following link:"
+        },
+        {
+          "link_text": "Ventra Retail Locations",
+          "source_link": "https://www.ventrachicago.com/retailers/locations/"
+        },
+        {
+          "header": "Public Education for Kids"
+        },
+        {
+          "body": "In Chicago, public education is offered free of charge, ensuring that every child has access to quality learning opportunities. To enroll your child, they must meet certain requirements, including proof of age, proof of address, and proof of medical compliance such as a physical examination, immunization record, and dental exam. For more information, please click the following links:"
+        },
+        {
+          "link_text": "Enrollment Requirements",
+          "source_link": "https://www.cps.edu/schools/apply-enroll/enrollment-requirements/"
+        },
+        {
+          "link_text": "Apply and Enroll",
+          "source_link": "https://www.cps.edu/schools/apply-enroll/"
+        },
+        {
+          "header": "Access to Free Food"
+        },
+        {
+          "body": "Regardless of your status, you are able to access groceries that are free at your local food bank. Please click the following link to find the nearest food pantry near you:"
+        },
+        {
+          "link_text": "Find a Food Pantry",
+          "source_link": "https://www.chicagosfoodbank.org/find-food/#googtrans(en|en)"
+        },
+        {
+          "header": "Driver\u2019s Insurance"
+        },
+        {
+          "body": "The State of Illinois issues a special driver's license to non-citizens who cannot get a SSN. The license is called Temporary Visitor Driver's License (TVDL). There are two kinds of TVDLs: The first is for someone authorized to reside in this country for one or more years. The second is for someone who does not have lawful status or is undocumented but has lived in the US for at least a year."
+        },
+        {
+          "body": "To qualify for a TVDL as a lawful resident, applicants must:",
+          "list": [
+            "Prove their name and date of birth;",
+            "Prove that they live in Illinois;",
+            "Prove their written signature;",
+            "Provide documentation issued by the United States Citizenship and Immigration Services that proves legal status;",
+            "Affirm that they are ineligible to get a social security number;",
+            "Pass the vision, written, and road exams;",
+            "Provide proof of insurance for the vehicle used for the road test;",
+            "Provide proof (ages 18-20) of completing a 6-hour adult driver education course; and",
+            "Pay a $30 application fee ($35 for motorcycles)."
+          ]
+        },
+        {
+          "body": "To qualify for a TVDL as an undocumented immigrant, applicants must:",
+          "list": [
+            "Prove their name and date of birth;",
+            "Prove their written signature;",
+            "Prove that they have lived in Illinois for at least 12 months;",
+            "Prove where they live in Illinois now;",
+            "Affirm that they are ineligible to get a social security number;",
+            "Provide a valid, unexpired passport or consular card issued by an approved country, or provide other proof of identity and residency the Secretary of State may require;",
+            "Pass the vision, written, and road exams;",
+            "Provide proof of insurance for the vehicle used for the road test;",
+            "Provide proof (ages 18-20) of completing a 6-hour adult driver education course; and",
+            "Pay a $30 application fee ($35 for motorcycles)."
+          ]
+        },
+        {
+          "body": "For more information, please see the following links:"
+        },
+        {
+          "link_text": "Illinois Secretary of State - TVDL",
+          "source_link": "https://www.ilsos.gov/departments/drivers/TVDL/home.html"
+        },
+        {
+          "link_text": "Illinois Legal Aid - Driver\u2019s license for immigrants",
+          "source_link": "https://www.illinoislegalaid.org/legal-information/drivers-license-immigrants"
+        }
+      ],
+      "title": "Welcome to Chicago!"
     },
     "workers_rights": {
       "content": [
