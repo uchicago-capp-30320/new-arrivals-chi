@@ -358,6 +358,19 @@ def health_search():
         set=set,
     )
 
+@main.route("/health_general")
+def health_general():
+    """Route for general health static page.
+
+    Returns:
+        Health Static Page
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "health_general.html", language=language, translations=translations
+    )
 
 @main.route("/general")
 def general():

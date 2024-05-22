@@ -165,7 +165,8 @@
     "health": {
       "health_information": "Informaci\u00f3n M\u00e9dica",
       "learn_more": "Aprende M\u00e1s de Otros Recursos",
-      "receive_assistance": "Recibir Asistencia Inmediata"
+      "receive_assistance": "Recibir Asistencia Inmediata",
+      "search_rec": "Buscar Recursos"
     },
     "home": {
       "description": "Esta gu\u00eda de recursos est\u00e1 dise\u00f1ada para nuevos migrantes para darles la bienvenida a su nuevo hogar. En esta gu\u00eda encontrar\u00e1 informaci\u00f3n sobre sus derechos como inmigrante y residente de Chicago, y sobre c\u00f3mo acceder a los recursos ofrecidos por la Ciudad de Chicago, el gobierno estatal y las organizaciones comunitarias.",
@@ -1482,7 +1483,312 @@
         }
       ],
       "title": "Derechos de los Trabajadores"
+    },
+      "welcome": {
+        "content": [
+          {
+            "header": "Bienvenido"
+          },
+          {
+            "body": "Conocida por su vibrante cultura, comunidades diversas y vida urbana bulliciosa, Chicago es una ciudad acogedora que abraza a personas de todos los ámbitos de la vida. Un grupo de estudiantes universitarios, en colaboración con la Ciudad de Chicago y organizaciones comunitarias locales, creó este sitio web para ayudar a los Nuevos Llegados, que son inmigrantes, migrantes y refugiados de todo el mundo, a comprender los recursos y servicios que tienen disponibles en Chicago. Entendemos que esta transición es un desafío y esperamos proporcionar información clara para ayudarle a comenzar su nueva vida en Chicago. En esta página, encontrará información general sobre:"
+          },
+          {
+            "list": [
+              "Chicago CityKey ID, una forma de identificación",
+              "Usar el CTA, el sistema de transporte público de Chicago",
+              "Educación Pública para Niños",
+              "Acceso a bancos de alimentos",
+              "Seguro de conductor"
+            ]
+          },
+          {
+            "header": "Chicago CityKey ID"
+          },
+          {
+            "body": "El Chicago CityKey ID es una tarjeta de identificación opcional, válida y emitida por el gobierno, ofrecida a todos los residentes de Chicago, incluidos los Nuevos Llegados. Sirve como una tarjeta cuatro en uno al servir como una tarjeta de identificación emitida por el gobierno, una tarjeta de la Biblioteca Pública de Chicago, una tarjeta Ventra y una tarjeta de descuento farmacéutico."
+          },
+          {
+            "body": "Para solicitar un CityKey ID, necesitará tres documentos que prueben su identidad, incluidos una foto y fecha de nacimiento, y que prueben que usted es residente de la Ciudad de Chicago. Para obtener más información sobre cómo aplicar, haga clic en los siguientes enlaces:"
+          },
+          {
+            "link_text": "Cómo Aplicar",
+            "source_link": "https://www.chicityclerk.com/about-citykey/how-apply"
+          },
+          {
+            "link_text": "Reservar una Cita",
+            "source_link": "https://www.getcitykey.com/scheduling/bydate"
+          },
+          {
+            "link_text": "Materiales de Aplicación",
+            "source_link": "https://www.chicityclerk.com/about-citykey/how-apply/application-materials/#ckdocs"
+          },
+          {
+            "header": "Usar el CTA"
+          },
+          {
+            "body": "La forma más fácil de moverse por Chicago es aprovechando el CTA, que es la Autoridad de Tránsito de Chicago. Con su red integral de autobuses y trenes, el CTA ofrece opciones de transporte convenientes y asequibles para navegar por la ciudad."
+          },
+          {
+            "sub": "Planificación de la Ruta de Viaje"
+          },
+          {
+            "body": "Puede planificar su viaje usando Google Maps haciendo clic en el ícono del tren para encontrar la forma más rápida de llegar a su destino. Como recordatorio, Google Maps proporciona una estimación y los autobuses o trenes pueden retrasarse debido a la construcción o el tráfico."
+          },
+          {
+            "body": "Otra forma de ver qué tan lejos está el autobús es la aplicación Ventra. En la página de inicio, le dice qué autobuses/trenes o bicicletas están cerca. Si hace clic en cerca, puede expandir la vista o mover su posición."
+          },
+          {
+            "sub": "Pago del CTA"
+          },
+          {
+            "body": "Para pagar los autobuses del CTA, debe tener el cambio exacto para pagar el autobús o usar su tarjeta Ventra. Para los trenes, debe tener una tarjeta Ventra que puede obtener en un quiosco antes de ingresar al tren o descargando la aplicación. Para encontrar una ubicación física para comprar una tarjeta Ventra, vea el siguiente enlace:"
+          },
+          {
+            "link_text": "Ubicaciones de Ventra",
+            "source_link": "https://www.ventrachicago.com/retailers/locations/"
+          },
+          {
+            "header": "Educación Pública para Niños"
+          },
+          {
+            "body": "En Chicago, la educación pública se ofrece de forma gratuita, asegurando que cada niño tenga acceso a oportunidades de aprendizaje de calidad. Para inscribir a su hijo, deben cumplir con ciertos requisitos, incluyendo prueba de edad, prueba de dirección y prueba de cumplimiento médico, como un examen físico, registro de inmunización y examen dental. Para obtener más información, haga clic en los siguientes enlaces:"
+          },
+          {
+            "link_text": "Requisitos de Inscripción",
+            "source_link": "https://www.cps.edu/schools/apply-enroll/enrollment-requirements/"
+          },
+          {
+            "link_text": "Aplicar e Inscribirse",
+            "source_link": "https://www.cps.edu/schools/apply-enroll/"
+          },
+          {
+            "header": "Acceso a Comida Gratuita"
+          },
+          {
+            "body": "Independientemente de su estado, puede acceder a comestibles gratuitos en su banco de alimentos local. Haga clic en el siguiente enlace para encontrar la despensa de alimentos más cercana a usted:"
+          },
+          {
+            "link_text": "Encontrar una Despensa de Alimentos",
+            "source_link": "https://www.chicagosfoodbank.org/find-food/#googtrans(en|en)"
+          },
+          {
+            "header": "Seguro de Conductor"
+          },
+          {
+            "body": "El Estado de Illinois emite una licencia de conducir especial para los no ciudadanos que no pueden obtener un SSN. La licencia se llama Licencia de Conductor Temporal para Visitantes (TVDL). Hay dos tipos de TVDL: La primera es para alguien autorizado a residir en este país por uno o más años. La segunda es para alguien que no tiene estatus legal o es indocumentado pero ha vivido en los EE. UU. por al menos un año."
+          },
+          {
+            "body": "Para calificar para un TVDL como residente legal, los solicitantes deben:",
+            "list": [
+              "Probar su nombre y fecha de nacimiento;",
+              "Probar que viven en Illinois;",
+              "Probar su firma escrita;",
+              "Proporcionar documentación emitida por los Servicios de Ciudadanía e Inmigración de los Estados Unidos que pruebe su estatus legal;",
+              "Afirmar que no son elegibles para obtener un número de seguro social;",
+              "Aprobar los exámenes de visión, escrito y de manejo;",
+              "Proporcionar prueba de seguro para el vehículo utilizado para el examen de manejo;",
+              "Proporcionar prueba (edades 18-20) de completar un curso de educación para conductores adultos de 6 horas; y",
+              "Pagar una tarifa de solicitud de $30 ($35 para motocicletas)."
+            ]
+          },
+          {
+            "body": "Para calificar para un TVDL como inmigrante indocumentado, los solicitantes deben:",
+            "list": [
+              "Probar su nombre y fecha de nacimiento;",
+              "Probar su firma escrita;",
+              "Probar que han vivido en Illinois durante al menos 12 meses;",
+              "Probar dónde viven actualmente en Illinois;",
+              "Afirmar que no son elegibles para obtener un número de seguro social;",
+              "Proporcionar un pasaporte válido y no vencido o una tarjeta consular emitida por un país aprobado, o proporcionar otras pruebas de identidad y residencia que pueda requerir el Secretario de Estado;",
+              "Aprobar los exámenes de visión, escrito y de manejo;",
+              "Proporcionar prueba de seguro para el vehículo utilizado para el examen de manejo;",
+              "Proporcionar prueba (edades 18-20) de completar un curso de educación para conductores adultos de 6 horas; y",
+              "Pagar una tarifa de solicitud de $30 ($35 para motocicletas)."
+            ]
+          },
+          {
+            "body": "Para obtener más información, consulte los siguientes enlaces:"
+          },
+          {
+            "link_text": "Secretario de Estado de Illinois - TVDL",
+            "source_link": "https://www.ilsos.gov/departments/drivers/TVDL/home.html"
+          },
+          {
+            "link_text": "Ayuda Legal de Illinois - Licencia de Conducir para Inmigrantes",
+            "source_link": "https://www.illinoislegalaid.org/legal-information/drivers-license-immigrants"
+          }
+        ],
+        "title": "¡Bienvenido a Chicago!"
+      },
+      "health_gen": {
+        "content": [
+          {
+            "header": "Bienvenido"
+          },
+          {
+            "body": "Bienvenido a nuestra página de recursos de salud diseñada para ayudarte a navegar el sistema de salud en Chicago. Aquí encontrarás:"
+          },
+          {
+            "list": [
+              "Información sobre cómo acceder a la atención médica",
+              "Comprensión del acceso a la atención médica según tu estatus legal y/o grupo de edad",
+              "Guía para encontrar proveedores de salud, servicios de emergencia y atención urgente, recursos de salud mental y bienestar, opciones de fisioterapia y programas de salud comunitarios."
+            ]
+          },
+          {
+            "header": "Navegando el Sistema de Salud"
+          },
+          {
+            "body": "En los Estados Unidos, tenemos un sistema donde las personas pueden elegir a sus doctores y hospitales. Los pacientes tienen la opción de pagar de su bolsillo por los servicios prestados o pueden pagar un seguro de salud para ayudar a reducir el costo de la atención médica."
+          },
+          {
+            "sub": "¿Qué es el Seguro de Salud?"
+          },
+          {
+            "body": "El seguro de salud es como una membresía que ayuda a cubrir el costo de las visitas al médico, hospitalizaciones, medicamentos y más."
+          },
+          {
+            "sub": "Obteniendo Seguro de Salud"
+          },
+          {
+            "body": "El seguro de salud puede ser comprado a través de healthcare.gov o asegurado a través de tu empleador. Debes tener un estatus legal calificado para calificar para el seguro de salud:"
+          },
+          {
+            "list": [
+              "Ciudadano de los EE.UU.",
+              "Tarjeta Verde",
+              "Estatus de Asilo – solo si te han concedido autorización de empleo o tienes menos de 14 años y tu solicitud ha estado pendiente por al menos 180 días",
+              "Estatus de Refugiado",
+              "Entrante Cubano/Haitiano",
+              "Concedido Permiso Humanitario para entrar a los EE.UU.",
+              "Estatus de Protección Temporal (TPS)",
+              "Cónyuge, hijo y padre maltratado",
+              "Víctima de Tráfico Humano y su cónyuge, hijo, hermano o padre",
+              "Concedido Retención de Deportación o Retención de Expulsión, bajo las leyes de inmigración o bajo la Convención contra la Tortura (CAT)",
+              "Individuo con Estatus No Inmigrante, incluye visas de trabajador (como H1, H-2A, H-2B), visas de estudiante, U-visa, T-visa y otras visas, y ciudadanos de Micronesia, las Islas Marshall y Palaos",
+              "Salida Forzosa Diferida (DED)",
+              "Estatus de Acción Diferida (Excepción: Acción Diferida para los Llegados en la Infancia (DACA) no es un estatus de inmigración elegible para aplicar para seguro de salud)",
+              "Residente Temporal Legal",
+              "Orden administrativa que suspende la expulsión emitida por el Departamento de Seguridad Nacional",
+              "Entrante Condicional Concedido antes de 1980"
+            ]
+          },
+          {
+            "body": "Si eres indocumentado, es posible que no puedas obtener seguro de salud, pero aún puedes recibir atención médica de emergencia y servicios médicos preventivos en centros de salud de bajo costo en la Ciudad de Chicago."
+          },
+          {
+            "header": "Accediendo al Seguro de Salud Basado en el Estatus Legal y Grupo de Edad"
+          },
+          {
+            "body": "El acceso al seguro de salud puede variar según el estatus legal y el grupo de edad de una persona."
+          },
+          {
+            "sub": "Estatus Legal"
+          },
+          {
+            "body": "Estatus de Protección Temporal (TPS), Permiso Humanitario, Asilo o Refugiado: Como alguien con TPS, Permiso Humanitario, Asilo o Estatus de Refugiado, calificas para Medicaid o puedes comprar un plan de seguro de salud en healthcare.gov."
+          },
+          {
+            "sub": "¿Qué es Medicaid?"
+          },
+          {
+            "body": "Medicaid es un programa gubernamental que ayuda a las personas con bajos ingresos y recursos limitados a pagar la atención médica. Es un seguro de salud gratuito o de bajo costo que cubre varios servicios médicos como visitas al médico, hospitalizaciones, medicamentos recetados y más."
+          },
+          {
+            "sub": "¿Dónde puedo solicitar Medicaid?"
+          },
+          {
+            "body": "En el estado de Illinois, puedes aplicar en línea, por teléfono, en persona o enviar una solicitud en papel. Por favor, consulta los siguientes enlaces para más detalles sobre cómo aplicar:"
+          },
+          {
+            "link_text": "Get Care Illinois - Aplicar para Medicaid",
+            "source_link": "https://getcareillinois.org/need-health-coverage/medicaid/"
+          },
+          {
+            "link_text": "Guía de Medicaid de Illinois Healthcare and Family Services",
+            "source_link": "https://hfs.illinois.gov/medicalclients/medicaidguide/applying.html"
+          },
+          {
+            "sub": "Indocumentado"
+          },
+          {
+            "body": "Si eres indocumentado, es posible que no puedas acceder a un plan de seguro de salud. Sin embargo, aún puedes recibir atención médica de emergencia y servicios médicos preventivos en centros de salud de bajo costo en la Ciudad de Chicago. Por favor, consulta la siguiente sección sobre “Accediendo a los Servicios de Salud Independientemente del Estatus Legal”."
+          },
+          {
+            "body": "Si eres un niño indocumentado, calificas para All Kids, un plan de seguro de salud para niños de hogares de bajos ingresos que viven en Illinois. Para aplicar para All Kids, por favor haz clic en los siguientes enlaces para más detalles:"
+          },
+          {
+            "link_text": "All Kids - Acerca de",
+            "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/about.html"
+          },
+          {
+            "link_text": "All Kids - Aplicación",
+            "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+          },
+          {
+            "body": "Si eres indocumentada y estás embarazada, calificas para dos programas:"
+          },
+          {
+            "list": [
+              "Moms and Babies, un plan de seguro de salud para mujeres durante el embarazo y hasta 12 meses después de que nazca el bebé. Para aplicar para Moms and Babies, también puedes usar la aplicación de All Kids. Por favor, haz clic en los siguientes enlaces para aplicar.",
+              "Medicaid Presumptive Eligibility (MPE), un plan que ofrece cobertura inmediata y temporal para servicios de salud ambulatorios a mujeres embarazadas que cumplen con los requisitos de ingresos. Para obtener más información sobre MPE, por favor consulta los siguientes enlaces."
+            ]
+          },
+          {
+            "link_text": "Moms and Babies - Aplicación",
+            "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+          },
+          {
+            "link_text": "Moms and Babies - Acerca de",
+            "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/momsandbabies.html"
+          },
+          {
+            "header": "Accediendo a los Servicios de Salud Independientemente del Estatus Legal"
+          },
+          {
+            "body": "Acceder a los servicios de salud es un derecho fundamental, independientemente del estatus legal. A continuación se presentan recursos y opciones disponibles para asegurar que todos puedan acceder a los servicios de salud esenciales y el apoyo en Chicago."
+          },
+          {
+            "sub": "Proveedores de Salud de Bajo Costo"
+          },
+          {
+            "body": "A continuación se presentan diferentes clínicas que proporcionan servicios de bajo costo o gratuitos:"
+          },
+          {
+            "list": [
+              "Clínicas de bajo costo que se llaman Centros de Salud Calificados Federalmente (FQHC): por favor, haz clic en los siguientes enlaces para encontrar un centro cerca de ti.",
+              "Clínicas gratuitas o de bajo costo que se llaman Clínicas Gratuitas y de Caridad: por favor, haz clic en los siguientes enlaces para encontrar un centro cerca de ti."
+            ]
+          },
+          {
+            "link_text": "¿Qué es un FQHC?",
+            "source_link": "https://www.fqhc.org/what-is-an-fqhc"
+          },
+          {
+            "link_text": "Encuentra un Centro de Salud",
+            "source_link": "https://findahealthcenter.hrsa.gov/"
+          },
+          {
+            "link_text": "¿Qué es una Clínica Gratuita y de Caridad?",
+            "source_link": "https://www.illinoisfreeclinics.org/clinic-search/whats-a-free-charitable-clinic/"
+          },
+          {
+            "link_text": "Directorio de Clínicas",
+            "source_link": "https://www.illinoisfreeclinics.org/clinic-search/clinic-directory/"
+          },
+          {
+            "sub": "Atención de Emergencia y Urgente"
+          },
+          {
+            "body": "Todos los hospitales sin fines de lucro están obligados a proporcionar una cantidad determinada de atención de emergencia y asistencia financiera a los pacientes sin seguro, independientemente de su estatus. Por favor, haz clic en el siguiente enlace para encontrar un hospital sin fines de lucro."
+          },
+          {
+            "link_text": "Illinois Alliance for Welcoming Health Care - Programas de Acceso a la Salud",
+            "source_link": "https://www.ilalliancehealth.org/healthcare-access-programs"
+          }
+        ],
+        "title": "Navegando el Sistema de Salud en Chicago"
+      }
     }
-  }
-}
+  }    
 

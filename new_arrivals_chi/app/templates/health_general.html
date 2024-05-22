@@ -1,12 +1,11 @@
 <!--
 Project: new_arrivals_chi
-File name: general.html
+File name: health_general.html
 Associated Files:
     base.html, main.py
 
-Landing page for user to navigate through legal parole information.
+Health information page
 -->
-
 {% extends "base.html" %}
 
 {% block styles %}
@@ -15,7 +14,7 @@ Landing page for user to navigate through legal parole information.
 
 {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['welcome'] %}
+  {% set content = translations[language]['health_gen'] %}
   {% if content.title %}
     <h1>{{ content.title }}</h1>
   {% endif %}
