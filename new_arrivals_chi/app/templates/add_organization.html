@@ -12,12 +12,12 @@ Landing page for user to navigate through undocumented resources.
 {% block content %}
 <!--Update with add org info-->
 
-<!-- <h1>{{translations[language]['profile']['title']}}</h1> -->
+<h1>{{translations[language]['profile']['add_organization']}}</h1>
 
 <!-- Form to add stuff -->
 
 <div class="box">
-    <div class="box-big-title">{{ translations[language]["profile"]["title"] }} </div>
+    <div class="box-big-title">{{ translations[language]["profile"]["enter_information"] }} </div>
     <form method="POST" action="/add_organization">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
