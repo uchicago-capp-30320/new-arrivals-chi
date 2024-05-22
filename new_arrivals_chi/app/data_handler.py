@@ -230,3 +230,144 @@ def assign_location_foreign_key_org_table(organization_id, new_location_id):
     organization_row.location_id = new_location_id
     db.session.commit()
     return
+
+def extract_organization():
+    user_info = User.query.filter_by(id=current_user.id).first()
+    org_info = Organization.query.filter_by(id=current_user.organization_id).first()
+    primary_location_info = Location.query.filter_by(id=org_info.location_id).first()
+
+    # Retrieve all opperating hours
+    language_list = retrieve_languages(org_info)
+
+    # Retrieve all opperating hours
+    organization_hours = retrieve_hours(org_info.hours)
+   
+    # Retrieve services and associated locations 
+    complete_service_info = retrieve_services(org_info.services)
+
+    organization = {
+        "name": org_info.name,
+        "phone": org_info.phone,
+        "email": user_info.email,
+        "language": language_list,
+        "service": complete_service_info,
+        "hours": organization_hours,
+
+        # Primary location information
+        "street_address": primary_location_info.street_address,
+        "zip_code": primary_location_info.zip_code,
+        "city": primary_location_info.city,
+        "state": primary_location_info.state,
+        "primary_location": primary_location_info.primary_location,
+        "neighborhood" : primary_location_info.neighborhood,
+    }
+
+    return organization
+
+def retrieve_hours(all_hours):
+    # Retrieve all opperating hours
+    organization_hours = {
+        'monday':[],
+        'tuesday':[],
+        'wednesday':[],
+        'thursday':[],
+        'friday':[],
+        'saturday':[],
+        'sunday':[]
+    }
+
+    weekdays = {
+        1: "monday",
+        2: "tuesday",
+        3: "wednesday",
+        4: "thursday",
+        5: "friday",
+        6: "saturday",
+        7: "sunday"
+    }
+
+    for current_hour in all_hours:
+        extract_hour_info(current_hour, organization_hours, weekdays)
+    
+    return organization_hours
+        
+def extract_hour_info(current_hour, organization_hours, weekdays):
+    day = current_hour.day_of_week
+    day_str = weekdays[day]
+    associated_hours = {
+        'open': current_hour.opening_time, 
+        'close': current_hour.closing_time
+    }
+
+    # Ensure the ordering of hours are correct
+    if not organization_hours[day_str]:
+        organization_hours[day_str].append(associated_hours)
+    else:
+        # Check existing entries and insert based on opening time
+        inserted = False
+        for i, existing_hours in enumerate(organization_hours[day_str]):
+            if current_hour.opening_time < existing_hours['open']:
+                organization_hours[day_str].insert(i, associated_hours)
+                inserted = True
+                break
+        if not inserted:
+            organization_hours[day_str].append(associated_hours)
+   
+def retrieve_languages(org_reference):
+    all_languages = org_reference.languages
+    language_list = []
+    for curr_language in all_languages:
+        language_list.append(curr_language.language)
+
+def retrieve_services(all_services):
+    complete_service_info = []
+    for curr_service in all_services:
+        service_info = {
+            'category' : curr_service.category,
+            'service' : curr_service.service,
+            'access' : curr_service.access,
+            'service_note' : curr_service.service_note,
+            'dates' : retrieve_dates(curr_service.service_dates),
+            'locations' : retrieve_locations(curr_service.locations)
+        }
+        complete_service_info.append(service_info)
+
+    return complete_service_info
+
+def retrieve_dates(all_dates):
+    complete_date_info = []
+
+    # Retrieve all dates for service
+    for current_date in all_dates:
+        complete_date_info. append(extract_date_info(current_date))
+    
+    return complete_date_info
+
+def extract_date_info(current_date):
+    single_date_info = {
+        'date' : current_date.date,
+        'start_time' : current_date.start_time,
+        'end_time' : current_date.end_time,
+        'repeat' : current_date.repeat
+    }
+    return single_date_info
+
+def retrieve_locations(all_locations):
+    complete_location_info = []
+
+    # Retrieve all dates for service
+    for current_location in all_locations:
+        complete_location_info. append(extract_location_info(current_location))
+    
+    return complete_location_info
+
+def extract_location_info(current_location):
+    single_location_info = {
+        "street_address": current_location.street_address,
+        "zip_code": current_location.zip_code,
+        "city": current_location.city,
+        "state": current_location.state,
+        "primary_location": current_location.primary_location,
+        "neighborhood" : current_location.neighborhood,
+    }
+    return single_location_info 
