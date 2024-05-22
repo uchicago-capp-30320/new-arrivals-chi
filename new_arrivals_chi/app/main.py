@@ -550,7 +550,7 @@ def add_organization():
         email = request.form.get("email")
         confirmed_email = request.form.get("email-confirm")
         phone_number = request.form.get("phone-number")
-        org_name = request.form.get("organization-name")
+        org_name = request.form.get("org-name")
 
         # Check if the email and confirmed email match
         if email != confirmed_email:
@@ -564,21 +564,23 @@ def add_organization():
                 escape("Invalid phone number (correct example: ###-###-####)")
             )
         else:
-            # Create the organization
+            # Create the organization as HIDDEN
             new_org_id = create_organization_profile(
                 org_name, phone_number, "HIDDEN"
             )
+            print(f"New Org ID: {new_org_id}")
 
-            # Create the user
-            new_user_id = create_user(email, "password")
+            # Create the user with the provided email and a default password
+            new_user = create_user(email, "password")
+            print(f"New user ID: {new_user.id}")
 
             # Update the user with the new organization id
-            user = User.query.get(new_user_id)
+            user = User.query.get(new_user.id)
             if user:
                 user.organization_id = new_org_id
                 db.session.commit()
             else:
-                print("User not found")
+                raise Exception("User not found")
 
     return render_template(
         "add_organization.html",
