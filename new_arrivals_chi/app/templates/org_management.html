@@ -26,12 +26,22 @@ HTML for edit organization page.
             {% for org in organizations %}
             <tr>
                 <td>{{ org.name }}</td>
-                <td>{% if org.active %} {{translations[language]['admin']['active']}}
-                    {% else %}{{translations[language]['admin']['inactive']}}{% endif %}</td>
-                <form action="{{ url_for('authorize.toggle_suspend_organization') }}" method="POST">
-                    <input type="hidden" name="organization_id" value="{{ org.id }}">
-                    <button type="submit" class="btn-suspend">{{translations[language]['admin']['suspend']}}</button>
-                </form>
+                <td>{% if org.active %}{{ translations[language]['admin']['active'] }}
+                    {% else %}{{ translations[language]['admin']['inactive'] }}{% endif %}
+                </td>
+                <td>
+                    <form action="{{ url_for('main.edit_organization', organization_id=org.id) }}" method="GET">
+                        <button type="submit" class="btn-edit">
+                            {{ translations[language]['admin']['edit'] }}
+                        </button>
+                    </form>
+                    <form action="{{ url_for('authorize.toggle_suspend_organization') }}" method="POST">
+                        <input type="hidden" name="organization_id" value="{{ org.id }}">
+                        <button type="submit" class="btn-suspend">
+                            {{ translations[language]['admin']['suspend'] }}
+                        </button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

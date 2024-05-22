@@ -41,12 +41,21 @@ from new_arrivals_chi.app.constants import (
     DEFAULT_LANGUAGE,
 )
 from flask_login import login_user, login_required, logout_user, current_user
+from functools import wraps
 from new_arrivals_chi.app.data_handler import create_user, change_db_password, \
-                                            change_organization_status
+                                              change_organization_status
 
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
-admin = Blueprint("admin", __name__, static_folder="/static")
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_authenticated or current_user.role != "admin":
+            flash("You are not authorized to access this page.", "error")
+            return redirect(url_for("main.login")) 
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @authorize.route("/signup")
@@ -213,8 +222,8 @@ def post_change_password():
     return redirect(url_for("authorize.change_password"))
 
 
-@authorize.route('/admin_management')
-@login_required
+@authorize.route('/admin')
+@admin_required
 def admin_dashboard():
     """
     Establishes route to admin management or redirects to home based on user.
@@ -240,8 +249,8 @@ def admin_dashboard():
                                language=language,
                                translations=translations )
     
-@admin.route("/org_management", methods=["GET"])
-@login_required 
+@authorize.route("/admin/org_management", methods=["GET"])
+@admin_required 
 def admin_organizations():
     """
     Establishes route to the organization management page with a list of 
@@ -264,8 +273,9 @@ def admin_organizations():
                            language=language,
                            translations=translations)
 
-@admin.route("/suspend_organization", methods=["POST"])
-@login_required
+
+@authorize.route("/suspend_organization", methods=["POST"])
+@admin_required
 def toggle_suspend_organization():
     """
     Establishes route to toggle the status of an organization to suspend it.
