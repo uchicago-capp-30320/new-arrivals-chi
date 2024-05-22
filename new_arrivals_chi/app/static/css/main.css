@@ -50,6 +50,16 @@ body {
     box-sizing: border-box;
 }
 
+input[type="text"], select {
+    width: 22%;
+    padding: 5px;
+    margin-bottom:20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
 .button {
     border-radius: 5px;
     cursor: pointer;
@@ -167,4 +177,121 @@ body {
 
 .button-orange:hover {
     background-color: #FF8C00;
+}
+
+.button.green {
+    background-color: #DAE9D3;
+    color: black;
+}
+
+.button.green:hover {
+    background-color: #27ae60;
+}
+
+.button.blue {
+    background-color: #E7F0FE;
+    color: black;
+}
+
+.button.blue:hover {
+    background-color: #297def;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hours-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.hours-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.day-label {
+    margin-right: 20px;
+    font-weight: bold;
+    width: 100px;
+}
+
+.day-intervals {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.day-group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.day-group div {
+    margin-right: 10px;
+}
+
+.day-group div:last-child {
+    margin-right: 0;
+}
+
+.buttons-group {
+    display: flex;
+    align-items: center;
+}
+
+.buttons-group button {
+    margin-right: 5px;
+}
+
+.buttons-group button:last-child {
+    margin-right: 0;
+}
+
+.location-section {
+    flex-direction: column;
+
+}
+
+.location-label {
+    margin-right: 5px;
+    font-weight: bold;
+    width: 100px;
+}
+
+.location-section input, .location-section select {
+    flex: 1;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.street-input {
+    display: flex;
+    margin-bottom: 20px;
+}
+.street-section input, .street-section select {
+    width: 40%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.time-input {
+    width: 100px;
+    height: 25px;
+}
+
+.flashed_error_message {
+    color: red;
+ /* Optional, for emphasis */
 }
