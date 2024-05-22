@@ -443,15 +443,17 @@ def dashboard():
             language=language,
             translations=translations,
         )
-    else: 
+    else:
         organization = Organization.query.get(user.organization_id)
-    
+
         if not organization:
             return "Organization not found", 404
 
         # generate URL for edit_organization endpoint
         edit_org_url = url_for(
-            "main.edit_organization", organization_id=organization.id, lang=language
+            "main.edit_organization",
+            organization_id=organization.id,
+            lang=language,
         )
 
         return render_template(
