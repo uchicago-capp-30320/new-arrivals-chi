@@ -72,6 +72,18 @@ input[type="text"], select {
     max-width: 500px;
 }
 
+.login-button {
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 17px;
+    padding: 5px 15px;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+    width: 150px;
+    max-width: 500px;
+}
+
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -281,5 +293,6 @@ input[type="text"], select {
 
 .flashed_error_message {
     color: red;
+    padding-bottom: 15px;
  /* Optional, for emphasis */
 }
