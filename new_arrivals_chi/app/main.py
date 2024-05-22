@@ -433,8 +433,8 @@ def dashboard():
         Renders the dashboard page with buttons to view org page, edit org page
         and change password.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
     organization = Organization.query.get(user.organization_id)
     if not organization:
@@ -541,8 +541,8 @@ def edit_organization():
         Renders the edit organization page where admin or organizations can
         update their info.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
     organization = User.query.get(user.organization_id)
     if request.method == "POST":

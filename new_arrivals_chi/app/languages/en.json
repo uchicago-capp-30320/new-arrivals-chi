@@ -166,7 +166,11 @@
       "health_information": "Health Information",
       "learn_more": "Learn More About Resources",
       "receive_assistance": "Receive Assistance Now",
-      "search_rec": "Search for Resources"
+      "search_rec": "Search for Resources",
+      "supply_service": "Available Supplies and Services",
+      "neighborhood": "Neighborhood",
+      "organization": "Organization",
+      "hours": "Hours"
     },
     "health_gen": {
       "content": [
@@ -778,7 +782,9 @@
       "what_help": "What can I help you with?",
       "work_auth": "I need help getting authorization to work",
       "work_auth_question": "Do any of the following circumstances apply to you?",
-      "work_rights": "I need to learn more about my rights as a worker"
+      "work_rights": "I need to learn more about my rights as a worker",
+      "see_options": "See Options",
+      "hide_options": "Hide Options"
     },
     "login": {
       "email": "Email",

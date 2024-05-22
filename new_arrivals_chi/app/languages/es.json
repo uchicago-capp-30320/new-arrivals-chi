@@ -163,10 +163,14 @@
       "password_must_include": "Su contrase\u00f1a debe incluir al menos una letra may\u00fascula, una letra min\u00fascula, un n\u00famero, un s\u00edmbolo especial y tener m\u00e1s de 8 caracteres."
     },
     "health": {
-      "health_information": "Informaci\u00f3n M\u00e9dica",
-      "learn_more": "Aprende M\u00e1s de Otros Recursos",
-      "receive_assistance": "Recibir Asistencia Inmediata",
-      "search_rec": "Buscar Recursos"
+      "health_information": "Información de Salud",
+      "learn_more": "Aprender Más Sobre los Recursos",
+      "receive_assistance": "Recibir Asistencia Ahora",
+      "search_rec": "Buscar Recursos",
+      "supply_service": "Suministros y Servicios Disponibles",
+      "neighborhood": "Barrio",
+      "organization": "Organización",
+      "hours": "Horario"
     },
     "health_gen": {
       "content": [
@@ -778,7 +782,9 @@
       "what_help": "\u00bfEn qu\u00e9 puedo ayudarle?",
       "work_auth": "Necesito ayuda para obtener autorizaci\u00f3n para trabajar",
       "work_auth_question": "\u00bfTiene alguna de las siguentes circunstancias",
-      "work_rights": "Necesito aprender m\u00e1s sobre mis derechos como trabajador"
+      "work_rights": "Necesito aprender m\u00e1s sobre mis derechos como trabajador",
+      "see_options": "Ver Opciones",
+      "hide_options": "Ocultar Opciones"
     },
     "login": {
       "email": "Correo electr\u00f3nico",
