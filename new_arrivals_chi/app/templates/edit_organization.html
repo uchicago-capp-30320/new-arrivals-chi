@@ -28,7 +28,7 @@ HTML for edit organization page.
 <div class="button-container">
     <form action="edit_languages" method="POST"> <h2>Organization's Spoken Languages:</h2>
         <div class="location-section">
-            
+
          </div>
         <button class="update-button button-blue" type="submit">Update Language Information</button>
     </form>
@@ -48,7 +48,7 @@ HTML for edit organization page.
             <label class="location-label" for="state">State:</label>
             <input type="text" id="state-display" value="Illinois" readonly required>
             <input type="hidden" id="state" name="state" value="{{ organization.state }}" readonly required>
-            
+
             <label class="location-label" for="zip-code">Zip Code:</label>
             <input type="text" id="zip-code" name="zip-code" value="{{ organization.zip_code }}" required>
 
@@ -312,7 +312,7 @@ HTML for edit organization page.
 
 <body>
     <div class="button-container">
-        <form action="/edit_hours_info" method="POST"> 
+        <form action="/edit_hours_info" method="POST">
             <h2>Hours of Operation:</h2>
             <div id="hours-container">
                 {% for day, intervals in organization.hours.items() %}

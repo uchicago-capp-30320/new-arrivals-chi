@@ -19,7 +19,6 @@ from flask import (
     render_template,
     request,
     current_app,
-    url_for,
     flash,
 )
 import os
@@ -62,7 +61,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
-from sqlalchemy import select, join, update
+from sqlalchemy import select, join
 
 migrate = Migrate()
 
@@ -819,14 +818,7 @@ def retrieve_locations(all_locations):
 
 
 def extract_location_info(current_location):
-    single_location_info = {
-        "street_address": current_location.street_address,
-        "zip_code": current_location.zip_code,
-        "city": current_location.city,
-        "state": current_location.state,
-        "primary_location": current_location.primary_location,
-        "neighborhood": current_location.neighborhood,
-    }
+    pass
 
 
 if __name__ == "__main__":
