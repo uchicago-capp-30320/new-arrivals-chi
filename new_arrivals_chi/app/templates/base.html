@@ -55,7 +55,7 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 </div>
 
 <p class="footer-links">
-    <a href="/about" class="underline">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
+    <a onclick="navigateTo('{{ url_for('main.about') }}', '{{ language }}')" class="underline">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
     <span>|</span>
     <a href="/report-error" class="underline">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
     <span>|</span>
