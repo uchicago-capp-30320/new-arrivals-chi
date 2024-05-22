@@ -11,14 +11,6 @@ Methods:
     * home — Route to homepage of application.
     * dashboard - Route to user's dashboard.
     * legal - Route to legal portion of application.
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/13/2024
-
-Creation:
-@Author: Summer Long @Sumslong
-@Date: 04/19/2024
 """
 
 
@@ -69,6 +61,23 @@ def home():
 
     return render_template(
         "home.html", language=language, translations=translations
+    )
+
+
+@main.route("/about")
+def about():
+    """Establishes route for the about us page.
+
+    This route is accessible from the footer of every page.
+
+    Returns:
+        Renders about us page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "about.html", language=language, translations=translations
     )
 
 
@@ -244,23 +253,6 @@ def legal_undocumented_resources():
     )
 
 
-@main.route("/legal/help")
-def legal_help():
-    """Establishes route for the Legal Help page.
-
-    This route is accessible within the legal section.
-
-    Returns:
-        Renders legal flow - Legal Help page.
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "help.html", language=language, translations=translations
-    )
-
-
 @main.route("/legal/work_rights")
 def workers_rights():
     """Route for information about workers' rights.
@@ -291,18 +283,18 @@ def renters_rights():
     )
 
 
-@main.route("/legal/general")
-def legal_general():
-    """Route for general legal information.
+@main.route("/legal/lawyers")
+def lawyers():
+    """Route for lawyers.
 
     Returns:
-        Renders the legal general page.
+        Renders the page with contact information for lawyers
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "general.html", language=language, translations=translations
+        "lawyers.html", language=language, translations=translations
     )
 
 
@@ -339,7 +331,7 @@ def health_search():
     cursor = conn.cursor()
 
     cursor.execute(
-        "SELECT s.service, l.neighborhood, o.name, "
+        "SELECT s.service, l.neighborhood, o.name, o.id, "
         + "strftime('%I:%M %p', h.opening_time) "
         "|| ' - ' || "
         "strftime('%I:%M %p', h.closing_time) "
@@ -364,6 +356,21 @@ def health_search():
         translations=translations,
         services_info=services_info,
         set=set,
+    )
+
+
+@main.route("/general")
+def general():
+    """Route for Chicago 101 page.
+
+    Returns:
+        Chicago 101 page
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "general.html", language=language, translations=translations
     )
 
 
@@ -400,9 +407,31 @@ def dashboard():
     )
 
 
-@main.route("/org", methods=["GET"])
-@login_required
-def org():
+# @main.route("/org", methods=["GET"])
+# @login_required
+# def org():
+#     """Establishes route to the organization page.
+
+#     This page is dynamically generated based on the org id and contains
+#     organization details. It is accessible from the org dashboard.
+
+#     Returns:
+#         Renders the organization page (public facing).
+#     """
+# language = bleach.clean(request.args.get("lang", "en"))
+# translations = current_app.config["TRANSLATIONS"][language]
+#     user = current_user
+#     organization = User.query.get(user.organization_id)
+#     return render_template(
+#         "organization.html",
+#         organization=organization,
+#         language=language,
+#         translations=translations,
+#     )
+
+
+@main.route("/org/<int:organization_id>", methods=["GET"])
+def org(organization_id):
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
@@ -412,15 +441,52 @@ def org():
     Returns:
         Renders the organization page (public facing).
     """
+    conn = sqlite3.connect("instance/test_fake_data.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT o.name, l.street_address, o.phone, lg.language, s.service, "
+        + "strftime('%I:%M %p', h.opening_time) "
+        "|| ' - ' || "
+        "strftime('%I:%M %p', h.closing_time) "
+        "AS opening_closing_time "
+        "FROM organizations o "
+        "JOIN hours h ON o.hours_id = h.id "
+        "JOIN locations l ON o.location_id = l.id "
+        "JOIN organizations_services os ON o.id = os.organization_id "
+        "JOIN services s ON os.service_id = s.id "
+        "JOIN languages_organizations ol ON o.id = ol.organization_id "
+        "JOIN languages lg ON ol.language_id = lg.id "
+        "WHERE o.id = ?",
+        (organization_id,),
+    )
+
+    organization_info = cursor.fetchall()
+
+    conn.close()
+
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
-    user = current_user
-    organization = User.query.get(user.organization_id)
+
+    if organization_info:
+        organization = {
+            "name": organization_info[0][0],
+            "address": organization_info[0][1],
+            "phone": organization_info[0][2],
+            "language": organization_info[0][3],
+            "service": (", ").join([info[4] for info in organization_info]),
+            "hours": organization_info[0][5],
+        }
+
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
     return render_template(
         "organization.html",
         organization=organization,
         language=language,
         translations=translations,
+        organization_id=organization_id,
     )
 
 

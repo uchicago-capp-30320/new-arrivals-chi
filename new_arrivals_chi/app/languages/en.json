@@ -1,9 +1,157 @@
 {
   "en": {
+    "about_us": {
+      "content": [
+        {
+          "body": "New Arrivals Chi is a resource guide developed by six graduate students from the University of Chicago to help newly arrived individuals navigate the City of Chicago and its available resources. Our goal is to provide accurate, up-to-date, and actionable information to address common challenges faced by newcomers."
+        },
+        {
+          "header": "Team Members",
+          "list": [
+            "Federico Dominguez Molina",
+            "Aaron Haefner",
+            "Summer Long",
+            "Kathryn Link-Oberstar",
+            "Madeleine Roberts",
+            "Xiomara Salazar Flores"
+          ]
+        },
+        {
+          "body": "We would like to express our sincere gratitude to our advisors, James Turk and Michael Plunkett, for their invaluable guidance and support throughout this project."
+        },
+        {
+          "body": "This resource guide was made possible by our incredible community partners who graciously shared their knowledge and advice during the development process.",
+          "header": "Acknowledgements"
+        },
+        {
+          "list": [
+            "City of Chicago - Office of Immigrants, Migrant, Refugee Rights: Marissa Arrez and Jes\u00fas Del Toro",
+            "Illinois Community for Displaced Immigrants: Johannes Favi",
+            "The Resurrection Project: Oswaldo Gomez, Laura Mendoza",
+            "Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan"
+          ]
+        },
+        {
+          "body": "The codebase for this project is publicly available on GitHub.",
+          "header": "Get in touch",
+          "link_text": "View repository",
+          "source_link": "https://github.com/uchicago-capp-30320/new-arrivals-chi/tree/main"
+        },
+        {
+          "body": "For questions or inquiries, please contact us at newarrivalschi.contact@gmail.com."
+        }
+      ],
+      "title": "About Us"
+    },
+    "asylum_apply": {
+      "content": [
+        {
+          "body": "Legal Aid Society of Metropolitan Family Services is coordinating a Centralized Immigration Legal Service Center for recent arrivals to support in asylum, change of address, or change of venue cases.",
+          "header": "Asylum Clinics"
+        },
+        {
+          "body": "The Center provides free legal information and assistance to individuals who entered on or before January 1, 2022."
+        },
+        {
+          "body": "The Centralized Immigration Legal Services Clinic is located at 401 S. Clinton St, Chicago IL 60607, inside the Illinois Department of Human Services Building (IDHS) on the first floor."
+        },
+        {
+          "link_text": "Click here to schedule an appointment.",
+          "source_link": "https://cilsc.metrofamily.org/"
+        },
+        {
+          "link_text": "Welcome to IL",
+          "source_link": "https://welcometoil.org/resources/"
+        }
+      ],
+      "title": "Asylum Clinics"
+    },
+    "asylum_info": {
+      "content": [
+        {
+          "body": "Asylum status protects people who fear persecution in their home countries because of their:",
+          "header": "What Is Asylum"
+        },
+        {
+          "list": [
+            "Race",
+            "Religion",
+            "Nationality",
+            "Political opinion",
+            "Membership in a particular social group (this includes sexual orientation or gender identity)"
+          ]
+        },
+        {
+          "body": "Whether someone should apply as a refugee or asylee for immigration status depends on whether they are already in the US. If the person is already in the US, he or she may apply for the US asylum program. Learn more about refugees and asylum. (If the person is not in the US, he or she may apply for the US refugee program)"
+        },
+        {
+          "body": "Asylum is a form of protection. It protects people from removal to a country of feared persecution. It allows them to stay in the US. They can then become a lawful permanent resident.",
+          "header": "Benefits of Asylum"
+        },
+        {
+          "body": "Asylum is granted to refugees who are already in the US and fear returning to their home countries."
+        },
+        {
+          "body": "There are three ways to apply for asylum:",
+          "header": "Pathways to Asylum"
+        },
+        {
+          "list": [
+            "Affirmatively, meaning you don't already have a case in front of an immigration judge and you are submitting an application for asylum",
+            "Defensively, meaning there is already a removal or deportation case against you in front of an immigration judge and you ask the judge for asylum",
+            "You are in expedited removal proceedings and say you need asylum"
+          ]
+        },
+        {
+          "body": "You must apply for asylum within one year of arriving in the US, unless you qualify for an exception. Your spouse and children who are in the US may be included in the application. A child must be under 21 and unmarried to be included."
+        },
+        {
+          "body": "You may not be eligible to apply for asylum if you filed after being in the US over a year. There are exceptions. You must prove:",
+          "header": "Who cannot apply for asylum"
+        },
+        {
+          "list": [
+            "Changed circumstances materially affecting your eligibility, or",
+            "Extraordinary circumstances relating to your delay in filing."
+          ]
+        },
+        {
+          "body": "Changed circumstances include:"
+        },
+        {
+          "list": [
+            "Changes in country's conditions",
+            "Changes in the laws that affect your eligibility",
+            "Changes in family dynamics, such marriage, divorce, and death",
+            "Changes in children\u2019s ages"
+          ]
+        },
+        {
+          "body": "Extraordinary circumstances include:"
+        },
+        {
+          "list": [
+            "Serious illness",
+            "Mental or physical disabilities",
+            "Legal disability, such as your status as an unaccompanied child or a mental impairment"
+          ]
+        },
+        {
+          "body": "You cannot apply for asylum if you already applied and were denied unless circumstances changed."
+        },
+        {
+          "link_text": "Illinois Legal Aid",
+          "source_link": "https://www.illinoislegalaid.org/legal-information/asylum-and-refugee-basics"
+        }
+      ],
+      "title": "Rights and Privileges of Asylum"
+    },
     "base": {
+      "about_us": "About Us",
       "dashboard": "Dashboard",
       "home": "Home",
       "logout": "Logout",
+      "note": "This site does not collect any personal information.",
       "report_error": "Report website error",
       "sign_up": "Sign Up"
     },
@@ -20,12 +168,14 @@
       "receive_assistance": "Receive Assistance Now"
     },
     "home": {
-      "find_support": "Find essential support for legal, health, and food needs.",
-      "food": "Food",
-      "health": "Health",
-      "legal": "Legal",
+      "description": "This resource guide is designed for new migrants to welcome to your new home. In this guide you will find information about your rights as an immigrant and resident of Chicago, and information on how to access resources offered by the City of Chicago, the State government and community organizations.",
+      "find_support": "This resource guide is a collaboration between Chicago Area Student, Chicago-based organizations, and the City of Chicago. To learn more visit About Us.",
+      "general": "Getting Started",
+      "health": "Health Resources",
+      "legal": "Legal Support",
       "please_click": "Please click below to begin:",
-      "welcome": "Welcome"
+      "subheader": "A Resource Guide for New Migrants",
+      "welcome": "Welcome to Chicago!"
     },
     "info": {
       "languages_spoken": "Languages Spoken: English, Spanish",
@@ -33,11 +183,401 @@
       "organization_name": "Organization Name",
       "supplies_and_services": "Supplies and Services: Food"
     },
+    "lawyers": {
+      "content": [
+        {
+          "body": "4910 S. King Dr., 1st Floor, Chicago, IL 60615",
+          "header": "United African Organization",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Call: 312-949-9980 or visit www.uniteafricans.org",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://uniteafricans.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "1100 W Cermak Road, Ste 422, Chicago IL 60608",
+          "header": "Children's Legal Center",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Call (312) 722-6642, email intake@childrenslegalcenter.org or visit www.childrenslegalcenter.org to request an appointment",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://www.childrenslegalcenterchicago.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "Asylum; Consultation for Individual Under 21 Years of Age; Deportation Defense",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "1805 S. Paulina St., Chicago IL, 60608",
+          "header": "The Resurrection Project",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Immigration Intake Line 312-666-3062",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://trplegalservices.as.me/schedule.php, https://resurrectionproject.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum; Deportation Defense; Detained individuals; Consultation for Individual Under 21 Years of Age",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services; Immigration Legal Education and Trainings",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "2520 S Western Ave; Chicago, IL; 60608",
+          "header": "Instituto del Progreso Latino",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Visit www.Institutochicago.org or call 773 890 0055 x 4515",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://www.institutochicago.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services; Immigration Legal Education and Trainings",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "17 N. State St. Ste 1390, Chicago, IL 60602",
+          "header": "Ascend Justice",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Email intake@ascendjustice.org or visit https://www.ascendjustice.org/apply-for-services/",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Consultation for Individual Under 21 Years of Age, Family law related to domestic violence: Divorce; Child Custody; Orders of Protection",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services; Criminal Legal Services; Family Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "224 S. Michigan Ave., Suite 600, Chicago, IL 60604",
+          "header": "National Immigrant Justice Center",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Call 312-660-1370 for regular intake. Call the detention hotline at 773-672-6599 if you or a loved one are detained",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://immigrantjustice.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum; Deportation Defense; Detained individuals; Consultation for Individual Under 21 Years of Age",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "120 S. LaSalle St., Ste 900, Chicago, IL 60603",
+          "header": "Legal Aid Chicago",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "For non-immigration matters, clients may visit our website (www.legalaidchicago.org) or call Legal Aid's intake line at (312) 341-1070.",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum; Deportation Defense; Criminal Records Relief; Consumer Protection; Employment; Family law related to domestic violence (Divorce; Child Custody); Housing, Income Maintenance and Public Benefits; Licenses",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Civil Legal Services; Immigration Legal Services; Criminal Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "101 N Wacker Dr., Ste. 1700, Chicago, IL 60606",
+          "header": "Legal Aid Society of Metropolitan Family Services",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Call 312-986-4105 and leave a voicemail with name and phone number or visit laschicago.org to request an appointment",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "Victims of violence",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "17 N. State St. Ste 1380, Chicago IL 60602",
+          "header": "Beyond Legal Aid",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Email info@beyondlegalaid.org, call 312-990-0056, or visit www.beyondlegalaid.org and @BeyondLegalAid on Facebook, Instagram and Twitter",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://www.beyondlegalaid.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum; Deportation Defense; Detained individuals; Family law (Divorce; Child Custody; Child Support); Employment; Criminal Records Relief; Housing",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Civil Legal Services; Immigration Legal Services; Criminal Legal Services; Family Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "33 N. Dearborn, Chicago, IL 60602",
+          "header": "Chicago Volunteer Legal Services",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Call 312-332-1624 or apply online at https://www.cvls.org",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "General immigration; victims of violence; Detained individuals; Family law (Divorce; Child Custody; Child Support; Guardianship; Adoption; Visitation); Estates, Wills & Advanced Directives; Foreclosure; Bankruptcy; Contract & Debt Disputes; Insurance issues",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Civil Legal Services; Immigration Legal Services; Criminal Legal Services; Family Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "2751 W. 16th St. Chicago, IL 60608",
+          "header": "Binational Institute of Human Development",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Email info@binationalinstitute.com, call 312-772-3410 or visit www.centrolegalusa.com",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum; Deportation Defense; Detained individuals",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services; Immigration Legal Education and Trainings",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "721 N. La Salle St. Chicago, IL 60654",
+          "header": "Catholic Charities",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Call 312-655-7000 or visit www.catholiccharities.net",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "General immigration; Victims of violence",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "1347 W Erie St. Chicago, IL 60642; 1636 W Van Buren St, Chicago, IL 60612",
+          "header": "Erie Neighborhood House",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Call (773) 231-7884 or email eriehouseimmigration@gmail.com on Mondays from 9am to 5pm to request an appointment",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum; Deportation Defense; Detained individuals",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services; Immigration Legal Education and Trainings",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "4300 N California Ave. Chicago, IL 60618; 664 N Milwaukee Ave, #213, Prospect Heights, IL 60070",
+          "header": "HANA Center",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Email immigration@hanacenter.org, visit www.hanacenter.org and use the QR code, or contact 773.583.5501 (call) 773.917.7856 (text) to request an appointment",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://www.hanacenter.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services; Immigration Legal Education and Trainings",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "5110 N Broadway St, Chicago IL 60640",
+          "header": "Vietnamese Association of Illinois",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "E-Mail: vaiappointments@hnvi.org Call 773-728-3700",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "General immigration; Asylum; Deportation Defense",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "5439 N Broadway Ave, Unit 1 Chicago, IL 60640",
+          "header": "Syrian Community Network",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Email info@syriancommunitynetwork.org, call 773.654.1218, or visit www.syriancommunitynetwork.org",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://www.syriancommunitynetwork.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence; Asylum",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "5705 N Lincoln Ave, Chicago IL 60659",
+          "header": "RefugeeOne",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Visit www.refugeeone.org",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://www.refugeeone.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Asylum",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "6216 N. Clark St., Chicago, IL 60660",
+          "header": "Centro Romero",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Visit https://centroromero.org/legal-services/ to open an online consultation directly",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "https://centroromero.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "6328 N. California Ave., Chicago, IL 60659",
+          "header": "Indo-American Center",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Email skhalid@indoamerican.org, call 773-973-4444 ext 103, or visit www.indoamerican.org. Please note that extension 103 is a voicemail box that is checked daily, there is no live operator",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "Indo-American Center",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Victims of violence",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services; Immigration Legal Education and Trainings",
+          "sub": "Services Offered:"
+        },
+        {
+          "body": "2828 W. Devon Ave., Chicago, IL 60659",
+          "header": "Muslim Women Resource Center",
+          "sub": "Primary Address:"
+        },
+        {
+          "body": "Email nadiya@mwrcnfp.org, call 773-764-1686 or visit www.mwrcnfp.org",
+          "sub": "Contact Information:"
+        },
+        {
+          "body": "http://www.mwrcnfp.org/",
+          "sub": "Website:"
+        },
+        {
+          "body": "General immigration; Asylum screening and referrals",
+          "sub": "Legal Services Offered:"
+        },
+        {
+          "body": "Immigration Legal Services",
+          "sub": "Services Offered:"
+        }
+      ],
+      "title": "Legal Services Information"
+    },
     "legal": {
-      "apply_for": "Apply for Chicago Identification",
-      "legal_resources": "Legal Resources and Services",
-      "receive_legal": "Receive legal assistance",
-      "understand_rights": "Understand my legal rights"
+      "find_lawyers": "Find a Lawyer"
     },
     "legal_start": {
       "asylum": "I have a credible fear of persecution or torture in my home country.",
@@ -75,11 +615,607 @@
       "password": "Password",
       "remember_me": "Remember me"
     },
+    "parole_apply": {
+      "content": [
+        {
+          "body": "Sometimes, the US government grants a person parole when they enter the United States. Parole is a type of discretionary permission to enter the United States. It is only given to some people in certain situations.",
+          "header": "Who is eligible for for parole?"
+        },
+        {
+          "body": "Individuals who have unexpired parole are able to apply for a work permit or \u201cEmployment Authorization Document\u201d (EAD)."
+        },
+        {
+          "body": "There are various documents that show an individual may have parole. Below are examples of documents that tell you if someone entered via parole, along with the parole expiration date.",
+          "header": "Determining my eligibility"
+        },
+        {
+          "body": "If you do not have a photo or physical document such as the above examples, you can look up the applicant's latest entry details online:"
+        },
+        {
+          "link_text": "Link to I-94",
+          "list": [
+            "Scroll to \u201cAlready Visiting & Need Proof of Visitor Status?\u201d and Select GET MOST RECENT I-94",
+            "Read and agree to Terms of Service. Select I ACKNOWLEDGE AND AGREE.",
+            "Enter your traveler information as it appears on your immigration paperwork. Under \u201cDocument Number,\u201d enter your A NUMBER. Select NEXT when finished.",
+            "If your entry returns a result, select PRINT from the next page. If not, double check your information.",
+            "Either print or take a screenshot of your I-94 Record."
+          ],
+          "source_link": "https://i94.cbp.dhs.gov/I94/#/home",
+          "sub": "I-94 Look-Up Instructions"
+        },
+        {
+          "body": "The State of Illinois and the City of Chicago, in partnership with local community organizations, provide assistance to help eligible immigrants apply to stay or work in the US legally. Certain recently arrived immigrants are eligible to participate in centralized application workshops for TPS and Work Permits based on parole. Workshops are free of charge. Follow the below steps to learn if you are eligible and to sign up to participate:",
+          "header": "Get Help Applying: TPS & Work Authorization Immigration Application Workshops for Recent Arrivals"
+        },
+        {
+          "list": [
+            "Step 1: Determine if you are eligible to attend a workshop \u2013 complete a screening form to determine if you are eligible.",
+            "Step 2: The State of Illinois and/or City of Chicago will complete a verification process within ~2 weeks of submitting your screening form. If additional information is needed, you will receive a text and/or email requesting that information.",
+            "Step 3: Once determined eligible to attend a workshop, you will be sent a link to schedule a workshop appointment by text and/or email. Respond to the invitation and sign up for a workshop appointment. Workshop appointments are first-come first-served, every Tuesday \u2013 Friday. New appointments are added frequently \u2013 continue checking if you do not yet see an appointment available.",
+            "Step 4: Complete your workbook and prepare your documents. You may download the workbook here. You can print the workbook at any Chicago Public Library using your CityKey Chicago ID.",
+            "Step 5: Attend the workshop according to the instructions texted or emailed to you. Be sure to bring your completed workbook & documents!",
+            "Step 6: At the workshop, a legal representative will review your eligibility for TPS or a work permit based on parole. If you are eligible, your immigration application will be prepared. Many applicants are also able to proceed with USCIS processing to have your application submitted to USCIS (Immigration) and your fingerprints taken the same day. Some applicants will be scheduled for a second appointment for USCIS processing.",
+            "Step 7: Attend your USCIS appointment at which point you will be issued a receipt number, and you may have your photo or fingerprints taken.",
+            "Step 8: Wait to receive notices from USCIS by mail. USCIS will generally process your application in ~30 days and mail you a decision. If approved, you will receive your work permit and social security number via mail."
+          ],
+          "sub": "Steps to Participate"
+        },
+        {
+          "body": "Need assistance with registration? Call 312-668-0114 Monday \u2013 Friday, 12pm \u2013 4pm for assistance."
+        },
+        {
+          "link_text": "Welcome to IL",
+          "source_link": "https://welcometoil.org/resources/"
+        },
+        {
+          "link_text": "Click here to workshop form.",
+          "source_link": "https://welcometoil.org/public/"
+        },
+        {
+          "link_text": "Download the workbook here.",
+          "source_link": "https://welcometoil.org/pdfviewer/tps-ead-workbook/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+        }
+      ],
+      "title": "Resources to Apply for Humanitarian Parole"
+    },
+    "parole_info": {
+      "content": [
+        {
+          "body": "While humanitarian parole is explicitly authorized by the INA for \u201curgent humanitarian reasons,\u201d there is no statutory or regulatory definition of an \u201curgent humanitarian reason.\u201d USCIS has stated, however, that it will consider factors such as the time-sensitivity of the circumstances and the degree of suffering that may result if parole is not authorized.",
+          "header": "What is Humanitarian Parole?"
+        },
+        {
+          "body": "According to USCIS, examples of urgent humanitarian circumstances could include, but are not limited to:"
+        },
+        {
+          "list": [
+            "Receiving critical medical treatment in the United States",
+            "Becoming an organ donor to an individual in the United States",
+            "Visiting or caring for a sick relative in the United States",
+            "Attending a funeral or settling the affairs of a deceased relative in the United States",
+            "Coming to the United States for protection from targeted or individualized harm"
+          ]
+        },
+        {
+          "body": "Individuals granted parole can apply for work authorization while they remain in the U.S. on a grant of parole and, if approved, become eligible to work. Certain Afghan and Ukrainian parolees are authorized to work incident to their parole, and legally authorized to work without filing a separate application for employment authorization. Work authorization lasts as long as the applicants are on parole.",
+          "header": "Are Individuals Granted Parole Eligible to Work?"
+        },
+        {
+          "body": "Each DHS component has its own methodology for making parole decisions. Moreover, the factors to be considered will vary depending on the type of parole requested. In general, however, since parole is a discretionary benefit, all parole decisions will be made on a case-by-case basis, with the immigration officer considering the reason for the request and whether it constitutes a basis for parole, and then weighing the positive factors in the noncitizen\u2019s case against any negative factors.",
+          "header": "What Factors Are Considered in Making a Parole Decision?"
+        },
+        {
+          "body": "In deciding whether to favorably exercise discretion, the immigration officer evaluates a number of factors, including:"
+        },
+        {
+          "list": [
+            "The reason for the parole request",
+            "Whether there is evidence of any criminal history or previous immigration violations",
+            "Whether there is evidence of any previous participation in fraud",
+            "Whether the noncitizen's presence would benefit a U.S. citizen, lawful permanent resident (LPR), or community in the United States",
+            "Evidence of the noncitizen's character",
+            "Whether there are other means available to the noncitizen to enter the United States for the stated parole purpose, such as a visa"
+          ]
+        },
+        {
+          "body": "Parole is reviewed on a case-by-case basis by an agency within DHS, and the burden of proof is placed on the applicant to establish that parole should be authorized. If parole is authorized, the agency authorizing parole will specify how long it may last, tailored to accomplish the purpose of the parole. Parole ends on the date it is set to expire, when the beneficiary departs the United States, or when the individual acquires an immigration status. DHS may revoke parole at any time if it is no longer warranted or the beneficiary violates the conditions of the parole. A parolee may also apply to extend or renew their parole with the agency that first issued the parole.",
+          "header": "The Parole Process and How It Works: Step-by-Step"
+        },
+        {
+          "link_text": "American Immigration Council",
+          "source_link": "https://www.americanimmigrationcouncil.org/research/use-parole-under-immigration-law"
+        }
+      ],
+      "title": "About Humanitarian Parole"
+    },
     "profile": {
       "change_password": "Change My Password",
       "title": "Organization Profile",
       "update_org_info": "Update My Information",
       "view_org_page": "View My Page"
+    },
+    "renters_rights": {
+      "content": [
+        {
+          "body": "All people have the right to a safe and stable home to build better futures for themselves and their families. In Illinois, you have the right to:",
+          "header": "Basic Rights"
+        },
+        {
+          "body": "Your landlord is responsible for maintaining running water, electricity, and heat, based on the specific requirements of local building codes. If your heat is not functioning during the winter, your landlord has 24 hours to respond to your complaint with plans to resolve the issue.",
+          "sub": "Live in a Safe, Reasonably Maintained Home"
+        },
+        {
+          "body": "You have the right to repairs made within 14 days (or 72 hours in an emergency) that do not exceed $500 or half of the monthly rent, whichever is less.",
+          "sub": "Ask for repairs to your rental unit"
+        },
+        {
+          "list": [
+            "Request repairs in writing, including the date.",
+            "If the landlord refuses to make repairs, submit a formal letter with your rent.",
+            "If the landlord still does not make repair by the given deadline, you have the right to hire a licensed professional to make the repairs and deduct the costs from your rent with a receipt."
+          ]
+        },
+        {
+          "body": "Complain to any governmental authority or testify in court about the state of your unit and enjoy equal protection under the law."
+        },
+        {
+          "body": "You have the right to report a complaint to any governmental authority about a violation of a building code, health ordinance, or similar regulation without threat of eviction or refusal to renew the lease.",
+          "sub": "Retaliatory Eviction Act"
+        },
+        {
+          "body": "In Illinois, landlords cannot raise rent* during the time period of a written or a verbal lease. For month-to-month tenants, the landlord must provide 30 days\u2019 notice, and for week-to-week tenants, they must provide seven days\u2019 notice before the rent is due. (*Separate rules for notifying rent increases apply for federally subsidized housing.)",
+          "sub": "Rent Increases"
+        },
+        {
+          "body": "Every tenant in Illinois is covered by Illinois laws, but Chicago has local laws, called ordinances, that apply to landlords and tenants regardless of immigration status. These ordinances cover the rights and responsibilities of both tenants and landlords. Your landlord should provide you with a written summary of the RTLO with your lease.",
+          "header": "Residential Tenant and Landlord Ordinance"
+        },
+        {
+          "list": [
+            "Prevents landlords from charging late fees greater than $10 a month for the monthly rent of up to $1,000, plus 5% per month for the monthly rent over $1,000.",
+            "Limits security deposits to no more than one and a half months\u2019 rent. Security deposits must be returned within 30 days after the tenant has left the unit. If a reasonable amount has been deducted for repairs, the landlord must provide an itemized list of damages and costs for repairs.",
+            "Landlords cannot threaten to, attempt to, or forcefully remove a tenant without authority of the law. For example, landlords cannot change the locks, shut off utilities, or do anything else that interferes with the tenant\u2019s use of the apartment.",
+            "Lockouts are always illegal, but the Cook County RTLO adds extra protections. In Cook County, you can sue your landlord for up to two months\u2019 rent or twice the damages sustained by the tenant, whichever is greater. In municipalities outside of the City of Chicago, violations should be made to the Cook County Sheriff\u2019s Office at 773-674-4357."
+          ],
+          "sub": "Cook County Residential Tenant and Landlord Ordinance"
+        },
+        {
+          "list": [
+            "Prevents landlords from charging late fees greater than $10 a month for the monthly rent of up to $500, plus 5% per month for the monthly rent over $500.",
+            "Security deposits must be returned, minus any expenses for damages, within 45 days after the tenant has left the unit.",
+            "Before the landlord can deduct expenses for damages, they must first provide the tenant with an itemized list of damages within 30 days after the tenant has left the unit.",
+            "Landlords cannot threaten to, attempt to, or forcefully remove a tenant without authority of the law. For example, landlords cannot change the locks, shut off utilities, or do anything else that interferes with the tenant\u2019s use of the apartment.",
+            "Lockouts are always illegal, but the Chicago RTLO adds extra protections. The City of Chicago will fine the landlord $200 to $500 for each day the lockout occurs. Violations should be reported to the Chicago Police Department. Call 311 for assistance."
+          ],
+          "sub": "Chicago Residential Landlord Tenant Ordinance"
+        },
+        {
+          "body": "A landlord cannot forcibly enter your home, change the locks, break down the door, or cut off access to utilities in an attempt to evict you, pursuant to the Forcible Entry and Detainer Act. The County Sheriff can forcibly retake possession for a landlord only on order from a judge, only after the landlord wins an eviction lawsuit and the tenant refuses to leave.",
+          "sub": "Lockouts and Evictions"
+        },
+        {
+          "body": "DON\u2019T SELF EVICT! An eviction notice is not the same as an eviction. \u200b\u200bAn initial eviction notice is only the first step in the eviction process. It does not mean that the tenant has to move out immediately, and it does not necessarily mean that the tenant will have to appear in court. There will still be a chance to resolve the issue directly with the landlord, outside of court."
+        },
+        {
+          "header": "Eviction Process",
+          "list": [
+            {
+              "body": "The landlord personally serves a signed, written notice on the tenant or on anyone 13 years or older who lives at the property, or sends one by certified mail with a signed returned receipt.",
+              "sub": "1. Eviction Notice"
+            },
+            {
+              "body": "ONLY IF the tenant and landlord do not resolve the issue within the notice period, a summons and complaint with the court seal is served, calling the tenant to court.",
+              "sub": "2. Court Summons and Complaint"
+            },
+            {
+              "body": "If the tenant does not appear, a default judgment could be issued in favor of the landlord, and the tenant must move out. If the tenant wins, the tenant stays in the unit and the process ends.",
+              "sub": "3. Court Hearing"
+            },
+            {
+              "body": "Eviction order is then issued as the tenant\u2019s final warning to move out and eviction could appear on tenant\u2019s record.",
+              "sub": "If Landlord Wins"
+            },
+            {
+              "body": "The tenant is forcibly removed (only by law enforcement, never the landlord).",
+              "sub": "If Tenant Stays After Eviction Order"
+            }
+          ]
+        },
+        {
+          "body": "The reason for eviction determines some aspects of the eviction process\u2014mainly, how many days a tenant has to resolve the issue or fight the eviction in court.",
+          "header": "Types of Eviction Notices"
+        },
+        {
+          "body": "Nonpayment of Rent: Upon receiving this written notice, the tenant can avoid going to court by repaying the past due rent in full within five days. In Illinois, if the landlord accepts partial payment of rent, the eviction becomes invalid, unless the notice states that only full payment of rent will waive the landlord\u2019s right to terminate the lease. In Chicago, the eviction process becomes invalid if the landlord accepts any payment of partial rent at all.",
+          "sub": "5 Day Notice"
+        },
+        {
+          "body": "Illegal Activity: A tenant may receive this written notice if they have committed a class X felony, such as armed robbery, aggravated battery, or aggravated arson."
+        },
+        {
+          "body": "Noncompliance: A tenant may receive this written eviction notice for violating terms of the lease or rental agreement, including more people than permitted residing in the unit, damaging rental property, or having pets if not permitted in the unit.",
+          "sub": "10 Day Notice"
+        },
+        {
+          "body": "At-Will Lease Termination: Either a tenant or landlord may submit a written notice to end the lease if the lease agreement does not specify a move-out date.",
+          "sub": "7/30/60 Day Notice"
+        },
+        {
+          "list": [
+            "At least a week: 7-day notice",
+            "Between a week and a year: 30-day notice",
+            "At least a year: 60-day notice"
+          ]
+        },
+        {
+          "body": "Tenants must be informed that the property has been sold and they have a new landlord within 10 days of purchase. If a building/unit is sold, all oral or written leases remain valid for the duration of the lease. New landlords cannot raise rents, remove tenants, force tenants to sign a new lease, or withhold security deposits for a purchased property. The new landlord is responsible for obtaining all pertinent documents and deposits from the former owner and paying security deposits back when the tenant leaves.",
+          "sub": "Protections for When Your Residence is Sold"
+        },
+        {
+          "body": "Foreclosure of Unit: A tenant may receive this written notice if their unit is part of property that has been foreclosed upon and their rental cannot continue. Tenants have 90 days to move regardless of whether they have a verbal or written lease.",
+          "sub": "90 Day Notice"
+        },
+        {
+          "body": "Landlords can\u2019t discriminate against you because of the country you or your family are from. If landlords ask about immigration status, they must ask ALL applicants. Fair housing agencies should not ask about immigration status.",
+          "header": "Protections Based on Immigration Status",
+          "sub": "Disclosure of Immigration Status"
+        },
+        {
+          "body": "It is illegal to require additional fees or documentation due to perceived national origin or ancestry, regardless of immigration status.",
+          "sub": "Documentation"
+        },
+        {
+          "list": [
+            "Consulate card, current foreign passport with I-551 stamp or I-94 form (arrival record), I-864 form (sponsorship verification), school ID card with photograph, hospital records, or Chicago CityKey, among other options. Contact a trusted housing organization for details.",
+            "School records, letter from utility company (energy, water, gas, etc.), copy of lease from former residence, or letter from former landlord with a phone number.",
+            "Letter from employer or current pay stubs, sponsorship letters or I-864 form, or Section 8 voucher, among other options."
+          ],
+          "sub": "Alternative Documents a Tenant Can Ask a Landlord to Accept When Applying to Rent"
+        },
+        {
+          "body": "This law went into effect in August 2019. It prohibits Illinois landlords from harassing, threatening, or evicting tenants based on actual or perceived immigration or citizenship status.",
+          "sub": "Immigrant Tenant Protection Act (ITPA)"
+        },
+        {
+          "list": [
+            "Protects all renters, regardless of immigrant status.",
+            "Protects everyone living in the household, not just people named on the lease.",
+            "Protects tenants with both written and verbal leases."
+          ]
+        },
+        {
+          "body": "Landlords cannot use your immigration status to:"
+        },
+        {
+          "list": [
+            "Threaten to call Immigration and Customs Enforcement (ICE), evict you, or shut off utilities for exercising your rights.",
+            "Intimidate you, harass you, or force you to move.",
+            "Require tenants to share their immigration status or mention their immigration or citizenship status during civil court proceedings (unless you bring it up or the housing is federally subsidized, excluding federal emergency assistance)."
+          ]
+        },
+        {
+          "body": "If you win a lawsuit against your landlord, you could win:"
+        },
+        {
+          "list": [
+            "Money for physical, financial, or emotional damages suffered as a result of discrimination.",
+            "An additional $2,000 for each incident.",
+            "Money to pay for your lawyer."
+          ]
+        },
+        {
+          "body": "Only protects tenants in places where they already rent or were renting in the past (as of August 2019). Does not cover federally funded housing that requires landlords to check status. Does not prohibit landlords from asking for references or credit checks. Tenants must continue paying rent until they move.",
+          "sub": "Limitation of Immigrant Tenant Protection Act"
+        },
+        {
+          "body": "If a prospective tenant brings an interpreter/translator, landlords must work with the interpreter/translator. Landlords should make sure tenants understand the lease and provide it in alternate formats (e.g. provide the written lease in Spanish). If the landlord refuses to provide a lease in a certain language, it may be a violation of Fair Housing or other civil rights laws, and you should consult an attorney.",
+          "sub": "Right to Free Interpretation and Translation Services"
+        },
+        {
+          "body": "All individuals have the right to request an interpreter in any Illinois court when they check in with the clerk for civil cases. The services of court foreign language interpreters are provided at no cost to the individual in need of the service, consistent with the Illinois Code of Civil Procedure and the judicial circuit\u2019s Language Access Plan (735 ILCS 5/8-1403)."
+        },
+        {
+          "body": "Lockouts are always illegal regardless of immigration status. Call an attorney or trusted housing organization to file a police report with the county sheriff. If you\u2019re in Chicago, report it to the Chicago Police Department. See resources on pages 15-24. In an emergency, call 911. Be prepared to give the police or dispatcher your name and address as well as the landlord\u2019s name and phone number. If the dispatcher or officer responds that it\u2019s a \u201ccivil matter,\u201d ask to speak with the watch commander, or call 911 again and request to speak with the watch commander from the beginning of the call. Make sure to have an ID or a photo of your ID showing your address. A consulate ID (matr\u00edcula consular), Chicago CityKey, or TVDL (Temporary Driver\u2019s License) are all acceptable.",
+          "header": "What to Do If You Are Locked Out or Illegally Evicted"
+        },
+        {
+          "body": "If the landlord does not end the lockout:"
+        },
+        {
+          "list": [
+            "You can file charges in court to obtain a temporary restraining order and have the property returned to you until the issue is resolved.",
+            "In Chicago: You can file a complaint by calling 311. The city can fine your landlord $200-$500 for every day the lockout occurs. You will need a copy of the police report to file the complaint.",
+            "In Cook County: You can sue your landlord for up to 2 months rent or twice damages incurred, whichever is greater. You will need a copy of the police report to file the complaint."
+          ]
+        },
+        {
+          "list": [
+            "Stay calm. Don\u2019t run, argue, resist, or obstruct the officer, even if you believe your rights are being violated. Keep your hands where police can see them.",
+            "You do not have to consent to a search of yourself or your belongings.",
+            "You do not have to answer questions about where you were born, whether you are a U.S. citizen, or how you entered the country. Anything you tell an officer can later be used against you in immigration court.",
+            "Don\u2019t lie or produce any false documents. Don\u2019t sign anything without speaking with a lawyer first, and don\u2019t sign any documents in English if you only understand limited English.",
+            "Subsidized housing tenants have a right to prepare a defense against perceived"
+          ],
+          "sub": "In general, if an undocumented tenant must call or interact with the police, the ACLU recommends:"
+        },
+        {
+          "body": "Sex- and gender-based discrimination includes sexual harassment. It is illegal for a landlord to make any unwelcome sexual advances on a tenant or coerce them in any way that may interfere with an individual\u2019s rental or purchase of a property or create an intimidating, hostile, or offensive environment. For example, landlords cannot write sexual favors into the terms of a lease or refuse to rent to a tenant because of their response to harassment.",
+          "header": "Protections Based on Sex and Gender"
+        },
+        {
+          "body": "If you have been in a violent or abusive housing situation (such as domestic violence, child abuse, or elder abuse), you and your family have the right to: Break your lease and leave the home without having to continue paying rent, as long as you give the landlord written notice three days before or after you leave the home, and/or Request an emergency lock change via written notice to keep the abuser out of the home in an emergency situation. This act covers rental housing and subsidized housing (such as Section 8 housing choice vouchers) and applies to written and oral leases. You can learn more here.",
+          "header": "Safe Homes Act"
+        },
+        {
+          "list": [
+            "The reason for vacating the premises was because of domestic or sexual violence against the tenant or member of the tenant\u2019s household.",
+            "The date of the domestic or sexual violence.",
+            "At least one form of the following types of evidence: medical, court, or police evidence of violence, or statement from an employee of a victim-services or rape crisis organization from which the tenant or a member of the tenant\u2019s household sought services."
+          ],
+          "sub": "What to Include in the Written Notice:"
+        },
+        {
+          "body": "Illinois Fair Housing Laws require that tenants with disabilities be given Reasonable Accommodations and Modifications to their rental units.",
+          "header": "Protections for Tenants with Disabilities"
+        },
+        {
+          "list": [
+            "You have the right to request a change to a policy or practice to allow you equal access to housing, such as closer or wider parking spots or an exception to a no-pet rule.",
+            "You also have the right to request physical modifications to the structure of the rental unit to allow you equal access, such as bars in the bathroom or a ramp in the common areas. The tenant may be responsible for paying for these changes. Contact a housing advocacy organization for information about financial assistance.",
+            "A landlord cannot ask general questions about a tenant\u2019s disability."
+          ]
+        },
+        {
+          "body": "As of December 23, 2022, the Biden Administration finalized a new public charge regulation adding protections to secure immigrant families\u2019 access to the health and social services safety net.",
+          "header": "The 2022 Final Public Charge Rule is Now in Effect"
+        },
+        {
+          "body": "The public charge is part of federal immigration law under which the immigrant applying for legal permanent residency (green card) or a visa to enter the US can be denied if they are deemed \u201clikely to become primarily dependent on the government for subsistence.\u201d",
+          "sub": "What is Public Charge?"
+        },
+        {
+          "body": "Under current guidance, immigration officials will consider an applicant\u2019s age, income, English proficiency, and financial sponsorship, as well as past use of the following two programs:"
+        },
+        {
+          "list": [
+            "Long-term institutionalization paid for by the government, such as: Nursing home care Mental health institutionalization",
+            "Cash assistance for income maintenance, such as: Supplemental Security Income (SSI) Temporary Assistance to Needy Families (TANF) State, local, or tribal general relief (e.g. General Assistance, cash assistance for AABD)."
+          ]
+        },
+        {
+          "body": "The following housing programs WILL NOT be counted toward public charge:"
+        },
+        {
+          "list": [
+            "Section 8 Housing Choice Voucher",
+            "Section 8 Project-Based Rental Assistance (including the Moderate Rehabilitation Program)",
+            "Public Housing"
+          ]
+        },
+        {
+          "body": "All immigrant families, regardless of immigration status, can and should access the emergency rental, mortgage, and cash assistance programs for which they are eligible, as well as: Emergency Shelters and Transitional Housing HUD Local Continuum of Care Emergency Shelters & Transitional Housing."
+        },
+        {
+          "link_text": "Learn more here.",
+          "source_link": "https://www.latinopolicyforum.org/publications/body/HousingRightsforImmigrantTenants-English_MARCH2023.pdf"
+        }
+      ],
+      "title": "Renters Rights"
+    },
+    "tps_apply": {
+      "content": [
+        {
+          "body": "TPS & Work Permit Immigration Application Workshops for Recent Arrivals. Registration for centralized workshops for work permits through Temporary Protected Status and parole is currently closed.",
+          "header": "Workshops"
+        },
+        {
+          "link_text": "Welcome to IL",
+          "source_link": "https://welcometoil.org/resources/"
+        },
+        {
+          "body": "To apply for TPS or re-register, submit Form I-821, Application for Temporary Protected Status I-821 to USCIS. There are instructions on how to apply on the USCIS website.",
+          "header": "How can I apply for TPS?",
+          "link_text": "View and submit Form I-821 here.",
+          "source_link": "https://www.uscis.gov/i-821"
+        },
+        {
+          "body": "You can also request an employment authorization document (EAD) at the same time. Use Form I-765, Request for Employment Authorization. You can also file this later."
+        },
+        {
+          "body": "Along with your application, you must also submit evidence proving:",
+          "sub": "Evidence"
+        },
+        {
+          "list": [
+            "Your identity and nationality,",
+            "The date you entered the US,",
+            "Residence in the US, and",
+            "Court disposition record (if you were arrested, charged, or convicted)."
+          ]
+        },
+        {
+          "list": [
+            "There is a fee to file. The fee is based on factors such as your age.",
+            "If you are applying for the first time, the fee to file Form I-821 is $50.",
+            "If you have TPS and are reregistering, there is no fee for the form.",
+            "If you also apply for employment authorization, the fee is $410 for Form I-765.",
+            "If you are under 14 or over 65, you don\u2019t have to pay for the EAD when you file a TPS application.",
+            "If you are 14 or older, there is a $85 biometric services fee.",
+            "You may also use their fee calculator to figure out your fee."
+          ],
+          "sub": "Fees:"
+        },
+        {
+          "link_text": "Form I-912, Application for Fee Waiver.",
+          "list": [
+            "If you can\u2019t pay for the filing fees or biometric services fees"
+          ],
+          "source_link": "https://www.uscis.gov/i-912",
+          "sub": "Fee Waiver"
+        },
+        {
+          "list": [
+            "You can use one form for both the filing and biometric service fee.",
+            "If USCIS approves your request, both fees will be waived.",
+            "If you are requesting a fee waiver, you have to file paper versions of the application and fee waiver request.",
+            "You can file one Form I-912 for all family member\u2019s applications. All the forms must be sent together.",
+            "To receive a fee waiver, you must prove that:",
+            "You are receiving a public benefit based on your income (such as Medicaid, SNAP, TANF, or SSI),",
+            "Your household income is at or below 150% of the federal poverty guidelines, or",
+            "You are experiencing financial hardship.",
+            "If your fee waiver is denied, you can refile and pay the fees. You must pay the fees either before the registration deadline or within 45 days of the date on your fee waiver denial letter, whichever is later."
+          ],
+          "sub": "Filing the fee waiver request with your application."
+        },
+        {
+          "link_text": "Learn more about filing a fee waiver here.",
+          "source_link": "https://www.uscis.gov/forms/filing-fees/additional-information-on-filing-a-fee-waiver"
+        },
+        {
+          "body": "You can call USCIS at (800)375-5283 to request a paper form. For TTY, call (800)767-1833."
+        },
+        {
+          "header": "What happens after I apply?",
+          "list": [
+            "If USCIS approves your TPS application, they will send you an approval notice with an I-94, Arrival/Departure Record. This is evidence of your TPS.",
+            "If you applied for employment authorization, you will receive an Employment Authorization Document (EAD)."
+          ],
+          "sub": "If you are approved:"
+        },
+        {
+          "list": [
+            "IF USCIS denies your application, you will receive a denial letter.",
+            "If you are eligible, the letter will state that you have 30 days to appeal to the USCIS Administrative Appeals Office (AAO)."
+          ],
+          "sub": "If you are denied:"
+        },
+        {
+          "link_text": "Illinois Legal Aid",
+          "source_link": "https://www.illinoislegalaid.org/"
+        }
+      ],
+      "title": "Resources to Apply for TPS"
+    },
+    "tps_info": {
+      "content": [
+        {
+          "body": "Temporary Protected Status (TPS) allows people from certain countries to live and work in the United States.",
+          "header": "What is Temporary Protected Status?"
+        },
+        {
+          "sub": "The Secretary of Homeland Security may designate a foreign country for TPS due to:"
+        },
+        {
+          "list": [
+            "Ongoing civil war or conflict in the country,",
+            "An environmental disaster or an epidemic, or",
+            "Other extraordinary or temporary conditions.",
+            "Eligible individuals without nationality who last resided in the designated country may be able to receive TPS."
+          ]
+        },
+        {
+          "header": "Am I eligible for TPS?",
+          "sub": "To qualify for TPS, you must:"
+        },
+        {
+          "list": [
+            "Be from a foreign country with a TPS designation, and",
+            "Be continuously physically present and residing in the US from the date the designation went into effect."
+          ]
+        },
+        {
+          "sub": "You may not be eligible for TPS or maintain your existing TPS if:"
+        },
+        {
+          "list": [
+            "You have been convicted of a felony in the US,",
+            "You have been convicted of two or more misdemeanors in the US,",
+            "You meet any of the mandatory asylum bars, or",
+            "You fail to meet the requirements for TPS."
+          ]
+        },
+        {
+          "sub": "If you are from one of the following countries and arrived in the US before the date listed, you are likely eligible for TPS:"
+        },
+        {
+          "list": [
+            "Afghanistan (May 20, 2022)",
+            "Burma (Myanmar) (March 25, 2024)",
+            "Cameroon (June 7, 2022)",
+            "El Salvador (December 14, 2023)",
+            "Ethiopia (April 15, 2024)",
+            "Haiti (December 14, 2023)",
+            "Honduras (December 14, 2023)",
+            "Nepal (December 14, 2023)",
+            "Nicaragua (December 14, 2023)",
+            "Somalia (March 13, 2023)",
+            "South Sudan (August 21, 2023)",
+            "Sudan (December 14, 2023)",
+            "Syria (January 29, 2024)",
+            "Ukraine (August 21, 2023)",
+            "Venezuela (November 17, 2023)",
+            "Yemen (January 3, 2023)"
+          ]
+        },
+        {
+          "header": "What are the benefits of TPS?",
+          "sub": "If you receive TPS:"
+        },
+        {
+          "list": [
+            "You cannot be detained by the Department of Homeland Security,",
+            "You cannot be deported from the US,",
+            "You can apply for a work permit,",
+            "You can apply to get permission to travel outside the US and return to the US, and",
+            "You can apply for asylum and other immigration benefits."
+          ]
+        },
+        {
+          "header": "What are the cons of TPS?",
+          "list": [
+            "It is a temporary benefit that doesn't lead to lawful permanent residence or citizenship,",
+            "Only applies to people already in the US, and",
+            "Cannot be used to apply for entry to the US."
+          ]
+        },
+        {
+          "link_text": "Illinois Legal Aid",
+          "source_link": "https://www.illinoislegalaid.org/"
+        }
+      ],
+      "title": "About Temporary Protected Status (TPS)"
+    },
+    "undocumented": {
+      "content": [
+        {
+          "sub": "For Those Who Don\u2019t Qualify for Status"
+        },
+        {
+          "body": "There are 11 million undocumented people in the US who find ways to live and work in their communities. Chicago is known for its welcoming community:"
+        },
+        {
+          "list": [
+            "Education: Children can attend school regardless of their immigration status.",
+            "Law Enforcement: Police officers are not permitted to inquire about an individual's immigration status.",
+            "Driving: After a year of residency, individuals can drive without a license.",
+            "Employment: Employers have the authority to verify employment authorization. If an individual cannot provide this, the employer cannot legally hire them."
+          ]
+        },
+        {
+          "body": "While undocumented status can make it challenging to:"
+        },
+        {
+          "list": [
+            "Street Vending: Many individuals work as street vendors and should be aware of their rights in this role.",
+            "Business Ownership: It is possible to open your own business in the City of Chicago.",
+            "Workers\u2019 Rights: Even without proper documentation, workers are entitled to legal protection including fair pay, working hours, and how to report abuse."
+          ]
+        },
+        {
+          "body": "The informal economy offers various opportunities, but understanding the rights and protections available is crucial."
+        }
+      ],
+      "title": "Legal Resources for Undocumented Migrants"
     },
     "util": {
       "back": "Back",
@@ -87,6 +1223,286 @@
       "language": "English",
       "login": "Login",
       "something_else": "Something else"
+    },
+    "vttc_apply": {
+      "content": [
+        {
+          "header": "How to Apply",
+          "list": [
+            "1. Apply online via https://abe.illinois.gov.",
+            "2. Upon completion of the application, upload the required documents needed to supplement the application. If you don\u2019t have these readily available, you can submit after submission."
+          ]
+        },
+        {
+          "list": [
+            "Government issued Photo ID (a passport is acceptable)",
+            "Proof of income for all \u201cearners\u201d in household (paystubs, letter from your employer, W-2, taxes)",
+            "Proof of residency (photo ID, lease, official mail, car insurance)",
+            "Social Security numbers for all members of household who have one",
+            "Birth certificates for all members who have one",
+            "Sworn Statement from the client stating that you are eligible and plan to apply",
+            "Sworn statement from a service provider/attorney stating that you are eligible because of the visa for which you are applying",
+            "If you\u2019ve already filed, you can submit a receipt of your application"
+          ],
+          "sub": "Required Documents"
+        },
+        {
+          "body": "All VTTC benefits are being processed through the Special Units DHS office. Special Units will also handle any companion cases associated with the VTTC cases. Upon submitting your application, send an email to DHS.FCS.VTTC@illinois.gov with the application # and indicate that you applied for your client(s) for VTTC benefits. You can send supplemental documentation then."
+        },
+        {
+          "body": "Sometimes, a local office gets the application before Special Units can pull it from the queue. In that event, the local office should accept the application and forward it to Special Units for processing."
+        },
+        {
+          "body": "TPS & Work Permit Immigration Application Workshops for Recent Arrivals. Registration for centralized workshops for work permits through Temporary Protected Status and parole is currently closed.",
+          "header": "Get Help Applying: TPS & Work Authorization Immigration Application Workshops for Recent Arrivals"
+        },
+        {
+          "link_text": "Welcome to IL",
+          "source_link": "https://welcometoil.org/resources/"
+        },
+        {
+          "body": "The State of Illinois and the City of Chicago, in partnership with local community organizations, provide assistance to help eligible immigrants apply to stay or work in the US legally. Certain recently arrived immigrants are eligible to participate in centralized application workshops for TPS and Work Permits based on parole. Workshops are free of charge. Follow the below steps to learn if you are eligible and to sign up to participate:"
+        },
+        {
+          "list": [
+            "Step 1: Determine if you are eligible to attend a workshop \u2013 complete a screening form to determine if you are eligible: Click here to complete.",
+            "Step 2: The State of Illinois and/or City of Chicago will complete a verification process within ~2 weeks of submitting your screening form. If additional information is needed, you will receive a text and/or email requesting that information.",
+            "Step 3: Once determined eligible to attend a workshop, you will be sent a link to schedule a workshop appointment by text and/or email. Respond to the invitation and sign up for a workshop appointment. Workshop appointments are first-come first-served, every Tuesday \u2013 Friday. New appointments are added frequently \u2013 continue checking if you do not yet see an appointment available.",
+            "Step 4: Complete your workbook and prepare your documents. You may download the workbook here. You can print the workbook at any Chicago Public Library using your CityKey Chicago ID.",
+            "Step 5: Attend the workshop according to the instructions texted or emailed to you. Be sure to bring your completed workbook & documents!",
+            "Step 6: At the workshop, a legal representative will review your eligibility for TPS or a work permit based on parole. If you are eligible, your immigration application will be prepared. Many applicants are also able to proceed with USCIS processing to have your application submitted to USCIS (Immigration) and your fingerprints taken the same day. Some applicants will be scheduled for a second appointment for USCIS processing.",
+            "Step 7: Attend your USCIS appointment at which point you will be issued a receipt number, and you may have your photo or fingerprints taken.",
+            "Step 8: Wait to receive notices from USCIS by mail. USCIS will generally process your application in ~30 days and mail you a decision. If approved, you will receive your work permit and social security number via mail."
+          ],
+          "sub": "Steps to Participate"
+        },
+        {
+          "body": "Need assistance with registration? Call 312-668-0114 Monday \u2013 Friday, 12pm \u2013 4pm for assistance."
+        },
+        {
+          "link_text": "Welcome to IL",
+          "source_link": "https://welcometoil.org/resources/"
+        }
+      ],
+      "title": "Resources to Apply for Work Authorization Through VTTC"
+    },
+    "vttc_info": {
+      "content": [
+        {
+          "body": "A foreign national who experienced human trafficking may be granted a temporary immigration authorization. This means they are eligible to apply for government assistance, mental and physical health services, financial aid to help pay for higher education, work permits, and housing.",
+          "header": "Resources for Victims of Human Trafficking"
+        },
+        {
+          "body": "For victims of trafficking",
+          "header": "T-1 Nonimmigrant Status (T Visa)",
+          "sub": "Who"
+        },
+        {
+          "body": "Up to four years of temporary nonimmigrant status with a path to lawful permanent residence (green card) and citizenship",
+          "sub": "What"
+        },
+        {
+          "list": [
+            "Federal and state benefits and services to the same extent as refugees",
+            "State benefits for Illinois are detailed below"
+          ],
+          "sub": "Benefits"
+        },
+        {
+          "list": [
+            "HHS Certification Letter or Eligibility Letter",
+            "Employment Authorization Document or Social Security number (SSN)"
+          ],
+          "sub": "Documents"
+        },
+        {
+          "body": "For victims of various crimes, including trafficking",
+          "header": "U-1 Nonimmigrant Status (U Visa)",
+          "sub": "Who"
+        },
+        {
+          "body": "Up to four years of temporary nonimmigrant status with a path to lawful permanent residence and citizenship",
+          "sub": "What"
+        },
+        {
+          "list": [
+            "Federal and state benefits and services",
+            "State benefits for Illinois are detailed below"
+          ],
+          "sub": "Benefits"
+        },
+        {
+          "list": [
+            "Employment Authorization Document or SSN"
+          ],
+          "sub": "Documents"
+        },
+        {
+          "body": "For victims of trafficking",
+          "header": "Continued Presence (CP)",
+          "sub": "Who"
+        },
+        {
+          "list": [
+            "Two-year authorization, renewable until case is resolved in increments of up to two years",
+            "No path to lawful permanent residence",
+            "May apply for a T or U visa with Continued Presence"
+          ],
+          "sub": "What"
+        },
+        {
+          "list": [
+            "Federal and state benefits and services to the same extent as refugees",
+            "State benefits for Illinois are detailed below"
+          ],
+          "sub": "Benefits"
+        },
+        {
+          "list": [
+            "HHS Certification Letter or Eligibility Letter",
+            "Employment Authorization Document or SSN"
+          ],
+          "sub": "Documents"
+        },
+        {
+          "link_text": "National Human Trafficking Training and Technical Assistance Center",
+          "source_link": "https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%26U%20Visa%20and%20Continued%20Presence%20Fact%20Sheet%20508c_0.pdf"
+        },
+        {
+          "body": "When an individual receives a work permit through a T visa, a U visa, or Continued Presence, they are eligible to work. An Individual may prove employment eligibility with the Employment Authorization Document (EAD) or other documentation allowable in the I-9 employment eligibility process, such as a state identification documentation. If an individual uses an SSN that states, \u201cValid for Employment Only with DHS Authorization,\u201d they will need to show their EAD. Employers should not use the I-9 form as a screening tool and should request it only at the time of hire, up to and including the first day of work. Individuals with T or U visas generally become eligible for a green card after three years. Filing for a green card extends T or U nonimmigrant status, so the expiration of the work permit while the green card application is pending does not necessarily mean these individuals are ineligible to work. Individuals may apply for an EAD while waiting for legal permanent residency.",
+          "header": "Employment Eligibility"
+        },
+        {
+          "link_text": "National Human Trafficking Training and Technical Assistance Center",
+          "source_link": "https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%26U%20Visa%20and%20Continued%20Presence%20Fact%20Sheet%20508c_0.pdf"
+        },
+        {
+          "header": "Public Benefit Eligibility - Federal",
+          "link_text": "Learn more about federal public benefit eligibility here.",
+          "source_link": "https://www.google.com/url?q=https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%2526U%2520Visa%2520and%2520Continued%2520Presence%2520Fact%2520Sheet%2520508c_0.pdf&sa=D&source=docs&ust=1716238382552500&usg=AOvVaw1yiDJxJJ8P7TxMBLyRcgpQ"
+        },
+        {
+          "body": "As of January 1, 2018, individuals who intend to file or have filed a U-Visa, T-Visa, and/or an Asylum application qualify for state-funded public benefits:",
+          "header": "Public Benefit Eligibility - State"
+        },
+        {
+          "list": [
+            "Medical Assistance (Medicaid/Medicare)",
+            "A state funded food program similar to SNAP/Food stamps",
+            "TANF Cash Assistance"
+          ]
+        },
+        {
+          "body": "The program through IL Department of Human Services (IL DHS) is referred to as Victims of Trafficking, Torture and Other Serious Crimes (VTTC)."
+        },
+        {
+          "list": [
+            "Within benefit specific income requirements",
+            "9 years or older",
+            "Preparing to file or have filed one of the above visa applications",
+            "A resident of Illinois"
+          ],
+          "sub": "In order to apply, you must be:"
+        },
+        {
+          "body": "Each type of public benefit has different requirements based on how much you earn, your age, disabilities, size of household, etc. The requirements include:",
+          "sub": "Benefit Specific Income Requirements"
+        },
+        {
+          "list": [
+            "Food Assistance: Gross Income Limit is 165% FPL & 200% FPL for those Age 60 or older OR Disabled",
+            "Cash Assistance: Gross Income Limit is 50% of FPL",
+            "Medical Assistance: Gross Income Limit is 100% of FPL and must not be eligible to receive any other medical program"
+          ]
+        },
+        {
+          "body": "A household for an individual applying for the State Food Program includes the primary applicant/survivor, children under 22 years old who live with the applicant/survivor, spouse/parent of children if they live in the household. Everyone else living with you who buys food separately is not part of your household."
+        },
+        {
+          "body": "A household for an individual applying for TANF Cash and/or Medicaid includes: the primary applicant/survivor, spouse of primary applicant/survivor, and applicant/survivor's children under 19 years old. Everyone else in the household must apply separately."
+        },
+        {
+          "body": "VTTC food and medical assistance are not considered as part of the public charge test. People who are applying for and have been granted asylum, a U-Visa or a T-Visa are exempt from the test for public charge for inadmissibility.",
+          "sub": "Public Charge"
+        },
+        {
+          "link_text": "Welcome to IL/Heartland Alliance",
+          "source_link": "https://welcometoil.org/pdfviewer/victims-factsheet/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+        }
+      ],
+      "title": "About Work Authorization through VTTC"
+    },
+    "workers_rights": {
+      "content": [
+        {
+          "header": "Workers Rights"
+        },
+        {
+          "sub": "All workers have rights, regardless of immigration status. In Chicago, you have the right to:"
+        },
+        {
+          "list": [
+            "Receive payment for every hour you work.",
+            "Receive overtime pay (time and a half) after working more than 40 hours in a workweek.",
+            "Be paid at least the minimum wage in the area where you work. In Chicago, this is $14.50-$15.40/hr, depending on the number of employees.",
+            "Receive 66% of your salary and paid medical bills if you suffer an accident on the job.",
+            "A safe and healthy workplace, including during times of COVID-19.",
+            "A workplace free of discrimination, sexual harassment or intimidation.",
+            "Organize for better working conditions through collective actions."
+          ]
+        },
+        {
+          "sub": "Where can I go for help?"
+        },
+        {
+          "body": "Chicago Community & Workers Rights",
+          "list": [
+            "Service Area: State of Illinois",
+            "Phone: 773-653-3664",
+            "Facebook: @chicagoworkersrights",
+            "Website: chicagoworkersrights.org"
+          ]
+        },
+        {
+          "body": "Centro de Trabajadores Unidos",
+          "list": [
+            "Service Area: Southeast Chicago + South Suburbs",
+            "Phone: 733-720-7111",
+            "Facebook: @CentroDeTrabajadoresUnidos",
+            "Website: centrodetrabajadoresunidos.org"
+          ]
+        },
+        {
+          "body": "Chicago Workers Collaborative",
+          "list": [
+            "Service Area: Chicago + Suburbs",
+            "Phone: 847-596-7491",
+            "Facebook: @ChiTemps",
+            "Website: chicagoworkerscollaborative.org"
+          ]
+        },
+        {
+          "body": "Farmworker & Landscaper Advocacy Project: FLAP",
+          "list": [
+            "Service Area: State of Illinois",
+            "Phone: 1-888-451-3527",
+            "Facebook: @farmworkerlandscaper.advocacyproject",
+            "Website: flapillinois.org"
+          ]
+        },
+        {
+          "list": [
+            "In the City of Chicago, you can call 311 to file a complaint.",
+            "Investigations are confidential and the City will not ask about immigration status."
+          ],
+          "sub": "How can I file a complaint?"
+        },
+        {
+          "link_text": "Welcome to IL/Illinois Access to Justice",
+          "source_link": "https://welcometoil.org/pdfviewer/immigrant-rights-english/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+        }
+      ],
+      "title": "Workers Rights"
     }
   }
 }

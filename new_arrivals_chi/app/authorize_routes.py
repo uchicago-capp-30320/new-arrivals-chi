@@ -14,14 +14,6 @@ Methods:
     * signout - Routes and executes user sign out logic.
     * change_password - Route to the change password page.
     * post_change_password - Executes change password logic.
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/09/2024
-
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/01/2024
 """
 
 import bleach
