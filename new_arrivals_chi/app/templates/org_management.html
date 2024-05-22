@@ -11,40 +11,36 @@ HTML for edit organization page.
 
 <head>
 <link rel="stylesheet" href="org_management.css">
+
 </head>
 <body>
-    <h1>{{translations[language]['admin']['org_management']}}</h1>
+    <h1>{{ translations[language]['admin']['org_management'] }}</h1>
     <table>
         <thead>
             <tr>
-                <th>{{translations[language]['admin']['name_of_org']}}</th>
-                <th>{{translations[language]['admin']['status']}}</th>
-                <th>{{translations[language]['admin']['action']}}</th>
+                <th>{{ translations[language]['admin']['name_of_org'] }}</th>
+                <th>{{ translations[language]['admin']['status'] }}</th>
+                <th>{{ translations[language]['admin']['action'] }}</th>
             </tr>
         </thead>
         <tbody>
             {% for org in organizations %}
             <tr>
                 <td>{{ org.name }}</td>
-                <td>{% if org.active %}{{ translations[language]['admin']['active'] }}
-                    {% else %}{{ translations[language]['admin']['inactive'] }}{% endif %}
+                <td>{% if org.status == 'ACTIVE' %}{{ translations[language]['admin']['active'] }}
+                    {% elif org.status == 'HIDDEN' %}{{ translations[language]['admin']['hidden'] }}
+                    {% elif org.status == 'SUSPENDED' %}{{ translations[language]['admin']['suspended']}}
+                    {% endif %}
                 </td>
                 <td>
-                    <button type="button" class="btn-edit" onclick="navigateTo('{{ url_for('authorize.admin_edit_organization', organization_id=org.id, lang=language) }}')">
+                    <button type="button" class="btn-edit" onclick="navigateTo('{{ url_for('authorize.admin_edit_organization', organization_id=org.id) }}', '{{ language }}')">
                         {{ translations[language]['admin']['edit'] }}
-                    </button>
-                    <!-- <form method="GET">
-                        <button type="button" class="btn-edit" onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=org.id, lang=language) }}')">
-                            {{ translations[language]['admin']['edit'] }}
-                        </button>
-                    </form> -->
-                    <!-- action="{{ url_for('authorize.admin_edit_organization', organization_id= org.id) }}" -->
-                    <form action="{{ url_for('authorize.toggle_suspend_organization') }}" method="POST">
-                        <input type="hidden" name="organization_id" value="{{ org.id }}">
-                        <button type="submit" class="btn-suspend">
-                            {{ translations[language]['admin']['suspend'] }}
-                        </button>
-                    </form>
+                    </button>                    
+                    <button type="button" class="btn-suspend" onclick="navigateTo('{{ url_for('authorize.toggle_suspend_organization', organization_id=org.id) }}', '{{ language }}')">
+                        {% if org.status == 'ACTIVE' %}{{ translations[language]['admin']['suspend'] }}
+                        {% else %}{{ translations[language]['admin']['unsuspend']}}
+                        {% endif %}
+                    </button> 
                 </td>
             </tr>
             {% endfor %}
@@ -52,6 +48,9 @@ HTML for edit organization page.
     </table>
     <button class="yellow-button" onclick="location.href='{{ '/' | escape }}'">
         {{ translations[language]['util']['back'] | escape }}
+    </button>
+    <button class="button-orange" onclick="location.href='{{ '/add_organization' | escape }}'">
+        {{ translations[language]['admin']['add_org'] | escape }}
     </button>
 </body>
 {% endblock %}

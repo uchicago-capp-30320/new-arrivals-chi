@@ -156,7 +156,9 @@
       "status": "Estado",
       "action": "Acci\u00f3n",
       "active": "Activo",
-      "inactive": "Inactivo"
+      "suspended": "Suspendido",
+      "hidden": "Ocultada",
+      "unsuspend": "Reactivar"
     },
     "base": {
       "about_us": "Acerca de Nosotros",

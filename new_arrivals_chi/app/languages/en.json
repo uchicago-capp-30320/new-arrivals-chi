@@ -10,7 +10,9 @@
       "status": "Status",
       "action": "Action",
       "active": "Active",
-      "inactive": "Inactive"
+      "suspended": "Suspended",
+      "hidden": "Hidden",
+      "unsuspend": "Unsuspend"
     },
     "about_us": {
       "content": [

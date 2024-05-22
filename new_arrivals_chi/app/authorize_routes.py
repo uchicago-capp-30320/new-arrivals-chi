@@ -290,9 +290,9 @@ def org_management():
                            translations=translations)
 
 
-@authorize.route("/suspend_organization", methods=["POST"])
+@authorize.route("/suspend_organization/<int:organization_id>", methods=["GET", "POST"])
 @admin_required
-def toggle_suspend_organization():
+def toggle_suspend_organization(organization_id):
     """
     Establishes route to toggle the status of an organization to suspend it.
 
@@ -306,10 +306,10 @@ def toggle_suspend_organization():
     Returns:
         Response: Redirects to org_management page with flashed messages.
     """
-    org_id = request.form.get("organization_id")
 
-    if org_id:
-        updated_organization = change_organization_status(org_id)
+    if organization_id:
+        updated_organization = change_organization_status(organization_id)
+        print(updated_organization)
         if updated_organization:
             flash(escape(f"Organization status change to \
                          {updated_organization.status}"), "success")
@@ -337,7 +337,6 @@ def admin_edit_organization(organization_id):
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
  
-    #organization_id = bleach(request.args.get("organization_id"))
     organization = Organization.query.get(organization_id)
 
     if request.method == "POST":
@@ -345,6 +344,7 @@ def admin_edit_organization(organization_id):
         pass
     return render_template(
         "edit_organization.html",
+        organization_id=organization_id,
         organization=organization,
         language=language,
         translations=translations,
