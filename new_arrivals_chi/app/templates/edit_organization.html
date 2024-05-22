@@ -310,35 +310,96 @@ HTML for edit organization page.
     </form>
 </div>
 
-<div class="box">
-    <p>{{ organization.name }}</p>
-</div>
-<div class="box">
-    <form method="POST">
+<body>
+    <div class="button-container">
+        <form action="/edit_hours_info" method="POST"> 
+            <h2>Hours of Operation:</h2>
+            <div id="hours-container">
+                {% for day, intervals in organization.hours.items() %}
+                <div class="hours-group" id="{{ day }}-group">
+                    <div class="day-intervals">
+                        {% for interval in intervals %}
+                        <div class="day-group">
+                            <label class="day-label">{% if loop.index == 1 %}{{ day.capitalize() }}{% endif %}</label>
+                            <div>
+                                <input type="time" name="{{ day }}-open-{{ loop.index }}" class="time-input" value="{{ interval.open }}">
+                                <input type="time" name="{{ day }}-close-{{ loop.index }}" class="time-input" value="{{ interval.close }}">
+                            </div>
+                            <div class="buttons-group">
+                                <button type="button" onclick="addInterval('{{ day }}-group')">Add Break</button>
+                                {% if not loop.first %}
+                                <button type="button" onclick="removeInterval(this)">Remove</button>
+                                {% else %}
+                                <button type="button" style="visibility: hidden;">Remove</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% if not intervals %}
+                        <div class="day-group">
+                            <label class="day-label">{{ day.capitalize() }}</label>
+                            <div>
+                                <input type="time" name="{{ day }}-open-1" class="time-input">
+                                <input type="time" name="{{ day }}-close-1" class="time-input">
+                            </div>
+                            <div class="buttons-group">
+                                <button type="button" onclick="addInterval('{{ day }}-group')">Add Break</button>
+                                <button type="button" style="visibility: hidden;">Remove</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="update-button button-blue" type="submit">Update Hours</button>
+        </form>
+    </div>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ organization.name }}"><br><br>
+    <script>
+        function addInterval(dayId) {
+            const dayGroup = document.getElementById(dayId).querySelector('.day-intervals');
+            const newInterval = document.createElement('div');
+            newInterval.className = 'day-group';
+            const day = dayId.slice(0, -6);
+            const number = dayGroup.children.length + 1;
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" value="{{ organization.address }}"><br><br>
+            newInterval.innerHTML = `
+                <label class="day-label"></label>
+                <div>
+                    <input type="time" name="${day}-open-${number}" class="time-input">
+                    <input type="time" name="${day}-close-${number}" class="time-input">
+                </div>
+                <div class="buttons-group">
+                    <button type="button" onclick="addInterval('${dayId}')">Add Break</button>
+                    <button type="button" onclick="removeInterval(this)">Remove</button>
+                </div>
+            `;
+            dayGroup.appendChild(newInterval);
+            updateRemoveButtons(dayGroup);
+        }
 
-        <label for="address">Phone:</label>
-        <input type="text" id="address" name="address" value="{{ organization.phone }}"><br><br>
+        function removeInterval(button) {
+            const dayGroup = button.closest('.day-group');
+            dayGroup.remove();
+            const dayIntervals = document.querySelector(`#${button.closest('.hours-group').id} .day-intervals`);
+            updateRemoveButtons(dayIntervals);
+        }
 
-        <label for="languages">Languages:</label><br>
-        <input type="checkbox" id="english" name="languages[]" value="english" {% if 'english' in organization.languages %} checked {% endif %}>
-        <label for="english">English</label><br>
-        <input type="checkbox" id="spanish" name="languages[]" value="spanish" {% if 'spanish' in organization.languages %} checked {% endif %}>
-        <label for="spanish">Spanish</label><br><br>
+        function updateRemoveButtons(dayGroup) {
+            const groups = dayGroup.querySelectorAll('.day-group');
+            groups.forEach((group, index) => {
+                const removeButton = group.querySelector('.buttons-group button:nth-child(2)');
+                if (removeButton) {
+                    removeButton.style.visibility = index > 0 ? 'visible' : 'hidden';
+                }
+            });
+        }
 
-        <label for="open_time">Open Time:</label>
-        <input type="text" id="open_time" name="open_time" value="{{ organization.open_time }}"><br><br>
-
-        <label for="close_time">Close Time:</label>
-        <input type="text" id="close_time" name="close_time" value="{{ organization.close_time }}"><br><br>
-
-        <input type="submit" value="Submit">
-    </form>
-</div>
+        document.querySelectorAll('.day-intervals').forEach(dayGroup => {
+            updateRemoveButtons(dayGroup);
+        });
+    </script>
+</body>
 
 {% endblock %}

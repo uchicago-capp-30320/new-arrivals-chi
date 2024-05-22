@@ -439,17 +439,11 @@ def dashboard():
     if not organization:
         return "Organization not found", 404
 
-    # generate URL for edit_organization endpoint
-    edit_org_url = url_for(
-        "main.edit_organization", org_name=organization.name, lang=language
-    )
-
     return render_template(
         "dashboard.html",
         organization=organization,
         language=language,
         translations=translations,
-        edit_org_url=edit_org_url,
     )
 
 
@@ -528,9 +522,9 @@ def org(organization_id):
     )
 
 
-@main.route("/edit_organization", methods=["GET", "POST"])
+@main.route("/edit_organization/<int:organization_id>", methods=["GET"])
 @login_required
-def edit_organization():
+def edit_organization(organization_id):
     """Establishes route to the edit organization page.
 
     This route is accessible by selecting 'Dashboard' on the
@@ -540,38 +534,19 @@ def edit_organization():
         Renders the edit organization page where admin or organizations can
         update their info.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-    user = current_user
-    organization = User.query.get(user.organization_id)
-    if request.method == "POST":
-        organization_id = organization.id
-        update_organization_stmt = (
-            update(Organization)
-            .where(Organization.id == organization_id)
-            .values(
-                name=request.form.get("name"), phone=request.form.get("phone")
-            )
-        )
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
 
-        # update_location_stmt = (
-        #     update(Location)
-        #     .where(Location.id == organization.location_id)
-        #     .values(
-        #         street_address=request.form.get('address')
-        #         )
-        #     )
-
-        # etc for each update
-
-        # excute an update
-        db.session.execute(update_organization_stmt)
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    organization = extract_organization()
 
     return render_template(
         "edit_organization.html",
         organization=organization,
         language=language,
         translations=translations,
+        organization_id=organization_id,
     )
 
 
@@ -700,6 +675,158 @@ def create_app(config_override=None):
         return User.query.get(int(user_id))
 
     return app
+
+
+def retrieve_hours(all_hours):
+    # Retrieve all opperating hours
+    organization_hours = {
+        "monday": [],
+        "tuesday": [],
+        "wednesday": [],
+        "thursday": [],
+        "friday": [],
+        "saturday": [],
+        "sunday": [],
+    }
+
+    weekdays = {
+        1: "monday",
+        2: "tuesday",
+        3: "wednesday",
+        4: "thursday",
+        5: "friday",
+        6: "saturday",
+        7: "sunday",
+    }
+
+    for current_hour in all_hours:
+        extract_hour_info(current_hour, organization_hours, weekdays)
+
+    return organization_hours
+
+
+def extract_organization():
+    user_info = User.query.filter_by(id=current_user.id).first()
+    org_info = Organization.query.filter_by(
+        id=current_user.organization_id
+    ).first()
+    primary_location_info = Location.query.filter_by(
+        id=org_info.location_id
+    ).first()
+
+    # Retrieve all opperating hours
+    language_list = retrieve_languages(org_info)
+
+    # Retrieve all opperating hours
+    organization_hours = retrieve_hours(org_info.hours)
+
+    # Retrieve services and associated locations
+    complete_service_info = retrieve_services(org_info.services)
+
+    organization = {
+        "name": org_info.name,
+        "phone": org_info.phone,
+        "email": user_info.email,
+        "language": language_list,
+        "service": complete_service_info,
+        "hours": organization_hours,
+        # Primary location information
+        "street_address": primary_location_info.street_address,
+        "zip_code": primary_location_info.zip_code,
+        "city": primary_location_info.city,
+        "state": primary_location_info.state,
+        "primary_location": primary_location_info.primary_location,
+        "neighborhood": primary_location_info.neighborhood,
+    }
+
+    return organization
+
+
+def extract_hour_info(current_hour, organization_hours, weekdays):
+    day = current_hour.day_of_week
+    day_str = weekdays[day]
+    associated_hours = {
+        "open": current_hour.opening_time,
+        "close": current_hour.closing_time,
+    }
+
+    # Ensure the ordering of hours are correct
+    if not organization_hours[day_str]:
+        organization_hours[day_str].append(associated_hours)
+    else:
+        # Check existing entries and insert based on opening time
+        inserted = False
+        for i, existing_hours in enumerate(organization_hours[day_str]):
+            if current_hour.opening_time < existing_hours["open"]:
+                organization_hours[day_str].insert(i, associated_hours)
+                inserted = True
+                break
+        if not inserted:
+            organization_hours[day_str].append(associated_hours)
+
+
+def retrieve_languages(org_reference):
+    all_languages = org_reference.languages
+    language_list = []
+    for curr_language in all_languages:
+        language_list.append(curr_language.language)
+
+
+def retrieve_services(all_services):
+    complete_service_info = []
+    for curr_service in all_services:
+        service_info = {
+            "category": curr_service.category,
+            "service": curr_service.service,
+            "access": curr_service.access,
+            "service_note": curr_service.service_note,
+            "dates": retrieve_dates(curr_service.service_dates),
+            "locations": retrieve_locations(curr_service.locations),
+        }
+        complete_service_info.append(service_info)
+
+    return complete_service_info
+
+
+def retrieve_dates(all_dates):
+    complete_date_info = []
+
+    # Retrieve all dates for service
+    for current_date in all_dates:
+        complete_date_info.append(extract_date_info(current_date))
+
+    return complete_date_info
+
+
+def extract_date_info(current_date):
+    single_date_info = {
+        "date": current_date.date,
+        "start_time": current_date.start_time,
+        "end_time": current_date.end_time,
+        "repeat": current_date.repeat,
+    }
+    return single_date_info
+
+
+def retrieve_locations(all_locations):
+    complete_location_info = []
+
+    # Retrieve all dates for service
+    for current_location in all_locations:
+        complete_location_info.append(extract_location_info(current_location))
+
+    return complete_location_info
+
+
+def extract_location_info(current_location):
+    single_location_info = {
+        "street_address": current_location.street_address,
+        "zip_code": current_location.zip_code,
+        "city": current_location.city,
+        "state": current_location.state,
+        "primary_location": current_location.primary_location,
+        "neighborhood": current_location.neighborhood,
+    }
 
 
 if __name__ == "__main__":
