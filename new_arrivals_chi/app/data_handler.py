@@ -22,9 +22,11 @@ Creation:
 @Date: 05/09/2024
 """
 
-from new_arrivals_chi.app.database import db, User, Organization, Location, Hours
+from new_arrivals_chi.app.database import db, User, Organization, Location, Hours, organizations_hours
 from flask_login import current_user
 from flask_bcrypt import Bcrypt
+from sqlalchemy import insert
+import ERROR
 
 bcrypt = Bcrypt()
 
@@ -93,28 +95,33 @@ def org_registration(location, hours):
     Returns:
         
     """
-    add_location(
+    new_location = add_location(
         street_address = location['street'],
         zip_code = location['zip-code'],
         city = location['city'],
         state = location['state'],
         primary_location = True,
         neighborhood = location['neighborhood']
-        #organization = db.relationship("Organization", back_populates="locations")
-        #services = db.relationship("Service", secondary=location_services, back_populates="locations")
     )
+
+    # Associate location with organization
+    assign_location_foreign_key_org_table(organization_id=current_user.organization.id, new_location_id=new_location.id)
     
+    hours_ids = []
     for day in hours:
         for hours_segment in hours[day]:
             opening_time, closing_time = hours_segment
-            add_hours(
+            new_hours = add_hours(
                 day_of_week = day,
                 opening_time = opening_time,
                 closing_time = closing_time
-
-                #organizations = db.relationship("Organization", secondary=organizations_hours, back_populates="hours"
             )
 
+            db.session.execute(insert(organizations_hours).values(hours_id=new_hours.id, organization_id=current_user.organization.id))
+
+    db.session.commit()
+
+  
 
 def add_location(street_address, zip_code, city, state, primary_location, neighborhood):
     new_location = Location(
@@ -133,7 +140,7 @@ def add_location(street_address, zip_code, city, state, primary_location, neighb
     db.session.add(new_location)
     db.session.commit()
 
-    return True
+    return new_location
 
 def add_hours(day_of_week, opening_time, closing_time):
     new_hours = Hours(
@@ -141,11 +148,27 @@ def add_hours(day_of_week, opening_time, closing_time):
         opening_time = opening_time, 
         closing_time = closing_time,
         created_by = current_user.id
-
-        #organizations = db.relationship("Organization", secondary=organizations_hours, back_populates="hours"
     )
     
     db.session.add(new_hours)
     db.session.commit()
 
-    return True
+    return new_hours
+
+
+def assign_location_foreign_key_org_table(organization_id, new_location_id):
+     #organization_id = current_user.organization.id
+     # new_location_id = new_location.id
+
+    organization_row = Organization.query.filter_by(id=organization_id).first()
+
+    try:
+        if not organization_row:
+            raise ERROR(f"Organization with id: {organization_id} cannot be found in database")
+    except ERROR as e:
+            print(e) 
+    
+    organization_row.location_id = new_location_id
+    db.session.commit()
+    return
+
