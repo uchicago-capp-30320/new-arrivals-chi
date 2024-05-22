@@ -261,7 +261,7 @@ def admin_dashboard():
                                translations=translations )
     
 @authorize.route("/admin/org_management", methods=["GET"])
-@admin_required 
+@admin_required
 def org_management():
     """
     Establishes route to the organization management page with a list of 
@@ -279,6 +279,11 @@ def org_management():
     organizations = Organization.query.with_entities(Organization.id,
                                                      Organization.name,
                                                      Organization.status).all()
+    
+    # edit_org_url = url_for(
+    #     "main.edit_organization", organization_id=organization.id, lang=language
+    # )
+
     return render_template("org_management.html", \
                            organizations=organizations,
                            language=language,
@@ -315,3 +320,32 @@ def toggle_suspend_organization():
     #redirect to org management page in all cases? should i do that?
     return redirect(url_for("authorize.org_management"))
 
+
+@authorize.route("/admin/edit_organization/<int:organization_id>", 
+            methods=["GET", "POST"])
+@admin_required
+def admin_edit_organization(organization_id):
+    """Establishes route to the edit organization page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the edit organization page where admin or organizations can
+        update their info.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+ 
+    #organization_id = bleach(request.args.get("organization_id"))
+    organization = Organization.query.get(organization_id)
+
+    if request.method == "POST":
+        # Handle the form submission
+        pass
+    return render_template(
+        "edit_organization.html",
+        organization=organization,
+        language=language,
+        translations=translations,
+    )
