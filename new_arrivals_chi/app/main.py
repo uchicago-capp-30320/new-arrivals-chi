@@ -358,6 +358,7 @@ def health_search():
         set=set,
     )
 
+
 @main.route("/health_general")
 def health_general():
     """Route for general health static page.
@@ -371,6 +372,7 @@ def health_general():
     return render_template(
         "health_general.html", language=language, translations=translations
     )
+
 
 @main.route("/general")
 def general():
