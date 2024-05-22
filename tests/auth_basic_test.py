@@ -257,7 +257,7 @@ def test_login_valid_credentials(
             data={"email": PARAM_VALID_EMAIL, "password": "TestP@ssword!"},
             follow_redirects=False,
         )
-        
+
         assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
