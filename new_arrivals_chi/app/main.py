@@ -540,6 +540,8 @@ def add_organization():
     if request.method == "POST":
         email = request.form.get("email")
         confirmed_email = request.form.get("email-confirm")
+        request.form.get("phone-number")
+        request.form.get("organization-name")
 
         # Check if the email and confirmed email match
         if email != confirmed_email:
