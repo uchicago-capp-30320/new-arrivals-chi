@@ -31,13 +31,24 @@ from new_arrivals_chi.app.constants import (
     KEY_TRANSLATIONS,
     DEFAULT_LANGUAGE,
 )
-from new_arrivals_chi.app.database import db, User, Organization
+from new_arrivals_chi.app.database import (
+    db,
+    User,
+    Organization,
+    Language,
+    Hours,
+    Service,
+    Location,
+    organizations_services,
+    organizations_hours,
+    languages_organizations,
+)
 from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
-import sqlite3
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
+from sqlalchemy import select, join
 
 migrate = Migrate()
 
@@ -326,30 +337,36 @@ def health_search():
         Renders the health search page.
     """
     # Implementation with demonstrative data
-    conn = sqlite3.connect("instance/test_fake_data.db")
 
-    cursor = conn.cursor()
-
-    cursor.execute(
-        "SELECT s.service, l.neighborhood, o.name, o.id, "
-        + "strftime('%I:%M %p', h.opening_time) "
-        "|| ' - ' || "
-        "strftime('%I:%M %p', h.closing_time) "
-        "AS opening_closing_time "
-        "FROM organizations o "
-        "JOIN hours h ON o.hours_id = h.id "
-        "JOIN locations l ON o.location_id = l.id "
-        "JOIN organizations_services os ON o.id = os.organization_id "
-        "JOIN services s ON os.service_id = s.id"
+    stmt = select(
+        Service.service,
+        Location.neighborhood,
+        Organization.name,
+        Organization.id,
+        db.func.concat(
+            db.func.to_char(Hours.opening_time, "HH:MI AM"),
+            " - ",
+            db.func.to_char(Hours.closing_time, "HH:MI AM"),
+        ).label("opening_closing_time"),
+    ).select_from(
+        join(
+            Organization,
+            organizations_hours,
+            Organization.id == organizations_hours.c.organization_id,
+        )
+        .join(Hours, organizations_hours.c.hours_id == Hours.id)
+        .join(Location, Organization.location_id == Location.id)
+        .join(
+            organizations_services,
+            Organization.id == organizations_services.c.organization_id,
+        )
+        .join(Service, organizations_services.c.service_id == Service.id)
     )
 
-    services_info = cursor.fetchall()
-
-    conn.close()
+    services_info = db.session.execute(stmt).fetchall()
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
-
     return render_template(
         "health_search.html",
         language=language,
@@ -407,29 +424,6 @@ def dashboard():
     )
 
 
-# @main.route("/org", methods=["GET"])
-# @login_required
-# def org():
-#     """Establishes route to the organization page.
-
-#     This page is dynamically generated based on the org id and contains
-#     organization details. It is accessible from the org dashboard.
-
-#     Returns:
-#         Renders the organization page (public facing).
-#     """
-# language = bleach.clean(request.args.get("lang", "en"))
-# translations = current_app.config["TRANSLATIONS"][language]
-#     user = current_user
-#     organization = User.query.get(user.organization_id)
-#     return render_template(
-#         "organization.html",
-#         organization=organization,
-#         language=language,
-#         translations=translations,
-#     )
-
-
 @main.route("/org/<int:organization_id>", methods=["GET"])
 def org(organization_id):
     """Establishes route to the organization page.
@@ -441,29 +435,44 @@ def org(organization_id):
     Returns:
         Renders the organization page (public facing).
     """
-    conn = sqlite3.connect("instance/test_fake_data.db")
-    cursor = conn.cursor()
-
-    cursor.execute(
-        "SELECT o.name, l.street_address, o.phone, lg.language, s.service, "
-        + "strftime('%I:%M %p', h.opening_time) "
-        "|| ' - ' || "
-        "strftime('%I:%M %p', h.closing_time) "
-        "AS opening_closing_time "
-        "FROM organizations o "
-        "JOIN hours h ON o.hours_id = h.id "
-        "JOIN locations l ON o.location_id = l.id "
-        "JOIN organizations_services os ON o.id = os.organization_id "
-        "JOIN services s ON os.service_id = s.id "
-        "JOIN languages_organizations ol ON o.id = ol.organization_id "
-        "JOIN languages lg ON ol.language_id = lg.id "
-        "WHERE o.id = ?",
-        (organization_id,),
+    stmt = (
+        select(
+            Organization.name,
+            Location.street_address,
+            Organization.phone,
+            Language.language,
+            Service.service,
+            db.func.concat(
+                db.func.to_char(Hours.opening_time, "HH:MI AM"),
+                " - ",
+                db.func.to_char(Hours.closing_time, "HH:MI AM"),
+            ).label("opening_closing_time"),
+        )
+        .select_from(
+            join(
+                Organization,
+                organizations_hours,
+                Organization.id == organizations_hours.c.organization_id,
+            )
+            .join(Hours, organizations_hours.c.hours_id == Hours.id)
+            .join(Location, Organization.location_id == Location.id)
+            .join(
+                organizations_services,
+                Organization.id == organizations_services.c.organization_id,
+            )
+            .join(Service, organizations_services.c.service_id == Service.id)
+            .join(
+                languages_organizations,
+                Organization.id == languages_organizations.c.organization_id,
+            )
+            .join(
+                Language, languages_organizations.c.language_id == Language.id
+            )
+        )
+        .where(Organization.id == organization_id)
     )
 
-    organization_info = cursor.fetchall()
-
-    conn.close()
+    organization_info = db.session.execute(stmt).fetchall()
 
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
@@ -474,7 +483,7 @@ def org(organization_id):
             "address": organization_info[0][1],
             "phone": organization_info[0][2],
             "language": organization_info[0][3],
-            "service": (", ").join([info[4] for info in organization_info]),
+            "service": (", ").join({info[4] for info in organization_info}),
             "hours": organization_info[0][5],
         }
 

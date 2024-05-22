@@ -43,9 +43,9 @@
             <option value="">Hours</option>
             {% set hours_set = set() %}
             {% for row in services_info %}
-                {% if row[3] not in hours_set %}
-                    {% set _ = hours_set.add(row[3]) %}
-                    <option value="{{ row[3] }}">{{ row[3] }}</option>
+                {% if row[4] not in hours_set %}
+                    {% set _ = hours_set.add(row[4]) %}
+                    <option value="{{ row[4] }}">{{ row[4] }}</option>
                 {% endif %}
             {% endfor %}
         </select>
