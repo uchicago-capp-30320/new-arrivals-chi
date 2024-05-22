@@ -10,7 +10,7 @@ HTML for edit organization page.
 {% block content %}
 <div class="box">
     <div class="box-big-title">{{translations[language]['home']['welcome'] }}</div>
-    <button class="button blue" onclick="location.href='{{'/org_management'| escape }}'">
+    <button class="button blue" onclick="navigateTo('/admin/org_management', '{{ language | escape }}')"">
       {{ translations[language]['admin']['org_management'] | escape }}
   </button>
   <button class="button green" onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'"> 

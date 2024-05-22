@@ -136,6 +136,9 @@ def login_post():
         Redirects to the user's dashboard page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
     email = request.form.get("email").lower()
     password = request.form.get("password")
     remember = request.form.get("remember", False)
@@ -151,7 +154,15 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
-    return redirect(url_for("main.dashboard"))
+
+    if current_user.role == 'admin':
+        return render_template('admin_management.html',
+                               language=language, 
+                               translations=translations)
+    else:
+        return render_template('dashboard.html',
+                               language=language, 
+                               translations=translations)
 
 
 @authorize.route("/logout")
@@ -251,7 +262,7 @@ def admin_dashboard():
     
 @authorize.route("/admin/org_management", methods=["GET"])
 @admin_required 
-def admin_organizations():
+def org_management():
     """
     Establishes route to the organization management page with a list of 
     organizations.

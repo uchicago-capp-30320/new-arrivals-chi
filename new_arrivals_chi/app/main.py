@@ -407,90 +407,94 @@ def dashboard():
     )
 
 
-# @main.route("/org", methods=["GET"])
+@main.route("/org", methods=["GET"])
 # @login_required
-# def org():
-#     """Establishes route to the organization page.
-
-#     This page is dynamically generated based on the org id and contains
-#     organization details. It is accessible from the org dashboard.
-
-#     Returns:
-#         Renders the organization page (public facing).
-#     """
-# language = bleach.clean(request.args.get("lang", "en"))
-# translations = current_app.config["TRANSLATIONS"][language]
-#     user = current_user
-#     organization = User.query.get(user.organization_id)
-#     return render_template(
-#         "organization.html",
-#         organization=organization,
-#         language=language,
-#         translations=translations,
-#     )
-
-
-@main.route("/org/<int:organization_id>", methods=["GET"])
-def org(organization_id):
+def org():
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
-    organization details. It is accessible from the org dashboard and the health
-    filterable table.
+    organization details. It is accessible from the org dashboard.
 
     Returns:
         Renders the organization page (public facing).
     """
-    conn = sqlite3.connect("instance/test_fake_data.db")
-    cursor = conn.cursor()
 
-    cursor.execute(
-        "SELECT o.name, l.street_address, o.phone, lg.language, s.service, "
-        + "strftime('%I:%M %p', h.opening_time) "
-        "|| ' - ' || "
-        "strftime('%I:%M %p', h.closing_time) "
-        "AS opening_closing_time "
-        "FROM organizations o "
-        "JOIN hours h ON o.hours_id = h.id "
-        "JOIN locations l ON o.location_id = l.id "
-        "JOIN organizations_services os ON o.id = os.organization_id "
-        "JOIN services s ON os.service_id = s.id "
-        "JOIN languages_organizations ol ON o.id = ol.organization_id "
-        "JOIN languages lg ON ol.language_id = lg.id "
-        "WHERE o.id = ?",
-        (organization_id,),
-    )
-
-    organization_info = cursor.fetchall()
-
-    conn.close()
+    # organization_id = bleach.clean(request.args.get("organization_id"))
 
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
-
-    if organization_info:
-        organization = {
-            "name": organization_info[0][0],
-            "address": organization_info[0][1],
-            "phone": organization_info[0][2],
-            "language": organization_info[0][3],
-            "service": (", ").join([info[4] for info in organization_info]),
-            "hours": organization_info[0][5],
-        }
-
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
-
+    # organization = Organization.query(organization_id)
+    user = current_user
+    organization = User.query.get(user.organization_id)
     return render_template(
         "organization.html",
         organization=organization,
         language=language,
         translations=translations,
-        organization_id=organization_id,
     )
 
 
-@main.route("/edit_organization", methods=["GET", "POST"])
+# @main.route("/org/<int:organization_id>", methods=["GET"])
+# def org(organization_id):
+#     """Establishes route to the organization page.
+
+#     This page is dynamically generated based on the org id and contains
+#     organization details. It is accessible from the org dashboard and the health
+#     filterable table.
+
+#     Returns:
+#         Renders the organization page (public facing).
+#     """
+#     conn = sqlite3.connect("instance/test_fake_data.db")
+#     cursor = conn.cursor()
+
+#     cursor.execute(
+#         "SELECT o.name, l.street_address, o.phone, lg.language, s.service, "
+#         + "strftime('%I:%M %p', h.opening_time) "
+#         "|| ' - ' || "
+#         "strftime('%I:%M %p', h.closing_time) "
+#         "AS opening_closing_time "
+#         "FROM organizations o "
+#         "JOIN hours h ON o.hours_id = h.id "
+#         "JOIN locations l ON o.location_id = l.id "
+#         "JOIN organizations_services os ON o.id = os.organization_id "
+#         "JOIN services s ON os.service_id = s.id "
+#         "JOIN languages_organizations ol ON o.id = ol.organization_id "
+#         "JOIN languages lg ON ol.language_id = lg.id "
+#         "WHERE o.id = ?",
+#         (organization_id,),
+#     )
+
+#     organization_info = cursor.fetchall()
+
+#     conn.close()
+
+#     language = bleach.clean(request.args.get("lang", "en"))
+#     translations = current_app.config["TRANSLATIONS"][language]
+
+#     if organization_info:
+#         organization = {
+#             "name": organization_info[0][0],
+#             "address": organization_info[0][1],
+#             "phone": organization_info[0][2],
+#             "language": organization_info[0][3],
+#             "service": (", ").join([info[4] for info in organization_info]),
+#             "hours": organization_info[0][5],
+#         }
+
+#     language = bleach.clean(request.args.get("lang", "en"))
+#     translations = current_app.config["TRANSLATIONS"][language]
+
+#     return render_template(
+#         "organization.html",
+#         organization=organization,
+#         language=language,
+#         translations=translations,
+#         organization_id=organization_id,
+#     )
+
+
+@main.route("/edit_organization/<int:organization_id>", methods=["GET", "POST"])
 @login_required
 def edit_organization():
     """Establishes route to the edit organization page.
@@ -505,7 +509,17 @@ def edit_organization():
     language = bleach.clean(request.args.get("lang", "en"))
     translations = current_app.config["TRANSLATIONS"][language]
     user = current_user
-    organization = User.query.get(user.organization_id)
+
+    if user.role == "admin":
+        # Query DB to get the organization's Data
+        # organzation id is the one in the url
+        organization_id = bleach(request.args.get("organization_id"))
+        organization = Organization.query.get(organization_id)
+
+    else:
+        organization = User.query.get(user.organization_id)
+
+    # organization = User.query.get(user.organization_id)
     if request.method == "POST":
         # Handle the form submission
         pass
