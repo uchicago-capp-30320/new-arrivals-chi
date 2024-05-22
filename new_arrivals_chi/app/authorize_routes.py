@@ -42,19 +42,33 @@ from new_arrivals_chi.app.constants import (
 )
 from flask_login import login_user, login_required, logout_user, current_user
 from functools import wraps
-from new_arrivals_chi.app.data_handler import create_user, change_db_password, \
-                                              change_organization_status
+from new_arrivals_chi.app.data_handler import (
+    create_user,
+    change_db_password,
+    change_organization_status,
+)
 
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
 
+
 def admin_required(f):
+    """Function so only authed users with admin privileges can access routes.
+
+    Args:
+        f (function): The function to be decorated.
+
+    Returns:
+        function: Decorated function.
+    """
+
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not current_user.is_authenticated or current_user.role != "admin":
             flash("You are not authorized to access this page.", "error")
-            return redirect(url_for("main.login")) 
+            return redirect(url_for("main.login"))
         return f(*args, **kwargs)
+
     return decorated_function
 
 
@@ -155,14 +169,16 @@ def login_post():
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
 
-    if current_user.role == 'admin':
-        return render_template('admin_management.html',
-                               language=language, 
-                               translations=translations)
+    if current_user.role == "admin":
+        return render_template(
+            "admin_management.html",
+            language=language,
+            translations=translations,
+        )
     else:
-        return render_template('dashboard.html',
-                               language=language, 
-                               translations=translations)
+        return render_template(
+            "dashboard.html", language=language, translations=translations
+        )
 
 
 @authorize.route("/logout")
@@ -233,11 +249,10 @@ def post_change_password():
     return redirect(url_for("authorize.change_password"))
 
 
-@authorize.route('/admin')
+@authorize.route("/admin")
 @admin_required
 def admin_dashboard():
-    """
-    Establishes route to admin management or redirects to home based on user.
+    """Establishes route to admin management or redirects to home based on user.
 
     This route checks if the current user is an admin. If yes, it renders
     the admin dashboard template. If not, it redirects the user to the home
@@ -252,20 +267,21 @@ def admin_dashboard():
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
     if current_user.is_admin:
-        return render_template('admin_management.html', 
-                               language=language,
-                               translations=translations)
+        return render_template(
+            "admin_management.html",
+            language=language,
+            translations=translations,
+        )
     else:
-        return render_template('home.html',
-                               language=language,
-                               translations=translations )
-    
+        return render_template(
+            "home.html", language=language, translations=translations
+        )
+
+
 @authorize.route("/admin/org_management", methods=["GET"])
 @admin_required
 def org_management():
-    """
-    Establishes route to the organization management page with a list of 
-    organizations.
+    """Establishes route to org management page w/ list of orgs.
 
     This route fetches a list of organizations from the database and renders
     the organization management template with the list.
@@ -276,53 +292,57 @@ def org_management():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
-    organizations = Organization.query.with_entities(Organization.id,
-                                                     Organization.name,
-                                                     Organization.status).all()
-    
-    # edit_org_url = url_for(
-    #     "main.edit_organization", organization_id=organization.id, lang=language
-    # )
+    organizations = Organization.query.with_entities(
+        Organization.id, Organization.name, Organization.status
+    ).all()
 
-    return render_template("org_management.html", \
-                           organizations=organizations,
-                           language=language,
-                           translations=translations)
+    return render_template(
+        "org_management.html",
+        organizations=organizations,
+        language=language,
+        translations=translations,
+    )
 
 
-@authorize.route("/suspend_organization/<int:organization_id>", methods=["GET", "POST"])
+@authorize.route(
+    "/suspend_organization/<int:organization_id>", methods=["GET", "POST"]
+)
 @admin_required
 def toggle_suspend_organization(organization_id):
-    """
-    Establishes route to toggle the status of an organization to suspend it.
+    """Establishes route to toggle the status of an organization to suspend it.
 
-    This route suspends an organization by toggling its status. It expects the 
-    organization_id to be provided in the form data. If the organization is 
+    This route suspends an organization by toggling its status. It expects the
+    organization_id to be provided in the form data. If the organization is
     successfully suspended, a success message is flashed. If the organization is
-    not found or if the request is invalid, appropriate error messages are 
-    flashed. After processing the request, the user is redirected to the 
+    not found or if the request is invalid, appropriate error messages are
+    flashed. After processing the request, the user is redirected to the
     org_management page.
 
     Returns:
         Response: Redirects to org_management page with flashed messages.
     """
-
     if organization_id:
         updated_organization = change_organization_status(organization_id)
         print(updated_organization)
         if updated_organization:
-            flash(escape(f"Organization status change to \
-                         {updated_organization.status}"), "success")
+            flash(
+                escape(
+                    f"Organization status change to \
+                         {updated_organization.status}"
+                ),
+                "success",
+            )
         else:
             flash(escape("Organization not found."), "error")
     else:
         flash(escape("Invalid request."), "error")
-    #redirect to org management page in all cases? should i do that?
+    # redirect to org management page in all cases? should i do that?
     return redirect(url_for("authorize.org_management"))
 
 
-@authorize.route("/admin/edit_organization/<int:organization_id>", 
-            methods=["GET", "POST"])
+@authorize.route(
+    "/admin/edit_organization/<int:organization_id>", methods=["GET", "POST"]
+)
 @admin_required
 def admin_edit_organization(organization_id):
     """Establishes route to the edit organization page.
@@ -336,7 +356,7 @@ def admin_edit_organization(organization_id):
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
- 
+
     organization = Organization.query.get(organization_id)
 
     if request.method == "POST":

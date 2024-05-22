@@ -77,6 +77,7 @@ def create_organization_profile(name, phone, status):
     db.session.commit()
     return new_organization.id
 
+
 def change_organization_status(org_id):
     """Changes the status of an organization in the database.
 
@@ -84,7 +85,7 @@ def change_organization_status(org_id):
     'SUSPEND' in the database.
 
     Parameters:
-        org_id (int): The ID of the organization whose status needs to be toggled.
+        org_id (int): The ID of the org whose status needs to be toggled.
 
     Returns:
         Organization: The updated Organization object with the toggled status,
@@ -94,12 +95,12 @@ def change_organization_status(org_id):
 
     if organization:
         # changes status to suspend if status is visible and vice-versa
-        if organization.status == 'ACTIVE':
-            organization.status = 'SUSPENDED'
+        if organization.status == "ACTIVE":
+            organization.status = "SUSPENDED"
         else:
-            organization.status = 'ACTIVE'
+            organization.status = "ACTIVE"
 
-        db.session.commit() #test on test db
+        db.session.commit()  # test on test db
         return organization
     else:
         return None

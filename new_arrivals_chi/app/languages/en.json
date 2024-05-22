@@ -1,19 +1,5 @@
 {
   "en": {
-    "admin": {
-      "org_management": "Organization Management",
-      "name_of_org": "Name of Organization",
-      "add_org": "Add Organization",
-      "suspend": "Suspend",
-      "edit": "Edit",
-      "error_reports": "Website error reports",
-      "status": "Status",
-      "action": "Action",
-      "active": "Active",
-      "suspended": "Suspended",
-      "hidden": "Hidden",
-      "unsuspend": "Unsuspend"
-    },
     "about_us": {
       "content": [
         {
@@ -56,6 +42,20 @@
         }
       ],
       "title": "About Us"
+    },
+    "admin": {
+      "action": "Action",
+      "active": "Active",
+      "add_org": "Add Organization",
+      "edit": "Edit",
+      "error_reports": "Website error reports",
+      "hidden": "Hidden",
+      "name_of_org": "Name of Organization",
+      "org_management": "Organization Management",
+      "status": "Status",
+      "suspend": "Suspend",
+      "suspended": "Suspended",
+      "unsuspend": "Unsuspend"
     },
     "asylum_apply": {
       "content": [
