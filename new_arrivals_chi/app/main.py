@@ -37,6 +37,12 @@ from new_arrivals_chi.app.utils import (
     load_translations,
     validate_phone_number,
 )
+
+from new_arrivals_chi.app.data_handler import (
+    create_user,
+    create_organization_profile,
+)
+
 from new_arrivals_chi.app.database import db, User, Organization
 from flask_migrate import Migrate
 import sqlite3
@@ -550,16 +556,30 @@ def add_organization():
         if email != confirmed_email:
             flash(escape("Emails do not match. Try again"))
         # Handle the form submission
-        if not validate_email_syntax(email):
+        elif not validate_email_syntax(email):
             flash(escape("Invalid email address. Try again"))
 
-        if not validate_phone_number(phone_number):
+        elif not validate_phone_number(phone_number):
             flash(
-                escape("Invalid phone number (correct example: 111-111-1111)")
+                escape("Invalid phone number (correct example: ###-###-####)")
+            )
+        elif not org_name:
+            flash(escape("Organization name is required"))
+
+        else:
+            # Create the organization
+            new_org_id = create_organization_profile(
+                org_name, phone_number, "HIDDEN"
             )
 
-        if not org_name:
-            flash(escape("Organization name is required"))
+            # Create the user
+            new_user_id = create_user(email, "password")
+
+            # Update the user with the new organization id
+            user = User.query.get(new_user_id)
+            user.organization_id = new_org_id
+
+            db.session.commit()
 
     return render_template(
         "add_organization.html",

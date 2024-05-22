@@ -119,8 +119,8 @@ def validate_phone_number(phone_number):
     """Validates the format of a phone number.
 
     This function checks if the provided phone number is in a valid format.
-    The phone number should contain only digits and have a length between 8 and
-    15 characters.
+    The phone number is in the format "###-###-####", where each "#" represents
+    a digit.
 
     Parameters:
         phone_number (str): The phone number to be validated.
