@@ -12,6 +12,10 @@ Methods:
     * change_db_password - Changes the password for the current user in the
       database.
     * create_organization_profile: Creates organization in the database.
+    * org_registration - Registers an organization's location and operating hours.
+    * add_location - Adds a new location to the database.
+    * add_hours - Adds new operating hours to the database.
+    * assign_location_foreign_key_org_table - Assigns a location ID to an organization.
 
 Last updated:
 @Author: Kathryn Link-Oberstar @klinkoberstar
@@ -26,7 +30,7 @@ from new_arrivals_chi.app.database import db, User, Organization, Location, Hour
 from flask_login import current_user
 from flask_bcrypt import Bcrypt
 from sqlalchemy import insert
-import ERROR
+
 
 bcrypt = Bcrypt()
 
@@ -88,13 +92,22 @@ def create_organization_profile(name, phone, status):
     return new_organization.id
 
 def org_registration(location, hours):
-    """Creates org information in the database.
+    """Create organization location and hours information in the database.
+
+    This function registers an organization's location and its operating hours 
+    in the database, associating them with the current user’s organization.
 
     Parameters:
+        location (dict): A dictionary containing the location details with keys 
+                         'street', 'zip-code', 'city', 'state', and 'neighborhood'.
+        hours (dict): A dictionary containing the operating hours with keys being 
+                      days of the week and values being lists of opening and 
+                      closing time tuples.
 
     Returns:
-        
+        None
     """
+
     new_location = add_location(
         street_address = location['street'],
         zip_code = location['zip-code'],
@@ -124,6 +137,22 @@ def org_registration(location, hours):
   
 
 def add_location(street_address, zip_code, city, state, primary_location, neighborhood):
+    """Add a new location to the database.
+
+    This function creates a new location with the provided details and adds it 
+    to the database.
+
+    Parameters:
+        street_address (str): The street address of the location.
+        zip_code (str): The zip code of the location.
+        city (str): The city of the location.
+        state (str): The state of the location.
+        primary_location (bool): Indicates if this is the primary location.
+        neighborhood (str): The neighborhood of the location.
+
+    Returns:
+        Location: The newly created Location object.
+    """
     new_location = Location(
         street_address = street_address,
         zip_code = zip_code,
@@ -132,9 +161,6 @@ def add_location(street_address, zip_code, city, state, primary_location, neighb
         primary_location = primary_location,
         neighborhood = neighborhood,
         created_by = current_user.id
-
-        #organization = db.relationship("Organization", back_populates="locations")
-        #services = db.relationship("Service", secondary=location_services, back_populates="locations")
     )
     
     db.session.add(new_location)
@@ -143,6 +169,19 @@ def add_location(street_address, zip_code, city, state, primary_location, neighb
     return new_location
 
 def add_hours(day_of_week, opening_time, closing_time):
+    """Add new operating hours to the database.
+
+    This function creates a new operating hours entry with the provided details 
+    and adds it to the database.
+
+    Parameters:
+        day_of_week (int): The day of the week ('Monday = 1, 'Tuesday' = 2, ..).
+        opening_time (str): The opening time in HH:MM format.
+        closing_time (str): The closing time in HH:MM format.
+
+    Returns:
+        Hours: The newly created Hours object.
+    """
     new_hours = Hours(
         day_of_week = day_of_week, 
         opening_time = opening_time, 
@@ -157,15 +196,23 @@ def add_hours(day_of_week, opening_time, closing_time):
 
 
 def assign_location_foreign_key_org_table(organization_id, new_location_id):
-     #organization_id = current_user.organization.id
-     # new_location_id = new_location.id
+    """Add location ID to organization table.
 
+    This function updates the location ID of the specified organization.
+
+    Parameters:
+        organization_id (int): The ID of the organization to be updated.
+        new_location_id (int): The ID of the new location to be assigned.
+
+    Returns:
+        None
+    """
     organization_row = Organization.query.filter_by(id=organization_id).first()
 
     try:
         if not organization_row:
-            raise ERROR(f"Organization with id: {organization_id} cannot be found in database")
-    except ERROR as e:
+            raise ValueError(f"Organization with id: {organization_id} cannot be found in database")
+    except ValueError as e:
             print(e) 
     
     organization_row.location_id = new_location_id
