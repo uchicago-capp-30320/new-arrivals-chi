@@ -237,12 +237,7 @@ def registration_change_password():
 
 @authorize.route("/registration_change_password", methods=["POST"])
 def post_registration_change_password():
-    """Allows an authorized user to update their current password.
-
-    Returns:
-        Redirects to the user's dashboard page if password change is successful,
-        otherwise redirects back to the change password page with a flash
-        message.
+    """
     """
 
     email = request.form.get("email").lower()
