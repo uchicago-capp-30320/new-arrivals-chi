@@ -45,7 +45,19 @@ from new_arrivals_chi.app.database import (
     organizations_hours,
     languages_organizations,
 )
-from new_arrivals_chi.app.utils import load_translations, load_neighborhoods
+from new_arrivals_chi.app.utils import (
+    load_translations,
+    load_neighborhoods,
+    validate_email_syntax,
+    validate_phone_number,
+    create_temp_pwd,
+)
+
+from new_arrivals_chi.app.data_handler import (
+    create_user,
+    create_organization_profile,
+)
+
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
