@@ -36,6 +36,7 @@ from new_arrivals_chi.app.utils import (
     validate_email_syntax,
     load_translations,
     validate_phone_number,
+    create_temp_pwd,
 )
 
 from new_arrivals_chi.app.data_handler import (
@@ -568,13 +569,14 @@ def add_organization():
             new_org_id = create_organization_profile(
                 org_name, phone_number, "HIDDEN"
             )
-            print(f"New Org ID: {new_org_id}")
+
+            # Create a temporary password for the user
+            temp_pwd = create_temp_pwd(email, phone_number)
 
             # Create the user with the provided email and a default password
-            new_user = create_user(email, "password")
-            print(f"New user ID: {new_user.id}")
+            new_user = create_user(email, temp_pwd)
 
-            # Update the user with the new organization id
+            # Update the user with the new organization
             user = User.query.get(new_user.id)
             if user:
                 user.organization_id = new_org_id

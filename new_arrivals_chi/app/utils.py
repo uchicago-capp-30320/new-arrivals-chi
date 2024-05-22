@@ -16,8 +16,6 @@ Methods:
 """
 
 import logging
-import random
-import string
 import json
 import re
 import os
@@ -211,7 +209,6 @@ def create_temp_pwd(email, phone):
     Returns:
         str: The temporary password generated for the new user.
     """
-
     email_string = email.split("@")[0]
     phone_digits = phone[0:3]
 
