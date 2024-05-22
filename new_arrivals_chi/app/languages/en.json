@@ -729,7 +729,14 @@
       "title": "About Humanitarian Parole"
     },
     "profile": {
+      "add_organization": "Add Organization",
       "change_password": "Change My Password",
+      "confirm_email": "Confirm Email",
+      "enter_information": "Enter the information below",
+      "further_info": "You will get an e-mail with additional information",
+      "name": "Organization Name",
+      "phone_number": "Phone Number",
+      "success": "Successfully registered organization!",
       "title": "Organization Profile",
       "update_org_info": "Update My Information",
       "view_org_page": "View My Page"
