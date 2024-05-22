@@ -224,7 +224,7 @@ def post_change_password():
 
 @authorize.route("/registration_change_password")
 def registration_change_password():
-    """Establishes route for the change password page for a new user..
+    """Establishes route for the change password page for a new user.
 
     This route is accessible within the email that is sent to new users and
     will be publically accessible.
@@ -239,34 +239,36 @@ def registration_change_password():
         "registration_change_password.html",
         language=language,
         translations=translations,
-
     )
+
 
 @authorize.route("/registration_change_password", methods=["POST"])
 def post_registration_change_password():
-    """
-    """
+    """Handles the POST request for changing the password for a new user.
 
+    This function processes the form data, validates it, and flashes
+    messages to the user in the appropriate language based on their
+    selection. If the validation passes, it updates the user's password
+    and redirects to the registration page.
+    """
     email = request.form.get("email").lower()
 
     temp_password, new_password, new_password_confirm = extract_new_pw_data(
         request.form
     )
 
-     # ensure that input meets requirments
+    # ensure that input meets requirments
     if not validate_email_syntax(email):
         flash(escape("Please enter a valid email address"))
 
     # Confirm that email exists as a user
     user = User.query.filter_by(email=email).first()
 
-     # check if the user actually exists & password is correct
+    # check if the user actually exists & password is correct
     if not user or not verify_password(user.password, temp_password):
-        flash(escape("Please check that your email and registration password are correct and try again."))
-        return redirect(
-            url_for("authorize.registration_change_password")
-        )
-   
+        flash(escape("Please check your email and registration password."))
+        return redirect(url_for("authorize.registration_change_password"))
+
     elif temp_password == new_password:
         # Do not need to check password hash because old password is correct
         flash(
@@ -286,8 +288,11 @@ def post_registration_change_password():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
-        "registration_change_password.html", language=language, translations=translations
+        "registration_change_password.html",
+        language=language,
+        translations=translations,
     )
+
 
 @authorize.route("/register", methods=["POST"])
 @login_required
@@ -310,6 +315,7 @@ def post_register():
         org_registration(location, hours)
         return redirect(url_for("main.dashboard"))
     return redirect(url_for("authorize.register"))
+
 
 @authorize.route("/register")
 @login_required
