@@ -444,3 +444,24 @@ def setup_logger(name):
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
     return logger
+
+
+def create_temp_pwd(email, phone):
+    """Creates a temporary password for a new user.
+
+    This function generates a temporary password for a new user based using the
+    first part of the email address and the first three digits of the provided
+    phone number.
+    Parameters:
+        email (str): The email address of the new user.
+        phone (str): The phone number of the new user.
+
+    Returns:
+        str: The temporary password generated for the new user.
+    """
+    email_string = email.split("@")[0]
+    phone_digits = phone[0:3]
+
+    temp_pwd = email_string + phone_digits
+
+    return temp_pwd

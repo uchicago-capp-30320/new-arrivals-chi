@@ -37,6 +37,7 @@ from new_arrivals_chi.app.utils import (
     load_translations,
     validate_phone_number,
     create_temp_pwd,
+    load_neighborhoods,
 )
 
 from new_arrivals_chi.app.data_handler import (
@@ -45,7 +46,6 @@ from new_arrivals_chi.app.data_handler import (
 )
 
 from new_arrivals_chi.app.database import db, User, Organization
-from new_arrivals_chi.app.utils import load_translations, load_neighborhoods
 from flask_migrate import Migrate
 import sqlite3
 from flask_login import LoginManager, login_required, current_user
