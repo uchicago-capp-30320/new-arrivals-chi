@@ -732,6 +732,7 @@
       "add_organization": "Add Organization",
       "change_password": "Change My Password",
       "confirm_email": "Confirm Email",
+      "name": "Organization Name",
       "phone_number": "Phone Number",
       "title": "Organization Profile",
       "update_org_info": "Update My Information",
