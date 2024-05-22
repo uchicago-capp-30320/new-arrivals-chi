@@ -30,11 +30,16 @@ HTML for edit organization page.
                     {% else %}{{ translations[language]['admin']['inactive'] }}{% endif %}
                 </td>
                 <td>
-                    <form action= onclick="location.href='{{ url_for('main.edit_organization', organization_id=org.id) | escape }}'" method="GET">
-                        <button type="submit" class="btn-edit">
+                    <form method="GET">
+                        <button type="button" class="btn-edit" onclick="navigateTo('/admin/org_management?organization_id={{ org.id }}&lang={{ language }}')">
                             {{ translations[language]['admin']['edit'] }}
                         </button>
-                    </form>                    
+                    </form>
+                    <!-- <form method="GET">
+                        <button type="button" class="btn-edit" onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=org.id, lang=language) }}')">
+                            {{ translations[language]['admin']['edit'] }}
+                        </button>
+                    </form> -->
                     <form action="{{ url_for('authorize.toggle_suspend_organization') }}" method="POST">
                         <input type="hidden" name="organization_id" value="{{ org.id }}">
                         <button type="submit" class="btn-suspend">

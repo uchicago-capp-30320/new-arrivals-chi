@@ -386,8 +386,8 @@ def dashboard():
         Renders the dashboard page with buttons to view org page, edit org page
         and change password.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
     organization = Organization.query.get(user.organization_id)
     if not organization:
@@ -395,7 +395,7 @@ def dashboard():
 
     # generate URL for edit_organization endpoint
     edit_org_url = url_for(
-        "main.edit_organization", org_name=organization.name, lang=language
+        "main.edit_organization", organization_id=organization.id, lang=language
     )
 
     return render_template(
@@ -421,8 +421,8 @@ def org():
 
     # organization_id = bleach.clean(request.args.get("organization_id"))
 
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     # organization = Organization.query(organization_id)
     user = current_user
     organization = User.query.get(user.organization_id)
@@ -496,7 +496,7 @@ def org():
 
 @main.route("/edit_organization/<int:organization_id>", methods=["GET", "POST"])
 @login_required
-def edit_organization():
+def edit_organization(organization_id):
     """Establishes route to the edit organization page.
 
     This route is accessible by selecting 'Dashboard' on the
@@ -506,8 +506,8 @@ def edit_organization():
         Renders the edit organization page where admin or organizations can
         update their info.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
 
     if user.role == "admin":
