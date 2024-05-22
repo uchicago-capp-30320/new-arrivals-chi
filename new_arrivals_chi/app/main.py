@@ -32,9 +32,12 @@ from new_arrivals_chi.app.constants import (
     KEY_TRANSLATIONS,
     DEFAULT_LANGUAGE,
 )
-from new_arrivals_chi.app.utils import validate_email_syntax
+from new_arrivals_chi.app.utils import (
+    validate_email_syntax,
+    load_translations,
+    validate_phone_number,
+)
 from new_arrivals_chi.app.database import db, User, Organization
-from new_arrivals_chi.app.utils import load_translations
 from flask_migrate import Migrate
 import sqlite3
 from flask_login import LoginManager, login_required, current_user
@@ -540,8 +543,8 @@ def add_organization():
     if request.method == "POST":
         email = request.form.get("email")
         confirmed_email = request.form.get("email-confirm")
-        request.form.get("phone-number")
-        request.form.get("organization-name")
+        phone_number = request.form.get("phone-number")
+        org_name = request.form.get("organization-name")
 
         # Check if the email and confirmed email match
         if email != confirmed_email:
@@ -550,7 +553,13 @@ def add_organization():
         if not validate_email_syntax(email):
             flash(escape("Invalid email address. Try again"))
 
-        pass
+        if not validate_phone_number(phone_number):
+            flash(
+                escape("Invalid phone number (correct example: 111-111-1111)")
+            )
+
+        if not org_name:
+            flash(escape("Organization name is required"))
 
     return render_template(
         "add_organization.html",
