@@ -60,7 +60,7 @@
           "source_link": "https://cilsc.metrofamily.org/"
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         }
       ],
@@ -140,7 +140,7 @@
           "body": "No puede solicitar asilo si ya solicit\u00f3 y fue denegado a menos que las circunstancias hayan cambiado."
         },
         {
-          "link_text": "Asistencia Legal de Illinois",
+          "link_text": "Illinois Legal Aid",
           "source_link": "https://www.illinoislegalaid.org/legal-information/asylum-and-refugee-basics"
         }
       ],
@@ -163,9 +163,183 @@
       "password_must_include": "Su contrase\u00f1a debe incluir al menos una letra may\u00fascula, una letra min\u00fascula, un n\u00famero, un s\u00edmbolo especial y tener m\u00e1s de 8 caracteres."
     },
     "health": {
-      "health_information": "Informaci\u00f3n M\u00e9dica",
-      "learn_more": "Aprende M\u00e1s de Otros Recursos",
-      "receive_assistance": "Recibir Asistencia Inmediata"
+      "health_information": "Informaci\u00f3n de Salud",
+      "hours": "Horario",
+      "learn_more": "Aprender M\u00e1s Sobre los Recursos",
+      "neighborhood": "Barrio",
+      "organization": "Organizaci\u00f3n",
+      "receive_assistance": "Recibir Asistencia Ahora",
+      "search_rec": "Buscar Recursos",
+      "supply_service": "Suministros y Servicios Disponibles"
+    },
+    "health_gen": {
+      "content": [
+        {
+          "header": "Bienvenido"
+        },
+        {
+          "body": "Bienvenido a nuestra p\u00e1gina de recursos de salud dise\u00f1ada para ayudarte a navegar el sistema de salud en Chicago. Aqu\u00ed encontrar\u00e1s:"
+        },
+        {
+          "list": [
+            "Informaci\u00f3n sobre c\u00f3mo acceder a la atenci\u00f3n m\u00e9dica",
+            "Comprensi\u00f3n del acceso a la atenci\u00f3n m\u00e9dica seg\u00fan tu estatus legal y/o grupo de edad",
+            "Gu\u00eda para encontrar proveedores de salud, servicios de emergencia y atenci\u00f3n urgente, recursos de salud mental y bienestar, opciones de fisioterapia y programas de salud comunitarios."
+          ]
+        },
+        {
+          "header": "Navegando el Sistema de Salud"
+        },
+        {
+          "body": "En los Estados Unidos, tenemos un sistema donde las personas pueden elegir a sus doctores y hospitales. Los pacientes tienen la opci\u00f3n de pagar de su bolsillo por los servicios prestados o pueden pagar un seguro de salud para ayudar a reducir el costo de la atenci\u00f3n m\u00e9dica."
+        },
+        {
+          "sub": "\u00bfQu\u00e9 es el Seguro de Salud?"
+        },
+        {
+          "body": "El seguro de salud es como una membres\u00eda que ayuda a cubrir el costo de las visitas al m\u00e9dico, hospitalizaciones, medicamentos y m\u00e1s."
+        },
+        {
+          "sub": "Obteniendo Seguro de Salud"
+        },
+        {
+          "body": "El seguro de salud puede ser comprado a trav\u00e9s de healthcare.gov o asegurado a trav\u00e9s de tu empleador. Debes tener un estatus legal calificado para calificar para el seguro de salud:"
+        },
+        {
+          "list": [
+            "Ciudadano de los EE.UU.",
+            "Tarjeta Verde",
+            "Estatus de Asilo \u2013 solo si te han concedido autorizaci\u00f3n de empleo o tienes menos de 14 a\u00f1os y tu solicitud ha estado pendiente por al menos 180 d\u00edas",
+            "Estatus de Refugiado",
+            "Entrante Cubano/Haitiano",
+            "Concedido Permiso Humanitario para entrar a los EE.UU.",
+            "Estatus de Protecci\u00f3n Temporal (TPS)",
+            "C\u00f3nyuge, hijo y padre maltratado",
+            "V\u00edctima de Tr\u00e1fico Humano y su c\u00f3nyuge, hijo, hermano o padre",
+            "Concedido Retenci\u00f3n de Deportaci\u00f3n o Retenci\u00f3n de Expulsi\u00f3n, bajo las leyes de inmigraci\u00f3n o bajo la Convenci\u00f3n contra la Tortura (CAT)",
+            "Individuo con Estatus No Inmigrante, incluye visas de trabajador (como H1, H-2A, H-2B), visas de estudiante, U-visa, T-visa y otras visas, y ciudadanos de Micronesia, las Islas Marshall y Palaos",
+            "Salida Forzosa Diferida (DED)",
+            "Estatus de Acci\u00f3n Diferida (Excepci\u00f3n: Acci\u00f3n Diferida para los Llegados en la Infancia (DACA) no es un estatus de inmigraci\u00f3n elegible para aplicar para seguro de salud)",
+            "Residente Temporal Legal",
+            "Orden administrativa que suspende la expulsi\u00f3n emitida por el Departamento de Seguridad Nacional",
+            "Entrante Condicional Concedido antes de 1980"
+          ]
+        },
+        {
+          "body": "Si eres indocumentado, es posible que no puedas obtener seguro de salud, pero a\u00fan puedes recibir atenci\u00f3n m\u00e9dica de emergencia y servicios m\u00e9dicos preventivos en centros de salud de bajo costo en la Ciudad de Chicago."
+        },
+        {
+          "header": "Accediendo al Seguro de Salud Basado en el Estatus Legal y Grupo de Edad"
+        },
+        {
+          "body": "El acceso al seguro de salud puede variar seg\u00fan el estatus legal y el grupo de edad de una persona."
+        },
+        {
+          "sub": "Estatus Legal"
+        },
+        {
+          "body": "Estatus de Protecci\u00f3n Temporal (TPS), Permiso Humanitario, Asilo o Refugiado: Como alguien con TPS, Permiso Humanitario, Asilo o Estatus de Refugiado, calificas para Medicaid o puedes comprar un plan de seguro de salud en healthcare.gov."
+        },
+        {
+          "sub": "\u00bfQu\u00e9 es Medicaid?"
+        },
+        {
+          "body": "Medicaid es un programa gubernamental que ayuda a las personas con bajos ingresos y recursos limitados a pagar la atenci\u00f3n m\u00e9dica. Es un seguro de salud gratuito o de bajo costo que cubre varios servicios m\u00e9dicos como visitas al m\u00e9dico, hospitalizaciones, medicamentos recetados y m\u00e1s."
+        },
+        {
+          "sub": "\u00bfD\u00f3nde puedo solicitar Medicaid?"
+        },
+        {
+          "body": "En el estado de Illinois, puedes aplicar en l\u00ednea, por tel\u00e9fono, en persona o enviar una solicitud en papel. Por favor, consulta los siguientes enlaces para m\u00e1s detalles sobre c\u00f3mo aplicar:"
+        },
+        {
+          "link_text": "Get Care Illinois - Aplicar para Medicaid",
+          "source_link": "https://getcareillinois.org/need-health-coverage/medicaid/"
+        },
+        {
+          "link_text": "Gu\u00eda de Medicaid de Illinois Healthcare and Family Services",
+          "source_link": "https://hfs.illinois.gov/medicalclients/medicaidguide/applying.html"
+        },
+        {
+          "sub": "Indocumentado"
+        },
+        {
+          "body": "Si eres indocumentado, es posible que no puedas acceder a un plan de seguro de salud. Sin embargo, a\u00fan puedes recibir atenci\u00f3n m\u00e9dica de emergencia y servicios m\u00e9dicos preventivos en centros de salud de bajo costo en la Ciudad de Chicago. Por favor, consulta la siguiente secci\u00f3n sobre \u201cAccediendo a los Servicios de Salud Independientemente del Estatus Legal\u201d."
+        },
+        {
+          "body": "Si eres un ni\u00f1o indocumentado, calificas para All Kids, un plan de seguro de salud para ni\u00f1os de hogares de bajos ingresos que viven en Illinois. Para aplicar para All Kids, por favor haz clic en los siguientes enlaces para m\u00e1s detalles:"
+        },
+        {
+          "link_text": "All Kids - Acerca de",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/about.html"
+        },
+        {
+          "link_text": "All Kids - Aplicaci\u00f3n",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+        },
+        {
+          "body": "Si eres indocumentada y est\u00e1s embarazada, calificas para dos programas:"
+        },
+        {
+          "list": [
+            "Moms and Babies, un plan de seguro de salud para mujeres durante el embarazo y hasta 12 meses despu\u00e9s de que nazca el beb\u00e9. Para aplicar para Moms and Babies, tambi\u00e9n puedes usar la aplicaci\u00f3n de All Kids. Por favor, haz clic en los siguientes enlaces para aplicar.",
+            "Medicaid Presumptive Eligibility (MPE), un plan que ofrece cobertura inmediata y temporal para servicios de salud ambulatorios a mujeres embarazadas que cumplen con los requisitos de ingresos. Para obtener m\u00e1s informaci\u00f3n sobre MPE, por favor consulta los siguientes enlaces."
+          ]
+        },
+        {
+          "link_text": "Moms and Babies - Aplicaci\u00f3n",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+        },
+        {
+          "link_text": "Moms and Babies - Acerca de",
+          "source_link": "https://hfs.illinois.gov/medicalprograms/allkids/momsandbabies.html"
+        },
+        {
+          "header": "Accediendo a los Servicios de Salud Independientemente del Estatus Legal"
+        },
+        {
+          "body": "Acceder a los servicios de salud es un derecho fundamental, independientemente del estatus legal. A continuaci\u00f3n se presentan recursos y opciones disponibles para asegurar que todos puedan acceder a los servicios de salud esenciales y el apoyo en Chicago."
+        },
+        {
+          "sub": "Proveedores de Salud de Bajo Costo"
+        },
+        {
+          "body": "A continuaci\u00f3n se presentan diferentes cl\u00ednicas que proporcionan servicios de bajo costo o gratuitos:"
+        },
+        {
+          "list": [
+            "Cl\u00ednicas de bajo costo que se llaman Centros de Salud Calificados Federalmente (FQHC): por favor, haz clic en los siguientes enlaces para encontrar un centro cerca de ti.",
+            "Cl\u00ednicas gratuitas o de bajo costo que se llaman Cl\u00ednicas Gratuitas y de Caridad: por favor, haz clic en los siguientes enlaces para encontrar un centro cerca de ti."
+          ]
+        },
+        {
+          "link_text": "\u00bfQu\u00e9 es un FQHC?",
+          "source_link": "https://www.fqhc.org/what-is-an-fqhc"
+        },
+        {
+          "link_text": "Encuentra un Centro de Salud",
+          "source_link": "https://findahealthcenter.hrsa.gov/"
+        },
+        {
+          "link_text": "\u00bfQu\u00e9 es una Cl\u00ednica Gratuita y de Caridad?",
+          "source_link": "https://www.illinoisfreeclinics.org/clinic-search/whats-a-free-charitable-clinic/"
+        },
+        {
+          "link_text": "Directorio de Cl\u00ednicas",
+          "source_link": "https://www.illinoisfreeclinics.org/clinic-search/clinic-directory/"
+        },
+        {
+          "sub": "Atenci\u00f3n de Emergencia y Urgente"
+        },
+        {
+          "body": "Todos los hospitales sin fines de lucro est\u00e1n obligados a proporcionar una cantidad determinada de atenci\u00f3n de emergencia y asistencia financiera a los pacientes sin seguro, independientemente de su estatus. Por favor, haz clic en el siguiente enlace para encontrar un hospital sin fines de lucro."
+        },
+        {
+          "link_text": "Illinois Alliance for Welcoming Health Care - Programas de Acceso a la Salud",
+          "source_link": "https://www.ilalliancehealth.org/healthcare-access-programs"
+        }
+      ],
+      "title": "Navegando el Sistema de Salud en Chicago"
     },
     "home": {
       "description": "Esta gu\u00eda de recursos est\u00e1 dise\u00f1ada para nuevos migrantes para darles la bienvenida a su nuevo hogar. En esta gu\u00eda encontrar\u00e1 informaci\u00f3n sobre sus derechos como inmigrante y residente de Chicago, y sobre c\u00f3mo acceder a los recursos ofrecidos por la Ciudad de Chicago, el gobierno estatal y las organizaciones comunitarias.",
@@ -584,6 +758,7 @@
       "asylum_apply": "Quiero ayuda para solicitar asilo.",
       "asylum_header": "Creemos que usted podr\u00eda ser elegible para asilo.",
       "asylum_info": "He solicitado o recibido asilo.",
+      "hide_options": "Ocultar Opciones",
       "lawyers": "Encuentre asistencia legal personalizada.",
       "other": "Ninguna de las opciones anteriores se aplica a m\u00ed.",
       "other_header": "No podemos determinar su elegibilidad para Asilo, Libertad Condicional, o Estatus de Protecci\u00f3n Temporal",
@@ -593,6 +768,7 @@
       "parole_header": "Creemos que usted podr\u00eda ser elegible para libertad condicional humanitaria.",
       "parole_info": "He solicitado o recibido libertad condicional humanitaria.",
       "renters_rights": "Necesito aprender m\u00e1s sobre mis derechos como inquilino",
+      "see_options": "Ver Opciones",
       "something_else": "Necesito ayuda con algo m\u00e1s",
       "tps": "Soy de uno de los pa\u00edses listados a continuaci\u00f3n y llegu\u00e9 antes de la fecha correspondiente:",
       "tps_apply": "Quiero ayuda para solicitar el Estatus de Protecci\u00f3n Temporal (TPS).",
@@ -664,7 +840,7 @@
           "body": "\u00bfNecesita ayuda con la inscripci\u00f3n? Llame al 312-668-0114 de lunes a viernes, de 12pm a 4pm para asistencia."
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         },
         {
@@ -806,26 +982,11 @@
         {
           "header": "Proceso de Desalojo",
           "list": [
-            {
-              "body": "El arrendador entrega personalmente una notificaci\u00f3n escrita y firmada al inquilino o a cualquier persona de 13 a\u00f1os o m\u00e1s que viva en la propiedad, o env\u00eda una por correo certificado con un recibo firmado de devoluci\u00f3n.",
-              "sub": "1. Notificaci\u00f3n de Desalojo"
-            },
-            {
-              "body": "SOLO SI el inquilino y el arrendador no resuelven el problema dentro del per\u00edodo de notificaci\u00f3n, se entrega una citaci\u00f3n y una demanda con el sello del tribunal, llamando al inquilino al tribunal.",
-              "sub": "2. Citaci\u00f3n y Demanda del Tribunal"
-            },
-            {
-              "body": "Si el inquilino no se presenta, se podr\u00eda emitir un fallo por defecto a favor del arrendador, y el inquilino debe mudarse. Si el inquilino gana, el inquilino se queda en la unidad y el proceso termina.",
-              "sub": "3. Audiencia Judicial"
-            },
-            {
-              "body": "Luego se emite una orden de desalojo como la advertencia final del inquilino para mudarse y el desalojo podr\u00eda aparecer en el registro del inquilino.",
-              "sub": "Si el Arrendador Gana"
-            },
-            {
-              "body": "El inquilino es removido por la fuerza (solo por la polic\u00eda, nunca el arrendador).",
-              "sub": "Si el Inquilino Permanece Despu\u00e9s de la Orden de Desalojo"
-            }
+            "Notificaci\u00f3n de Desalojo: El arrendador entrega personalmente una notificaci\u00f3n escrita y firmada al inquilino o a cualquier persona de 13 a\u00f1os o m\u00e1s que viva en la propiedad, o env\u00eda una por correo certificado con un recibo firmado de devoluci\u00f3n.",
+            "Citaci\u00f3n y Demanda del Tribunal: SOLO SI el inquilino y el arrendador no resuelven el problema dentro del per\u00edodo de notificaci\u00f3n, se entrega una citaci\u00f3n y una demanda con el sello del tribunal, llamando al inquilino al tribunal.",
+            "Audiencia Judicial: Si el inquilino no se presenta, se podr\u00eda emitir un fallo por defecto a favor del arrendador, y el inquilino debe mudarse. Si el inquilino gana, el inquilino se queda en la unidad y el proceso termina.",
+            "Si el Arrendador Gana: Luego se emite una orden de desalojo como la advertencia final del inquilino para mudarse y el desalojo podr\u00eda aparecer en el registro del inquilino.",
+            "Si el Inquilino Permanece Despu\u00e9s de la Orden de Desalojo: El inquilino es removido por la fuerza (solo por la polic\u00eda, nunca el arrendador)."
           ]
         },
         {
@@ -1016,7 +1177,7 @@
           "header": "Talleres"
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         },
         {
@@ -1097,7 +1258,7 @@
           "sub": "Si eres denegado:"
         },
         {
-          "link_text": "Asistencia Legal de Illinois",
+          "link_text": "Illinois Legal Aid",
           "source_link": "https://www.illinoislegalaid.org/"
         }
       ],
@@ -1186,7 +1347,8 @@
           ]
         },
         {
-          "body": "FUENTE: Illinois Legal Aid"
+          "link_text": "Illinois Legal Aid",
+          "source_link": "https://www.illinoislegalaid.org/"
         }
       ],
       "title": "Derechos y Privilegios de los Beneficiarios del Estatus de Protecci\u00f3n Temporal"
@@ -1263,7 +1425,7 @@
           "header": "Obt\u00e9n Ayuda para Aplicar: Talleres de Solicitud de Inmigraci\u00f3n para Permiso de Trabajo y TPS para Nuevas Llegadas"
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         },
         {
@@ -1286,7 +1448,7 @@
           "body": "\u00bfNecesitas ayuda con la inscripci\u00f3n? Llama al 312-668-0114 de lunes a viernes, de 12 p.m. a 4 p.m. para obtener asistencia."
         },
         {
-          "link_text": "Bienvenido a IL",
+          "link_text": "Welcome to IL",
           "source_link": "https://welcometoil.org/resources/"
         }
       ],
@@ -1432,11 +1594,147 @@
           "sub": "Carga P\u00fablica"
         },
         {
-          "link_text": "Bienvenido a IL/Heartland Alliance",
+          "link_text": "Welcome to IL/Heartland Alliance",
           "source_link": "https://welcometoil.org/pdfviewer/victims-factsheet/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
         }
       ],
       "title": "Acerca de la Autorizaci\u00f3n de Trabajo a trav\u00e9s de VTTC"
+    },
+    "welcome": {
+      "content": [
+        {
+          "header": "Bienvenido"
+        },
+        {
+          "body": "Conocida por su vibrante cultura, comunidades diversas y vida urbana bulliciosa, Chicago es una ciudad acogedora que abraza a personas de todos los \u00e1mbitos de la vida. Un grupo de estudiantes universitarios, en colaboraci\u00f3n con la Ciudad de Chicago y organizaciones comunitarias locales, cre\u00f3 este sitio web para ayudar a los Nuevos Llegados, que son inmigrantes, migrantes y refugiados de todo el mundo, a comprender los recursos y servicios que tienen disponibles en Chicago. Entendemos que esta transici\u00f3n es un desaf\u00edo y esperamos proporcionar informaci\u00f3n clara para ayudarle a comenzar su nueva vida en Chicago. En esta p\u00e1gina, encontrar\u00e1 informaci\u00f3n general sobre:"
+        },
+        {
+          "list": [
+            "Chicago CityKey ID, una forma de identificaci\u00f3n",
+            "Usar el CTA, el sistema de transporte p\u00fablico de Chicago",
+            "Educaci\u00f3n P\u00fablica para Ni\u00f1os",
+            "Acceso a bancos de alimentos",
+            "Seguro de conductor"
+          ]
+        },
+        {
+          "header": "Chicago CityKey ID"
+        },
+        {
+          "body": "El Chicago CityKey ID es una tarjeta de identificaci\u00f3n opcional, v\u00e1lida y emitida por el gobierno, ofrecida a todos los residentes de Chicago, incluidos los Nuevos Llegados. Sirve como una tarjeta cuatro en uno al servir como una tarjeta de identificaci\u00f3n emitida por el gobierno, una tarjeta de la Biblioteca P\u00fablica de Chicago, una tarjeta Ventra y una tarjeta de descuento farmac\u00e9utico."
+        },
+        {
+          "body": "Para solicitar un CityKey ID, necesitar\u00e1 tres documentos que prueben su identidad, incluidos una foto y fecha de nacimiento, y que prueben que usted es residente de la Ciudad de Chicago. Para obtener m\u00e1s informaci\u00f3n sobre c\u00f3mo aplicar, haga clic en los siguientes enlaces:"
+        },
+        {
+          "link_text": "C\u00f3mo Aplicar",
+          "source_link": "https://www.chicityclerk.com/about-citykey/how-apply"
+        },
+        {
+          "link_text": "Reservar una Cita",
+          "source_link": "https://www.getcitykey.com/scheduling/bydate"
+        },
+        {
+          "link_text": "Materiales de Aplicaci\u00f3n",
+          "source_link": "https://www.chicityclerk.com/about-citykey/how-apply/application-materials/#ckdocs"
+        },
+        {
+          "header": "Usar el CTA"
+        },
+        {
+          "body": "La forma m\u00e1s f\u00e1cil de moverse por Chicago es aprovechando el CTA, que es la Autoridad de Tr\u00e1nsito de Chicago. Con su red integral de autobuses y trenes, el CTA ofrece opciones de transporte convenientes y asequibles para navegar por la ciudad."
+        },
+        {
+          "sub": "Planificaci\u00f3n de la Ruta de Viaje"
+        },
+        {
+          "body": "Puede planificar su viaje usando Google Maps haciendo clic en el \u00edcono del tren para encontrar la forma m\u00e1s r\u00e1pida de llegar a su destino. Como recordatorio, Google Maps proporciona una estimaci\u00f3n y los autobuses o trenes pueden retrasarse debido a la construcci\u00f3n o el tr\u00e1fico."
+        },
+        {
+          "body": "Otra forma de ver qu\u00e9 tan lejos est\u00e1 el autob\u00fas es la aplicaci\u00f3n Ventra. En la p\u00e1gina de inicio, le dice qu\u00e9 autobuses/trenes o bicicletas est\u00e1n cerca. Si hace clic en cerca, puede expandir la vista o mover su posici\u00f3n."
+        },
+        {
+          "sub": "Pago del CTA"
+        },
+        {
+          "body": "Para pagar los autobuses del CTA, debe tener el cambio exacto para pagar el autob\u00fas o usar su tarjeta Ventra. Para los trenes, debe tener una tarjeta Ventra que puede obtener en un quiosco antes de ingresar al tren o descargando la aplicaci\u00f3n. Para encontrar una ubicaci\u00f3n f\u00edsica para comprar una tarjeta Ventra, vea el siguiente enlace:"
+        },
+        {
+          "link_text": "Ubicaciones de Ventra",
+          "source_link": "https://www.ventrachicago.com/retailers/locations/"
+        },
+        {
+          "header": "Educaci\u00f3n P\u00fablica para Ni\u00f1os"
+        },
+        {
+          "body": "En Chicago, la educaci\u00f3n p\u00fablica se ofrece de forma gratuita, asegurando que cada ni\u00f1o tenga acceso a oportunidades de aprendizaje de calidad. Para inscribir a su hijo, deben cumplir con ciertos requisitos, incluyendo prueba de edad, prueba de direcci\u00f3n y prueba de cumplimiento m\u00e9dico, como un examen f\u00edsico, registro de inmunizaci\u00f3n y examen dental. Para obtener m\u00e1s informaci\u00f3n, haga clic en los siguientes enlaces:"
+        },
+        {
+          "link_text": "Requisitos de Inscripci\u00f3n",
+          "source_link": "https://www.cps.edu/schools/apply-enroll/enrollment-requirements/"
+        },
+        {
+          "link_text": "Aplicar e Inscribirse",
+          "source_link": "https://www.cps.edu/schools/apply-enroll/"
+        },
+        {
+          "header": "Acceso a Comida Gratuita"
+        },
+        {
+          "body": "Independientemente de su estado, puede acceder a comestibles gratuitos en su banco de alimentos local. Haga clic en el siguiente enlace para encontrar la despensa de alimentos m\u00e1s cercana a usted:"
+        },
+        {
+          "link_text": "Encontrar una Despensa de Alimentos",
+          "source_link": "https://www.chicagosfoodbank.org/find-food/#googtrans(en|en)"
+        },
+        {
+          "header": "Seguro de Conductor"
+        },
+        {
+          "body": "El Estado de Illinois emite una licencia de conducir especial para los no ciudadanos que no pueden obtener un SSN. La licencia se llama Licencia de Conductor Temporal para Visitantes (TVDL). Hay dos tipos de TVDL: La primera es para alguien autorizado a residir en este pa\u00eds por uno o m\u00e1s a\u00f1os. La segunda es para alguien que no tiene estatus legal o es indocumentado pero ha vivido en los EE. UU. por al menos un a\u00f1o."
+        },
+        {
+          "body": "Para calificar para un TVDL como residente legal, los solicitantes deben:",
+          "list": [
+            "Probar su nombre y fecha de nacimiento;",
+            "Probar que viven en Illinois;",
+            "Probar su firma escrita;",
+            "Proporcionar documentaci\u00f3n emitida por los Servicios de Ciudadan\u00eda e Inmigraci\u00f3n de los Estados Unidos que pruebe su estatus legal;",
+            "Afirmar que no son elegibles para obtener un n\u00famero de seguro social;",
+            "Aprobar los ex\u00e1menes de visi\u00f3n, escrito y de manejo;",
+            "Proporcionar prueba de seguro para el veh\u00edculo utilizado para el examen de manejo;",
+            "Proporcionar prueba (edades 18-20) de completar un curso de educaci\u00f3n para conductores adultos de 6 horas; y",
+            "Pagar una tarifa de solicitud de $30 ($35 para motocicletas)."
+          ]
+        },
+        {
+          "body": "Para calificar para un TVDL como inmigrante indocumentado, los solicitantes deben:",
+          "list": [
+            "Probar su nombre y fecha de nacimiento;",
+            "Probar su firma escrita;",
+            "Probar que han vivido en Illinois durante al menos 12 meses;",
+            "Probar d\u00f3nde viven actualmente en Illinois;",
+            "Afirmar que no son elegibles para obtener un n\u00famero de seguro social;",
+            "Proporcionar un pasaporte v\u00e1lido y no vencido o una tarjeta consular emitida por un pa\u00eds aprobado, o proporcionar otras pruebas de identidad y residencia que pueda requerir el Secretario de Estado;",
+            "Aprobar los ex\u00e1menes de visi\u00f3n, escrito y de manejo;",
+            "Proporcionar prueba de seguro para el veh\u00edculo utilizado para el examen de manejo;",
+            "Proporcionar prueba (edades 18-20) de completar un curso de educaci\u00f3n para conductores adultos de 6 horas; y",
+            "Pagar una tarifa de solicitud de $30 ($35 para motocicletas)."
+          ]
+        },
+        {
+          "body": "Para obtener m\u00e1s informaci\u00f3n, consulte los siguientes enlaces:"
+        },
+        {
+          "link_text": "Secretario de Estado de Illinois - TVDL",
+          "source_link": "https://www.ilsos.gov/departments/drivers/TVDL/home.html"
+        },
+        {
+          "link_text": "Ayuda Legal de Illinois - Licencia de Conducir para Inmigrantes",
+          "source_link": "https://www.illinoislegalaid.org/legal-information/drivers-license-immigrants"
+        }
+      ],
+      "title": "\u00a1Bienvenido a Chicago!"
     },
     "workers_rights": {
       "content": [
@@ -1504,8 +1802,8 @@
           "sub": "\u00bfC\u00f3mo puedo presentar una queja?"
         },
         {
-          "link_text": "Bienvenido a IL/Illinois Access to Justice",
-          "source_link": "https://welcometoil.org/pdfviewer/immigrant-rights-english/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none"
+          "link_text": "Welcome to IL/Illinois Access to Justice",
+          "source_link": "https://www.latinopolicyforum.org/publications/body/es-housing-rights-for-immigrant-tenants-updated-march-2024.pdf"
         }
       ],
       "title": "Derechos de los Trabajadores"
