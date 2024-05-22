@@ -293,5 +293,6 @@ input[type="text"], select {
 
 .flashed_error_message {
     color: red;
+    padding-bottom: 15px;
  /* Optional, for emphasis */
 }

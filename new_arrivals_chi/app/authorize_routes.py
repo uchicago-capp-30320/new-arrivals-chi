@@ -221,6 +221,7 @@ def post_change_password():
 
     return redirect(url_for("authorize.change_password"))
 
+
 @authorize.route("/registration_change_password")
 def registration_change_password():
     """Establishes route for the change password page for a new user..
@@ -233,10 +234,13 @@ def registration_change_password():
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
-    return render_template(
-        "registration_change_password.html", language=language, translations=translations
-    )
 
+    return render_template(
+        "registration_change_password.html",
+        language=language,
+        translations=translations,
+
+    )
 
 @authorize.route("/registration_change_password", methods=["POST"])
 def post_registration_change_password():
@@ -277,7 +281,6 @@ def post_registration_change_password():
 
     else:
         change_db_password(new_password)
-        flash(escape("Password change successful."))
         return redirect(url_for("authorize.register"))
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
@@ -285,24 +288,6 @@ def post_registration_change_password():
     return render_template(
         "registration_change_password.html", language=language, translations=translations
     )
-
-
-@authorize.route("/register")
-@login_required
-def register():
-    """Establishes route for registering an organizations information.
-
-    This route is accessible once a new user changes their password and logs in.
-
-    Returns:
-        Renders register page for user with their selected language.
-    """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
-    return render_template(
-        "register.html", language=language, translations=translations
-    )
-
 
 @authorize.route("/register", methods=["POST"])
 @login_required
@@ -325,3 +310,19 @@ def post_register():
         org_registration(location, hours)
         return redirect(url_for("main.dashboard"))
     return redirect(url_for("authorize.register"))
+
+@authorize.route("/register")
+@login_required
+def register():
+    """Establishes route for registering an organizations information.
+
+    This route is accessible once a new user changes their password and logs in.
+
+    Returns:
+        Renders register page for user with their selected language.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "register.html", language=language, translations=translations
+    )
