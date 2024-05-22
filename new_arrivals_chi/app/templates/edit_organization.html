@@ -11,4 +11,31 @@ HTML for edit organization page.
 <div class="box">
     <p>{{ organization.name }}</p>
 </div>
+<div class="box">
+    <form method="POST">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ organization.name }}"><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="{{ organization.address }}"><br><br>
+
+        <label for="address">Phone:</label>
+        <input type="text" id="address" name="address" value="{{ organization.phone }}"><br><br>
+
+        <label for="languages">Languages:</label><br>
+        <input type="checkbox" id="english" name="languages[]" value="english" {% if 'english' in organization.languages %} checked {% endif %}>
+        <label for="english">English</label><br>
+        <input type="checkbox" id="spanish" name="languages[]" value="spanish" {% if 'spanish' in organization.languages %} checked {% endif %}>
+        <label for="spanish">Spanish</label><br><br>
+
+        <label for="open_time">Open Time:</label>
+        <input type="text" id="open_time" name="open_time" value="{{ organization.open_time }}"><br><br>
+
+        <label for="close_time">Close Time:</label>
+        <input type="text" id="close_time" name="close_time" value="{{ organization.close_time }}"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
 {% endblock %}

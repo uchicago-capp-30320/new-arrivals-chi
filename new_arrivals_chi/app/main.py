@@ -45,25 +45,12 @@ from new_arrivals_chi.app.database import (
     organizations_hours,
     languages_organizations,
 )
-
-from new_arrivals_chi.app.utils import (
-    validate_email_syntax,
-    load_translations,
-    validate_phone_number,
-    create_temp_pwd,
-    load_neighborhoods,
-)
-
-from new_arrivals_chi.app.data_handler import (
-    create_user,
-    create_organization_profile,
-)
-
+from new_arrivals_chi.app.utils import load_translations, load_neighborhoods
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
-from sqlalchemy import select, join
+from sqlalchemy import select, join, update
 
 migrate = Migrate()
 
@@ -531,8 +518,28 @@ def edit_organization():
     user = current_user
     organization = User.query.get(user.organization_id)
     if request.method == "POST":
-        # Handle the form submission
-        pass
+        organization_id = organization.id
+        update_organization_stmt = (
+            update(Organization)
+            .where(Organization.id == organization_id)
+            .values(
+                name=request.form.get("name"), phone=request.form.get("phone")
+            )
+        )
+
+        # update_location_stmt = (
+        #     update(Location)
+        #     .where(Location.id == organization.location_id)
+        #     .values(
+        #         street_address=request.form.get('address')
+        #         )
+        #     )
+
+        # etc for each update
+
+        # excute an update
+        db.session.execute(update_organization_stmt)
+
     return render_template(
         "edit_organization.html",
         organization=organization,
