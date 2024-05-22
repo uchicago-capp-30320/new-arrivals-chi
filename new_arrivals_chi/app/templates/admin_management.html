@@ -8,14 +8,7 @@ HTML for edit organization page.
 -->
 {% extends "base.html" %}
 {% block content %}
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-      <div class="notification is-danger">
-          {{ messages[0] | escape }}
-      </div>
-  {% endif %}
 <div class="box">
-  
   {% endwith %}
     <div class="box-big-title">{{translations[language]['admin']['welcome'] }}</div>
     <button class="button blue" onclick="navigateTo('/admin/org_management', '{{ language | escape }}')">

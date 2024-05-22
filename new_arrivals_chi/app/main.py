@@ -445,7 +445,7 @@ def dashboard():
         )
     else: 
         organization = Organization.query.get(user.organization_id)
-        
+    
         if not organization:
             return "Organization not found", 404
 
@@ -531,7 +531,7 @@ def org(organization_id):
 
     return render_template(
         "organization.html",
-        organization_id = organization_id,
+        organization_id=organization_id,
         organization=organization,
         language=language,
         translations=translations,
@@ -553,7 +553,6 @@ def edit_organization():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
-
 
     # if user.role == "admin":
     #     # Query DB to get the organization's Data
