@@ -16,6 +16,8 @@ Methods:
 """
 
 import logging
+import random
+import string
 import json
 import re
 import os
@@ -193,3 +195,26 @@ def load_translations():
         with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
             translations[lang] = json.load(file)
     return translations
+
+
+def create_temp_pwd(email, phone):
+    """Creates a temporary password for a new user.
+
+    This function generates a temporary password for a new user based using the
+    first part of the email address and the first three digits of the provided
+    phone number.
+
+    Parameters:
+        email (str): The email address of the new user.
+        phone (str): The phone number of the new user.
+
+    Returns:
+        str: The temporary password generated for the new user.
+    """
+
+    email_string = email.split("@")[0]
+    phone_digits = phone[0:3]
+
+    temp_pwd = email_string + phone_digits
+
+    return temp_pwd
