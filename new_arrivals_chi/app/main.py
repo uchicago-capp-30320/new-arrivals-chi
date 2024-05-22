@@ -19,8 +19,8 @@ from flask import (
     render_template,
     request,
     current_app,
-    url_for,
     flash,
+    url_for,
 )
 import os
 import bleach
@@ -458,8 +458,8 @@ def dashboard():
 
         return render_template(
             "dashboard.html",
-            organization=organization,
             language=language,
+            organization=organization,
             translations=translations,
             edit_org_url=edit_org_url,
         )

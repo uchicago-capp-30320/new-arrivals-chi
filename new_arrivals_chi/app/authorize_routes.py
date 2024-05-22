@@ -184,8 +184,12 @@ def login_post():
             translations=translations,
         )
     else:
+        organization = Organization.query.get(user.organization_id)
         return render_template(
-            "dashboard.html", language=language, translations=translations
+            "dashboard.html",
+            language=language,
+            translations=translations,
+            organization=organization,
         )
 
 
