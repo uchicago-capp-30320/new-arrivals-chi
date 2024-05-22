@@ -32,7 +32,7 @@ from new_arrivals_chi.app.constants import (
     DEFAULT_LANGUAGE,
 )
 from new_arrivals_chi.app.database import db, User, Organization
-from new_arrivals_chi.app.utils import load_translations
+from new_arrivals_chi.app.utils import load_translations, load_neighborhoods
 from flask_migrate import Migrate
 import sqlite3
 from flask_login import LoginManager, login_required, current_user
@@ -540,6 +540,9 @@ def create_app(config_override=None):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
     app.config[KEY_TRANSLATIONS] = load_translations()
+
+    # Load neighborhoods from file and store in app config
+    app.config["NEIGHBORHOODS"] = load_neighborhoods()
 
     # Update app configuration with any provided override config (for testing)
     if config_override:
