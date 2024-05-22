@@ -107,7 +107,7 @@ def change_organization_status(org_id):
         else:
             organization.status = 'ACTIVE'
 
-        db.session.commit()
+        db.session.commit() #test on test db
         return organization
     else:
         return None
