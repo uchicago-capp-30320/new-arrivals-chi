@@ -563,9 +563,6 @@ def add_organization():
             flash(
                 escape("Invalid phone number (correct example: ###-###-####)")
             )
-        elif not org_name:
-            flash(escape("Organization name is required"))
-
         else:
             # Create the organization
             new_org_id = create_organization_profile(
@@ -577,9 +574,11 @@ def add_organization():
 
             # Update the user with the new organization id
             user = User.query.get(new_user_id)
-            user.organization_id = new_org_id
-
-            db.session.commit()
+            if user:
+                user.organization_id = new_org_id
+                db.session.commit()
+            else:
+                print("User not found")
 
     return render_template(
         "add_organization.html",
