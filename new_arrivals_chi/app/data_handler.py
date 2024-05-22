@@ -17,14 +17,6 @@ Methods:
     * add_hours - Adds new operating hours to the database.
     * assign_location_foreign_key_org_table - Assigns a location ID to
         an organization.
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/13/2024
-
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/09/2024
 """
 
 from new_arrivals_chi.app.database import (

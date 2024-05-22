@@ -24,15 +24,6 @@ Methods:
     * validate_neighborhood - Validates the neighborhood name.
     * validate_hours - Validates the operating hours.
     * setup_logger - Creates a logger for recording the output of the script.
-
-
-Last Updated:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/19/2024
-
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 04/19/2024
 """
 
 import logging
@@ -214,7 +205,7 @@ def validate_password(password):
         uppercase=1,  # need min. 1 uppercase letter
         numbers=1,  # need min. 1 digit
         special=1,  # need min. 1 special character
-        strength=0.66,  # Minimum value to be considered a strong password
+        strength=0.4,
     )
 
     policy_reqs = len(policy.test(password))

@@ -2,7 +2,7 @@
 
 File name: authorize_routes.py
 Associated Files:
-    Templates: profile.html, signup.html, login.html.
+    Templates: dashboard.html, signup.html, login.html.
 
 Defines routes for user creation and authentication for new arrivals portal.
 
@@ -16,14 +16,6 @@ Methods:
     * post_change_password - Executes change password logic.
     * register - Route to the organization's inital register page.
     * post_register - Executes inital organization registration logic.
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/09/2024
-
-Creation:
-@Author: Madeleine Roberts @MadeleineKRoberts
-@Date: 05/01/2024
 """
 
 import bleach
@@ -115,7 +107,7 @@ def signup_post():
         # Meets all sign up requirements
         new_user = create_user(email, password)
         login_user(new_user, remember=False)
-        return redirect(url_for("main.profile"))
+        return redirect(url_for("main.dashboard"))
 
     return redirect(url_for("authorize.signup"))
 
@@ -141,12 +133,12 @@ def login_post():
     """Processes the login request.
 
     Returns:
-        Redirects to the user's profile page if login is successful,
+        Redirects to the user's dashboard page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
     email = request.form.get("email").lower()
     password = request.form.get("password")
-    remember = True if request.form.get("remember") else False
+    remember = request.form.get("remember", False)
 
     user = User.query.filter_by(email=email).first()
 
@@ -159,7 +151,7 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
-    return redirect(url_for("main.profile"))
+    return redirect(url_for("main.dashboard"))
 
 
 @authorize.route("/logout")
@@ -180,7 +172,7 @@ def logout():
 def change_password():
     """Establishes route for the change password page.
 
-    This route is accessible within the 'change password' button in the profile
+    This route is accessible within the 'change password' button in dashboard
     page (will likely change location in the future).
 
     Returns:
@@ -199,7 +191,7 @@ def post_change_password():
     """Allows an authorized user to update their current password.
 
     Returns:
-        Redirects to the user's profile page if password change is successful,
+        Redirects to the user's dashboard page if password change is successful,
         otherwise redirects back to the change password page with a flash
         message.
     """
@@ -225,7 +217,7 @@ def post_change_password():
     else:
         change_db_password(new_password)
         flash(escape("Password change successful."))
-        return redirect(url_for("main.profile"))
+        return redirect(url_for("main.dashboard"))
 
     return redirect(url_for("authorize.change_password"))
 

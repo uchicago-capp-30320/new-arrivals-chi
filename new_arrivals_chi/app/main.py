@@ -3,28 +3,25 @@
 File name: main.py
 Associated Files:
     Templates: base.html, home.html, legal.html, health.html,
-    health_search.html, profile.html, login.html, info.html.
+    health_search.html, dashboard.html, login.html, info.html.
 
 Runs primary flask application for Chicago's new arrivals' portal.
 
 Methods:
     * home — Route to homepage of application.
-    * profile - Route to user's profile.
+    * dashboard - Route to user's dashboard.
     * legal - Route to legal portion of application.
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/13/2024
-
-Creation:
-@Author: Summer Long @Sumslong
-@Date: 04/19/2024
 """
 
-from http import HTTPMethod
 
-from flask import Flask, Blueprint, render_template, request, current_app, flash
-from markupsafe import escape
+from flask import (
+    Flask,
+    Blueprint,
+    render_template,
+    request,
+    current_app,
+    url_for,
+)
 import os
 import bleach
 from dotenv import load_dotenv
@@ -41,7 +38,7 @@ from flask_migrate import Migrate
 import sqlite3
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
-
+from datetime import timedelta
 
 migrate = Migrate()
 
@@ -68,36 +65,20 @@ def home():
     )
 
 
-@main.route("/profile", methods=[HTTPMethod.GET, HTTPMethod.POST])
-@login_required
-def profile():
-    """Handles both displaying the user's profile and adding an organization.
+@main.route("/about")
+def about():
+    """Establishes route for the about us page.
 
-    GET: Renders profile page with user's organization info.
-    POST: Adds a new organization to the database and redirects to profile page.
+    This route is accessible from the footer of every page.
+
+    Returns:
+        Renders about us page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
-    if request.method == "POST":
-        name = bleach.clean(request.form.get("name"))
-        phone = bleach.clean(request.form.get("phone"))
-        status = bleach.clean(request.form.get("status"))
-
-        org_id = create_organization_profile(name, phone, status)
-        if org_id:
-            flash(escape("Organization added successfully."))
-        else:
-            flash(escape("Failed to add organization."))
-
-    user = current_user
-    organization = Organization.query.get(user.organization_id)
-
     return render_template(
-        "profile.html",
-        organization=organization,
-        translations=translations,
-        language=language,
+        "about.html", language=language, translations=translations
     )
 
 
@@ -273,23 +254,6 @@ def legal_undocumented_resources():
     )
 
 
-@main.route("/legal/help")
-def legal_help():
-    """Establishes route for the Legal Help page.
-
-    This route is accessible within the legal section.
-
-    Returns:
-        Renders legal flow - Legal Help page.
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "help.html", language=language, translations=translations
-    )
-
-
 @main.route("/legal/work_rights")
 def workers_rights():
     """Route for information about workers' rights.
@@ -320,18 +284,18 @@ def renters_rights():
     )
 
 
-@main.route("/legal/general")
-def legal_general():
-    """Route for general legal information.
+@main.route("/legal/lawyers")
+def lawyers():
+    """Route for lawyers.
 
     Returns:
-        Renders the legal general page.
+        Renders the page with contact information for lawyers
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "general.html", language=language, translations=translations
+        "lawyers.html", language=language, translations=translations
     )
 
 
@@ -368,7 +332,7 @@ def health_search():
     cursor = conn.cursor()
 
     cursor.execute(
-        "SELECT s.service, l.neighborhood, o.name, "
+        "SELECT s.service, l.neighborhood, o.name, o.id, "
         + "strftime('%I:%M %p', h.opening_time) "
         "|| ' - ' || "
         "strftime('%I:%M %p', h.closing_time) "
@@ -396,22 +360,161 @@ def health_search():
     )
 
 
-@main.route("/info")
-def info():
-    """Establishes route for an unauthenticated view of an org's information.
-
-    This will be accessible when search is implemented.
+@main.route("/general")
+def general():
+    """Route for Chicago 101 page.
 
     Returns:
-        Renders information of an organization.
+        Chicago 101 page
     """
-    language = bleach.clean(
-        request.args.get(KEY_TRANSLATIONS, DEFAULT_LANGUAGE)
-    )
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "info.html", language=language, translations=translations
+        "general.html", language=language, translations=translations
+    )
+
+
+@main.route("/dashboard", methods=["GET"])
+@login_required
+def dashboard():
+    """Establishes route to the organization dashboard.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the dashboard page with buttons to view org page, edit org page
+        and change password.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    user = current_user
+    organization = Organization.query.get(user.organization_id)
+    if not organization:
+        return "Organization not found", 404
+
+    # generate URL for edit_organization endpoint
+    edit_org_url = url_for(
+        "main.edit_organization", org_name=organization.name, lang=language
+    )
+
+    return render_template(
+        "dashboard.html",
+        organization=organization,
+        language=language,
+        translations=translations,
+        edit_org_url=edit_org_url,
+    )
+
+
+# @main.route("/org", methods=["GET"])
+# @login_required
+# def org():
+#     """Establishes route to the organization page.
+
+#     This page is dynamically generated based on the org id and contains
+#     organization details. It is accessible from the org dashboard.
+
+#     Returns:
+#         Renders the organization page (public facing).
+#     """
+# language = bleach.clean(request.args.get("lang", "en"))
+# translations = current_app.config["TRANSLATIONS"][language]
+#     user = current_user
+#     organization = User.query.get(user.organization_id)
+#     return render_template(
+#         "organization.html",
+#         organization=organization,
+#         language=language,
+#         translations=translations,
+#     )
+
+
+@main.route("/org/<int:organization_id>", methods=["GET"])
+def org(organization_id):
+    """Establishes route to the organization page.
+
+    This page is dynamically generated based on the org id and contains
+    organization details. It is accessible from the org dashboard and the health
+    filterable table.
+
+    Returns:
+        Renders the organization page (public facing).
+    """
+    conn = sqlite3.connect("instance/test_fake_data.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT o.name, l.street_address, o.phone, lg.language, s.service, "
+        + "strftime('%I:%M %p', h.opening_time) "
+        "|| ' - ' || "
+        "strftime('%I:%M %p', h.closing_time) "
+        "AS opening_closing_time "
+        "FROM organizations o "
+        "JOIN hours h ON o.hours_id = h.id "
+        "JOIN locations l ON o.location_id = l.id "
+        "JOIN organizations_services os ON o.id = os.organization_id "
+        "JOIN services s ON os.service_id = s.id "
+        "JOIN languages_organizations ol ON o.id = ol.organization_id "
+        "JOIN languages lg ON ol.language_id = lg.id "
+        "WHERE o.id = ?",
+        (organization_id,),
+    )
+
+    organization_info = cursor.fetchall()
+
+    conn.close()
+
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    if organization_info:
+        organization = {
+            "name": organization_info[0][0],
+            "address": organization_info[0][1],
+            "phone": organization_info[0][2],
+            "language": organization_info[0][3],
+            "service": (", ").join([info[4] for info in organization_info]),
+            "hours": organization_info[0][5],
+        }
+
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    return render_template(
+        "organization.html",
+        organization=organization,
+        language=language,
+        translations=translations,
+        organization_id=organization_id,
+    )
+
+
+@main.route("/edit_organization", methods=["GET", "POST"])
+@login_required
+def edit_organization():
+    """Establishes route to the edit organization page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the edit organization page where admin or organizations can
+        update their info.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    user = current_user
+    organization = User.query.get(user.organization_id)
+    if request.method == "POST":
+        # Handle the form submission
+        pass
+    return render_template(
+        "edit_organization.html",
+        organization=organization,
+        language=language,
+        translations=translations,
     )
 
 
@@ -423,6 +526,7 @@ def create_app(config_override=None):
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
     app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Load neighborhoods from file and store in app config

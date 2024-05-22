@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Public Sans', sans-serif;
+    text-align: left;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    overflow-x: hidden;
+    border-radius: 20px;
+    padding: 40px 20px;
+}
+
+/* Adjust the container width for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px 10px;
+    }
+}
+
+.white-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+h2, h3 {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.1em;
+    padding-bottom: 0.5em;
+    font-style: italic;
+    font-weight: normal;
+}
+
+p, li {
+    font-size: 1em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    text-align: left;
+}
+
+ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-left: 1.5em;
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 0.5em;
+    position: relative;
+    padding-left: 25px;
+}
+
+li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: seagreen;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.subheader {
+    color: grey;
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+.blue-button {
+    background-color: #E7F0FE;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.blue-button:hover {
+    background-color: #297def;
+}

@@ -1,0 +1,26 @@
+<!--
+Project: new_arrivals_chi
+File name: organization.html
+Associated Files:
+    main.py, dashboard.html, health_search.html
+
+Uauthenticated view of an organization's website. Calls database
+using an organization's unique id and populates information.
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="button-container">
+    <div class="title">{{ organization.name }} </div>
+    <div class="box-contact-info">
+        <i class="fa-solid fa-diamond-turn-right"></i> {{ organization.address }}&nbsp;&nbsp;
+        <i class="fa-solid fa-phone"></i> {{ organization.phone }}
+    </div>
+    <div class="box-contact-info">{{ 'Horas de Atención:' if language =='es' else 'Open Hours:' | escape }} {{ organization.hours }}</div>
+    <div class="box-contact-info">{{ 'Idiomas hablados:' if language == 'es' else 'Languages Spoken:' | escape }} {{organization.language}} </div>
+    <div class="box-contact-info">{{ 'Recursos y Servicios:' if language == 'es' else 'Supplies and Services:'| escape }} {{organization.service}} </div>
+</div>
+
+{% endblock %}
