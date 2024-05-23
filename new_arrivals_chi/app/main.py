@@ -741,34 +741,6 @@ def create_app(config_override=None):
     return app
 
 
-def retrieve_hours(all_hours):
-    # Retrieve all opperating hours
-    organization_hours = {
-        "monday": [],
-        "tuesday": [],
-        "wednesday": [],
-        "thursday": [],
-        "friday": [],
-        "saturday": [],
-        "sunday": [],
-    }
-
-    weekdays = {
-        1: "monday",
-        2: "tuesday",
-        3: "wednesday",
-        4: "thursday",
-        5: "friday",
-        6: "saturday",
-        7: "sunday",
-    }
-
-    for current_hour in all_hours:
-        extract_hour_info(current_hour, organization_hours, weekdays)
-
-    return organization_hours
-
-
 def extract_organization():
     user_info = User.query.filter_by(id=current_user.id).first()
     org_info = Organization.query.filter_by(
@@ -804,6 +776,34 @@ def extract_organization():
     }
 
     return organization
+
+
+def retrieve_hours(all_hours):
+    # Retrieve all opperating hours
+    organization_hours = {
+        "monday": [],
+        "tuesday": [],
+        "wednesday": [],
+        "thursday": [],
+        "friday": [],
+        "saturday": [],
+        "sunday": [],
+    }
+
+    weekdays = {
+        1: "monday",
+        2: "tuesday",
+        3: "wednesday",
+        4: "thursday",
+        5: "friday",
+        6: "saturday",
+        7: "sunday",
+    }
+
+    for current_hour in all_hours:
+        extract_hour_info(current_hour, organization_hours, weekdays)
+
+    return organization_hours
 
 
 def extract_hour_info(current_hour, organization_hours, weekdays):

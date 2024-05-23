@@ -315,53 +315,10 @@ input[type="email"], select {
 .flashed_error_message {
     color: red;
     padding-bottom: 15px;
- /* Optional, for emphasis */
 }
 
-.org-info-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 2px solid grey;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.org-info-container .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.org-info-container .box-contact-info {
-    margin-bottom: 10px;
-    color: #666;
-}
-
-.org-info-container .subheader {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    text-align: left;
-}
-
-.org-info-container ul {
-    list-style-type: none;
-    padding-left: 0;
-    width: 100%;
-}
-
-.org-info-container li {
-    margin-bottom: 5px;
+.location-input {
+    width: 150px;
+    padding: 5px;
+    font-size: 15px;
 }
