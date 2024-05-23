@@ -23,7 +23,7 @@ Our application relies on a monolithic architecture, consisting of a single serv
 - **Cloud Storage**: We utilize an AWS S3 bucket as our cloud storage provider. The primary purpose of this bucket is to house the logo images for each organization within our system.
 
 **Communication between Frontend and Backend**:
--   **HTTP/HTTPS Protocol**: The communication between the client and server happens over HTTP protocol (with the plan shift to a HTTPS when we deploy our web server). We use HTTP methods like GET, POST, DELETE to send requests to the server.
+-   **HTTP/HTTPS Protocol**: The communication between the client and server happens over HTTPS protocol. We use HTTP methods like GET, POST, DELETE to send requests to the server.
 
 **Security**:
   -   **Authentication and Authorization**: We implement user authentication and authorization with Flask-Login, which allows us to verify user credentials, set session variables, and protect routes. Passwords and vulnerable information is hashed with bcrypt before storing them in the database. This ensures that even if the database is compromised, the passwords remain secure. Additionally, we enforce proper authorization checks within our routes to ensure that users only have access to the resources they are permitted to interact with. Notably, standard website visitors are not required to have authentication to access the platform. Authorization is solely required for website administrators and representatives from the Chicago community organization; these users are subjected to distinct levels of authentication.
