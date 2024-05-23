@@ -122,7 +122,7 @@ Below are video demonstrations for using the application from the perspective of
 
 * [General User (Unauthenticated)](https://drive.google.com/file/d/1xjU0ppjwapJEmaTLxG063AfIdRWvKnnU/view?usp=drive_link)
 
-* [Organization Admin (Permission to edit one assigned organization)]
+* [Organization Admin (Permission to edit one assigned organization)](https://drive.google.com/file/d/1xXCtw5jmi7Xrotr2H7F3Tk49Dxy9mnpi/view?usp=sharing)
 
 * [Admin (Permission to edit all organizations)](https://drive.google.com/file/d/1rc3HrA5umMv5SV2YZT4-4uHFoCCjvNaM/view?usp=sharing)
 
