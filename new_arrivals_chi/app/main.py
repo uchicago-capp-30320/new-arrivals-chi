@@ -50,6 +50,10 @@ from new_arrivals_chi.app.utils import (
     load_neighborhoods,
     validate_email_syntax,
     validate_phone_number,
+    validate_city,
+    validate_zip_code,
+    validate_state,
+    validate_street,
     create_temp_pwd,
 )
 
@@ -619,19 +623,33 @@ def edit_location():
     user = current_user
     organization = Organization.query.get(user.organization_id)
 
-    # Update the organization's location
-    try:
-        location = Location.query.get(organization.location_id)
-        location.street_address = street_address
-        location.city = city
-        location.state = state
-        location.zip_code = zip_code
-        location.neighborhood = neighborhood
-        location.primary_location = primary_location
-        db.session.commit()
+    location = Location.query.get(organization.location_id)
+    location.street_address = street_address
+    location.city = city
+    location.state = state
+    location.zip_code = zip_code
+    location.neighborhood = neighborhood
+    location.primary_location = primary_location
 
-    except Exception as error:
-        print(f"Error updating location: {error}")
+    if not validate_street(street_address):
+        flash(escape("Invalid street address. Try again"))
+
+    elif not validate_city(city):
+        flash(escape("Invalid city. Try again"))
+
+    elif not validate_state(state):
+        flash(escape("Invalid state. Try again"))
+
+    elif not validate_zip_code(zip_code):
+        flash(escape("Invalid zip code. Try again"))
+
+    else:
+        # Update the organization's location
+        try:
+            db.session.commit()
+
+        except Exception as error:
+            print(f"Error updating location: {error}")
 
 
 @main.route("/add_organization", methods=["GET", "POST"])
