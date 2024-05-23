@@ -43,6 +43,21 @@
       ],
       "title": "About Us"
     },
+    "admin": {
+      "action": "Action",
+      "active": "Active",
+      "add_org": "Add Organization",
+      "edit": "Edit",
+      "error_reports": "Website error reports",
+      "hidden": "Hidden",
+      "name_of_org": "Name of Organization",
+      "org_management": "Organization Management",
+      "status": "Status",
+      "suspend": "Suspend",
+      "suspended": "Suspended",
+      "unsuspend": "Unsuspend",
+      "welcome": "Welcome to the Admin Dashboard"
+    },
     "asylum_apply": {
       "content": [
         {

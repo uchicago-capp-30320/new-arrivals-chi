@@ -29,7 +29,7 @@ from flask import (
     flash,
     current_app,
 )
-from new_arrivals_chi.app.database import User
+from new_arrivals_chi.app.database import User, Organization
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
     validate_password,
@@ -44,9 +44,11 @@ from new_arrivals_chi.app.constants import (
     DEFAULT_LANGUAGE,
 )
 from flask_login import login_user, login_required, logout_user, current_user
+from functools import wraps
 from new_arrivals_chi.app.data_handler import (
     create_user,
     change_db_password,
+    change_organization_status,
     org_registration,
 )
 
@@ -56,6 +58,26 @@ logging.basicConfig(level=logging.INFO)
 
 
 authorize = Blueprint("authorize", __name__, static_folder="/static")
+
+
+def admin_required(f):
+    """Function so only authed users with admin privileges can access routes.
+
+    Args:
+        f (function): The function to be decorated.
+
+    Returns:
+        function: Decorated function.
+    """
+
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_authenticated or current_user.role != "admin":
+            flash("You are not authorized to access this page.", "error")
+            return redirect(url_for("main.login"))
+        return f(*args, **kwargs)
+
+    return decorated_function
 
 
 @authorize.route("/signup")
@@ -136,6 +158,9 @@ def login_post():
         Redirects to the user's dashboard page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
     email = request.form.get("email").lower()
     password = request.form.get("password")
     remember = request.form.get("remember", False)
@@ -151,7 +176,21 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
-    return redirect(url_for("main.dashboard"))
+
+    if current_user.role == "admin":
+        return render_template(
+            "admin_management.html",
+            language=language,
+            translations=translations,
+        )
+    else:
+        organization = Organization.query.get(user.organization_id)
+        return render_template(
+            "dashboard.html",
+            language=language,
+            translations=translations,
+            organization=organization,
+        )
 
 
 @authorize.route("/logout")
@@ -331,4 +370,126 @@ def register():
     translations = current_app.config["TRANSLATIONS"][language]
     return render_template(
         "register.html", language=language, translations=translations
+    )
+
+
+@authorize.route("/admin")
+@admin_required
+def admin_dashboard():
+    """Establishes route to admin management or redirects to home based on user.
+
+    This route checks if the current user is an admin. If yes, it renders
+    the admin dashboard template. If not, it redirects the user to the home
+    page.
+
+    Returns:
+        Renders the admin dashboard page where admin can select to manage
+        organizations or look at website error reports. If user is not admin,
+        it redirects to home page.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    if current_user.is_admin:
+        return render_template(
+            "admin_management.html",
+            language=language,
+            translations=translations,
+        )
+    else:
+        return render_template(
+            "home.html", language=language, translations=translations
+        )
+
+
+@authorize.route("/admin/org_management", methods=["GET"])
+@admin_required
+def org_management():
+    """Establishes route to org management page w/ list of orgs.
+
+    This route fetches a list of organizations from the database and renders
+    the organization management template with the list.
+
+    Returns:
+        Renders template with organizations.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    organizations = Organization.query.with_entities(
+        Organization.id, Organization.name, Organization.status
+    ).all()
+
+    return render_template(
+        "org_management.html",
+        organizations=organizations,
+        language=language,
+        translations=translations,
+    )
+
+
+@authorize.route(
+    "/suspend_organization/<int:organization_id>", methods=["GET", "POST"]
+)
+@admin_required
+def toggle_suspend_organization(organization_id):
+    """Establishes route to toggle the status of an organization to suspend it.
+
+    This route suspends an organization by toggling its status. It expects the
+    organization_id to be provided in the form data. If the organization is
+    successfully suspended, a success message is flashed. If the organization is
+    not found or if the request is invalid, appropriate error messages are
+    flashed. After processing the request, the user is redirected to the
+    org_management page.
+
+    Returns:
+        Response: Redirects to org_management page with flashed messages.
+    """
+    if organization_id:
+        updated_organization = change_organization_status(organization_id)
+        print(updated_organization)
+        if updated_organization:
+            flash(
+                escape(
+                    f"Organization status change to \
+                         {updated_organization.status}"
+                ),
+                "success",
+            )
+        else:
+            flash(escape("Organization not found."), "error")
+    else:
+        flash(escape("Invalid request."), "error")
+    # redirect to org management page in all cases? should i do that?
+    return redirect(url_for("authorize.org_management"))
+
+
+@authorize.route(
+    "/admin/edit_organization/<int:organization_id>", methods=["GET", "POST"]
+)
+@admin_required
+def admin_edit_organization(organization_id):
+    """Establishes route to the edit organization page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the edit organization page where admin or organizations can
+        update their info.
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    organization = Organization.query.get(organization_id)
+
+    if request.method == "POST":
+        # Handle the form submission
+        pass
+    return render_template(
+        "edit_organization.html",
+        organization_id=organization_id,
+        organization=organization,
+        language=language,
+        translations=translations,
     )
