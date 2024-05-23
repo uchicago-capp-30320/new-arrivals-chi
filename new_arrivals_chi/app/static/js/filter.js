@@ -25,7 +25,7 @@ function filterTable() {
         var showRow = true;
 
         if (supplies) {
-            var services = cells[0].textContent.toLowerCase();
+            var services = cells[0].textContent.toLowerCase().split(', ');
             if (!services.some(service => service.includes(supplies.toLowerCase()))) {
                 showRow = false;
             }
