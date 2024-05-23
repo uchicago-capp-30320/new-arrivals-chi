@@ -119,7 +119,7 @@ Below are video demonstrations for using the application from the perspective of
 
 * [Organization Admin (Permission to edit one assigned organization)]
 
-* [Admin (Permission toe edit all organizations)]
+* [Admin (Permission to edit all organizations)](https://drive.google.com/file/d/1rc3HrA5umMv5SV2YZT4-4uHFoCCjvNaM/view?usp=sharing)
 
 # Design & Values
 
