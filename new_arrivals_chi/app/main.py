@@ -596,6 +596,9 @@ def edit_location():
         try:
             db.session.commit()
 
+            # Display success message
+            flash(escape("Location updated successfully"))
+
         except Exception as error:
             print(f"Error updating location: {error}")
 
@@ -630,9 +633,40 @@ def edit_contact_info():
         # Update the organization's contact information
         try:
             db.session.commit()
+            flash(escape("Contact information updated successfully"))
 
         except Exception as error:
             print(f"Error updating contact information: {error}")
+
+
+@main.route("/edit_languages", methods=["POST"])
+@login_required
+def edit_languages():
+    """POST request to edit the organization's languages.
+
+    Parameters
+    ----------
+    organization_id : int
+        The organization's id.
+    """
+    languages = request.form.get("languages")
+
+    # Get user's current organization
+    user = current_user
+    organization = Organization.query.get(user.organization_id)
+
+    # Clear the existing languages
+    organization.languages = []
+
+    for language in languages:
+        organization.languages.append(language)
+
+    try:
+        db.session.commit()
+        flash(escape("Languages updated successfully"))
+
+    except Exception as error:
+        print(f"Error updating languages: {error}")
 
 
 @main.route("/add_organization", methods=["GET", "POST"])
