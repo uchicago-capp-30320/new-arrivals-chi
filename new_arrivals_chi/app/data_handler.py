@@ -11,12 +11,28 @@ Methods:
     * create_user - Creates a new user in the database.
     * change_db_password - Changes the password for the current user in the
       database.
-    * create_organization_profile: Creates organization in the database.
+    * create_organization_profile - Creates an organization in the database.
     * org_registration - Registers an organization's location and hours.
     * add_location - Adds a new location to the database.
     * add_hours - Adds new operating hours to the database.
     * assign_location_foreign_key_org_table - Assigns a location ID to
-        an organization.
+      an organization.
+    * change_organization_status - Changes the status of an organization in the
+      database.
+    * extract_organization - Extracts detailed information about an
+      organization.
+    * retrieve_hours - Retrieves the operating hours for an organization.
+    * extract_hour_info - Extracts and organizes hour information for a
+      specific day.
+    * retrieve_languages - Retrieves all languages spoken at an organization.
+    * retrieve_services - Retrieves detailed information about the services
+      offered by an organization.
+    * retrieve_dates - Retrieves all dates associated with a service.
+    * extract_date_info - Extracts detailed information about a specific date.
+    * retrieve_locations - Retrieves all location details associated with a
+      service.
+    * extract_location_info - Extracts detailed information about a specific
+      location.
 """
 
 from new_arrivals_chi.app.database import (
@@ -261,13 +277,19 @@ def change_organization_status(org_id):
 
 
 def extract_organization(organization_id):
-    """_summary_.
+    """Extracts detailed information about an organization.
+
+    This function retrieves detailed information about an organization,
+    including its primary location, operating hours, services, and languages
+    spoken.
 
     Args:
-        organization_id (_type_): _description_
+        organization_id (int): The ID of the organization to be extracted.
 
     Returns:
-        _type_: _description_
+        dict: A dictionary containing the organization's details such as name,
+              phone, languages, services, hours, and primary location
+              information.
     """
     org_info = Organization.query.filter_by(id=organization_id).first()
     primary_location_info = Location.query.filter_by(
@@ -304,13 +326,17 @@ def extract_organization(organization_id):
 
 
 def retrieve_hours(all_hours):
-    """_summary_.
+    """Retrieves the operating hours for an organization.
+
+    This function organizes the operating hours of an organization into a
+    dictionary with days of the week as keys.
 
     Args:
-        all_hours (_type_): _description_
+        all_hours (list): A list of hours objects containing all hours.
 
     Returns:
-        _type_: _description_
+        dict: A dictionary containing the operating hours for each
+        day of the week.
     """
     # Retrieve all opperating hours
     organization_hours = {
@@ -340,12 +366,14 @@ def retrieve_hours(all_hours):
 
 
 def extract_hour_info(current_hour, organization_hours, weekdays):
-    """_summary_.
+    """Extracts and organizes hour information for a specific day.
 
     Args:
-        current_hour (_type_): _description_
-        organization_hours (_type_): _description_
-        weekdays (_type_): _description_
+        current_hour (object): An object containing the hour information
+            for a specific day.
+        organization_hours (dict): A dictionary to store the organized
+             hour information.
+        weekdays (dict): A dictionary mapping day numbers to day names.
     """
     day = current_hour.day_of_week
     day_str = weekdays[day]
@@ -370,10 +398,13 @@ def extract_hour_info(current_hour, organization_hours, weekdays):
 
 
 def retrieve_languages(org_reference):
-    """Retrieves all languages for an organization.
+    """Retrieves all languages spoken at an organization.
 
     Args:
-        org_reference: summary
+        org_reference (object): An object reference to the organization.
+
+    Returns:
+        list: A list of languages spoken at the organization.
     """
     all_languages = org_reference.languages
     language_list = []
@@ -383,13 +414,15 @@ def retrieve_languages(org_reference):
 
 
 def retrieve_services(all_services):
-    """_summary_.
+    """Retrieves detailed information about the services offered by an org.
 
     Args:
-        all_services (_type_): _description_
+        all_services (list): A list of service objects provided by the
+        organization.
 
     Returns:
-        _type_: _description_
+        list: A list of dictionaries containing detailed information about
+        each service.
     """
     complete_service_info = []
     for curr_service in all_services:
@@ -407,13 +440,13 @@ def retrieve_services(all_services):
 
 
 def retrieve_dates(all_dates):
-    """_summary_.
+    """Retrieves all dates associated with a service.
 
     Args:
-        all_dates (_type_): _description_
+        all_dates (list): A list of date objects associated with a service.
 
     Returns:
-        _type_: _description_
+        list: A list of dictionaries containing date information.
     """
     complete_date_info = []
 
@@ -425,13 +458,13 @@ def retrieve_dates(all_dates):
 
 
 def extract_date_info(current_date):
-    """_summary_.
+    """Extracts detailed information about a specific date.
 
     Args:
-        current_date (_type_): _description_
+        current_date (object): An object containing date information.
 
     Returns:
-        _type_: _description_
+        dict: A dictionary containing detailed information about the date.
     """
     single_date_info = {
         "date": current_date.date,
@@ -443,13 +476,14 @@ def extract_date_info(current_date):
 
 
 def retrieve_locations(all_locations):
-    """_summary_.
+    """Retrieves all location details associated with a service.
 
     Args:
-        all_locations (_type_): _description_
+        all_locations (list): A list of location objects associated with a
+        service.
 
     Returns:
-        _type_: _description_
+        list: A list of dictionaries containing location information.
     """
     complete_location_info = []
 
@@ -461,9 +495,20 @@ def retrieve_locations(all_locations):
 
 
 def extract_location_info(current_location):
-    """_summary_.
+    """Extracts detailed information about a specific location.
 
     Args:
-        current_location (_type_): _description_
+        current_location (object): An object containing location information.
+
+    Returns:
+        dict: A dictionary containing detailed information about the location.
     """
-    pass
+    single_location_info = {
+        "street address": current_location.street_address,
+        "zip_code": current_location.zip_code,
+        "city": current_location.city,
+        "state": current_location.state,
+        "primary_location": current_location.primary_location,
+        "neighborhood": current_location.neighborhood,
+    }
+    return single_location_info

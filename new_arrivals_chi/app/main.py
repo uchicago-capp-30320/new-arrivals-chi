@@ -465,9 +465,9 @@ def org(organization_id):
     )
 
 
-@main.route("/edit_organization", methods=["GET", "POST"])
+@main.route("/edit_organization/<int:organization_id>", methods=["GET"])
 @login_required
-def edit_organization():
+def edit_organization(organization_id):
     """Establishes route to the edit organization page.
 
     This route is accessible by selecting 'Dashboard' on the
@@ -479,26 +479,16 @@ def edit_organization():
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
+
     user = current_user
+    organization = extract_organization(user.organization_id)
 
-    # if user.role == "admin":
-    #     # Query DB to get the organization's Data
-    #     # organzation id is the one in the url
-    #     organization_id = bleach(request.args.get("organization_id"))
-    #     organization = Organization.query.get(organization_id)
-
-    # else:
-    organization = User.query.get(user.organization_id)
-
-    # organization = User.query.get(user.organization_id)
-    if request.method == "POST":
-        # Handle the form submission
-        pass
     return render_template(
         "edit_organization.html",
         organization=organization,
         language=language,
         translations=translations,
+        organization_id=organization_id,
     )
 
 
