@@ -414,8 +414,8 @@ def retrieve_languages(org_reference):
 
 
 def retrieve_services(all_services):
-    """Retrieves detailed information about the services offered by an
-    organization.
+    """Retrieves detailed information about the services offered by an org.
+    
 
     Args:
         all_services (list): A list of service objects provided by the
