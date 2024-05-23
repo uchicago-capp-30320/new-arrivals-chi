@@ -465,3 +465,9 @@ def create_temp_pwd(email, phone):
     temp_pwd = email_string + phone_digits
 
     return temp_pwd
+
+
+def mock_send_email(to_email, subject, content):
+    print(f"Mock send email to: {to_email}")
+    print(f"Subject: {subject}")
+    print(f"Content: {content}")

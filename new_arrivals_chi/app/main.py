@@ -52,6 +52,7 @@ from new_arrivals_chi.app.utils import (
     validate_phone_number,
     create_temp_pwd,
     load_neighborhoods,
+    mock_send_email
 )
 
 from new_arrivals_chi.app.data_handler import (
@@ -653,6 +654,16 @@ def add_organization():
                 db.session.commit()
             except Exception as error:
                 print(f"Error updating user with organization: {error}")
+
+            try:
+                change_password_url = url_for('authorize.registration_change_password', _external=True)
+                subject = 'Organization Registration Successful'
+                body = (f"Your organization {org_name} has been registered successfully.\n"
+                        f"Your temporary password is: {temp_pwd}\n"
+                        f"Change your password here: {change_password_url}")
+                mock_send_email(email, subject, body)  # Use mock send email function
+            except Exception as e:
+                print(f"Failed to send email: {e}")
 
             # Redirect to the success page
             return render_template(
