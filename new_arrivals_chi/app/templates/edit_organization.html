@@ -72,7 +72,7 @@ Requires authentication to access.
                 {% endif %}
             </div>
             <button type="button" onclick="addLanguage()">Add Language</button>
-        
+
         <button class="update-button button-blue" type="submit">Update Language Information</button>
         </div>
     </form>
@@ -123,7 +123,7 @@ Requires authentication to access.
             <label class="location-label" for="state">State:</label>
             <input type="text" id="state-display" value="Illinois" readonly required>
             <input type="hidden" id="state" name="state" value="{{ organization.state }}" readonly required>
-            
+
             <label class="location-label" for="zip-code">Zip Code:</label>
             <input type="text" id="zip-code" name="zip-code" value="{{ organization.zip_code }}" required>
 
@@ -386,9 +386,9 @@ Requires authentication to access.
 </div>
 
 <body>
-    
-        <form action="/edit_hours_info" method="POST"> 
-            
+
+        <form action="/edit_hours_info" method="POST">
+
             <h2>Hours of Operation:</h2>
             <div class="button-container">
             <div id="hours-container">
@@ -481,13 +481,13 @@ Requires authentication to access.
 
 
         <body>
-            
+
             <div class="form-container">
                 <form action="/create_service" method="POST">
                     <h2>Create a New Service:</h2>
                     <div class="button-container">
-                    
-                    <div class="location-section">    
+
+                    <div class="location-section">
                         <label class="location-label" for="service">Service Name:</label>
                         <input type="text" id="service" name="service" required>
 
@@ -498,16 +498,16 @@ Requires authentication to access.
                             <option value="Education">Education</option>
                             <option value="Housing">Housing</option>
                         </select>
-                    
-                        
-        
-                    <div class="location-section">  
+
+
+
+                    <div class="location-section">
                         <label class="location-label" for="dates">Available Date:</label>
                         <input type="date" name="service-date" class="date-input">
-                    
+
                         <label class="location-label" for="opening_time">Opening Time:</label>
                         <input type="time" name="service-open-time-1" class="time-input">
-                   
+
                         <label class="location-label" for="closing_time">Closing Time:</label>
                         <input type="time" name="service-close-time-1" class="time-input">
                     </div>
@@ -520,22 +520,22 @@ Requires authentication to access.
                             <option value="every other week">Every Other Week</option>
                         </select>
                     </div>
-        
-                
+
+
                         <div class="street-section">
                             <label class="location-label" for="street_address">Street Address:</label>
                             <input  type="text" id="street_address" name="street_address" value="{{ organization.street_address }}" required>
                             <label class="location-label" for="street-address-{{ organization.service.id }}-1">Street Address:</label>
                         </div>
-                
+
                         <div class="location-section">
                             <label class="location-label" for="city">City:</label>
                             <input type="text" id="city" name="city" value="{{ organization.city }}" readonly required>
-                
+
                             <label class="location-label" for="state">State:</label>
                             <input type="text" id="state-display" value="Illinois" readonly required>
                             <input type="hidden" id="state" name="state" value="{{ organization.state }}" readonly required>
-                            
+
                             <label class="location-label" for="zip-code">Zip Code:</label>
                             <input type="text" id="zip-code" name="zip-code" value="{{ organization.zip_code }}" required>
                         </div>
@@ -792,7 +792,7 @@ Requires authentication to access.
                                     <option value="Wrigleyville">Wrigleyville</option>
                                 </select>
                     </div>
-                    <div class="location-section"> 
+                    <div class="location-section">
                         <label class="location-label" for="access">Access Method:</label>
                         <select name="access" id="access" required>
                             <option value="Appointments Only">Appointments Only</option>
@@ -803,10 +803,10 @@ Requires authentication to access.
                         <label class="location-label" for="service_note">Service Note:</label>
                         <textarea id="service_note" name="service_note"></textarea>
                     </div>
-        
-                    
+
+
                         <button class="update-button button-blue">Create Service</button>
-              
+
                 </form>
             </div>
         </div>
@@ -814,7 +814,7 @@ Requires authentication to access.
 
     <body>
         <div class="container">
-            
+
             <h2>Current Services Offered:</h2>
             <div id="services-container">
                 {% for service in organization.service %}
@@ -826,7 +826,7 @@ Requires authentication to access.
                             <div class="location-section">
                                 <label class="location-label" for="service-{{ service.id }}">Service Name:</label>
                                 <input type="text" id="service-{{ service.id }}" name="service" value="{{ service.service }}" required>
-                            
+
                                 <label class="location-label" for="category-{{ service.id }}">Category:</label>
                                 <select name="category" id="category-{{ service.id }}" required>
                                     <option value="Family Care" {% if service.category == 'Family Care' %}selected{% endif %}>Family Care</option>
@@ -835,20 +835,20 @@ Requires authentication to access.
                                     <option value="Housing" {% if service.category == 'Housing' %}selected{% endif %}>Housing</option>
                                 </select>
                             </div>
-                            
-                            
+
+
                             <div class="location-section" id="service-dates-{{ organization.service.id }}">
-                               
+
                                 {% if organization.service.dates %}
                                 {% set date = organization.service.dates[0] %}
-                                
+
                                 <div class="location-section">
                                     <label class="location-label" for="service-date-{{ organization.service.id }}-1">Available Date:</label>
                                     <input type="date" name="service-date-{{ organization.service.id }}-1" class="date-input" value="{{ date.date }}">
-                            
+
                                     <label class="location-label" for="service-open-time-{{ organization.service.id }}-1">Opening Time:</label>
                                     <input type="time" name="service-open-time-{{ organization.service.id }}-1" class="time-input" value="{{ date.start_time }}">
-                            
+
                                     <label class="location-label" for="service-close-time-{{ organization.service.id }}-1">Closing Time:</label>
                                     <input type="time" name="service-close-time-{{ organization.service.id }}-1" class="time-input" value="{{ date.end_time }}">
                                 </div>
@@ -860,18 +860,18 @@ Requires authentication to access.
                                         <option value="every month" {% if date.repeat == 'every month' %}selected{% endif %}>Every Month</option>
                                         <option value="every other week" {% if date.repeat == 'every other week' %}selected{% endif %}>Every Other Week</option>
                                     </select>
-                                    
+
                                 </div>
                                 </div>
                                 {% else %}
-                                
+
                                 <div class="location-section">
                                     <label class="location-label" for="service-date-{{ organization.service.id }}-1">Available Date:</label>
                                     <input type="date" name="service-date-{{ organization.service.id }}-1" class="date-input">
-                            
+
                                     <label class="location-label" for="service-open-time-{{ organization.service.id }}-1">Opening Time:</label>
                                     <input type="time" name="service-open-time-{{ organization.service.id }}-1" class="time-input">
-                            
+
                                     <label class="location-label" for="service-close-time-{{ organization.service.id }}-1">Closing Time:</label>
                                     <input type="time" name="service-close-time-{{ organization.service.id }}-1" class="time-input">
                                 </div>
@@ -886,11 +886,11 @@ Requires authentication to access.
                                 </div>
                                 </div>
                                 {% endif %}
-                                
+
                             </div>
-                            
+
                             <div class="location-section" id="locations-{{ organization.service.id }}">
-                            
+
                                 {% if organization.service.locations %}
                                 {% set location = organization.service.locations[0] %}
                                 <div class="location-section">
@@ -900,10 +900,10 @@ Requires authentication to access.
                                 <div class="location-section">
                                     <label class="location-label" for="city-{{ organization.service.id }}-1">City:</label>
                                     <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" value="{{ location.city }}" readonly>
-                            
+
                                     <label class="location-label" for="state-{{ organization.service.id }}-1">State:</label>
                                     <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" value="{{ location.state }}" readonly>
-                            
+
                                     <label class="location-label" for="zip-code-{{ organization.service.id }}-1">Zip Code:</label>
                                     <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input" value="{{ location.zip_code }}">
                                 </div>
@@ -1159,7 +1159,7 @@ Requires authentication to access.
                                         <option value="Wrightwood">Wrightwood</option>
                                         <option value="Wrightwood_Neighbors">Wrightwood Neighbors</option>
                                         <option value="Wrigleyville">Wrigleyville</option>
-                                    </select>    
+                                    </select>
                                 </div>
 
                                 {% else %}
@@ -1170,17 +1170,17 @@ Requires authentication to access.
                                 <div class="location-section">
                                     <label class="location-label" for="city-{{ organization.service.id }}-1">City:</label>
                                     <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" readonly>
-                            
+
                                     <label class="location-label" for="state-{{ organization.service.id }}-1">State:</label>
                                     <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" readonly value="Illinois">
-                            
+
                                     <label class="location-label" for="zip-code-{{ organization.service.id }}-1">Zip Code:</label>
                                     <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input">
-                                    
+
                                 </div>
                                 <div class="location-section">
                                     <label class="location-label" for="neighborhood-{{ organization.service.id }}-1">Neighborhood:</label>
-                            
+
                                     <select id="neighborhood-{{ organization.service.id }}-1" name="neighborhood-{{ organization.service.id }}-1" class="location-input">
                                         <option value="">Select Neighborhood</option>
                                         <option value="Albany_Park">Albany Park</option>
@@ -1432,7 +1432,7 @@ Requires authentication to access.
                                         <option value="Wrightwood_Neighbors">Wrightwood Neighbors</option>
                                         <option value="Wrigleyville">Wrigleyville</option>
                                     </select>
-                            
+
                                 </div>
                                 {% endif %}
                                 <div class="location-group">
@@ -1442,12 +1442,12 @@ Requires authentication to access.
                                         <option value="Walk-ins Welcome" {% if service.access == 'Walk-ins Welcome' %}selected{% endif %}>Walk-ins Welcome</option>
                                         <option value="Phone Registration" {% if service.access == 'Phone Registration' %}selected{% endif %}>Phone Registration</option>
                                     </select>
-                                
+
                                     <label class="location-label" for="service_note-{{ service.id }}">Service Note:</label>
                                     <textarea id="service_note-{{ service.id }}" name="service_note">{{ service.service_note }}</textarea>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <button class="update-button button-blue" type="button" onclick="toggleEditForm({{ service.id }})">Update Service</button>
                                 <form action="/delete_service" method="POST" style="display:inline;">
@@ -1458,13 +1458,13 @@ Requires authentication to access.
                     </div>
                 </div>
                 {% endfor %}
-              
+
             </div>
         </div>
     </body>
-    
 
-    
-    
+
+
+
 
 {% endblock %}

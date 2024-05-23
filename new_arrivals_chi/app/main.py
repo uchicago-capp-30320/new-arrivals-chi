@@ -37,7 +37,6 @@ from new_arrivals_chi.app.database import (
     db,
     User,
     Organization,
-    Language,
     Hours,
     Service,
     Location,
@@ -63,7 +62,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
-from sqlalchemy import select, join, update
+from sqlalchemy import select, join
 
 migrate = Migrate()
 
@@ -501,7 +500,6 @@ def edit_organization(organization_id):
         Renders the edit organization page where admin or organizations can
         update their info.
     """
-
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
@@ -652,4 +650,3 @@ if __name__ == "__main__":
     # site. For the production deployment, we will ensure a valid certificate
     # from CA for our domain.
     app.run(ssl_context="adhoc", debug=True)
-

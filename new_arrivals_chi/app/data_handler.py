@@ -17,21 +17,21 @@ Methods:
     * add_hours - Adds new operating hours to the database.
     * assign_location_foreign_key_org_table - Assigns a location ID to
       an organization.
-    * change_organization_status - Changes the status of an organization in the 
+    * change_organization_status - Changes the status of an organization in the
       database.
-    * extract_organization - Extracts detailed information about an 
+    * extract_organization - Extracts detailed information about an
       organization.
     * retrieve_hours - Retrieves the operating hours for an organization.
-    * extract_hour_info - Extracts and organizes hour information for a 
+    * extract_hour_info - Extracts and organizes hour information for a
       specific day.
     * retrieve_languages - Retrieves all languages spoken at an organization.
-    * retrieve_services - Retrieves detailed information about the services 
+    * retrieve_services - Retrieves detailed information about the services
       offered by an organization.
     * retrieve_dates - Retrieves all dates associated with a service.
     * extract_date_info - Extracts detailed information about a specific date.
-    * retrieve_locations - Retrieves all location details associated with a 
+    * retrieve_locations - Retrieves all location details associated with a
       service.
-    * extract_location_info - Extracts detailed information about a specific 
+    * extract_location_info - Extracts detailed information about a specific
       location.
 """
 
@@ -279,8 +279,8 @@ def change_organization_status(org_id):
 def extract_organization(organization_id):
     """Extracts detailed information about an organization.
 
-    This function retrieves detailed information about an organization, 
-    including its primary location, operating hours, services, and languages 
+    This function retrieves detailed information about an organization,
+    including its primary location, operating hours, services, and languages
     spoken.
 
     Args:
@@ -288,10 +288,9 @@ def extract_organization(organization_id):
 
     Returns:
         dict: A dictionary containing the organization's details such as name,
-              phone, languages, services, hours, and primary location 
+              phone, languages, services, hours, and primary location
               information.
     """
-    
     org_info = Organization.query.filter_by(id=organization_id).first()
     primary_location_info = Location.query.filter_by(
         id=org_info.location_id
@@ -335,7 +334,7 @@ def retrieve_hours(all_hours):
         all_hours (list): A list of hours objects containing all hours.
 
     Returns:
-        dict: A dictionary containing the operating hours for each 
+        dict: A dictionary containing the operating hours for each
         day of the week.
     """
     # Retrieve all opperating hours
@@ -369,7 +368,7 @@ def extract_hour_info(current_hour, organization_hours, weekdays):
     """Extracts and organizes hour information for a specific day.
 
     Args:
-        current_hour (object): An object containing the hour information 
+        current_hour (object): An object containing the hour information
             for a specific day.
         organization_hours (dict): A dictionary to store the organized
              hour information.
@@ -419,11 +418,11 @@ def retrieve_services(all_services):
     organization.
 
     Args:
-        all_services (list): A list of service objects provided by the 
+        all_services (list): A list of service objects provided by the
         organization.
 
     Returns:
-        list: A list of dictionaries containing detailed information about 
+        list: A list of dictionaries containing detailed information about
         each service.
     """
     complete_service_info = []
@@ -505,11 +504,3 @@ def extract_location_info(current_location):
     Returns:
         dict: A dictionary containing detailed information about the location.
     """
-    single_location_info = {
-        "street_address": current_location.street_address,
-        "zip_code": current_location.zip_code,
-        "city": current_location.city,
-        "state": current_location.state,
-        "primary_location": current_location.primary_location,
-        "neighborhood" : current_location.neighborhood,
-    }
