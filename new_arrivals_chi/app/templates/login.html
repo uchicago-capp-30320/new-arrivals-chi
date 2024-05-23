@@ -33,12 +33,6 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
                     <input class="input is-large" type="password" name="password" placeholder="{{ 'Password' if language == 'en' else 'Contraseña' | escape }}" oncopy="return false" oncut="return false" onpaste="return false">
                 </div>
             </div>
-            <div class="field">
-                <label class="checkbox">
-                    <input type="checkbox" name="remember">
-                    {{ translations[language]['login']['remember_me'] | escape }}
-                </label>
-            </div>
             <button >{{ translations[language]['util']['login'] | escape }}</button>
         </form>
     </div>
