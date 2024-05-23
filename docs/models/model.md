@@ -171,6 +171,7 @@ Represents information about the physical addresses of organizations and related
 | city            | string  | City that the organization is located within. |
 | state           | string  | State that the organization is located within. |
 | primary_location| int     | Flag to indicate if this location is the primary location of associated organization. |
+| neighborhood| string     | Neighborhood location of associated organization. |
 | created_at       | DateTime | UTC timestamp indicating when the service hours were created. |
 | deleted_at       | DateTime | UTC timestamp indicating when the service hours were soft deleted. |
 | created_by      | ForeignKey(User)       | Foreign key referencing the id column in users table, indicating the user who created these service hours. |
