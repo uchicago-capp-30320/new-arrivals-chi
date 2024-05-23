@@ -390,7 +390,7 @@ Requires authentication to access.
             <h2>Hours of Operation:</h2>
             <div class="button-container">
             <div id="hours-container">
-                {% for day, intervals in organization.hours.items() %}
+                {% for day, intervals in organization.hours.items %}
                 <div class="hours-group" id="{{ day }}-group">
                     <div class="day-intervals">
                         {% for interval in intervals %}
@@ -523,7 +523,7 @@ Requires authentication to access.
                         <div class="street-section">
                             <label class="location-label" for="street_address">Street Address:</label>
                             <input  type="text" id="street_address" name="street_address" value="{{ organization.street_address }}" required>
-                            <label class="location-label" for="street-address-{{ organization.service.id }}-1">Street Address:</label>
+                            <label class="location-label" for="street-address-{{ organization.services.id }}-1">Street Address:</label>
                         </div>
 
                         <div class="location-section">
