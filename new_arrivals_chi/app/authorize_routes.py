@@ -128,7 +128,7 @@ def signup_post():
     else:
         # Meets all sign up requirements
         new_user = create_user(email, password)
-        login_user(new_user, remember=False)
+        login_user(new_user)
         return redirect(url_for("main.dashboard"))
 
     return redirect(url_for("authorize.signup"))
@@ -163,7 +163,6 @@ def login_post():
 
     email = request.form.get("email").lower()
     password = request.form.get("password")
-    remember = request.form.get("remember", False)
 
     user = User.query.filter_by(email=email).first()
 
@@ -175,7 +174,7 @@ def login_post():
         )  # if the user doesn't exist or password is wrong, reload the page
 
     # if the above check passes, then we know the user has the right credentials
-    login_user(user, remember=remember)
+    login_user(user)
 
     if current_user.role == "admin":
         return render_template(
