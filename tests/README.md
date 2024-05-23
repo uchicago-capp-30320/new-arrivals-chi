@@ -54,6 +54,16 @@ The `auth_change_password_test.py` file contains tests for changing passwords.
 - **Change Password Scenarios**: Ensures proper handling of incorrect old passwords, new passwords that match old ones, mismatched new passwords, and insecure new passwords.
 - **Successful Password Change**: Verifies the complete flow of changing a password, logging out, and logging back in with the new password.
 
+### Legal Routes Tests
+
+The `legal_routes_test.py` file contains tests for legal information routes, ensuring proper access and correct template rendering.
+
+#### Tests Included
+
+- **Access Legal Page**: Verifies the accessibility and template rendering of the legal page.
+- **Access Various Legal Routes**: Ensures proper access and correct template rendering for:
+TPS, VTTC, Asylum, Parole, Undocumented Resources, Legal Help, Workers' Rights, and Renters' Rights pages.
+
 ### Database Operation Tests
 
 The `utils.py` file contains functions for creating the fake database.
