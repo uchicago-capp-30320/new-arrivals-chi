@@ -33,4 +33,3 @@ This document summarizes key architecture decisions in New Arrivals Chi.
 - **Impacts**: 
   - **Pros**: Structured data management, effective handling of relationships and queries.
   - **Cons**: May not cover all unique services provided by organizations, potential limitation in flexibility compared to non-relational databases.
-
