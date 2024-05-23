@@ -17,7 +17,7 @@ HTML for organization dashboard page.
         <button class="button button-blue" onclick="navigateTo('{{ url_for('main.org', organization_id=organization.id) }}', '{{ language }}')">
             {{ translations[language]['profile']['view_org_page'] | escape }}
         </button>
-        <button class="button button-green" onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=organization.id) }}', '{{ language }}')">
+        <button class="button button-green" onclick="navigateTo('{{ url_for('main.dashboard') }}', '{{ language }}')">
             {{ translations[language]['profile']['update_org_info'] | escape }}
         </button>
         <button class="button button-orange" onclick="navigateTo('{{ url_for('authorize.change_password') }}', '{{ language }}')">

@@ -24,17 +24,24 @@ function filterTable() {
         var cells = row.querySelectorAll("td");
         var showRow = true;
 
-        if (supplies && cells[0].textContent !== supplies) {
-            showRow = false;
+        if (supplies) {
+            var services = cells[0].textContent.toLowerCase().split(', ');
+            if (!services.some(service => service.includes(supplies.toLowerCase()))) {
+                showRow = false;
+            }
         }
+
         if (neighborhood && cells[1].textContent !== neighborhood) {
             showRow = false;
         }
         if (organization && cells[2].textContent !== organization) {
             showRow = false;
         }
-        if (hours && cells[3].textContent !== hours) {
-            showRow = false;
+        if (hours) {
+            var hrs = cells[3].textContent.toLowerCase();
+            if (!hrs.includes(hours)) {
+                showRow = false;
+            }
         }
 
         if (showRow) {

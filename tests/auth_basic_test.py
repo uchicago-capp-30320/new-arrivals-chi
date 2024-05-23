@@ -10,24 +10,14 @@ Chicago portal.
 
 Methods:
     * test_signup_route
-    * test_signup_post_invalid_email
-    * test_signup_post_invalid_password
+    * test_signup_post_invalid_data
     * test_signup_post_valid_credentials
     * test_signup_post_weak_password
     * test_login_route
-    * test_login_valid_credentials
-    * test_login_invalid_credentials
+    * test_login_credentials
     * test_logout
     * test_logout_not_logged_in
     * test_page_requiring_login_after_logout
-
-Last updated:
-@Author: Madeleine Roberts 05/09/2024
-@Date: 05/08/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/06/2024
 """
 
 from http import HTTPStatus
@@ -384,15 +374,20 @@ def test_page_requiring_login_after_logout(
         setup_logger: Setup logger.
     """
     logger = setup_logger("test_page_requiring_login_after_logout")
-    client.post(
-        "/login",
-        data={"email": PARAM_VALID_EMAIL, "password": PARAM_VALID_PASSWORD},
-        follow_redirects=True,
-    )
-    client.get("/logout", follow_redirects=True)
-
     try:
+        # Login first
+        client.post(
+            "/login",
+            data={"email": PARAM_VALID_EMAIL, "password": PARAM_VALID_PASSWORD},
+            follow_redirects=True,
+        )
+
+        # Logout
+        client.get("/logout", follow_redirects=True)
+
+        # Attempt to access the dashboard
         dashboard_response = client.get("/dashboard", follow_redirects=True)
+
         assert dashboard_response.status_code == HTTPStatus.OK
         assert (
             b"Login" in dashboard_response.data
@@ -401,6 +396,7 @@ def test_page_requiring_login_after_logout(
         assert (
             capture_templates[2][0].name == "login.html"
         ), "Did not redirect to login page after trying to access dashboard"
+
         logger.info("Successful redirect to login page.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
