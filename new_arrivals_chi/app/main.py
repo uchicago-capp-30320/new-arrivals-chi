@@ -37,13 +37,11 @@ from new_arrivals_chi.app.database import (
     db,
     User,
     Organization,
-    Language,
     Hours,
     Service,
     Location,
     organizations_services,
     organizations_hours,
-    languages_organizations,
 )
 
 from new_arrivals_chi.app.utils import (
@@ -455,68 +453,17 @@ def org(organization_id):
     Returns:
         Renders the organization page (public facing).
     """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
-    stmt = (
-        select(
-            Organization.name,
-            Location.street_address,
-            Organization.phone,
-            Language.language,
-            Service.service,
-            db.func.concat(
-                db.func.to_char(Hours.opening_time, "HH:MI AM"),
-                " - ",
-                db.func.to_char(Hours.closing_time, "HH:MI AM"),
-            ).label("opening_closing_time"),
-        )
-        .select_from(
-            join(
-                Organization,
-                organizations_hours,
-                Organization.id == organizations_hours.c.organization_id,
-            )
-            .join(Hours, organizations_hours.c.hours_id == Hours.id)
-            .join(Location, Organization.location_id == Location.id)
-            .join(
-                organizations_services,
-                Organization.id == organizations_services.c.organization_id,
-            )
-            .join(Service, organizations_services.c.service_id == Service.id)
-            .join(
-                languages_organizations,
-                Organization.id == languages_organizations.c.organization_id,
-            )
-            .join(
-                Language, languages_organizations.c.language_id == Language.id
-            )
-        )
-        .where(Organization.id == organization_id)
-    )
-
-    organization_info = db.session.execute(stmt).fetchall()
-
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
-
-    if organization_info:
-        organization = {
-            "name": organization_info[0][0],
-            "address": organization_info[0][1],
-            "phone": organization_info[0][2],
-            "language": organization_info[0][3],
-            "service": (", ").join({info[4] for info in organization_info}),
-            "hours": organization_info[0][5],
-        }
-
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    organization = extract_organization(organization_id)
 
     return render_template(
         "organization.html",
-        organization_id=organization_id,
         organization=organization,
         language=language,
         translations=translations,
+        organization_id=organization_id,
     )
 
 
