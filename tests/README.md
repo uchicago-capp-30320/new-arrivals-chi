@@ -62,21 +62,31 @@ The `legal_routes_test.py` file contains tests for legal information routes, ens
 
 - **Access Legal Page**: Verifies the accessibility and template rendering of the legal page.
 - **Access Various Legal Routes**: Ensures proper access and correct template rendering for:
-TPS, VTTC, Asylum, Parole, Undocumented Resources, Legal Help, Workers' Rights, and Renters' Rights pages.
+  - TPS, VTTC, Asylum, Parole, Undocumented Resources, Legal Help, Workers' Rights, and Renters' Rights pages.
+
+### Organization Tests
+
+The `org_test.py` file contains tests for organization-related functionalities.
+
+#### Tests Included
+
+- **Create Organization Dashboard**: Tests creating a new organization in the database and verifying the details.
+- **Organization Dashboard Page Access**: Verifies access and correct template rendering of the organization dashboard page.
 
 ### Database Operation Tests
 
-The `utils.py` file contains functions for creating the fake database.
 The `setup_fake_db.py` script is used to create a fake database instance and fill it with data.
 
 #### Tests Included
 
-- **Fake Data Creation**: Confirms that users, organizations, locations, and hours can be created, added to sessions, and committed without issues.
-- **Data Retrieval**: Tests retrieving users by their ID and asserts the correctness of the data like email format and user roles.
-- **Data Validation**: Verifies the integrity of data relationships, ensuring that users are linked to valid organizations and all entities have expected attributes.
-- **Authentication**: Tests to check authentication pathways including sign-up, login, logout, password changes, and password security.
-- **Error Handling and Logging**: Logs errors during data creation and handles exceptions with rollback.
-- **Prevention of SQL Injections**: Tests for secure handling of safe and unsafe inputs within the fake database instance, preventing malicious actions such as returning all records or dropping tables.
+- **Create Fake User**: Generates a fake user for testing.
+- **Create Fake Organization**: Generates a fake organization associated with a user.
+- **Create Fake Hours**: Generates fake business hours.
+- **Create Fake Language**: Generates a fake language entry.
+- **Create Fake Service**: Generates a fake service entry.
+- **Create Fake Service Date**: Generates a fake service date.
+- **Create Fake Location**: Generates a fake location.
+- **Populate Database**: Populates the database with multiple fake entries for testing.
 
 ### Additional Tests - In Progress
 
