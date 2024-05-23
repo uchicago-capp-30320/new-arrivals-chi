@@ -57,6 +57,7 @@ from new_arrivals_chi.app.utils import (
 from new_arrivals_chi.app.data_handler import (
     create_user,
     create_organization_profile,
+    extract_organization,
 )
 
 from flask_migrate import Migrate
@@ -351,34 +352,13 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    # Implementation with demonstrative data
+    organizations = []
 
-    stmt = select(
-        Service.service,
-        Location.neighborhood,
-        Organization.name,
-        Organization.id,
-        db.func.concat(
-            db.func.to_char(Hours.opening_time, "HH:MI AM"),
-            " - ",
-            db.func.to_char(Hours.closing_time, "HH:MI AM"),
-        ).label("opening_closing_time"),
-    ).select_from(
-        join(
-            Organization,
-            organizations_hours,
-            Organization.id == organizations_hours.c.organization_id,
-        )
-        .join(Hours, organizations_hours.c.hours_id == Hours.id)
-        .join(Location, Organization.location_id == Location.id)
-        .join(
-            organizations_services,
-            Organization.id == organizations_services.c.organization_id,
-        )
-        .join(Service, organizations_services.c.service_id == Service.id)
-    )
+    organization_ids = db.session.query(Organization.id).all()
 
-    services_info = db.session.execute(stmt).fetchall()
+    for org_id in organization_ids:
+        if extract_organization(org_id[0])["service"]:
+            organizations.append(extract_organization(org_id[0]))
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
@@ -386,7 +366,7 @@ def health_search():
         "health_search.html",
         language=language,
         translations=translations,
-        services_info=services_info,
+        services_info=organizations,
         set=set,
     )
 
@@ -475,7 +455,7 @@ def org(organization_id):
     Returns:
         Renders the organization page (public facing).
     """
-    print(f"Hi, {organization_id}")
+
     stmt = (
         select(
             Organization.name,
