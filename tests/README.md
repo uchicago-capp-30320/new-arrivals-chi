@@ -76,6 +76,10 @@ The `org_test.py` file contains tests for organization-related functionalities.
 ### Database Operation Tests
 
 The `setup_fake_db.py` script is used to create a fake database instance and fill it with data.
+The database can be created and populated with the following command:
+```
+python3 -m tests.setup_fake_db
+```
 
 #### Tests Included
 
