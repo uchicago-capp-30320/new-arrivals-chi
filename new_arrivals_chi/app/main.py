@@ -570,6 +570,42 @@ def add_organization_success():
     )
 
 
+@main.route("/edit_location", methods=["POST"])
+@login_required
+def edit_location():
+    """POST request to edit the organization's location.
+
+    Parameters
+    ----------
+    organization_id : int
+        The organization's id.
+    """
+    street_address = request.form.get("street_address")
+    city = request.form.get("city")
+    state = request.form.get("state")
+    zip_code = request.form.get("zip-code")
+    neighborhood = request.form.get("neighborhood")
+    primary_location = request.form.get("primary_location")
+
+    # Get user's current organization
+    user = current_user
+    organization = Organization.query.get(user.organization_id)
+
+    # Update the organization's location
+    try:
+        location = Location.query.get(organization.location_id)
+        location.street_address = street_address
+        location.city = city
+        location.state = state
+        location.zip_code = zip_code
+        location.neighborhood = neighborhood
+        location.primary_location = primary_location
+        db.session.commit()
+
+    except Exception as error:
+        print(f"Error updating location: {error}")
+
+
 @main.route("/add_organization", methods=["GET", "POST"])
 @login_required
 def add_organization():
