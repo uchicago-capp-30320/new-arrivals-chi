@@ -26,15 +26,86 @@ HTML for edit organization page.
 </div>
 
 
-    <form action="edit_languages" method="POST"> <h2>Organization's Spoken Languages:</h2>
+    <form action="edit_languages" method="POST">
+        <h2>Organization's Spoken Languages:</h2>
         <div class="button-container">
-        <div class="location-section">
-            
-         </div>
+            <div id="languages">
+                {% if organization.languages %}
+                {% for language in organization.languages %}
+                <div class="location-section">
+                    <label class="location-label" for="language-{{ loop.index }}">Language {{ loop.index }}:</label>
+                    <select name="language-{{ loop.index }}" class="location-input">
+                        <option value="">Select Language</option>
+                        <option value="English" {% if language == 'English' %}selected{% endif %}>English</option>
+                        <option value="Spanish" {% if language == 'Spanish' %}selected{% endif %}>Spanish</option>
+                        <option value="Polish" {% if language == 'Polish' %}selected{% endif %}>Polish</option>
+                        <option value="Chinese" {% if language == 'Chinese' %}selected{% endif %}>Chinese</option>
+                        <option value="Tagalog" {% if language == 'Tagalog' %}selected{% endif %}>Tagalog</option>
+                        <option value="Arabic" {% if language == 'Arabic' %}selected{% endif %}>Arabic</option>
+                        <option value="Korean" {% if language == 'Korean' %}selected{% endif %}>Korean</option>
+                        <option value="Urdu" {% if language == 'Urdu' %}selected{% endif %}>Urdu</option>
+                        <option value="Gujarati" {% if language == 'Gujarati' %}selected{% endif %}>Gujarati</option>
+                        <option value="Russian" {% if language == 'Russian' %}selected{% endif %}>Russian</option>
+                    </select>
+                    <button type="button" onclick="removeLanguage(this)">Remove</button>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="location-section">
+                    <label class="location-label" for="language-1">Language 1:</label>
+                    <select name="language-1" class="location-input">
+                        <option value="">Select Language</option>
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="Polish">Polish</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Tagalog">Tagalog</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="Korean">Korean</option>
+                        <option value="Urdu">Urdu</option>
+                        <option value="Gujarati">Gujarati</option>
+                        <option value="Russian">Russian</option>
+                    </select>
+                </div>
+                {% endif %}
+            </div>
+            <button type="button" onclick="addLanguage()">Add Language</button>
+        
         <button class="update-button button-blue" type="submit">Update Language Information</button>
+        </div>
     </form>
-</div>
+    <script>
+        function addLanguage() {
+            const languageGroup = document.getElementById('languages');
+            const newLanguage = document.createElement('div');
+            newLanguage.className = 'location-section';
+            const number = languageGroup.children.length + 1;
 
+            newLanguage.innerHTML = `
+                <label class="location-label" for="language-${number}">Language ${number}:</label>
+                <select name="language-${number}" class="location-input">
+                    <option value="">Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Russian">Russian</option>
+                </select>
+                <button type="button" onclick="removeLanguage(this)">Remove</button>
+            `;
+            languageGroup.appendChild(newLanguage);
+        }
+
+        function removeLanguage(button) {
+            const languageGroup = button.closest('.location-section');
+            languageGroup.remove();
+        }
+    </script>
 
     <form action="edit_location" method="POST"> <h2>Primary Organization Location:</h2>
         <div class="button-container">
@@ -313,9 +384,11 @@ HTML for edit organization page.
 </div>
 
 <body>
-    <div class="button-container">
+    
         <form action="/edit_hours_info" method="POST"> 
+            
             <h2>Hours of Operation:</h2>
+            <div class="button-container">
             <div id="hours-container">
                 {% for day, intervals in organization.hours.items() %}
                 <div class="hours-group" id="{{ day }}-group">
@@ -406,13 +479,16 @@ HTML for edit organization page.
 
 
         <body>
-            <div class="button-container">
+            
             <div class="form-container">
                 <form action="/create_service" method="POST">
-                    <h2>Create a New Service</h2>
-        
+                    <h2>Create a New Service:</h2>
+                    <div class="button-container">
                     
                     <div class="location-section">    
+                        <label class="location-label" for="service">Service Name:</label>
+                        <input type="text" id="service" name="service" required>
+
                         <label class="location-label" for="category">Category:</label>
                         <select name="category" id="category" required>
                             <option value="Family Care">Family Care</option>
@@ -421,8 +497,7 @@ HTML for edit organization page.
                             <option value="Housing">Housing</option>
                         </select>
                     
-                        <label class="location-label" for="service">Service Name:</label>
-                        <input type="text" id="service" name="service" required>
+                        
         
                     <div class="location-section">  
                         <label class="location-label" for="dates">Available Date:</label>
@@ -448,6 +523,7 @@ HTML for edit organization page.
                         <div class="street-section">
                             <label class="location-label" for="street_address">Street Address:</label>
                             <input  type="text" id="street_address" name="street_address" value="{{ organization.street_address }}" required>
+                            <label class="location-label" for="street-address-{{ organization.service.id }}-1">Street Address:</label>
                         </div>
                 
                         <div class="location-section">
@@ -744,8 +820,12 @@ HTML for edit organization page.
                     <div class="button-container">
                     <div class="edit-form" id="edit-form-{{ service.id }}">
                         <form action="/edit_service" method="POST" style="display:inline;">
-                            <div class="form-group">
-                                <label for="category-{{ service.id }}">Category:</label>
+                            <h2>{{ service.service }}</h2>
+                            <div class="location-section">
+                                <label class="location-label" for="service-{{ service.id }}">Service Name:</label>
+                                <input type="text" id="service-{{ service.id }}" name="service" value="{{ service.service }}" required>
+                            
+                                <label class="location-label" for="category-{{ service.id }}">Category:</label>
                                 <select name="category" id="category-{{ service.id }}" required>
                                     <option value="Family Care" {% if service.category == 'Family Care' %}selected{% endif %}>Family Care</option>
                                     <option value="Healthcare" {% if service.category == 'Healthcare' %}selected{% endif %}>Healthcare</option>
@@ -753,24 +833,10 @@ HTML for edit organization page.
                                     <option value="Housing" {% if service.category == 'Housing' %}selected{% endif %}>Housing</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="service-{{ service.id }}">Service Name:</label>
-                                <input type="text" id="service-{{ service.id }}" name="service" value="{{ service.service }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="access-{{ service.id }}">Access Method:</label>
-                                <select name="access" id="access-{{ service.id }}" required>
-                                    <option value="Appointments Only" {% if service.access == 'Appointments Only' %}selected{% endif %}>Appointments Only</option>
-                                    <option value="Walk-ins Welcome" {% if service.access == 'Walk-ins Welcome' %}selected{% endif %}>Walk-ins Welcome</option>
-                                    <option value="Phone Registration" {% if service.access == 'Phone Registration' %}selected{% endif %}>Phone Registration</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="service_note-{{ service.id }}">Service Note:</label>
-                                <textarea id="service_note-{{ service.id }}" name="service_note">{{ service.service_note }}</textarea>
-                            </div>
+                            
+                            
                             <div class="location-section" id="service-dates-{{ organization.service.id }}">
-                                <h4>Service Dates:</h4>
+                               
                                 {% if organization.service.dates %}
                                 {% set date = organization.service.dates[0] %}
                                 
@@ -783,7 +849,8 @@ HTML for edit organization page.
                             
                                     <label class="location-label" for="service-close-time-{{ organization.service.id }}-1">Closing Time:</label>
                                     <input type="time" name="service-close-time-{{ organization.service.id }}-1" class="time-input" value="{{ date.end_time }}">
-                            
+                                </div>
+                                <div class="location-section">
                                     <label class="location-label" for="repeat-{{ organization.service.id }}-1">Repeat Type:</label>
                                     <select name="repeat-{{ organization.service.id }}-1" class="repeat-select">
                                         <option value="every day" {% if date.repeat == 'every day' %}selected{% endif %}>Every Day</option>
@@ -791,6 +858,7 @@ HTML for edit organization page.
                                         <option value="every month" {% if date.repeat == 'every month' %}selected{% endif %}>Every Month</option>
                                         <option value="every other week" {% if date.repeat == 'every other week' %}selected{% endif %}>Every Other Week</option>
                                     </select>
+                                    
                                 </div>
                                 </div>
                                 {% else %}
@@ -804,7 +872,8 @@ HTML for edit organization page.
                             
                                     <label class="location-label" for="service-close-time-{{ organization.service.id }}-1">Closing Time:</label>
                                     <input type="time" name="service-close-time-{{ organization.service.id }}-1" class="time-input">
-                            
+                                </div>
+                                <div class="location-section">
                                     <label class="location-label" for="repeat-{{ organization.service.id }}-1">Repeat Type:</label>
                                     <select name="repeat-{{ organization.service.id }}-1" class="repeat-select">
                                         <option value="every day">Every Day</option>
@@ -815,16 +884,28 @@ HTML for edit organization page.
                                 </div>
                                 </div>
                                 {% endif %}
+                                
                             </div>
                             
                             <div class="location-section" id="locations-{{ organization.service.id }}">
-                                <h4>Locations:</h4>
+                            
                                 {% if organization.service.locations %}
                                 {% set location = organization.service.locations[0] %}
                                 <div class="location-section">
                                     <label class="location-label" for="street-address-{{ organization.service.id }}-1">Street Address:</label>
                                     <input type="text" name="street-address-{{ organization.service.id }}-1" class="location-input" value="{{ location.street_address }}">
+                                </div>
+                                <div class="location-section">
+                                    <label class="location-label" for="city-{{ organization.service.id }}-1">City:</label>
+                                    <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" value="{{ location.city }}" readonly>
                             
+                                    <label class="location-label" for="state-{{ organization.service.id }}-1">State:</label>
+                                    <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" value="{{ location.state }}" readonly>
+                            
+                                    <label class="location-label" for="zip-code-{{ organization.service.id }}-1">Zip Code:</label>
+                                    <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input" value="{{ location.zip_code }}">
+                                </div>
+                                <div class="location-section">
                                     <label class="location-label" for="neighborhood-{{ organization.service.id }}-1">Neighborhood:</label>
                                     <select id="neighborhood-{{ organization.service.id }}-1" name="neighborhood-{{ organization.service.id }}-1" class="location-input">
                                         <option value="{{ location.neighborhood }}">{{ location.neighborhood }}</option>
@@ -1076,23 +1157,28 @@ HTML for edit organization page.
                                         <option value="Wrightwood">Wrightwood</option>
                                         <option value="Wrightwood_Neighbors">Wrightwood Neighbors</option>
                                         <option value="Wrigleyville">Wrigleyville</option>
-                                    </select>
-                            
-                                    <label class="location-label" for="city-{{ organization.service.id }}-1">City:</label>
-                                    <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" value="{{ location.city }}" readonly>
-                            
-                                    <label class="location-label" for="state-{{ organization.service.id }}-1">State:</label>
-                                    <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" value="{{ location.state }}" readonly>
-                            
-                                    <label class="location-label" for="zip-code-{{ organization.service.id }}-1">Zip Code:</label>
-                                    <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input" value="{{ location.zip_code }}">
+                                    </select>    
                                 </div>
+
                                 {% else %}
                                 <div class="location-section">
                                     <label class="location-label" for="street-address-{{ organization.service.id }}-1">Street Address:</label>
                                     <input type="text" name="street-address-{{ organization.service.id }}-1" class="location-input">
+                                </div>
+                                <div class="location-section">
+                                    <label class="location-label" for="city-{{ organization.service.id }}-1">City:</label>
+                                    <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" readonly>
                             
+                                    <label class="location-label" for="state-{{ organization.service.id }}-1">State:</label>
+                                    <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" readonly value="Illinois">
+                            
+                                    <label class="location-label" for="zip-code-{{ organization.service.id }}-1">Zip Code:</label>
+                                    <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input">
+                                    
+                                </div>
+                                <div class="location-section">
                                     <label class="location-label" for="neighborhood-{{ organization.service.id }}-1">Neighborhood:</label>
+                            
                                     <select id="neighborhood-{{ organization.service.id }}-1" name="neighborhood-{{ organization.service.id }}-1" class="location-input">
                                         <option value="">Select Neighborhood</option>
                                         <option value="Albany_Park">Albany Park</option>
@@ -1345,16 +1431,19 @@ HTML for edit organization page.
                                         <option value="Wrigleyville">Wrigleyville</option>
                                     </select>
                             
-                                    <label class="location-label" for="city-{{ organization.service.id }}-1">City:</label>
-                                    <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" readonly>
-                            
-                                    <label class="location-label" for="state-{{ organization.service.id }}-1">State:</label>
-                                    <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" readonly value="Illinois">
-                            
-                                    <label class="location-label" for="zip-code-{{ organization.service.id }}-1">Zip Code:</label>
-                                    <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input">
                                 </div>
                                 {% endif %}
+                                <div class="location-group">
+                                    <label class="location-label" for="access-{{ service.id }}">Access Method:</label>
+                                    <select name="access" id="access-{{ service.id }}" required>
+                                        <option value="Appointments Only" {% if service.access == 'Appointments Only' %}selected{% endif %}>Appointments Only</option>
+                                        <option value="Walk-ins Welcome" {% if service.access == 'Walk-ins Welcome' %}selected{% endif %}>Walk-ins Welcome</option>
+                                        <option value="Phone Registration" {% if service.access == 'Phone Registration' %}selected{% endif %}>Phone Registration</option>
+                                    </select>
+                                
+                                    <label class="location-label" for="service_note-{{ service.id }}">Service Note:</label>
+                                    <textarea id="service_note-{{ service.id }}" name="service_note">{{ service.service_note }}</textarea>
+                                </div>
                             </div>
                             
                             <div class="form-group">

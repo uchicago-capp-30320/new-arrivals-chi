@@ -315,5 +315,10 @@ input[type="email"], select {
 .flashed_error_message {
     color: red;
     padding-bottom: 15px;
- /* Optional, for emphasis */
+}
+
+.location-input {
+    width: 150px;
+    padding: 5px;
+    font-size: 15px;
 }
