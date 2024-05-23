@@ -6,15 +6,9 @@ This test suite pressure tests the app for XSS attacks.
 
 Methods:
     * test_xss_script_tag_injection
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/09/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/09/2024
 """
+
+from http import HTTPStatus
 
 
 def test_xss_script_tag_injection(client, setup_logger):
@@ -38,7 +32,7 @@ def test_xss_script_tag_injection(client, setup_logger):
             follow_redirects=True,
         )
         assert "<script>alert('XSS');</script>" not in response.data.decode()
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         logger.info("XSS attack blocked.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
