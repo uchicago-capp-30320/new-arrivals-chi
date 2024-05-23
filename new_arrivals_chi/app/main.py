@@ -652,6 +652,41 @@ def edit_location():
             print(f"Error updating location: {error}")
 
 
+@main.route("/edit_contact_info", methods=["POST"])
+@login_required
+def edit_contact_info():
+    """POST request to edit the organization's contact information.
+
+    Parameters
+    ----------
+    organization_id : int
+        The organization's id.
+    """
+    phone_number = request.form.get("phone-number")
+    email = request.form.get("email")
+
+    # Get user's current organization
+    user = current_user
+    organization = Organization.query.get(user.organization_id)
+
+    organization.phone = phone_number
+    user.email = email
+
+    if not validate_email_syntax(email):
+        flash(escape("Invalid email address. Try again"))
+
+    elif not validate_phone_number(phone_number):
+        flash(escape("Invalid phone number. Try again"))
+
+    else:
+        # Update the organization's contact information
+        try:
+            db.session.commit()
+
+        except Exception as error:
+            print(f"Error updating contact information: {error}")
+
+
 @main.route("/add_organization", methods=["GET", "POST"])
 @login_required
 def add_organization():
