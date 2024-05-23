@@ -6,20 +6,25 @@ The public facing site includes a guide for getting started in Chicago, legal su
 
 This project is student run, in collaboration with various Community Based Organizations. It is a work in progress, and we look forward to expanding to include additional services in the near future!
 
-# Running the Application
+## Table of Contents
 
-Follow these instructions to get the project running on your computer for development and testing.
-
-### Table of Contents
-
-1.  Prerequisites
+1.  [Running the Application](#running-the-application)
     1.  Project Structure
     2.  Installing
     3.  Running the Project
     4.  Running the Tests
-2.  Authors
-3.  License
-4.  Acknowledgments
+    5.  Running the Data Migration
+2.  [Using the Application](#using-the-application)
+3.  [Design and Values](#design-and-values)
+4.  [Next Steps](#next-steps)
+5.  [Authors](#authors)
+6.  [License](#license)
+7.  [Acknowledgments](#acknowledgments)
+8.  [Get in Touch](#get-in-touch)
+
+# Running the Application
+
+Follow these instructions to get the project running on your computer for development and testing.
 
 ### Project Structure 
 *   `.github/`: This folder contains the templates and workflows for our github repository.
@@ -121,7 +126,7 @@ Below are video demonstrations for using the application from the perspective of
 
 * [Admin (Permission to edit all organizations)](https://drive.google.com/file/d/1rc3HrA5umMv5SV2YZT4-4uHFoCCjvNaM/view?usp=sharing)
 
-# Design & Values
+# Design and Values
 
 This project is iterative, and centers  user is at the center of our design and implementation. 
 
@@ -142,11 +147,11 @@ Read our long term viability plan [here!](https://docs.google.com/document/d/1LI
 *   Madeleine Roberts
 *   Xiomara Salazar Flores
 
-#  License
+# License
 
 This project is licensed under the [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) license.
 
-##  Acknowledgments
+# Acknowledgments
 
 *   Thank you to our academic course advisors for this project James Turk and Michael Plunkett for support and guidance throughout this project.
 *   Thank you to all the incredibly hardworking and amazing community organizations and individuals who generously dedicated their time to educate our team on the current status, needs, and challenges of new arrivals in Chicago, as well as provided valuable recommendations throughout the development of this project.
@@ -157,7 +162,7 @@ This project is licensed under the [AGPLv3](https://www.gnu.org/licenses/agpl-3.
     - The Resurrection Project: Oswaldo Gomez, Laura Mendoza
     - Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan
 
-## Get in Touch
+# Get in Touch
 
 This project is a collaborative effort and we would love your feedback!
 
