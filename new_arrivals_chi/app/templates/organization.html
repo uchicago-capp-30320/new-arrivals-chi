@@ -11,16 +11,47 @@ using an organization's unique id and populates information.
 {% extends "base.html" %}
 
 {% block content %}
-
-<div class="button-container">
-    <div class="title">{{ organization.name }} </div>
+<div class="org-info-container">
+    <div class="title">{{ organization.name }}</div>
     <div class="box-contact-info">
-        <i class="fa-solid fa-diamond-turn-right"></i> {{ organization.address }}&nbsp;&nbsp;
+        <i class="fa-solid fa-diamond-turn-right"></i> {{ organization.street_address }}, {{ organization.city }}, {{ organization.state }} {{ organization.zip_code }}&nbsp;&nbsp;
         <i class="fa-solid fa-phone"></i> {{ organization.phone }}
     </div>
-    <div class="box-contact-info">{{ 'Horas de Atención:' if language =='es' else 'Open Hours:' | escape }} {{ organization.hours }}</div>
-    <div class="box-contact-info">{{ 'Idiomas hablados:' if language == 'es' else 'Languages Spoken:' | escape }} {{organization.language}} </div>
-    <div class="box-contact-info">{{ 'Recursos y Servicios:' if language == 'es' else 'Supplies and Services:'| escape }} {{organization.service}} </div>
+    <div class="box-contact-info subheader">{{ translations[language]['info']['open_hours'] | escape }}</div>
+    <div class="box-contact-info">
+        <ul>
+            {% for day, hours_list in organization.hours.items() %}
+                {% if hours_list %}
+                    <li>
+                        {{ day|title }}:
+                        {% for hours in hours_list %}
+                            {{ hours.open.strftime('%I:%M %p') }} - {{ hours.close.strftime('%I:%M %p') }}
+                            {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="box-contact-info subheader">{{ translations[language]['info']['languages_spoken'] | escape }}</div>
+    <div class="box-contact-info">
+        {% if organization.languages %}
+            <ul>
+                {% for lang in organization.languages %}
+                    <li>{{ lang }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            Not specified
+        {% endif %}
+    </div>
+    <div class="box-contact-info subheader">{{ translations[language]['info']['supplies_and_services'] | escape }}</div>
+    <div class="box-contact-info">
+        <ul>
+            {% for service in organization.service %}
+                <li>{{ service.service }} ({{ service.category }})</li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
-
 {% endblock %}
