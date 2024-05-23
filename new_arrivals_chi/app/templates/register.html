@@ -454,10 +454,40 @@ Page for new users to complete inital organization information
                     </div>
                 </div>
             </div>
+            <h2>Organization's Spoken Languages:</h2>
+
+        <div id="languages">
+            <div class="location-section">
+                <label class="location-label" for="language-1">Language 1:</label>
+                <select name="language-1" class="location-input">
+                    <option value="">Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Russian">Russian</option>
+                </select>
+                <button type="button" style="visibility: hidden;">Remove</button>
+            </div>
+            
+                
         </div>
-        <button class="button button-blue">Register</button>
+        <button type="button" onclick="addLanguage()">Add Language</button>
+        
+            </div>
+            <button class="button button-blue">Register</button>
+        
+        </div>
     </div>
-</div>
+
+
+
+
 
     <script>
         function addInterval(dayId) {
@@ -487,7 +517,43 @@ Page for new users to complete inital organization information
                 dayGroup.remove();
             }
         }
+        function addLanguage() {
+            const languageGroup = document.getElementById('languages');
+            const newLanguage = document.createElement('div');
+            newLanguage.className = 'location-section';
+            const number = languageGroup.children.length + 1;
+
+            newLanguage.innerHTML = `
+                <label class="location-label" for="language-${number}">Language ${number}:</label>
+                <select name="language-${number}" class="location-input">
+                    <option value="">Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Russian">Russian</option>
+                </select>
+                <button type="button" onclick="removeLanguage(this)">Remove</button>
+            `;
+            languageGroup.appendChild(newLanguage);
+        }
+
+        function removeLanguage(button) {
+            const languageGroup = button.closest('.location-section');
+            languageGroup.remove();
+        }
+
+        
     </script>
-    </form>
+
+  
 </div>
+
+
+
 {% endblock %}
