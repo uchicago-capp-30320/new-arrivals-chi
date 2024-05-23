@@ -12,10 +12,7 @@ password change.
 
 Methods:
     * test_access_change_password_page
-    * test_change_password_wrong_old_password
-    * test_change_password_wrong_new_password_same_as_old
-    * test_change_password_new_passwords_do_not_match
-    * test_change_password_new_password_invalid
+    * test_change_password_scenarios
     * test_change_password_success
 
 Last updated:
@@ -27,6 +24,7 @@ Creation:
 @Date: 05/07/2024
 """
 
+import pytest
 
 def test_access_change_password_page(
     client, capture_templates, test_user, logged_in_state, setup_logger
@@ -58,13 +56,20 @@ def test_access_change_password_page(
         raise
 
 
-def test_change_password_wrong_old_password(
-    client, capture_templates, test_user, logged_in_state, setup_logger
+@pytest.mark.parametrize(
+    "old_password, new_password, new_password_confirm, expected_message",
+    [
+        ("BestP@ssword!", "TestP@ssword!_2!", "TestP@ssword!_2!", b"Wrong existing password. Try again"),
+        ("TestP@ssword!", "TestP@ssword!", "TestP@ssword!", b"New password cannot be the same as your previous password."),
+        ("TestP@ssword!", "TestP@ssword!_2!", "BestP@ssword!_2!", b"New passwords do not match. Try again."),
+        ("TestP@ssword!", "badpassword", "badpassword", b"New password does not meet requirements. Try again."),
+    ]
+)
+def test_change_password_scenarios(
+    client, capture_templates, test_user, logged_in_state, setup_logger,
+    old_password, new_password, new_password_confirm, expected_message
 ):
-    """Tests change password functionality with an incorrect old password.
-
-    This should not allow the user to change the password, and the same page
-    should be re-rendered with an error message.
+    """Tests various scenarios for changing password.
 
     Args:
         client: The test client used for making requests.
@@ -72,157 +77,30 @@ def test_change_password_wrong_old_password(
         test_user: User instance for which the test is run.
         logged_in_state: Session object for the logged-in client.
         setup_logger: Setup logger.
+        old_password: The current password of the user.
+        new_password: The new password to be set.
+        new_password_confirm: The confirmation of the new password.
+        expected_message: The expected message to be found in the response.
     """
-    logger = setup_logger("test_change_password_wrong_old_password")
+    logger = setup_logger("test_change_password_scenarios")
     try:
         response = client.post(
             "/change_password",
             data={
-                "old_password": "BestP@ssword!",
-                "new_password": "TestP@ssword!_2!",
-                "new_password_confirm": "TestP@ssword!_2!",
+                "old_password": old_password,
+                "new_password": new_password,
+                "new_password_confirm": new_password_confirm,
             },
             follow_redirects=True,
         )
         assert response.status_code == 200
-        assert b"Wrong existing password. Try again" in response.data
+        assert expected_message in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
             == "change_password.html"
         ), "Wrong template used"
-        logger.info(
-            "Change password successfully failed due to wrong old password."
-        )
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
-
-
-def test_change_password_wrong_new_password_same_as_old(
-    client, capture_templates, test_user, logged_in_state, setup_logger
-):
-    """Tests change password functionality with the new password same as old.
-
-    The user should receive an error stating that the new password
-    cannot be the same as the old password.
-
-    Args:
-        client: The test client used for making requests.
-        capture_templates: Context manager to capture templates rendered.
-        test_user: User instance for which the test is run.
-        logged_in_state: Session object for the logged-in client.
-        setup_logger: Setup logger.
-    """
-    logger = setup_logger("test_change_password_wrong_new_password_same_as_old")
-    try:
-        response = client.post(
-            "/change_password",
-            data={
-                "old_password": "TestP@ssword!",
-                "new_password": "TestP@ssword!",
-                "new_password_confirm": "TestP@ssword!",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert (
-            b"New password cannot be the same as your previous password."
-            in response.data
-        )
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name
-            == "change_password.html"
-        ), "Wrong template used"
-        logger.info(
-            "Change password successfully failed - new password same as old."
-        )
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
-
-
-def test_change_password_new_passwords_do_not_match(
-    client, capture_templates, test_user, logged_in_state, setup_logger
-):
-    """Tests change password functionality with mismatched new password.
-
-    This should result in an error message prompting the user to
-    ensure passwords match.
-
-    Args:
-        client: The test client used for making requests.
-        capture_templates: Context manager to capture templates rendered.
-        test_user: User instance for which the test is run.
-        logged_in_state: Session object for the logged-in client.
-        setup_logger: Setup logger.
-    """
-    logger = setup_logger("test_change_password_wrong_new_password_same_as_old")
-    try:
-        response = client.post(
-            "/change_password",
-            data={
-                "old_password": "TestP@ssword!",
-                "new_password": "TestP@ssword!_2!",
-                "new_password_confirm": "BestP@ssword!_2!",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert b"New passwords do not match. Try again." in response.data
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name
-            == "change_password.html"
-        ), "Wrong template used"
-        logger.info(
-            "Change password successfully failed - passwords don't match."
-        )
-    except AssertionError as e:
-        logger.error(f"Test failed: {str(e)}")
-        raise
-
-
-def test_change_password_new_password_invalid(
-    client, capture_templates, test_user, logged_in_state, setup_logger
-):
-    """Tests change password functionality with insecure new password.
-
-    This should re-render the page with an error message regarding password
-    requirements.
-
-    Args:
-        client: The test client used for making requests.
-        capture_templates: Context manager to capture templates rendered.
-        test_user: User instance for which the test is run.
-        logged_in_state: Session object for the logged-in client.
-        setup_logger: Setup logger.
-    """
-    logger = setup_logger("test_change_password_new_password_invalid")
-    try:
-        response = client.post(
-            "/change_password",
-            data={
-                "old_password": "TestP@ssword!",
-                "new_password": "badpassword",
-                "new_password_confirm": "badpassword",
-            },
-            follow_redirects=True,
-        )
-        assert response.status_code == 200
-        assert (
-            b"New password does not meet requirements. Try again."
-            in response.data
-        )
-        final_template_rendered = len(capture_templates) - 1
-        assert (
-            capture_templates[final_template_rendered][0].name
-            == "change_password.html"
-        ), "Wrong template used"
-        logger.info(
-            "Change password successfully failed due to invalid new password."
-        )
+        logger.info(f"Change password scenario processed with expected message: {expected_message}")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise

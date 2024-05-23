@@ -49,7 +49,7 @@ def app():
         "PREFERRED_URL_SCHEME": "http",
         "TESTING": True,
         "DEBUG": False,
-        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///test_fake_data.db",
         "SECRET_KEY": "testing_key",
     }
     app = create_app(config_override=test_config)
