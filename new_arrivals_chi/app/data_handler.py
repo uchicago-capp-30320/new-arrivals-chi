@@ -503,3 +503,12 @@ def extract_location_info(current_location):
     Returns:
         dict: A dictionary containing detailed information about the location.
     """
+    single_location_info = {
+        "street address": current_location.street_address,
+        "zip_code": current_location.zip_code,
+        "city": current_location.city,
+        "state": current_location.state,
+        "primary_location": current_location.primary_location,
+        "neighborhood" : current_location.neighborhood,
+        }
+    return single_location_info
