@@ -95,7 +95,7 @@ function createChildButton(childOption, key, parentColor, currentOptions, langua
     const buttonWrapper = $('<div>').addClass('button-wrapper').append(btn);
 
     if (btnDesc && btnDesc.trim() !== '') {
-        const toggleLink = createToggleLink(collapsible);
+        const toggleLink = createToggleLink(collapsible, language);
         buttonWrapper.append(collapsible).append(toggleLink);
     }
 
@@ -103,13 +103,13 @@ function createChildButton(childOption, key, parentColor, currentOptions, langua
 }
 
 // create a toggle link for collapsible description
-function createToggleLink(collapsible) {
+function createToggleLink(collapsible, language) {
     return $('<span>')
         .addClass('toggle-link')
-        .text('See Options')
+        .text(languageData.see_options)
         .on('click', function () {
             collapsible.toggleClass('show');
-            $(this).text(collapsible.hasClass('show') ? 'Hide Options' : 'See Options');
+            $(this).text(collapsible.hasClass('show') ? languageData.hide_options : languageData.see_options);
         });
 }
 

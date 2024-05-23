@@ -18,8 +18,8 @@ Landing page for user to navigate through health information.
     <button class="button button-orange" onclick="navigateTo('/health/search', '{{ language | escape }}')">
         {{ translations[language]['health']['receive_assistance'] | escape }}
       </button>
-    <button class="button button-blue">{{ translations[language]['health']['learn_more'] | escape }}</button>
-    <button class="button button-green">{{ translations[language]['util']['something_else'] | escape }}</button>
+    <button class="button button-blue" onclick="navigateTo('/health_general', '{{ language | escape }}')">
+      {{ translations[language]['health']['learn_more'] | escape }}</button>
     <button class="yellow-button" onclick="location.href='{{ '/' | escape }}'">
         {{ translations[language]['util']['back'] | escape }}
     </button>

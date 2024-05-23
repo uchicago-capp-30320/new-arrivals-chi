@@ -13,17 +13,18 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-
 from flask import (
     Flask,
     Blueprint,
     render_template,
     request,
     current_app,
+    flash,
     url_for,
 )
 import os
 import bleach
+from markupsafe import escape
 from dotenv import load_dotenv
 
 from new_arrivals_chi.app.constants import (
@@ -42,9 +43,22 @@ from new_arrivals_chi.app.database import (
     Location,
     organizations_services,
     organizations_hours,
-    languages_organizations,
 )
-from new_arrivals_chi.app.utils import load_translations, load_neighborhoods
+
+from new_arrivals_chi.app.utils import (
+    validate_email_syntax,
+    load_translations,
+    validate_phone_number,
+    create_temp_pwd,
+    load_neighborhoods,
+)
+
+from new_arrivals_chi.app.data_handler import (
+    create_user,
+    create_organization_profile,
+    extract_organization,
+)
+
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
@@ -377,6 +391,21 @@ def health_search():
     )
 
 
+@main.route("/health_general")
+def health_general():
+    """Route for general health static page.
+
+    Returns:
+        Health Static Page
+    """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    return render_template(
+        "health_general.html", language=language, translations=translations
+    )
+
+
 @main.route("/general")
 def general():
     """Route for Chicago 101 page.
@@ -404,20 +433,36 @@ def dashboard():
         Renders the dashboard page with buttons to view org page, edit org page
         and change password.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
-    organization = Organization.query.get(user.organization_id)
-    if not organization:
-        return "Organization not found", 404
 
+    if current_user.role == "admin":
+        return render_template(
+            "admin_management.html",
+            language=language,
+            translations=translations,
+        )
+    else:
+        organization = Organization.query.get(user.organization_id)
 
-    return render_template(
-        "dashboard.html",
-        organization=organization,
-        language=language,
-        translations=translations,
-    )
+        if not organization:
+            return "Organization not found", 404
+
+        # generate URL for edit_organization endpoint
+        edit_org_url = url_for(
+            "main.edit_organization",
+            organization_id=organization.id,
+            lang=language,
+        )
+
+        return render_template(
+            "dashboard.html",
+            language=language,
+            organization=organization,
+            translations=translations,
+            edit_org_url=edit_org_url,
+        )
 
 
 @main.route("/org/<int:organization_id>", methods=["GET"])
@@ -425,66 +470,15 @@ def org(organization_id):
     """Establishes route to the organization page.
 
     This page is dynamically generated based on the org id and contains
-    organization details. It is accessible from the org dashboard and the health
-    filterable table.
+    organization details. It is accessible from the org dashboard.
 
     Returns:
         Renders the organization page (public facing).
     """
-    stmt = (
-        select(
-            Organization.name,
-            Location.street_address,
-            Organization.phone,
-            Language.language,
-            Service.service,
-            db.func.concat(
-                db.func.to_char(Hours.opening_time, "HH:MI AM"),
-                " - ",
-                db.func.to_char(Hours.closing_time, "HH:MI AM"),
-            ).label("opening_closing_time"),
-        )
-        .select_from(
-            join(
-                Organization,
-                organizations_hours,
-                Organization.id == organizations_hours.c.organization_id,
-            )
-            .join(Hours, organizations_hours.c.hours_id == Hours.id)
-            .join(Location, Organization.location_id == Location.id)
-            .join(
-                organizations_services,
-                Organization.id == organizations_services.c.organization_id,
-            )
-            .join(Service, organizations_services.c.service_id == Service.id)
-            .join(
-                languages_organizations,
-                Organization.id == languages_organizations.c.organization_id,
-            )
-            .join(
-                Language, languages_organizations.c.language_id == Language.id
-            )
-        )
-        .where(Organization.id == organization_id)
-    )
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
 
-    organization_info = db.session.execute(stmt).fetchall()
-
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
-
-    if organization_info:
-        organization = {
-            "name": organization_info[0][0],
-            "address": organization_info[0][1],
-            "phone": organization_info[0][2],
-            "language": organization_info[0][3],
-            "service": (", ").join({info[4] for info in organization_info}),
-            "hours": organization_info[0][5],
-        }
-
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
+    organization = extract_organization(organization_id)
 
     return render_template(
         "organization.html",
@@ -507,12 +501,12 @@ def edit_organization(organization_id):
         Renders the edit organization page where admin or organizations can
         update their info.
     """
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
 
-    language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
-    organization = extract_organization()
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    translations = current_app.config[KEY_TRANSLATIONS][language]
+
+    queried_organization_id = User.query.get(current_user.organization_id)
+    organization = extract_organization(queried_organization_id)
 
     return render_template(
         "edit_organization.html",
@@ -522,6 +516,96 @@ def edit_organization(organization_id):
         organization_id=organization_id,
     )
 
+
+@main.route("/add_organization_success", methods=["GET"])
+@login_required
+def add_organization_success():
+    """Establishes route to the add organization success page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the add organization success page where admin can view
+        a success message after adding a new organization.
+    """
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+    return render_template(
+        "add_organization_success.html",
+        language=language,
+        translations=translations,
+    )
+
+
+@main.route("/add_organization", methods=["GET", "POST"])
+@login_required
+def add_organization():
+    """Establishes route to the add organization page.
+
+    This route is accessible by selecting 'Dashboard' on the
+    home page.
+
+    Returns:
+        Renders the add organization page where admin can add
+        a new organization.
+    """
+    # Check if the user is an admin
+    if current_user.role != "admin":
+        return "Unauthorized", 401
+
+    language = bleach.clean(request.args.get("lang", "en"))
+    translations = current_app.config["TRANSLATIONS"][language]
+
+    if request.method == "POST":
+        email = request.form.get("email")
+        confirmed_email = request.form.get("email-confirm")
+        phone_number = request.form.get("phone-number")
+        org_name = request.form.get("org-name")
+
+        # Check if the email and confirmed email match
+        if email != confirmed_email:
+            flash(escape("Emails do not match. Try again"))
+        # Handle the form submission
+        elif not validate_email_syntax(email):
+            flash(escape("Invalid email address. Try again"))
+
+        elif not validate_phone_number(phone_number):
+            flash(
+                escape("Invalid phone number (correct example: ###-###-####)")
+            )
+        else:
+            # Create the organization as HIDDEN
+            new_org_id = create_organization_profile(
+                org_name, phone_number, "HIDDEN"
+            )
+
+            # Create a temporary password for the user
+            temp_pwd = create_temp_pwd(email, phone_number)
+
+            # Create the user with the provided email and a default password
+            new_user = create_user(email, temp_pwd)
+
+            # Update the user with the new organization
+            try:
+                user = User.query.get(new_user.id)
+                user.organization_id = new_org_id
+                db.session.commit()
+            except Exception as error:
+                print(f"Error updating user with organization: {error}")
+
+            # Redirect to the success page
+            return render_template(
+                "add_organization_success.html",
+                language=language,
+                translations=translations,
+            )
+
+    return render_template(
+        "add_organization.html",
+        language=language,
+        translations=translations,
+    )
 
 
 def create_app(config_override=None):
