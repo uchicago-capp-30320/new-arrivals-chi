@@ -14,14 +14,6 @@ Fixtures:
    - capture_templates: Captures the templates rendered during a test.
    - test_user: Creates a test user in the database before test, removes after.
    - login_client: Logs in user for testing routes that require authentication.
-
-Last updated:
-@Author: Madeleine Roberts @madeleinekroberts
-@Date: 2024-05-09
-
-Creation:
-@Author: Aaron Haefner @aaronhaefner
-@Date: 2024-05-06
 """
 
 import pytest
@@ -49,7 +41,7 @@ def app():
         "PREFERRED_URL_SCHEME": "http",
         "TESTING": True,
         "DEBUG": False,
-        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///test_fake_data.db",
         "SECRET_KEY": "testing_key",
     }
     app = create_app(config_override=test_config)

@@ -319,6 +319,7 @@ def extract_organization(organization_id):
         "state": primary_location_info.state,
         "primary_location": primary_location_info.primary_location,
         "neighborhood": primary_location_info.neighborhood,
+        "id": organization_id,
     }
 
     return organization
@@ -409,7 +410,6 @@ def retrieve_languages(org_reference):
     language_list = []
     for curr_language in all_languages:
         language_list.append(curr_language.language)
-
     return language_list
 
 
