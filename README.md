@@ -1,32 +1,36 @@
-## New Arrivals Chi
+# New Arrivals Chi
 
-New Arrivals Chi seeks to address the common challenges encountered by newly arrived individuals in Chicago. Such individuals often find themselves struggling with the complexities of accessing essential resources, from navigating systems to staying updated on what's available. This project hopes to ease these difficulties and support the newly arrived community by establishing am online platform tailored to their needs.
+New Arrivals Chi is a resource guide developed by six graduate students from the University of Chicago to help newly arrived individuals navigate the City of Chicago and its available resources. New Migrants often find themselves struggling with the complexities of accessing essential resources, from navigating systems to staying updated on what's available. Our goal is to provide accurate, up-to-date, and actionable information to address common challenges faced by newcomers.
 
-Through this portal, we aim to offer guidance on task prioritization and provide the latest information regarding vital services. Our current focus areas are medical care, food assistance, and legal support.
+The public facing site includes a guide for getting started in Chicago, legal support and health information. It also includes a two tiered login structure that allows organization to login and update their information, and site administrators to login and manage all organizations.
 
-## Getting Started
+This project is student run in collaboration with various Community Based Organizations. It is a work in progress, and we look forward to expanding it to include additional services in the near future!
 
-Follow these instructions to get the project running on your computer for development and testing.
+## Table of Contents
 
-### Table of Contents
-
-1.  Prerequisites
+1.  [Running the Application](#running-the-application)
     1.  Project Structure
     2.  Installing
     3.  Running the Project
     4.  Running the Tests
-2.  Authors
-3.  License
-4.  Acknowledgments
+    5.  Running the Data Migration
+2.  [Using the Application](#using-the-application)
+3.  [Design and Values](#design-and-values)
+4.  [Next Steps](#next-steps)
+5.  [Authors](#authors)
+6.  [License](#license)
+7.  [Acknowledgments](#acknowledgments)
+8.  [Get in Touch](#get-in-touch)
 
-## Prerequisites
+# Running the Application
 
-_To be updated later with requirements for the software and other tools in the upcoming weeks._  
+Follow these instructions to get the project running on your computer for development and testing.
 
 ### Project Structure 
 *   `.github/`: This folder contains the templates and workflows for our github repository.
 *   `docs/`: This folder contains documents outlining decisions made throughout the development process.
     * `decisions/`: This folder contains the decisions made regarding the various application components.
+    * `design/`: This folder contains documentation for the design process.
     * `endpoints/`: This folder contains the enpoints for the pages of the application.
     * `models/`: This folder contains the data models for the database.
     * `style_templates/`: This folder contains the sylistic decisions to follow when contributing to the application.
@@ -112,12 +116,29 @@ Poetry:
 
     The changes should now be reflected in the database.
 
+# Using the Application
 
+Below are video demonstrations for using the application from the perspective of 3 different users:
 
+* [General User (Unauthenticated)](https://drive.google.com/file/d/1xjU0ppjwapJEmaTLxG063AfIdRWvKnnU/view?usp=drive_link)
 
+* [Organization Admin (Permission to edit one assigned organization)](https://drive.google.com/file/d/1xXCtw5jmi7Xrotr2H7F3Tk49Dxy9mnpi/view?usp=sharing)
 
+* [Admin (Permission to edit all organizations)](https://drive.google.com/file/d/1rc3HrA5umMv5SV2YZT4-4uHFoCCjvNaM/view?usp=sharing)
 
-## Authors
+# Design and Values
+
+This project is iterative, and centers  user is at the center of our design and implementation. 
+
+Read more about our [design process](docs/design/README.md) and [project values](docs/values.md)
+
+# Next Steps
+
+This project is a work in progress, and we are excited to expand features and improve functionality in the near future.
+
+Read our long term viability plan [here!](https://docs.google.com/document/d/1LIFzdIvIZWDqFrw0-qLcs_inXNo-YlhcOD7V58IhpW8/edit?usp=sharing)
+
+# Authors
 
 *   Federico Dominguez Molina
 *   Aaron Haefner
@@ -126,11 +147,25 @@ Poetry:
 *   Madeleine Roberts
 *   Xiomara Salazar Flores
 
-## License
+# License
 
 This project is licensed under the [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) license.
 
-## Acknowledgments
+# Acknowledgments
 
 *   Thank you to our academic course advisors for this project James Turk and Michael Plunkett for support and guidance throughout this project.
 *   Thank you to all the incredibly hardworking and amazing community organizations and individuals who generously dedicated their time to educate our team on the current status, needs, and challenges of new arrivals in Chicago, as well as provided valuable recommendations throughout the development of this project.
+* Special thanks to:
+
+    - City of Chicago - Office of Immigrants, Migrant, Refugee Rights: Marissa Arrez and Jesús Del Toro
+    - Illinois Community for Displaced Immigrants: Johannes Favi
+    - The Resurrection Project: Oswaldo Gomez, Laura Mendoza
+    - Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan
+
+# Get in Touch
+
+This project is a collaborative effort and we would love your feedback!
+
+Have an idea to make it better? Submit feedback or report a bug [here.](https://forms.gle/T4gDc7fVu8GHCk2b6)
+
+Want to get in touch? Email us at newarrivalschi.contact@gmail.com.
