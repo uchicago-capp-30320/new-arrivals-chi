@@ -6,14 +6,6 @@ This test suite pressure tests the app for XSS attacks.
 
 Methods:
     * test_xss_script_tag_injection
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/09/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/09/2024
 """
 
 

@@ -9,14 +9,6 @@ fake data for testing purposes.
 Methods:
     * main — Sets up logging, initializes the Flask application,
     creates the database, and generates fake data.
-
-Last updated:
-@Author: Aaron Haefner @aaronhaefner
-@Date: 2024-05-07
-
-Creation:
-@Author: Aaron Haefner @aaronhaefner
-@Date: 2024-05-07
 """
 
 import os

@@ -11,14 +11,6 @@ Methods:
    * test_create_organization_dashboard
    * test_organization_dashboard_page
    * test_create_post_new_org
-
-Last updated:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/13/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/12/2024
 """
 
 from new_arrivals_chi.app.database import Organization

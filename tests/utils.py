@@ -16,14 +16,6 @@ Methods:
     * get_record_by_attribute — Retrieve a single record by specified attribute.
     * fetch_data — Fetch and print data from the database to verify insertion.
     * test_user_organization_creation — Create and retrieve users and orgs.
-
-Last updated:
-@Author: Aaron Haefner @aaronhaefner
-@Date: 2024-05-16
-
-Creation:
-@Author: Aaron Haefner @aaronhaefner
-@Date: 2024-05-16
 """
 
 import random

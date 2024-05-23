@@ -14,14 +14,6 @@ Methods:
     * test_access_change_password_page
     * test_change_password_scenarios
     * test_change_password_success
-
-Last updated:
-@Author: Madeleine Roberts @madeleinekroberts
-@Date: 05/09/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/07/2024
 """
 
 import pytest

@@ -13,14 +13,6 @@ Methods:
    * test_set_up_password_hashed
    * test_set_up_all_password_params
    * test_password_never_logged_plaintext
-
-Last updated:
-@Author: Madeleine Roberts @madeleinekroberts
-@Date: 05/06/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/06/2024
 """
 
 from new_arrivals_chi.app.database import User

@@ -15,14 +15,6 @@ and ensuring the correct templates are rendered.
 Methods:
     * test_access_legal_page
     * test_access_legal_route
-
-Last updated:
-@Author: Madeleine Roberts @madeleinekroberts
-@Date: 05/09/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/07/2024
 """
 
 from http import HTTPStatus

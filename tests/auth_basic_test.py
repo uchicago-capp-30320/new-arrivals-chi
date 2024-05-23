@@ -18,14 +18,6 @@ Methods:
     * test_logout
     * test_logout_not_logged_in
     * test_page_requiring_login_after_logout
-
-Last updated:
-@Author: Madeleine Roberts 05/09/2024
-@Date: 05/08/2024
-
-Creation:
-@Author: Kathryn Link-Oberstar @klinkoberstar
-@Date: 05/06/2024
 """
 
 from http import HTTPStatus
