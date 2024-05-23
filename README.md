@@ -1,10 +1,10 @@
 # New Arrivals Chi
 
-New Arrivals Chi is a resource guide developed by six graduate students from the University of Chicago to help newly arrived individuals navigate the City of Chicago and its available resources.New Migrants often find themselves struggling with the complexities of accessing essential resources, from navigating systems to staying updated on what's available. Our goal is to provide accurate, up-to-date, and actionable information to address common challenges faced by newcomers.
+New Arrivals Chi is a resource guide developed by six graduate students from the University of Chicago to help newly arrived individuals navigate the City of Chicago and its available resources. New Migrants often find themselves struggling with the complexities of accessing essential resources, from navigating systems to staying updated on what's available. Our goal is to provide accurate, up-to-date, and actionable information to address common challenges faced by newcomers.
 
-The public facing site includes a guide for getting started in Chicago, legal support and health information. It also includes a two tied login structure that allows organization to login and update their information, and admin to login and manage all organizations.
+The public facing site includes a guide for getting started in Chicago, legal support and health information. It also includes a two tiered login structure that allows organization to login and update their information, and site administrators to login and manage all organizations.
 
-This project is student run, in collaboration with various Community Based Organizations. It is a work in progress, and we look forward to expanding to include additional services in the near future!
+This project is student run in collaboration with various Community Based Organizations. It is a work in progress, and we look forward to expanding it to include additional services in the near future!
 
 ## Table of Contents
 
@@ -168,4 +168,4 @@ This project is a collaborative effort and we would love your feedback!
 
 Have an idea to make it better? Submit feedback or report a bug [here.](https://forms.gle/T4gDc7fVu8GHCk2b6)
 
-Want to get in touch? Email us at newarrivalschi.contact@gmail.co
+Want to get in touch? Email us at newarrivalschi.contact@gmail.com.
