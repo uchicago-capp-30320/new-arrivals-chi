@@ -346,7 +346,9 @@ def health_search():
     """
     organizations = []
 
-    organization_ids = db.session.query(Organization.id).all()
+    organization_ids = db.session.query(Organization.id) \
+                        .filter(Organization.location_id.isnot(None)) \
+                        .all()
 
     for org_id in organization_ids:
         if extract_organization(org_id[0])["service"]:
