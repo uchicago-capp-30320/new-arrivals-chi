@@ -37,11 +37,6 @@ from new_arrivals_chi.app.database import (
     db,
     User,
     Organization,
-    Hours,
-    Service,
-    Location,
-    organizations_services,
-    organizations_hours,
 )
 
 from new_arrivals_chi.app.utils import (
@@ -62,7 +57,6 @@ from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
-from sqlalchemy import select, join
 
 migrate = Migrate()
 
@@ -350,34 +344,17 @@ def health_search():
     Returns:
         Renders the health search page.
     """
-    # Implementation with demonstrative data
+    organizations = []
 
-    stmt = select(
-        Service.service,
-        Location.neighborhood,
-        Organization.name,
-        Organization.id,
-        db.func.concat(
-            db.func.to_char(Hours.opening_time, "HH:MI AM"),
-            " - ",
-            db.func.to_char(Hours.closing_time, "HH:MI AM"),
-        ).label("opening_closing_time"),
-    ).select_from(
-        join(
-            Organization,
-            organizations_hours,
-            Organization.id == organizations_hours.c.organization_id,
-        )
-        .join(Hours, organizations_hours.c.hours_id == Hours.id)
-        .join(Location, Organization.location_id == Location.id)
-        .join(
-            organizations_services,
-            Organization.id == organizations_services.c.organization_id,
-        )
-        .join(Service, organizations_services.c.service_id == Service.id)
+    organization_ids = (
+        db.session.query(Organization.id)
+        .filter(Organization.location_id.isnot(None))
+        .all()
     )
 
-    services_info = db.session.execute(stmt).fetchall()
+    for org_id in organization_ids:
+        if extract_organization(org_id[0])["service"]:
+            organizations.append(extract_organization(org_id[0]))
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
@@ -385,7 +362,7 @@ def health_search():
         "health_search.html",
         language=language,
         translations=translations,
-        services_info=services_info,
+        services_info=organizations,
         set=set,
     )
 
@@ -488,9 +465,9 @@ def org(organization_id):
     )
 
 
-@main.route("/edit_organization", methods=["GET", "POST"])
+@main.route("/edit_organization/<int:organization_id>", methods=["GET"])
 @login_required
-def edit_organization():
+def edit_organization(organization_id):
     """Establishes route to the edit organization page.
 
     This route is accessible by selecting 'Dashboard' on the
@@ -502,26 +479,16 @@ def edit_organization():
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
+
     user = current_user
+    organization = extract_organization(user.organization_id)
 
-    # if user.role == "admin":
-    #     # Query DB to get the organization's Data
-    #     # organzation id is the one in the url
-    #     organization_id = bleach(request.args.get("organization_id"))
-    #     organization = Organization.query.get(organization_id)
-
-    # else:
-    organization = User.query.get(user.organization_id)
-
-    # organization = User.query.get(user.organization_id)
-    if request.method == "POST":
-        # Handle the form submission
-        pass
     return render_template(
         "edit_organization.html",
         organization=organization,
         language=language,
         translations=translations,
+        organization_id=organization_id,
     )
 
 

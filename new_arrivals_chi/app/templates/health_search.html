@@ -1,6 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% macro format_time(time) %}
+    {% if time.hour > 12 %}
+        {{ time.hour - 12 }}:{{ '%02d' % time.minute }}pm
+    {% elif time.hour == 12 %}
+        {{ time.hour }}:{{ '%02d' % time.minute }}pm
+    {% elif time.hour == 0 %}
+        12:{{ '%02d' % time.minute }}am
+    {% else %}
+        {{ time.hour }}:{{ '%02d' % time.minute }}am
+    {% endif %}
+{% endmacro %}
+
 <div class="wrapper">
     <h3>
         {{ translations[language]['health']['search_rec'] | escape }}
@@ -8,22 +21,24 @@
     <div>
         <select id="supplies">
             <option value="">{{ translations[language]['health']['supply_service'] | escape }}</option>
-            {% set supplies_set = set() %}
-            {% for row in services_info %}
-                {% if row[0] not in supplies_set %}
-                    {% set _ = supplies_set.add(row[0]) %}
-                    <option value="{{ row[0] }}">{{ row[0] }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
+            {% set services_set = set() %}
+            {% for org in services_info %}
+                {% for service in org.service %}
+                    {% if service['service'] not in services_set %}
+                        {% set _ = services_set.add(service['service']) %}
+                        <option value="{{ service['service'] }}">{{ service['service'] }}</option>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    </select>
 
         <select id="neighborhood">
             <option value="">{{ translations[language]['health']['neighborhood'] | escape }}</option>
             {% set neighborhood_set = set() %}
-            {% for row in services_info %}
-                {% if row[1] not in neighborhood_set %}
-                    {% set _ = neighborhood_set.add(row[1]) %}
-                    <option value="{{ row[1] }}">{{ row[1] }}</option>
+            {% for org in services_info %}
+                {% if org.neighborhood not in neighborhood_set %}
+                    {% set _ = neighborhood_set.add(org.neighborhood) %}
+                    <option value="{{ org.neighborhood }}">{{ org.neighborhood }}</option>
                 {% endif %}
             {% endfor %}
         </select>
@@ -31,10 +46,10 @@
         <select id="organization">
             <option value="">{{ translations[language]['health']['organization'] | escape }}</option>
             {% set organization_set = set() %}
-            {% for row in services_info %}
-                {% if row[2] not in organization_set %}
-                    {% set _ = organization_set.add(row[2]) %}
-                    <option value="{{ row[2] }}">{{ row[2] }}</option>
+            {% for org in services_info %}
+                {% if org.name not in organization_set %}
+                    {% set _ = organization_set.add(org.name) %}
+                    <option value="{{ org.name }}">{{ org.name }}</option>
                 {% endif %}
             {% endfor %}
         </select>
@@ -42,11 +57,20 @@
         <select id="hours">
             <option value="">{{ translations[language]['health']['hours'] | escape }}</option>
             {% set hours_set = set() %}
-            {% for row in services_info %}
-                {% if row[4] not in hours_set %}
-                    {% set _ = hours_set.add(row[4]) %}
-                    <option value="{{ row[4] }}">{{ row[4] }}</option>
-                {% endif %}
+            {% for org in services_info %}
+                {% set hours = org.hours %}
+                {% for day, times in hours.items() %}
+                    {% if times %}
+                        {% for time in times %}
+                            {% if time.open != 'Closed' %}
+                                {% set _ = hours_set.add(format_time(time.open) ~ ' - ' ~ format_time(time.close)) %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            {% for time in hours_set %}
+                <option value="{{ time }}">{{ time }}</option>
             {% endfor %}
         </select>
     </div>
@@ -61,12 +85,28 @@
             </tr>
         </thead>
         <tbody>
-            {% for row in services_info %}
+            {% for org in services_info %}
             <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td><a href="#" onclick="navigateTo('{{ url_for('main.org', organization_id=row[3]) }}', '{{ language }}')">{{ row[2] }}</a></td>
-                <td>{{ row[4] }}</td>
+                <td>
+                    {% for service in org.service %}
+                      {{ service['service']}}{% if not loop.last %}, {% endif %}<br>
+                    {% endfor %}
+                </td>
+                <td>{{ org.neighborhood }}</td>
+                <td><a href="#" onclick="navigateTo('{{ url_for('main.org', organization_id=org.id) }}', '{{ language }}')">{{ org.name }}</a></td>
+                <td>
+                    {% for day, times in org.hours.items() %}
+                        {% if times %}
+                            <p>{{ day.capitalize() }}:
+                                {% for time in times %}
+                                    {{ format_time(time.open) }} - {{ format_time(time.close) }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                        {% else %}
+                            <p>{{ day.capitalize() }}: Closed</p>
+                        {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
