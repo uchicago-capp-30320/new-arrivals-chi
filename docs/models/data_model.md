@@ -129,3 +129,5 @@ NOTE: Structure of this table allows for organizations to include breaks within 
 `state` (string) – State that the organization is located within.
 
 `primary_location` (int) – Flag to indicate if this location is the primary location of associated organization.
+
+`neighboorhood` (string) – Neighborhood in which the organization is located within. 
