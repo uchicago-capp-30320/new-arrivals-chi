@@ -509,6 +509,6 @@ def extract_location_info(current_location):
         "city": current_location.city,
         "state": current_location.state,
         "primary_location": current_location.primary_location,
-        "neighborhood" : current_location.neighborhood,
-        }
+        "neighborhood": current_location.neighborhood,
+    }
     return single_location_info
