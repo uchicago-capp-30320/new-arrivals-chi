@@ -17,6 +17,7 @@ Methods:
 """
 
 import pytest
+from http import HTTPStatus
 
 def test_access_change_password_page(
     client, capture_templates, test_user, logged_in_state, setup_logger
@@ -36,7 +37,7 @@ def test_access_change_password_page(
     logger = setup_logger("test_access_change_password_page")
     try:
         response = client.get("/change_password", follow_redirects=True)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         final_template_rendered = len(capture_templates) - 1
         assert (
             capture_templates[final_template_rendered][0].name
@@ -85,7 +86,7 @@ def test_change_password_scenarios(
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         assert expected_message in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
@@ -129,7 +130,7 @@ def test_change_password_success(
             },
             follow_redirects=True,
         )
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
 
         # logout
         client.get("/logout", follow_redirects=True)
@@ -142,7 +143,7 @@ def test_change_password_success(
         )
 
         # if the login is successful, password was changed correctly
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
         assert b"dashboard" in response.data
         final_template_rendered = len(capture_templates) - 1
         assert (
