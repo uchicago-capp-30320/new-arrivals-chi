@@ -39,6 +39,7 @@ from sqlalchemy.orm import Session
 
 fake = Faker()
 
+
 def create_fake_user():
     """Create a single fake user instance.
 
@@ -50,6 +51,7 @@ def create_fake_user():
         role=fake.random_element(elements=("admin", "standard")),
         password=fake.password(),
     )
+
 
 def create_fake_organization(user):
     """Create a single fake organization instance.
@@ -69,6 +71,7 @@ def create_fake_organization(user):
         updated_by=user.id,
     )
 
+
 def create_fake_hours(user_id):
     """Create a single fake hours instance with realistic business hours.
 
@@ -86,6 +89,7 @@ def create_fake_hours(user_id):
         created_at=fake.date_time_this_decade(),
     )
 
+
 def create_fake_language():
     """Create a valid language instance (e.g., 'en' or 'es', or 'fake').
 
@@ -97,6 +101,7 @@ def create_fake_language():
         language=fake.random_element(elements=languages),
         created_at=fake.date_time_this_decade(),
     )
+
 
 def create_fake_service(user_id):
     """Create a single fake service instance.
@@ -115,6 +120,7 @@ def create_fake_service(user_id):
         created_at=fake.date_time_this_decade().replace(microsecond=0),
         created_by=user_id,
     )
+
 
 def create_fake_service_date(user_id):
     """Create a single fake service date instance.
@@ -141,6 +147,7 @@ def create_fake_service_date(user_id):
         created_by=user_id,
     )
 
+
 def create_fake_location(user_id):
     """Create a single fake location instance that requires a user.
 
@@ -161,12 +168,14 @@ def create_fake_location(user_id):
         created_at=fake.date_time_this_decade(),
     )
 
+
 def add_user(session):
     """Create and add a fake user to the session."""
     user = create_fake_user()
     session.add(user)
     session.flush()
     return user
+
 
 def add_organization(session, user):
     """Create and add a fake organization associated with the user."""
@@ -175,12 +184,14 @@ def add_organization(session, user):
     session.flush()
     return organization
 
+
 def add_location(session, user):
     """Create and add a fake location associated with the user."""
     location = create_fake_location(user.id)
     session.add(location)
     session.flush()
     return location
+
 
 def add_hours(session, user):
     """Create and add fake hours associated with the user."""
@@ -189,12 +200,14 @@ def add_hours(session, user):
     session.flush()
     return hours
 
+
 def add_language(session, organization, user):
     """Create and add a fake language associated with the organization."""
     language = create_fake_language()
     language.created_by = user.id
     organization.languages.append(language)
     session.add(language)
+
 
 def add_service(session, organization, user):
     """Create and add a fake service associated with the organization."""
@@ -204,17 +217,20 @@ def add_service(session, organization, user):
     session.add(service)
     return service
 
+
 def add_service_date(session, service, user):
     """Create and add a fake service date associated with the service."""
     service_date = create_fake_service_date(user.id)
     service.service_dates.append(service_date)
     session.add(service_date)
 
+
 def add_service_location(session, service, user):
     """Create and add a fake location associated with the service."""
     service_location = create_fake_location(user.id)
     service.locations.append(service_location)
     session.add(service_location)
+
 
 def populate_database(
     session: Session,
@@ -278,6 +294,7 @@ def populate_database(
         logger.error(f"Error creating data: {e}, rolling back changes")
         raise
 
+
 def main():
     """Main function to initialize fake database.
 
@@ -308,6 +325,7 @@ def main():
         logger.info("Fake data has been created successfully.")
 
         return app, db
+
 
 if __name__ == "__main__":
     main()

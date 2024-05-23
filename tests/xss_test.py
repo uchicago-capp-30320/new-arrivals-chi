@@ -10,6 +10,7 @@ Methods:
 
 from http import HTTPStatus
 
+
 def test_xss_script_tag_injection(client, setup_logger):
     """""
     Test the resistance of the change password form to XSS attacks.

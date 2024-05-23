@@ -20,6 +20,7 @@ Methods:
 from http import HTTPStatus
 import pytest
 
+
 @pytest.mark.parametrize(
     "route, template",
     [
@@ -36,10 +37,12 @@ import pytest
         ("/legal/lawyers", "lawyers.html"),
         ("/legal/work_rights", "work_rights.html"),
         ("/legal/renters_rights", "renters_rights.html"),
-    ]
+    ],
 )
-def test_access_legal_route(client, capture_templates, setup_logger, route, template):
-    """Test access to various legal routes and verifies the correct template is rendered.
+def test_access_legal_route(
+    client, capture_templates, setup_logger, route, template
+):
+    """Test access to legal routes and verifies correct template is rendered.
 
     Args:
         client: The test client used for making requests.

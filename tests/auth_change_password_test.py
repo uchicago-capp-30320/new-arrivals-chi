@@ -19,6 +19,7 @@ Methods:
 import pytest
 from http import HTTPStatus
 
+
 def test_access_change_password_page(
     client, capture_templates, test_user, logged_in_state, setup_logger
 ):
@@ -52,15 +53,42 @@ def test_access_change_password_page(
 @pytest.mark.parametrize(
     "old_password, new_password, new_password_confirm, expected_message",
     [
-        ("BestP@ssword!", "TestP@ssword!_2!", "TestP@ssword!_2!", b"Wrong existing password. Try again"),
-        ("TestP@ssword!", "TestP@ssword!", "TestP@ssword!", b"New password cannot be the same as your previous password."),
-        ("TestP@ssword!", "TestP@ssword!_2!", "BestP@ssword!_2!", b"New passwords do not match. Try again."),
-        ("TestP@ssword!", "badpassword", "badpassword", b"New password does not meet requirements. Try again."),
-    ]
+        (
+            "BestP@ssword!",
+            "TestP@ssword!_2!",
+            "TestP@ssword!_2!",
+            b"Wrong existing password. Try again",
+        ),
+        (
+            "TestP@ssword!",
+            "TestP@ssword!",
+            "TestP@ssword!",
+            b"New password cannot be the same as your previous password.",
+        ),
+        (
+            "TestP@ssword!",
+            "TestP@ssword!_2!",
+            "BestP@ssword!_2!",
+            b"New passwords do not match. Try again.",
+        ),
+        (
+            "TestP@ssword!",
+            "badpassword",
+            "badpassword",
+            b"New password does not meet requirements. Try again.",
+        ),
+    ],
 )
 def test_change_password_scenarios(
-    client, capture_templates, test_user, logged_in_state, setup_logger,
-    old_password, new_password, new_password_confirm, expected_message
+    client,
+    capture_templates,
+    test_user,
+    logged_in_state,
+    setup_logger,
+    old_password,
+    new_password,
+    new_password_confirm,
+    expected_message,
 ):
     """Tests various scenarios for changing password.
 
@@ -93,7 +121,9 @@ def test_change_password_scenarios(
             capture_templates[final_template_rendered][0].name
             == "change_password.html"
         ), "Wrong template used"
-        logger.info(f"Change password scenario processed with expected message: {expected_message}")
+        logger.info(
+            f"Scenario processed with expected message: {expected_message}"
+        )
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
         raise

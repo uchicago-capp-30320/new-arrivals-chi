@@ -17,6 +17,7 @@ from new_arrivals_chi.app.database import Organization
 from new_arrivals_chi.app.data_handler import create_organization_profile
 from http import HTTPStatus
 
+
 def test_create_organization_dashboard(client, setup_logger):
     """Test creating a new organization dashboard in the database."""
     logger = setup_logger("test_create_organization_dashboard")

@@ -359,7 +359,9 @@ def test_logout_not_logged_in(client, capture_templates, setup_logger):
         raise
 
 
-def test_page_requiring_login_after_logout(client, capture_templates, setup_logger):
+def test_page_requiring_login_after_logout(
+    client, capture_templates, setup_logger
+):
     """Tests behavior accessing page that requires login after user logged out.
 
     This test ensures that the application redirects to the login page when an
@@ -379,20 +381,22 @@ def test_page_requiring_login_after_logout(client, capture_templates, setup_logg
             data={"email": PARAM_VALID_EMAIL, "password": PARAM_VALID_PASSWORD},
             follow_redirects=True,
         )
-        
+
         # Logout
         client.get("/logout", follow_redirects=True)
-        
+
         # Attempt to access the dashboard
         dashboard_response = client.get("/dashboard", follow_redirects=True)
-        
+
         assert dashboard_response.status_code == HTTPStatus.OK
-        assert b"Login" in dashboard_response.data, "User not prompted to log in"
+        assert (
+            b"Login" in dashboard_response.data
+        ), "User not prompted to log in"
         assert len(capture_templates) == 3
         assert (
             capture_templates[2][0].name == "login.html"
         ), "Did not redirect to login page after trying to access dashboard"
-        
+
         logger.info("Successful redirect to login page.")
     except AssertionError as e:
         logger.error(f"Test failed: {str(e)}")
