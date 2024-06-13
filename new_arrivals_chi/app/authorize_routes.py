@@ -464,7 +464,7 @@ def toggle_suspend_organization(organization_id):
 
 
 @authorize.route(
-    "/admin/edit_organization/<int:organization_id>", methods=["GET", "POST"]
+    "/admin/edit_organization/<int:organization_id>", methods=["GET"]
 )
 @admin_required
 def admin_edit_organization(organization_id):
@@ -482,9 +482,6 @@ def admin_edit_organization(organization_id):
 
     organization = Organization.query.get(organization_id)
 
-    if request.method == "POST":
-        # Handle the form submission
-        pass
     return render_template(
         "edit_organization.html",
         organization_id=organization_id,

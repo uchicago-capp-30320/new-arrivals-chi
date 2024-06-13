@@ -465,7 +465,7 @@ def org(organization_id):
     )
 
 
-@main.route("/edit_organization/<int:organization_id>", methods=["GET", "POST"])
+@main.route("/edit_organization/<int:organization_id>", methods=["GET"])
 @login_required
 def edit_organization(organization_id):
     """Establishes route to the edit organization page.
