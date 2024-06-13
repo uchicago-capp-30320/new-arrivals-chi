@@ -465,7 +465,7 @@ def org(organization_id):
     )
 
 
-@main.route("/edit_organization/<int:organization_id>", methods=["GET"])
+@main.route("/edit_organization/<int:organization_id>", methods=["GET", "POST"])
 @login_required
 def edit_organization(organization_id):
     """Establishes route to the edit organization page.
@@ -480,15 +480,14 @@ def edit_organization(organization_id):
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     translations = current_app.config[KEY_TRANSLATIONS][language]
 
-    user = current_user
-    organization = extract_organization(user.organization_id)
+    organization = Organization.query.get(organization_id)
 
     return render_template(
         "edit_organization.html",
+        organization_id=organization_id,
         organization=organization,
         language=language,
         translations=translations,
-        organization_id=organization_id,
     )
 
 
