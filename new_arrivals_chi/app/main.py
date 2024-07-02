@@ -21,6 +21,7 @@ from flask import (
     current_app,
     flash,
     url_for,
+    session,
 )
 import os
 import bleach
@@ -58,12 +59,26 @@ from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
 
+from flask_babel import Babel
+
 migrate = Migrate()
 
 load_dotenv()
 
 main = Blueprint("main", __name__, static_folder="/static")
 
+app = Flask(__name__)
+
+
+def get_locale():
+    if "locale" in session.keys():
+        locale = session["locale"]
+    else:
+        locale = request.accept_languages.best_match(["en", "es"])
+    return locale
+
+
+babel = Babel(app, locale_selector=get_locale)
 
 @main.route("/")
 def home():
