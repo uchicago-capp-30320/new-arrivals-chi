@@ -22,6 +22,7 @@ from flask import (
     flash,
     url_for,
     session,
+    redirect
 )
 import os
 import bleach
@@ -32,6 +33,7 @@ from new_arrivals_chi.app.constants import (
     KEY_LANGUAGE,
     KEY_TRANSLATIONS,
     DEFAULT_LANGUAGE,
+    LANGUAGES
 )
 
 from new_arrivals_chi.app.database import (
@@ -58,45 +60,23 @@ from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, current_user
 from new_arrivals_chi.app.authorize_routes import authorize
 from datetime import timedelta
-
-from flask_babel import Babel
+from flask_babel import Babel, lazy_gettext as _
 
 migrate = Migrate()
 
 load_dotenv()
 
-main = Blueprint("main", __name__, static_folder="/static")
-
 app = Flask(__name__)
+main = Blueprint("main", __name__, static_folder="static")
 
+babel = Babel()
 
 def get_locale():
-    if "locale" in session.keys():
-        locale = session["locale"]
-    else:
-        locale = request.accept_languages.best_match(["en", "es"])
-    return locale
-
-
-babel = Babel(app, locale_selector=get_locale)
+    return request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
 
 @main.route("/")
 def home():
-    """Establishes route for the home page of New Arrivals Chi.
-
-    This route is accessible within the 'home' button in the navigation bar and
-    is the page that users are directed to when first visiting the site.
-
-    Returns:
-        Renders home page.
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "home.html", language=language, translations=translations
-    )
-
+    return render_template("home.html")
 
 @main.route("/about")
 def about():
@@ -107,12 +87,7 @@ def about():
     Returns:
         Renders about us page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "about.html", language=language, translations=translations
-    )
+    return render_template("about.html")
 
 
 @main.route("/legal")
@@ -124,12 +99,7 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "legal_flow.html", language=language, translations=translations
-    )
+    return render_template("legal_flow.html")
 
 
 @main.route("/legal/tps_info")
@@ -341,12 +311,7 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "health.html", language=language, translations=translations
-    )
+    return render_template("health.html")
 
 
 @main.route("/health/search")
@@ -404,12 +369,7 @@ def general():
     Returns:
         Chicago 101 page
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "general.html", language=language, translations=translations
-    )
+    return render_template("general.html")
 
 
 @main.route("/dashboard", methods=["GET"])
@@ -607,10 +567,23 @@ def create_app(config_override=None):
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
+
+    # Load old translations
     app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Load neighborhoods from file and store in app config
     app.config["NEIGHBORHOODS"] = load_neighborhoods()
+
+    # Configure babel
+    app.config['BABEL_DEFAULT_LOCALE'] = DEFAULT_LANGUAGE
+    app.config['BABEL_TRANSLATION_DIRECTORIES'] = '../translations'
+
+    # Initialize Babel with the app and locale selector
+    babel.init_app(app, locale_selector=get_locale)
+
+    @app.context_processor
+    def inject_locale():
+        return dict(get_locale=get_locale)
 
     # Update app configuration with any provided override config (for testing)
     if config_override:

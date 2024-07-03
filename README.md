@@ -14,6 +14,7 @@ This project is student run in collaboration with various Community Based Organi
     3.  Running the Project
     4.  Running the Tests
     5.  Running the Data Migration
+    6. Updating and Compiling Translations
 2.  [Using the Application](#using-the-application)
 3.  [Design and Values](#design-and-values)
 4.  [Next Steps](#next-steps)
@@ -115,6 +116,23 @@ Poetry:
     ```
 
     The changes should now be reflected in the database.
+
+### Updating and Compiling Translations
+
+Translations are handled using Flask-Babel and collaboratively updated using Poedit. In order 
+
+Setting up Poedit
+
+1. Download Poedit 
+
+2. Update translations in Poedit
+
+3. Save updated translation files.
+
+3. Compile Translations 
+
+Once the translations have been updated they need to be compiled 
+python new_arrivals_chi/compile_translations.py
 
 # Using the Application
 
