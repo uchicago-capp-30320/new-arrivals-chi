@@ -44,7 +44,7 @@ from new_arrivals_chi.app.database import (
 
 from new_arrivals_chi.app.utils import (
     validate_email_syntax,
-    load_translations,
+    #load_translations,
     validate_phone_number,
     create_temp_pwd,
     load_neighborhoods,
@@ -568,11 +568,11 @@ def create_app(config_override=None):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
 
-    # Load old translations
-    app.config[KEY_TRANSLATIONS] = load_translations()
-
     # Load neighborhoods from file and store in app config
     app.config["NEIGHBORHOODS"] = load_neighborhoods()
+
+    # Load old translations
+    #app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Configure babel
     app.config['BABEL_DEFAULT_LOCALE'] = DEFAULT_LANGUAGE

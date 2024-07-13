@@ -249,7 +249,7 @@ def verify_password(pw_hash, candidate):
     """
     return bcrypt.check_password_hash(pw_hash, candidate)
 
-
+'''
 def load_translations():
     """Loads translations from JSON files for supported languages.
 
@@ -261,6 +261,7 @@ def load_translations():
         with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
             translations[lang] = json.load(file)
     return translations
+'''
 
 
 def validate_street(street):
