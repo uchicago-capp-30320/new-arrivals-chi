@@ -119,20 +119,34 @@ Poetry:
 
 ### Updating and Compiling Translations
 
-Translations are handled using Flask-Babel and collaboratively updated using Poedit. In order 
+Translations are handled using Flask-Babel and collaboratively updated using Poedit. 
 
-Setting up Poedit
+1. Extract Messages: First, extract messages from codebase and HTML files into a .pot file. This file will contain all the translatable strings.
 
-1. Download Poedit 
+```
+pybabel extract -F new_arrivals_chi/babel.cfg -k _l -o messages.pot .
+```
 
-2. Update translations in Poedit
+2. Update Translations: Next, update .po files with the new messages from the messages.pot file. This step ensures that .po files are in sync with the latest translatable strings.
 
-3. Save updated translation files.
+```
+pybabel update -i messages.pot -d new_arrivals_chi/app/translations
+```
 
-3. Compile Translations 
+3. Edit Translations in Poedit:
 
-Once the translations have been updated they need to be compiled 
-python new_arrivals_chi/compile_translations.py
+Open Poedit and edit the .po files:
+* Open Poedit.
+* Open the .po file you want to edit (e.g., app/translations/<language>/LC_MESSAGES/messages.po).
+* Add or update the translations for the new strings.
+* Save the .po file.
+
+4. Compile Translations:
+After editing and saving your translations in Poedit, you need to compile the .po files into .mo files, which are used by Flask at runtime.
+
+```
+pybabel compile -d new_arrivals_chi/app/translations
+```
 
 # Using the Application
 

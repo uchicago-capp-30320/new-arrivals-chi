@@ -12,12 +12,12 @@ Landing page for user to navigate through undocumented resources.
 {% block content %}
 <!--Update with add org info-->
 
-<h1>{{translations[language]['profile']['add_organization']}}</h1>
+<h1>{{_('Add Organization')}}</h1>
 
 <!-- Form to add stuff -->
 
 <div class="box">
-    <div class="box-big-title">{{ translations[language]["profile"]["enter_information"] }} </div>
+    <div class="box-big-title">{{ _('Enter the information below') }} </div>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <div class="notification is-danger">
@@ -28,28 +28,28 @@ Landing page for user to navigate through undocumented resources.
         <form method="POST" action="/add_organization">
         <div class="field">
             <div class="control">
-                <input class="input is-large" type="org-name" name="org-name" placeholder="{{ translations[language]['profile']['name'] | escape }}" autofocus="">
+                <input class="input is-large" type="org-name" name="org-name" placeholder="{{ _('Organization Name') | escape }}" autofocus="">
             </div>
         </div>
 
         <div class="field">
             <div class="control">
-                <input class="input is-large" type="phone-number" name="phone-number" placeholder="{{ translations[language]['profile']['phone_number'] | escape }}" autofocus="">
+                <input class="input is-large" type="phone-number" name="phone-number" placeholder="{{ _('Phone Number') | escape }}" autofocus="">
             </div>
         </div>
 
         <div class="field">
             <div class="control">
-                <input class="input is-large" type="email" name="email" placeholder="{{ translations[language]['login']['email'] | escape }}" autofocus="">
+                <input class="input is-large" type="email" name="email" placeholder="{{ _('Email') | escape }}" autofocus="">
             </div>
         </div>
 
         <div class="field">
             <div class="control">
-                <input class="input is-large" type="email-confirm" name="email-confirm" placeholder="{{ translations[language]['profile']['confirm_email'] | escape }}" autofocus="">
+                <input class="input is-large" type="email-confirm" name="email-confirm" placeholder="{{ _('Confirm Email') | escape }}" autofocus="">
             </div>
         </div>
-            <button class="yellow-button">{{ translations[language]['profile']['add_organization'] | escape }}</button>
+            <button class="yellow-button">{{ _('Add Organization') | escape }}</button>
     </form>
 </div>
 

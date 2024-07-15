@@ -20,9 +20,7 @@ from flask import (
     request,
     current_app,
     flash,
-    url_for,
-    session,
-    redirect
+    url_for
 )
 import os
 import bleach
@@ -32,8 +30,7 @@ from dotenv import load_dotenv
 from new_arrivals_chi.app.constants import (
     KEY_LANGUAGE,
     KEY_TRANSLATIONS,
-    DEFAULT_LANGUAGE,
-    LANGUAGES
+    DEFAULT_LANGUAGE
 )
 
 from new_arrivals_chi.app.database import (
