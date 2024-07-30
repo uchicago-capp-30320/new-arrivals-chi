@@ -381,15 +381,11 @@ def dashboard():
         Renders the dashboard page with buttons to view org page, edit org page
         and change password.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
 
     if current_user.role == "admin":
         return render_template(
             "admin_management.html",
-            language=language,
-            translations=translations,
         )
     else:
         organization = Organization.query.get(user.organization_id)
@@ -401,14 +397,11 @@ def dashboard():
         edit_org_url = url_for(
             "main.edit_organization",
             organization_id=organization.id,
-            lang=language,
         )
 
         return render_template(
             "dashboard.html",
-            language=language,
             organization=organization,
-            translations=translations,
             edit_org_url=edit_org_url,
         )
 

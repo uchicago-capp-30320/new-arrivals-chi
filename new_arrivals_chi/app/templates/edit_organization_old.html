@@ -1,0 +1,1464 @@
+<!--
+Project: new_arrivals_chi
+File name: edit_organization.html
+Associated Files:
+    base.html, main.py
+
+Allows an organization or admin user to edit an organization's infomation
+Requires authentication to access.
+-->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="title">{{ organization.name }} </div>
+
+    <form action="edit_contact_info" method="POST"> <h2>{{_('Contact Information:')}}</h2>
+        <div class="button-container">
+        <div class="location-section">
+            <label  for="phone">{{_('Phone Number:')}}</label>
+            <input  type="text" id="phone" name="phone" value="{{ organization.phone}}" required>
+            <label  for="email">{{_('Email:')}}</label>
+            <input  type="email" name="email" value="{{ organization.email}}" autofocus="" >
+         </div>
+        <button class="update-button button-blue" type="submit">{{_('Update Contact Information')}}</button>
+    </form>
+</div>
+
+
+    <form action="edit_languages" method="POST">
+        <h2>{{_('Organization\'s Spoken Languages:')}}</h2>
+        <div class="button-container">
+            <div id="languages">
+                {% if organization.languages %}
+                {% for language in organization.languages %}
+                <div class="location-section">
+                    <label class="location-label" for="language-{{ loop.index }}">{{_('Language')}} {{ loop.index }}:</label>
+                    <select name="language-{{ loop.index }}" class="location-input">
+                        <option value="">{{_('Select Language')}}</option>
+                        <option value="English" {% if language == 'English' %}selected{% endif %}>{{_('English')}}</option>
+                        <option value="Spanish" {% if language == 'Spanish' %}selected{% endif %}>{{_('Spanish')}}</option>
+                        <option value="Polish" {% if language == 'Polish' %}selected{% endif %}>{{_('Polish')}}</option>
+                        <option value="Chinese" {% if language == 'Chinese' %}selected{% endif %}>{{_('Chinese')}}</option>
+                        <option value="Tagalog" {% if language == 'Tagalog' %}selected{% endif %}>{{_('Tagalog')}}</option>
+                        <option value="Arabic" {% if language == 'Arabic' %}selected{% endif %}>{{_('Arabic')}}</option>
+                        <option value="Korean" {% if language == 'Korean' %}selected{% endif %}>{{_('Korean')}}</option>
+                        <option value="Urdu" {% if language == 'Urdu' %}selected{% endif %}>{{_('Urdu')}}</option>
+                        <option value="Gujarati" {% if language == 'Gujarati' %}selected{% endif %}>{{_('Gujarati')}}</option>
+                        <option value="Russian" {% if language == 'Russian' %}selected{% endif %}>{{_('Russian')}}</option>
+                    </select>
+                    <button type="button" onclick="removeLanguage(this)">{{_('Remove')}}</button>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="location-section">
+                    <label class="location-label" for="language-1">{{_('Language 1:')}}</label>
+                    <select name="language-1" class="location-input">
+                        <option value="">{{_('Select Language')}}</option>
+                        <option value="English">{{_('English')}}</option>
+                        <option value="Spanish">{{_('Spanish')}}</option>
+                        <option value="Polish">{{_('Polish')}}</option>
+                        <option value="Chinese">{{_('Chinese')}}</option>
+                        <option value="Tagalog">{{_('Tagalog')}}</option>
+                        <option value="Arabic">{{_('Arabic')}}</option>
+                        <option value="Korean">{{_('Korean')}}</option>
+                        <option value="Urdu">{{_('Urdu')}}</option>
+                        <option value="Gujarati">{{_('Gujarati')}}</option>
+                        <option value="Russian">{{_('Russian')}}</option>
+                    </select>
+                </div>
+                {% endif %}
+            </div>
+            <button type="button" onclick="addLanguage()">{{_('Add Language')}}</button>
+
+        <button class="update-button button-blue" type="submit">{{_('Update Language Information')}}</button>
+        </div>
+    </form>
+
+    <script>
+        function addLanguage() {
+            const languageGroup = document.getElementById('languages');
+            const newLanguage = document.createElement('div');
+            newLanguage.className = 'location-section';
+            const number = languageGroup.children.length + 1;
+
+            newLanguage.innerHTML = `
+                <label class="location-label" for="language-${number}">{{_('Language')}} ${number}:</label>
+                <select name="language-${number}" class="location-input">
+                    <option value="">{{_('Select Language')}}</option>
+                    <option value="English">{{_('English')}}</option>
+                    <option value="Spanish">{{_('Spanish')}}</option>
+                    <option value="Polish">{{_('Polish')}}</option>
+                    <option value="Chinese">{{_('Chinese')}}</option>
+                    <option value="Tagalog">{{_('Tagalog')}}</option>
+                    <option value="Arabic">{{_('Arabic')}}</option>
+                    <option value="Korean">{{_('Korean')}}</option>
+                    <option value="Urdu">{{_('Urdu')}}</option>
+                    <option value="Gujarati">{{_('Gujarati')}}</option>
+                    <option value="Russian">{{_('Russian')}}</option>
+                </select>
+                <button type="button" onclick="removeLanguage(this)">{{_('Remove')}}</button>
+            `;
+            languageGroup.appendChild(newLanguage);
+        }
+
+        function removeLanguage(button) {
+            const languageGroup = button.closest('.location-section');
+            languageGroup.remove();
+        }
+    </script>
+    <form action="edit_location" method="POST"> <h2>{{_('Primary Organization Location:')}}</h2>
+            <div class="button-container">
+            <div class="street-section">
+                <label class="location-label" for="street_address">{{_('Street Address:')}}</label>
+                <input  type="text" id="street_address" name="street_address" value="{{ organization.street_address }}" required>
+            </div>
+
+            <div class="location-section">
+                <label class="location-label" for="city">{{_('City:')}}</label>
+                <input type="text" id="city" name="city" value="{{ organization.city }}" readonly required>
+
+                <label class="location-label" for="state">{{_('State:')}}</label>
+                <input type="text" id="state-display" value="Illinois" readonly required>
+                <input type="hidden" id="state" name="state" value="{{ organization.state }}" readonly required>
+
+                <label class="location-label" for="zip-code">{{_('Zip Code:')}}</label>
+                <input type="text" id="zip-code" name="zip-code" value="{{ organization.zip_code }}" required>
+
+                <label class="location-label" for="neighborhood">{{_('Neighborhood:')}}</label>
+                <select id="neighborhood" name="neighborhood" value="{{ organization.neighborhood }}" required>
+                    <option value="{{ organization.neighborhood }}">{{ organization.neighborhood }}</option>
+                        <option value="Albany_Park">{{_('Albany Park')}}</option>
+                        <option value="Altgeld_Gardens">{{_('Altgeld Gardens')}}</option>
+                        <option value="Andersonville">{{_('Andersonville')}}</option>
+                        <option value="Arcadia_Terrace">{{_('Arcadia Terrace')}}</option>
+                        <option value="Archer_Heights">{{_('Archer Heights')}}</option>
+                        <option value="Armour_Square">{{_('Armour Square')}}</option>
+                        <option value="Ashburn">{{_('Ashburn')}}</option>
+                        <option value="Ashburn_Estates">{{_('Ashburn Estates')}}</option>
+                        <option value="Auburn_Gresham">{{_('Auburn Gresham')}}</option>
+                        <option value="Avalon_Park">{{_('Avalon Park')}}</option>
+                        <option value="Avondale">{{_('Avondale')}}</option>
+                        <option value="Avondale_Gardens">{{_('Avondale Gardens')}}</option>
+                        <option value="Back_of_the_Yards">{{_('Back of the Yards')}}</option>
+                        <option value="Belmont_Central">{{_('Belmont Central')}}</option>
+                        <option value="Belmont_Gardens">{{_('Belmont Gardens')}}</option>
+                        <option value="Hermosa">{{_('Hermosa')}}</option>
+                        <option value="Logan_Square">{{_('Logan Square')}}</option>
+                        <option value="Belmont_Heights">{{_('Belmont Heights')}}</option>
+                        <option value="Belmont_Terrace">{{_('Belmont Terrace')}}</option>
+                        <option value="Beverly">{{_('Beverly')}}</option>
+                        <option value="Beverly_View">{{_('Beverly View')}}</option>
+                        <option value="Beverly_Woods">{{_('Beverly Woods')}}</option>
+                        <option value="Big_Oaks">{{_('Big Oaks')}}</option>
+                        <option value="Northalsted_Boystown">{{_('Northalsted (Boystown)')}}</option>
+                        <option value="Bowmanville">{{_('Bowmanville')}}</option>
+                        <option value="Brainerd">{{_('Brainerd')}}</option>
+                        <option value="Brickyard">{{_('Brickyard')}}</option>
+                        <option value="Bridgeport">{{_('Bridgeport')}}</option>
+                        <option value="Brighton_Park">{{_('Brighton Park')}}</option>
+                        <option value="Bronzeville">{{_('Bronzeville')}}</option>
+                        <option value="Bucktown">{{_('Bucktown')}}</option>
+                        <option value="Budlong_Woods">{{_('Budlong Woods')}}</option>
+                        <option value="Buena_Park">{{_('Buena Park')}}</option>
+                        <option value="Burnside">{{_('Burnside')}}</option>
+                        <option value="Cabrini_Green">{{_('Cabrini–Green')}}</option>
+                        <option value="Calumet_Heights">{{_('Calumet Heights')}}</option>
+                        <option value="Canaryville">{{_('Canaryville')}}</option>
+                        <option value="Central_Station">{{_('Central Station')}}</option>
+                        <option value="Chatham">{{_('Chatham')}}</option>
+                        <option value="Chicago_Lawn">{{_('Chicago Lawn')}}</option>
+                        <option value="Chinatown">{{_('Chinatown')}}</option>
+                        <option value="Chrysler_Village">{{_('Chrysler Village')}}</option>
+                        <option value="Clarendon_Park">{{_('Clarendon Park')}}</option>
+                        <option value="Clearing_East">{{_('Clearing East')}}</option>
+                        <option value="Clearing_West">{{_('Clearing West')}}</option>
+                        <option value="Cottage_Grove_Heights">{{_('Cottage Grove Heights')}}</option>
+                        <option value="Cragin">{{_('Cragin')}}</option>
+                        <option value="Crestline">{{_('Crestline')}}</option>
+                        <option value="Dearborn_Homes">{{_('Dearborn Homes')}}</option>
+                        <option value="Dearborn_Park">{{_('Dearborn Park')}}</option>
+                        <option value="Douglas_Park">{{_('Douglas Park')}}</option>
+                        <option value="Dunning">{{_('Dunning')}}</option>
+                        <option value="East_Beverly">{{_('East Beverly')}}</option>
+                        <option value="East_Chatham">{{_('East Chatham')}}</option>
+                        <option value="East_Garfield_Park">{{_('East Garfield Park')}}</option>
+                        <option value="East_Hyde_Park">{{_('East Hyde Park')}}</option>
+                        <option value="East_Pilsen">{{_('East Pilsen')}}</option>
+                        <option value="East_Side">{{_('East Side')}}</option>
+                        <option value="East_Village">{{_('East Village')}}</option>
+                        <option value="Eden_Green">{{_('Eden Green')}}</option>
+                        <option value="Edgebrook">{{_('Edgebrook')}}</option>
+                        <option value="Edgewater">{{_('Edgewater')}}</option>
+                        <option value="Edgewater_Beach">{{_('Edgewater Beach')}}</option>
+                        <option value="Edgewater_Glen">{{_('Edgewater Glen')}}</option>
+                        <option value="Edison_Park">{{_('Edison Park')}}</option>
+                        <option value="Englewood">{{_('Englewood')}}</option>
+                        <option value="Fernwood">{{_('Fernwood')}}</option>
+                        <option value="Fifth_City">{{_('Fifth City')}}</option>
+                        <option value="Ford_City">{{_('Ford City')}}</option>
+                        <option value="Forest_Glen">{{_('Forest Glen')}}</option>
+                        <option value="Fuller_Park">{{_('Fuller Park')}}</option>
+                        <option value="Fulton_River_District">{{_('Fulton River District')}}</option>
+                        <option value="Gage_Park">{{_('Gage Park')}}</option>
+                        <option value="Galewood">{{_('Galewood')}}</option>
+                        <option value="The_Gap">{{_('The Gap')}}</option>
+                        <option value="Garfield_Ridge">{{_('Garfield Ridge')}}</option>
+                        <option value="Gladstone_Park">{{_('Gladstone Park')}}</option>
+                        <option value="Gold_Coast">{{_('Gold Coast')}}</option>
+                        <option value="Golden_Gate">{{_('Golden Gate')}}</option>
+                        <option value="Goose_Island">{{_('Goose Island')}}</option>
+                        <option value="Graceland_West">{{_('Graceland West')}}</option>
+                        <option value="Grand_Boulevard">{{_('Grand Boulevard')}}</option>
+                        <option value="Grand_Crossing">{{_('Grand Crossing')}}</option>
+                        <option value="Greater_Grand_Crossing">{{_('Greater Grand Crossing')}}</option>
+                        <option value="Greektown">{{_('Greektown')}}</option>
+                        <option value="Gresham">{{_('Gresham')}}</option>
+                        <option value="Groveland_Park">{{_('Groveland Park')}}</option>
+                        <option value="Hamilton_Park">{{_('Hamilton Park')}}</option>
+                        <option value="Hanson_Park">{{_('Hanson Park')}}</option>
+                        <option value="Heart_of_Chicago">{{_('Heart of Chicago')}}</option>
+                        <option value="Hegewisch">{{_('Hegewisch')}}</option>
+                        <option value="Hermosa">{{_('Hermosa')}}</option>
+                        <option value="Hollywood_Park">{{_('Hollywood Park')}}</option>
+                        <option value="Homan_Square">{{_('Homan Square')}}</option>
+                        <option value="Humboldt_Park">{{_('Humboldt Park')}}</option>
+                        <option value="Hyde_Park">{{_('Hyde Park')}}</option>
+                        <option value="Illinois_Medical_District">{{_('Illinois Medical District')}}</option>
+                        <option value="Irving_Park">{{_('Irving Park')}}</option>
+                        <option value="Irving_Woods">{{_('Irving Woods')}}</option>
+                        <option value="The_Island">{{_('The Island')}}</option>
+                        <option value="Jackowo">{{_('Jackowo')}}</option>
+                        <option value="Jackson_Park_Highlands">{{_('Jackson Park Highlands')}}</option>
+                        <option value="Jefferson_Park">{{_('Jefferson Park')}}</option>
+                        <option value="K_Town">{{_('K-Town')}}</option>
+                        <option value="Kelvyn_Park">{{_('Kelvyn Park')}}</option>
+                        <option value="Kennedy_Park">{{_('Kennedy Park')}}</option>
+                        <option value="Kensington">{{_('Kensington')}}</option>
+                        <option value="Kenwood">{{_('Kenwood')}}</option>
+                        <option value="Kilbourn_Park">{{_('Kilbourn Park')}}</option>
+                        <option value="Kosciuszko_Park">{{_('Kosciuszko Park')}}</option>
+                        <option value="Lake_Meadows">{{_('Lake Meadows')}}</option>
+                        <option value="Lake_View">{{_('Lake View')}}</option>
+                        <option value="Lakeview_East">{{_('Lakeview East')}}</option>
+                        <option value="Lakewood_Balmoral">{{_('Lakewood Balmoral')}}</option>
+                        <option value="LeClaire_Courts">{{_('LeClaire Courts')}}</option>
+                        <option value="Legends_South">{{_('Legends South (Robert Taylor Homes)')}}</option>
+                        <option value="Lilydale">{{_('Lilydale')}}</option>
+                        <option value="Lincoln_Park">{{_('Lincoln Park')}}</option>
+                        <option value="Lincoln_Square">{{_('Lincoln Square')}}</option>
+                        <option value="Lithuanian_Plaza">{{_('Lithuanian Plaza')}}</option>
+                        <option value="Little_Italy">{{_('Little Italy')}}</option>
+                        <option value="Little_Village">{{_('Little Village')}}</option>
+                        <option value="Logan_Square">{{_('Logan Square')}}</option>
+                        <option value="Longwood_Manor">{{_('Longwood Manor')}}</option>
+                        <option value="The_Loop">{{_('The Loop')}}</option>
+                        <option value="Lower_West_Side">{{_('Lower West Side')}}</option>
+                        <option value="Loyola">{{_('Loyola')}}</option>
+                        <option value="Magnificent_Mile">{{_('Magnificent Mile')}}</option>
+                        <option value="Margate_Park">{{_('Margate Park')}}</option>
+                        <option value="Marquette_Park">{{_('Marquette Park')}}</option>
+                        <option value="Marshall_Square">{{_('Marshall Square')}}</option>
+                        <option value="Marynook">{{_('Marynook')}}</option>
+                        <option value="Mayfair">{{_('Mayfair')}}</option>
+                        <option value="McKinley_Park">{{_('McKinley Park')}}</option>
+                        <option value="Merchant_Park">{{_('Merchant Park')}}</option>
+                        <option value="Montclare">{{_('Montclare')}}</option>
+                        <option value="Morgan_Park">{{_('Morgan Park')}}</option>
+                        <option value="Mount_Greenwood">{{_('Mount Greenwood')}}</option>
+                        <option value="Museum_Campus">{{_('Museum Campus')}}</option>
+                        <option value="New_Eastside">{{_('New Eastside')}}</option>
+                        <option value="Near_North_Side">{{_('Near North Side')}}</option>
+                        <option value="Near_West_Side">{{_('Near West Side')}}</option>
+                        <option value="New_Chinatown">{{_('New Chinatown')}}</option>
+                        <option value="New_City">{{_('New City')}}</option>
+                        <option value="Noble_Square">{{_('Noble Square')}}</option>
+                        <option value="North_Austin">{{_('North Austin')}}</option>
+                        <option value="North_Center">{{_('North Center')}}</option>
+                        <option value="North_Kenwood">{{_('North Kenwood')}}</option>
+                        <option value="North_Lawndale">{{_('North Lawndale')}}</option>
+                        <option value="North_Mayfair">{{_('North Mayfair')}}</option>
+                        <option value="North_Park">{{_('North Park')}}</option>
+                        <option value="Nortown">{{_('Nortown')}}</option>
+                        <option value="Norwood_Park_East">{{_('Norwood Park East')}}</option>
+                        <option value="Norwood_Park_West">{{_('Norwood Park West')}}</option>
+                        <option value="Oakland">{{_('Oakland')}}</option>
+                        <option value="OHare">{{_('O\'Hare')}}</option>
+                        <option value="Old_Edgebrook">{{_('Old Edgebrook')}}</option>
+                        <option value="Old_Irving_Park">{{_('Old Irving Park')}}</option>
+                        <option value="Old_Norwood">{{_('Old Norwood')}}</option>
+                        <option value="Old_Town">{{_('Old Town')}}</option>
+                        <option value="Old_Town_Triangle">{{_('Old Town Triangle')}}</option>
+                        <option value="Oriole_Park">{{_('Oriole Park')}}</option>
+                        <option value="Palmer_Square">{{_('Palmer Square')}}</option>
+                        <option value="Park_Manor">{{_('Park Manor')}}</option>
+                        <option value="Park_West">{{_('Park West')}}</option>
+                        <option value="Parkview">{{_('Parkview')}}</option>
+                        <option value="Peterson_Park">{{_('Peterson Park')}}</option>
+                        <option value="Pill_Hill">{{_('Pill Hill')}}</option>
+                        <option value="Pilsen">{{_('Pilsen')}}</option>
+                        <option value="Polish_Downtown">{{_('Polish Downtown')}}</option>
+                        <option value="Polish_Village">{{_('Polish Village')}}</option>
+                        <option value="Portage_Park">{{_('Portage Park')}}</option>
+                        <option value="Prairie_Avenue_Historic_District">{{_('Prairie Avenue Historic District')}}</option>
+                        <option value="Prairie_Shores">{{_('Prairie Shores')}}</option>
+                        <option value="Princeton_Park">{{_('Princeton Park')}}</option>
+                        <option value="Printers_Row">{{_('Printer\'s Row')}}</option>
+                        <option value="Pulaski_Park">{{_('Pulaski Park')}}</option>
+                        <option value="Pullman">{{_('Pullman')}}</option>
+                        <option value="Ranch_Triangle">{{_('Ranch Triangle')}}</option>
+                        <option value="Ravenswood">{{_('Ravenswood')}}</option>
+                        <option value="Ravenswood_Gardens">{{_('Ravenswood Gardens')}}</option>
+                        <option value="Ravenswood_Manor">{{_('Ravenswood Manor')}}</option>
+                        <option value="River_North">{{_('River North')}}</option>
+                        <option value="River_West">{{_('River West')}}</option>
+                        <option value="Rivers_Edge">{{_('River\'s Edge')}}</option>
+                        <option value="Riverdale">{{_('Riverdale')}}</option>
+                        <option value="Rogers_Park">{{_('Rogers Park')}}</option>
+                        <option value="Roscoe_Village">{{_('Roscoe Village')}}</option>
+                        <option value="Rosehill">{{_('Rosehill')}}</option>
+                        <option value="Roseland">{{_('Roseland')}}</option>
+                        <option value="Rosemoor">{{_('Rosemoor')}}</option>
+                        <option value="St_Bens">{{_('St. Ben\'s')}}</option>
+                        <option value="Sauganash">{{_('Sauganash')}}</option>
+                        <option value="Schorsch_Forest_View">{{_('Schorsch Forest View')}}</option>
+                        <option value="Schorsch_Village">{{_('Schorsch Village')}}</option>
+                        <option value="Scottsdale">{{_('Scottsdale')}}</option>
+                        <option value="Sheffield_Neighbors">{{_('Sheffield Neighbors')}}</option>
+                        <option value="Sheridan_Park">{{_('Sheridan Park')}}</option>
+                        <option value="Sheridan_Station_Corridor">{{_('Sheridan Station Corridor')}}</option>
+                        <option value="Sleepy_Hollow">{{_('Sleepy Hollow')}}</option>
+                        <option value="Smith_Park">{{_('Smith Park')}}</option>
+                        <option value="South_Austin">{{_('South Austin')}}</option>
+                        <option value="South_Chicago">{{_('South Chicago')}}</option>
+                        <option value="South_Commons">{{_('South Commons')}}</option>
+                        <option value="South_Deering">{{_('South Deering')}}</option>
+                        <option value="South_East_Ravenswood">{{_('South East Ravenswood')}}</option>
+                        <option value="South_Edgebrook">{{_('South Edgebrook')}}</option>
+                        <option value="South_Lawndale">{{_('South Lawndale')}}</option>
+                        <option value="South_Loop">{{_('South Loop')}}</option>
+                        <option value="South_Shore">{{_('South Shore')}}</option>
+                        <option value="Stateway_Gardens">{{_('Stateway Gardens')}}</option>
+                        <option value="Stony_Island_Park">{{_('Stony Island Park')}}</option>
+                        <option value="Streeterville">{{_('Streeterville')}}</option>
+                        <option value="Talleys_Corner">{{_('Talley\'s Corner')}}</option>
+                        <option value="Tri_Taylor">{{_('Tri-Taylor')}}</option>
+                        <option value="Ukrainian_Village">{{_('Ukrainian Village')}}</option>
+                        <option value="Union_Ridge">{{_('Union Ridge')}}</option>
+                        <option value="University_Village">{{_('University Village')}}</option>
+                        <option value="Uptown">{{_('Uptown')}}</option>
+                        <option value="The_Villa">{{_('The Villa')}}</option>
+                        <option value="Vittum_Park">{{_('Vittum Park')}}</option>
+                        <option value="Waclawowo">{{_('Wacławowo')}}</option>
+                        <option value="Washington_Heights">{{_('Washington Heights')}}</option>
+                        <option value="Washington_Park">{{_('Washington Park')}}</option>
+                        <option value="Wentworth_Gardens">{{_('Wentworth Gardens')}}</option>
+                        <option value="West_Beverly">{{_('West Beverly')}}</option>
+                        <option value="West_Chatham">{{_('West Chatham')}}</option>
+                        <option value="West_Chesterfield">{{_('West Chesterfield')}}</option>
+                        <option value="West_DePaul">{{_('West DePaul')}}</option>
+                        <option value="West_Elsdon">{{_('West Elsdon')}}</option>
+                        <option value="West_Englewood">{{_('West Englewood')}}</option>
+                        <option value="West_Garfield_Park">{{_('West Garfield Park')}}</option>
+                        <option value="West_Humboldt_Park">{{_('West Humboldt Park')}}</option>
+                        <option value="Lakeview_West">{{_('Lakeview West')}}</option>
+                        <option value="West_Lawn">{{_('West Lawn')}}</option>
+                        <option value="West_Loop">{{_('West Loop')}}</option>
+                        <option value="West_Morgan_Park">{{_('West Morgan Park')}}</option>
+                        <option value="West_Pullman">{{_('West Pullman')}}</option>
+                        <option value="West_Ridge">{{_('West Ridge')}}</option>
+                        <option value="West_Rogers_Park">{{_('West Rogers Park')}}</option>
+                        <option value="West_Town">{{_('West Town')}}</option>
+                        <option value="West_Woodlawn">{{_('West Woodlawn')}}</option>
+                        <option value="Wicker_Park">{{_('Wicker Park')}}</option>
+                        <option value="Wildwood">{{_('Wildwood')}}</option>
+                        <option value="Woodlawn">{{_('Woodlawn')}}</option>
+                        <option value="Wrightwood">{{_('Wrightwood')}}</option>
+                        <option value="Wrightwood_Neighbors">{{_('Wrightwood Neighbors')}}</option>
+                        <option value="Wrigleyville">{{_('Wrigleyville')}}</option>
+                    </select>
+                    <input type="checkbox" id="primary_location" name="primary_location" value="true"  {% if organization.primary_location %}checked{% endif %} style="margin-left: 10px;"> <label class="location-label" for="is_primary_location">{{_('Primary Location')}}</label>
+                </div>
+                <button class="update-button button-blue" type="submit">{{_('Update Location')}}</button>
+        </form>
+    </div>
+    
+    <body>
+
+        <form action="/edit_hours_info" method="POST">
+
+            <h2>{{_('Hours of Operation:')}}</h2>
+            <div class="button-container">
+            <div id="hours-container">
+                {% for day, intervals in organization.hours.items %}
+                <div class="hours-group" id="{{ day }}-group">
+                    <div class="day-intervals">
+                        {% for interval in intervals %}
+                        <div class="day-group">
+                            <label class="day-label">{% if loop.index == 1 %}{{ day.capitalize() }}{% endif %}</label>
+                            <div>
+                                <input type="time" name="{{ day }}-open-{{ loop.index }}" class="time-input" value="{{ interval.open }}">
+                                <input type="time" name="{{ day }}-close-{{ loop.index }}" class="time-input" value="{{ interval.close }}">
+                            </div>
+                            <div class="buttons-group">
+                                <button type="button" onclick="addInterval('{{ day }}-group')">{{_('Add Break')}}</button>
+                                {% if not loop.first %}
+                                <button type="button" onclick="removeInterval(this)">{{_('Remove')}}</button>
+                                {% else %}
+                                <button type="button" style="visibility: hidden;">{{_('Remove')}}</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% if not intervals %}
+                        <div class="day-group">
+                            <label class="day-label">{{ day.capitalize() }}</label>
+                            <div>
+                                <input type="time" name="{{ day }}-open-1" class="time-input">
+                                <input type="time" name="{{ day }}-close-1" class="time-input">
+                            </div>
+                            <div class="buttons-group">
+                                <button type="button" onclick="addInterval('{{ day }}-group')">{{_('Add Break')}}</button>
+                                <button type="button" style="visibility: hidden;">{{_('Remove')}}</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="update-button button-blue" type="submit">{{_('Update Hours')}}</button>
+        </form>
+    </div>
+
+    <script>
+        function addInterval(dayId) {
+            const dayGroup = document.getElementById(dayId).querySelector('.day-intervals');
+            const newInterval = document.createElement('div');
+            newInterval.className = 'day-group';
+            const day = dayId.slice(0, -6);
+            const number = dayGroup.children.length + 1;
+
+            newInterval.innerHTML = `
+                <label class="day-label"></label>
+                <div>
+                    <input type="time" name="${day}-open-${number}" class="time-input">
+                    <input type="time" name="${day}-close-${number}" class="time-input">
+                </div>
+                <div class="buttons-group">
+                    <button type="button" onclick="addInterval('${dayId}')">{{_('Add Break')}}</button>
+                    <button type="button" onclick="removeInterval(this)">{{_('Remove')}}</button>
+                </div>
+            `;
+            dayGroup.appendChild(newInterval);
+            updateRemoveButtons(dayGroup);
+        }
+
+        function removeInterval(button) {
+            const dayGroup = button.closest('.day-group');
+            dayGroup.remove();
+            const dayIntervals = document.querySelector(`#${button.closest('.hours-group').id} .day-intervals`);
+            updateRemoveButtons(dayIntervals);
+        }
+
+        function updateRemoveButtons(dayGroup) {
+            const groups = dayGroup.querySelectorAll('.day-group');
+            groups.forEach((group, index) => {
+                const removeButton = group.querySelector('.buttons-group button:nth-child(2)');
+                if (removeButton) {
+                    removeButton.style.visibility = index > 0 ? 'visible' : 'hidden';
+                }
+            });
+        }
+
+        document.querySelectorAll('.day-intervals').forEach(dayGroup => {
+            updateRemoveButtons(dayGroup);
+        });
+    </script>
+</body>
+
+
+        <body>
+            <div class="form-container">
+                <form action="/create_service" method="POST">
+                    <h2>{{_('Create a New Service:')}}</h2>
+                    <div class="button-container">
+
+                    <div class="location-section">
+                        <label class="location-label" for="service">{{_('Service Name:')}}</label>
+                        <input type="text" id="service" name="service" required>
+
+                        <label class="location-label" for="category">{{_('Category:')}}</label>
+                        <select name="category" id="category" required>
+                            <option value="Family Care">{{_('Family Care')}}</option>
+                            <option value="Healthcare">{{_('Healthcare')}}</option>
+                            <option value="Education">{{_('Education')}}</option>
+                            <option value="Housing">{{_('Housing')}}</option>
+                        </select>
+
+
+
+                    <div class="location-section">
+                        <label class="location-label" for="dates">{{_('Available Date:')}}</label>
+                        <input type="date" name="service-date" class="date-input">
+
+                        <label class="location-label" for="opening_time">{{_('Opening Time:')}}</label>
+                        <input type="time" name="service-open-time-1" class="time-input">
+
+                        <label class="location-label" for="closing_time">{{_('Closing Time:')}}</label>
+                        <input type="time" name="service-close-time-1" class="time-input">
+                    </div>
+                    <div class="location-section">
+                        <label class="location-label" for="repeat">{{_('Repeat Type:')}}</label>
+                        <select name="repeat" id="repeat" required>
+                            <option value="every day">{{_('Every Day')}}</option>
+                            <option value="every week">{{_('Every Week')}}</option>
+                            <option value="every month">{{_('Every Month')}}</option>
+                            <option value="every other week">{{_('Every Other Week')}}</option>
+                        </select>
+                    </div>
+
+
+                        <div class="street-section">
+                            <label class="location-label" for="street_address">{{_('Street Address:')}}</label>
+                            <input  type="text" id="street_address" name="street_address" value="{{ organization.street_address }}" required>
+                            <label class="location-label" for="street-address-{{ organization.services.id }}-1">{{_('Street Address:')}}</label>
+                        </div>
+
+                        <div class="location-section">
+                            <label class="location-label" for="city">{{_('City:')}}</label>
+                            <input type="text" id="city" name="city" value="{{ organization.city }}" readonly required>
+
+                            <label class="location-label" for="state">{{_('State:')}}</label>
+                            <input type="text" id="state-display" value="Illinois" readonly required>
+                            <input type="hidden" id="state" name="state" value="{{ organization.state }}" readonly required>
+
+                            <label class="location-label" for="zip-code">{{_('Zip Code:')}}</label>
+                            <input type="text" id="zip-code" name="zip-code" value="{{ organization.zip_code }}" required>
+                        </div>
+                    <label class="location-label" for="neighborhood">{{_('Neighborhood:')}}</label>
+                    <select id="neighborhood" name="neighborhood" value="{{ organization.neighborhood }}" required>
+                        <option value="{{ organization.neighborhood }}">{{ organization.neighborhood }}</option>
+                        <option value="Albany_Park">{{_('Albany Park')}}</option>
+                        <option value="Altgeld_Gardens">{{_('Altgeld Gardens')}}</option>
+                        <option value="Andersonville">{{_('Andersonville')}}</option>
+                        <option value="Arcadia_Terrace">{{_('Arcadia Terrace')}}</option>
+                        <option value="Archer_Heights">{{_('Archer Heights')}}</option>
+                        <option value="Armour_Square">{{_('Armour Square')}}</option>
+                        <option value="Ashburn">{{_('Ashburn')}}</option>
+                        <option value="Ashburn_Estates">{{_('Ashburn Estates')}}</option>
+                        <option value="Auburn_Gresham">{{_('Auburn Gresham')}}</option>
+                        <option value="Avalon_Park">{{_('Avalon Park')}}</option>
+                        <option value="Avondale">{{_('Avondale')}}</option>
+                        <option value="Avondale_Gardens">{{_('Avondale Gardens')}}</option>
+                        <option value="Back_of_the_Yards">{{_('Back of the Yards')}}</option>
+                        <option value="Belmont_Central">{{_('Belmont Central')}}</option>
+                        <option value="Belmont_Gardens">{{_('Belmont Gardens')}}</option>
+                        <option value="Hermosa">{{_('Hermosa')}}</option>
+                        <option value="Logan_Square">{{_('Logan Square')}}</option>
+                        <option value="Belmont_Heights">{{_('Belmont Heights')}}</option>
+                        <option value="Belmont_Terrace">{{_('Belmont Terrace')}}</option>
+                        <option value="Beverly">{{_('Beverly')}}</option>
+                        <option value="Beverly_View">{{_('Beverly View')}}</option>
+                        <option value="Beverly_Woods">{{_('Beverly Woods')}}</option>
+                        <option value="Big_Oaks">{{_('Big Oaks')}}</option>
+                        <option value="Northalsted_Boystown">{{_('Northalsted (Boystown)')}}</option>
+                        <option value="Bowmanville">{{_('Bowmanville')}}</option>
+                        <option value="Brainerd">{{_('Brainerd')}}</option>
+                        <option value="Brickyard">{{_('Brickyard')}}</option>
+                        <option value="Bridgeport">{{_('Bridgeport')}}</option>
+                        <option value="Brighton_Park">{{_('Brighton Park')}}</option>
+                        <option value="Bronzeville">{{_('Bronzeville')}}</option>
+                        <option value="Bucktown">{{_('Bucktown')}}</option>
+                        <option value="Budlong_Woods">{{_('Budlong Woods')}}</option>
+                        <option value="Buena_Park">{{_('Buena Park')}}</option>
+                        <option value="Burnside">{{_('Burnside')}}</option>
+                        <option value="Cabrini_Green">{{_('Cabrini–Green')}}</option>
+                        <option value="Calumet_Heights">{{_('Calumet Heights')}}</option>
+                        <option value="Canaryville">{{_('Canaryville')}}</option>
+                        <option value="Central_Station">{{_('Central Station')}}</option>
+                        <option value="Chatham">{{_('Chatham')}}</option>
+                        <option value="Chicago_Lawn">{{_('Chicago Lawn')}}</option>
+                        <option value="Chinatown">{{_('Chinatown')}}</option>
+                        <option value="Chrysler_Village">{{_('Chrysler Village')}}</option>
+                        <option value="Clarendon_Park">{{_('Clarendon Park')}}</option>
+                        <option value="Clearing_East">{{_('Clearing East')}}</option>
+                        <option value="Clearing_West">{{_('Clearing West')}}</option>
+                        <option value="Cottage_Grove_Heights">{{_('Cottage Grove Heights')}}</option>
+                        <option value="Cragin">{{_('Cragin')}}</option>
+                        <option value="Crestline">{{_('Crestline')}}</option>
+                        <option value="Dearborn_Homes">{{_('Dearborn Homes')}}</option>
+                        <option value="Dearborn_Park">{{_('Dearborn Park')}}</option>
+                        <option value="Douglas_Park">{{_('Douglas Park')}}</option>
+                        <option value="Dunning">{{_('Dunning')}}</option>
+                        <option value="East_Beverly">{{_('East Beverly')}}</option>
+                        <option value="East_Chatham">{{_('East Chatham')}}</option>
+                        <option value="East_Garfield_Park">{{_('East Garfield Park')}}</option>
+                        <option value="East_Hyde_Park">{{_('East Hyde Park')}}</option>
+                        <option value="East_Pilsen">{{_('East Pilsen')}}</option>
+                        <option value="East_Side">{{_('East Side')}}</option>
+                        <option value="East_Village">{{_('East Village')}}</option>
+                        <option value="Eden_Green">{{_('Eden Green')}}</option>
+                        <option value="Edgebrook">{{_('Edgebrook')}}</option>
+                        <option value="Edgewater">{{_('Edgewater')}}</option>
+                        <option value="Edgewater_Beach">{{_('Edgewater Beach')}}</option>
+                        <option value="Edgewater_Glen">{{_('Edgewater Glen')}}</option>
+                        <option value="Edison_Park">{{_('Edison Park')}}</option>
+                        <option value="Englewood">{{_('Englewood')}}</option>
+                        <option value="Fernwood">{{_('Fernwood')}}</option>
+                        <option value="Fifth_City">{{_('Fifth City')}}</option>
+                        <option value="Ford_City">{{_('Ford City')}}</option>
+                        <option value="Forest_Glen">{{_('Forest Glen')}}</option>
+                        <option value="Fuller_Park">{{_('Fuller Park')}}</option>
+                        <option value="Fulton_River_District">{{_('Fulton River District')}}</option>
+                        <option value="Gage_Park">{{_('Gage Park')}}</option>
+                        <option value="Galewood">{{_('Galewood')}}</option>
+                        <option value="The_Gap">{{_('The Gap')}}</option>
+                        <option value="Garfield_Ridge">{{_('Garfield Ridge')}}</option>
+                        <option value="Gladstone_Park">{{_('Gladstone Park')}}</option>
+                        <option value="Gold_Coast">{{_('Gold Coast')}}</option>
+                        <option value="Golden_Gate">{{_('Golden Gate')}}</option>
+                        <option value="Goose_Island">{{_('Goose Island')}}</option>
+                        <option value="Graceland_West">{{_('Graceland West')}}</option>
+                        <option value="Grand_Boulevard">{{_('Grand Boulevard')}}</option>
+                        <option value="Grand_Crossing">{{_('Grand Crossing')}}</option>
+                        <option value="Greater_Grand_Crossing">{{_('Greater Grand Crossing')}}</option>
+                        <option value="Greektown">{{_('Greektown')}}</option>
+                        <option value="Gresham">{{_('Gresham')}}</option>
+                        <option value="Groveland_Park">{{_('Groveland Park')}}</option>
+                        <option value="Hamilton_Park">{{_('Hamilton Park')}}</option>
+                        <option value="Hanson_Park">{{_('Hanson Park')}}</option>
+                        <option value="Heart_of_Chicago">{{_('Heart of Chicago')}}</option>
+                        <option value="Hegewisch">{{_('Hegewisch')}}</option>
+                        <option value="Hermosa">{{_('Hermosa')}}</option>
+                        <option value="Hollywood_Park">{{_('Hollywood Park')}}</option>
+                        <option value="Homan_Square">{{_('Homan Square')}}</option>
+                        <option value="Humboldt_Park">{{_('Humboldt Park')}}</option>
+                        <option value="Hyde_Park">{{_('Hyde Park')}}</option>
+                        <option value="Illinois_Medical_District">{{_('Illinois Medical District')}}</option>
+                        <option value="Irving_Park">{{_('Irving Park')}}</option>
+                        <option value="Irving_Woods">{{_('Irving Woods')}}</option>
+                        <option value="The_Island">{{_('The Island')}}</option>
+                        <option value="Jackowo">{{_('Jackowo')}}</option>
+                        <option value="Jackson_Park_Highlands">{{_('Jackson Park Highlands')}}</option>
+                        <option value="Jefferson_Park">{{_('Jefferson Park')}}</option>
+                        <option value="K_Town">{{_('K-Town')}}</option>
+                        <option value="Kelvyn_Park">{{_('Kelvyn Park')}}</option>
+                        <option value="Kennedy_Park">{{_('Kennedy Park')}}</option>
+                        <option value="Kensington">{{_('Kensington')}}</option>
+                        <option value="Kenwood">{{_('Kenwood')}}</option>
+                        <option value="Kilbourn_Park">{{_('Kilbourn Park')}}</option>
+                        <option value="Kosciuszko_Park">{{_('Kosciuszko Park')}}</option>
+                        <option value="Lake_Meadows">{{_('Lake Meadows')}}</option>
+                        <option value="Lake_View">{{_('Lake View')}}</option>
+                        <option value="Lakeview_East">{{_('Lakeview East')}}</option>
+                        <option value="Lakewood_Balmoral">{{_('Lakewood Balmoral')}}</option>
+                        <option value="LeClaire_Courts">{{_('LeClaire Courts')}}</option>
+                        <option value="Legends_South">{{_('Legends South (Robert Taylor Homes)')}}</option>
+                        <option value="Lilydale">{{_('Lilydale')}}</option>
+                        <option value="Lincoln_Park">{{_('Lincoln Park')}}</option>
+                        <option value="Lincoln_Square">{{_('Lincoln Square')}}</option>
+                        <option value="Lithuanian_Plaza">{{_('Lithuanian Plaza')}}</option>
+                        <option value="Little_Italy">{{_('Little Italy')}}</option>
+                        <option value="Little_Village">{{_('Little Village')}}</option>
+                        <option value="Logan_Square">{{_('Logan Square')}}</option>
+                        <option value="Longwood_Manor">{{_('Longwood Manor')}}</option>
+                        <option value="The_Loop">{{_('The Loop')}}</option>
+                        <option value="Lower_West_Side">{{_('Lower West Side')}}</option>
+                        <option value="Loyola">{{_('Loyola')}}</option>
+                        <option value="Magnificent_Mile">{{_('Magnificent Mile')}}</option>
+                        <option value="Margate_Park">{{_('Margate Park')}}</option>
+                        <option value="Marquette_Park">{{_('Marquette Park')}}</option>
+                        <option value="Marshall_Square">{{_('Marshall Square')}}</option>
+                        <option value="Marynook">{{_('Marynook')}}</option>
+                        <option value="Mayfair">{{_('Mayfair')}}</option>
+                        <option value="McKinley_Park">{{_('McKinley Park')}}</option>
+                        <option value="Merchant_Park">{{_('Merchant Park')}}</option>
+                        <option value="Montclare">{{_('Montclare')}}</option>
+                        <option value="Morgan_Park">{{_('Morgan Park')}}</option>
+                        <option value="Mount_Greenwood">{{_('Mount Greenwood')}}</option>
+                        <option value="Museum_Campus">{{_('Museum Campus')}}</option>
+                        <option value="New_Eastside">{{_('New Eastside')}}</option>
+                        <option value="Near_North_Side">{{_('Near North Side')}}</option>
+                        <option value="Near_West_Side">{{_('Near West Side')}}</option>
+                        <option value="New_Chinatown">{{_('New Chinatown')}}</option>
+                        <option value="New_City">{{_('New City')}}</option>
+                        <option value="Noble_Square">{{_('Noble Square')}}</option>
+                        <option value="North_Austin">{{_('North Austin')}}</option>
+                        <option value="North_Center">{{_('North Center')}}</option>
+                        <option value="North_Kenwood">{{_('North Kenwood')}}</option>
+                        <option value="North_Lawndale">{{_('North Lawndale')}}</option>
+                        <option value="North_Mayfair">{{_('North Mayfair')}}</option>
+                        <option value="North_Park">{{_('North Park')}}</option>
+                        <option value="Nortown">{{_('Nortown')}}</option>
+                        <option value="Norwood_Park_East">{{_('Norwood Park East')}}</option>
+                        <option value="Norwood_Park_West">{{_('Norwood Park West')}}</option>
+                        <option value="Oakland">{{_('Oakland')}}</option>
+                        <option value="OHare">{{_('O\'Hare')}}</option>
+                        <option value="Old_Edgebrook">{{_('Old Edgebrook')}}</option>
+                        <option value="Old_Irving_Park">{{_('Old Irving Park')}}</option>
+                        <option value="Old_Norwood">{{_('Old Norwood')}}</option>
+                        <option value="Old_Town">{{_('Old Town')}}</option>
+                        <option value="Old_Town_Triangle">{{_('Old Town Triangle')}}</option>
+                        <option value="Oriole_Park">{{_('Oriole Park')}}</option>
+                        <option value="Palmer_Square">{{_('Palmer Square')}}</option>
+                        <option value="Park_Manor">{{_('Park Manor')}}</option>
+                        <option value="Park_West">{{_('Park West')}}</option>
+                        <option value="Parkview">{{_('Parkview')}}</option>
+                        <option value="Peterson_Park">{{_('Peterson Park')}}</option>
+                        <option value="Pill_Hill">{{_('Pill Hill')}}</option>
+                        <option value="Pilsen">{{_('Pilsen')}}</option>
+                        <option value="Polish_Downtown">{{_('Polish Downtown')}}</option>
+                        <option value="Polish_Village">{{_('Polish Village')}}</option>
+                        <option value="Portage_Park">{{_('Portage Park')}}</option>
+                        <option value="Prairie_Avenue_Historic_District">{{_('Prairie Avenue Historic District')}}</option>
+                        <option value="Prairie_Shores">{{_('Prairie Shores')}}</option>
+                        <option value="Princeton_Park">{{_('Princeton Park')}}</option>
+                        <option value="Printers_Row">{{_('Printer\'s Row')}}</option>
+                        <option value="Pulaski_Park">{{_('Pulaski Park')}}</option>
+                        <option value="Pullman">{{_('Pullman')}}</option>
+                        <option value="Ranch_Triangle">{{_('Ranch Triangle')}}</option>
+                        <option value="Ravenswood">{{_('Ravenswood')}}</option>
+                        <option value="Ravenswood_Gardens">{{_('Ravenswood Gardens')}}</option>
+                        <option value="Ravenswood_Manor">{{_('Ravenswood Manor')}}</option>
+                        <option value="River_North">{{_('River North')}}</option>
+                        <option value="River_West">{{_('River West')}}</option>
+                        <option value="Rivers_Edge">{{_('River\'s Edge')}}</option>
+                        <option value="Riverdale">{{_('Riverdale')}}</option>
+                        <option value="Rogers_Park">{{_('Rogers Park')}}</option>
+                        <option value="Roscoe_Village">{{_('Roscoe Village')}}</option>
+                        <option value="Rosehill">{{_('Rosehill')}}</option>
+                        <option value="Roseland">{{_('Roseland')}}</option>
+                        <option value="Rosemoor">{{_('Rosemoor')}}</option>
+                        <option value="St_Bens">{{_('St. Ben\'s')}}</option>
+                        <option value="Sauganash">{{_('Sauganash')}}</option>
+                        <option value="Schorsch_Forest_View">{{_('Schorsch Forest View')}}</option>
+                        <option value="Schorsch_Village">{{_('Schorsch Village')}}</option>
+                        <option value="Scottsdale">{{_('Scottsdale')}}</option>
+                        <option value="Sheffield_Neighbors">{{_('Sheffield Neighbors')}}</option>
+                        <option value="Sheridan_Park">{{_('Sheridan Park')}}</option>
+                        <option value="Sheridan_Station_Corridor">{{_('Sheridan Station Corridor')}}</option>
+                        <option value="Sleepy_Hollow">{{_('Sleepy Hollow')}}</option>
+                        <option value="Smith_Park">{{_('Smith Park')}}</option>
+                        <option value="South_Austin">{{_('South Austin')}}</option>
+                        <option value="South_Chicago">{{_('South Chicago')}}</option>
+                        <option value="South_Commons">{{_('South Commons')}}</option>
+                        <option value="South_Deering">{{_('South Deering')}}</option>
+                        <option value="South_East_Ravenswood">{{_('South East Ravenswood')}}</option>
+                        <option value="South_Edgebrook">{{_('South Edgebrook')}}</option>
+                        <option value="South_Lawndale">{{_('South Lawndale')}}</option>
+                        <option value="South_Loop">{{_('South Loop')}}</option>
+                        <option value="South_Shore">{{_('South Shore')}}</option>
+                        <option value="Stateway_Gardens">{{_('Stateway Gardens')}}</option>
+                        <option value="Stony_Island_Park">{{_('Stony Island Park')}}</option>
+                        <option value="Streeterville">{{_('Streeterville')}}</option>
+                        <option value="Talleys_Corner">{{_('Talley\'s Corner')}}</option>
+                        <option value="Tri_Taylor">{{_('Tri-Taylor')}}</option>
+                        <option value="Ukrainian_Village">{{_('Ukrainian Village')}}</option>
+                        <option value="Union_Ridge">{{_('Union Ridge')}}</option>
+                        <option value="University_Village">{{_('University Village')}}</option>
+                        <option value="Uptown">{{_('Uptown')}}</option>
+                        <option value="The_Villa">{{_('The Villa')}}</option>
+                        <option value="Vittum_Park">{{_('Vittum Park')}}</option>
+                        <option value="Waclawowo">{{_('Wacławowo')}}</option>
+                        <option value="Washington_Heights">{{_('Washington Heights')}}</option>
+                        <option value="Washington_Park">{{_('Washington Park')}}</option>
+                        <option value="Wentworth_Gardens">{{_('Wentworth Gardens')}}</option>
+                        <option value="West_Beverly">{{_('West Beverly')}}</option>
+                        <option value="West_Chatham">{{_('West Chatham')}}</option>
+                        <option value="West_Chesterfield">{{_('West Chesterfield')}}</option>
+                        <option value="West_DePaul">{{_('West DePaul')}}</option>
+                        <option value="West_Elsdon">{{_('West Elsdon')}}</option>
+                        <option value="West_Englewood">{{_('West Englewood')}}</option>
+                        <option value="West_Garfield_Park">{{_('West Garfield Park')}}</option>
+                        <option value="West_Humboldt_Park">{{_('West Humboldt Park')}}</option>
+                        <option value="Lakeview_West">{{_('Lakeview West')}}</option>
+                        <option value="West_Lawn">{{_('West Lawn')}}</option>
+                        <option value="West_Loop">{{_('West Loop')}}</option>
+                        <option value="West_Morgan_Park">{{_('West Morgan Park')}}</option>
+                        <option value="West_Pullman">{{_('West Pullman')}}</option>
+                        <option value="West_Ridge">{{_('West Ridge')}}</option>
+                        <option value="West_Rogers_Park">{{_('West Rogers Park')}}</option>
+                        <option value="West_Town">{{_('West Town')}}</option>
+                        <option value="West_Woodlawn">{{_('West Woodlawn')}}</option>
+                        <option value="Wicker_Park">{{_('Wicker Park')}}</option>
+                        <option value="Wildwood">{{_('Wildwood')}}</option>
+                        <option value="Woodlawn">{{_('Woodlawn')}}</option>
+                        <option value="Wrightwood">{{_('Wrightwood')}}</option>
+                        <option value="Wrightwood_Neighbors">{{_('Wrightwood Neighbors')}}</option>
+                        <option value="Wrigleyville">{{_('Wrigleyville')}}</option>
+                        </select>
+            </div>
+            <div class="location-section">
+                <label class="location-label" for="access">{{_('Access Method:')}}</label>
+                <select name="access" id="access" required>
+                    <option value="Appointments Only">{{_('Appointments Only')}}</option>
+                    <option value="Walk-ins Welcome">{{_('Walk-ins Welcome')}}</option>
+                    <option value="Phone Registration">{{_('Phone Registration')}}</option>
+                </select>
+
+                <label class="location-label" for="service_note">{{_('Service Note:')}}</label>
+                <textarea id="service_note" name="service_note"></textarea>
+            </div>
+
+
+                <button class="update-button button-blue">{{_('Create Service')}}</button>
+
+        </form>
+    </div>
+</div>
+</body>
+
+<body>
+<div class="container">
+
+    <h2>{{_('Current Services Offered:')}}</h2>
+    <div id="services-container">
+        {% for service in organization.service %}
+        <div class="service-group" id="service-{{ service.id }}-group">
+            <div class="button-container">
+            <div class="edit-form" id="edit-form-{{ service.id }}">
+                <form action="/edit_service" method="POST" style="display:inline;">
+                    <h2>{{ service.service }}</h2>
+                    <div class="location-section">
+                        <label class="location-label" for="service-{{ service.id }}">{{_('Service Name:')}}</label>
+                        <input type="text" id="service-{{ service.id }}" name="service" value="{{ service.service }}" required>
+
+                        <label class="location-label" for="category-{{ service.id }}">{{_('Category:')}}</label>
+                        <select name="category" id="category-{{ service.id }}" required>
+                            <option value="Family Care" {% if service.category == 'Family Care' %}selected{% endif %}>{{_('Family Care')}}</option>
+                            <option value="Healthcare" {% if service.category == 'Healthcare' %}selected{% endif %}>{{_('Healthcare')}}</option>
+                            <option value="Education" {% if service.category == 'Education' %}selected{% endif %}>{{_('Education')}}</option>
+                            <option value="Housing" {% if service.category == 'Housing' %}selected{% endif %}>{{_('Housing')}}</option>
+                        </select>
+                    </div>
+
+
+                    <div class="location-section" id="service-dates-{{ organization.service.id }}">
+
+                        {% if organization.service.dates %}
+                        {% set date = organization.service.dates[0] %}
+
+                        <div class="location-section">
+                            <label class="location-label" for="service-date-{{ organization.service.id }}-1">{{_('Available Date:')}}</label>
+                            <input type="date" name="service-date-{{ organization.service.id }}-1" class="date-input" value="{{ date.date }}">
+
+                            <label class="location-label" for="service-open-time-{{ organization.service.id }}-1">{{_('Opening Time:')}}</label>
+                            <input type="time" name="service-open-time-{{ organization.service.id }}-1" class="time-input" value="{{ date.start_time }}">
+
+                            <label class="location-label" for="service-close-time-{{ organization.service.id }}-1">{{_('Closing Time:')}}</label>
+                            <input type="time" name="service-close-time-{{ organization.service.id }}-1" class="time-input" value="{{ date.end_time }}">
+                        </div>
+                        <div class="location-section">
+                            <label class="location-label" for="repeat-{{ organization.service.id }}-1">{{_('Repeat Type:')}}</label>
+                            <select name="repeat-{{ organization.service.id }}-1" class="repeat-select">
+                                <option value="every day" {% if date.repeat == 'every day' %}selected{% endif %}>{{_('Every Day')}}</option>
+                                <option value="every week" {% if date.repeat == 'every week' %}selected{% endif %}>{{_('Every Week')}}</option>
+                                <option value="every month" {% if date.repeat == 'every month' %}selected{% endif %}>{{_('Every Month')}}</option>
+                                <option value="every other week" {% if date.repeat == 'every other week' %}selected{% endif %}>{{_('Every Other Week')}}</option>
+                            </select>
+
+                        </div>
+                        </div>
+                        {% else %}
+
+                        <div class="location-section">
+                            <label class="location-label" for="service-date-{{ organization.service.id }}-1">{{_('Available Date:')}}</label>
+                            <input type="date" name="service-date-{{ organization.service.id }}-1" class="date-input">
+
+                            <label class="location-label" for="service-open-time-{{ organization.service.id }}-1">{{_('Opening Time:')}}</label>
+                            <input type="time" name="service-open-time-{{ organization.service.id }}-1" class="time-input">
+
+                            <label class="location-label" for="service-close-time-{{ organization.service.id }}-1">{{_('Closing Time:')}}</label>
+                            <input type="time" name="service-close-time-{{ organization.service.id }}-1" class="time-input">
+                        </div>
+                        <div class="location-section">
+                            <label class="location-label" for="repeat-{{ organization.service.id }}-1">{{_('Repeat Type:')}}</label>
+                            <select name="repeat-{{ organization.service.id }}-1" class="repeat-select">
+                                <option value="every day">{{_('Every Day')}}</option>
+                                <option value="every week">{{_('Every Week')}}</option>
+                                <option value="every month">{{_('Every Month')}}</option>
+                                <option value="every other week">{{_('Every Other Week')}}</option>
+                            </select>
+                        </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="location-section" id="locations-{{ organization.service.id }}">
+
+                        {% if organization.service.locations %}
+                        {% set location = organization.service.locations[0] %}
+                        <div class="location-section">
+                            <label class="location-label" for="street-address-{{ organization.service.id }}-1">{{_('Street Address:')}}</label>
+                            <input type="text" name="street-address-{{ organization.service.id }}-1" class="location-input" value="{{ location.street_address }}">
+                        </div>
+                        <div class="location-section">
+                            <label class="location-label" for="city-{{ organization.service.id }}-1">{{_('City:')}}</label>
+                            <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" value="{{ location.city }}" readonly>
+
+                            <label class="location-label" for="state-{{ organization.service.id }}-1">{{_('State:')}}</label>
+                            <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" value="{{ location.state }}" readonly>
+
+                            <label class="location-label" for="zip-code-{{ organization.service.id }}-1">{{_('Zip Code:')}}</label>
+                            <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input" value="{{ location.zip_code }}">
+                        </div>
+                        <div class="location-section">
+                            <label class="location-label" for="neighborhood-{{ organization.service.id }}-1">{{_('Neighborhood:')}}</label>
+                            <select id="neighborhood-{{ organization.service.id }}-1" name="neighborhood-{{ organization.service.id }}-1" class="location-input">
+                            <option value="{{ location.neighborhood }}">{{ location.neighborhood }}</option>
+                            <option value="Albany_Park">{{_('Albany Park')}}</option>
+                            <option value="Altgeld_Gardens">{{_('Altgeld Gardens')}}</option>
+                            <option value="Andersonville">{{_('Andersonville')}}</option>
+                            <option value="Arcadia_Terrace">{{_('Arcadia Terrace')}}</option>
+                            <option value="Archer_Heights">{{_('Archer Heights')}}</option>
+                            <option value="Armour_Square">{{_('Armour Square')}}</option>
+                            <option value="Ashburn">{{_('Ashburn')}}</option>
+                            <option value="Ashburn_Estates">{{_('Ashburn Estates')}}</option>
+                            <option value="Auburn_Gresham">{{_('Auburn Gresham')}}</option>
+                            <option value="Avalon_Park">{{_('Avalon Park')}}</option>
+                            <option value="Avondale">{{_('Avondale')}}</option>
+                            <option value="Avondale_Gardens">{{_('Avondale Gardens')}}</option>
+                            <option value="Back_of_the_Yards">{{_('Back of the Yards')}}</option>
+                            <option value="Belmont_Central">{{_('Belmont Central')}}</option>
+                            <option value="Belmont_Gardens">{{_('Belmont Gardens')}}</option>
+                            <option value="Hermosa">{{_('Hermosa')}}</option>
+                            <option value="Logan_Square">{{_('Logan Square')}}</option>
+                            <option value="Belmont_Heights">{{_('Belmont Heights')}}</option>
+                            <option value="Belmont_Terrace">{{_('Belmont Terrace')}}</option>
+                            <option value="Beverly">{{_('Beverly')}}</option>
+                            <option value="Beverly_View">{{_('Beverly View')}}</option>
+                            <option value="Beverly_Woods">{{_('Beverly Woods')}}</option>
+                            <option value="Big_Oaks">{{_('Big Oaks')}}</option>
+                            <option value="Northalsted_Boystown">{{_('Northalsted (Boystown)')}}</option>
+                            <option value="Bowmanville">{{_('Bowmanville')}}</option>
+                            <option value="Brainerd">{{_('Brainerd')}}</option>
+                            <option value="Brickyard">{{_('Brickyard')}}</option>
+                            <option value="Bridgeport">{{_('Bridgeport')}}</option>
+                            <option value="Brighton_Park">{{_('Brighton Park')}}</option>
+                            <option value="Bronzeville">{{_('Bronzeville')}}</option>
+                            <option value="Bucktown">{{_('Bucktown')}}</option>
+                            <option value="Budlong_Woods">{{_('Budlong Woods')}}</option>
+                            <option value="Buena_Park">{{_('Buena Park')}}</option>
+                            <option value="Burnside">{{_('Burnside')}}</option>
+                            <option value="Cabrini_Green">{{_('Cabrini–Green')}}</option>
+                            <option value="Calumet_Heights">{{_('Calumet Heights')}}</option>
+                            <option value="Canaryville">{{_('Canaryville')}}</option>
+                            <option value="Central_Station">{{_('Central Station')}}</option>
+                            <option value="Chatham">{{_('Chatham')}}</option>
+                            <option value="Chicago_Lawn">{{_('Chicago Lawn')}}</option>
+                            <option value="Chinatown">{{_('Chinatown')}}</option>
+                            <option value="Chrysler_Village">{{_('Chrysler Village')}}</option>
+                            <option value="Clarendon_Park">{{_('Clarendon Park')}}</option>
+                            <option value="Clearing_East">{{_('Clearing East')}}</option>
+                            <option value="Clearing_West">{{_('Clearing West')}}</option>
+                            <option value="Cottage_Grove_Heights">{{_('Cottage Grove Heights')}}</option>
+                            <option value="Cragin">{{_('Cragin')}}</option>
+                            <option value="Crestline">{{_('Crestline')}}</option>
+                            <option value="Dearborn_Homes">{{_('Dearborn Homes')}}</option>
+                            <option value="Dearborn_Park">{{_('Dearborn Park')}}</option>
+                            <option value="Douglas_Park">{{_('Douglas Park')}}</option>
+                            <option value="Dunning">{{_('Dunning')}}</option>
+                            <option value="East_Beverly">{{_('East Beverly')}}</option>
+                            <option value="East_Chatham">{{_('East Chatham')}}</option>
+                            <option value="East_Garfield_Park">{{_('East Garfield Park')}}</option>
+                            <option value="East_Hyde_Park">{{_('East Hyde Park')}}</option>
+                            <option value="East_Pilsen">{{_('East Pilsen')}}</option>
+                            <option value="East_Side">{{_('East Side')}}</option>
+                            <option value="East_Village">{{_('East Village')}}</option>
+                            <option value="Eden_Green">{{_('Eden Green')}}</option>
+                            <option value="Edgebrook">{{_('Edgebrook')}}</option>
+                            <option value="Edgewater">{{_('Edgewater')}}</option>
+                            <option value="Edgewater_Beach">{{_('Edgewater Beach')}}</option>
+                            <option value="Edgewater_Glen">{{_('Edgewater Glen')}}</option>
+                            <option value="Edison_Park">{{_('Edison Park')}}</option>
+                            <option value="Englewood">{{_('Englewood')}}</option>
+                            <option value="Fernwood">{{_('Fernwood')}}</option>
+                            <option value="Fifth_City">{{_('Fifth City')}}</option>
+                            <option value="Ford_City">{{_('Ford City')}}</option>
+                            <option value="Forest_Glen">{{_('Forest Glen')}}</option>
+                            <option value="Fuller_Park">{{_('Fuller Park')}}</option>
+                            <option value="Fulton_River_District">{{_('Fulton River District')}}</option>
+                            <option value="Gage_Park">{{_('Gage Park')}}</option>
+                            <option value="Galewood">{{_('Galewood')}}</option>
+                            <option value="The_Gap">{{_('The Gap')}}</option>
+                            <option value="Garfield_Ridge">{{_('Garfield Ridge')}}</option>
+                            <option value="Gladstone_Park">{{_('Gladstone Park')}}</option>
+                            <option value="Gold_Coast">{{_('Gold Coast')}}</option>
+                            <option value="Golden_Gate">{{_('Golden Gate')}}</option>
+                            <option value="Goose_Island">{{_('Goose Island')}}</option>
+                            <option value="Graceland_West">{{_('Graceland West')}}</option>
+                            <option value="Grand_Boulevard">{{_('Grand Boulevard')}}</option>
+                            <option value="Grand_Crossing">{{_('Grand Crossing')}}</option>
+                            <option value="Greater_Grand_Crossing">{{_('Greater Grand Crossing')}}</option>
+                            <option value="Greektown">{{_('Greektown')}}</option>
+                            <option value="Gresham">{{_('Gresham')}}</option>
+                            <option value="Groveland_Park">{{_('Groveland Park')}}</option>
+                            <option value="Hamilton_Park">{{_('Hamilton Park')}}</option>
+                            <option value="Hanson_Park">{{_('Hanson Park')}}</option>
+                            <option value="Heart_of_Chicago">{{_('Heart of Chicago')}}</option>
+                            <option value="Hegewisch">{{_('Hegewisch')}}</option>
+                            <option value="Hermosa">{{_('Hermosa')}}</option>
+                            <option value="Hollywood_Park">{{_('Hollywood Park')}}</option>
+                            <option value="Homan_Square">{{_('Homan Square')}}</option>
+                            <option value="Humboldt_Park">{{_('Humboldt Park')}}</option>
+                            <option value="Hyde_Park">{{_('Hyde Park')}}</option>
+                            <option value="Illinois_Medical_District">{{_('Illinois Medical District')}}</option>
+                            <option value="Irving_Park">{{_('Irving Park')}}</option>
+                            <option value="Irving_Woods">{{_('Irving Woods')}}</option>
+                            <option value="The_Island">{{_('The Island')}}</option>
+                            <option value="Jackowo">{{_('Jackowo')}}</option>
+                            <option value="Jackson_Park_Highlands">{{_('Jackson Park Highlands')}}</option>
+                            <option value="Jefferson_Park">{{_('Jefferson Park')}}</option>
+                            <option value="K_Town">{{_('K-Town')}}</option>
+                            <option value="Kelvyn_Park">{{_('Kelvyn Park')}}</option>
+                            <option value="Kennedy_Park">{{_('Kennedy Park')}}</option>
+                            <option value="Kensington">{{_('Kensington')}}</option>
+                            <option value="Kenwood">{{_('Kenwood')}}</option>
+                            <option value="Kilbourn_Park">{{_('Kilbourn Park')}}</option>
+                            <option value="Kosciuszko_Park">{{_('Kosciuszko Park')}}</option>
+                            <option value="Lake_Meadows">{{_('Lake Meadows')}}</option>
+                            <option value="Lake_View">{{_('Lake View')}}</option>
+                            <option value="Lakeview_East">{{_('Lakeview East')}}</option>
+                            <option value="Lakewood_Balmoral">{{_('Lakewood Balmoral')}}</option>
+                            <option value="LeClaire_Courts">{{_('LeClaire Courts')}}</option>
+                            <option value="Legends_South">{{_('Legends South (Robert Taylor Homes)')}}</option>
+                            <option value="Lilydale">{{_('Lilydale')}}</option>
+                            <option value="Lincoln_Park">{{_('Lincoln Park')}}</option>
+                            <option value="Lincoln_Square">{{_('Lincoln Square')}}</option>
+                            <option value="Lithuanian_Plaza">{{_('Lithuanian Plaza')}}</option>
+                            <option value="Little_Italy">{{_('Little Italy')}}</option>
+                            <option value="Little_Village">{{_('Little Village')}}</option>
+                            <option value="Logan_Square">{{_('Logan Square')}}</option>
+                            <option value="Longwood_Manor">{{_('Longwood Manor')}}</option>
+                            <option value="The_Loop">{{_('The Loop')}}</option>
+                            <option value="Lower_West_Side">{{_('Lower West Side')}}</option>
+                            <option value="Loyola">{{_('Loyola')}}</option>
+                            <option value="Magnificent_Mile">{{_('Magnificent Mile')}}</option>
+                            <option value="Margate_Park">{{_('Margate Park')}}</option>
+                            <option value="Marquette_Park">{{_('Marquette Park')}}</option>
+                            <option value="Marshall_Square">{{_('Marshall Square')}}</option>
+                            <option value="Marynook">{{_('Marynook')}}</option>
+                            <option value="Mayfair">{{_('Mayfair')}}</option>
+                            <option value="McKinley_Park">{{_('McKinley Park')}}</option>
+                            <option value="Merchant_Park">{{_('Merchant Park')}}</option>
+                            <option value="Montclare">{{_('Montclare')}}</option>
+                            <option value="Morgan_Park">{{_('Morgan Park')}}</option>
+                            <option value="Mount_Greenwood">{{_('Mount Greenwood')}}</option>
+                            <option value="Museum_Campus">{{_('Museum Campus')}}</option>
+                            <option value="New_Eastside">{{_('New Eastside')}}</option>
+                            <option value="Near_North_Side">{{_('Near North Side')}}</option>
+                            <option value="Near_West_Side">{{_('Near West Side')}}</option>
+                            <option value="New_Chinatown">{{_('New Chinatown')}}</option>
+                            <option value="New_City">{{_('New City')}}</option>
+                            <option value="Noble_Square">{{_('Noble Square')}}</option>
+                            <option value="North_Austin">{{_('North Austin')}}</option>
+                            <option value="North_Center">{{_('North Center')}}</option>
+                            <option value="North_Kenwood">{{_('North Kenwood')}}</option>
+                            <option value="North_Lawndale">{{_('North Lawndale')}}</option>
+                            <option value="North_Mayfair">{{_('North Mayfair')}}</option>
+                            <option value="North_Park">{{_('North Park')}}</option>
+                            <option value="Nortown">{{_('Nortown')}}</option>
+                            <option value="Norwood_Park_East">{{_('Norwood Park East')}}</option>
+                            <option value="Norwood_Park_West">{{_('Norwood Park West')}}</option>
+                            <option value="Oakland">{{_('Oakland')}}</option>
+                            <option value="OHare">{{_('O\'Hare')}}</option>
+                            <option value="Old_Edgebrook">{{_('Old Edgebrook')}}</option>
+                            <option value="Old_Irving_Park">{{_('Old Irving Park')}}</option>
+                            <option value="Old_Norwood">{{_('Old Norwood')}}</option>
+                            <option value="Old_Town">{{_('Old Town')}}</option>
+                            <option value="Old_Town_Triangle">{{_('Old Town Triangle')}}</option>
+                            <option value="Oriole_Park">{{_('Oriole Park')}}</option>
+                            <option value="Palmer_Square">{{_('Palmer Square')}}</option>
+                            <option value="Park_Manor">{{_('Park Manor')}}</option>
+                            <option value="Park_West">{{_('Park West')}}</option>
+                            <option value="Parkview">{{_('Parkview')}}</option>
+                            <option value="Peterson_Park">{{_('Peterson Park')}}</option>
+                            <option value="Pill_Hill">{{_('Pill Hill')}}</option>
+                            <option value="Pilsen">{{_('Pilsen')}}</option>
+                            <option value="Polish_Downtown">{{_('Polish Downtown')}}</option>
+                            <option value="Polish_Village">{{_('Polish Village')}}</option>
+                            <option value="Portage_Park">{{_('Portage Park')}}</option>
+                            <option value="Prairie_Avenue_Historic_District">{{_('Prairie Avenue Historic District')}}</option>
+                            <option value="Prairie_Shores">{{_('Prairie Shores')}}</option>
+                            <option value="Princeton_Park">{{_('Princeton Park')}}</option>
+                            <option value="Printers_Row">{{_('Printer\'s Row')}}</option>
+                            <option value="Pulaski_Park">{{_('Pulaski Park')}}</option>
+                            <option value="Pullman">{{_('Pullman')}}</option>
+                            <option value="Ranch_Triangle">{{_('Ranch Triangle')}}</option>
+                            <option value="Ravenswood">{{_('Ravenswood')}}</option>
+                            <option value="Ravenswood_Gardens">{{_('Ravenswood Gardens')}}</option>
+                            <option value="Ravenswood_Manor">{{_('Ravenswood Manor')}}</option>
+                            <option value="River_North">{{_('River North')}}</option>
+                            <option value="River_West">{{_('River West')}}</option>
+                            <option value="Rivers_Edge">{{_('River\'s Edge')}}</option>
+                            <option value="Riverdale">{{_('Riverdale')}}</option>
+                            <option value="Rogers_Park">{{_('Rogers Park')}}</option>
+                            <option value="Roscoe_Village">{{_('Roscoe Village')}}</option>
+                            <option value="Rosehill">{{_('Rosehill')}}</option>
+                            <option value="Roseland">{{_('Roseland')}}</option>
+                            <option value="Rosemoor">{{_('Rosemoor')}}</option>
+                            <option value="St_Bens">{{_('St. Ben\'s')}}</option>
+                            <option value="Sauganash">{{_('Sauganash')}}</option>
+                            <option value="Schorsch_Forest_View">{{_('Schorsch Forest View')}}</option>
+                            <option value="Schorsch_Village">{{_('Schorsch Village')}}</option>
+                            <option value="Scottsdale">{{_('Scottsdale')}}</option>
+                            <option value="Sheffield_Neighbors">{{_('Sheffield Neighbors')}}</option>
+                            <option value="Sheridan_Park">{{_('Sheridan Park')}}</option>
+                            <option value="Sheridan_Station_Corridor">{{_('Sheridan Station Corridor')}}</option>
+                            <option value="Sleepy_Hollow">{{_('Sleepy Hollow')}}</option>
+                            <option value="Smith_Park">{{_('Smith Park')}}</option>
+                            <option value="South_Austin">{{_('South Austin')}}</option>
+                            <option value="South_Chicago">{{_('South Chicago')}}</option>
+                            <option value="South_Commons">{{_('South Commons')}}</option>
+                            <option value="South_Deering">{{_('South Deering')}}</option>
+                            <option value="South_East_Ravenswood">{{_('South East Ravenswood')}}</option>
+                            <option value="South_Edgebrook">{{_('South Edgebrook')}}</option>
+                            <option value="South_Lawndale">{{_('South Lawndale')}}</option>
+                            <option value="South_Loop">{{_('South Loop')}}</option>
+                            <option value="South_Shore">{{_('South Shore')}}</option>
+                            <option value="Stateway_Gardens">{{_('Stateway Gardens')}}</option>
+                            <option value="Stony_Island_Park">{{_('Stony Island Park')}}</option>
+                            <option value="Streeterville">{{_('Streeterville')}}</option>
+                            <option value="Talleys_Corner">{{_('Talley\'s Corner')}}</option>
+                            <option value="Tri_Taylor">{{_('Tri-Taylor')}}</option>
+                            <option value="Ukrainian_Village">{{_('Ukrainian Village')}}</option>
+                            <option value="Union_Ridge">{{_('Union Ridge')}}</option>
+                            <option value="University_Village">{{_('University Village')}}</option>
+                            <option value="Uptown">{{_('Uptown')}}</option>
+                            <option value="The_Villa">{{_('The Villa')}}</option>
+                            <option value="Vittum_Park">{{_('Vittum Park')}}</option>
+                            <option value="Waclawowo">{{_('Wacławowo')}}</option>
+                            <option value="Washington_Heights">{{_('Washington Heights')}}</option>
+                            <option value="Washington_Park">{{_('Washington Park')}}</option>
+                            <option value="Wentworth_Gardens">{{_('Wentworth Gardens')}}</option>
+                            <option value="West_Beverly">{{_('West Beverly')}}</option>
+                            <option value="West_Chatham">{{_('West Chatham')}}</option>
+                            <option value="West_Chesterfield">{{_('West Chesterfield')}}</option>
+                            <option value="West_DePaul">{{_('West DePaul')}}</option>
+                            <option value="West_Elsdon">{{_('West Elsdon')}}</option>
+                            <option value="West_Englewood">{{_('West Englewood')}}</option>
+                            <option value="West_Garfield_Park">{{_('West Garfield Park')}}</option>
+                            <option value="West_Humboldt_Park">{{_('West Humboldt Park')}}</option>
+                            <option value="Lakeview_West">{{_('Lakeview West')}}</option>
+                            <option value="West_Lawn">{{_('West Lawn')}}</option>
+                            <option value="West_Loop">{{_('West Loop')}}</option>
+                            <option value="West_Morgan_Park">{{_('West Morgan Park')}}</option>
+                            <option value="West_Pullman">{{_('West Pullman')}}</option>
+                            <option value="West_Ridge">{{_('West Ridge')}}</option>
+                            <option value="West_Rogers_Park">{{_('West Rogers Park')}}</option>
+                            <option value="West_Town">{{_('West Town')}}</option>
+                            <option value="West_Woodlawn">{{_('West Woodlawn')}}</option>
+                            <option value="Wicker_Park">{{_('Wicker Park')}}</option>
+                            <option value="Wildwood">{{_('Wildwood')}}</option>
+                            <option value="Woodlawn">{{_('Woodlawn')}}</option>
+                            <option value="Wrightwood">{{_('Wrightwood')}}</option>
+                            <option value="Wrightwood_Neighbors">{{_('Wrightwood Neighbors')}}</option>
+                            <option value="Wrigleyville">{{_('Wrigleyville')}}</option>
+                            </select>
+                        </div>
+
+                        {% else %}
+                        <div class="location-section">
+                            <label class="location-label" for="street-address-{{ organization.service.id }}-1">{{_('Street Address:')}}</label>
+                            <input type="text" name="street-address-{{ organization.service.id }}-1" class="location-input">
+                        </div>
+                        <div class="location-section">
+                            <label class="location-label" for="city-{{ organization.service.id }}-1">{{_('City:')}}</label>
+                            <input type="text" name="city-{{ organization.service.id }}-1" class="location-input" readonly>
+
+                            <label class="location-label" for="state-{{ organization.service.id }}-1">{{_('State:')}}</label>
+                            <input type="text" name="state-{{ organization.service.id }}-1" class="location-input" readonly value="Illinois">
+
+                            <label class="location-label" for="zip-code-{{ organization.service.id }}-1">{{_('Zip Code:')}}</label>
+                            <input type="text" name="zip-code-{{ organization.service.id }}-1" class="location-input">
+
+                        </div>
+                        <div class="location-section">
+                            <label class="location-label" for="neighborhood-{{ organization.service.id }}-1">{{_('Neighborhood:')}}</label>
+
+                            <select id="neighborhood-{{ organization.service.id }}-1" name="neighborhood-{{ organization.service.id }}-1" class="location-input">
+                                <option value="">{{_('Select Neighborhood')}}</option>
+                                <option value="Albany_Park">{{_('Albany Park')}}</option>
+                                <option value="Altgeld_Gardens">{{_('Altgeld Gardens')}}</option>
+                                <option value="Andersonville">{{_('Andersonville')}}</option>
+                                <option value="Arcadia_Terrace">{{_('Arcadia Terrace')}}</option>
+                                <option value="Archer_Heights">{{_('Archer Heights')}}</option>
+                                <option value="Armour_Square">{{_('Armour Square')}}</option>
+                                <option value="Ashburn">{{_('Ashburn')}}</option>
+                                <option value="Ashburn_Estates">{{_('Ashburn Estates')}}</option>
+                                <option value="Auburn_Gresham">{{_('Auburn Gresham')}}</option>
+                                <option value="Avalon_Park">{{_('Avalon Park')}}</option>
+                                <option value="Avondale">{{_('Avondale')}}</option>
+                                <option value="Avondale_Gardens">{{_('Avondale Gardens')}}</option>
+                                <option value="Back_of_the_Yards">{{_('Back of the Yards')}}</option>
+                                <option value="Belmont_Central">{{_('Belmont Central')}}</option>
+                                <option value="Belmont_Gardens">{{_('Belmont Gardens')}}</option>
+                                <option value="Hermosa">{{_('Hermosa')}}</option>
+                                <option value="Logan_Square">{{_('Logan Square')}}</option>
+                                <option value="Belmont_Heights">{{_('Belmont Heights')}}</option>
+                                <option value="Belmont_Terrace">{{_('Belmont Terrace')}}</option>
+                                <option value="Beverly">{{_('Beverly')}}</option>
+                                <option value="Beverly_View">{{_('Beverly View')}}</option>
+                                <option value="Beverly_Woods">{{_('Beverly Woods')}}</option>
+                                <option value="Big_Oaks">{{_('Big Oaks')}}</option>
+                                <option value="Northalsted_Boystown">{{_('Northalsted (Boystown)')}}</option>
+                                <option value="Bowmanville">{{_('Bowmanville')}}</option>
+                                <option value="Brainerd">{{_('Brainerd')}}</option>
+                                <option value="Brickyard">{{_('Brickyard')}}</option>
+                                <option value="Bridgeport">{{_('Bridgeport')}}</option>
+                                <option value="Brighton_Park">{{_('Brighton Park')}}</option>
+                                <option value="Bronzeville">{{_('Bronzeville')}}</option>
+                                <option value="Bucktown">{{_('Bucktown')}}</option>
+                                <option value="Budlong_Woods">{{_('Budlong Woods')}}</option>
+                                <option value="Buena_Park">{{_('Buena Park')}}</option>
+                                <option value="Burnside">{{_('Burnside')}}</option>
+                                <option value="Cabrini_Green">{{_('Cabrini–Green')}}</option>
+                                <option value="Calumet_Heights">{{_('Calumet Heights')}}</option>
+                                <option value="Canaryville">{{_('Canaryville')}}</option>
+                                <option value="Central_Station">{{_('Central Station')}}</option>
+                                <option value="Chatham">{{_('Chatham')}}</option>
+                                <option value="Chicago_Lawn">{{_('Chicago Lawn')}}</option>
+                                <option value="Chinatown">{{_('Chinatown')}}</option>
+                                <option value="Chrysler_Village">{{_('Chrysler Village')}}</option>
+                                <option value="Clarendon_Park">{{_('Clarendon Park')}}</option>
+                                <option value="Clearing_East">{{_('Clearing East')}}</option>
+                                <option value="Clearing_West">{{_('Clearing West')}}</option>
+                                <option value="Cottage_Grove_Heights">{{_('Cottage Grove Heights')}}</option>
+                                <option value="Cragin">{{_('Cragin')}}</option>
+                                <option value="Crestline">{{_('Crestline')}}</option>
+                                <option value="Dearborn_Homes">{{_('Dearborn Homes')}}</option>
+                                <option value="Dearborn_Park">{{_('Dearborn Park')}}</option>
+                                <option value="Douglas_Park">{{_('Douglas Park')}}</option>
+                                <option value="Dunning">{{_('Dunning')}}</option>
+                                <option value="East_Beverly">{{_('East Beverly')}}</option>
+                                <option value="East_Chatham">{{_('East Chatham')}}</option>
+                                <option value="East_Garfield_Park">{{_('East Garfield Park')}}</option>
+                                <option value="East_Hyde_Park">{{_('East Hyde Park')}}</option>
+                                <option value="East_Pilsen">{{_('East Pilsen')}}</option>
+                                <option value="East_Side">{{_('East Side')}}</option>
+                                <option value="East_Village">{{_('East Village')}}</option>
+                                <option value="Eden_Green">{{_('Eden Green')}}</option>
+                                <option value="Edgebrook">{{_('Edgebrook')}}</option>
+                                <option value="Edgewater">{{_('Edgewater')}}</option>
+                                <option value="Edgewater_Beach">{{_('Edgewater Beach')}}</option>
+                                <option value="Edgewater_Glen">{{_('Edgewater Glen')}}</option>
+                                <option value="Edison_Park">{{_('Edison Park')}}</option>
+                                <option value="Englewood">{{_('Englewood')}}</option>
+                                <option value="Fernwood">{{_('Fernwood')}}</option>
+                                <option value="Fifth_City">{{_('Fifth City')}}</option>
+                                <option value="Ford_City">{{_('Ford City')}}</option>
+                                <option value="Forest_Glen">{{_('Forest Glen')}}</option>
+                                <option value="Fuller_Park">{{_('Fuller Park')}}</option>
+                                <option value="Fulton_River_District">{{_('Fulton River District')}}</option>
+                                <option value="Gage_Park">{{_('Gage Park')}}</option>
+                                <option value="Galewood">{{_('Galewood')}}</option>
+                                <option value="The_Gap">{{_('The Gap')}}</option>
+                                <option value="Garfield_Ridge">{{_('Garfield Ridge')}}</option>
+                                <option value="Gladstone_Park">{{_('Gladstone Park')}}</option>
+                                <option value="Gold_Coast">{{_('Gold Coast')}}</option>
+                                <option value="Golden_Gate">{{_('Golden Gate')}}</option>
+                                <option value="Goose_Island">{{_('Goose Island')}}</option>
+                                <option value="Graceland_West">{{_('Graceland West')}}</option>
+                                <option value="Grand_Boulevard">{{_('Grand Boulevard')}}</option>
+                                <option value="Grand_Crossing">{{_('Grand Crossing')}}</option>
+                                <option value="Greater_Grand_Crossing">{{_('Greater Grand Crossing')}}</option>
+                                <option value="Greektown">{{_('Greektown')}}</option>
+                                <option value="Gresham">{{_('Gresham')}}</option>
+                                <option value="Groveland_Park">{{_('Groveland Park')}}</option>
+                                <option value="Hamilton_Park">{{_('Hamilton Park')}}</option>
+                                <option value="Hanson_Park">{{_('Hanson Park')}}</option>
+                                <option value="Heart_of_Chicago">{{_('Heart of Chicago')}}</option>
+                                <option value="Hegewisch">{{_('Hegewisch')}}</option>
+                                <option value="Hermosa">{{_('Hermosa')}}</option>
+                                <option value="Hollywood_Park">{{_('Hollywood Park')}}</option>
+                                <option value="Homan_Square">{{_('Homan Square')}}</option>
+                                <option value="Humboldt_Park">{{_('Humboldt Park')}}</option>
+                                <option value="Hyde_Park">{{_('Hyde Park')}}</option>
+                                <option value="Illinois_Medical_District">{{_('Illinois Medical District')}}</option>
+                                <option value="Irving_Park">{{_('Irving Park')}}</option>
+                                <option value="Irving_Woods">{{_('Irving Woods')}}</option>
+                                <option value="The_Island">{{_('The Island')}}</option>
+                                <option value="Jackowo">{{_('Jackowo')}}</option>
+                                <option value="Jackson_Park_Highlands">{{_('Jackson Park Highlands')}}</option>
+                                <option value="Jefferson_Park">{{_('Jefferson Park')}}</option>
+                                <option value="K_Town">{{_('K-Town')}}</option>
+                                <option value="Kelvyn_Park">{{_('Kelvyn Park')}}</option>
+                                <option value="Kennedy_Park">{{_('Kennedy Park')}}</option>
+                                <option value="Kensington">{{_('Kensington')}}</option>
+                                <option value="Kenwood">{{_('Kenwood')}}</option>
+                                <option value="Kilbourn_Park">{{_('Kilbourn Park')}}</option>
+                                <option value="Kosciuszko_Park">{{_('Kosciuszko Park')}}</option>
+                                <option value="Lake_Meadows">{{_('Lake Meadows')}}</option>
+                                <option value="Lake_View">{{_('Lake View')}}</option>
+                                <option value="Lakeview_East">{{_('Lakeview East')}}</option>
+                                <option value="Lakewood_Balmoral">{{_('Lakewood Balmoral')}}</option>
+                                <option value="LeClaire_Courts">{{_('LeClaire Courts')}}</option>
+                                <option value="Legends_South">{{_('Legends South (Robert Taylor Homes)')}}</option>
+                                <option value="Lilydale">{{_('Lilydale')}}</option>
+                                <option value="Lincoln_Park">{{_('Lincoln Park')}}</option>
+                                <option value="Lincoln_Square">{{_('Lincoln Square')}}</option>
+                                <option value="Lithuanian_Plaza">{{_('Lithuanian Plaza')}}</option>
+                                <option value="Little_Italy">{{_('Little Italy')}}</option>
+                                <option value="Little_Village">{{_('Little Village')}}</option>
+                                <option value="Logan_Square">{{_('Logan Square')}}</option>
+                                <option value="Longwood_Manor">{{_('Longwood Manor')}}</option>
+                                <option value="The_Loop">{{_('The Loop')}}</option>
+                                <option value="Lower_West_Side">{{_('Lower West Side')}}</option>
+                                <option value="Loyola">{{_('Loyola')}}</option>
+                                <option value="Magnificent_Mile">{{_('Magnificent Mile')}}</option>
+                                <option value="Margate_Park">{{_('Margate Park')}}</option>
+                                <option value="Marquette_Park">{{_('Marquette Park')}}</option>
+                                <option value="Marshall_Square">{{_('Marshall Square')}}</option>
+                                <option value="Marynook">{{_('Marynook')}}</option>
+                                <option value="Mayfair">{{_('Mayfair')}}</option>
+                                <option value="McKinley_Park">{{_('McKinley Park')}}</option>
+                                <option value="Merchant_Park">{{_('Merchant Park')}}</option>
+                                <option value="Montclare">{{_('Montclare')}}</option>
+                                <option value="Morgan_Park">{{_('Morgan Park')}}</option>
+                                <option value="Mount_Greenwood">{{_('Mount Greenwood')}}</option>
+                                <option value="Museum_Campus">{{_('Museum Campus')}}</option>
+                                <option value="New_Eastside">{{_('New Eastside')}}</option>
+                                <option value="Near_North_Side">{{_('Near North Side')}}</option>
+                                <option value="Near_West_Side">{{_('Near West Side')}}</option>
+                                <option value="New_Chinatown">{{_('New Chinatown')}}</option>
+                                <option value="New_City">{{_('New City')}}</option>
+                                <option value="Noble_Square">{{_('Noble Square')}}</option>
+                                <option value="North_Austin">{{_('North Austin')}}</option>
+                                <option value="North_Center">{{_('North Center')}}</option>
+                                <option value="North_Kenwood">{{_('North Kenwood')}}</option>
+                                <option value="North_Lawndale">{{_('North Lawndale')}}</option>
+                                <option value="North_Mayfair">{{_('North Mayfair')}}</option>
+                                <option value="North_Park">{{_('North Park')}}</option>
+                                <option value="Nortown">{{_('Nortown')}}</option>
+                                <option value="Norwood_Park_East">{{_('Norwood Park East')}}</option>
+                                <option value="Norwood_Park_West">{{_('Norwood Park West')}}</option>
+                                <option value="Oakland">{{_('Oakland')}}</option>
+                                <option value="OHare">{{_('O\'Hare')}}</option>
+                                <option value="Old_Edgebrook">{{_('Old Edgebrook')}}</option>
+                                <option value="Old_Irving_Park">{{_('Old Irving Park')}}</option>
+                                <option value="Old_Norwood">{{_('Old Norwood')}}</option>
+                                <option value="Old_Town">{{_('Old Town')}}</option>
+                                <option value="Old_Town_Triangle">{{_('Old Town Triangle')}}</option>
+                                <option value="Oriole_Park">{{_('Oriole Park')}}</option>
+                                <option value="Palmer_Square">{{_('Palmer Square')}}</option>
+                                <option value="Park_Manor">{{_('Park Manor')}}</option>
+                                <option value="Park_West">{{_('Park West')}}</option>
+                                <option value="Parkview">{{_('Parkview')}}</option>
+                                <option value="Peterson_Park">{{_('Peterson Park')}}</option>
+                                <option value="Pill_Hill">{{_('Pill Hill')}}</option>
+                                <option value="Pilsen">{{_('Pilsen')}}</option>
+                                <option value="Polish_Downtown">{{_('Polish Downtown')}}</option>
+                                <option value="Polish_Village">{{_('Polish Village')}}</option>
+                                <option value="Portage_Park">{{_('Portage Park')}}</option>
+                                <option value="Prairie_Avenue_Historic_District">{{_('Prairie Avenue Historic District')}}</option>
+                                <option value="Prairie_Shores">{{_('Prairie Shores')}}</option>
+                                <option value="Princeton_Park">{{_('Princeton Park')}}</option>
+                                <option value="Printers_Row">{{_('Printer\'s Row')}}</option>
+                                <option value="Pulaski_Park">{{_('Pulaski Park')}}</option>
+                                <option value="Pullman">{{_('Pullman')}}</option>
+                                <option value="Ranch_Triangle">{{_('Ranch Triangle')}}</option>
+                                <option value="Ravenswood">{{_('Ravenswood')}}</option>
+                                <option value="Ravenswood_Gardens">{{_('Ravenswood Gardens')}}</option>
+                                <option value="Ravenswood_Manor">{{_('Ravenswood Manor')}}</option>
+                                <option value="River_North">{{_('River North')}}</option>
+                                <option value="River_West">{{_('River West')}}</option>
+                                <option value="Rivers_Edge">{{_('River\'s Edge')}}</option>
+                                <option value="Riverdale">{{_('Riverdale')}}</option>
+                                <option value="Rogers_Park">{{_('Rogers Park')}}</option>
+                                <option value="Roscoe_Village">{{_('Roscoe Village')}}</option>
+                                <option value="Rosehill">{{_('Rosehill')}}</option>
+                                <option value="Roseland">{{_('Roseland')}}</option>
+                                <option value="Rosemoor">{{_('Rosemoor')}}</option>
+                                <option value="St_Bens">{{_('St. Ben\'s')}}</option>
+                                <option value="Sauganash">{{_('Sauganash')}}</option>
+                                <option value="Schorsch_Forest_View">{{_('Schorsch Forest View')}}</option>
+                                <option value="Schorsch_Village">{{_('Schorsch Village')}}</option>
+                                <option value="Scottsdale">{{_('Scottsdale')}}</option>
+                                <option value="Sheffield_Neighbors">{{_('Sheffield Neighbors')}}</option>
+                                <option value="Sheridan_Park">{{_('Sheridan Park')}}</option>
+                                <option value="Sheridan_Station_Corridor">{{_('Sheridan Station Corridor')}}</option>
+                                <option value="Sleepy_Hollow">{{_('Sleepy Hollow')}}</option>
+                                <option value="Smith_Park">{{_('Smith Park')}}</option>
+                                <option value="South_Austin">{{_('South Austin')}}</option>
+                                <option value="South_Chicago">{{_('South Chicago')}}</option>
+                                <option value="South_Commons">{{_('South Commons')}}</option>
+                                <option value="South_Deering">{{_('South Deering')}}</option>
+                                <option value="South_East_Ravenswood">{{_('South East Ravenswood')}}</option>
+                                <option value="South_Edgebrook">{{_('South Edgebrook')}}</option>
+                                <option value="South_Lawndale">{{_('South Lawndale')}}</option>
+                                <option value="South_Loop">{{_('South Loop')}}</option>
+                                <option value="South_Shore">{{_('South Shore')}}</option>
+                                <option value="Stateway_Gardens">{{_('Stateway Gardens')}}</option>
+                                <option value="Stony_Island_Park">{{_('Stony Island Park')}}</option>
+                                <option value="Streeterville">{{_('Streeterville')}}</option>
+                                <option value="Talleys_Corner">{{_('Talley\'s Corner')}}</option>
+                                <option value="Tri_Taylor">{{_('Tri-Taylor')}}</option>
+                                <option value="Ukrainian_Village">{{_('Ukrainian Village')}}</option>
+                                <option value="Union_Ridge">{{_('Union Ridge')}}</option>
+                                <option value="University_Village">{{_('University Village')}}</option>
+                                <option value="Uptown">{{_('Uptown')}}</option>
+                                <option value="The_Villa">{{_('The Villa')}}</option>
+                                <option value="Vittum_Park">{{_('Vittum Park')}}</option>
+                                <option value="Waclawowo">{{_('Wacławowo')}}</option>
+                                <option value="Washington_Heights">{{_('Washington Heights')}}</option>
+                                <option value="Washington_Park">{{_('Washington Park')}}</option>
+                                <option value="Wentworth_Gardens">{{_('Wentworth Gardens')}}</option>
+                                <option value="West_Beverly">{{_('West Beverly')}}</option>
+                                <option value="West_Chatham">{{_('West Chatham')}}</option>
+                                <option value="West_Chesterfield">{{_('West Chesterfield')}}</option>
+                                <option value="West_DePaul">{{_('West DePaul')}}</option>
+                                <option value="West_Elsdon">{{_('West Elsdon')}}</option>
+                                <option value="West_Englewood">{{_('West Englewood')}}</option>
+                                <option value="West_Garfield_Park">{{_('West Garfield Park')}}</option>
+                                <option value="West_Humboldt_Park">{{_('West Humboldt Park')}}</option>
+                                <option value="Lakeview_West">{{_('Lakeview West')}}</option>
+                                <option value="West_Lawn">{{_('West Lawn')}}</option>
+                                <option value="West_Loop">{{_('West Loop')}}</option>
+                                <option value="West_Morgan_Park">{{_('West Morgan Park')}}</option>
+                                <option value="West_Pullman">{{_('West Pullman')}}</option>
+                                <option value="West_Ridge">{{_('West Ridge')}}</option>
+                                <option value="West_Rogers_Park">{{_('West Rogers Park')}}</option>
+                                <option value="West_Town">{{_('West Town')}}</option>
+                                <option value="West_Woodlawn">{{_('West Woodlawn')}}</option>
+                                <option value="Wicker_Park">{{_('Wicker Park')}}</option>
+                                <option value="Wildwood">{{_('Wildwood')}}</option>
+                                <option value="Woodlawn">{{_('Woodlawn')}}</option>
+                                <option value="Wrightwood">{{_('Wrightwood')}}</option>
+                                <option value="Wrightwood_Neighbors">{{_('Wrightwood Neighbors')}}</option>
+                                <option value="Wrigleyville">{{_('Wrigleyville')}}</option>
+                                </select>
+                            </div>
+                            {% endif %}
+                            <div class="location-group">
+                                <label class="location-label" for="access-{{ service.id }}">{{_(Access Method:')}}</label>
+                                <select name="access" id="access-{{ service.id }}" required>
+                                    <option value="Appointments Only" {% if service.access == 'Appointments Only' %}selected{% endif %}>{{_('Appointments Only')}}</option>
+                                    <option value="Walk-ins Welcome" {% if service.access == 'Walk-ins Welcome' %}selected{% endif %}>{{_('Walk-ins Welcome')}}</option>
+                                    <option value="Phone Registration" {% if service.access == 'Phone Registration' %}selected{% endif %}>{{_('Phone Registration')}}</option>
+                                </select>
+
+                                <label class="location-label" for="service_note-{{ service.id }}">{{_('Service Note:')}}</label>
+                                <textarea id="service_note-{{ service.id }}" name="service_note">{{ service.service_note }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="update-button button-blue" type="button" onclick="toggleEditForm({{ service.id }})">{{_('Update Service')}}</button>
+                            <form action="/delete_service" method="POST" style="display:inline;">
+                                <button class="update-button button-blue" type="submit">{{_('Delete Service')}}</button>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+                
+
+{% endblock %}
+

@@ -12,34 +12,192 @@ Associated Files:
 
 {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['asylum_info'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    <div class="container">
+  <h1>{{_('Rights and Privileges of Asylum')}}</h1>
+
+
+  
+      <h2>{{_('What Is Asylum')}}</h2>
+  
+  
+  
+    <p>{{_('Asylum status protects people who fear persecution in their home countries because of their:')}}</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <ul>
+      
+        <li>{{_('Race')}}</li>
+      
+        <li>{{_('Religion')}}</li>
+      
+        <li>{{_('Nationality')}}</li>
+      
+        <li>{{_('Political opinion')}}</li>
+      
+        <li>{{_('Membership in a particular social group (this includes sexual orientation or gender identity)')}}</li>
+      
+    </ul>
+    
+  
+  
+  
+  
+    <p>{{_('Whether someone should apply as a refugee or asylee for immigration status depends on whether they are already in the US. If the person is already in the US, he or she may apply for the US asylum program. Learn more about refugees and asylum. (If the person is not in the US, he or she may apply for the US refugee program)')}}</p>
+  
+  
+  
+  
+  
+      <h2>{{_('Benefits of Asylum')}}</h2>
+  
+  
+  
+    <p>{{_('Asylum is a form of protection. It protects people from removal to a country of feared persecution. It allows them to stay in the US. They can then become a lawful permanent resident.')}}</p>
+  
+  
+  
+  
+  
+  
+  
+    <p>{{_('Asylum is granted to refugees who are already in the US and fear returning to their home countries.')}}</p>
+  
+  
+  
+  
+  
+      <h2>{{_('Pathways to Asylum')}}</h2>
+  
+  
+  
+    <p>{{_('There are three ways to apply for asylum:')}}</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <ul>
+      
+        <li>{{_('Affirmatively, meaning you don't already have a case in front of an immigration judge and you are submitting an application for asylum')}}</li>
+      
+        <li>{{_('Defensively, meaning there is already a removal or deportation case against you in front of an immigration judge and you ask the judge for asylum')}}</li>
+      
+        <li>{{_('You are in expedited removal proceedings and say you need asylum')}}</li>
+      
+    </ul>
+    
+  
+  
+  
+  
+    <p>{{_('You must apply for asylum within one year of arriving in the US, unless you qualify for an exception. Your spouse and children who are in the US may be included in the application. A child must be under 21 and unmarried to be included')}}</p>
+  
+  
+  
+  
+  
+      <h2>{{_('Who cannot apply for asylum')}}</h2>
+  
+  
+  
+    <p>{{_('You may not be eligible to apply for asylum if you filed after being in the US over a year. There are exceptions. You must prove:')}}</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <ul>
+      
+        <li>{{_('Changed circumstances materially affecting your eligibility, or')}}</li>
+      
+        <li>{{_('Extraordinary circumstances relating to your delay in filing.')}}</li>
+      
+    </ul>
+    
+  
+  
+  
+  
+    <p>{{_('Changed circumstances include:')}}</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <ul>
+      
+        <li>{{_('Changes in country's conditions')}}</li>
+      
+        <li>{{_('Changes in the laws that affect your eligibility')}}</li>
+      
+        <li>{{_('Changes in family dynamics, such marriage, divorce, and death')}}</li>
+      
+        <li>{{_('Changes in children’s ages')}}</li>
+      
+    </ul>
+    
+  
+  
+  
+  
+    <p>{{_('Extraordinary circumstances include:')}}</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <ul>
+      
+        <li>{{_('Serious illness')}}</li>
+      
+        <li>{{_('Mental or physical disabilities')}}</li>
+      
+        <li>{{_('Legal disability, such as your status as an unaccompanied child or a mental impairment')}}</li>
+      
+    </ul>
+    
+  
+  
+  
+  
+    <p>{{_('You cannot apply for asylum if you already applied and were denied unless circumstances changed.')}}</p>
+  
+  
+  
+  
+  
+  
+  
+  
+    <p><a href="https://www.illinoislegalaid.org/legal-information/asylum-and-refugee-basics" target="_blank">{{_('Illinois Legal Aid')}}</a></p>
+  
+  
+  
+  <div class="container">
       <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ translations[language]['legal']['find_lawyers'] | escape }}
+        {{ _('Find a Lawyer') | escape }}
     </button>
     </div>
   </div>

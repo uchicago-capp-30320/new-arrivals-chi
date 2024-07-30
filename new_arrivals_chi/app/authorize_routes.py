@@ -158,9 +158,6 @@ def login_post():
         Redirects to the user's dashboard page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
     email = request.form.get("email").lower()
     password = request.form.get("password")
 
@@ -179,15 +176,12 @@ def login_post():
     if current_user.role == "admin":
         return render_template(
             "admin_management.html",
-            language=language,
-            translations=translations,
+
         )
     else:
         organization = Organization.query.get(user.organization_id)
         return render_template(
             "dashboard.html",
-            language=language,
-            translations=translations,
             organization=organization,
         )
 
@@ -386,18 +380,14 @@ def admin_dashboard():
         organizations or look at website error reports. If user is not admin,
         it redirects to home page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     if current_user.is_admin:
         return render_template(
             "admin_management.html",
-            language=language,
-            translations=translations,
         )
     else:
         return render_template(
-            "home.html", language=language, translations=translations
+            "home.html"
         )
 
 

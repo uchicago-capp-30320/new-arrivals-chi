@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-15 10:33-0500\n"
-"PO-Revision-Date: 2024-07-15 10:28-0500\n"
+"POT-Creation-Date: 2024-07-30 12:10-0500\n"
+"PO-Revision-Date: 2024-07-30 12:11-0500\n"
 "Last-Translator: \n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.15.0\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: new_arrivals_chi/app/templates/about.html:16
 #: new_arrivals_chi/app/templates/base.html:58
@@ -26,10 +27,10 @@ msgstr "Acerca de Nosotros"
 #: new_arrivals_chi/app/templates/about.html:17
 msgid ""
 "New Arrivals Chi is a resource guide developed by six graduate students "
-"from the University of Chicago to help newly arrived individuals navigate"
-" the City of Chicago and its available resources. Our goal is to provide "
-"accurate, up-to-date, and actionable information to address common "
-"challenges faced by newcomers."
+"from the University of Chicago to help newly arrived individuals "
+"navigate the City of Chicago and its available resources. Our goal is to "
+"provide accurate, up-to-date, and actionable information to address "
+"common challenges faced by newcomers."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:18
@@ -110,8 +111,8 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:39
 msgid ""
-"For questions or inquiries, please contact us at "
-"newarrivalschi.contact@gmail.com."
+"For questions or inquiries, please contact us at newarrivalschi."
+"contact@gmail.com."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/add_organization.html:15
@@ -148,9 +149,8 @@ msgid "You will get an e-mail with additional information"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/admin_management.html:12
-#, fuzzy
 msgid "Welcome to the Admin Dashboard"
-msgstr "\\u00a1Bienvenido a Chicago!"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/admin_management.html:14
 msgid "Organization Management"
@@ -160,13 +160,51 @@ msgstr ""
 msgid "Website error reports"
 msgstr ""
 
+#: new_arrivals_chi/app/templates/asylum_apply.html:15
+#: new_arrivals_chi/app/templates/asylum_apply.html:16
+msgid "Asylum Clinics"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_apply.html:17
+msgid ""
+"Legal Aid Society of Metropolitan Family Services is coordinating a "
+"Centralized Immigration Legal Service Center for recent arrivals to "
+"support in asylum, change of address, or change of venue cases."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_apply.html:18
+msgid ""
+"The Center provides free legal information and assistance to individuals "
+"who entered on or before January 1, 2022."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_apply.html:19
+msgid ""
+"The Centralized Immigration Legal Services Clinic is located at 401 S. "
+"Clinton St, Chicago IL 60607, inside the Illinois Department of Human "
+"Services Building (IDHS) on the first floor."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_apply.html:20
+msgid "Click here to schedule an appointment."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_apply.html:21
+msgid "Welcome to IL"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_apply.html:24
+msgid "Find a Lawyer"
+msgstr ""
+
 #: new_arrivals_chi/app/templates/base.html:16
 msgid "New Arrival Resource Portal"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:27
+#, fuzzy
 msgid "Home"
-msgstr "P\\u00e1gina de inicio"
+msgstr "Página de inicio"
 
 #: new_arrivals_chi/app/templates/base.html:29
 msgid "Dashboard"
@@ -192,6 +230,2104 @@ msgstr "Reportar error del sitio web"
 msgid "This site does not collect any personal information."
 msgstr "Este sitio no recopila ninguna informaci\\u00f3n personal."
 
+#: new_arrivals_chi/app/templates/change_password.html:17
+#: new_arrivals_chi/app/templates/change_password.html:49
+msgid "Change Password"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/change_password.html:31
+msgid "Old Password"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/change_password.html:37
+#: new_arrivals_chi/app/templates/change_password.html:43
+msgid "New Password"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/change_password.html:47
+msgid ""
+"Your password must include at least one uppercase letter, one lowercase "
+"letter, one number, one special symbol, and be longer than 8 characters."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/dashboard.html:18
+msgid "View My Page"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/dashboard.html:21
+msgid "Update My Information"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/dashboard.html:24
+msgid "Change My Password"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/dashboard.html:27
+#: new_arrivals_chi/app/templates/health.html:24
+msgid "Back"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:16
+msgid "Contact Information:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:19
+msgid "Phone Number:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:21
+msgid "Email:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:24
+msgid "Update Contact Information"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:30
+msgid "Organization's Spoken Languages:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:36
+#: new_arrivals_chi/app/templates/edit_organization.html:86
+msgid "Language"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:38
+#: new_arrivals_chi/app/templates/edit_organization.html:57
+#: new_arrivals_chi/app/templates/edit_organization.html:88
+msgid "Select Language"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:39
+#: new_arrivals_chi/app/templates/edit_organization.html:58
+#: new_arrivals_chi/app/templates/edit_organization.html:89
+msgid "English"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:40
+#: new_arrivals_chi/app/templates/edit_organization.html:59
+#: new_arrivals_chi/app/templates/edit_organization.html:90
+msgid "Spanish"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:41
+#: new_arrivals_chi/app/templates/edit_organization.html:60
+#: new_arrivals_chi/app/templates/edit_organization.html:91
+msgid "Polish"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:42
+#: new_arrivals_chi/app/templates/edit_organization.html:61
+#: new_arrivals_chi/app/templates/edit_organization.html:92
+msgid "Chinese"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:43
+#: new_arrivals_chi/app/templates/edit_organization.html:62
+#: new_arrivals_chi/app/templates/edit_organization.html:93
+msgid "Tagalog"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:44
+#: new_arrivals_chi/app/templates/edit_organization.html:63
+#: new_arrivals_chi/app/templates/edit_organization.html:94
+msgid "Arabic"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:45
+#: new_arrivals_chi/app/templates/edit_organization.html:64
+#: new_arrivals_chi/app/templates/edit_organization.html:95
+msgid "Korean"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:46
+#: new_arrivals_chi/app/templates/edit_organization.html:65
+#: new_arrivals_chi/app/templates/edit_organization.html:96
+msgid "Urdu"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:47
+#: new_arrivals_chi/app/templates/edit_organization.html:66
+#: new_arrivals_chi/app/templates/edit_organization.html:97
+msgid "Gujarati"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:48
+#: new_arrivals_chi/app/templates/edit_organization.html:67
+#: new_arrivals_chi/app/templates/edit_organization.html:98
+msgid "Russian"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:50
+#: new_arrivals_chi/app/templates/edit_organization.html:100
+#: new_arrivals_chi/app/templates/edit_organization.html:406
+#: new_arrivals_chi/app/templates/edit_organization.html:408
+#: new_arrivals_chi/app/templates/edit_organization.html:422
+#: new_arrivals_chi/app/templates/edit_organization.html:450
+msgid "Remove"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:55
+msgid "Language 1:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:72
+msgid "Add Language"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:74
+msgid "Update Language Information"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:110
+msgid "Primary Organization Location:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:113
+#: new_arrivals_chi/app/templates/edit_organization.html:523
+#: new_arrivals_chi/app/templates/edit_organization.html:525
+#: new_arrivals_chi/app/templates/edit_organization.html:878
+#: new_arrivals_chi/app/templates/edit_organization.html:1146
+msgid "Street Address:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:118
+#: new_arrivals_chi/app/templates/edit_organization.html:529
+#: new_arrivals_chi/app/templates/edit_organization.html:882
+#: new_arrivals_chi/app/templates/edit_organization.html:1150
+#, fuzzy
+msgid "City:"
+msgstr ""
+"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
+"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
+"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
+"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
+"organizaciones comunitarias."
+
+#: new_arrivals_chi/app/templates/edit_organization.html:121
+#: new_arrivals_chi/app/templates/edit_organization.html:532
+#: new_arrivals_chi/app/templates/edit_organization.html:884
+#: new_arrivals_chi/app/templates/edit_organization.html:1152
+#, fuzzy
+msgid "State:"
+msgstr ""
+"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
+"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
+"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
+"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
+"organizaciones comunitarias."
+
+#: new_arrivals_chi/app/templates/edit_organization.html:125
+#: new_arrivals_chi/app/templates/edit_organization.html:536
+#: new_arrivals_chi/app/templates/edit_organization.html:886
+#: new_arrivals_chi/app/templates/edit_organization.html:1154
+msgid "Zip Code:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:128
+#: new_arrivals_chi/app/templates/edit_organization.html:539
+#: new_arrivals_chi/app/templates/edit_organization.html:890
+#: new_arrivals_chi/app/templates/edit_organization.html:1158
+msgid "Neighborhood:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:131
+#: new_arrivals_chi/app/templates/edit_organization.html:542
+#: new_arrivals_chi/app/templates/edit_organization.html:893
+#: new_arrivals_chi/app/templates/edit_organization.html:1161
+msgid "Albany Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:132
+#: new_arrivals_chi/app/templates/edit_organization.html:543
+#: new_arrivals_chi/app/templates/edit_organization.html:894
+#: new_arrivals_chi/app/templates/edit_organization.html:1162
+msgid "Altgeld Gardens"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:133
+#: new_arrivals_chi/app/templates/edit_organization.html:544
+#: new_arrivals_chi/app/templates/edit_organization.html:895
+#: new_arrivals_chi/app/templates/edit_organization.html:1163
+msgid "Andersonville"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:134
+#: new_arrivals_chi/app/templates/edit_organization.html:545
+#: new_arrivals_chi/app/templates/edit_organization.html:896
+#: new_arrivals_chi/app/templates/edit_organization.html:1164
+msgid "Arcadia Terrace"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:135
+#: new_arrivals_chi/app/templates/edit_organization.html:546
+#: new_arrivals_chi/app/templates/edit_organization.html:897
+#: new_arrivals_chi/app/templates/edit_organization.html:1165
+msgid "Archer Heights"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:136
+#: new_arrivals_chi/app/templates/edit_organization.html:547
+#: new_arrivals_chi/app/templates/edit_organization.html:898
+#: new_arrivals_chi/app/templates/edit_organization.html:1166
+msgid "Armour Square"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:137
+#: new_arrivals_chi/app/templates/edit_organization.html:548
+#: new_arrivals_chi/app/templates/edit_organization.html:899
+#: new_arrivals_chi/app/templates/edit_organization.html:1167
+msgid "Ashburn"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:138
+#: new_arrivals_chi/app/templates/edit_organization.html:549
+#: new_arrivals_chi/app/templates/edit_organization.html:900
+#: new_arrivals_chi/app/templates/edit_organization.html:1168
+msgid "Ashburn Estates"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:139
+#: new_arrivals_chi/app/templates/edit_organization.html:550
+#: new_arrivals_chi/app/templates/edit_organization.html:901
+#: new_arrivals_chi/app/templates/edit_organization.html:1169
+msgid "Auburn Gresham"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:140
+#: new_arrivals_chi/app/templates/edit_organization.html:551
+#: new_arrivals_chi/app/templates/edit_organization.html:902
+#: new_arrivals_chi/app/templates/edit_organization.html:1170
+msgid "Avalon Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:141
+#: new_arrivals_chi/app/templates/edit_organization.html:552
+#: new_arrivals_chi/app/templates/edit_organization.html:903
+#: new_arrivals_chi/app/templates/edit_organization.html:1171
+msgid "Avondale"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:142
+#: new_arrivals_chi/app/templates/edit_organization.html:553
+#: new_arrivals_chi/app/templates/edit_organization.html:904
+#: new_arrivals_chi/app/templates/edit_organization.html:1172
+msgid "Avondale Gardens"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:143
+#: new_arrivals_chi/app/templates/edit_organization.html:554
+#: new_arrivals_chi/app/templates/edit_organization.html:905
+#: new_arrivals_chi/app/templates/edit_organization.html:1173
+msgid "Back of the Yards"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:144
+#: new_arrivals_chi/app/templates/edit_organization.html:555
+#: new_arrivals_chi/app/templates/edit_organization.html:906
+#: new_arrivals_chi/app/templates/edit_organization.html:1174
+msgid "Belmont Central"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:145
+#: new_arrivals_chi/app/templates/edit_organization.html:556
+#: new_arrivals_chi/app/templates/edit_organization.html:907
+#: new_arrivals_chi/app/templates/edit_organization.html:1175
+msgid "Belmont Gardens"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:146
+#: new_arrivals_chi/app/templates/edit_organization.html:222
+#: new_arrivals_chi/app/templates/edit_organization.html:557
+#: new_arrivals_chi/app/templates/edit_organization.html:633
+#: new_arrivals_chi/app/templates/edit_organization.html:908
+#: new_arrivals_chi/app/templates/edit_organization.html:984
+#: new_arrivals_chi/app/templates/edit_organization.html:1176
+#: new_arrivals_chi/app/templates/edit_organization.html:1252
+msgid "Hermosa"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:147
+#: new_arrivals_chi/app/templates/edit_organization.html:253
+#: new_arrivals_chi/app/templates/edit_organization.html:558
+#: new_arrivals_chi/app/templates/edit_organization.html:664
+#: new_arrivals_chi/app/templates/edit_organization.html:909
+#: new_arrivals_chi/app/templates/edit_organization.html:1015
+#: new_arrivals_chi/app/templates/edit_organization.html:1177
+#: new_arrivals_chi/app/templates/edit_organization.html:1283
+msgid "Logan Square"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:148
+#: new_arrivals_chi/app/templates/edit_organization.html:559
+#: new_arrivals_chi/app/templates/edit_organization.html:910
+#: new_arrivals_chi/app/templates/edit_organization.html:1178
+msgid "Belmont Heights"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:149
+#: new_arrivals_chi/app/templates/edit_organization.html:560
+#: new_arrivals_chi/app/templates/edit_organization.html:911
+#: new_arrivals_chi/app/templates/edit_organization.html:1179
+msgid "Belmont Terrace"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:150
+#: new_arrivals_chi/app/templates/edit_organization.html:561
+#: new_arrivals_chi/app/templates/edit_organization.html:912
+#: new_arrivals_chi/app/templates/edit_organization.html:1180
+msgid "Beverly"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:151
+#: new_arrivals_chi/app/templates/edit_organization.html:562
+#: new_arrivals_chi/app/templates/edit_organization.html:913
+#: new_arrivals_chi/app/templates/edit_organization.html:1181
+msgid "Beverly View"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:152
+#: new_arrivals_chi/app/templates/edit_organization.html:563
+#: new_arrivals_chi/app/templates/edit_organization.html:914
+#: new_arrivals_chi/app/templates/edit_organization.html:1182
+msgid "Beverly Woods"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:153
+#: new_arrivals_chi/app/templates/edit_organization.html:564
+#: new_arrivals_chi/app/templates/edit_organization.html:915
+#: new_arrivals_chi/app/templates/edit_organization.html:1183
+msgid "Big Oaks"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:154
+#: new_arrivals_chi/app/templates/edit_organization.html:565
+#: new_arrivals_chi/app/templates/edit_organization.html:916
+#: new_arrivals_chi/app/templates/edit_organization.html:1184
+msgid "Northalsted (Boystown)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:155
+#: new_arrivals_chi/app/templates/edit_organization.html:566
+#: new_arrivals_chi/app/templates/edit_organization.html:917
+#: new_arrivals_chi/app/templates/edit_organization.html:1185
+msgid "Bowmanville"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:156
+#: new_arrivals_chi/app/templates/edit_organization.html:567
+#: new_arrivals_chi/app/templates/edit_organization.html:918
+#: new_arrivals_chi/app/templates/edit_organization.html:1186
+msgid "Brainerd"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:157
+#: new_arrivals_chi/app/templates/edit_organization.html:568
+#: new_arrivals_chi/app/templates/edit_organization.html:919
+#: new_arrivals_chi/app/templates/edit_organization.html:1187
+msgid "Brickyard"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:158
+#: new_arrivals_chi/app/templates/edit_organization.html:569
+#: new_arrivals_chi/app/templates/edit_organization.html:920
+#: new_arrivals_chi/app/templates/edit_organization.html:1188
+msgid "Bridgeport"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:159
+#: new_arrivals_chi/app/templates/edit_organization.html:570
+#: new_arrivals_chi/app/templates/edit_organization.html:921
+#: new_arrivals_chi/app/templates/edit_organization.html:1189
+msgid "Brighton Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:160
+#: new_arrivals_chi/app/templates/edit_organization.html:571
+#: new_arrivals_chi/app/templates/edit_organization.html:922
+#: new_arrivals_chi/app/templates/edit_organization.html:1190
+msgid "Bronzeville"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:161
+#: new_arrivals_chi/app/templates/edit_organization.html:572
+#: new_arrivals_chi/app/templates/edit_organization.html:923
+#: new_arrivals_chi/app/templates/edit_organization.html:1191
+msgid "Bucktown"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:162
+#: new_arrivals_chi/app/templates/edit_organization.html:573
+#: new_arrivals_chi/app/templates/edit_organization.html:924
+#: new_arrivals_chi/app/templates/edit_organization.html:1192
+msgid "Budlong Woods"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:163
+#: new_arrivals_chi/app/templates/edit_organization.html:574
+#: new_arrivals_chi/app/templates/edit_organization.html:925
+#: new_arrivals_chi/app/templates/edit_organization.html:1193
+msgid "Buena Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:164
+#: new_arrivals_chi/app/templates/edit_organization.html:575
+#: new_arrivals_chi/app/templates/edit_organization.html:926
+#: new_arrivals_chi/app/templates/edit_organization.html:1194
+msgid "Burnside"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:165
+#: new_arrivals_chi/app/templates/edit_organization.html:576
+#: new_arrivals_chi/app/templates/edit_organization.html:927
+#: new_arrivals_chi/app/templates/edit_organization.html:1195
+msgid "Cabrini–Green"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:166
+#: new_arrivals_chi/app/templates/edit_organization.html:577
+#: new_arrivals_chi/app/templates/edit_organization.html:928
+#: new_arrivals_chi/app/templates/edit_organization.html:1196
+msgid "Calumet Heights"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:167
+#: new_arrivals_chi/app/templates/edit_organization.html:578
+#: new_arrivals_chi/app/templates/edit_organization.html:929
+#: new_arrivals_chi/app/templates/edit_organization.html:1197
+msgid "Canaryville"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:168
+#: new_arrivals_chi/app/templates/edit_organization.html:579
+#: new_arrivals_chi/app/templates/edit_organization.html:930
+#: new_arrivals_chi/app/templates/edit_organization.html:1198
+msgid "Central Station"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:169
+#: new_arrivals_chi/app/templates/edit_organization.html:580
+#: new_arrivals_chi/app/templates/edit_organization.html:931
+#: new_arrivals_chi/app/templates/edit_organization.html:1199
+msgid "Chatham"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:170
+#: new_arrivals_chi/app/templates/edit_organization.html:581
+#: new_arrivals_chi/app/templates/edit_organization.html:932
+#: new_arrivals_chi/app/templates/edit_organization.html:1200
+msgid "Chicago Lawn"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:171
+#: new_arrivals_chi/app/templates/edit_organization.html:582
+#: new_arrivals_chi/app/templates/edit_organization.html:933
+#: new_arrivals_chi/app/templates/edit_organization.html:1201
+msgid "Chinatown"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:172
+#: new_arrivals_chi/app/templates/edit_organization.html:583
+#: new_arrivals_chi/app/templates/edit_organization.html:934
+#: new_arrivals_chi/app/templates/edit_organization.html:1202
+msgid "Chrysler Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:173
+#: new_arrivals_chi/app/templates/edit_organization.html:584
+#: new_arrivals_chi/app/templates/edit_organization.html:935
+#: new_arrivals_chi/app/templates/edit_organization.html:1203
+msgid "Clarendon Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:174
+#: new_arrivals_chi/app/templates/edit_organization.html:585
+#: new_arrivals_chi/app/templates/edit_organization.html:936
+#: new_arrivals_chi/app/templates/edit_organization.html:1204
+msgid "Clearing East"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:175
+#: new_arrivals_chi/app/templates/edit_organization.html:586
+#: new_arrivals_chi/app/templates/edit_organization.html:937
+#: new_arrivals_chi/app/templates/edit_organization.html:1205
+msgid "Clearing West"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:176
+#: new_arrivals_chi/app/templates/edit_organization.html:587
+#: new_arrivals_chi/app/templates/edit_organization.html:938
+#: new_arrivals_chi/app/templates/edit_organization.html:1206
+msgid "Cottage Grove Heights"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:177
+#: new_arrivals_chi/app/templates/edit_organization.html:588
+#: new_arrivals_chi/app/templates/edit_organization.html:939
+#: new_arrivals_chi/app/templates/edit_organization.html:1207
+msgid "Cragin"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:178
+#: new_arrivals_chi/app/templates/edit_organization.html:589
+#: new_arrivals_chi/app/templates/edit_organization.html:940
+#: new_arrivals_chi/app/templates/edit_organization.html:1208
+msgid "Crestline"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:179
+#: new_arrivals_chi/app/templates/edit_organization.html:590
+#: new_arrivals_chi/app/templates/edit_organization.html:941
+#: new_arrivals_chi/app/templates/edit_organization.html:1209
+msgid "Dearborn Homes"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:180
+#: new_arrivals_chi/app/templates/edit_organization.html:591
+#: new_arrivals_chi/app/templates/edit_organization.html:942
+#: new_arrivals_chi/app/templates/edit_organization.html:1210
+msgid "Dearborn Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:181
+#: new_arrivals_chi/app/templates/edit_organization.html:592
+#: new_arrivals_chi/app/templates/edit_organization.html:943
+#: new_arrivals_chi/app/templates/edit_organization.html:1211
+msgid "Douglas Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:182
+#: new_arrivals_chi/app/templates/edit_organization.html:593
+#: new_arrivals_chi/app/templates/edit_organization.html:944
+#: new_arrivals_chi/app/templates/edit_organization.html:1212
+msgid "Dunning"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:183
+#: new_arrivals_chi/app/templates/edit_organization.html:594
+#: new_arrivals_chi/app/templates/edit_organization.html:945
+#: new_arrivals_chi/app/templates/edit_organization.html:1213
+msgid "East Beverly"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:184
+#: new_arrivals_chi/app/templates/edit_organization.html:595
+#: new_arrivals_chi/app/templates/edit_organization.html:946
+#: new_arrivals_chi/app/templates/edit_organization.html:1214
+msgid "East Chatham"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:185
+#: new_arrivals_chi/app/templates/edit_organization.html:596
+#: new_arrivals_chi/app/templates/edit_organization.html:947
+#: new_arrivals_chi/app/templates/edit_organization.html:1215
+msgid "East Garfield Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:186
+#: new_arrivals_chi/app/templates/edit_organization.html:597
+#: new_arrivals_chi/app/templates/edit_organization.html:948
+#: new_arrivals_chi/app/templates/edit_organization.html:1216
+msgid "East Hyde Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:187
+#: new_arrivals_chi/app/templates/edit_organization.html:598
+#: new_arrivals_chi/app/templates/edit_organization.html:949
+#: new_arrivals_chi/app/templates/edit_organization.html:1217
+msgid "East Pilsen"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:188
+#: new_arrivals_chi/app/templates/edit_organization.html:599
+#: new_arrivals_chi/app/templates/edit_organization.html:950
+#: new_arrivals_chi/app/templates/edit_organization.html:1218
+msgid "East Side"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:189
+#: new_arrivals_chi/app/templates/edit_organization.html:600
+#: new_arrivals_chi/app/templates/edit_organization.html:951
+#: new_arrivals_chi/app/templates/edit_organization.html:1219
+msgid "East Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:190
+#: new_arrivals_chi/app/templates/edit_organization.html:601
+#: new_arrivals_chi/app/templates/edit_organization.html:952
+#: new_arrivals_chi/app/templates/edit_organization.html:1220
+msgid "Eden Green"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:191
+#: new_arrivals_chi/app/templates/edit_organization.html:602
+#: new_arrivals_chi/app/templates/edit_organization.html:953
+#: new_arrivals_chi/app/templates/edit_organization.html:1221
+msgid "Edgebrook"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:192
+#: new_arrivals_chi/app/templates/edit_organization.html:603
+#: new_arrivals_chi/app/templates/edit_organization.html:954
+#: new_arrivals_chi/app/templates/edit_organization.html:1222
+msgid "Edgewater"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:193
+#: new_arrivals_chi/app/templates/edit_organization.html:604
+#: new_arrivals_chi/app/templates/edit_organization.html:955
+#: new_arrivals_chi/app/templates/edit_organization.html:1223
+msgid "Edgewater Beach"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:194
+#: new_arrivals_chi/app/templates/edit_organization.html:605
+#: new_arrivals_chi/app/templates/edit_organization.html:956
+#: new_arrivals_chi/app/templates/edit_organization.html:1224
+msgid "Edgewater Glen"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:195
+#: new_arrivals_chi/app/templates/edit_organization.html:606
+#: new_arrivals_chi/app/templates/edit_organization.html:957
+#: new_arrivals_chi/app/templates/edit_organization.html:1225
+msgid "Edison Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:196
+#: new_arrivals_chi/app/templates/edit_organization.html:607
+#: new_arrivals_chi/app/templates/edit_organization.html:958
+#: new_arrivals_chi/app/templates/edit_organization.html:1226
+msgid "Englewood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:197
+#: new_arrivals_chi/app/templates/edit_organization.html:608
+#: new_arrivals_chi/app/templates/edit_organization.html:959
+#: new_arrivals_chi/app/templates/edit_organization.html:1227
+msgid "Fernwood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:198
+#: new_arrivals_chi/app/templates/edit_organization.html:609
+#: new_arrivals_chi/app/templates/edit_organization.html:960
+#: new_arrivals_chi/app/templates/edit_organization.html:1228
+msgid "Fifth City"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:199
+#: new_arrivals_chi/app/templates/edit_organization.html:610
+#: new_arrivals_chi/app/templates/edit_organization.html:961
+#: new_arrivals_chi/app/templates/edit_organization.html:1229
+msgid "Ford City"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:200
+#: new_arrivals_chi/app/templates/edit_organization.html:611
+#: new_arrivals_chi/app/templates/edit_organization.html:962
+#: new_arrivals_chi/app/templates/edit_organization.html:1230
+msgid "Forest Glen"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:201
+#: new_arrivals_chi/app/templates/edit_organization.html:612
+#: new_arrivals_chi/app/templates/edit_organization.html:963
+#: new_arrivals_chi/app/templates/edit_organization.html:1231
+msgid "Fuller Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:202
+#: new_arrivals_chi/app/templates/edit_organization.html:613
+#: new_arrivals_chi/app/templates/edit_organization.html:964
+#: new_arrivals_chi/app/templates/edit_organization.html:1232
+msgid "Fulton River District"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:203
+#: new_arrivals_chi/app/templates/edit_organization.html:614
+#: new_arrivals_chi/app/templates/edit_organization.html:965
+#: new_arrivals_chi/app/templates/edit_organization.html:1233
+msgid "Gage Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:204
+#: new_arrivals_chi/app/templates/edit_organization.html:615
+#: new_arrivals_chi/app/templates/edit_organization.html:966
+#: new_arrivals_chi/app/templates/edit_organization.html:1234
+msgid "Galewood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:205
+#: new_arrivals_chi/app/templates/edit_organization.html:616
+#: new_arrivals_chi/app/templates/edit_organization.html:967
+#: new_arrivals_chi/app/templates/edit_organization.html:1235
+msgid "The Gap"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:206
+#: new_arrivals_chi/app/templates/edit_organization.html:617
+#: new_arrivals_chi/app/templates/edit_organization.html:968
+#: new_arrivals_chi/app/templates/edit_organization.html:1236
+msgid "Garfield Ridge"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:207
+#: new_arrivals_chi/app/templates/edit_organization.html:618
+#: new_arrivals_chi/app/templates/edit_organization.html:969
+#: new_arrivals_chi/app/templates/edit_organization.html:1237
+msgid "Gladstone Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:208
+#: new_arrivals_chi/app/templates/edit_organization.html:619
+#: new_arrivals_chi/app/templates/edit_organization.html:970
+#: new_arrivals_chi/app/templates/edit_organization.html:1238
+msgid "Gold Coast"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:209
+#: new_arrivals_chi/app/templates/edit_organization.html:620
+#: new_arrivals_chi/app/templates/edit_organization.html:971
+#: new_arrivals_chi/app/templates/edit_organization.html:1239
+msgid "Golden Gate"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:210
+#: new_arrivals_chi/app/templates/edit_organization.html:621
+#: new_arrivals_chi/app/templates/edit_organization.html:972
+#: new_arrivals_chi/app/templates/edit_organization.html:1240
+msgid "Goose Island"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:211
+#: new_arrivals_chi/app/templates/edit_organization.html:622
+#: new_arrivals_chi/app/templates/edit_organization.html:973
+#: new_arrivals_chi/app/templates/edit_organization.html:1241
+msgid "Graceland West"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:212
+#: new_arrivals_chi/app/templates/edit_organization.html:623
+#: new_arrivals_chi/app/templates/edit_organization.html:974
+#: new_arrivals_chi/app/templates/edit_organization.html:1242
+msgid "Grand Boulevard"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:213
+#: new_arrivals_chi/app/templates/edit_organization.html:624
+#: new_arrivals_chi/app/templates/edit_organization.html:975
+#: new_arrivals_chi/app/templates/edit_organization.html:1243
+msgid "Grand Crossing"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:214
+#: new_arrivals_chi/app/templates/edit_organization.html:625
+#: new_arrivals_chi/app/templates/edit_organization.html:976
+#: new_arrivals_chi/app/templates/edit_organization.html:1244
+msgid "Greater Grand Crossing"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:215
+#: new_arrivals_chi/app/templates/edit_organization.html:626
+#: new_arrivals_chi/app/templates/edit_organization.html:977
+#: new_arrivals_chi/app/templates/edit_organization.html:1245
+msgid "Greektown"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:216
+#: new_arrivals_chi/app/templates/edit_organization.html:627
+#: new_arrivals_chi/app/templates/edit_organization.html:978
+#: new_arrivals_chi/app/templates/edit_organization.html:1246
+msgid "Gresham"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:217
+#: new_arrivals_chi/app/templates/edit_organization.html:628
+#: new_arrivals_chi/app/templates/edit_organization.html:979
+#: new_arrivals_chi/app/templates/edit_organization.html:1247
+msgid "Groveland Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:218
+#: new_arrivals_chi/app/templates/edit_organization.html:629
+#: new_arrivals_chi/app/templates/edit_organization.html:980
+#: new_arrivals_chi/app/templates/edit_organization.html:1248
+msgid "Hamilton Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:219
+#: new_arrivals_chi/app/templates/edit_organization.html:630
+#: new_arrivals_chi/app/templates/edit_organization.html:981
+#: new_arrivals_chi/app/templates/edit_organization.html:1249
+msgid "Hanson Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:220
+#: new_arrivals_chi/app/templates/edit_organization.html:631
+#: new_arrivals_chi/app/templates/edit_organization.html:982
+#: new_arrivals_chi/app/templates/edit_organization.html:1250
+msgid "Heart of Chicago"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:221
+#: new_arrivals_chi/app/templates/edit_organization.html:632
+#: new_arrivals_chi/app/templates/edit_organization.html:983
+#: new_arrivals_chi/app/templates/edit_organization.html:1251
+msgid "Hegewisch"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:223
+#: new_arrivals_chi/app/templates/edit_organization.html:634
+#: new_arrivals_chi/app/templates/edit_organization.html:985
+#: new_arrivals_chi/app/templates/edit_organization.html:1253
+msgid "Hollywood Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:224
+#: new_arrivals_chi/app/templates/edit_organization.html:635
+#: new_arrivals_chi/app/templates/edit_organization.html:986
+#: new_arrivals_chi/app/templates/edit_organization.html:1254
+msgid "Homan Square"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:225
+#: new_arrivals_chi/app/templates/edit_organization.html:636
+#: new_arrivals_chi/app/templates/edit_organization.html:987
+#: new_arrivals_chi/app/templates/edit_organization.html:1255
+msgid "Humboldt Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:226
+#: new_arrivals_chi/app/templates/edit_organization.html:637
+#: new_arrivals_chi/app/templates/edit_organization.html:988
+#: new_arrivals_chi/app/templates/edit_organization.html:1256
+msgid "Hyde Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:227
+#: new_arrivals_chi/app/templates/edit_organization.html:638
+#: new_arrivals_chi/app/templates/edit_organization.html:989
+#: new_arrivals_chi/app/templates/edit_organization.html:1257
+msgid "Illinois Medical District"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:228
+#: new_arrivals_chi/app/templates/edit_organization.html:639
+#: new_arrivals_chi/app/templates/edit_organization.html:990
+#: new_arrivals_chi/app/templates/edit_organization.html:1258
+msgid "Irving Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:229
+#: new_arrivals_chi/app/templates/edit_organization.html:640
+#: new_arrivals_chi/app/templates/edit_organization.html:991
+#: new_arrivals_chi/app/templates/edit_organization.html:1259
+msgid "Irving Woods"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:230
+#: new_arrivals_chi/app/templates/edit_organization.html:641
+#: new_arrivals_chi/app/templates/edit_organization.html:992
+#: new_arrivals_chi/app/templates/edit_organization.html:1260
+msgid "The Island"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:231
+#: new_arrivals_chi/app/templates/edit_organization.html:642
+#: new_arrivals_chi/app/templates/edit_organization.html:993
+#: new_arrivals_chi/app/templates/edit_organization.html:1261
+msgid "Jackowo"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:232
+#: new_arrivals_chi/app/templates/edit_organization.html:643
+#: new_arrivals_chi/app/templates/edit_organization.html:994
+#: new_arrivals_chi/app/templates/edit_organization.html:1262
+msgid "Jackson Park Highlands"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:233
+#: new_arrivals_chi/app/templates/edit_organization.html:644
+#: new_arrivals_chi/app/templates/edit_organization.html:995
+#: new_arrivals_chi/app/templates/edit_organization.html:1263
+msgid "Jefferson Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:234
+#: new_arrivals_chi/app/templates/edit_organization.html:645
+#: new_arrivals_chi/app/templates/edit_organization.html:996
+#: new_arrivals_chi/app/templates/edit_organization.html:1264
+msgid "K-Town"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:235
+#: new_arrivals_chi/app/templates/edit_organization.html:646
+#: new_arrivals_chi/app/templates/edit_organization.html:997
+#: new_arrivals_chi/app/templates/edit_organization.html:1265
+msgid "Kelvyn Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:236
+#: new_arrivals_chi/app/templates/edit_organization.html:647
+#: new_arrivals_chi/app/templates/edit_organization.html:998
+#: new_arrivals_chi/app/templates/edit_organization.html:1266
+msgid "Kennedy Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:237
+#: new_arrivals_chi/app/templates/edit_organization.html:648
+#: new_arrivals_chi/app/templates/edit_organization.html:999
+#: new_arrivals_chi/app/templates/edit_organization.html:1267
+msgid "Kensington"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:238
+#: new_arrivals_chi/app/templates/edit_organization.html:649
+#: new_arrivals_chi/app/templates/edit_organization.html:1000
+#: new_arrivals_chi/app/templates/edit_organization.html:1268
+msgid "Kenwood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:239
+#: new_arrivals_chi/app/templates/edit_organization.html:650
+#: new_arrivals_chi/app/templates/edit_organization.html:1001
+#: new_arrivals_chi/app/templates/edit_organization.html:1269
+msgid "Kilbourn Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:240
+#: new_arrivals_chi/app/templates/edit_organization.html:651
+#: new_arrivals_chi/app/templates/edit_organization.html:1002
+#: new_arrivals_chi/app/templates/edit_organization.html:1270
+msgid "Kosciuszko Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:241
+#: new_arrivals_chi/app/templates/edit_organization.html:652
+#: new_arrivals_chi/app/templates/edit_organization.html:1003
+#: new_arrivals_chi/app/templates/edit_organization.html:1271
+msgid "Lake Meadows"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:242
+#: new_arrivals_chi/app/templates/edit_organization.html:653
+#: new_arrivals_chi/app/templates/edit_organization.html:1004
+#: new_arrivals_chi/app/templates/edit_organization.html:1272
+msgid "Lake View"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:243
+#: new_arrivals_chi/app/templates/edit_organization.html:654
+#: new_arrivals_chi/app/templates/edit_organization.html:1005
+#: new_arrivals_chi/app/templates/edit_organization.html:1273
+msgid "Lakeview East"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:244
+#: new_arrivals_chi/app/templates/edit_organization.html:655
+#: new_arrivals_chi/app/templates/edit_organization.html:1006
+#: new_arrivals_chi/app/templates/edit_organization.html:1274
+msgid "Lakewood Balmoral"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:245
+#: new_arrivals_chi/app/templates/edit_organization.html:656
+#: new_arrivals_chi/app/templates/edit_organization.html:1007
+#: new_arrivals_chi/app/templates/edit_organization.html:1275
+msgid "LeClaire Courts"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:246
+#: new_arrivals_chi/app/templates/edit_organization.html:657
+#: new_arrivals_chi/app/templates/edit_organization.html:1008
+#: new_arrivals_chi/app/templates/edit_organization.html:1276
+msgid "Legends South (Robert Taylor Homes)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:247
+#: new_arrivals_chi/app/templates/edit_organization.html:658
+#: new_arrivals_chi/app/templates/edit_organization.html:1009
+#: new_arrivals_chi/app/templates/edit_organization.html:1277
+msgid "Lilydale"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:248
+#: new_arrivals_chi/app/templates/edit_organization.html:659
+#: new_arrivals_chi/app/templates/edit_organization.html:1010
+#: new_arrivals_chi/app/templates/edit_organization.html:1278
+msgid "Lincoln Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:249
+#: new_arrivals_chi/app/templates/edit_organization.html:660
+#: new_arrivals_chi/app/templates/edit_organization.html:1011
+#: new_arrivals_chi/app/templates/edit_organization.html:1279
+msgid "Lincoln Square"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:250
+#: new_arrivals_chi/app/templates/edit_organization.html:661
+#: new_arrivals_chi/app/templates/edit_organization.html:1012
+#: new_arrivals_chi/app/templates/edit_organization.html:1280
+msgid "Lithuanian Plaza"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:251
+#: new_arrivals_chi/app/templates/edit_organization.html:662
+#: new_arrivals_chi/app/templates/edit_organization.html:1013
+#: new_arrivals_chi/app/templates/edit_organization.html:1281
+msgid "Little Italy"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:252
+#: new_arrivals_chi/app/templates/edit_organization.html:663
+#: new_arrivals_chi/app/templates/edit_organization.html:1014
+#: new_arrivals_chi/app/templates/edit_organization.html:1282
+msgid "Little Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:254
+#: new_arrivals_chi/app/templates/edit_organization.html:665
+#: new_arrivals_chi/app/templates/edit_organization.html:1016
+#: new_arrivals_chi/app/templates/edit_organization.html:1284
+msgid "Longwood Manor"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:255
+#: new_arrivals_chi/app/templates/edit_organization.html:666
+#: new_arrivals_chi/app/templates/edit_organization.html:1017
+#: new_arrivals_chi/app/templates/edit_organization.html:1285
+msgid "The Loop"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:256
+#: new_arrivals_chi/app/templates/edit_organization.html:667
+#: new_arrivals_chi/app/templates/edit_organization.html:1018
+#: new_arrivals_chi/app/templates/edit_organization.html:1286
+msgid "Lower West Side"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:257
+#: new_arrivals_chi/app/templates/edit_organization.html:668
+#: new_arrivals_chi/app/templates/edit_organization.html:1019
+#: new_arrivals_chi/app/templates/edit_organization.html:1287
+msgid "Loyola"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:258
+#: new_arrivals_chi/app/templates/edit_organization.html:669
+#: new_arrivals_chi/app/templates/edit_organization.html:1020
+#: new_arrivals_chi/app/templates/edit_organization.html:1288
+msgid "Magnificent Mile"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:259
+#: new_arrivals_chi/app/templates/edit_organization.html:670
+#: new_arrivals_chi/app/templates/edit_organization.html:1021
+#: new_arrivals_chi/app/templates/edit_organization.html:1289
+msgid "Margate Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:260
+#: new_arrivals_chi/app/templates/edit_organization.html:671
+#: new_arrivals_chi/app/templates/edit_organization.html:1022
+#: new_arrivals_chi/app/templates/edit_organization.html:1290
+msgid "Marquette Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:261
+#: new_arrivals_chi/app/templates/edit_organization.html:672
+#: new_arrivals_chi/app/templates/edit_organization.html:1023
+#: new_arrivals_chi/app/templates/edit_organization.html:1291
+msgid "Marshall Square"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:262
+#: new_arrivals_chi/app/templates/edit_organization.html:673
+#: new_arrivals_chi/app/templates/edit_organization.html:1024
+#: new_arrivals_chi/app/templates/edit_organization.html:1292
+msgid "Marynook"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:263
+#: new_arrivals_chi/app/templates/edit_organization.html:674
+#: new_arrivals_chi/app/templates/edit_organization.html:1025
+#: new_arrivals_chi/app/templates/edit_organization.html:1293
+msgid "Mayfair"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:264
+#: new_arrivals_chi/app/templates/edit_organization.html:675
+#: new_arrivals_chi/app/templates/edit_organization.html:1026
+#: new_arrivals_chi/app/templates/edit_organization.html:1294
+msgid "McKinley Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:265
+#: new_arrivals_chi/app/templates/edit_organization.html:676
+#: new_arrivals_chi/app/templates/edit_organization.html:1027
+#: new_arrivals_chi/app/templates/edit_organization.html:1295
+msgid "Merchant Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:266
+#: new_arrivals_chi/app/templates/edit_organization.html:677
+#: new_arrivals_chi/app/templates/edit_organization.html:1028
+#: new_arrivals_chi/app/templates/edit_organization.html:1296
+msgid "Montclare"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:267
+#: new_arrivals_chi/app/templates/edit_organization.html:678
+#: new_arrivals_chi/app/templates/edit_organization.html:1029
+#: new_arrivals_chi/app/templates/edit_organization.html:1297
+msgid "Morgan Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:268
+#: new_arrivals_chi/app/templates/edit_organization.html:679
+#: new_arrivals_chi/app/templates/edit_organization.html:1030
+#: new_arrivals_chi/app/templates/edit_organization.html:1298
+msgid "Mount Greenwood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:269
+#: new_arrivals_chi/app/templates/edit_organization.html:680
+#: new_arrivals_chi/app/templates/edit_organization.html:1031
+#: new_arrivals_chi/app/templates/edit_organization.html:1299
+msgid "Museum Campus"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:270
+#: new_arrivals_chi/app/templates/edit_organization.html:681
+#: new_arrivals_chi/app/templates/edit_organization.html:1032
+#: new_arrivals_chi/app/templates/edit_organization.html:1300
+msgid "New Eastside"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:271
+#: new_arrivals_chi/app/templates/edit_organization.html:682
+#: new_arrivals_chi/app/templates/edit_organization.html:1033
+#: new_arrivals_chi/app/templates/edit_organization.html:1301
+msgid "Near North Side"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:272
+#: new_arrivals_chi/app/templates/edit_organization.html:683
+#: new_arrivals_chi/app/templates/edit_organization.html:1034
+#: new_arrivals_chi/app/templates/edit_organization.html:1302
+msgid "Near West Side"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:273
+#: new_arrivals_chi/app/templates/edit_organization.html:684
+#: new_arrivals_chi/app/templates/edit_organization.html:1035
+#: new_arrivals_chi/app/templates/edit_organization.html:1303
+msgid "New Chinatown"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:274
+#: new_arrivals_chi/app/templates/edit_organization.html:685
+#: new_arrivals_chi/app/templates/edit_organization.html:1036
+#: new_arrivals_chi/app/templates/edit_organization.html:1304
+msgid "New City"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:275
+#: new_arrivals_chi/app/templates/edit_organization.html:686
+#: new_arrivals_chi/app/templates/edit_organization.html:1037
+#: new_arrivals_chi/app/templates/edit_organization.html:1305
+msgid "Noble Square"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:276
+#: new_arrivals_chi/app/templates/edit_organization.html:687
+#: new_arrivals_chi/app/templates/edit_organization.html:1038
+#: new_arrivals_chi/app/templates/edit_organization.html:1306
+msgid "North Austin"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:277
+#: new_arrivals_chi/app/templates/edit_organization.html:688
+#: new_arrivals_chi/app/templates/edit_organization.html:1039
+#: new_arrivals_chi/app/templates/edit_organization.html:1307
+msgid "North Center"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:278
+#: new_arrivals_chi/app/templates/edit_organization.html:689
+#: new_arrivals_chi/app/templates/edit_organization.html:1040
+#: new_arrivals_chi/app/templates/edit_organization.html:1308
+msgid "North Kenwood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:279
+#: new_arrivals_chi/app/templates/edit_organization.html:690
+#: new_arrivals_chi/app/templates/edit_organization.html:1041
+#: new_arrivals_chi/app/templates/edit_organization.html:1309
+msgid "North Lawndale"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:280
+#: new_arrivals_chi/app/templates/edit_organization.html:691
+#: new_arrivals_chi/app/templates/edit_organization.html:1042
+#: new_arrivals_chi/app/templates/edit_organization.html:1310
+msgid "North Mayfair"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:281
+#: new_arrivals_chi/app/templates/edit_organization.html:692
+#: new_arrivals_chi/app/templates/edit_organization.html:1043
+#: new_arrivals_chi/app/templates/edit_organization.html:1311
+msgid "North Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:282
+#: new_arrivals_chi/app/templates/edit_organization.html:693
+#: new_arrivals_chi/app/templates/edit_organization.html:1044
+#: new_arrivals_chi/app/templates/edit_organization.html:1312
+msgid "Nortown"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:283
+#: new_arrivals_chi/app/templates/edit_organization.html:694
+#: new_arrivals_chi/app/templates/edit_organization.html:1045
+#: new_arrivals_chi/app/templates/edit_organization.html:1313
+msgid "Norwood Park East"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:284
+#: new_arrivals_chi/app/templates/edit_organization.html:695
+#: new_arrivals_chi/app/templates/edit_organization.html:1046
+#: new_arrivals_chi/app/templates/edit_organization.html:1314
+msgid "Norwood Park West"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:285
+#: new_arrivals_chi/app/templates/edit_organization.html:696
+#: new_arrivals_chi/app/templates/edit_organization.html:1047
+#: new_arrivals_chi/app/templates/edit_organization.html:1315
+msgid "Oakland"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:286
+#: new_arrivals_chi/app/templates/edit_organization.html:697
+#: new_arrivals_chi/app/templates/edit_organization.html:1048
+#: new_arrivals_chi/app/templates/edit_organization.html:1316
+msgid "O'Hare"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:287
+#: new_arrivals_chi/app/templates/edit_organization.html:698
+#: new_arrivals_chi/app/templates/edit_organization.html:1049
+#: new_arrivals_chi/app/templates/edit_organization.html:1317
+msgid "Old Edgebrook"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:288
+#: new_arrivals_chi/app/templates/edit_organization.html:699
+#: new_arrivals_chi/app/templates/edit_organization.html:1050
+#: new_arrivals_chi/app/templates/edit_organization.html:1318
+msgid "Old Irving Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:289
+#: new_arrivals_chi/app/templates/edit_organization.html:700
+#: new_arrivals_chi/app/templates/edit_organization.html:1051
+#: new_arrivals_chi/app/templates/edit_organization.html:1319
+msgid "Old Norwood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:290
+#: new_arrivals_chi/app/templates/edit_organization.html:701
+#: new_arrivals_chi/app/templates/edit_organization.html:1052
+#: new_arrivals_chi/app/templates/edit_organization.html:1320
+msgid "Old Town"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:291
+#: new_arrivals_chi/app/templates/edit_organization.html:702
+#: new_arrivals_chi/app/templates/edit_organization.html:1053
+#: new_arrivals_chi/app/templates/edit_organization.html:1321
+msgid "Old Town Triangle"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:292
+#: new_arrivals_chi/app/templates/edit_organization.html:703
+#: new_arrivals_chi/app/templates/edit_organization.html:1054
+#: new_arrivals_chi/app/templates/edit_organization.html:1322
+msgid "Oriole Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:293
+#: new_arrivals_chi/app/templates/edit_organization.html:704
+#: new_arrivals_chi/app/templates/edit_organization.html:1055
+#: new_arrivals_chi/app/templates/edit_organization.html:1323
+msgid "Palmer Square"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:294
+#: new_arrivals_chi/app/templates/edit_organization.html:705
+#: new_arrivals_chi/app/templates/edit_organization.html:1056
+#: new_arrivals_chi/app/templates/edit_organization.html:1324
+msgid "Park Manor"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:295
+#: new_arrivals_chi/app/templates/edit_organization.html:706
+#: new_arrivals_chi/app/templates/edit_organization.html:1057
+#: new_arrivals_chi/app/templates/edit_organization.html:1325
+msgid "Park West"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:296
+#: new_arrivals_chi/app/templates/edit_organization.html:707
+#: new_arrivals_chi/app/templates/edit_organization.html:1058
+#: new_arrivals_chi/app/templates/edit_organization.html:1326
+msgid "Parkview"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:297
+#: new_arrivals_chi/app/templates/edit_organization.html:708
+#: new_arrivals_chi/app/templates/edit_organization.html:1059
+#: new_arrivals_chi/app/templates/edit_organization.html:1327
+msgid "Peterson Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:298
+#: new_arrivals_chi/app/templates/edit_organization.html:709
+#: new_arrivals_chi/app/templates/edit_organization.html:1060
+#: new_arrivals_chi/app/templates/edit_organization.html:1328
+msgid "Pill Hill"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:299
+#: new_arrivals_chi/app/templates/edit_organization.html:710
+#: new_arrivals_chi/app/templates/edit_organization.html:1061
+#: new_arrivals_chi/app/templates/edit_organization.html:1329
+msgid "Pilsen"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:300
+#: new_arrivals_chi/app/templates/edit_organization.html:711
+#: new_arrivals_chi/app/templates/edit_organization.html:1062
+#: new_arrivals_chi/app/templates/edit_organization.html:1330
+msgid "Polish Downtown"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:301
+#: new_arrivals_chi/app/templates/edit_organization.html:712
+#: new_arrivals_chi/app/templates/edit_organization.html:1063
+#: new_arrivals_chi/app/templates/edit_organization.html:1331
+msgid "Polish Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:302
+#: new_arrivals_chi/app/templates/edit_organization.html:713
+#: new_arrivals_chi/app/templates/edit_organization.html:1064
+#: new_arrivals_chi/app/templates/edit_organization.html:1332
+msgid "Portage Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:303
+#: new_arrivals_chi/app/templates/edit_organization.html:714
+#: new_arrivals_chi/app/templates/edit_organization.html:1065
+#: new_arrivals_chi/app/templates/edit_organization.html:1333
+msgid "Prairie Avenue Historic District"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:304
+#: new_arrivals_chi/app/templates/edit_organization.html:715
+#: new_arrivals_chi/app/templates/edit_organization.html:1066
+#: new_arrivals_chi/app/templates/edit_organization.html:1334
+msgid "Prairie Shores"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:305
+#: new_arrivals_chi/app/templates/edit_organization.html:716
+#: new_arrivals_chi/app/templates/edit_organization.html:1067
+#: new_arrivals_chi/app/templates/edit_organization.html:1335
+msgid "Princeton Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:306
+#: new_arrivals_chi/app/templates/edit_organization.html:717
+#: new_arrivals_chi/app/templates/edit_organization.html:1068
+#: new_arrivals_chi/app/templates/edit_organization.html:1336
+msgid "Printer's Row"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:307
+#: new_arrivals_chi/app/templates/edit_organization.html:718
+#: new_arrivals_chi/app/templates/edit_organization.html:1069
+#: new_arrivals_chi/app/templates/edit_organization.html:1337
+msgid "Pulaski Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:308
+#: new_arrivals_chi/app/templates/edit_organization.html:719
+#: new_arrivals_chi/app/templates/edit_organization.html:1070
+#: new_arrivals_chi/app/templates/edit_organization.html:1338
+msgid "Pullman"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:309
+#: new_arrivals_chi/app/templates/edit_organization.html:720
+#: new_arrivals_chi/app/templates/edit_organization.html:1071
+#: new_arrivals_chi/app/templates/edit_organization.html:1339
+msgid "Ranch Triangle"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:310
+#: new_arrivals_chi/app/templates/edit_organization.html:721
+#: new_arrivals_chi/app/templates/edit_organization.html:1072
+#: new_arrivals_chi/app/templates/edit_organization.html:1340
+msgid "Ravenswood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:311
+#: new_arrivals_chi/app/templates/edit_organization.html:722
+#: new_arrivals_chi/app/templates/edit_organization.html:1073
+#: new_arrivals_chi/app/templates/edit_organization.html:1341
+msgid "Ravenswood Gardens"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:312
+#: new_arrivals_chi/app/templates/edit_organization.html:723
+#: new_arrivals_chi/app/templates/edit_organization.html:1074
+#: new_arrivals_chi/app/templates/edit_organization.html:1342
+msgid "Ravenswood Manor"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:313
+#: new_arrivals_chi/app/templates/edit_organization.html:724
+#: new_arrivals_chi/app/templates/edit_organization.html:1075
+#: new_arrivals_chi/app/templates/edit_organization.html:1343
+msgid "River North"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:314
+#: new_arrivals_chi/app/templates/edit_organization.html:725
+#: new_arrivals_chi/app/templates/edit_organization.html:1076
+#: new_arrivals_chi/app/templates/edit_organization.html:1344
+msgid "River West"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:315
+#: new_arrivals_chi/app/templates/edit_organization.html:726
+#: new_arrivals_chi/app/templates/edit_organization.html:1077
+#: new_arrivals_chi/app/templates/edit_organization.html:1345
+msgid "River's Edge"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:316
+#: new_arrivals_chi/app/templates/edit_organization.html:727
+#: new_arrivals_chi/app/templates/edit_organization.html:1078
+#: new_arrivals_chi/app/templates/edit_organization.html:1346
+msgid "Riverdale"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:317
+#: new_arrivals_chi/app/templates/edit_organization.html:728
+#: new_arrivals_chi/app/templates/edit_organization.html:1079
+#: new_arrivals_chi/app/templates/edit_organization.html:1347
+msgid "Rogers Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:318
+#: new_arrivals_chi/app/templates/edit_organization.html:729
+#: new_arrivals_chi/app/templates/edit_organization.html:1080
+#: new_arrivals_chi/app/templates/edit_organization.html:1348
+msgid "Roscoe Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:319
+#: new_arrivals_chi/app/templates/edit_organization.html:730
+#: new_arrivals_chi/app/templates/edit_organization.html:1081
+#: new_arrivals_chi/app/templates/edit_organization.html:1349
+msgid "Rosehill"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:320
+#: new_arrivals_chi/app/templates/edit_organization.html:731
+#: new_arrivals_chi/app/templates/edit_organization.html:1082
+#: new_arrivals_chi/app/templates/edit_organization.html:1350
+msgid "Roseland"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:321
+#: new_arrivals_chi/app/templates/edit_organization.html:732
+#: new_arrivals_chi/app/templates/edit_organization.html:1083
+#: new_arrivals_chi/app/templates/edit_organization.html:1351
+msgid "Rosemoor"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:322
+#: new_arrivals_chi/app/templates/edit_organization.html:733
+#: new_arrivals_chi/app/templates/edit_organization.html:1084
+#: new_arrivals_chi/app/templates/edit_organization.html:1352
+msgid "St. Ben's"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:323
+#: new_arrivals_chi/app/templates/edit_organization.html:734
+#: new_arrivals_chi/app/templates/edit_organization.html:1085
+#: new_arrivals_chi/app/templates/edit_organization.html:1353
+msgid "Sauganash"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:324
+#: new_arrivals_chi/app/templates/edit_organization.html:735
+#: new_arrivals_chi/app/templates/edit_organization.html:1086
+#: new_arrivals_chi/app/templates/edit_organization.html:1354
+msgid "Schorsch Forest View"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:325
+#: new_arrivals_chi/app/templates/edit_organization.html:736
+#: new_arrivals_chi/app/templates/edit_organization.html:1087
+#: new_arrivals_chi/app/templates/edit_organization.html:1355
+msgid "Schorsch Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:326
+#: new_arrivals_chi/app/templates/edit_organization.html:737
+#: new_arrivals_chi/app/templates/edit_organization.html:1088
+#: new_arrivals_chi/app/templates/edit_organization.html:1356
+msgid "Scottsdale"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:327
+#: new_arrivals_chi/app/templates/edit_organization.html:738
+#: new_arrivals_chi/app/templates/edit_organization.html:1089
+#: new_arrivals_chi/app/templates/edit_organization.html:1357
+msgid "Sheffield Neighbors"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:328
+#: new_arrivals_chi/app/templates/edit_organization.html:739
+#: new_arrivals_chi/app/templates/edit_organization.html:1090
+#: new_arrivals_chi/app/templates/edit_organization.html:1358
+msgid "Sheridan Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:329
+#: new_arrivals_chi/app/templates/edit_organization.html:740
+#: new_arrivals_chi/app/templates/edit_organization.html:1091
+#: new_arrivals_chi/app/templates/edit_organization.html:1359
+msgid "Sheridan Station Corridor"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:330
+#: new_arrivals_chi/app/templates/edit_organization.html:741
+#: new_arrivals_chi/app/templates/edit_organization.html:1092
+#: new_arrivals_chi/app/templates/edit_organization.html:1360
+msgid "Sleepy Hollow"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:331
+#: new_arrivals_chi/app/templates/edit_organization.html:742
+#: new_arrivals_chi/app/templates/edit_organization.html:1093
+#: new_arrivals_chi/app/templates/edit_organization.html:1361
+msgid "Smith Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:332
+#: new_arrivals_chi/app/templates/edit_organization.html:743
+#: new_arrivals_chi/app/templates/edit_organization.html:1094
+#: new_arrivals_chi/app/templates/edit_organization.html:1362
+msgid "South Austin"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:333
+#: new_arrivals_chi/app/templates/edit_organization.html:744
+#: new_arrivals_chi/app/templates/edit_organization.html:1095
+#: new_arrivals_chi/app/templates/edit_organization.html:1363
+msgid "South Chicago"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:334
+#: new_arrivals_chi/app/templates/edit_organization.html:745
+#: new_arrivals_chi/app/templates/edit_organization.html:1096
+#: new_arrivals_chi/app/templates/edit_organization.html:1364
+msgid "South Commons"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:335
+#: new_arrivals_chi/app/templates/edit_organization.html:746
+#: new_arrivals_chi/app/templates/edit_organization.html:1097
+#: new_arrivals_chi/app/templates/edit_organization.html:1365
+msgid "South Deering"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:336
+#: new_arrivals_chi/app/templates/edit_organization.html:747
+#: new_arrivals_chi/app/templates/edit_organization.html:1098
+#: new_arrivals_chi/app/templates/edit_organization.html:1366
+msgid "South East Ravenswood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:337
+#: new_arrivals_chi/app/templates/edit_organization.html:748
+#: new_arrivals_chi/app/templates/edit_organization.html:1099
+#: new_arrivals_chi/app/templates/edit_organization.html:1367
+msgid "South Edgebrook"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:338
+#: new_arrivals_chi/app/templates/edit_organization.html:749
+#: new_arrivals_chi/app/templates/edit_organization.html:1100
+#: new_arrivals_chi/app/templates/edit_organization.html:1368
+msgid "South Lawndale"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:339
+#: new_arrivals_chi/app/templates/edit_organization.html:750
+#: new_arrivals_chi/app/templates/edit_organization.html:1101
+#: new_arrivals_chi/app/templates/edit_organization.html:1369
+msgid "South Loop"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:340
+#: new_arrivals_chi/app/templates/edit_organization.html:751
+#: new_arrivals_chi/app/templates/edit_organization.html:1102
+#: new_arrivals_chi/app/templates/edit_organization.html:1370
+msgid "South Shore"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:341
+#: new_arrivals_chi/app/templates/edit_organization.html:752
+#: new_arrivals_chi/app/templates/edit_organization.html:1103
+#: new_arrivals_chi/app/templates/edit_organization.html:1371
+msgid "Stateway Gardens"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:342
+#: new_arrivals_chi/app/templates/edit_organization.html:753
+#: new_arrivals_chi/app/templates/edit_organization.html:1104
+#: new_arrivals_chi/app/templates/edit_organization.html:1372
+msgid "Stony Island Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:343
+#: new_arrivals_chi/app/templates/edit_organization.html:754
+#: new_arrivals_chi/app/templates/edit_organization.html:1105
+#: new_arrivals_chi/app/templates/edit_organization.html:1373
+msgid "Streeterville"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:344
+#: new_arrivals_chi/app/templates/edit_organization.html:755
+#: new_arrivals_chi/app/templates/edit_organization.html:1106
+#: new_arrivals_chi/app/templates/edit_organization.html:1374
+msgid "Talley's Corner"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:345
+#: new_arrivals_chi/app/templates/edit_organization.html:756
+#: new_arrivals_chi/app/templates/edit_organization.html:1107
+#: new_arrivals_chi/app/templates/edit_organization.html:1375
+msgid "Tri-Taylor"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:346
+#: new_arrivals_chi/app/templates/edit_organization.html:757
+#: new_arrivals_chi/app/templates/edit_organization.html:1108
+#: new_arrivals_chi/app/templates/edit_organization.html:1376
+msgid "Ukrainian Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:347
+#: new_arrivals_chi/app/templates/edit_organization.html:758
+#: new_arrivals_chi/app/templates/edit_organization.html:1109
+#: new_arrivals_chi/app/templates/edit_organization.html:1377
+msgid "Union Ridge"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:348
+#: new_arrivals_chi/app/templates/edit_organization.html:759
+#: new_arrivals_chi/app/templates/edit_organization.html:1110
+#: new_arrivals_chi/app/templates/edit_organization.html:1378
+msgid "University Village"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:349
+#: new_arrivals_chi/app/templates/edit_organization.html:760
+#: new_arrivals_chi/app/templates/edit_organization.html:1111
+#: new_arrivals_chi/app/templates/edit_organization.html:1379
+msgid "Uptown"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:350
+#: new_arrivals_chi/app/templates/edit_organization.html:761
+#: new_arrivals_chi/app/templates/edit_organization.html:1112
+#: new_arrivals_chi/app/templates/edit_organization.html:1380
+msgid "The Villa"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:351
+#: new_arrivals_chi/app/templates/edit_organization.html:762
+#: new_arrivals_chi/app/templates/edit_organization.html:1113
+#: new_arrivals_chi/app/templates/edit_organization.html:1381
+msgid "Vittum Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:352
+#: new_arrivals_chi/app/templates/edit_organization.html:763
+#: new_arrivals_chi/app/templates/edit_organization.html:1114
+#: new_arrivals_chi/app/templates/edit_organization.html:1382
+msgid "Wacławowo"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:353
+#: new_arrivals_chi/app/templates/edit_organization.html:764
+#: new_arrivals_chi/app/templates/edit_organization.html:1115
+#: new_arrivals_chi/app/templates/edit_organization.html:1383
+msgid "Washington Heights"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:354
+#: new_arrivals_chi/app/templates/edit_organization.html:765
+#: new_arrivals_chi/app/templates/edit_organization.html:1116
+#: new_arrivals_chi/app/templates/edit_organization.html:1384
+msgid "Washington Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:355
+#: new_arrivals_chi/app/templates/edit_organization.html:766
+#: new_arrivals_chi/app/templates/edit_organization.html:1117
+#: new_arrivals_chi/app/templates/edit_organization.html:1385
+msgid "Wentworth Gardens"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:356
+#: new_arrivals_chi/app/templates/edit_organization.html:767
+#: new_arrivals_chi/app/templates/edit_organization.html:1118
+#: new_arrivals_chi/app/templates/edit_organization.html:1386
+msgid "West Beverly"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:357
+#: new_arrivals_chi/app/templates/edit_organization.html:768
+#: new_arrivals_chi/app/templates/edit_organization.html:1119
+#: new_arrivals_chi/app/templates/edit_organization.html:1387
+msgid "West Chatham"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:358
+#: new_arrivals_chi/app/templates/edit_organization.html:769
+#: new_arrivals_chi/app/templates/edit_organization.html:1120
+#: new_arrivals_chi/app/templates/edit_organization.html:1388
+msgid "West Chesterfield"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:359
+#: new_arrivals_chi/app/templates/edit_organization.html:770
+#: new_arrivals_chi/app/templates/edit_organization.html:1121
+#: new_arrivals_chi/app/templates/edit_organization.html:1389
+msgid "West DePaul"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:360
+#: new_arrivals_chi/app/templates/edit_organization.html:771
+#: new_arrivals_chi/app/templates/edit_organization.html:1122
+#: new_arrivals_chi/app/templates/edit_organization.html:1390
+msgid "West Elsdon"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:361
+#: new_arrivals_chi/app/templates/edit_organization.html:772
+#: new_arrivals_chi/app/templates/edit_organization.html:1123
+#: new_arrivals_chi/app/templates/edit_organization.html:1391
+msgid "West Englewood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:362
+#: new_arrivals_chi/app/templates/edit_organization.html:773
+#: new_arrivals_chi/app/templates/edit_organization.html:1124
+#: new_arrivals_chi/app/templates/edit_organization.html:1392
+msgid "West Garfield Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:363
+#: new_arrivals_chi/app/templates/edit_organization.html:774
+#: new_arrivals_chi/app/templates/edit_organization.html:1125
+#: new_arrivals_chi/app/templates/edit_organization.html:1393
+msgid "West Humboldt Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:364
+#: new_arrivals_chi/app/templates/edit_organization.html:775
+#: new_arrivals_chi/app/templates/edit_organization.html:1126
+#: new_arrivals_chi/app/templates/edit_organization.html:1394
+msgid "Lakeview West"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:365
+#: new_arrivals_chi/app/templates/edit_organization.html:776
+#: new_arrivals_chi/app/templates/edit_organization.html:1127
+#: new_arrivals_chi/app/templates/edit_organization.html:1395
+msgid "West Lawn"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:366
+#: new_arrivals_chi/app/templates/edit_organization.html:777
+#: new_arrivals_chi/app/templates/edit_organization.html:1128
+#: new_arrivals_chi/app/templates/edit_organization.html:1396
+msgid "West Loop"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:367
+#: new_arrivals_chi/app/templates/edit_organization.html:778
+#: new_arrivals_chi/app/templates/edit_organization.html:1129
+#: new_arrivals_chi/app/templates/edit_organization.html:1397
+msgid "West Morgan Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:368
+#: new_arrivals_chi/app/templates/edit_organization.html:779
+#: new_arrivals_chi/app/templates/edit_organization.html:1130
+#: new_arrivals_chi/app/templates/edit_organization.html:1398
+msgid "West Pullman"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:369
+#: new_arrivals_chi/app/templates/edit_organization.html:780
+#: new_arrivals_chi/app/templates/edit_organization.html:1131
+#: new_arrivals_chi/app/templates/edit_organization.html:1399
+msgid "West Ridge"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:370
+#: new_arrivals_chi/app/templates/edit_organization.html:781
+#: new_arrivals_chi/app/templates/edit_organization.html:1132
+#: new_arrivals_chi/app/templates/edit_organization.html:1400
+msgid "West Rogers Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:371
+#: new_arrivals_chi/app/templates/edit_organization.html:782
+#: new_arrivals_chi/app/templates/edit_organization.html:1133
+#: new_arrivals_chi/app/templates/edit_organization.html:1401
+msgid "West Town"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:372
+#: new_arrivals_chi/app/templates/edit_organization.html:783
+#: new_arrivals_chi/app/templates/edit_organization.html:1134
+#: new_arrivals_chi/app/templates/edit_organization.html:1402
+msgid "West Woodlawn"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:373
+#: new_arrivals_chi/app/templates/edit_organization.html:784
+#: new_arrivals_chi/app/templates/edit_organization.html:1135
+#: new_arrivals_chi/app/templates/edit_organization.html:1403
+msgid "Wicker Park"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:374
+#: new_arrivals_chi/app/templates/edit_organization.html:785
+#: new_arrivals_chi/app/templates/edit_organization.html:1136
+#: new_arrivals_chi/app/templates/edit_organization.html:1404
+msgid "Wildwood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:375
+#: new_arrivals_chi/app/templates/edit_organization.html:786
+#: new_arrivals_chi/app/templates/edit_organization.html:1137
+#: new_arrivals_chi/app/templates/edit_organization.html:1405
+msgid "Woodlawn"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:376
+#: new_arrivals_chi/app/templates/edit_organization.html:787
+#: new_arrivals_chi/app/templates/edit_organization.html:1138
+#: new_arrivals_chi/app/templates/edit_organization.html:1406
+msgid "Wrightwood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:377
+#: new_arrivals_chi/app/templates/edit_organization.html:788
+#: new_arrivals_chi/app/templates/edit_organization.html:1139
+#: new_arrivals_chi/app/templates/edit_organization.html:1407
+msgid "Wrightwood Neighbors"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:378
+#: new_arrivals_chi/app/templates/edit_organization.html:789
+#: new_arrivals_chi/app/templates/edit_organization.html:1140
+#: new_arrivals_chi/app/templates/edit_organization.html:1408
+msgid "Wrigleyville"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:380
+msgid "Primary Location"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:382
+msgid "Update Location"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:390
+msgid "Hours of Operation:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:404
+#: new_arrivals_chi/app/templates/edit_organization.html:421
+#: new_arrivals_chi/app/templates/edit_organization.html:449
+msgid "Add Break"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:430
+msgid "Update Hours"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:484
+msgid "Create a New Service:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:488
+#: new_arrivals_chi/app/templates/edit_organization.html:823
+msgid "Service Name:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:491
+#: new_arrivals_chi/app/templates/edit_organization.html:826
+msgid "Category:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:493
+#: new_arrivals_chi/app/templates/edit_organization.html:828
+msgid "Family Care"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:494
+#: new_arrivals_chi/app/templates/edit_organization.html:829
+msgid "Healthcare"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:495
+#: new_arrivals_chi/app/templates/edit_organization.html:830
+msgid "Education"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:496
+#: new_arrivals_chi/app/templates/edit_organization.html:831
+msgid "Housing"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:502
+#: new_arrivals_chi/app/templates/edit_organization.html:838
+#: new_arrivals_chi/app/templates/edit_organization.html:856
+msgid "Available Date:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:505
+#: new_arrivals_chi/app/templates/edit_organization.html:840
+#: new_arrivals_chi/app/templates/edit_organization.html:858
+msgid "Opening Time:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:508
+#: new_arrivals_chi/app/templates/edit_organization.html:842
+#: new_arrivals_chi/app/templates/edit_organization.html:860
+msgid "Closing Time:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:512
+#: new_arrivals_chi/app/templates/edit_organization.html:846
+#: new_arrivals_chi/app/templates/edit_organization.html:864
+msgid "Repeat Type:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:514
+#: new_arrivals_chi/app/templates/edit_organization.html:848
+#: new_arrivals_chi/app/templates/edit_organization.html:866
+msgid "Every Day"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:515
+#: new_arrivals_chi/app/templates/edit_organization.html:849
+#: new_arrivals_chi/app/templates/edit_organization.html:867
+msgid "Every Week"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:516
+#: new_arrivals_chi/app/templates/edit_organization.html:850
+#: new_arrivals_chi/app/templates/edit_organization.html:868
+msgid "Every Month"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:517
+#: new_arrivals_chi/app/templates/edit_organization.html:851
+#: new_arrivals_chi/app/templates/edit_organization.html:869
+msgid "Every Other Week"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:793
+#: new_arrivals_chi/app/templates/edit_organization.html:1415
+msgid "Access Method:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:795
+#: new_arrivals_chi/app/templates/edit_organization.html:1417
+msgid "Appointments Only"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:796
+#: new_arrivals_chi/app/templates/edit_organization.html:1418
+msgid "Walk-ins Welcome"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:797
+#: new_arrivals_chi/app/templates/edit_organization.html:1419
+msgid "Phone Registration"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:800
+#: new_arrivals_chi/app/templates/edit_organization.html:1421
+msgid "Service Note:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:805
+msgid "Create Service"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:814
+msgid "Current Services Offered:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:1160
+msgid "Select Neighborhood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:1425
+msgid "Update Service"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/edit_organization.html:1427
+msgid "Delete Service"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:14
+msgid "Health Information"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:17
+msgid "I want to..."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:19
+msgid "Receive Assistance Now"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:22
+msgid "Learn More About Resources"
+msgstr ""
+
 #: new_arrivals_chi/app/templates/home.html:22
 msgid "Welcome to Chicago!"
 msgstr "\\u00a1Bienvenido a Chicago!"
@@ -211,9 +2347,9 @@ msgstr ""
 "Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
 "migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
 "encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias."
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
+"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
+"organizaciones comunitarias."
 
 #: new_arrivals_chi/app/templates/home.html:28
 msgid "Please click below to begin:"
@@ -235,13 +2371,12 @@ msgstr "Recursos de Salud"
 #, fuzzy
 msgid ""
 "This resource guide is a collaboration between Chicago Area Student, "
-"Chicago-based organizations, and the City of Chicago. To learn more visit"
-" About Us."
+"Chicago-based organizations, and the City of Chicago. To learn more "
+"visit About Us."
 msgstr ""
 "Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
 "migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
 "encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias."
-
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
+"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
+"organizaciones comunitarias."
