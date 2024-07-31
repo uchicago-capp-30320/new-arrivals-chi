@@ -13,81 +13,51 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-from flask import (
-    Flask,
-    Blueprint,
-    render_template,
-    request,
-    current_app,
-    flash,
-    url_for
-)
+from flask import Flask, Blueprint, render_template, request, g
+from flask_babel import Babel, lazy_gettext as _
+from datetime import timedelta
 import os
+from new_arrivals_chi.app.database import db
+from new_arrivals_chi.app.authorize_routes import authorize
+from flask_migrate import Migrate
+from flask_login import LoginManager, current_user, login_required
 import bleach
 from markupsafe import escape
+from new_arrivals_chi.app.utils import load_neighborhoods, validate_email_syntax, validate_phone_number, create_temp_pwd
+from new_arrivals_chi.app.data_handler import create_user, create_organization_profile, extract_organization
 from dotenv import load_dotenv
 
-from new_arrivals_chi.app.constants import (
-    KEY_LANGUAGE,
-    KEY_TRANSLATIONS,
-    DEFAULT_LANGUAGE
-)
-
-from new_arrivals_chi.app.database import (
-    db,
-    User,
-    Organization,
-)
-
-from new_arrivals_chi.app.utils import (
-    validate_email_syntax,
-    #load_translations,
-    validate_phone_number,
-    create_temp_pwd,
-    load_neighborhoods,
-)
-
-from new_arrivals_chi.app.data_handler import (
-    create_user,
-    create_organization_profile,
-    extract_organization,
-)
-
-from flask_migrate import Migrate
-from flask_login import LoginManager, login_required, current_user
-from new_arrivals_chi.app.authorize_routes import authorize
-from datetime import timedelta
-from flask_babel import Babel, lazy_gettext as _
-
 migrate = Migrate()
-
 load_dotenv()
 
 app = Flask(__name__)
-main = Blueprint("main", __name__, static_folder="static")
-
-babel = Babel()
+babel = Babel(app)
 
 def get_locale():
-    lang = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
+    lang = request.args.get('lang', 'es')  # Default to Spanish
+    print(f"Selected language: {lang}")  # Debugging line
+    g.current_lang = lang
     return lang
 
+babel.init_app(app, locale_selector=get_locale)
+
+@app.context_processor
+def inject_locale():
+    return dict(get_locale=get_locale)
+
+# Define the blueprint
+main = Blueprint("main", __name__, static_folder="static")
+
+# Define routes within the blueprint
 @main.route("/")
 def home():
-    return render_template("home.html")
+    return render_template('home.html')
 
 @main.route("/about")
 def about():
-    """Establishes route for the about us page.
-
-    This route is accessible from the footer of every page.
-
-    Returns:
-        Renders about us page.
-    """
     return render_template("about.html")
 
-
+# Define other routes similarly within the `main` blueprint
 @main.route("/legal")
 def legal():
     """Establishes route for the legal page.
@@ -547,12 +517,9 @@ def add_organization():
     )
 
 
+# Function to create the Flask app
 def create_app(config_override=None):
-    """This function creates the flask application for the web portal."""
-    app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
-        "DATABASE_URL", default="sqlite:///:memory:"
-    )
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", default="sqlite:///:memory:")
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
@@ -560,21 +527,14 @@ def create_app(config_override=None):
     # Load neighborhoods from file and store in app config
     app.config["NEIGHBORHOODS"] = load_neighborhoods()
 
-    # Load old translations
-    #app.config[KEY_TRANSLATIONS] = load_translations()
-
-    # Configure babel
-    app.config['BABEL_DEFAULT_LOCALE'] = DEFAULT_LANGUAGE
+    # Configure Babel
+    app.config['BABEL_DEFAULT_LOCALE'] = 'es'  # Set Spanish as default locale
     app.config['BABEL_TRANSLATION_DIRECTORIES'] = '../translations'
-
-    # Initialize Babel with the app and locale selector
-    babel.init_app(app, locale_selector=get_locale)
 
     @app.context_processor
     def inject_locale():
         return dict(get_locale=get_locale)
 
-    # Update app configuration with any provided override config (for testing)
     if config_override:
         app.config.update(config_override)
 
@@ -595,12 +555,7 @@ def create_app(config_override=None):
 
     return app
 
-
+# Run the Flask app with the correct entry point
 if __name__ == "__main__":
     app = create_app()
-    # Note: For the development server, we are using a auto-generated
-    # self-signed certificate as a result the CA is unable to validate a server
-    # certificate, though you can continue to proceed and visit the development
-    # site. For the production deployment, we will ensure a valid certificate
-    # from CA for our domain.
     app.run(ssl_context="adhoc", debug=True)
