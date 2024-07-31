@@ -17,7 +17,7 @@ using an organization's unique id and populates information.
         <i class="fa-solid fa-diamond-turn-right"></i> {{ organization.street_address }}, {{ organization.city }}, {{ organization.state }} {{ organization.zip_code }}&nbsp;&nbsp;
         <i class="fa-solid fa-phone"></i> {{ organization.phone }}
     </div>
-    <div class="box-contact-info subheader">{{ translations[language]['info']['open_hours'] | escape }}</div>
+    <div class="box-contact-info subheader">{{ _('Open Hours') }}</div>
     <div class="box-contact-info">
         <ul>
             {% for day, hours_list in organization.hours.items() %}
@@ -33,7 +33,7 @@ using an organization's unique id and populates information.
             {% endfor %}
         </ul>
     </div>
-    <div class="box-contact-info subheader">{{ translations[language]['info']['languages_spoken'] | escape }}</div>
+    <div class="box-contact-info subheader">{{ _('Languages Spoken') }}</div>
     <div class="box-contact-info">
         {% if organization.languages %}
             <ul>
@@ -45,7 +45,7 @@ using an organization's unique id and populates information.
             Not specified
         {% endif %}
     </div>
-    <div class="box-contact-info subheader">{{ translations[language]['info']['supplies_and_services'] | escape }}</div>
+    <div class="box-contact-info subheader">{{ _('Supplies and Services') }}</div>
     <div class="box-contact-info">
         <ul>
             {% for service in organization.service %}

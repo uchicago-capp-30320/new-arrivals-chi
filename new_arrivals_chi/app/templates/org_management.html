@@ -21,31 +21,31 @@ HTML for edit organization page.
         </div>
     {% endif %}
     {% endwith %}
-    <h1>{{ translations[language]['admin']['org_management'] }}</h1>
+    <h1>_('Organization Management')</h1>
     <table>
         <thead>
             <tr>
-                <th>{{ translations[language]['admin']['name_of_org'] }}</th>
-                <th>{{ translations[language]['admin']['status'] }}</th>
-                <th>{{ translations[language]['admin']['action'] }}</th>
+                <th>_('Name of Organization')</th>
+                <th>_('Status')</th>
+                <th>_('Action')</th>
             </tr>
         </thead>
         <tbody>
             {% for organization in organizations %}
             <tr>
                 <td>{{ organization.name }}</td>
-                <td>{% if organization.status == 'ACTIVE' %}{{ translations[language]['admin']['active'] }}
-                    {% elif organization.status == 'HIDDEN' %}{{ translations[language]['admin']['hidden'] }}
-                    {% elif organization.status == 'SUSPENDED' %}{{ translations[language]['admin']['suspended']}}
+                <td>{% if organization.status == 'ACTIVE' %}{{ _('Active') }}
+                    {% elif organization.status == 'HIDDEN' %}{{ _('Hidden') }}
+                    {% elif organization.status == 'SUSPENDED' %}{{ _('Suspended')}}
                     {% endif %}
                 </td>
                 <td>
                     <button type="button" class="btn-edit" onclick="navigateTo('{{ url_for('authorize.admin_edit_organization', organization_id=organization.id) }}', '{{ language }}')">
-                        {{ translations[language]['admin']['edit'] }}
+                        {{ _('Edit') }}
                     </button>
                     <button type="button" class="btn-suspend" onclick="navigateTo('{{ url_for('authorize.toggle_suspend_organization', organization_id=organization.id) }}', '{{ language }}')">
-                        {% if organization.status == 'ACTIVE' %}{{ translations[language]['admin']['suspend'] }}
-                        {% else %}{{ translations[language]['admin']['unsuspend']}}
+                        {% if organization.status == 'ACTIVE' %}{{ _('Suspend') }}
+                        {% else %}{{ _('Unsuspend')}}
                         {% endif %}
                     </button>
                 </td>
@@ -54,10 +54,10 @@ HTML for edit organization page.
         </tbody>
     </table>
     <button class="yellow-button" onclick="location.href='{{ '/' | escape }}'">
-        {{ translations[language]['util']['back'] | escape }}
+        {{ _('Back') }}
     </button>
     <button class="button-orange" onclick="location.href='{{ '/add_organization' | escape }}'">
-        {{ translations[language]['admin']['add_org'] | escape }}
+        {{ _('Add Organization') }}
     </button>
 </body>
 {% endblock %}

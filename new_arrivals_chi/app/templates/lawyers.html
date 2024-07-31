@@ -4,35 +4,13 @@ File name: lawyers.html
 Associated Files:
     base.html, main.py, legal_page.css, lawyers.html
 -->
-{% extends "base.html" %}
-
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/legal_page.css') }}"
+/>
+{% endblock %} {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['lawyers'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endfor %}
-</div>
+  <h1>_('Legal Services')</h1>
+
 {% endblock %}

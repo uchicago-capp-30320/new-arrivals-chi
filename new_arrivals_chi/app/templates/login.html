@@ -12,7 +12,7 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 {% extends "base.html" %}
 {% block content %}
 <div >
-    <h3 class="title">{{ translations[language]['util']['login'] | escape }}</h3>
+    <h3 class="title">_('Login')</h3>
     <div class="box">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -24,16 +24,16 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
         <form method="POST" action="/login">
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="{{ translations[language]['profile']['email']  | escape }}" autofocus="">
+                    <input class="input is-large" type="email" name="email" placeholder="_('Email')" autofocus="">
                 </div>
             </div>
 
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="{{ 'Password' if language == 'en' else 'Contraseña' | escape }}" oncopy="return false" oncut="return false" onpaste="return false">
+                    <input class="input is-large" type="password" name="password" placeholder="_('Email')" oncopy="return false" oncut="return false" onpaste="return false">
                 </div>
             </div>
-            <button >{{ translations[language]['util']['login'] | escape }}</button>
+            <button >_('Login')</button>
         </form>
     </div>
 </div>

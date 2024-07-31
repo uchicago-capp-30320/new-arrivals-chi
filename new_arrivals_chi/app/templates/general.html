@@ -7,39 +7,245 @@ Associated Files:
 Landing page for user to navigate through legal parole information.
 -->
 
-{% extends "base.html" %}
-
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/legal_page.css') }}"
+/>
+{% endblock %} {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['welcome'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    </div>
-  </div>
-  {% endblock %}
+  <h1>_('Welcome to Chicago!') </h1>
+
+  <h2>_('Welcome') </h2>
+
+  <p>
+    _('Known for its vibrant culture, diverse communities, and bustling city life,
+    Chicago is a welcoming city that embraces people from all walks of life. A
+    group of university students in collaboration with the City of Chicago and
+    local community organizations created this website to help New Arrivals, who
+    are immigrants, migrants, and refugees from around the world, understand the
+    resources and services they have available to them in Chicago. We understand
+    that this transition is challenging and we hope to provide clear information
+    to help you begin your new life in Chicago. On this page, you will find
+    general information about:') 
+  </p>
+  <ul>
+    <li>_('Chicago CityKey ID, a form of identification') </li>
+
+    <li>_('Using the CTA, Chicago’s public transit system') </li>
+
+    <li>_('Public Education for Kids') </li>
+
+    <li>_('Access to food banks') </li>
+
+    <li>_('Driver's insurance') </li>
+  </ul>
+
+  <h2>_('Chicago CityKey ID') </h2>
+
+  <p>
+    _('The Chicago CityKey ID is an optional, valid, government-issued ID card
+    offered to all Chicago residents, including New Arrivals. It serves as a
+    four-in-one card by serving as a government-issued ID card, a Chicago Public
+    Library card, a Ventra card, and a pharmaceutical discount card.') 
+  </p>
+
+  <p>
+    _('To apply for a CityKey ID, you will need three documents that prove your
+    identity, including a photo and date of birth, and that prove that you are a
+    resident of the City of Chicago. For more information about applying, please
+    click the following links:') 
+  </p>
+
+  <p>
+    <a
+      href="https://www.chicityclerk.com/about-citykey/how-apply"
+      target="_blank"
+      >_('How to Apply') </a
+    >
+  </p>
+
+  <p>
+    <a href="https://www.getcitykey.com/scheduling/bydate" target="_blank"
+      >_('Book an Appointment') </a
+    >
+  </p>
+
+  <p>
+    <a
+      href="https://www.chicityclerk.com/about-citykey/how-apply/application-materials/#ckdocs"
+      target="_blank"
+      >_('Application Materials') </a
+    >
+  </p>
+
+  <h2>_('Using the CTA</h2>
+
+  <p>
+    _('The easiest way to get around Chicago is by leveraging the CTA, which is the
+    Chicago Transit Authority. With its comprehensive network of buses and
+    trains, the CTA offers convenient and affordable transportation options for
+    navigating the city.') 
+  </p>
+
+  <h3>_('Figuring out travel route') </h3>
+
+  <p>
+    _('You can plan your trip using Google Maps by clicking on the train icon to
+    find the quickest way to your destination. As a reminder, Google Maps
+    provides an estimate and buses or trains may be delayed due to construction
+    or traffic.') 
+  </p>
+
+  <p>
+    _('Another way to see how far the bus is away is the Ventra app. On the home
+    page, it tells you which buses/trains or bikes are nearby. If you click on
+    nearby, you can expand the view or move your position around.') 
+  </p>
+
+  <h3>_('Paying for CTA') </h3>
+
+  <p>
+    _('To pay for CTA buses, you must have the exact fare to pay for the bus or use
+    your Ventra card. For trains, you must have a Ventra card which you can get
+    at a kiosk before entering the train or by downloading the app. To find a
+    physical location to buy a Ventra card, please see the following link:') 
+  </p>
+
+  <p>
+    <a href="https://www.ventrachicago.com/retailers/locations/" target="_blank"
+      >_('Ventra Retail Locations') </a
+    >
+  </p>
+
+  <h2>_('Public Education for Kids') </h2>
+
+  <p>
+    _('In Chicago, public education is offered free of charge, ensuring that every
+    child has access to quality learning opportunities. To enroll your child,
+    they must meet certain requirements, including proof of age, proof of
+    address, and proof of medical compliance such as a physical examination,
+    immunization record, and dental exam. For more information, please click the
+    following links:') 
+  </p>
+
+  <p>
+    <a
+      href="https://www.cps.edu/schools/apply-enroll/enrollment-requirements/"
+      target="_blank"
+      >_('Enrollment Requirements') </a
+    >
+  </p>
+
+  <p>
+    <a href="https://www.cps.edu/schools/apply-enroll/" target="_blank"
+      >_('Apply and Enroll') </a
+    >
+  </p>
+
+  <h2>_('Access to Free Food') </h2>
+
+  <p>
+    _('Regardless of your status, you are able to access groceries that are free at
+    your local food bank. Please click the following link to find the nearest
+    food pantry near you:') 
+  </p>
+
+  <p>
+    <a
+      href="https://www.chicagosfoodbank.org/find-food/#googtrans(en|en)"
+      target="_blank"
+      >_('Find a Food Pantry') </a
+    >
+  </p>
+
+  <h2>_('Driver\'s Insurance') </h2>
+
+  <p>
+    _('The State of Illinois issues a special driver\'s license to non-citizens who
+    cannot get a SSN. The license is called Temporary Visitor Driver's License
+    (TVDL). There are two kinds of TVDLs: The first is for someone authorized to
+    reside in this country for one or more years. The second is for someone who
+    does not have lawful status or is undocumented but has lived in the US for
+    at least a year.') 
+  </p>
+
+  <p>_('To qualify for a TVDL as a lawful resident, applicants must:') </p>
+
+  <ul>
+    <li>_('Prove their name and date of birth;') </li>
+
+    <li>_('Prove that they live in Illinois;') </li>
+
+    <li>_('Prove their written signature;') </li>
+
+    <li>
+      _('Provide documentation issued by the United States Citizenship and
+      Immigration Services that proves legal status;') 
+    </li>
+
+    <li>_('Affirm that they are ineligible to get a social security number;') </li>
+
+    <li>_('Pass the vision, written, and road exams;') </li>
+
+    <li>_('Provide proof of insurance for the vehicle used for the road test;') </li>
+
+    <li>
+      _('Provide proof (ages 18-20) of completing a 6-hour adult driver education
+      course; and') 
+    </li>
+
+    <li>_('Pay a $30 application fee ($35 for motorcycles).') </li>
+  </ul>
+
+  <p>_('To qualify for a TVDL as an undocumented immigrant, applicants must:') </p>
+
+  <ul>
+    <li>_('Prove their name and date of birth;') </li>
+
+    <li>_('Prove their written signature;') </li>
+
+    <li>_('Prove that they have lived in Illinois for at least 12 months;') </li>
+
+    <li>_('Prove where they live in Illinois now;') </li>
+
+    <li>_('Affirm that they are ineligible to get a social security number;') </li>
+
+    <li>
+      _('Provide a valid, unexpired passport or consular card issued by an approved
+      country, or provide other proof of identity and residency the Secretary of
+      State may require;') 
+    </li>
+
+    <li>_('Pass the vision, written, and road exams;') </li>
+
+    <li>_('Provide proof of insurance for the vehicle used for the road test;') </li>
+
+    <li>
+      _('Provide proof (ages 18-20) of completing a 6-hour adult driver education
+      course; and') 
+    </li>
+
+    <li>_('Pay a $30 application fee ($35 for motorcycles).') </li>
+  </ul>
+
+  <p>_('For more information, please see the following links:') </p>
+
+  <p>
+    <a
+      href="https://www.ilsos.gov/departments/drivers/TVDL/home.html"
+      target="_blank"
+      >_('Illinois Secretary of State - TVDL') </a
+    >
+  </p>
+
+  <p>
+    <a
+      href="https://www.illinoislegalaid.org/legal-information/drivers-license-immigrants"
+      target="_blank"
+      >_('Illinois Legal Aid - Driver\'s license for immigrants') </a
+    >
+  </p>
+</div>
+
+{% endblock %}

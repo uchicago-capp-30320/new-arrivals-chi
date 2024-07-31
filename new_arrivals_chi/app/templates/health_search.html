@@ -16,11 +16,11 @@
 
 <div class="wrapper">
     <h3>
-        {{ translations[language]['health']['search_rec'] | escape }}
+        Search for Resources
     </h3>
     <div>
         <select id="supplies">
-            <option value="">{{ translations[language]['health']['supply_service'] | escape }}</option>
+            <option value="">Available Supplies and Services</option>
             {% set services_set = set() %}
             {% for org in services_info %}
                 {% for service in org.service %}
@@ -33,7 +33,7 @@
     </select>
 
         <select id="neighborhood">
-            <option value="">{{ translations[language]['health']['neighborhood'] | escape }}</option>
+            <option value="">_('Neighborhood')</option>
             {% set neighborhood_set = set() %}
             {% for org in services_info %}
                 {% if org.neighborhood not in neighborhood_set %}
@@ -44,7 +44,7 @@
         </select>
 
         <select id="organization">
-            <option value="">{{ translations[language]['health']['organization'] | escape }}</option>
+            <option value="">_('Organization')</option>
             {% set organization_set = set() %}
             {% for org in services_info %}
                 {% if org.name not in organization_set %}
@@ -55,7 +55,7 @@
         </select>
 
         <select id="hours">
-            <option value="">{{ translations[language]['health']['hours'] | escape }}</option>
+            <option value="">_('Hours')</option>
             {% set hours_set = set() %}
             {% for org in services_info %}
                 {% set hours = org.hours %}
@@ -78,10 +78,10 @@
     <table id="healthTable">
         <thead>
             <tr>
-                <th class="table-header">{{ translations[language]['health']['supply_service'] | escape }}</th>
-                <th class="table-header">{{ translations[language]['health']['neighborhood'] | escape }}</th>
-                <th class="table-header">{{ translations[language]['health']['organization'] | escape }}</th>
-                <th class="table-header">{{ translations[language]['health']['hours'] | escape }}</th>
+                <th class="table-header">_('Available Supplies and Services')</th>
+                <th class="table-header">_('Neighborhood')</th>
+                <th class="table-header">_('Organization')</th>
+                <th class="table-header">_('Hours')</th>
             </tr>
         </thead>
         <tbody>
