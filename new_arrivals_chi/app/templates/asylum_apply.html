@@ -4,25 +4,46 @@ File name: asylum_apply.html
 Associated Files:
     base.html, main.py, legal_page.css, lawyers.html
 -->
-{% extends "base.html" %}
-
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/legal_page.css') }}"
+/>
+{% endblock %} {% block content %}
 <div class="white-container">
   <h1>{{_('Asylum Clinics')}}</h1>
-      <h2>{{_('Asylum Clinics')}}</h2>
-    <p>{{_('Legal Aid Society of Metropolitan Family Services is coordinating a Centralized Immigration Legal Service Center for recent arrivals to support in asylum, change of address, or change of venue cases.')}}</p>
-    <p>{{_('The Center provides free legal information and assistance to individuals who entered on or before January 1, 2022.')}}</p>
-    <p>{{_('The Centralized Immigration Legal Services Clinic is located at 401 S. Clinton St, Chicago IL 60607, inside the Illinois Department of Human Services Building (IDHS) on the first floor.')}}</p>
-    <p><a href="https://cilsc.metrofamily.org/" target="_blank">{{_('Click here to schedule an appointment.')}}</a></p>
-    <p><a href="https://welcometoil.org/resources/" target="_blank">{{_('Welcome to IL')}}</a></p>
+  <h2>{{_('Asylum Clinics')}}</h2>
+  <p>
+    {{_('Legal Aid Society of Metropolitan Family Services is coordinating a
+    Centralized Immigration Legal Service Center for recent arrivals to support
+    in asylum, change of address, or change of venue cases.')}}
+  </p>
+  <p>
+    {{_('The Center provides free legal information and assistance to
+    individuals who entered on or before January 1, 2022.')}}
+  </p>
+  <p>
+    {{_('The Centralized Immigration Legal Services Clinic is located at 401 S.
+    Clinton St, Chicago IL 60607, inside the Illinois Department of Human
+    Services Building (IDHS) on the first floor.')}}
+  </p>
+  <p>
+    <a href="https://cilsc.metrofamily.org/" target="_blank"
+      >{{_('Click here to schedule an appointment.')}}</a
+    >
+  </p>
+  <p>
+    <a href="https://welcometoil.org/resources/" target="_blank"
+      >{{_('Welcome to IL')}}</a
+    >
+  </p>
   <div class="container">
-      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ _('Find a Lawyer') | escape }}
+    <button
+      class="button button-blue"
+      onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'"
+    >
+      {{ _('Find a Lawyer') | escape }}
     </button>
-    </div>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}

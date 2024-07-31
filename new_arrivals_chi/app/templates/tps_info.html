@@ -5,43 +5,96 @@ Associated Files:
     base.html, main.py, legal_page.css, lawyers.html
 -->
 {% extends "base.html" %}
-
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}" />
 {% endblock %}
-
 {% block content %}
 
 <div class="white-container">
-  {% set content = translations[language]['tps_info'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    <div class="container">
-      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ translations[language]['legal']['find_lawyers'] | escape }}
-    </button>
-    </div>
+  <h1>{{ _('About Temporary Protected Status (TPS)') }}</h1>
+
+  <h2>{{ _('What is Temporary Protected Status?') }}</h2>
+
+  <p>
+    {{ _('Temporary Protected Status (TPS) allows people from certain countries to live and work in the United States.') }}
+  </p>
+
+  <h3>
+    {{ _('The Secretary of Homeland Security may designate a foreign country for TPS due to:') }}
+  </h3>
+
+  <ul>
+    <li>{{ _('Ongoing civil war or conflict in the country,') }}</li>
+    <li>{{ _('An environmental disaster or an epidemic, or') }}</li>
+    <li>{{ _('Other extraordinary or temporary conditions.') }}</li>
+    <li>{{ _('Eligible individuals without nationality who last resided in the designated country may be able to receive TPS.') }}</li>
+  </ul>
+
+  <h2>{{ _('Am I eligible for TPS?') }}</h2>
+
+  <h3>{{ _('To qualify for TPS, you must:') }}</h3>
+
+  <ul>
+    <li>{{ _('Be from a foreign country with a TPS designation, and') }}</li>
+    <li>{{ _('Be continuously physically present and residing in the US from the date the designation went into effect.') }}</li>
+  </ul>
+
+  <h3>{{ _('You may not be eligible for TPS or maintain your existing TPS if:') }}</h3>
+
+  <ul>
+    <li>{{ _('You have been convicted of a felony in the US,') }}</li>
+    <li>{{ _('You have been convicted of two or more misdemeanors in the US,') }}</li>
+    <li>{{ _('You meet any of the mandatory asylum bars, or') }}</li>
+    <li>{{ _('You fail to meet the requirements for TPS.') }}</li>
+  </ul>
+
+  <h3>{{ _('If you are from one of the following countries and arrived in the US before the date listed, you are likely eligible for TPS:') }}</h3>
+
+  <ul>
+    <li>{{ _('Afghanistan (May 20, 2022)') }}</li>
+    <li>{{ _('Burma (Myanmar) (March 25, 2024)') }}</li>
+    <li>{{ _('Cameroon (June 7, 2022)') }}</li>
+    <li>{{ _('El Salvador (December 14, 2023)') }}</li>
+    <li>{{ _('Ethiopia (April 15, 2024)') }}</li>
+    <li>{{ _('Haiti (December 14, 2023)') }}</li>
+    <li>{{ _('Honduras (December 14, 2023)') }}</li>
+    <li>{{ _('Nepal (December 14, 2023)') }}</li>
+    <li>{{ _('Nicaragua (December 14, 2023)') }}</li>
+    <li>{{ _('Somalia (March 13, 2023)') }}</li>
+    <li>{{ _('South Sudan (August 21, 2023)') }}</li>
+    <li>{{ _('Sudan (December 14, 2023)') }}</li>
+    <li>{{ _('Syria (January 29, 2024)') }}</li>
+    <li>{{ _('Ukraine (August 21, 2023)') }}</li>
+    <li>{{ _('Venezuela (November 17, 2023)') }}</li>
+    <li>{{ _('Yemen (January 3, 2023)') }}</li>
+  </ul>
+
+  <h2>{{ _('What are the benefits of TPS?') }}</h2>
+
+  <h3>{{ _('If you receive TPS:') }}</h3>
+
+  <ul>
+    <li>{{ _('You cannot be detained by the Department of Homeland Security,') }}</li>
+    <li>{{ _('You cannot be deported from the US,') }}</li>
+    <li>{{ _('You can apply for a work permit,') }}</li>
+    <li>{{ _('You can apply to get permission to travel outside the US and return to the US, and') }}</li>
+    <li>{{ _('You can apply for asylum and other immigration benefits.') }}</li>
+  </ul>
+
+  <h2>{{ _('What are the cons of TPS?') }}</h2>
+
+  <ul>
+    <li>{{ _('It is a temporary benefit that doesn\'t lead to lawful permanent residence or citizenship,') }}</li>
+    <li>{{ _('Only applies to people already in the US, and') }}</li>
+    <li>{{ _('Cannot be used to apply for entry to the US.') }}</li>
+  </ul>
+
+  <p>
+    <a href="https://www.illinoislegalaid.org/" target="_blank">{{ _('Illinois Legal Aid') }}</a>
+  </p>
+
+  <div class="container">
+    <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">{{ _('Find a Lawyer') }}</button>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}

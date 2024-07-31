@@ -1,117 +1,93 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-{% macro format_time(time) %}
-    {% if time.hour > 12 %}
-        {{ time.hour - 12 }}:{{ '%02d' % time.minute }}pm
-    {% elif time.hour == 12 %}
-        {{ time.hour }}:{{ '%02d' % time.minute }}pm
-    {% elif time.hour == 0 %}
-        12:{{ '%02d' % time.minute }}am
-    {% else %}
-        {{ time.hour }}:{{ '%02d' % time.minute }}am
-    {% endif %}
-{% endmacro %}
+{% extends "base.html" %} {% block content %} {% macro format_time(time) %} {%
+if time.hour > 12 %} {{ time.hour - 12 }}:{{ '%02d' % time.minute }}pm {% elif
+time.hour == 12 %} {{ time.hour }}:{{ '%02d' % time.minute }}pm {% elif
+time.hour == 0 %} 12:{{ '%02d' % time.minute }}am {% else %} {{ time.hour }}:{{
+'%02d' % time.minute }}am {% endif %} {% endmacro %}
 
 <div class="wrapper">
-    <h3>
-        Search for Resources
-    </h3>
-    <div>
-        <select id="supplies">
-            <option value="">Available Supplies and Services</option>
-            {% set services_set = set() %}
-            {% for org in services_info %}
-                {% for service in org.service %}
-                    {% if service['service'] not in services_set %}
-                        {% set _ = services_set.add(service['service']) %}
-                        <option value="{{ service['service'] }}">{{ service['service'] }}</option>
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
+  <h3>Search for Resources</h3>
+  <div>
+    <select id="supplies">
+      <option value="">{{_('Available Supplies and Services')}}</option>
+      {% set services_set = set() %} {% for org in services_info %} {% for
+      service in org.service %} {% if service['service'] not in services_set %}
+      {% set _ = services_set.add(service['service']) %}
+      <option value="{{ service['service'] }}">{{ service['service'] }}</option>
+      {% endif %} {% endfor %} {% endfor %}
     </select>
 
-        <select id="neighborhood">
-            <option value="">_('Neighborhood')</option>
-            {% set neighborhood_set = set() %}
-            {% for org in services_info %}
-                {% if org.neighborhood not in neighborhood_set %}
-                    {% set _ = neighborhood_set.add(org.neighborhood) %}
-                    <option value="{{ org.neighborhood }}">{{ org.neighborhood }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
+    <select id="neighborhood">
+      <option value="">{{_('Neighborhood')}}</option>
+      {% set neighborhood_set = set() %} {% for org in services_info %} {% if
+      org.neighborhood not in neighborhood_set %} {% set _ =
+      neighborhood_set.add(org.neighborhood) %}
+      <option value="{{ org.neighborhood }}">{{ org.neighborhood }}</option>
+      {% endif %} {% endfor %}
+    </select>
 
-        <select id="organization">
-            <option value="">_('Organization')</option>
-            {% set organization_set = set() %}
-            {% for org in services_info %}
-                {% if org.name not in organization_set %}
-                    {% set _ = organization_set.add(org.name) %}
-                    <option value="{{ org.name }}">{{ org.name }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
+    <select id="organization">
+      <option value="">{{_('Organization')}}</option>
+      {% set organization_set = set() %} {% for org in services_info %} {% if
+      org.name not in organization_set %} {% set _ =
+      organization_set.add(org.name) %}
+      <option value="{{ org.name }}">{{ org.name }}</option>
+      {% endif %} {% endfor %}
+    </select>
 
-        <select id="hours">
-            <option value="">_('Hours')</option>
-            {% set hours_set = set() %}
-            {% for org in services_info %}
-                {% set hours = org.hours %}
-                {% for day, times in hours.items() %}
-                    {% if times %}
-                        {% for time in times %}
-                            {% if time.open != 'Closed' %}
-                                {% set _ = hours_set.add(format_time(time.open) ~ ' - ' ~ format_time(time.close)) %}
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-            {% for time in hours_set %}
-                <option value="{{ time }}">{{ time }}</option>
-            {% endfor %}
-        </select>
-    </div>
+    <select id="hours">
+      <option value="">{{_('Hours')}}</option>
+      {% set hours_set = set() %} {% for org in services_info %} {% set hours =
+      org.hours %} {% for day, times in hours.items() %} {% if times %} {% for
+      time in times %} {% if time.open != 'Closed' %} {% set _ =
+      hours_set.add(format_time(time.open) ~ ' - ' ~ format_time(time.close)) %}
+      {% endif %} {% endfor %} {% endif %} {% endfor %} {% endfor %} {% for time
+      in hours_set %}
+      <option value="{{ time }}">{{ time }}</option>
+      {% endfor %}
+    </select>
+  </div>
 
-    <table id="healthTable">
-        <thead>
-            <tr>
-                <th class="table-header">_('Available Supplies and Services')</th>
-                <th class="table-header">_('Neighborhood')</th>
-                <th class="table-header">_('Organization')</th>
-                <th class="table-header">_('Hours')</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for org in services_info %}
-            <tr>
-                <td>
-                    {% for service in org.service %}
-                      {{ service['service']}}{% if not loop.last %}, {% endif %}<br>
-                    {% endfor %}
-                </td>
-                <td>{{ org.neighborhood }}</td>
-                <td><a href="#" onclick="navigateTo('{{ url_for('main.org', organization_id=org.id) }}', '{{ language }}')">{{ org.name }}</a></td>
-                <td>
-                    {% for day, times in org.hours.items() %}
-                        {% if times %}
-                            <p>{{ day.capitalize() }}:
-                                {% for time in times %}
-                                    {{ format_time(time.open) }} - {{ format_time(time.close) }}{% if not loop.last %}, {% endif %}
-                                {% endfor %}
-                            </p>
-                        {% else %}
-                            <p>{{ day.capitalize() }}: Closed</p>
-                        {% endif %}
-                    {% endfor %}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <table id="healthTable">
+    <thead>
+      <tr>
+        <th class="table-header">{{_('Available Supplies and Services')}}</th>
+        <th class="table-header">{{_('Neighborhood')}}</th>
+        <th class="table-header">{{_('Organization')}}</th>
+        <th class="table-header">{{_('Hours')}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for org in services_info %}
+      <tr>
+        <td>
+          {% for service in org.service %} {{ service['service']}}{% if not
+          loop.last %}, {% endif %}<br />
+          {% endfor %}
+        </td>
+        <td>{{ org.neighborhood }}</td>
+        <td>
+          <a
+            href="#"
+            onclick="navigateTo('{{ url_for('main.org', organization_id=org.id) }}', '{{ language }}')"
+            >{{ org.name }}</a
+          >
+        </td>
+        <td>
+          {% for day, times in org.hours.items() %} {% if times %}
+          <p>
+            {{ day.capitalize() }}: {% for time in times %} {{
+            format_time(time.open) }} - {{ format_time(time.close) }}{% if not
+            loop.last %}, {% endif %} {% endfor %}
+          </p>
+          {% else %}
+          <p>{{ day.capitalize() }}: Closed</p>
+          {% endif %} {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 
-    <script src="{{ url_for('static', filename='js/filter.js') }}"></script>
+<script src="{{ url_for('static', filename='js/filter.js') }}"></script>
 {% endblock %}

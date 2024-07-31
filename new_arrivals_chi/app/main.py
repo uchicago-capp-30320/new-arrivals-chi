@@ -109,10 +109,10 @@ def legal_tps_info():
         Renders legal flow - TPS info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "tps_info.html", language=language, translations=translations
+        "tps_info.html", language=language
     )
 
 
@@ -126,10 +126,10 @@ def legal_tps_apply():
         Renders legal flow - TPS apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "tps_apply.html", language=language, translations=translations
+        "tps_apply.html", language=language
     )
 
 
@@ -143,10 +143,10 @@ def legal_vttc_info():
         Renders legal VTTC info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "vttc_info.html", language=language, translations=translations
+        "vttc_info.html", language=language
     )
 
 
@@ -160,10 +160,10 @@ def legal_vttc_apply():
         Renders legal flow - VTTC apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "vttc_apply.html", language=language, translations=translations
+        "vttc_apply.html", language=language
     )
 
 
@@ -177,10 +177,10 @@ def legal_asylum_info():
         Renders legal flow - Asylum info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "asylum_info.html", language=language, translations=translations
+        "asylum_info.html", language=language
     )
 
 
@@ -194,10 +194,10 @@ def legal_asylum_apply():
         Renders legal flow - Asylum apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "asylum_apply.html", language=language, translations=translations
+        "asylum_apply.html", language=language
     )
 
 
@@ -211,10 +211,10 @@ def legal_parole_info():
         Renders legal flow - Parole info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "parole_info.html", language=language, translations=translations
+        "parole_info.html", language=language
     )
 
 
@@ -228,10 +228,10 @@ def legal_parole_apply():
         Renders legal flow - Parole apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "parole_apply.html", language=language, translations=translations
+        "parole_apply.html", language=language
     )
 
 
@@ -245,12 +245,11 @@ def legal_undocumented_resources():
         Renders legal flow - Undocumented Resources page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
         "undocumented_resources.html",
         language=language,
-        translations=translations,
     )
 
 
@@ -262,10 +261,10 @@ def workers_rights():
         Renders the workers' rights page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "work_rights.html", language=language, translations=translations
+        "work_rights.html", language=language
     )
 
 
@@ -277,10 +276,10 @@ def renters_rights():
         Renders the renters' rights page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "renters_rights.html", language=language, translations=translations
+        "renters_rights.html", language=language
     )
 
 
@@ -292,10 +291,10 @@ def lawyers():
         Renders the page with contact information for lawyers
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "lawyers.html", language=language, translations=translations
+        "lawyers.html", language=language
     )
 
 
@@ -334,11 +333,10 @@ def health_search():
             organizations.append(extract_organization(org_id[0]))
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
     return render_template(
         "health_search.html",
         language=language,
-        translations=translations,
         services_info=organizations,
         set=set,
     )
@@ -352,10 +350,10 @@ def health_general():
         Health Static Page
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     return render_template(
-        "health_general.html", language=language, translations=translations
+        "health_general.html", language=language
     )
 
 
@@ -381,11 +379,14 @@ def dashboard():
         Renders the dashboard page with buttons to view org page, edit org page
         and change password.
     """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    
     user = current_user
 
     if current_user.role == "admin":
         return render_template(
             "admin_management.html",
+            language=language,
         )
     else:
         organization = Organization.query.get(user.organization_id)
@@ -397,10 +398,12 @@ def dashboard():
         edit_org_url = url_for(
             "main.edit_organization",
             organization_id=organization.id,
+            lang=language,
         )
 
         return render_template(
             "dashboard.html",
+            language=language,
             organization=organization,
             edit_org_url=edit_org_url,
         )
@@ -417,7 +420,7 @@ def org(organization_id):
         Renders the organization page (public facing).
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     organization = extract_organization(organization_id)
 
@@ -425,7 +428,6 @@ def org(organization_id):
         "organization.html",
         organization=organization,
         language=language,
-        translations=translations,
         organization_id=organization_id,
     )
 
@@ -443,7 +445,7 @@ def edit_organization(organization_id):
         update their info.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     user = current_user
     organization = extract_organization(user.organization_id)
@@ -452,7 +454,6 @@ def edit_organization(organization_id):
         "edit_organization.html",
         organization=organization,
         language=language,
-        translations=translations,
         organization_id=organization_id,
     )
 
@@ -474,7 +475,6 @@ def add_organization_success():
     return render_template(
         "add_organization_success.html",
         language=language,
-        translations=translations,
     )
 
 
@@ -538,13 +538,11 @@ def add_organization():
             return render_template(
                 "add_organization_success.html",
                 language=language,
-                translations=translations,
             )
 
     return render_template(
         "add_organization.html",
         language=language,
-        translations=translations,
     )
 
 

@@ -5,42 +5,145 @@ Associated Files:
     base.html, main.py, legal_page.css, lawyers.html
 -->
 {% extends "base.html" %}
-
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}" />
 {% endblock %}
-
 {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['vttc_info'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    <div class="container">
-      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ translations[language]['legal']['find_lawyers'] | escape }}
+  <h1>{{ _('About Work Authorization through VTTC') }}</h1>
+  <h2>{{ _('Resources for Victims of Human Trafficking') }}</h2>
+  <p>
+    {{ _('A foreign national who experienced human trafficking may be granted a temporary immigration authorization. This means they are eligible to apply for government assistance, mental and physical health services, financial aid to help pay for higher education, work permits, and housing.') }}
+  </p>
+  <h2>{{ _('T-1 Nonimmigrant Status (T Visa)') }}</h2>
+  <h3>{{ _('Who') }}</h3>
+  <p>{{ _('For victims of trafficking') }}</p>
+  <h3>{{ _('What') }}</h3>
+  <p>
+    {{ _('Up to four years of temporary nonimmigrant status with a path to lawful permanent residence (green card) and citizenship') }}
+  </p>
+  <h3>{{ _('Benefits') }}</h3>
+  <ul>
+    <li>
+      {{ _('Federal and state benefits and services to the same extent as refugees') }}
+    </li>
+    <li>{{ _('State benefits for Illinois are detailed below') }}</li>
+  </ul>
+  <h3>{{ _('Documents') }}</h3>
+  <ul>
+    <li>{{ _('HHS Certification Letter or Eligibility Letter') }}</li>
+    <li>{{ _('Employment Authorization Document or Social Security number (SSN)') }}</li>
+  </ul>
+  <h2>{{ _('U-1 Nonimmigrant Status (U Visa)') }}</h2>
+  <h3>{{ _('Who') }}</h3>
+  <p>{{ _('For victims of various crimes, including trafficking') }}</p>
+  <h3>{{ _('What') }}</h3>
+  <p>
+    {{ _('Up to four years of temporary nonimmigrant status with a path to lawful permanent residence and citizenship') }}
+  </p>
+  <h3>{{ _('Benefits') }}</h3>
+  <ul>
+    <li>{{ _('Federal and state benefits and services') }}</li>
+    <li>{{ _('State benefits for Illinois are detailed below') }}</li>
+  </ul>
+  <h3>{{ _('Documents') }}</h3>
+  <ul>
+    <li>{{ _('Employment Authorization Document or SSN') }}</li>
+  </ul>
+  <h2>{{ _('Continued Presence (CP)') }}</h2>
+  <h3>{{ _('Who') }}</h3>
+  <p>{{ _('For victims of trafficking') }}</p>
+  <h3>{{ _('What') }}</h3>
+  <ul>
+    <li>
+      {{ _('Two-year authorization, renewable until case is resolved in increments of up to two years') }}
+    </li>
+    <li>{{ _('No path to lawful permanent residence') }}</li>
+    <li>{{ _('May apply for a T or U visa with Continued Presence') }}</li>
+  </ul>
+  <h3>{{ _('Benefits') }}</h3>
+  <ul>
+    <li>
+      {{ _('Federal and state benefits and services to the same extent as refugees') }}
+    </li>
+    <li>{{ _('State benefits for Illinois are detailed below') }}</li>
+  </ul>
+  <h3>{{ _('Documents') }}</h3>
+  <ul>
+    <li>{{ _('HHS Certification Letter or Eligibility Letter') }}</li>
+    <li>{{ _('Employment Authorization Document or SSN') }}</li>
+  </ul>
+  <p>
+    <a href="https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%26U%20Visa%20and%20Continued%20Presence%20Fact%20Sheet%20508c_0.pdf" target="_blank">
+      {{ _('National Human Trafficking Training and Technical Assistance Center') }}
+    </a>
+  </p>
+  <h2>{{ _('Employment Eligibility') }}</h2>
+  <p>
+    {{ _('When an individual receives a work permit through a T visa, a U visa, or Continued Presence, they are eligible to work. An Individual may prove employment eligibility with the Employment Authorization Document (EAD) or other documentation allowable in the I-9 employment eligibility process, such as a state identification documentation. If an individual uses an SSN that states, “Valid for Employment Only with DHS Authorization,” they will need to show their EAD. Employers should not use the I-9 form as a screening tool and should request it only at the time of hire, up to and including the first day of work. Individuals with T or U visas generally become eligible for a green card after three years. Filing for a green card extends T or U nonimmigrant status, so the expiration of the work permit while the green card application is pending does not necessarily mean these individuals are ineligible to work. Individuals may apply for an EAD while waiting for legal permanent residency.') }}
+  </p>
+  <p>
+    <a href="https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%26U%20Visa%20and%20Continued%20Presence%20Fact%20Sheet%20508c_0.pdf" target="_blank">
+      {{ _('National Human Trafficking Training and Technical Assistance Center') }}
+    </a>
+  </p>
+  <h2>{{ _('Public Benefit Eligibility - Federal') }}</h2>
+  <p>
+    <a href="https://www.google.com/url?q=https://nhttac.acf.hhs.gov/sites/default/files/2021-06/T%2526U%2520Visa%2520and%2520Continued%2520Presence%2520Fact%2520Sheet%2520508c_0.pdf&amp;sa=D&amp;source=docs&amp;ust=1716238382552500&amp;usg=AOvVaw1yiDJxJJ8P7TxMBLyRcgpQ" target="_blank">
+      {{ _('Learn more about federal public benefit eligibility here.') }}
+    </a>
+  </p>
+  <h2>{{ _('Public Benefit Eligibility - State') }}</h2>
+  <p>
+    {{ _('As of January 1, 2018, individuals who intend to file or have filed a U-Visa, T-Visa, and/or an Asylum application qualify for state-funded public benefits:') }}
+  </p>
+  <ul>
+    <li>{{ _('Medical Assistance (Medicaid/Medicare)') }}</li>
+    <li>{{ _('A state funded food program similar to SNAP/Food stamps') }}</li>
+    <li>{{ _('TANF Cash Assistance') }}</li>
+  </ul>
+  <p>
+    {{ _('The program through IL Department of Human Services (IL DHS) is referred to as Victims of Trafficking, Torture and Other Serious Crimes (VTTC).') }}
+  </p>
+  <h3>{{ _('In order to apply, you must be:') }}</h3>
+  <ul>
+    <li>{{ _('Within benefit specific income requirements') }}</li>
+    <li>{{ _('9 years or older') }}</li>
+    <li>{{ _('Preparing to file or have filed one of the above visa applications') }}</li>
+    <li>{{ _('A resident of Illinois') }}</li>
+  </ul>
+  <h3>{{ _('Benefit Specific Income Requirements') }}</h3>
+  <p>
+    {{ _('Each type of public benefit has different requirements based on how much you earn, your age, disabilities, size of household, etc. The requirements include:') }}
+  </p>
+  <ul>
+    <li>
+      {{ _('Food Assistance: Gross Income Limit is 165% FPL &amp; 200% FPL for those Age 60 or older OR Disabled') }}
+    </li>
+    <li>{{ _('Cash Assistance: Gross Income Limit is 50% of FPL') }}</li>
+    <li>
+      {{ _('Medical Assistance: Gross Income Limit is 100% of FPL and must not be eligible to receive any other medical program') }}
+    </li>
+  </ul>
+  <p>
+    {{ _('A household for an individual applying for the State Food Program includes the primary applicant/survivor, children under 22 years old who live with the applicant/survivor, spouse/parent of children if they live in the household. Everyone else living with you who buys food separately is not part of your household.') }}
+  </p>
+  <p>
+    {{ _('A household for an individual applying for TANF Cash and/or Medicaid includes: the primary applicant/survivor, spouse of primary applicant/survivor, and applicant/survivor\'s children under 19 years old. Everyone else in the household must apply separately.') }}
+  </p>
+  <h3>{{ _('Public Charge') }}</h3>
+  <p>
+    {{ _('VTTC food and medical assistance are not considered as part of the public charge test. People who are applying for and have been granted asylum, a U-Visa or a T-Visa are exempt from the test for public charge for inadmissibility.') }}
+  </p>
+  <p>
+    <a href="https://welcometoil.org/pdfviewer/victims-factsheet/?auto_viewer=true&amp;display=true#page=&amp;zoom=page-fit&amp;pagemode=none" target="_blank">
+      {{ _('Welcome to IL/Heartland Alliance') }}
+    </a>
+  </p>
+  <div class="container">
+    <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
+      {{ _('Find a Lawyer') }}
     </button>
-    </div>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}

@@ -7,116 +7,121 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-30 12:10-0500\n"
-"PO-Revision-Date: 2024-07-30 12:11-0500\n"
+"POT-Creation-Date: 2024-07-31 02:09-0500\n"
+"PO-Revision-Date: 2024-07-31 02:08-0500\n"
 "Last-Translator: \n"
-"Language-Team: es <LL@li.org>\n"
 "Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.15.0\n"
-"X-Generator: Poedit 3.4.4\n"
 
-#: new_arrivals_chi/app/templates/about.html:16
+#: new_arrivals_chi/app/templates/about.html:15
 #: new_arrivals_chi/app/templates/base.html:58
 msgid "About Us"
 msgstr "Acerca de Nosotros"
 
 #: new_arrivals_chi/app/templates/about.html:17
 msgid ""
-"New Arrivals Chi is a resource guide developed by six graduate students "
-"from the University of Chicago to help newly arrived individuals "
-"navigate the City of Chicago and its available resources. Our goal is to "
-"provide accurate, up-to-date, and actionable information to address "
-"common challenges faced by newcomers."
-msgstr ""
+"New Arrivals Chi is a resource guide developed by six graduate\n"
+"      students from the University of Chicago to help newly arrived "
+"individuals\n"
+"      navigate the City of Chicago and its available resources. Our goal "
+"is to\n"
+"      provide accurate, up-to-date, and actionable information to address"
+" common\n"
+"      challenges faced by newcomers."
+msgstr "This page is translating."
 
-#: new_arrivals_chi/app/templates/about.html:18
+#: new_arrivals_chi/app/templates/about.html:23
 msgid "Team Members"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:20
+#: new_arrivals_chi/app/templates/about.html:25
 msgid "Federico Dominguez Molina"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:21
+#: new_arrivals_chi/app/templates/about.html:26
 msgid "Aaron Haefner"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:22
+#: new_arrivals_chi/app/templates/about.html:27
 msgid "Summer Long"
 msgstr "Summer Long"
 
-#: new_arrivals_chi/app/templates/about.html:23
+#: new_arrivals_chi/app/templates/about.html:28
 msgid "Kathryn Link-Oberstar"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:24
+#: new_arrivals_chi/app/templates/about.html:29
 msgid "Madeleine Roberts"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:25
+#: new_arrivals_chi/app/templates/about.html:30
 msgid "Xiomara Salazar Flores"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:27
-msgid ""
-"We would like to express our sincere gratitude to our advisors, James "
-"Turk and Michael Plunkett, for their invaluable guidance and support "
-"throughout this project."
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:28
-msgid "Acknowledgements"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:29
-msgid ""
-"This resource guide was made possible by our incredible community "
-"partners who graciously shared their knowledge and advice during the "
-"development process."
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:31
-msgid ""
-"City of Chicago - Office of Immigrants, Migrant, Refugee Rights: Marissa "
-"Arrez and Jesús Del Toro"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:32
-msgid "Illinois Community for Displaced Immigrants: Johannes Favi"
-msgstr ""
-
 #: new_arrivals_chi/app/templates/about.html:33
-msgid "The Resurrection Project: Oswaldo Gomez, Laura Mendoza"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:34
-msgid "Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:36
-msgid "Get in touch"
+msgid ""
+"We would like to express our sincere gratitude to our advisors,\n"
+"      James Turk and Michael Plunkett, for their invaluable guidance and "
+"support\n"
+"      throughout this project."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:37
-msgid "The codebase for this project is publicly available on GitHub."
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:38
-msgid "View repository"
+msgid "Acknowledgements"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:39
 msgid ""
-"For questions or inquiries, please contact us at newarrivalschi."
-"contact@gmail.com."
+"This resource guide was made possible by our incredible community\n"
+"      partners who graciously shared their knowledge and advice during "
+"the\n"
+"      development process."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:45
+msgid ""
+"City of Chicago - Office of Immigrants, Migrant, Refugee Rights:\n"
+"        Marissa Arrez and Jesús Del Toro"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:49
+msgid "Illinois Community for Displaced Immigrants: Johannes Favi"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:51
+msgid "The Resurrection Project: Oswaldo Gomez, Laura Mendoza"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:52
+msgid "Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:54
+msgid "Get in touch"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:56
+msgid "The codebase for this project is publicly available on GitHub."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:62
+msgid "View repository"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:66
+msgid ""
+"For questions or inquiries, please contact us at\n"
+"      newarrivalschi.contact@gmail.com."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/add_organization.html:15
 #: new_arrivals_chi/app/templates/add_organization.html:52
+#: new_arrivals_chi/app/templates/org_management.html:64
 msgid "Add Organization"
 msgstr ""
 
@@ -133,6 +138,10 @@ msgid "Phone Number"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/add_organization.html:43
+#: new_arrivals_chi/app/templates/login.html:26
+#: new_arrivals_chi/app/templates/login.html:38
+#: new_arrivals_chi/app/templates/registration_change_password.html:37
+#: new_arrivals_chi/app/templates/signup.html:28
 msgid "Email"
 msgstr ""
 
@@ -140,60 +149,75 @@ msgstr ""
 msgid "Confirm Email"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/add_organization_success.html:15
+#: new_arrivals_chi/app/templates/add_organization_success.html:13
 msgid "Successfully registered organization!"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/add_organization_success.html:17
+#: new_arrivals_chi/app/templates/add_organization_success.html:15
 msgid "You will get an e-mail with additional information"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/admin_management.html:12
+#: new_arrivals_chi/app/templates/admin_management.html:11
 msgid "Welcome to the Admin Dashboard"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/admin_management.html:14
+#: new_arrivals_chi/app/templates/admin_management.html:16
+#: new_arrivals_chi/app/templates/org_management.html:18
 msgid "Organization Management"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/admin_management.html:17
+#: new_arrivals_chi/app/templates/admin_management.html:22
 msgid "Website error reports"
 msgstr ""
 
+#: new_arrivals_chi/app/templates/asylum_apply.html:14
 #: new_arrivals_chi/app/templates/asylum_apply.html:15
-#: new_arrivals_chi/app/templates/asylum_apply.html:16
 msgid "Asylum Clinics"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/asylum_apply.html:17
 msgid ""
-"Legal Aid Society of Metropolitan Family Services is coordinating a "
-"Centralized Immigration Legal Service Center for recent arrivals to "
-"support in asylum, change of address, or change of venue cases."
+"Legal Aid Society of Metropolitan Family Services is coordinating a\n"
+"    Centralized Immigration Legal Service Center for recent arrivals to "
+"support\n"
+"    in asylum, change of address, or change of venue cases."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:18
+#: new_arrivals_chi/app/templates/asylum_apply.html:22
 msgid ""
-"The Center provides free legal information and assistance to individuals "
-"who entered on or before January 1, 2022."
+"The Center provides free legal information and assistance to\n"
+"    individuals who entered on or before January 1, 2022."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:19
+#: new_arrivals_chi/app/templates/asylum_apply.html:26
 msgid ""
-"The Centralized Immigration Legal Services Clinic is located at 401 S. "
-"Clinton St, Chicago IL 60607, inside the Illinois Department of Human "
-"Services Building (IDHS) on the first floor."
+"The Centralized Immigration Legal Services Clinic is located at 401 S.\n"
+"    Clinton St, Chicago IL 60607, inside the Illinois Department of Human"
+"\n"
+"    Services Building (IDHS) on the first floor."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:20
+#: new_arrivals_chi/app/templates/asylum_apply.html:32
 msgid "Click here to schedule an appointment."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:21
+#: new_arrivals_chi/app/templates/asylum_apply.html:37
+#: new_arrivals_chi/app/templates/parole_apply.html:73
+#: new_arrivals_chi/app/templates/tps_apply.html:26
+#: new_arrivals_chi/app/templates/vttc_apply.html:42
 msgid "Welcome to IL"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:24
+#: new_arrivals_chi/app/templates/asylum_apply.html:45
+#: new_arrivals_chi/app/templates/parole_apply.html:86
+#: new_arrivals_chi/app/templates/parole_info.html:72
+#: new_arrivals_chi/app/templates/renters_rights.html:209
+#: new_arrivals_chi/app/templates/tps_apply.html:215
+#: new_arrivals_chi/app/templates/tps_info.html:97
+#: new_arrivals_chi/app/templates/undocumented_resources.html:39
+#: new_arrivals_chi/app/templates/vttc_apply.html:60
+#: new_arrivals_chi/app/templates/vttc_info.html:145
+#: new_arrivals_chi/app/templates/work_rights.html:129
 msgid "Find a Lawyer"
 msgstr ""
 
@@ -215,10 +239,13 @@ msgid "Logout"
 msgstr "Cerrar Sesi\\u00f3n"
 
 #: new_arrivals_chi/app/templates/base.html:33
+#: new_arrivals_chi/app/templates/login.html:14
+#: new_arrivals_chi/app/templates/login.html:45
 msgid "Login"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:34
+#: new_arrivals_chi/app/templates/signup.html:47
 msgid "Sign Up"
 msgstr "Registrarse"
 
@@ -245,25 +272,27 @@ msgid "New Password"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/change_password.html:47
+#: new_arrivals_chi/app/templates/signup.html:45
 msgid ""
 "Your password must include at least one uppercase letter, one lowercase "
 "letter, one number, one special symbol, and be longer than 8 characters."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/dashboard.html:18
+#: new_arrivals_chi/app/templates/dashboard.html:19
 msgid "View My Page"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/dashboard.html:21
+#: new_arrivals_chi/app/templates/dashboard.html:25
 msgid "Update My Information"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/dashboard.html:24
+#: new_arrivals_chi/app/templates/dashboard.html:31
 msgid "Change My Password"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/dashboard.html:27
-#: new_arrivals_chi/app/templates/health.html:24
+#: new_arrivals_chi/app/templates/dashboard.html:37
+#: new_arrivals_chi/app/templates/health.html:30
+#: new_arrivals_chi/app/templates/org_management.html:58
 msgid "Back"
 msgstr ""
 
@@ -364,6 +393,14 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:408
 #: new_arrivals_chi/app/templates/edit_organization.html:422
 #: new_arrivals_chi/app/templates/edit_organization.html:450
+#: new_arrivals_chi/app/templates/register.html:305
+#: new_arrivals_chi/app/templates/register.html:320
+#: new_arrivals_chi/app/templates/register.html:335
+#: new_arrivals_chi/app/templates/register.html:350
+#: new_arrivals_chi/app/templates/register.html:365
+#: new_arrivals_chi/app/templates/register.html:380
+#: new_arrivals_chi/app/templates/register.html:395
+#: new_arrivals_chi/app/templates/register.html:421
 msgid "Remove"
 msgstr ""
 
@@ -388,6 +425,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:525
 #: new_arrivals_chi/app/templates/edit_organization.html:878
 #: new_arrivals_chi/app/templates/edit_organization.html:1146
+#: new_arrivals_chi/app/templates/register.html:25
 msgid "Street Address:"
 msgstr ""
 
@@ -395,34 +433,37 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:529
 #: new_arrivals_chi/app/templates/edit_organization.html:882
 #: new_arrivals_chi/app/templates/edit_organization.html:1150
+#: new_arrivals_chi/app/templates/register.html:30
 #, fuzzy
 msgid "City:"
 msgstr ""
 "Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
 "migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
 "encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
-"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
-"organizaciones comunitarias."
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
+" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
+"comunitarias."
 
 #: new_arrivals_chi/app/templates/edit_organization.html:121
 #: new_arrivals_chi/app/templates/edit_organization.html:532
 #: new_arrivals_chi/app/templates/edit_organization.html:884
 #: new_arrivals_chi/app/templates/edit_organization.html:1152
+#: new_arrivals_chi/app/templates/register.html:33
 #, fuzzy
 msgid "State:"
 msgstr ""
 "Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
 "migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
 "encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
-"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
-"organizaciones comunitarias."
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
+" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
+"comunitarias."
 
 #: new_arrivals_chi/app/templates/edit_organization.html:125
 #: new_arrivals_chi/app/templates/edit_organization.html:536
 #: new_arrivals_chi/app/templates/edit_organization.html:886
 #: new_arrivals_chi/app/templates/edit_organization.html:1154
+#: new_arrivals_chi/app/templates/register.html:37
 msgid "Zip Code:"
 msgstr ""
 
@@ -430,6 +471,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:539
 #: new_arrivals_chi/app/templates/edit_organization.html:890
 #: new_arrivals_chi/app/templates/edit_organization.html:1158
+#: new_arrivals_chi/app/templates/register.html:39
 msgid "Neighborhood:"
 msgstr ""
 
@@ -437,6 +479,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:542
 #: new_arrivals_chi/app/templates/edit_organization.html:893
 #: new_arrivals_chi/app/templates/edit_organization.html:1161
+#: new_arrivals_chi/app/templates/register.html:42
 msgid "Albany Park"
 msgstr ""
 
@@ -444,6 +487,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:543
 #: new_arrivals_chi/app/templates/edit_organization.html:894
 #: new_arrivals_chi/app/templates/edit_organization.html:1162
+#: new_arrivals_chi/app/templates/register.html:43
 msgid "Altgeld Gardens"
 msgstr ""
 
@@ -451,6 +495,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:544
 #: new_arrivals_chi/app/templates/edit_organization.html:895
 #: new_arrivals_chi/app/templates/edit_organization.html:1163
+#: new_arrivals_chi/app/templates/register.html:44
 msgid "Andersonville"
 msgstr ""
 
@@ -458,6 +503,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:545
 #: new_arrivals_chi/app/templates/edit_organization.html:896
 #: new_arrivals_chi/app/templates/edit_organization.html:1164
+#: new_arrivals_chi/app/templates/register.html:45
 msgid "Arcadia Terrace"
 msgstr ""
 
@@ -465,6 +511,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:546
 #: new_arrivals_chi/app/templates/edit_organization.html:897
 #: new_arrivals_chi/app/templates/edit_organization.html:1165
+#: new_arrivals_chi/app/templates/register.html:46
 msgid "Archer Heights"
 msgstr ""
 
@@ -472,6 +519,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:547
 #: new_arrivals_chi/app/templates/edit_organization.html:898
 #: new_arrivals_chi/app/templates/edit_organization.html:1166
+#: new_arrivals_chi/app/templates/register.html:47
 msgid "Armour Square"
 msgstr ""
 
@@ -479,6 +527,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:548
 #: new_arrivals_chi/app/templates/edit_organization.html:899
 #: new_arrivals_chi/app/templates/edit_organization.html:1167
+#: new_arrivals_chi/app/templates/register.html:48
 msgid "Ashburn"
 msgstr ""
 
@@ -486,6 +535,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:549
 #: new_arrivals_chi/app/templates/edit_organization.html:900
 #: new_arrivals_chi/app/templates/edit_organization.html:1168
+#: new_arrivals_chi/app/templates/register.html:49
 msgid "Ashburn Estates"
 msgstr ""
 
@@ -493,6 +543,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:550
 #: new_arrivals_chi/app/templates/edit_organization.html:901
 #: new_arrivals_chi/app/templates/edit_organization.html:1169
+#: new_arrivals_chi/app/templates/register.html:50
 msgid "Auburn Gresham"
 msgstr ""
 
@@ -500,6 +551,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:551
 #: new_arrivals_chi/app/templates/edit_organization.html:902
 #: new_arrivals_chi/app/templates/edit_organization.html:1170
+#: new_arrivals_chi/app/templates/register.html:51
 msgid "Avalon Park"
 msgstr ""
 
@@ -507,6 +559,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:552
 #: new_arrivals_chi/app/templates/edit_organization.html:903
 #: new_arrivals_chi/app/templates/edit_organization.html:1171
+#: new_arrivals_chi/app/templates/register.html:52
 msgid "Avondale"
 msgstr ""
 
@@ -514,6 +567,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:553
 #: new_arrivals_chi/app/templates/edit_organization.html:904
 #: new_arrivals_chi/app/templates/edit_organization.html:1172
+#: new_arrivals_chi/app/templates/register.html:53
 msgid "Avondale Gardens"
 msgstr ""
 
@@ -521,6 +575,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:554
 #: new_arrivals_chi/app/templates/edit_organization.html:905
 #: new_arrivals_chi/app/templates/edit_organization.html:1173
+#: new_arrivals_chi/app/templates/register.html:54
 msgid "Back of the Yards"
 msgstr ""
 
@@ -528,6 +583,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:555
 #: new_arrivals_chi/app/templates/edit_organization.html:906
 #: new_arrivals_chi/app/templates/edit_organization.html:1174
+#: new_arrivals_chi/app/templates/register.html:55
 msgid "Belmont Central"
 msgstr ""
 
@@ -535,6 +591,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:556
 #: new_arrivals_chi/app/templates/edit_organization.html:907
 #: new_arrivals_chi/app/templates/edit_organization.html:1175
+#: new_arrivals_chi/app/templates/register.html:56
 msgid "Belmont Gardens"
 msgstr ""
 
@@ -546,6 +603,8 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:984
 #: new_arrivals_chi/app/templates/edit_organization.html:1176
 #: new_arrivals_chi/app/templates/edit_organization.html:1252
+#: new_arrivals_chi/app/templates/register.html:57
+#: new_arrivals_chi/app/templates/register.html:133
 msgid "Hermosa"
 msgstr ""
 
@@ -557,6 +616,8 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:1015
 #: new_arrivals_chi/app/templates/edit_organization.html:1177
 #: new_arrivals_chi/app/templates/edit_organization.html:1283
+#: new_arrivals_chi/app/templates/register.html:58
+#: new_arrivals_chi/app/templates/register.html:164
 msgid "Logan Square"
 msgstr ""
 
@@ -564,6 +625,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:559
 #: new_arrivals_chi/app/templates/edit_organization.html:910
 #: new_arrivals_chi/app/templates/edit_organization.html:1178
+#: new_arrivals_chi/app/templates/register.html:59
 msgid "Belmont Heights"
 msgstr ""
 
@@ -571,6 +633,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:560
 #: new_arrivals_chi/app/templates/edit_organization.html:911
 #: new_arrivals_chi/app/templates/edit_organization.html:1179
+#: new_arrivals_chi/app/templates/register.html:60
 msgid "Belmont Terrace"
 msgstr ""
 
@@ -578,6 +641,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:561
 #: new_arrivals_chi/app/templates/edit_organization.html:912
 #: new_arrivals_chi/app/templates/edit_organization.html:1180
+#: new_arrivals_chi/app/templates/register.html:61
 msgid "Beverly"
 msgstr ""
 
@@ -585,6 +649,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:562
 #: new_arrivals_chi/app/templates/edit_organization.html:913
 #: new_arrivals_chi/app/templates/edit_organization.html:1181
+#: new_arrivals_chi/app/templates/register.html:62
 msgid "Beverly View"
 msgstr ""
 
@@ -592,6 +657,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:563
 #: new_arrivals_chi/app/templates/edit_organization.html:914
 #: new_arrivals_chi/app/templates/edit_organization.html:1182
+#: new_arrivals_chi/app/templates/register.html:63
 msgid "Beverly Woods"
 msgstr ""
 
@@ -599,6 +665,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:564
 #: new_arrivals_chi/app/templates/edit_organization.html:915
 #: new_arrivals_chi/app/templates/edit_organization.html:1183
+#: new_arrivals_chi/app/templates/register.html:64
 msgid "Big Oaks"
 msgstr ""
 
@@ -613,6 +680,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:566
 #: new_arrivals_chi/app/templates/edit_organization.html:917
 #: new_arrivals_chi/app/templates/edit_organization.html:1185
+#: new_arrivals_chi/app/templates/register.html:66
 msgid "Bowmanville"
 msgstr ""
 
@@ -620,6 +688,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:567
 #: new_arrivals_chi/app/templates/edit_organization.html:918
 #: new_arrivals_chi/app/templates/edit_organization.html:1186
+#: new_arrivals_chi/app/templates/register.html:67
 msgid "Brainerd"
 msgstr ""
 
@@ -627,6 +696,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:568
 #: new_arrivals_chi/app/templates/edit_organization.html:919
 #: new_arrivals_chi/app/templates/edit_organization.html:1187
+#: new_arrivals_chi/app/templates/register.html:68
 msgid "Brickyard"
 msgstr ""
 
@@ -634,6 +704,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:569
 #: new_arrivals_chi/app/templates/edit_organization.html:920
 #: new_arrivals_chi/app/templates/edit_organization.html:1188
+#: new_arrivals_chi/app/templates/register.html:69
 msgid "Bridgeport"
 msgstr ""
 
@@ -641,6 +712,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:570
 #: new_arrivals_chi/app/templates/edit_organization.html:921
 #: new_arrivals_chi/app/templates/edit_organization.html:1189
+#: new_arrivals_chi/app/templates/register.html:70
 msgid "Brighton Park"
 msgstr ""
 
@@ -648,6 +720,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:571
 #: new_arrivals_chi/app/templates/edit_organization.html:922
 #: new_arrivals_chi/app/templates/edit_organization.html:1190
+#: new_arrivals_chi/app/templates/register.html:71
 msgid "Bronzeville"
 msgstr ""
 
@@ -655,6 +728,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:572
 #: new_arrivals_chi/app/templates/edit_organization.html:923
 #: new_arrivals_chi/app/templates/edit_organization.html:1191
+#: new_arrivals_chi/app/templates/register.html:72
 msgid "Bucktown"
 msgstr ""
 
@@ -662,6 +736,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:573
 #: new_arrivals_chi/app/templates/edit_organization.html:924
 #: new_arrivals_chi/app/templates/edit_organization.html:1192
+#: new_arrivals_chi/app/templates/register.html:73
 msgid "Budlong Woods"
 msgstr ""
 
@@ -669,6 +744,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:574
 #: new_arrivals_chi/app/templates/edit_organization.html:925
 #: new_arrivals_chi/app/templates/edit_organization.html:1193
+#: new_arrivals_chi/app/templates/register.html:74
 msgid "Buena Park"
 msgstr ""
 
@@ -676,6 +752,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:575
 #: new_arrivals_chi/app/templates/edit_organization.html:926
 #: new_arrivals_chi/app/templates/edit_organization.html:1194
+#: new_arrivals_chi/app/templates/register.html:75
 msgid "Burnside"
 msgstr ""
 
@@ -683,6 +760,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:576
 #: new_arrivals_chi/app/templates/edit_organization.html:927
 #: new_arrivals_chi/app/templates/edit_organization.html:1195
+#: new_arrivals_chi/app/templates/register.html:76
 msgid "Cabrini–Green"
 msgstr ""
 
@@ -690,6 +768,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:577
 #: new_arrivals_chi/app/templates/edit_organization.html:928
 #: new_arrivals_chi/app/templates/edit_organization.html:1196
+#: new_arrivals_chi/app/templates/register.html:77
 msgid "Calumet Heights"
 msgstr ""
 
@@ -697,6 +776,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:578
 #: new_arrivals_chi/app/templates/edit_organization.html:929
 #: new_arrivals_chi/app/templates/edit_organization.html:1197
+#: new_arrivals_chi/app/templates/register.html:78
 msgid "Canaryville"
 msgstr ""
 
@@ -704,6 +784,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:579
 #: new_arrivals_chi/app/templates/edit_organization.html:930
 #: new_arrivals_chi/app/templates/edit_organization.html:1198
+#: new_arrivals_chi/app/templates/register.html:79
 msgid "Central Station"
 msgstr ""
 
@@ -711,6 +792,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:580
 #: new_arrivals_chi/app/templates/edit_organization.html:931
 #: new_arrivals_chi/app/templates/edit_organization.html:1199
+#: new_arrivals_chi/app/templates/register.html:80
 msgid "Chatham"
 msgstr ""
 
@@ -718,6 +800,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:581
 #: new_arrivals_chi/app/templates/edit_organization.html:932
 #: new_arrivals_chi/app/templates/edit_organization.html:1200
+#: new_arrivals_chi/app/templates/register.html:81
 msgid "Chicago Lawn"
 msgstr ""
 
@@ -725,6 +808,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:582
 #: new_arrivals_chi/app/templates/edit_organization.html:933
 #: new_arrivals_chi/app/templates/edit_organization.html:1201
+#: new_arrivals_chi/app/templates/register.html:82
 msgid "Chinatown"
 msgstr ""
 
@@ -732,6 +816,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:583
 #: new_arrivals_chi/app/templates/edit_organization.html:934
 #: new_arrivals_chi/app/templates/edit_organization.html:1202
+#: new_arrivals_chi/app/templates/register.html:83
 msgid "Chrysler Village"
 msgstr ""
 
@@ -739,6 +824,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:584
 #: new_arrivals_chi/app/templates/edit_organization.html:935
 #: new_arrivals_chi/app/templates/edit_organization.html:1203
+#: new_arrivals_chi/app/templates/register.html:84
 msgid "Clarendon Park"
 msgstr ""
 
@@ -746,6 +832,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:585
 #: new_arrivals_chi/app/templates/edit_organization.html:936
 #: new_arrivals_chi/app/templates/edit_organization.html:1204
+#: new_arrivals_chi/app/templates/register.html:85
 msgid "Clearing East"
 msgstr ""
 
@@ -753,6 +840,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:586
 #: new_arrivals_chi/app/templates/edit_organization.html:937
 #: new_arrivals_chi/app/templates/edit_organization.html:1205
+#: new_arrivals_chi/app/templates/register.html:86
 msgid "Clearing West"
 msgstr ""
 
@@ -760,6 +848,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:587
 #: new_arrivals_chi/app/templates/edit_organization.html:938
 #: new_arrivals_chi/app/templates/edit_organization.html:1206
+#: new_arrivals_chi/app/templates/register.html:87
 msgid "Cottage Grove Heights"
 msgstr ""
 
@@ -767,6 +856,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:588
 #: new_arrivals_chi/app/templates/edit_organization.html:939
 #: new_arrivals_chi/app/templates/edit_organization.html:1207
+#: new_arrivals_chi/app/templates/register.html:88
 msgid "Cragin"
 msgstr ""
 
@@ -774,6 +864,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:589
 #: new_arrivals_chi/app/templates/edit_organization.html:940
 #: new_arrivals_chi/app/templates/edit_organization.html:1208
+#: new_arrivals_chi/app/templates/register.html:89
 msgid "Crestline"
 msgstr ""
 
@@ -781,6 +872,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:590
 #: new_arrivals_chi/app/templates/edit_organization.html:941
 #: new_arrivals_chi/app/templates/edit_organization.html:1209
+#: new_arrivals_chi/app/templates/register.html:90
 msgid "Dearborn Homes"
 msgstr ""
 
@@ -788,6 +880,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:591
 #: new_arrivals_chi/app/templates/edit_organization.html:942
 #: new_arrivals_chi/app/templates/edit_organization.html:1210
+#: new_arrivals_chi/app/templates/register.html:91
 msgid "Dearborn Park"
 msgstr ""
 
@@ -795,6 +888,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:592
 #: new_arrivals_chi/app/templates/edit_organization.html:943
 #: new_arrivals_chi/app/templates/edit_organization.html:1211
+#: new_arrivals_chi/app/templates/register.html:92
 msgid "Douglas Park"
 msgstr ""
 
@@ -802,6 +896,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:593
 #: new_arrivals_chi/app/templates/edit_organization.html:944
 #: new_arrivals_chi/app/templates/edit_organization.html:1212
+#: new_arrivals_chi/app/templates/register.html:93
 msgid "Dunning"
 msgstr ""
 
@@ -809,6 +904,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:594
 #: new_arrivals_chi/app/templates/edit_organization.html:945
 #: new_arrivals_chi/app/templates/edit_organization.html:1213
+#: new_arrivals_chi/app/templates/register.html:94
 msgid "East Beverly"
 msgstr ""
 
@@ -816,6 +912,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:595
 #: new_arrivals_chi/app/templates/edit_organization.html:946
 #: new_arrivals_chi/app/templates/edit_organization.html:1214
+#: new_arrivals_chi/app/templates/register.html:95
 msgid "East Chatham"
 msgstr ""
 
@@ -823,6 +920,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:596
 #: new_arrivals_chi/app/templates/edit_organization.html:947
 #: new_arrivals_chi/app/templates/edit_organization.html:1215
+#: new_arrivals_chi/app/templates/register.html:96
 msgid "East Garfield Park"
 msgstr ""
 
@@ -830,6 +928,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:597
 #: new_arrivals_chi/app/templates/edit_organization.html:948
 #: new_arrivals_chi/app/templates/edit_organization.html:1216
+#: new_arrivals_chi/app/templates/register.html:97
 msgid "East Hyde Park"
 msgstr ""
 
@@ -837,6 +936,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:598
 #: new_arrivals_chi/app/templates/edit_organization.html:949
 #: new_arrivals_chi/app/templates/edit_organization.html:1217
+#: new_arrivals_chi/app/templates/register.html:98
 msgid "East Pilsen"
 msgstr ""
 
@@ -844,6 +944,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:599
 #: new_arrivals_chi/app/templates/edit_organization.html:950
 #: new_arrivals_chi/app/templates/edit_organization.html:1218
+#: new_arrivals_chi/app/templates/register.html:99
 msgid "East Side"
 msgstr ""
 
@@ -851,6 +952,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:600
 #: new_arrivals_chi/app/templates/edit_organization.html:951
 #: new_arrivals_chi/app/templates/edit_organization.html:1219
+#: new_arrivals_chi/app/templates/register.html:100
 msgid "East Village"
 msgstr ""
 
@@ -858,6 +960,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:601
 #: new_arrivals_chi/app/templates/edit_organization.html:952
 #: new_arrivals_chi/app/templates/edit_organization.html:1220
+#: new_arrivals_chi/app/templates/register.html:101
 msgid "Eden Green"
 msgstr ""
 
@@ -865,6 +968,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:602
 #: new_arrivals_chi/app/templates/edit_organization.html:953
 #: new_arrivals_chi/app/templates/edit_organization.html:1221
+#: new_arrivals_chi/app/templates/register.html:102
 msgid "Edgebrook"
 msgstr ""
 
@@ -872,6 +976,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:603
 #: new_arrivals_chi/app/templates/edit_organization.html:954
 #: new_arrivals_chi/app/templates/edit_organization.html:1222
+#: new_arrivals_chi/app/templates/register.html:103
 msgid "Edgewater"
 msgstr ""
 
@@ -879,6 +984,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:604
 #: new_arrivals_chi/app/templates/edit_organization.html:955
 #: new_arrivals_chi/app/templates/edit_organization.html:1223
+#: new_arrivals_chi/app/templates/register.html:104
 msgid "Edgewater Beach"
 msgstr ""
 
@@ -886,6 +992,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:605
 #: new_arrivals_chi/app/templates/edit_organization.html:956
 #: new_arrivals_chi/app/templates/edit_organization.html:1224
+#: new_arrivals_chi/app/templates/register.html:105
 msgid "Edgewater Glen"
 msgstr ""
 
@@ -893,6 +1000,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:606
 #: new_arrivals_chi/app/templates/edit_organization.html:957
 #: new_arrivals_chi/app/templates/edit_organization.html:1225
+#: new_arrivals_chi/app/templates/register.html:106
 msgid "Edison Park"
 msgstr ""
 
@@ -900,6 +1008,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:607
 #: new_arrivals_chi/app/templates/edit_organization.html:958
 #: new_arrivals_chi/app/templates/edit_organization.html:1226
+#: new_arrivals_chi/app/templates/register.html:107
 msgid "Englewood"
 msgstr ""
 
@@ -907,6 +1016,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:608
 #: new_arrivals_chi/app/templates/edit_organization.html:959
 #: new_arrivals_chi/app/templates/edit_organization.html:1227
+#: new_arrivals_chi/app/templates/register.html:108
 msgid "Fernwood"
 msgstr ""
 
@@ -914,6 +1024,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:609
 #: new_arrivals_chi/app/templates/edit_organization.html:960
 #: new_arrivals_chi/app/templates/edit_organization.html:1228
+#: new_arrivals_chi/app/templates/register.html:109
 msgid "Fifth City"
 msgstr ""
 
@@ -921,6 +1032,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:610
 #: new_arrivals_chi/app/templates/edit_organization.html:961
 #: new_arrivals_chi/app/templates/edit_organization.html:1229
+#: new_arrivals_chi/app/templates/register.html:110
 msgid "Ford City"
 msgstr ""
 
@@ -928,6 +1040,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:611
 #: new_arrivals_chi/app/templates/edit_organization.html:962
 #: new_arrivals_chi/app/templates/edit_organization.html:1230
+#: new_arrivals_chi/app/templates/register.html:111
 msgid "Forest Glen"
 msgstr ""
 
@@ -935,6 +1048,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:612
 #: new_arrivals_chi/app/templates/edit_organization.html:963
 #: new_arrivals_chi/app/templates/edit_organization.html:1231
+#: new_arrivals_chi/app/templates/register.html:112
 msgid "Fuller Park"
 msgstr ""
 
@@ -942,6 +1056,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:613
 #: new_arrivals_chi/app/templates/edit_organization.html:964
 #: new_arrivals_chi/app/templates/edit_organization.html:1232
+#: new_arrivals_chi/app/templates/register.html:113
 msgid "Fulton River District"
 msgstr ""
 
@@ -949,6 +1064,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:614
 #: new_arrivals_chi/app/templates/edit_organization.html:965
 #: new_arrivals_chi/app/templates/edit_organization.html:1233
+#: new_arrivals_chi/app/templates/register.html:114
 msgid "Gage Park"
 msgstr ""
 
@@ -956,6 +1072,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:615
 #: new_arrivals_chi/app/templates/edit_organization.html:966
 #: new_arrivals_chi/app/templates/edit_organization.html:1234
+#: new_arrivals_chi/app/templates/register.html:115
 msgid "Galewood"
 msgstr ""
 
@@ -963,6 +1080,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:616
 #: new_arrivals_chi/app/templates/edit_organization.html:967
 #: new_arrivals_chi/app/templates/edit_organization.html:1235
+#: new_arrivals_chi/app/templates/register.html:116
 msgid "The Gap"
 msgstr ""
 
@@ -970,6 +1088,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:617
 #: new_arrivals_chi/app/templates/edit_organization.html:968
 #: new_arrivals_chi/app/templates/edit_organization.html:1236
+#: new_arrivals_chi/app/templates/register.html:117
 msgid "Garfield Ridge"
 msgstr ""
 
@@ -977,6 +1096,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:618
 #: new_arrivals_chi/app/templates/edit_organization.html:969
 #: new_arrivals_chi/app/templates/edit_organization.html:1237
+#: new_arrivals_chi/app/templates/register.html:118
 msgid "Gladstone Park"
 msgstr ""
 
@@ -984,6 +1104,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:619
 #: new_arrivals_chi/app/templates/edit_organization.html:970
 #: new_arrivals_chi/app/templates/edit_organization.html:1238
+#: new_arrivals_chi/app/templates/register.html:119
 msgid "Gold Coast"
 msgstr ""
 
@@ -991,6 +1112,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:620
 #: new_arrivals_chi/app/templates/edit_organization.html:971
 #: new_arrivals_chi/app/templates/edit_organization.html:1239
+#: new_arrivals_chi/app/templates/register.html:120
 msgid "Golden Gate"
 msgstr ""
 
@@ -998,6 +1120,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:621
 #: new_arrivals_chi/app/templates/edit_organization.html:972
 #: new_arrivals_chi/app/templates/edit_organization.html:1240
+#: new_arrivals_chi/app/templates/register.html:121
 msgid "Goose Island"
 msgstr ""
 
@@ -1005,6 +1128,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:622
 #: new_arrivals_chi/app/templates/edit_organization.html:973
 #: new_arrivals_chi/app/templates/edit_organization.html:1241
+#: new_arrivals_chi/app/templates/register.html:122
 msgid "Graceland West"
 msgstr ""
 
@@ -1012,6 +1136,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:623
 #: new_arrivals_chi/app/templates/edit_organization.html:974
 #: new_arrivals_chi/app/templates/edit_organization.html:1242
+#: new_arrivals_chi/app/templates/register.html:123
 msgid "Grand Boulevard"
 msgstr ""
 
@@ -1019,6 +1144,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:624
 #: new_arrivals_chi/app/templates/edit_organization.html:975
 #: new_arrivals_chi/app/templates/edit_organization.html:1243
+#: new_arrivals_chi/app/templates/register.html:124
 msgid "Grand Crossing"
 msgstr ""
 
@@ -1026,6 +1152,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:625
 #: new_arrivals_chi/app/templates/edit_organization.html:976
 #: new_arrivals_chi/app/templates/edit_organization.html:1244
+#: new_arrivals_chi/app/templates/register.html:125
 msgid "Greater Grand Crossing"
 msgstr ""
 
@@ -1033,6 +1160,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:626
 #: new_arrivals_chi/app/templates/edit_organization.html:977
 #: new_arrivals_chi/app/templates/edit_organization.html:1245
+#: new_arrivals_chi/app/templates/register.html:126
 msgid "Greektown"
 msgstr ""
 
@@ -1040,6 +1168,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:627
 #: new_arrivals_chi/app/templates/edit_organization.html:978
 #: new_arrivals_chi/app/templates/edit_organization.html:1246
+#: new_arrivals_chi/app/templates/register.html:127
 msgid "Gresham"
 msgstr ""
 
@@ -1047,6 +1176,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:628
 #: new_arrivals_chi/app/templates/edit_organization.html:979
 #: new_arrivals_chi/app/templates/edit_organization.html:1247
+#: new_arrivals_chi/app/templates/register.html:128
 msgid "Groveland Park"
 msgstr ""
 
@@ -1054,6 +1184,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:629
 #: new_arrivals_chi/app/templates/edit_organization.html:980
 #: new_arrivals_chi/app/templates/edit_organization.html:1248
+#: new_arrivals_chi/app/templates/register.html:129
 msgid "Hamilton Park"
 msgstr ""
 
@@ -1061,6 +1192,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:630
 #: new_arrivals_chi/app/templates/edit_organization.html:981
 #: new_arrivals_chi/app/templates/edit_organization.html:1249
+#: new_arrivals_chi/app/templates/register.html:130
 msgid "Hanson Park"
 msgstr ""
 
@@ -1068,6 +1200,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:631
 #: new_arrivals_chi/app/templates/edit_organization.html:982
 #: new_arrivals_chi/app/templates/edit_organization.html:1250
+#: new_arrivals_chi/app/templates/register.html:131
 msgid "Heart of Chicago"
 msgstr ""
 
@@ -1075,6 +1208,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:632
 #: new_arrivals_chi/app/templates/edit_organization.html:983
 #: new_arrivals_chi/app/templates/edit_organization.html:1251
+#: new_arrivals_chi/app/templates/register.html:132
 msgid "Hegewisch"
 msgstr ""
 
@@ -1082,6 +1216,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:634
 #: new_arrivals_chi/app/templates/edit_organization.html:985
 #: new_arrivals_chi/app/templates/edit_organization.html:1253
+#: new_arrivals_chi/app/templates/register.html:134
 msgid "Hollywood Park"
 msgstr ""
 
@@ -1089,6 +1224,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:635
 #: new_arrivals_chi/app/templates/edit_organization.html:986
 #: new_arrivals_chi/app/templates/edit_organization.html:1254
+#: new_arrivals_chi/app/templates/register.html:135
 msgid "Homan Square"
 msgstr ""
 
@@ -1096,6 +1232,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:636
 #: new_arrivals_chi/app/templates/edit_organization.html:987
 #: new_arrivals_chi/app/templates/edit_organization.html:1255
+#: new_arrivals_chi/app/templates/register.html:136
 msgid "Humboldt Park"
 msgstr ""
 
@@ -1103,6 +1240,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:637
 #: new_arrivals_chi/app/templates/edit_organization.html:988
 #: new_arrivals_chi/app/templates/edit_organization.html:1256
+#: new_arrivals_chi/app/templates/register.html:137
 msgid "Hyde Park"
 msgstr ""
 
@@ -1110,6 +1248,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:638
 #: new_arrivals_chi/app/templates/edit_organization.html:989
 #: new_arrivals_chi/app/templates/edit_organization.html:1257
+#: new_arrivals_chi/app/templates/register.html:138
 msgid "Illinois Medical District"
 msgstr ""
 
@@ -1117,6 +1256,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:639
 #: new_arrivals_chi/app/templates/edit_organization.html:990
 #: new_arrivals_chi/app/templates/edit_organization.html:1258
+#: new_arrivals_chi/app/templates/register.html:139
 msgid "Irving Park"
 msgstr ""
 
@@ -1124,6 +1264,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:640
 #: new_arrivals_chi/app/templates/edit_organization.html:991
 #: new_arrivals_chi/app/templates/edit_organization.html:1259
+#: new_arrivals_chi/app/templates/register.html:140
 msgid "Irving Woods"
 msgstr ""
 
@@ -1131,6 +1272,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:641
 #: new_arrivals_chi/app/templates/edit_organization.html:992
 #: new_arrivals_chi/app/templates/edit_organization.html:1260
+#: new_arrivals_chi/app/templates/register.html:141
 msgid "The Island"
 msgstr ""
 
@@ -1138,6 +1280,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:642
 #: new_arrivals_chi/app/templates/edit_organization.html:993
 #: new_arrivals_chi/app/templates/edit_organization.html:1261
+#: new_arrivals_chi/app/templates/register.html:142
 msgid "Jackowo"
 msgstr ""
 
@@ -1145,6 +1288,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:643
 #: new_arrivals_chi/app/templates/edit_organization.html:994
 #: new_arrivals_chi/app/templates/edit_organization.html:1262
+#: new_arrivals_chi/app/templates/register.html:143
 msgid "Jackson Park Highlands"
 msgstr ""
 
@@ -1152,6 +1296,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:644
 #: new_arrivals_chi/app/templates/edit_organization.html:995
 #: new_arrivals_chi/app/templates/edit_organization.html:1263
+#: new_arrivals_chi/app/templates/register.html:144
 msgid "Jefferson Park"
 msgstr ""
 
@@ -1159,6 +1304,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:645
 #: new_arrivals_chi/app/templates/edit_organization.html:996
 #: new_arrivals_chi/app/templates/edit_organization.html:1264
+#: new_arrivals_chi/app/templates/register.html:145
 msgid "K-Town"
 msgstr ""
 
@@ -1166,6 +1312,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:646
 #: new_arrivals_chi/app/templates/edit_organization.html:997
 #: new_arrivals_chi/app/templates/edit_organization.html:1265
+#: new_arrivals_chi/app/templates/register.html:146
 msgid "Kelvyn Park"
 msgstr ""
 
@@ -1173,6 +1320,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:647
 #: new_arrivals_chi/app/templates/edit_organization.html:998
 #: new_arrivals_chi/app/templates/edit_organization.html:1266
+#: new_arrivals_chi/app/templates/register.html:147
 msgid "Kennedy Park"
 msgstr ""
 
@@ -1180,6 +1328,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:648
 #: new_arrivals_chi/app/templates/edit_organization.html:999
 #: new_arrivals_chi/app/templates/edit_organization.html:1267
+#: new_arrivals_chi/app/templates/register.html:148
 msgid "Kensington"
 msgstr ""
 
@@ -1187,6 +1336,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:649
 #: new_arrivals_chi/app/templates/edit_organization.html:1000
 #: new_arrivals_chi/app/templates/edit_organization.html:1268
+#: new_arrivals_chi/app/templates/register.html:149
 msgid "Kenwood"
 msgstr ""
 
@@ -1194,6 +1344,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:650
 #: new_arrivals_chi/app/templates/edit_organization.html:1001
 #: new_arrivals_chi/app/templates/edit_organization.html:1269
+#: new_arrivals_chi/app/templates/register.html:150
 msgid "Kilbourn Park"
 msgstr ""
 
@@ -1201,6 +1352,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:651
 #: new_arrivals_chi/app/templates/edit_organization.html:1002
 #: new_arrivals_chi/app/templates/edit_organization.html:1270
+#: new_arrivals_chi/app/templates/register.html:151
 msgid "Kosciuszko Park"
 msgstr ""
 
@@ -1208,6 +1360,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:652
 #: new_arrivals_chi/app/templates/edit_organization.html:1003
 #: new_arrivals_chi/app/templates/edit_organization.html:1271
+#: new_arrivals_chi/app/templates/register.html:152
 msgid "Lake Meadows"
 msgstr ""
 
@@ -1215,6 +1368,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:653
 #: new_arrivals_chi/app/templates/edit_organization.html:1004
 #: new_arrivals_chi/app/templates/edit_organization.html:1272
+#: new_arrivals_chi/app/templates/register.html:153
 msgid "Lake View"
 msgstr ""
 
@@ -1236,6 +1390,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:656
 #: new_arrivals_chi/app/templates/edit_organization.html:1007
 #: new_arrivals_chi/app/templates/edit_organization.html:1275
+#: new_arrivals_chi/app/templates/register.html:156
 msgid "LeClaire Courts"
 msgstr ""
 
@@ -1243,6 +1398,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:657
 #: new_arrivals_chi/app/templates/edit_organization.html:1008
 #: new_arrivals_chi/app/templates/edit_organization.html:1276
+#: new_arrivals_chi/app/templates/register.html:157
 msgid "Legends South (Robert Taylor Homes)"
 msgstr ""
 
@@ -1250,6 +1406,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:658
 #: new_arrivals_chi/app/templates/edit_organization.html:1009
 #: new_arrivals_chi/app/templates/edit_organization.html:1277
+#: new_arrivals_chi/app/templates/register.html:158
 msgid "Lilydale"
 msgstr ""
 
@@ -1257,6 +1414,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:659
 #: new_arrivals_chi/app/templates/edit_organization.html:1010
 #: new_arrivals_chi/app/templates/edit_organization.html:1278
+#: new_arrivals_chi/app/templates/register.html:159
 msgid "Lincoln Park"
 msgstr ""
 
@@ -1264,6 +1422,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:660
 #: new_arrivals_chi/app/templates/edit_organization.html:1011
 #: new_arrivals_chi/app/templates/edit_organization.html:1279
+#: new_arrivals_chi/app/templates/register.html:160
 msgid "Lincoln Square"
 msgstr ""
 
@@ -1271,6 +1430,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:661
 #: new_arrivals_chi/app/templates/edit_organization.html:1012
 #: new_arrivals_chi/app/templates/edit_organization.html:1280
+#: new_arrivals_chi/app/templates/register.html:161
 msgid "Lithuanian Plaza"
 msgstr ""
 
@@ -1278,6 +1438,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:662
 #: new_arrivals_chi/app/templates/edit_organization.html:1013
 #: new_arrivals_chi/app/templates/edit_organization.html:1281
+#: new_arrivals_chi/app/templates/register.html:162
 msgid "Little Italy"
 msgstr ""
 
@@ -1285,6 +1446,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:663
 #: new_arrivals_chi/app/templates/edit_organization.html:1014
 #: new_arrivals_chi/app/templates/edit_organization.html:1282
+#: new_arrivals_chi/app/templates/register.html:163
 msgid "Little Village"
 msgstr ""
 
@@ -1292,6 +1454,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:665
 #: new_arrivals_chi/app/templates/edit_organization.html:1016
 #: new_arrivals_chi/app/templates/edit_organization.html:1284
+#: new_arrivals_chi/app/templates/register.html:165
 msgid "Longwood Manor"
 msgstr ""
 
@@ -1299,6 +1462,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:666
 #: new_arrivals_chi/app/templates/edit_organization.html:1017
 #: new_arrivals_chi/app/templates/edit_organization.html:1285
+#: new_arrivals_chi/app/templates/register.html:166
 msgid "The Loop"
 msgstr ""
 
@@ -1306,6 +1470,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:667
 #: new_arrivals_chi/app/templates/edit_organization.html:1018
 #: new_arrivals_chi/app/templates/edit_organization.html:1286
+#: new_arrivals_chi/app/templates/register.html:167
 msgid "Lower West Side"
 msgstr ""
 
@@ -1313,6 +1478,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:668
 #: new_arrivals_chi/app/templates/edit_organization.html:1019
 #: new_arrivals_chi/app/templates/edit_organization.html:1287
+#: new_arrivals_chi/app/templates/register.html:168
 msgid "Loyola"
 msgstr ""
 
@@ -1320,6 +1486,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:669
 #: new_arrivals_chi/app/templates/edit_organization.html:1020
 #: new_arrivals_chi/app/templates/edit_organization.html:1288
+#: new_arrivals_chi/app/templates/register.html:169
 msgid "Magnificent Mile"
 msgstr ""
 
@@ -1327,6 +1494,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:670
 #: new_arrivals_chi/app/templates/edit_organization.html:1021
 #: new_arrivals_chi/app/templates/edit_organization.html:1289
+#: new_arrivals_chi/app/templates/register.html:170
 msgid "Margate Park"
 msgstr ""
 
@@ -1334,6 +1502,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:671
 #: new_arrivals_chi/app/templates/edit_organization.html:1022
 #: new_arrivals_chi/app/templates/edit_organization.html:1290
+#: new_arrivals_chi/app/templates/register.html:171
 msgid "Marquette Park"
 msgstr ""
 
@@ -1341,6 +1510,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:672
 #: new_arrivals_chi/app/templates/edit_organization.html:1023
 #: new_arrivals_chi/app/templates/edit_organization.html:1291
+#: new_arrivals_chi/app/templates/register.html:172
 msgid "Marshall Square"
 msgstr ""
 
@@ -1348,6 +1518,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:673
 #: new_arrivals_chi/app/templates/edit_organization.html:1024
 #: new_arrivals_chi/app/templates/edit_organization.html:1292
+#: new_arrivals_chi/app/templates/register.html:173
 msgid "Marynook"
 msgstr ""
 
@@ -1355,6 +1526,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:674
 #: new_arrivals_chi/app/templates/edit_organization.html:1025
 #: new_arrivals_chi/app/templates/edit_organization.html:1293
+#: new_arrivals_chi/app/templates/register.html:174
 msgid "Mayfair"
 msgstr ""
 
@@ -1362,6 +1534,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:675
 #: new_arrivals_chi/app/templates/edit_organization.html:1026
 #: new_arrivals_chi/app/templates/edit_organization.html:1294
+#: new_arrivals_chi/app/templates/register.html:175
 msgid "McKinley Park"
 msgstr ""
 
@@ -1369,6 +1542,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:676
 #: new_arrivals_chi/app/templates/edit_organization.html:1027
 #: new_arrivals_chi/app/templates/edit_organization.html:1295
+#: new_arrivals_chi/app/templates/register.html:176
 msgid "Merchant Park"
 msgstr ""
 
@@ -1376,6 +1550,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:677
 #: new_arrivals_chi/app/templates/edit_organization.html:1028
 #: new_arrivals_chi/app/templates/edit_organization.html:1296
+#: new_arrivals_chi/app/templates/register.html:177
 msgid "Montclare"
 msgstr ""
 
@@ -1383,6 +1558,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:678
 #: new_arrivals_chi/app/templates/edit_organization.html:1029
 #: new_arrivals_chi/app/templates/edit_organization.html:1297
+#: new_arrivals_chi/app/templates/register.html:178
 msgid "Morgan Park"
 msgstr ""
 
@@ -1390,6 +1566,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:679
 #: new_arrivals_chi/app/templates/edit_organization.html:1030
 #: new_arrivals_chi/app/templates/edit_organization.html:1298
+#: new_arrivals_chi/app/templates/register.html:179
 msgid "Mount Greenwood"
 msgstr ""
 
@@ -1397,6 +1574,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:680
 #: new_arrivals_chi/app/templates/edit_organization.html:1031
 #: new_arrivals_chi/app/templates/edit_organization.html:1299
+#: new_arrivals_chi/app/templates/register.html:180
 msgid "Museum Campus"
 msgstr ""
 
@@ -1404,6 +1582,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:681
 #: new_arrivals_chi/app/templates/edit_organization.html:1032
 #: new_arrivals_chi/app/templates/edit_organization.html:1300
+#: new_arrivals_chi/app/templates/register.html:181
 msgid "New Eastside"
 msgstr ""
 
@@ -1411,6 +1590,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:682
 #: new_arrivals_chi/app/templates/edit_organization.html:1033
 #: new_arrivals_chi/app/templates/edit_organization.html:1301
+#: new_arrivals_chi/app/templates/register.html:182
 msgid "Near North Side"
 msgstr ""
 
@@ -1418,6 +1598,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:683
 #: new_arrivals_chi/app/templates/edit_organization.html:1034
 #: new_arrivals_chi/app/templates/edit_organization.html:1302
+#: new_arrivals_chi/app/templates/register.html:183
 msgid "Near West Side"
 msgstr ""
 
@@ -1425,6 +1606,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:684
 #: new_arrivals_chi/app/templates/edit_organization.html:1035
 #: new_arrivals_chi/app/templates/edit_organization.html:1303
+#: new_arrivals_chi/app/templates/register.html:184
 msgid "New Chinatown"
 msgstr ""
 
@@ -1432,6 +1614,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:685
 #: new_arrivals_chi/app/templates/edit_organization.html:1036
 #: new_arrivals_chi/app/templates/edit_organization.html:1304
+#: new_arrivals_chi/app/templates/register.html:185
 msgid "New City"
 msgstr ""
 
@@ -1439,6 +1622,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:686
 #: new_arrivals_chi/app/templates/edit_organization.html:1037
 #: new_arrivals_chi/app/templates/edit_organization.html:1305
+#: new_arrivals_chi/app/templates/register.html:186
 msgid "Noble Square"
 msgstr ""
 
@@ -1446,6 +1630,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:687
 #: new_arrivals_chi/app/templates/edit_organization.html:1038
 #: new_arrivals_chi/app/templates/edit_organization.html:1306
+#: new_arrivals_chi/app/templates/register.html:187
 msgid "North Austin"
 msgstr ""
 
@@ -1453,6 +1638,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:688
 #: new_arrivals_chi/app/templates/edit_organization.html:1039
 #: new_arrivals_chi/app/templates/edit_organization.html:1307
+#: new_arrivals_chi/app/templates/register.html:188
 msgid "North Center"
 msgstr ""
 
@@ -1460,6 +1646,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:689
 #: new_arrivals_chi/app/templates/edit_organization.html:1040
 #: new_arrivals_chi/app/templates/edit_organization.html:1308
+#: new_arrivals_chi/app/templates/register.html:189
 msgid "North Kenwood"
 msgstr ""
 
@@ -1467,6 +1654,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:690
 #: new_arrivals_chi/app/templates/edit_organization.html:1041
 #: new_arrivals_chi/app/templates/edit_organization.html:1309
+#: new_arrivals_chi/app/templates/register.html:190
 msgid "North Lawndale"
 msgstr ""
 
@@ -1474,6 +1662,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:691
 #: new_arrivals_chi/app/templates/edit_organization.html:1042
 #: new_arrivals_chi/app/templates/edit_organization.html:1310
+#: new_arrivals_chi/app/templates/register.html:191
 msgid "North Mayfair"
 msgstr ""
 
@@ -1481,6 +1670,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:692
 #: new_arrivals_chi/app/templates/edit_organization.html:1043
 #: new_arrivals_chi/app/templates/edit_organization.html:1311
+#: new_arrivals_chi/app/templates/register.html:192
 msgid "North Park"
 msgstr ""
 
@@ -1488,6 +1678,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:693
 #: new_arrivals_chi/app/templates/edit_organization.html:1044
 #: new_arrivals_chi/app/templates/edit_organization.html:1312
+#: new_arrivals_chi/app/templates/register.html:193
 msgid "Nortown"
 msgstr ""
 
@@ -1495,6 +1686,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:694
 #: new_arrivals_chi/app/templates/edit_organization.html:1045
 #: new_arrivals_chi/app/templates/edit_organization.html:1313
+#: new_arrivals_chi/app/templates/register.html:194
 msgid "Norwood Park East"
 msgstr ""
 
@@ -1502,6 +1694,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:695
 #: new_arrivals_chi/app/templates/edit_organization.html:1046
 #: new_arrivals_chi/app/templates/edit_organization.html:1314
+#: new_arrivals_chi/app/templates/register.html:195
 msgid "Norwood Park West"
 msgstr ""
 
@@ -1509,6 +1702,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:696
 #: new_arrivals_chi/app/templates/edit_organization.html:1047
 #: new_arrivals_chi/app/templates/edit_organization.html:1315
+#: new_arrivals_chi/app/templates/register.html:196
 msgid "Oakland"
 msgstr ""
 
@@ -1516,6 +1710,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:697
 #: new_arrivals_chi/app/templates/edit_organization.html:1048
 #: new_arrivals_chi/app/templates/edit_organization.html:1316
+#: new_arrivals_chi/app/templates/register.html:197
 msgid "O'Hare"
 msgstr ""
 
@@ -1523,6 +1718,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:698
 #: new_arrivals_chi/app/templates/edit_organization.html:1049
 #: new_arrivals_chi/app/templates/edit_organization.html:1317
+#: new_arrivals_chi/app/templates/register.html:198
 msgid "Old Edgebrook"
 msgstr ""
 
@@ -1530,6 +1726,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:699
 #: new_arrivals_chi/app/templates/edit_organization.html:1050
 #: new_arrivals_chi/app/templates/edit_organization.html:1318
+#: new_arrivals_chi/app/templates/register.html:199
 msgid "Old Irving Park"
 msgstr ""
 
@@ -1537,6 +1734,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:700
 #: new_arrivals_chi/app/templates/edit_organization.html:1051
 #: new_arrivals_chi/app/templates/edit_organization.html:1319
+#: new_arrivals_chi/app/templates/register.html:200
 msgid "Old Norwood"
 msgstr ""
 
@@ -1544,6 +1742,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:701
 #: new_arrivals_chi/app/templates/edit_organization.html:1052
 #: new_arrivals_chi/app/templates/edit_organization.html:1320
+#: new_arrivals_chi/app/templates/register.html:201
 msgid "Old Town"
 msgstr ""
 
@@ -1551,6 +1750,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:702
 #: new_arrivals_chi/app/templates/edit_organization.html:1053
 #: new_arrivals_chi/app/templates/edit_organization.html:1321
+#: new_arrivals_chi/app/templates/register.html:202
 msgid "Old Town Triangle"
 msgstr ""
 
@@ -1558,6 +1758,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:703
 #: new_arrivals_chi/app/templates/edit_organization.html:1054
 #: new_arrivals_chi/app/templates/edit_organization.html:1322
+#: new_arrivals_chi/app/templates/register.html:203
 msgid "Oriole Park"
 msgstr ""
 
@@ -1565,6 +1766,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:704
 #: new_arrivals_chi/app/templates/edit_organization.html:1055
 #: new_arrivals_chi/app/templates/edit_organization.html:1323
+#: new_arrivals_chi/app/templates/register.html:204
 msgid "Palmer Square"
 msgstr ""
 
@@ -1572,6 +1774,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:705
 #: new_arrivals_chi/app/templates/edit_organization.html:1056
 #: new_arrivals_chi/app/templates/edit_organization.html:1324
+#: new_arrivals_chi/app/templates/register.html:205
 msgid "Park Manor"
 msgstr ""
 
@@ -1579,6 +1782,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:706
 #: new_arrivals_chi/app/templates/edit_organization.html:1057
 #: new_arrivals_chi/app/templates/edit_organization.html:1325
+#: new_arrivals_chi/app/templates/register.html:206
 msgid "Park West"
 msgstr ""
 
@@ -1586,6 +1790,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:707
 #: new_arrivals_chi/app/templates/edit_organization.html:1058
 #: new_arrivals_chi/app/templates/edit_organization.html:1326
+#: new_arrivals_chi/app/templates/register.html:207
 msgid "Parkview"
 msgstr ""
 
@@ -1593,6 +1798,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:708
 #: new_arrivals_chi/app/templates/edit_organization.html:1059
 #: new_arrivals_chi/app/templates/edit_organization.html:1327
+#: new_arrivals_chi/app/templates/register.html:208
 msgid "Peterson Park"
 msgstr ""
 
@@ -1600,6 +1806,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:709
 #: new_arrivals_chi/app/templates/edit_organization.html:1060
 #: new_arrivals_chi/app/templates/edit_organization.html:1328
+#: new_arrivals_chi/app/templates/register.html:209
 msgid "Pill Hill"
 msgstr ""
 
@@ -1607,6 +1814,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:710
 #: new_arrivals_chi/app/templates/edit_organization.html:1061
 #: new_arrivals_chi/app/templates/edit_organization.html:1329
+#: new_arrivals_chi/app/templates/register.html:210
 msgid "Pilsen"
 msgstr ""
 
@@ -1614,6 +1822,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:711
 #: new_arrivals_chi/app/templates/edit_organization.html:1062
 #: new_arrivals_chi/app/templates/edit_organization.html:1330
+#: new_arrivals_chi/app/templates/register.html:211
 msgid "Polish Downtown"
 msgstr ""
 
@@ -1621,6 +1830,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:712
 #: new_arrivals_chi/app/templates/edit_organization.html:1063
 #: new_arrivals_chi/app/templates/edit_organization.html:1331
+#: new_arrivals_chi/app/templates/register.html:212
 msgid "Polish Village"
 msgstr ""
 
@@ -1628,6 +1838,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:713
 #: new_arrivals_chi/app/templates/edit_organization.html:1064
 #: new_arrivals_chi/app/templates/edit_organization.html:1332
+#: new_arrivals_chi/app/templates/register.html:213
 msgid "Portage Park"
 msgstr ""
 
@@ -1635,6 +1846,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:714
 #: new_arrivals_chi/app/templates/edit_organization.html:1065
 #: new_arrivals_chi/app/templates/edit_organization.html:1333
+#: new_arrivals_chi/app/templates/register.html:214
 msgid "Prairie Avenue Historic District"
 msgstr ""
 
@@ -1642,6 +1854,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:715
 #: new_arrivals_chi/app/templates/edit_organization.html:1066
 #: new_arrivals_chi/app/templates/edit_organization.html:1334
+#: new_arrivals_chi/app/templates/register.html:215
 msgid "Prairie Shores"
 msgstr ""
 
@@ -1649,6 +1862,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:716
 #: new_arrivals_chi/app/templates/edit_organization.html:1067
 #: new_arrivals_chi/app/templates/edit_organization.html:1335
+#: new_arrivals_chi/app/templates/register.html:216
 msgid "Princeton Park"
 msgstr ""
 
@@ -1656,6 +1870,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:717
 #: new_arrivals_chi/app/templates/edit_organization.html:1068
 #: new_arrivals_chi/app/templates/edit_organization.html:1336
+#: new_arrivals_chi/app/templates/register.html:217
 msgid "Printer's Row"
 msgstr ""
 
@@ -1663,6 +1878,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:718
 #: new_arrivals_chi/app/templates/edit_organization.html:1069
 #: new_arrivals_chi/app/templates/edit_organization.html:1337
+#: new_arrivals_chi/app/templates/register.html:218
 msgid "Pulaski Park"
 msgstr ""
 
@@ -1670,6 +1886,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:719
 #: new_arrivals_chi/app/templates/edit_organization.html:1070
 #: new_arrivals_chi/app/templates/edit_organization.html:1338
+#: new_arrivals_chi/app/templates/register.html:219
 msgid "Pullman"
 msgstr ""
 
@@ -1677,6 +1894,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:720
 #: new_arrivals_chi/app/templates/edit_organization.html:1071
 #: new_arrivals_chi/app/templates/edit_organization.html:1339
+#: new_arrivals_chi/app/templates/register.html:220
 msgid "Ranch Triangle"
 msgstr ""
 
@@ -1684,6 +1902,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:721
 #: new_arrivals_chi/app/templates/edit_organization.html:1072
 #: new_arrivals_chi/app/templates/edit_organization.html:1340
+#: new_arrivals_chi/app/templates/register.html:221
 msgid "Ravenswood"
 msgstr ""
 
@@ -1691,6 +1910,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:722
 #: new_arrivals_chi/app/templates/edit_organization.html:1073
 #: new_arrivals_chi/app/templates/edit_organization.html:1341
+#: new_arrivals_chi/app/templates/register.html:222
 msgid "Ravenswood Gardens"
 msgstr ""
 
@@ -1698,6 +1918,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:723
 #: new_arrivals_chi/app/templates/edit_organization.html:1074
 #: new_arrivals_chi/app/templates/edit_organization.html:1342
+#: new_arrivals_chi/app/templates/register.html:223
 msgid "Ravenswood Manor"
 msgstr ""
 
@@ -1705,6 +1926,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:724
 #: new_arrivals_chi/app/templates/edit_organization.html:1075
 #: new_arrivals_chi/app/templates/edit_organization.html:1343
+#: new_arrivals_chi/app/templates/register.html:224
 msgid "River North"
 msgstr ""
 
@@ -1712,6 +1934,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:725
 #: new_arrivals_chi/app/templates/edit_organization.html:1076
 #: new_arrivals_chi/app/templates/edit_organization.html:1344
+#: new_arrivals_chi/app/templates/register.html:225
 msgid "River West"
 msgstr ""
 
@@ -1719,6 +1942,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:726
 #: new_arrivals_chi/app/templates/edit_organization.html:1077
 #: new_arrivals_chi/app/templates/edit_organization.html:1345
+#: new_arrivals_chi/app/templates/register.html:226
 msgid "River's Edge"
 msgstr ""
 
@@ -1726,6 +1950,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:727
 #: new_arrivals_chi/app/templates/edit_organization.html:1078
 #: new_arrivals_chi/app/templates/edit_organization.html:1346
+#: new_arrivals_chi/app/templates/register.html:227
 msgid "Riverdale"
 msgstr ""
 
@@ -1733,6 +1958,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:728
 #: new_arrivals_chi/app/templates/edit_organization.html:1079
 #: new_arrivals_chi/app/templates/edit_organization.html:1347
+#: new_arrivals_chi/app/templates/register.html:228
 msgid "Rogers Park"
 msgstr ""
 
@@ -1740,6 +1966,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:729
 #: new_arrivals_chi/app/templates/edit_organization.html:1080
 #: new_arrivals_chi/app/templates/edit_organization.html:1348
+#: new_arrivals_chi/app/templates/register.html:229
 msgid "Roscoe Village"
 msgstr ""
 
@@ -1747,6 +1974,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:730
 #: new_arrivals_chi/app/templates/edit_organization.html:1081
 #: new_arrivals_chi/app/templates/edit_organization.html:1349
+#: new_arrivals_chi/app/templates/register.html:230
 msgid "Rosehill"
 msgstr ""
 
@@ -1754,6 +1982,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:731
 #: new_arrivals_chi/app/templates/edit_organization.html:1082
 #: new_arrivals_chi/app/templates/edit_organization.html:1350
+#: new_arrivals_chi/app/templates/register.html:231
 msgid "Roseland"
 msgstr ""
 
@@ -1761,6 +1990,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:732
 #: new_arrivals_chi/app/templates/edit_organization.html:1083
 #: new_arrivals_chi/app/templates/edit_organization.html:1351
+#: new_arrivals_chi/app/templates/register.html:232
 msgid "Rosemoor"
 msgstr ""
 
@@ -1768,6 +1998,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:733
 #: new_arrivals_chi/app/templates/edit_organization.html:1084
 #: new_arrivals_chi/app/templates/edit_organization.html:1352
+#: new_arrivals_chi/app/templates/register.html:233
 msgid "St. Ben's"
 msgstr ""
 
@@ -1775,6 +2006,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:734
 #: new_arrivals_chi/app/templates/edit_organization.html:1085
 #: new_arrivals_chi/app/templates/edit_organization.html:1353
+#: new_arrivals_chi/app/templates/register.html:234
 msgid "Sauganash"
 msgstr ""
 
@@ -1782,6 +2014,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:735
 #: new_arrivals_chi/app/templates/edit_organization.html:1086
 #: new_arrivals_chi/app/templates/edit_organization.html:1354
+#: new_arrivals_chi/app/templates/register.html:235
 msgid "Schorsch Forest View"
 msgstr ""
 
@@ -1789,6 +2022,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:736
 #: new_arrivals_chi/app/templates/edit_organization.html:1087
 #: new_arrivals_chi/app/templates/edit_organization.html:1355
+#: new_arrivals_chi/app/templates/register.html:236
 msgid "Schorsch Village"
 msgstr ""
 
@@ -1796,6 +2030,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:737
 #: new_arrivals_chi/app/templates/edit_organization.html:1088
 #: new_arrivals_chi/app/templates/edit_organization.html:1356
+#: new_arrivals_chi/app/templates/register.html:237
 msgid "Scottsdale"
 msgstr ""
 
@@ -1803,6 +2038,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:738
 #: new_arrivals_chi/app/templates/edit_organization.html:1089
 #: new_arrivals_chi/app/templates/edit_organization.html:1357
+#: new_arrivals_chi/app/templates/register.html:238
 msgid "Sheffield Neighbors"
 msgstr ""
 
@@ -1810,6 +2046,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:739
 #: new_arrivals_chi/app/templates/edit_organization.html:1090
 #: new_arrivals_chi/app/templates/edit_organization.html:1358
+#: new_arrivals_chi/app/templates/register.html:239
 msgid "Sheridan Park"
 msgstr ""
 
@@ -1817,6 +2054,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:740
 #: new_arrivals_chi/app/templates/edit_organization.html:1091
 #: new_arrivals_chi/app/templates/edit_organization.html:1359
+#: new_arrivals_chi/app/templates/register.html:240
 msgid "Sheridan Station Corridor"
 msgstr ""
 
@@ -1824,6 +2062,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:741
 #: new_arrivals_chi/app/templates/edit_organization.html:1092
 #: new_arrivals_chi/app/templates/edit_organization.html:1360
+#: new_arrivals_chi/app/templates/register.html:241
 msgid "Sleepy Hollow"
 msgstr ""
 
@@ -1831,6 +2070,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:742
 #: new_arrivals_chi/app/templates/edit_organization.html:1093
 #: new_arrivals_chi/app/templates/edit_organization.html:1361
+#: new_arrivals_chi/app/templates/register.html:242
 msgid "Smith Park"
 msgstr ""
 
@@ -1838,6 +2078,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:743
 #: new_arrivals_chi/app/templates/edit_organization.html:1094
 #: new_arrivals_chi/app/templates/edit_organization.html:1362
+#: new_arrivals_chi/app/templates/register.html:243
 msgid "South Austin"
 msgstr ""
 
@@ -1845,6 +2086,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:744
 #: new_arrivals_chi/app/templates/edit_organization.html:1095
 #: new_arrivals_chi/app/templates/edit_organization.html:1363
+#: new_arrivals_chi/app/templates/register.html:244
 msgid "South Chicago"
 msgstr ""
 
@@ -1852,6 +2094,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:745
 #: new_arrivals_chi/app/templates/edit_organization.html:1096
 #: new_arrivals_chi/app/templates/edit_organization.html:1364
+#: new_arrivals_chi/app/templates/register.html:245
 msgid "South Commons"
 msgstr ""
 
@@ -1859,6 +2102,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:746
 #: new_arrivals_chi/app/templates/edit_organization.html:1097
 #: new_arrivals_chi/app/templates/edit_organization.html:1365
+#: new_arrivals_chi/app/templates/register.html:246
 msgid "South Deering"
 msgstr ""
 
@@ -1866,6 +2110,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:747
 #: new_arrivals_chi/app/templates/edit_organization.html:1098
 #: new_arrivals_chi/app/templates/edit_organization.html:1366
+#: new_arrivals_chi/app/templates/register.html:247
 msgid "South East Ravenswood"
 msgstr ""
 
@@ -1873,6 +2118,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:748
 #: new_arrivals_chi/app/templates/edit_organization.html:1099
 #: new_arrivals_chi/app/templates/edit_organization.html:1367
+#: new_arrivals_chi/app/templates/register.html:248
 msgid "South Edgebrook"
 msgstr ""
 
@@ -1880,6 +2126,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:749
 #: new_arrivals_chi/app/templates/edit_organization.html:1100
 #: new_arrivals_chi/app/templates/edit_organization.html:1368
+#: new_arrivals_chi/app/templates/register.html:249
 msgid "South Lawndale"
 msgstr ""
 
@@ -1887,6 +2134,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:750
 #: new_arrivals_chi/app/templates/edit_organization.html:1101
 #: new_arrivals_chi/app/templates/edit_organization.html:1369
+#: new_arrivals_chi/app/templates/register.html:250
 msgid "South Loop"
 msgstr ""
 
@@ -1894,6 +2142,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:751
 #: new_arrivals_chi/app/templates/edit_organization.html:1102
 #: new_arrivals_chi/app/templates/edit_organization.html:1370
+#: new_arrivals_chi/app/templates/register.html:251
 msgid "South Shore"
 msgstr ""
 
@@ -1901,6 +2150,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:752
 #: new_arrivals_chi/app/templates/edit_organization.html:1103
 #: new_arrivals_chi/app/templates/edit_organization.html:1371
+#: new_arrivals_chi/app/templates/register.html:252
 msgid "Stateway Gardens"
 msgstr ""
 
@@ -1908,6 +2158,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:753
 #: new_arrivals_chi/app/templates/edit_organization.html:1104
 #: new_arrivals_chi/app/templates/edit_organization.html:1372
+#: new_arrivals_chi/app/templates/register.html:253
 msgid "Stony Island Park"
 msgstr ""
 
@@ -1915,6 +2166,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:754
 #: new_arrivals_chi/app/templates/edit_organization.html:1105
 #: new_arrivals_chi/app/templates/edit_organization.html:1373
+#: new_arrivals_chi/app/templates/register.html:254
 msgid "Streeterville"
 msgstr ""
 
@@ -1922,6 +2174,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:755
 #: new_arrivals_chi/app/templates/edit_organization.html:1106
 #: new_arrivals_chi/app/templates/edit_organization.html:1374
+#: new_arrivals_chi/app/templates/register.html:255
 msgid "Talley's Corner"
 msgstr ""
 
@@ -1929,6 +2182,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:756
 #: new_arrivals_chi/app/templates/edit_organization.html:1107
 #: new_arrivals_chi/app/templates/edit_organization.html:1375
+#: new_arrivals_chi/app/templates/register.html:256
 msgid "Tri-Taylor"
 msgstr ""
 
@@ -1936,6 +2190,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:757
 #: new_arrivals_chi/app/templates/edit_organization.html:1108
 #: new_arrivals_chi/app/templates/edit_organization.html:1376
+#: new_arrivals_chi/app/templates/register.html:257
 msgid "Ukrainian Village"
 msgstr ""
 
@@ -1943,6 +2198,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:758
 #: new_arrivals_chi/app/templates/edit_organization.html:1109
 #: new_arrivals_chi/app/templates/edit_organization.html:1377
+#: new_arrivals_chi/app/templates/register.html:258
 msgid "Union Ridge"
 msgstr ""
 
@@ -1950,6 +2206,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:759
 #: new_arrivals_chi/app/templates/edit_organization.html:1110
 #: new_arrivals_chi/app/templates/edit_organization.html:1378
+#: new_arrivals_chi/app/templates/register.html:259
 msgid "University Village"
 msgstr ""
 
@@ -1957,6 +2214,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:760
 #: new_arrivals_chi/app/templates/edit_organization.html:1111
 #: new_arrivals_chi/app/templates/edit_organization.html:1379
+#: new_arrivals_chi/app/templates/register.html:260
 msgid "Uptown"
 msgstr ""
 
@@ -1964,6 +2222,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:761
 #: new_arrivals_chi/app/templates/edit_organization.html:1112
 #: new_arrivals_chi/app/templates/edit_organization.html:1380
+#: new_arrivals_chi/app/templates/register.html:261
 msgid "The Villa"
 msgstr ""
 
@@ -1971,6 +2230,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:762
 #: new_arrivals_chi/app/templates/edit_organization.html:1113
 #: new_arrivals_chi/app/templates/edit_organization.html:1381
+#: new_arrivals_chi/app/templates/register.html:262
 msgid "Vittum Park"
 msgstr ""
 
@@ -1978,6 +2238,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:763
 #: new_arrivals_chi/app/templates/edit_organization.html:1114
 #: new_arrivals_chi/app/templates/edit_organization.html:1382
+#: new_arrivals_chi/app/templates/register.html:263
 msgid "Wacławowo"
 msgstr ""
 
@@ -1985,6 +2246,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:764
 #: new_arrivals_chi/app/templates/edit_organization.html:1115
 #: new_arrivals_chi/app/templates/edit_organization.html:1383
+#: new_arrivals_chi/app/templates/register.html:264
 msgid "Washington Heights"
 msgstr ""
 
@@ -1992,6 +2254,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:765
 #: new_arrivals_chi/app/templates/edit_organization.html:1116
 #: new_arrivals_chi/app/templates/edit_organization.html:1384
+#: new_arrivals_chi/app/templates/register.html:265
 msgid "Washington Park"
 msgstr ""
 
@@ -1999,6 +2262,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:766
 #: new_arrivals_chi/app/templates/edit_organization.html:1117
 #: new_arrivals_chi/app/templates/edit_organization.html:1385
+#: new_arrivals_chi/app/templates/register.html:266
 msgid "Wentworth Gardens"
 msgstr ""
 
@@ -2006,6 +2270,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:767
 #: new_arrivals_chi/app/templates/edit_organization.html:1118
 #: new_arrivals_chi/app/templates/edit_organization.html:1386
+#: new_arrivals_chi/app/templates/register.html:267
 msgid "West Beverly"
 msgstr ""
 
@@ -2013,6 +2278,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:768
 #: new_arrivals_chi/app/templates/edit_organization.html:1119
 #: new_arrivals_chi/app/templates/edit_organization.html:1387
+#: new_arrivals_chi/app/templates/register.html:268
 msgid "West Chatham"
 msgstr ""
 
@@ -2020,6 +2286,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:769
 #: new_arrivals_chi/app/templates/edit_organization.html:1120
 #: new_arrivals_chi/app/templates/edit_organization.html:1388
+#: new_arrivals_chi/app/templates/register.html:269
 msgid "West Chesterfield"
 msgstr ""
 
@@ -2027,6 +2294,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:770
 #: new_arrivals_chi/app/templates/edit_organization.html:1121
 #: new_arrivals_chi/app/templates/edit_organization.html:1389
+#: new_arrivals_chi/app/templates/register.html:270
 msgid "West DePaul"
 msgstr ""
 
@@ -2034,6 +2302,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:771
 #: new_arrivals_chi/app/templates/edit_organization.html:1122
 #: new_arrivals_chi/app/templates/edit_organization.html:1390
+#: new_arrivals_chi/app/templates/register.html:271
 msgid "West Elsdon"
 msgstr ""
 
@@ -2041,6 +2310,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:772
 #: new_arrivals_chi/app/templates/edit_organization.html:1123
 #: new_arrivals_chi/app/templates/edit_organization.html:1391
+#: new_arrivals_chi/app/templates/register.html:272
 msgid "West Englewood"
 msgstr ""
 
@@ -2048,6 +2318,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:773
 #: new_arrivals_chi/app/templates/edit_organization.html:1124
 #: new_arrivals_chi/app/templates/edit_organization.html:1392
+#: new_arrivals_chi/app/templates/register.html:273
 msgid "West Garfield Park"
 msgstr ""
 
@@ -2055,6 +2326,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:774
 #: new_arrivals_chi/app/templates/edit_organization.html:1125
 #: new_arrivals_chi/app/templates/edit_organization.html:1393
+#: new_arrivals_chi/app/templates/register.html:274
 msgid "West Humboldt Park"
 msgstr ""
 
@@ -2069,6 +2341,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:776
 #: new_arrivals_chi/app/templates/edit_organization.html:1127
 #: new_arrivals_chi/app/templates/edit_organization.html:1395
+#: new_arrivals_chi/app/templates/register.html:276
 msgid "West Lawn"
 msgstr ""
 
@@ -2076,6 +2349,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:777
 #: new_arrivals_chi/app/templates/edit_organization.html:1128
 #: new_arrivals_chi/app/templates/edit_organization.html:1396
+#: new_arrivals_chi/app/templates/register.html:277
 msgid "West Loop"
 msgstr ""
 
@@ -2083,6 +2357,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:778
 #: new_arrivals_chi/app/templates/edit_organization.html:1129
 #: new_arrivals_chi/app/templates/edit_organization.html:1397
+#: new_arrivals_chi/app/templates/register.html:278
 msgid "West Morgan Park"
 msgstr ""
 
@@ -2090,6 +2365,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:779
 #: new_arrivals_chi/app/templates/edit_organization.html:1130
 #: new_arrivals_chi/app/templates/edit_organization.html:1398
+#: new_arrivals_chi/app/templates/register.html:279
 msgid "West Pullman"
 msgstr ""
 
@@ -2097,6 +2373,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:780
 #: new_arrivals_chi/app/templates/edit_organization.html:1131
 #: new_arrivals_chi/app/templates/edit_organization.html:1399
+#: new_arrivals_chi/app/templates/register.html:280
 msgid "West Ridge"
 msgstr ""
 
@@ -2104,6 +2381,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:781
 #: new_arrivals_chi/app/templates/edit_organization.html:1132
 #: new_arrivals_chi/app/templates/edit_organization.html:1400
+#: new_arrivals_chi/app/templates/register.html:281
 msgid "West Rogers Park"
 msgstr ""
 
@@ -2111,6 +2389,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:782
 #: new_arrivals_chi/app/templates/edit_organization.html:1133
 #: new_arrivals_chi/app/templates/edit_organization.html:1401
+#: new_arrivals_chi/app/templates/register.html:282
 msgid "West Town"
 msgstr ""
 
@@ -2118,6 +2397,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:783
 #: new_arrivals_chi/app/templates/edit_organization.html:1134
 #: new_arrivals_chi/app/templates/edit_organization.html:1402
+#: new_arrivals_chi/app/templates/register.html:283
 msgid "West Woodlawn"
 msgstr ""
 
@@ -2125,6 +2405,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:784
 #: new_arrivals_chi/app/templates/edit_organization.html:1135
 #: new_arrivals_chi/app/templates/edit_organization.html:1403
+#: new_arrivals_chi/app/templates/register.html:284
 msgid "Wicker Park"
 msgstr ""
 
@@ -2132,6 +2413,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:785
 #: new_arrivals_chi/app/templates/edit_organization.html:1136
 #: new_arrivals_chi/app/templates/edit_organization.html:1404
+#: new_arrivals_chi/app/templates/register.html:285
 msgid "Wildwood"
 msgstr ""
 
@@ -2139,6 +2421,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:786
 #: new_arrivals_chi/app/templates/edit_organization.html:1137
 #: new_arrivals_chi/app/templates/edit_organization.html:1405
+#: new_arrivals_chi/app/templates/register.html:286
 msgid "Woodlawn"
 msgstr ""
 
@@ -2146,6 +2429,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:787
 #: new_arrivals_chi/app/templates/edit_organization.html:1138
 #: new_arrivals_chi/app/templates/edit_organization.html:1406
+#: new_arrivals_chi/app/templates/register.html:287
 msgid "Wrightwood"
 msgstr ""
 
@@ -2153,6 +2437,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:788
 #: new_arrivals_chi/app/templates/edit_organization.html:1139
 #: new_arrivals_chi/app/templates/edit_organization.html:1407
+#: new_arrivals_chi/app/templates/register.html:288
 msgid "Wrightwood Neighbors"
 msgstr ""
 
@@ -2160,6 +2445,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/edit_organization.html:789
 #: new_arrivals_chi/app/templates/edit_organization.html:1140
 #: new_arrivals_chi/app/templates/edit_organization.html:1408
+#: new_arrivals_chi/app/templates/register.html:289
 msgid "Wrigleyville"
 msgstr ""
 
@@ -2172,12 +2458,21 @@ msgid "Update Location"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/edit_organization.html:390
+#: new_arrivals_chi/app/templates/register.html:293
 msgid "Hours of Operation:"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/edit_organization.html:404
 #: new_arrivals_chi/app/templates/edit_organization.html:421
 #: new_arrivals_chi/app/templates/edit_organization.html:449
+#: new_arrivals_chi/app/templates/register.html:304
+#: new_arrivals_chi/app/templates/register.html:319
+#: new_arrivals_chi/app/templates/register.html:334
+#: new_arrivals_chi/app/templates/register.html:349
+#: new_arrivals_chi/app/templates/register.html:364
+#: new_arrivals_chi/app/templates/register.html:379
+#: new_arrivals_chi/app/templates/register.html:394
+#: new_arrivals_chi/app/templates/register.html:420
 msgid "Add Break"
 msgstr ""
 
@@ -2312,71 +2607,2748 @@ msgstr ""
 msgid "Delete Service"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health.html:14
-msgid "Health Information"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/health.html:17
-msgid "I want to..."
-msgstr ""
-
-#: new_arrivals_chi/app/templates/health.html:19
-msgid "Receive Assistance Now"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/health.html:22
-msgid "Learn More About Resources"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/home.html:22
+#: new_arrivals_chi/app/templates/general.html:17
+#: new_arrivals_chi/app/templates/home.html:20
 msgid "Welcome to Chicago!"
 msgstr "\\u00a1Bienvenido a Chicago!"
 
-#: new_arrivals_chi/app/templates/home.html:23
+#: new_arrivals_chi/app/templates/general.html:19
+#: new_arrivals_chi/app/templates/health_general.html:18
+msgid "Welcome"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:22
+msgid ""
+"Known for its vibrant culture, diverse communities, and bustling city\n"
+"    life, Chicago is a welcoming city that embraces people from all walks"
+" of\n"
+"    life. A group of university students in collaboration with the City "
+"of\n"
+"    Chicago and local community organizations created this website to "
+"help New\n"
+"    Arrivals, who are immigrants, migrants, and refugees from around the "
+"world,\n"
+"    understand the resources and services they have available to them in\n"
+"    Chicago. We understand that this transition is challenging and we "
+"hope to\n"
+"    provide clear information to help you begin your new life in Chicago."
+" On\n"
+"    this page, you will find general information about:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:33
+msgid "Chicago CityKey ID, a form of identification"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:35
+msgid "Using the CTA, Chicago’s public transit system"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:37
+#: new_arrivals_chi/app/templates/general.html:122
+msgid "Public Education for Kids"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:39
+msgid "Access to food banks"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:41
+msgid "Driver's insurance"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:44
+msgid "Chicago CityKey ID"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:47
+msgid ""
+"The Chicago CityKey ID is an optional, valid, government-issued ID\n"
+"    card offered to all Chicago residents, including New Arrivals. It "
+"serves as\n"
+"    a four-in-one card by serving as a government-issued ID card, a "
+"Chicago\n"
+"    Public Library card, a Ventra card, and a pharmaceutical discount "
+"card."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:54
+msgid ""
+"To apply for a CityKey ID, you will need three documents that prove\n"
+"    your identity, including a photo and date of birth, and that prove "
+"that you\n"
+"    are a resident of the City of Chicago. For more information about "
+"applying,\n"
+"    please click the following links:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:64
+#: new_arrivals_chi/app/templates/vttc_apply.html:16
+msgid "How to Apply"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:70
+msgid "Book an Appointment"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:78
+msgid "Application Materials"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:82
+msgid "Using the CTA"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:85
+msgid ""
+"The easiest way to get around Chicago is by leveraging the CTA, which\n"
+"    is the Chicago Transit Authority. With its comprehensive network of "
+"buses\n"
+"    and trains, the CTA offers convenient and affordable transportation "
+"options\n"
+"    for navigating the city."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:91
+msgid "Figuring out travel route"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:94
+msgid ""
+"You can plan your trip using Google Maps by clicking on the train icon\n"
+"    to find the quickest way to your destination. As a reminder, Google "
+"Maps\n"
+"    provides an estimate and buses or trains may be delayed due to "
+"construction\n"
+"    or traffic."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:101
+msgid ""
+"Another way to see how far the bus is away is the Ventra app. On the\n"
+"    home page, it tells you which buses/trains or bikes are nearby. If "
+"you click\n"
+"    on nearby, you can expand the view or move your position around."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:106
+msgid "Paying for CTA"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:109
+msgid ""
+"To pay for CTA buses, you must have the exact fare to pay for the bus\n"
+"    or use your Ventra card. For trains, you must have a Ventra card "
+"which you\n"
+"    can get at a kiosk before entering the train or by downloading the "
+"app. To\n"
+"    find a physical location to buy a Ventra card, please see the "
+"following\n"
+"    link:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:118
+msgid "Ventra Retail Locations"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:125
+msgid ""
+"In Chicago, public education is offered free of charge, ensuring that\n"
+"    every child has access to quality learning opportunities. To enroll "
+"your\n"
+"    child, they must meet certain requirements, including proof of age, "
+"proof of\n"
+"    address, and proof of medical compliance such as a physical "
+"examination,\n"
+"    immunization record, and dental exam. For more information, please "
+"click the\n"
+"    following links:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:137
+msgid "Enrollment Requirements"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:143
+msgid "Apply and Enroll"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:147
+msgid "Access to Free Food"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:150
+msgid ""
+"Regardless of your status, you are able to access groceries that are\n"
+"    free at your local food bank. Please click the following link to find"
+" the\n"
+"    nearest food pantry near you:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:159
+msgid "Find a Food Pantry"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:163
+msgid "Driver's Insurance"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:166
+msgid ""
+"The State of Illinois issues a special driver's license to\n"
+"    non-citizens who cannot get a SSN. The license is called Temporary "
+"Visitor\n"
+"    Driver's License (TVDL). There are two kinds of TVDLs: The first is "
+"for\n"
+"    someone authorized to reside in this country for one or more years. "
+"The\n"
+"    second is for someone who does not have lawful status or is "
+"undocumented but\n"
+"    has lived in the US for at least a year."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:174
+msgid "To qualify for a TVDL as a lawful resident, applicants must:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:177
+#: new_arrivals_chi/app/templates/general.html:213
+msgid "Prove their name and date of birth;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:179
+msgid "Prove that they live in Illinois;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:181
+#: new_arrivals_chi/app/templates/general.html:215
+msgid "Prove their written signature;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:184
+msgid ""
+"Provide documentation issued by the United States Citizenship and\n"
+"      Immigration Services that proves legal status;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:189
+#: new_arrivals_chi/app/templates/general.html:224
+msgid "Affirm that they are ineligible to get a social security number;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:192
+#: new_arrivals_chi/app/templates/general.html:233
+msgid "Pass the vision, written, and road exams;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:195
+#: new_arrivals_chi/app/templates/general.html:236
+msgid ""
+"Provide proof of insurance for the vehicle used for the road\n"
+"      test;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:200
+#: new_arrivals_chi/app/templates/general.html:241
+msgid ""
+"Provide proof (ages 18-20) of completing a 6-hour adult driver\n"
+"      education course; and"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:204
+#: new_arrivals_chi/app/templates/general.html:245
+msgid "Pay a $30 application fee ($35 for motorcycles)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:208
+msgid ""
+"To qualify for a TVDL as an undocumented immigrant, applicants\n"
+"    must:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:218
+msgid "Prove that they have lived in Illinois for at least 12 months;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:221
+msgid "Prove where they live in Illinois now;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:228
+msgid ""
+"Provide a valid, unexpired passport or consular card issued by an\n"
+"      approved country, or provide other proof of identity and residency "
+"the\n"
+"      Secretary of State may require;"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:248
+msgid "For more information, please see the following links:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:254
+msgid "Illinois Secretary of State - TVDL"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/general.html:262
+msgid "Illinois Legal Aid - Driver's license for immigrants"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:13
+msgid "Health Information"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:16
+msgid "I want to..."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:21
+msgid "Receive Assistance Now"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health.html:27
+msgid "Learn More About Resources"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:16
+msgid "Navigating Healthcare in Chicago"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:21
+msgid ""
+"Welcome to our healthcare resource page designed to assist you in\n"
+"    navigating the healthcare system in Chicago. Here's what you'll find:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:26
+msgid "Information about navigating healthcare access"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:29
+msgid ""
+"Understanding healthcare access based on your legal status and/or age\n"
+"      group"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:34
+msgid ""
+"Guidance on finding healthcare providers, emergency and urgent care\n"
+"      services, mental health and well-being resources, physical therapy\n"
+"      options, and community health programs."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:40
+msgid "Navigating the Healthcare System"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:43
+msgid ""
+"In the United States, we have a system where people can choose their\n"
+"    doctors and hospitals. Patients have the option of paying out-of-"
+"pocket for\n"
+"    services provided or can pay for health insurance to help reduce the "
+"cost of\n"
+"    medical care."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:49
+msgid "What is Health Insurance?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:52
+msgid ""
+"Health insurance is like a membership that helps cover the cost of\n"
+"    doctor visits, hospital stays, medications, and more."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:56
+msgid "Obtaining Health Insurance"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:59
+msgid ""
+"Health insurance may be purchased through healthcare.gov or secured\n"
+"    through your employer. You must have a qualifying legal status to "
+"qualify\n"
+"    for health insurance:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:65
+msgid "U.S. Citizen"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:67
+msgid "Green Card"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:70
+msgid ""
+"Asylum Status - only if you've been granted employment authorization\n"
+"      or are under age 14 and have an application pending for at least "
+"180\n"
+"      days"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:75
+#, fuzzy
+msgid "Refugee Status"
+msgstr ""
+"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
+"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
+"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
+" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
+"comunitarias."
+
+#: new_arrivals_chi/app/templates/health_general.html:77
+msgid "Cuban/Haitian Entrant"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:79
+msgid "Paroled into the U.S."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:81
+msgid "Temporary Protected Status (TPS)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:83
+msgid "Battered Spouse, Child and Parent"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:86
+msgid ""
+"Victim of Trafficking and his/her Spouse, Child, Sibling or\n"
+"      Parent"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:91
+msgid ""
+"Granted Withholding of Deportation or Withholding of Removal, under\n"
+"      the immigration laws or under the Convention against Torture (CAT)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:96
+msgid ""
+"Individual with Non-immigrant Status, includes worker visas (such as\n"
+"      H1, H-2A, H-2B), student visas, U-visa, T-visa, and other visas, "
+"and\n"
+"      citizens of Micronesia, the Marshall Islands, and Palau"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:101
+msgid "Deferred Enforced Departure (DED)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:104
+msgid ""
+"Deferred Action Status (Exception: Deferred Action for Childhood\n"
+"      Arrivals (DACA) is not an eligible immigration status for applying "
+"for\n"
+"      health insurance)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:109
+msgid "Lawful Temporary Resident"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:112
+msgid ""
+"Administrative order staying removal issued by the Department of\n"
+"      Homeland Security"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:116
+msgid "Conditional Entrant Granted before 1980"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:120
+msgid ""
+"If you are undocumented, you may not be able to obtain health\n"
+"    insurance, but you can still receive emergency medical care and "
+"preventative\n"
+"    medical services at low-cost health centers in the City of Chicago."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:126
+msgid "Accessing Health Insurance Based on Legal Status and Age Group"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:130
+msgid ""
+"Accessing health insurance can vary based on an individual's legal\n"
+"    status and age group."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:134
+#, fuzzy
+msgid "Legal Status"
+msgstr ""
+"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
+"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
+"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
+" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
+"comunitarias."
+
+#: new_arrivals_chi/app/templates/health_general.html:137
+msgid ""
+"Temporary Protected Status (TPS), Humanitarian Parole, Asylum or\n"
+"    Refugee: As someone with TPS, Parole, Asylum or Refugee Status, you "
+"qualify\n"
+"    for Medicaid or can buy a health insurance plan at healthcare.gov."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:142
+msgid "What is Medicaid?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:145
+msgid ""
+"Medicaid is a government program that helps people with low income and\n"
+"    limited resources pay for healthcare. It is a free or low-cost health"
+"\n"
+"    insurance that covers various medical services like doctor visits, "
+"hospital\n"
+"    stays, prescription medications, and more."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:151
+msgid "Where do I Apply for Medicaid?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:154
+msgid ""
+"In the state of Illinois, you can apply online, over the phone, in\n"
+"    person, or submit a paper application. Please see the following links"
+" for\n"
+"    details on how to apply:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:163
+msgid "Get Care Illinois - Apply for Medicaid"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:171
+msgid "Illinois Healthcare and Family Services - Medicaid Guide"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:175
+msgid "Undocumented"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:178
+msgid ""
+"If you are undocumented, you may not be able to access a health\n"
+"    insurance plan. However, you can still receive emergency medical care"
+" and\n"
+"    preventative medical services at low-cost health centers in the City "
+"of\n"
+"    Chicago. Please see the next section on “Accessing Healthcare "
+"Services\n"
+"    Regardless of Legal Status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:186
+msgid ""
+"If you are an undocumented child, you qualify for All Kids, a health\n"
+"    insurance plan for children from low-income households who live in "
+"Illinois.\n"
+"    To apply for All Kids, please click the following links for more\n"
+"    details:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:196
+msgid "All Kids - About"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:204
+msgid "All Kids - Application"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:209
+msgid "If you are undocumented and pregnant, you qualify for two programs:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:214
+msgid ""
+"Moms and Babies, a health insurance plan for women while they are\n"
+"      pregnant for up to 12 months after the baby is born. To apply for "
+"Moms and\n"
+"      Babies, you can also use the All Kids application. Please click the"
+"\n"
+"      following links to apply."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:221
+msgid ""
+"Medicaid Presumptive Eligibility (MPE), a plan that offers immediate,\n"
+"      temporary coverage for outpatient health services to pregnant women"
+" who\n"
+"      meet income requirements. To learn more about MPE, please see the\n"
+"      following links."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:232
+msgid "Moms and Babies - Application"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:240
+msgid "Moms and Babies - About"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:244
+msgid "Accessing Healthcare Services Regardless of Legal Status"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:252
+msgid "Low-Cost Healthcare Providers"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:270
+msgid "What is an FQHC"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:276
+msgid "Find a Health Center"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:284
+msgid "What's a Free & Charitable Clinic"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:292
+msgid "Clinic Directory"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:299
+msgid ""
+"All non-profit hospitals are required to provide a set amount of\n"
+"    emergency care and financial assistance to uninsured patients, "
+"regardless of\n"
+"    status. Please click the following link to find a non-profit hospital."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:308
+msgid ""
+"Illinois Alliance for Welcoming Health Care - Healthcare Access\n"
+"      Programs"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_search.html:11
+#: new_arrivals_chi/app/templates/health_search.html:53
+msgid "Available Supplies and Services"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_search.html:20
+#: new_arrivals_chi/app/templates/health_search.html:54
+#: new_arrivals_chi/app/templates/register.html:41
+msgid "Neighborhood"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_search.html:29
+#: new_arrivals_chi/app/templates/health_search.html:55
+msgid "Organization"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_search.html:38
+#: new_arrivals_chi/app/templates/health_search.html:56
+msgid "Hours"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/home.html:21
 msgid "A Resource Guide for New Migrants"
 msgstr "Una Gu\\u00eda de Recursos para Nuevos Migrantes"
 
-#: new_arrivals_chi/app/templates/home.html:24
+#: new_arrivals_chi/app/templates/home.html:23
 msgid ""
-"This resource guide is designed for new migrants to welcome to your new "
-"home. In this guide you will find information about your rights as an "
-"immigrant and resident of Chicago, and information on how to access "
-"resources offered by the City of Chicago, the State government and "
-"community organizations."
+"This resource guide is designed for new migrants to welcome to your\n"
+"      new home. In this guide you will find information about your rights"
+" as an\n"
+"      immigrant and resident of Chicago, and information on how to access"
+"\n"
+"      resources offered by the City of Chicago, the State government and\n"
+"      community organizations."
 msgstr ""
 "Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
 "migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
 "encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
-"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
-"organizaciones comunitarias."
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
+" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
+"comunitarias."
 
-#: new_arrivals_chi/app/templates/home.html:28
+#: new_arrivals_chi/app/templates/home.html:32
 msgid "Please click below to begin:"
 msgstr "Por favor, haga clic a continuaci\\u00f3n para comenzar:"
 
-#: new_arrivals_chi/app/templates/home.html:29
+#: new_arrivals_chi/app/templates/home.html:37
 msgid "Getting Started"
 msgstr "Primeros Pasos"
 
-#: new_arrivals_chi/app/templates/home.html:30
+#: new_arrivals_chi/app/templates/home.html:43
 msgid "Legal Support"
 msgstr "Apoyo Legal"
 
-#: new_arrivals_chi/app/templates/home.html:31
+#: new_arrivals_chi/app/templates/home.html:49
 msgid "Health Resources"
 msgstr "Recursos de Salud"
 
-#: new_arrivals_chi/app/templates/home.html:35
+#: new_arrivals_chi/app/templates/home.html:55
 #, fuzzy
 msgid ""
-"This resource guide is a collaboration between Chicago Area Student, "
-"Chicago-based organizations, and the City of Chicago. To learn more "
-"visit About Us."
+"This resource guide is a collaboration between Chicago Area\n"
+"      Student, Chicago-based organizations, and the City of Chicago. To "
+"learn\n"
+"      more visit About Us."
 msgstr ""
 "Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
 "migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
 "encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos "
-"ofrecidos por la Ciudad de Chicago, el gobierno estatal y las "
-"organizaciones comunitarias."
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
+" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
+"comunitarias."
+
+#: new_arrivals_chi/app/templates/lawyers.html:14
+msgid "Legal Services"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:22
+msgid "Name of Organization"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:23
+#, fuzzy
+msgid "Status"
+msgstr ""
+"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
+"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
+"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
+"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
+" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
+"comunitarias."
+
+#: new_arrivals_chi/app/templates/org_management.html:24
+msgid "Action"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:32
+msgid "Active"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:33
+msgid "Hidden"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:34
+msgid "Suspended"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:42
+msgid "Edit"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:49
+msgid "Suspend"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/org_management.html:50
+msgid "Unsuspend"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/organization.html:20
+msgid "Open Hours"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/organization.html:33
+msgid "Languages Spoken"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/organization.html:43
+msgid "Supplies and Services"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:15
+msgid "Resources to Apply for Humanitarian Parole"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:17
+msgid "Who is eligible for parole?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:20
+msgid ""
+"Sometimes, the US government grants a person parole when they enter the "
+"United States. Parole is a type of discretionary permission to enter the "
+"United States. It is only given to some people in certain situations."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:24
+msgid ""
+"Individuals who have unexpired parole are able to apply for a work permit"
+" or “Employment Authorization Document” (EAD)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:27
+msgid "Determining my eligibility"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:30
+msgid ""
+"There are various documents that show an individual may have parole. "
+"Below are examples of documents that tell you if someone entered via "
+"parole, along with the parole expiration date."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:34
+msgid ""
+"If you do not have a photo or physical document such as the above "
+"examples, you can look up the applicant's latest entry details online:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:37
+msgid "I-94 Look-Up Instructions"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:40
+msgid "Link to I-94"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:44
+msgid ""
+"Scroll to “Already Visiting & Need Proof of Visitor Status?” and Select "
+"GET MOST RECENT I-94"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:45
+msgid "Read and agree to Terms of Service. Select I ACKNOWLEDGE AND AGREE."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:46
+msgid ""
+"Enter your traveler information as it appears on your immigration "
+"paperwork. Under “Document Number,” enter your A NUMBER. Select NEXT when"
+" finished."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:47
+msgid ""
+"If your entry returns a result, select PRINT from the next page. If not, "
+"double check your information."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:48
+msgid "Either print or take a screenshot of your I-94 Record."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:51
+#: new_arrivals_chi/app/templates/vttc_apply.html:39
+msgid ""
+"Get Help Applying: TPS & Work Authorization Immigration Application "
+"Workshops for Recent Arrivals"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:54
+#: new_arrivals_chi/app/templates/vttc_apply.html:43
+msgid ""
+"The State of Illinois and the City of Chicago, in partnership with local "
+"community organizations, provide assistance to help eligible immigrants "
+"apply to stay or work in the US legally. Certain recently arrived "
+"immigrants are eligible to participate in centralized application "
+"workshops for TPS and Work Permits based on parole. Workshops are free of"
+" charge. Follow the below steps to learn if you are eligible and to sign "
+"up to participate:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:57
+#: new_arrivals_chi/app/templates/vttc_apply.html:45
+msgid "Steps to Participate"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:60
+msgid ""
+"Step 1: Determine if you are eligible to attend a workshop – complete a "
+"screening form to determine if you are eligible."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:61
+#: new_arrivals_chi/app/templates/vttc_apply.html:48
+msgid ""
+"Step 2: The State of Illinois and/or City of Chicago will complete a "
+"verification process within ~2 weeks of submitting your screening form. "
+"If additional information is needed, you will receive a text and/or email"
+" requesting that information."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:62
+msgid ""
+"Step 3: Once determined eligible to attend a workshop, you will be sent a"
+" link to schedule a workshop appointment by text and/or email. Respond to"
+" the invitation and sign up for a workshop appointment. Workshop "
+"appointments are first-come first-served, every Tuesday – Friday. New "
+"appointments are added frequently - continue checking if you do not yet "
+"see an appointment available."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:63
+#: new_arrivals_chi/app/templates/vttc_apply.html:50
+msgid ""
+"Step 4: Complete your workbook and prepare your documents. You may "
+"download the workbook here. You can print the workbook at any Chicago "
+"Public Library using your CityKey Chicago ID."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:64
+#: new_arrivals_chi/app/templates/vttc_apply.html:51
+msgid ""
+"Step 5: Attend the workshop according to the instructions texted or "
+"emailed to you. Be sure to bring your completed workbook & documents!"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:65
+#: new_arrivals_chi/app/templates/vttc_apply.html:52
+msgid ""
+"Step 6: At the workshop, a legal representative will review your "
+"eligibility for TPS or a work permit based on parole. If you are "
+"eligible, your immigration application will be prepared. Many applicants "
+"are also able to proceed with USCIS processing to have your application "
+"submitted to USCIS (Immigration) and your fingerprints taken the same "
+"day. Some applicants will be scheduled for a second appointment for USCIS"
+" processing."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:66
+#: new_arrivals_chi/app/templates/vttc_apply.html:53
+msgid ""
+"Step 7: Attend your USCIS appointment at which point you will be issued a"
+" receipt number, and you may have your photo or fingerprints taken."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:67
+#: new_arrivals_chi/app/templates/vttc_apply.html:54
+msgid ""
+"Step 8: Wait to receive notices from USCIS by mail. USCIS will generally "
+"process your application in ~30 days and mail you a decision. If "
+"approved, you will receive your work permit and social security number "
+"via mail."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:70
+#: new_arrivals_chi/app/templates/vttc_apply.html:57
+msgid ""
+"Need assistance with registration? Call 312-668-0114 Monday - Friday, "
+"12pm - 4pm for assistance."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:77
+msgid "Click here to workshop form."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_apply.html:81
+msgid "Download the workbook here."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:15
+msgid "About Humanitarian Parole"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:17
+msgid "What is Humanitarian Parole?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:20
+msgid ""
+"While humanitarian parole is explicitly authorized by the INA for “urgent"
+" humanitarian reasons,” there is no statutory or regulatory definition of"
+" an “urgent humanitarian reason.” USCIS has stated, however, that it will"
+" consider factors such as the time-sensitivity of the circumstances and "
+"the degree of suffering that may result if parole is not authorized."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:24
+msgid ""
+"According to USCIS, examples of urgent humanitarian circumstances could "
+"include, but are not limited to:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:28
+msgid "Receiving critical medical treatment in the United States"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:29
+msgid "Becoming an organ donor to an individual in the United States"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:30
+msgid "Visiting or caring for a sick relative in the United States"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:31
+msgid ""
+"Attending a funeral or settling the affairs of a deceased relative in the"
+" United States"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:32
+msgid ""
+"Coming to the United States for protection from targeted or "
+"individualized harm"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:35
+msgid "Are Individuals Granted Parole Eligible to Work?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:38
+msgid ""
+"Individuals granted parole can apply for work authorization while they "
+"remain in the U.S. on a grant of parole and, if approved, become eligible"
+" to work. Certain Afghan and Ukrainian parolees are authorized to work "
+"incident to their parole, and legally authorized to work without filing a"
+" separate application for employment authorization. Work authorization "
+"lasts as long as the applicants are on parole."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:41
+msgid "What Factors Are Considered in Making a Parole Decision?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:44
+msgid ""
+"Each DHS component has its own methodology for making parole decisions. "
+"Moreover, the factors to be considered will vary depending on the type of"
+" parole requested. In general, however, since parole is a discretionary "
+"benefit, all parole decisions will be made on a case-by-case basis, with "
+"the immigration officer considering the reason for the request and "
+"whether it constitutes a basis for parole, and then weighing the positive"
+" factors in the noncitizen’s case against any negative factors."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:48
+msgid ""
+"In deciding whether to favorably exercise discretion, the immigration "
+"officer evaluates a number of factors, including:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:52
+msgid "The reason for the parole request"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:53
+msgid ""
+"Whether there is evidence of any criminal history or previous immigration"
+" violations"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:54
+msgid "Whether there is evidence of any previous participation in fraud"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:55
+msgid ""
+"Whether the noncitizen's presence would benefit a U.S. citizen, lawful "
+"permanent resident (LPR), or community in the United States"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:56
+msgid "Evidence of the noncitizen's character"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:57
+msgid ""
+"Whether there are other means available to the noncitizen to enter the "
+"United States for the stated parole purpose, such as a visa"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:60
+msgid "The Parole Process and How It Works: Step-by-Step"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:63
+msgid ""
+"Parole is reviewed on a case-by-case basis by an agency within DHS, and "
+"the burden of proof is placed on the applicant to establish that parole "
+"should be authorized. If parole is authorized, the agency authorizing "
+"parole will specify how long it may last, tailored to accomplish the "
+"purpose of the parole. Parole ends on the date it is set to expire, when "
+"the beneficiary departs the United States, or when the individual "
+"acquires an immigration status. DHS may revoke parole at any time if it "
+"is no longer warranted or the beneficiary violates the conditions of the "
+"parole. A parolee may also apply to extend or renew their parole with the"
+" agency that first issued the parole."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/parole_info.html:67
+msgid "American Immigration Council"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:14
+msgid "Register Organization Profile"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:23
+msgid "Primary Location:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:65
+msgid "Northalsted \"Boystown\""
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:154
+msgid "Lakeview (East)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:155
+msgid "Lakewood / Balmoral"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:275
+msgid "Lakeview (West)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:298
+msgid "Monday"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:313
+msgid "Tuesday"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:328
+msgid "Wednesday"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:343
+msgid "Thursday"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:358
+msgid "Friday"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:373
+msgid "Saturday"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:388
+msgid "Sunday"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/register.html:401
+msgid "Register"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/registration_change_password.html:19
+msgid "Register New User"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/registration_change_password.html:22
+msgid ""
+"Please use the temporary registration password provided in your "
+"registration email to sign up. You will need to change this temporary "
+"password during the registration process."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/registration_change_password.html:43
+msgid "Registration Password"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/registration_change_password.html:49
+#: new_arrivals_chi/app/templates/registration_change_password.html:55
+#: new_arrivals_chi/app/templates/signup.html:34
+#: new_arrivals_chi/app/templates/signup.html:40
+msgid "Password"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/registration_change_password.html:58
+msgid "Register Account"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/registration_change_password.html:62
+msgid ""
+"Your new password must meet the following criteria: it must include at "
+"least one uppercase letter, one lowercase letter, one number, one special"
+" character, and be longer than 8 characters. Additionally, it should not "
+"be a commonly used password."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:15
+msgid "Renters Rights"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:17
+msgid "Basic Rights"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:18
+msgid ""
+"All people have the right to a safe and stable home to build better "
+"futures for themselves and their families. In Illinois, you have the "
+"right to:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:20
+msgid "Live in a Safe, Reasonably Maintained Home"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:21
+msgid ""
+"Your landlord is responsible for maintaining running water, electricity, "
+"and heat, based on the specific requirements of local building codes. If "
+"your heat is not functioning during the winter, your landlord has 24 "
+"hours to respond to your complaint with plans to resolve the issue."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:23
+msgid "Ask for repairs to your rental unit"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:24
+msgid ""
+"You have the right to repairs made within 14 days (or 72 hours in an "
+"emergency) that do not exceed $500 or half of the monthly rent, whichever"
+" is less."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:27
+msgid "Request repairs in writing, including the date."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:28
+msgid ""
+"If the landlord refuses to make repairs, submit a formal letter with your"
+" rent."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:29
+msgid ""
+"If the landlord still does not make repair by the given deadline, you "
+"have the right to hire a licensed professional to make the repairs and "
+"deduct the costs from your rent with a receipt."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:32
+msgid ""
+"Complain to any governmental authority or testify in court about the "
+"state of your unit and enjoy equal protection under the law."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:34
+msgid "Retaliatory Eviction Act"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:35
+msgid ""
+"You have the right to report a complaint to any governmental authority "
+"about a violation of a building code, health ordinance, or similar "
+"regulation without threat of eviction or refusal to renew the lease."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:37
+msgid "Rent Increases"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:38
+msgid ""
+"In Illinois, landlords cannot raise rent* during the time period of a "
+"written or a verbal lease. For month-to-month tenants, the landlord must "
+"provide 30 days’ notice, and for week-to-week tenants, they must provide "
+"seven days’ notice before the rent is due. (*Separate rules for notifying"
+" rent increases apply for federally subsidized housing.)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:40
+msgid "Residential Tenant and Landlord Ordinance"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:41
+msgid ""
+"Every tenant in Illinois is covered by Illinois laws, but Chicago has "
+"local laws, called ordinances, that apply to landlords and tenants "
+"regardless of immigration status. These ordinances cover the rights and "
+"responsibilities of both tenants and landlords. Your landlord should "
+"provide you with a written summary of the RTLO with your lease."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:43
+msgid "Cook County Residential Tenant and Landlord Ordinance"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:45
+msgid ""
+"Prevents landlords from charging late fees greater than $10 a month for "
+"the monthly rent of up to $1,000, plus 5% per month for the monthly rent "
+"over $1,000."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:46
+msgid ""
+"Limits security deposits to no more than one and a half months’ rent. "
+"Security deposits must be returned within 30 days after the tenant has "
+"left the unit. If a reasonable amount has been deducted for repairs, the "
+"landlord must provide an itemized list of damages and costs for repairs."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:47
+msgid ""
+"Landlords cannot threaten to, attempt to, or forcefully remove a tenant "
+"without authority of the law. For example, landlords cannot change the "
+"locks, shut off utilities, or do anything else that interferes with the "
+"tenant’s use of the apartment."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:48
+msgid ""
+"Lockouts are always illegal, but the Cook County RTLO adds extra "
+"protections. In Cook County, you can sue your landlord for up to two "
+"months’ rent or twice the damages sustained by the tenant, whichever is "
+"greater. In municipalities outside of the City of Chicago, violations "
+"should be made to the Cook County Sheriff's Office at 773-674-4357."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:51
+msgid "Chicago Residential Landlord Tenant Ordinance"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:53
+msgid ""
+"Prevents landlords from charging late fees greater than $10 a month for "
+"the monthly rent of up to $500, plus 5% per month for the monthly rent "
+"over $500."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:54
+msgid ""
+"Security deposits must be returned, minus any expenses for damages, "
+"within 45 days after the tenant has left the unit."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:55
+msgid ""
+"Before the landlord can deduct expenses for damages, they must first "
+"provide the tenant with an itemized list of damages within 30 days after "
+"the tenant has left the unit."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:56
+msgid ""
+"Landlords cannot threaten to, attempt to, or forcefully remove a tenant "
+"without authority of the law. For example, landlords cannot change the "
+"locks, shut off utilities, or do anything else that interferes with the "
+"tenant's use of the apartment."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:57
+msgid ""
+"Lockouts are always illegal, but the Chicago RTLO adds extra protections."
+" The City of Chicago will fine the landlord $200 to $500 for each day the"
+" lockout occurs. Violations should be reported to the Chicago Police "
+"Department. Call 311 for assistance."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:60
+msgid "Lockouts and Evictions"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:61
+msgid ""
+"A landlord cannot forcibly enter your home, change the locks, break down "
+"the door, or cut off access to utilities in an attempt to evict you, "
+"pursuant to the Forcible Entry and Detainer Act. The County Sheriff can "
+"forcibly retake possession for a landlord only on order from a judge, "
+"only after the landlord wins an eviction lawsuit and the tenant refuses "
+"to leave."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:63
+msgid ""
+"DON'T SELF EVICT! An eviction notice is not the same as an eviction. ​​An"
+" initial eviction notice is only the first step in the eviction process. "
+"It does not mean that the tenant has to move out immediately, and it does"
+" not necessarily mean that the tenant will have to appear in court. There"
+" will still be a chance to resolve the issue directly with the landlord, "
+"outside of court."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:65
+msgid "Eviction Process"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:67
+msgid ""
+"Eviction Notice: The landlord personally serves a signed, written notice "
+"on the tenant or on anyone 13 years or older who lives at the property, "
+"or sends one by certified mail with a signed returned receipt."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:68
+msgid ""
+"Court Summons and Complaint: ONLY IF the tenant and landlord do not "
+"resolve the issue within the notice period, a summons and complaint with "
+"the court seal is served, calling the tenant to court."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:69
+msgid ""
+"Court Hearing: If the tenant does not appear, a default judgment could be"
+" issued in favor of the landlord, and the tenant must move out. If the "
+"tenant wins, the tenant stays in the unit and the process ends."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:70
+msgid ""
+"If Landlord Wins: Eviction order is then issued as the tenant’s final "
+"warning to move out and eviction could appear on tenant’s record."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:71
+msgid ""
+"If Tenant Stays After Eviction Order: The tenant is forcibly removed "
+"(only by law enforcement, never the landlord)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:74
+msgid "Types of Eviction Notices"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:75
+msgid ""
+"The reason for eviction determines some aspects of the eviction "
+"process—mainly, how many days a tenant has to resolve the issue or fight "
+"the eviction in court."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:77
+msgid "5 Day Notice"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:78
+msgid ""
+"Nonpayment of Rent: Upon receiving this written notice, the tenant can "
+"avoid going to court by repaying the past due rent in full within five "
+"days. In Illinois, if the landlord accepts partial payment of rent, the "
+"eviction becomes invalid, unless the notice states that only full payment"
+" of rent will waive the landlord’s right to terminate the lease. In "
+"Chicago, the eviction process becomes invalid if the landlord accepts any"
+" payment of partial rent at all."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:80
+msgid ""
+"Illegal Activity: A tenant may receive this written notice if they have "
+"committed a class X felony, such as armed robbery, aggravated battery, or"
+" aggravated arson."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:82
+msgid "10 Day Notice"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:83
+msgid ""
+"Noncompliance: A tenant may receive this written eviction notice for "
+"violating terms of the lease or rental agreement, including more people "
+"than permitted residing in the unit, damaging rental property, or having "
+"pets if not permitted in the unit."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:85
+msgid "7/30/60 Day Notice"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:86
+msgid ""
+"At-Will Lease Termination: Either a tenant or landlord may submit a "
+"written notice to end the lease if the lease agreement does not specify a"
+" move-out date."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:89
+msgid "At least a week: 7-day notice"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:90
+msgid "Between a week and a year: 30-day notice"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:91
+msgid "At least a year: 60-day notice"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:94
+msgid "Protections for When Your Residence is Sold"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:95
+msgid ""
+"Tenants must be informed that the property has been sold and they have a "
+"new landlord within 10 days of purchase. If a building/unit is sold, all "
+"oral or written leases remain valid for the duration of the lease. New "
+"landlords cannot raise rents, remove tenants, force tenants to sign a new"
+" lease, or withhold security deposits for a purchased property. The new "
+"landlord is responsible for obtaining all pertinent documents and "
+"deposits from the former owner and paying security deposits back when the"
+" tenant leaves."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:97
+msgid "90 Day Notice"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:98
+msgid ""
+"Foreclosure of Unit: A tenant may receive this written notice if their "
+"unit is part of property that has been foreclosed upon and their rental "
+"cannot continue. Tenants have 90 days to move regardless of whether they "
+"have a verbal or written lease."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:100
+msgid "Protections Based on Immigration Status"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:101
+msgid "Disclosure of Immigration Status"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:102
+msgid ""
+"Landlords can't discriminate against you because of the country you or "
+"your family are from. If landlords ask about immigration status, they "
+"must ask ALL applicants. Fair housing agencies should not ask about "
+"immigration status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:104
+msgid "Documentation"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:105
+msgid ""
+"It is illegal to require additional fees or documentation due to "
+"perceived national origin or ancestry, regardless of immigration status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:107
+msgid ""
+"Alternative Documents a Tenant Can Ask a Landlord to Accept When Applying"
+" to Rent"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:109
+msgid ""
+"Consulate card, current foreign passport with I-551 stamp or I-94 form "
+"(arrival record), I-864 form (sponsorship verification), school ID card "
+"with photograph, hospital records, or Chicago CityKey, among other "
+"options. Contact a trusted housing organization for details."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:110
+msgid ""
+"School records, letter from utility company (energy, water, gas, etc.), "
+"copy of lease from former residence, or letter from former landlord with "
+"a phone number."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:111
+msgid ""
+"Letter from employer or current pay stubs, sponsorship letters or I-864 "
+"form, or Section 8 voucher, among other options."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:114
+msgid "Immigrant Tenant Protection Act (ITPA)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:115
+msgid ""
+"This law went into effect in August 2019. It prohibits Illinois landlords"
+" from harassing, threatening, or evicting tenants based on actual or "
+"perceived immigration or citizenship status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:117
+msgid "Protects all renters, regardless of immigrant status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:118
+msgid ""
+"Protects everyone living in the household, not just people named on the "
+"lease."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:119
+msgid "Protects tenants with both written and verbal leases."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:122
+msgid "Landlords cannot use your immigration status to:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:124
+msgid ""
+"Threaten to call Immigration and Customs Enforcement (ICE), evict you, or"
+" shut off utilities for exercising your rights."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:125
+msgid "Intimidate you, harass you, or force you to move."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:126
+msgid ""
+"Require tenants to share their immigration status or mention their "
+"immigration or citizenship status during civil court proceedings (unless "
+"you bring it up or the housing is federally subsidized, excluding federal"
+" emergency assistance)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:129
+msgid "If you win a lawsuit against your landlord, you could win:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:131
+msgid ""
+"Money for physical, financial, or emotional damages suffered as a result "
+"of discrimination."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:132
+msgid "An additional $2,000 for each incident."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:133
+msgid "Money to pay for your lawyer."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:136
+msgid "Limitation of Immigrant Tenant Protection Act"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:137
+msgid ""
+"Only protects tenants in places where they already rent or were renting "
+"in the past (as of August 2019). Does not cover federally funded housing "
+"that requires landlords to check status. Does not prohibit landlords from"
+" asking for references or credit checks. Tenants must continue paying "
+"rent until they move."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:139
+msgid "Right to Free Interpretation and Translation Services"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:140
+msgid ""
+"If a prospective tenant brings an interpreter/translator, landlords must "
+"work with the interpreter/translator. Landlords should make sure tenants "
+"understand the lease and provide it in alternate formats (e.g. provide "
+"the written lease in Spanish). If the landlord refuses to provide a lease"
+" in a certain language, it may be a violation of Fair Housing or other "
+"civil rights laws, and you should consult an attorney."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:142
+msgid ""
+"All individuals have the right to request an interpreter in any Illinois "
+"court when they check in with the clerk for civil cases. The services of "
+"court foreign language interpreters are provided at no cost to the "
+"individual in need of the service, consistent with the Illinois Code of "
+"Civil Procedure and the judicial circuit’s Language Access Plan (735 ILCS"
+" 5/8-1403)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:144
+msgid "What to Do If You Are Locked Out or Illegally Evicted"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:145
+msgid ""
+"Lockouts are always illegal regardless of immigration status. Call an "
+"attorney or trusted housing organization to file a police report with the"
+" county sheriff. If you're in Chicago, report it to the Chicago Police "
+"Department. See resources on pages 15-24. In an emergency, call 911. Be "
+"prepared to give the police or dispatcher your name and address as well "
+"as the landlord’s name and phone number. If the dispatcher or officer "
+"responds that it’s a “civil matter,” ask to speak with the watch "
+"commander, or call 911 again and request to speak with the watch "
+"commander from the beginning of the call. Make sure to have an ID or a "
+"photo of your ID showing your address. A consulate ID (matrícula "
+"consular), Chicago CityKey, or TVDL (Temporary Driver's License) are all "
+"acceptable."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:147
+msgid "If the landlord does not end the lockout:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:149
+msgid ""
+"You can file charges in court to obtain a temporary restraining order and"
+" have the property returned to you until the issue is resolved."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:150
+msgid ""
+"In Chicago: You can file a complaint by calling 311. The city can fine "
+"your landlord $200-$500 for every day the lockout occurs. You will need a"
+" copy of the police report to file the complaint."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:151
+msgid ""
+"In Cook County: You can sue your landlord for up to 2 months rent or "
+"twice damages incurred, whichever is greater. You will need a copy of the"
+" police report to file the complaint."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:154
+msgid ""
+"In general, if an undocumented tenant must call or interact with the "
+"police, the ACLU recommends:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:156
+msgid ""
+"Stay calm. Don't run, argue, resist, or obstruct the officer, even if you"
+" believe your rights are being violated. Keep your hands where police can"
+" see them."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:157
+msgid "You do not have to consent to a search of yourself or your belongings."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:158
+msgid ""
+"You do not have to answer questions about where you were born, whether "
+"you are a U.S. citizen, or how you entered the country. Anything you tell"
+" an officer can later be used against you in immigration court."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:159
+msgid ""
+"Don't lie or produce any false documents. Don’t sign anything without "
+"speaking with a lawyer first, and don’t sign any documents in English if "
+"you only understand limited English."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:160
+msgid ""
+"Subsidized housing tenants have a right to prepare a defense against "
+"perceived evictions."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:163
+msgid "Protections Based on Sex and Gender"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:164
+msgid ""
+"Sex- and gender-based discrimination includes sexual harassment. It is "
+"illegal for a landlord to make any unwelcome sexual advances on a tenant "
+"or coerce them in any way that may interfere with an individual’s rental "
+"or purchase of a property or create an intimidating, hostile, or "
+"offensive environment. For example, landlords cannot write sexual favors "
+"into the terms of a lease or refuse to rent to a tenant because of their "
+"response to harassment."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:166
+msgid "Safe Homes Act"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:167
+msgid ""
+"If you have been in a violent or abusive housing situation (such as "
+"domestic violence, child abuse, or elder abuse), you and your family have"
+" the right to: Break your lease and leave the home without having to "
+"continue paying rent, as long as you give the landlord written notice "
+"three days before or after you leave the home, and/or Request an "
+"emergency lock change via written notice to keep the abuser out of the "
+"home in an emergency situation. This act covers rental housing and "
+"subsidized housing (such as Section 8 housing choice vouchers) and "
+"applies to written and oral leases. You can learn more here."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:169
+msgid "What to Include in the Written Notice:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:171
+msgid ""
+"The reason for vacating the premises was because of domestic or sexual "
+"violence against the tenant or member of the tenant's household."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:172
+msgid "The date of the domestic or sexual violence."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:173
+msgid ""
+"At least one form of the following types of evidence: medical, court, or "
+"police evidence of violence, or statement from an employee of a victim-"
+"services or rape crisis organization from which the tenant or a member of"
+" the tenant's household sought services."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:176
+msgid "Protections for Tenants with Disabilities"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:177
+msgid ""
+"Illinois Fair Housing Laws require that tenants with disabilities be "
+"given Reasonable Accommodations and Modifications to their rental units."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:179
+msgid ""
+"You have the right to request a change to a policy or practice to allow "
+"you equal access to housing, such as closer or wider parking spots or an "
+"exception to a no-pet rule."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:180
+msgid ""
+"You also have the right to request physical modifications to the "
+"structure of the rental unit to allow you equal access, such as bars in "
+"the bathroom or a ramp in the common areas. The tenant may be responsible"
+" for paying for these changes. Contact a housing advocacy organization "
+"for information about financial assistance."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:181
+msgid "A landlord cannot ask general questions about a tenant's disability."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:184
+msgid "The 2022 Final Public Charge Rule is Now in Effect"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:185
+msgid ""
+"As of December 23, 2022, the Biden Administration finalized a new public "
+"charge regulation adding protections to secure immigrant families' access"
+" to the health and social services safety net."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:187
+msgid "What is Public Charge?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:188
+msgid ""
+"The public charge is part of federal immigration law under which the "
+"immigrant applying for legal permanent residency (green card) or a visa "
+"to enter the US can be denied if they are deemed “likely to become "
+"primarily dependent on the government for subsistence.”"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:190
+msgid ""
+"Under current guidance, immigration officials will consider an "
+"applicant’s age, income, English proficiency, and financial sponsorship, "
+"as well as past use of the following two programs:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:192
+msgid ""
+"Long-term institutionalization paid for by the government, such as: "
+"Nursing home care, Mental health institutionalization"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:193
+msgid ""
+"Cash assistance for income maintenance, such as: Supplemental Security "
+"Income (SSI), Temporary Assistance to Needy Families (TANF), State, "
+"local, or tribal general relief (e.g. General Assistance, cash assistance"
+" for AABD)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:196
+msgid "The following housing programs WILL NOT be counted toward public charge:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:198
+msgid "Section 8 Housing Choice Voucher"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:199
+msgid ""
+"Section 8 Project-Based Rental Assistance (including the Moderate "
+"Rehabilitation Program)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:200
+msgid "Public Housing"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:203
+msgid ""
+"All immigrant families, regardless of immigration status, can and should "
+"access the emergency rental, mortgage, and cash assistance programs for "
+"which they are eligible, as well as: Emergency Shelters and Transitional "
+"Housing, HUD Local Continuum of Care Emergency Shelters & Transitional "
+"Housing."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/renters_rights.html:205
+msgid "Learn more here."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:14
+msgid "Resources to Apply for TPS"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:16
+msgid "Workshops"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:19
+msgid ""
+"TPS & Work Permit Immigration Application Workshops for Recent\n"
+"    Arrivals. Registration for centralized workshops for work permits "
+"through\n"
+"    Temporary Protected Status and parole is currently closed."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:30
+msgid "How can I apply for TPS?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:33
+msgid ""
+"To apply for TPS or re-register, submit Form I-821, Application for\n"
+"    Temporary Protected Status I-821 to USCIS. There are instructions on "
+"how to\n"
+"    apply on the USCIS website."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:40
+msgid "View and submit Form I-821 here."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:45
+msgid ""
+"You can also request an employment authorization document (EAD) at the\n"
+"    same time. Use Form I-765, Request for Employment Authorization. You "
+"can\n"
+"    also file this later."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:50
+msgid "Evidence"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:53
+msgid "Along with your application, you must also submit evidence proving:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:57
+msgid "Your identity and nationality,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:59
+msgid "The date you entered the US,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:61
+msgid "Residence in the US, and"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:64
+msgid ""
+"Court disposition record (if you were arrested, charged, or\n"
+"      convicted)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:69
+msgid "Fees:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:73
+msgid ""
+"There is a fee to file. The fee is based on factors such as your\n"
+"      age."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:78
+msgid ""
+"If you are applying for the first time, the fee to file Form I-821 is\n"
+"      $50."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:83
+msgid ""
+"If you have TPS and are re-registering, there is no fee for the\n"
+"      form."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:88
+msgid ""
+"If you also apply for employment authorization, the fee is $410 for\n"
+"      Form I-765."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:93
+msgid ""
+"If you are under 14 or over 65, you don't have to pay for the EAD\n"
+"      when you file a TPS application."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:98
+msgid "If you are 14 or older, there is a $85 biometric services fee."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:102
+msgid "You may also use their fee calculator to figure out your fee."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:106
+msgid "Fee Waiver"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:110
+msgid "Form I-912, Application for Fee Waiver."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:116
+msgid "If you can't pay for the filing fees or biometric services fees"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:120
+msgid "Filing the fee waiver request with your application."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:124
+msgid ""
+"You can use one form for both the filing and biometric service\n"
+"      fee."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:128
+msgid "If USCIS approves your request, both fees will be waived."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:131
+msgid ""
+"If you are requesting a fee waiver, you have to file paper versions\n"
+"      of the application and fee waiver request."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:136
+msgid ""
+"You can file one Form I-912 for all family member's applications.\n"
+"      All the forms must be sent together."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:140
+msgid "To receive a fee waiver, you must prove that:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:143
+msgid ""
+"You are receiving a public benefit based on your income (such as\n"
+"      Medicaid, SNAP, TANF, or SSI),"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:148
+#, python-format
+msgid ""
+"Your household income is at or below 150% of the federal poverty\n"
+"      guidelines, or"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:152
+msgid "You are experiencing financial hardship."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:155
+msgid ""
+"If your fee waiver is denied, you can refile and pay the fees. You\n"
+"      must pay the fees either before the registration deadline or within"
+" 45\n"
+"      days of the date on your fee waiver denial letter, whichever is "
+"later."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:165
+msgid "Learn more about filing a fee waiver here."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:170
+msgid ""
+"You can call USCIS at (800)375-5283 to request a paper form. For TTY,\n"
+"    call (800)767-1833."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:174
+msgid "What happens after I apply?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:176
+msgid "If you are approved:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:180
+msgid ""
+"If USCIS approves your TPS application, they will send you an\n"
+"      approval notice with an I-94, Arrival/Departure Record. This is "
+"evidence\n"
+"      of your TPS."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:186
+msgid ""
+"If you applied for employment authorization, you will receive an\n"
+"      Employment Authorization Document (EAD)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:191
+msgid "If you are denied:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:195
+msgid ""
+"IF USCIS denies your application, you will receive a denial\n"
+"      letter."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:200
+msgid ""
+"If you are eligible, the letter will state that you have 30 days to\n"
+"      appeal to the USCIS Administrative Appeals Office (AAO)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:207
+#: new_arrivals_chi/app/templates/tps_info.html:93
+msgid "Illinois Legal Aid"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:14
+msgid "About Temporary Protected Status (TPS)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:16
+msgid "What is Temporary Protected Status?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:19
+msgid ""
+"Temporary Protected Status (TPS) allows people from certain countries to "
+"live and work in the United States."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:23
+msgid ""
+"The Secretary of Homeland Security may designate a foreign country for "
+"TPS due to:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:27
+msgid "Ongoing civil war or conflict in the country,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:28
+msgid "An environmental disaster or an epidemic, or"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:29
+msgid "Other extraordinary or temporary conditions."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:30
+msgid ""
+"Eligible individuals without nationality who last resided in the "
+"designated country may be able to receive TPS."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:33
+msgid "Am I eligible for TPS?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:35
+msgid "To qualify for TPS, you must:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:38
+msgid "Be from a foreign country with a TPS designation, and"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:39
+msgid ""
+"Be continuously physically present and residing in the US from the date "
+"the designation went into effect."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:42
+msgid "You may not be eligible for TPS or maintain your existing TPS if:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:45
+msgid "You have been convicted of a felony in the US,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:46
+msgid "You have been convicted of two or more misdemeanors in the US,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:47
+msgid "You meet any of the mandatory asylum bars, or"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:48
+msgid "You fail to meet the requirements for TPS."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:51
+msgid ""
+"If you are from one of the following countries and arrived in the US "
+"before the date listed, you are likely eligible for TPS:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:54
+msgid "Afghanistan (May 20, 2022)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:55
+msgid "Burma (Myanmar) (March 25, 2024)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:56
+msgid "Cameroon (June 7, 2022)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:57
+msgid "El Salvador (December 14, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:58
+msgid "Ethiopia (April 15, 2024)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:59
+msgid "Haiti (December 14, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:60
+msgid "Honduras (December 14, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:61
+msgid "Nepal (December 14, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:62
+msgid "Nicaragua (December 14, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:63
+msgid "Somalia (March 13, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:64
+msgid "South Sudan (August 21, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:65
+msgid "Sudan (December 14, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:66
+msgid "Syria (January 29, 2024)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:67
+msgid "Ukraine (August 21, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:68
+msgid "Venezuela (November 17, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:69
+msgid "Yemen (January 3, 2023)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:72
+msgid "What are the benefits of TPS?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:74
+msgid "If you receive TPS:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:77
+msgid "You cannot be detained by the Department of Homeland Security,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:78
+msgid "You cannot be deported from the US,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:79
+msgid "You can apply for a work permit,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:80
+msgid ""
+"You can apply to get permission to travel outside the US and return to "
+"the US, and"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:81
+msgid "You can apply for asylum and other immigration benefits."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:84
+msgid "What are the cons of TPS?"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:87
+msgid ""
+"It is a temporary benefit that doesn't lead to lawful permanent residence"
+" or citizenship,"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:88
+msgid "Only applies to people already in the US, and"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_info.html:89
+msgid "Cannot be used to apply for entry to the US."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:13
+#, fuzzy
+msgid "Legal Resources for Undocumented Migrants"
+msgstr "Una Gu\\u00eda de Recursos para Nuevos Migrantes"
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:15
+msgid "For Those Who Don't Qualify for Status"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:18
+msgid ""
+"There are 11 million undocumented people in the US who find ways to live "
+"and work in their communities. Chicago is known for its welcoming "
+"community:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:22
+msgid ""
+"Education: Children can attend school regardless of their immigration "
+"status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:23
+msgid ""
+"Law Enforcement: Police officers are not permitted to inquire about an "
+"individual's immigration status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:24
+msgid ""
+"Driving: After a year of residency, individuals can drive without a "
+"license."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:25
+msgid ""
+"Employment: Employers have the authority to verify employment "
+"authorization. If an individual cannot provide this, the employer cannot "
+"legally hire them."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:28
+msgid "While undocumented status can make it challenging to:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:31
+msgid ""
+"Street Vending: Many individuals work as street vendors and should be "
+"aware of their rights in this role."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:32
+msgid ""
+"Business Ownership: It is possible to open your own business in the City "
+"of Chicago."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:33
+msgid ""
+"Workers' Rights: Even without proper documentation, workers are entitled "
+"to legal protection including fair pay, working hours, and how to report "
+"abuse."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/undocumented_resources.html:36
+msgid ""
+"The informal economy offers various opportunities, but understanding the "
+"rights and protections available is crucial."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:14
+msgid "Resources to Apply for Work Authorization Through VTTC"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:19
+msgid "1. Apply online via https://abe.illinois.gov."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:20
+msgid ""
+"2. Upon completion of the application, upload the required documents "
+"needed to supplement the application. If you don’t have these readily "
+"available, you can submit after submission."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:23
+msgid "Required Documents"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:26
+msgid "Government issued Photo ID (a passport is acceptable)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:27
+msgid ""
+"Proof of income for all “earners” in household (paystubs, letter from "
+"your employer, W-2, taxes)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:28
+msgid "Proof of residency (photo ID, lease, official mail, car insurance)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:29
+msgid "Social Security numbers for all members of household who have one"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:30
+msgid "Birth certificates for all members who have one"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:31
+msgid ""
+"Sworn Statement from the client stating that you are eligible and plan to"
+" apply"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:32
+msgid ""
+"Sworn statement from a service provider/attorney stating that you are "
+"eligible because of the visa for which you are applying"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:33
+msgid "If you've already filed, you can submit a receipt of your application"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:36
+msgid ""
+"All VTTC benefits are being processed through the Special Units DHS "
+"office. Special Units will also handle any companion cases associated "
+"with the VTTC cases. Upon submitting your application, send an email to "
+"DHS.FCS.VTTC@illinois.gov with the application # and indicate that you "
+"applied for your client(s) for VTTC benefits. You can send supplemental "
+"documentation then."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:37
+msgid ""
+"Sometimes, a local office gets the application before Special Units can "
+"pull it from the queue. In that event, the local office should accept the"
+" application and forward it to Special Units for processing."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:41
+msgid ""
+"TPS & Work Permit Immigration Application Workshops for Recent Arrivals. "
+"Registration for centralized workshops for work permits through Temporary"
+" Protected Status and parole is currently closed."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:47
+msgid ""
+"Step 1: Determine if you are eligible to attend a workshop – complete a "
+"screening form to determine if you are eligible: Click here to complete."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_apply.html:49
+msgid ""
+"Step 3: Once determined eligible to attend a workshop, you will be sent a"
+" link to schedule a workshop appointment by text and/or email. Respond to"
+" the invitation and sign up for a workshop appointment. Workshop "
+"appointments are first-come first-served, every Tuesday - Friday. New "
+"appointments are added frequently - continue checking if you do not yet "
+"see an appointment available."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:13
+msgid "About Work Authorization through VTTC"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:14
+msgid "Resources for Victims of Human Trafficking"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:16
+msgid ""
+"A foreign national who experienced human trafficking may be granted a "
+"temporary immigration authorization. This means they are eligible to "
+"apply for government assistance, mental and physical health services, "
+"financial aid to help pay for higher education, work permits, and "
+"housing."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:18
+msgid "T-1 Nonimmigrant Status (T Visa)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:19
+#: new_arrivals_chi/app/templates/vttc_info.html:38
+#: new_arrivals_chi/app/templates/vttc_info.html:54
+msgid "Who"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:20
+#: new_arrivals_chi/app/templates/vttc_info.html:55
+msgid "For victims of trafficking"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:21
+#: new_arrivals_chi/app/templates/vttc_info.html:40
+#: new_arrivals_chi/app/templates/vttc_info.html:56
+msgid "What"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:23
+msgid ""
+"Up to four years of temporary nonimmigrant status with a path to lawful "
+"permanent residence (green card) and citizenship"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:25
+#: new_arrivals_chi/app/templates/vttc_info.html:44
+#: new_arrivals_chi/app/templates/vttc_info.html:64
+msgid "Benefits"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:28
+#: new_arrivals_chi/app/templates/vttc_info.html:67
+msgid "Federal and state benefits and services to the same extent as refugees"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:30
+#: new_arrivals_chi/app/templates/vttc_info.html:47
+#: new_arrivals_chi/app/templates/vttc_info.html:69
+msgid "State benefits for Illinois are detailed below"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:32
+#: new_arrivals_chi/app/templates/vttc_info.html:49
+#: new_arrivals_chi/app/templates/vttc_info.html:71
+msgid "Documents"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:34
+#: new_arrivals_chi/app/templates/vttc_info.html:73
+msgid "HHS Certification Letter or Eligibility Letter"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:35
+msgid "Employment Authorization Document or Social Security number (SSN)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:37
+msgid "U-1 Nonimmigrant Status (U Visa)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:39
+msgid "For victims of various crimes, including trafficking"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:42
+msgid ""
+"Up to four years of temporary nonimmigrant status with a path to lawful "
+"permanent residence and citizenship"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:46
+msgid "Federal and state benefits and services"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:51
+#: new_arrivals_chi/app/templates/vttc_info.html:74
+msgid "Employment Authorization Document or SSN"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:53
+msgid "Continued Presence (CP)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:59
+msgid ""
+"Two-year authorization, renewable until case is resolved in increments of"
+" up to two years"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:61
+msgid "No path to lawful permanent residence"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:62
+msgid "May apply for a T or U visa with Continued Presence"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:78
+#: new_arrivals_chi/app/templates/vttc_info.html:87
+msgid "National Human Trafficking Training and Technical Assistance Center"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:81
+msgid "Employment Eligibility"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:83
+msgid ""
+"When an individual receives a work permit through a T visa, a U visa, or "
+"Continued Presence, they are eligible to work. An Individual may prove "
+"employment eligibility with the Employment Authorization Document (EAD) "
+"or other documentation allowable in the I-9 employment eligibility "
+"process, such as a state identification documentation. If an individual "
+"uses an SSN that states, “Valid for Employment Only with DHS "
+"Authorization,” they will need to show their EAD. Employers should not "
+"use the I-9 form as a screening tool and should request it only at the "
+"time of hire, up to and including the first day of work. Individuals with"
+" T or U visas generally become eligible for a green card after three "
+"years. Filing for a green card extends T or U nonimmigrant status, so the"
+" expiration of the work permit while the green card application is "
+"pending does not necessarily mean these individuals are ineligible to "
+"work. Individuals may apply for an EAD while waiting for legal permanent "
+"residency."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:90
+msgid "Public Benefit Eligibility - Federal"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:93
+msgid "Learn more about federal public benefit eligibility here."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:96
+msgid "Public Benefit Eligibility - State"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:98
+msgid ""
+"As of January 1, 2018, individuals who intend to file or have filed a "
+"U-Visa, T-Visa, and/or an Asylum application qualify for state-funded "
+"public benefits:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:101
+msgid "Medical Assistance (Medicaid/Medicare)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:102
+msgid "A state funded food program similar to SNAP/Food stamps"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:103
+msgid "TANF Cash Assistance"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:106
+msgid ""
+"The program through IL Department of Human Services (IL DHS) is referred "
+"to as Victims of Trafficking, Torture and Other Serious Crimes (VTTC)."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:108
+msgid "In order to apply, you must be:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:110
+msgid "Within benefit specific income requirements"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:111
+msgid "9 years or older"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:112
+msgid "Preparing to file or have filed one of the above visa applications"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:113
+msgid "A resident of Illinois"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:115
+msgid "Benefit Specific Income Requirements"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:117
+msgid ""
+"Each type of public benefit has different requirements based on how much "
+"you earn, your age, disabilities, size of household, etc. The "
+"requirements include:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:121
+#, python-format
+msgid ""
+"Food Assistance: Gross Income Limit is 165% FPL &amp; 200% FPL for those "
+"Age 60 or older OR Disabled"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:123
+#, python-format
+msgid "Cash Assistance: Gross Income Limit is 50% of FPL"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:125
+#, python-format
+msgid ""
+"Medical Assistance: Gross Income Limit is 100% of FPL and must not be "
+"eligible to receive any other medical program"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:129
+msgid ""
+"A household for an individual applying for the State Food Program "
+"includes the primary applicant/survivor, children under 22 years old who "
+"live with the applicant/survivor, spouse/parent of children if they live "
+"in the household. Everyone else living with you who buys food separately "
+"is not part of your household."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:132
+msgid ""
+"A household for an individual applying for TANF Cash and/or Medicaid "
+"includes: the primary applicant/survivor, spouse of primary "
+"applicant/survivor, and applicant/survivor's children under 19 years old."
+" Everyone else in the household must apply separately."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:134
+msgid "Public Charge"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:136
+msgid ""
+"VTTC food and medical assistance are not considered as part of the public"
+" charge test. People who are applying for and have been granted asylum, a"
+" U-Visa or a T-Visa are exempt from the test for public charge for "
+"inadmissibility."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/vttc_info.html:140
+msgid "Welcome to IL/Heartland Alliance"
+msgstr ""
+

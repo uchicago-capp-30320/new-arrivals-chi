@@ -12,35 +12,79 @@ Associated Files:
 
 {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['parole_apply'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    <div class="container">
-      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ translations[language]['legal']['find_lawyers'] | escape }}
+  <h1>{{ _('Resources to Apply for Humanitarian Parole') }}</h1>
+
+  <h2>{{ _('Who is eligible for parole?') }}</h2>
+
+  <p>
+    {{ _('Sometimes, the US government grants a person parole when they enter the United States. Parole is a type of discretionary permission to enter the United States. It is only given to some people in certain situations.') }}
+  </p>
+
+  <p>
+    {{ _('Individuals who have unexpired parole are able to apply for a work permit or “Employment Authorization Document” (EAD).') }}
+  </p>
+
+  <h2>{{ _('Determining my eligibility') }}</h2>
+
+  <p>
+    {{ _('There are various documents that show an individual may have parole. Below are examples of documents that tell you if someone entered via parole, along with the parole expiration date.') }}
+  </p>
+
+  <p>
+    {{ _('If you do not have a photo or physical document such as the above examples, you can look up the applicant\'s latest entry details online:') }}
+  </p>
+
+  <h3>{{ _('I-94 Look-Up Instructions') }}</h3>
+
+  <p>
+    <a href="https://i94.cbp.dhs.gov/I94/#/home" target="_blank">{{ _('Link to I-94') }}</a>
+  </p>
+
+  <ul>
+    <li>{{ _('Scroll to “Already Visiting & Need Proof of Visitor Status?” and Select GET MOST RECENT I-94') }}</li>
+    <li>{{ _('Read and agree to Terms of Service. Select I ACKNOWLEDGE AND AGREE.') }}</li>
+    <li>{{ _('Enter your traveler information as it appears on your immigration paperwork. Under “Document Number,” enter your A NUMBER. Select NEXT when finished.') }}</li>
+    <li>{{ _('If your entry returns a result, select PRINT from the next page. If not, double check your information.') }}</li>
+    <li>{{ _('Either print or take a screenshot of your I-94 Record.') }}</li>
+  </ul>
+
+  <h2>{{ _('Get Help Applying: TPS & Work Authorization Immigration Application Workshops for Recent Arrivals') }}</h2>
+
+  <p>
+    {{ _('The State of Illinois and the City of Chicago, in partnership with local community organizations, provide assistance to help eligible immigrants apply to stay or work in the US legally. Certain recently arrived immigrants are eligible to participate in centralized application workshops for TPS and Work Permits based on parole. Workshops are free of charge. Follow the below steps to learn if you are eligible and to sign up to participate:') }}
+  </p>
+
+  <h3>{{ _('Steps to Participate') }}</h3>
+
+  <ul>
+    <li>{{ _('Step 1: Determine if you are eligible to attend a workshop – complete a screening form to determine if you are eligible.') }}</li>
+    <li>{{ _('Step 2: The State of Illinois and/or City of Chicago will complete a verification process within ~2 weeks of submitting your screening form. If additional information is needed, you will receive a text and/or email requesting that information.') }}</li>
+    <li>{{ _('Step 3: Once determined eligible to attend a workshop, you will be sent a link to schedule a workshop appointment by text and/or email. Respond to the invitation and sign up for a workshop appointment. Workshop appointments are first-come first-served, every Tuesday – Friday. New appointments are added frequently - continue checking if you do not yet see an appointment available.') }}</li>
+    <li>{{ _('Step 4: Complete your workbook and prepare your documents. You may download the workbook here. You can print the workbook at any Chicago Public Library using your CityKey Chicago ID.') }}</li>
+    <li>{{ _('Step 5: Attend the workshop according to the instructions texted or emailed to you. Be sure to bring your completed workbook & documents!') }}</li>
+    <li>{{ _('Step 6: At the workshop, a legal representative will review your eligibility for TPS or a work permit based on parole. If you are eligible, your immigration application will be prepared. Many applicants are also able to proceed with USCIS processing to have your application submitted to USCIS (Immigration) and your fingerprints taken the same day. Some applicants will be scheduled for a second appointment for USCIS processing.') }}</li>
+    <li>{{ _('Step 7: Attend your USCIS appointment at which point you will be issued a receipt number, and you may have your photo or fingerprints taken.') }}</li>
+    <li>{{ _('Step 8: Wait to receive notices from USCIS by mail. USCIS will generally process your application in ~30 days and mail you a decision. If approved, you will receive your work permit and social security number via mail.') }}</li>
+  </ul>
+
+  <p>{{ _('Need assistance with registration? Call 312-668-0114 Monday - Friday, 12pm - 4pm for assistance.') }}</p>
+
+  <p>
+    <a href="https://welcometoil.org/resources/" target="_blank">{{ _('Welcome to IL') }}</a>
+  </p>
+
+  <p>
+    <a href="https://welcometoil.org/public/" target="_blank">{{ _('Click here to workshop form.') }}</a>
+  </p>
+
+  <p>
+    <a href="https://welcometoil.org/pdfviewer/tps-ead-workbook/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none" target="_blank">{{ _('Download the workbook here.') }}</a>
+  </p>
+
+  <div class="container">
+    <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
+      {{ _('Find a Lawyer') }}
     </button>
-    </div>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}

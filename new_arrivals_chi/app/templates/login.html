@@ -9,32 +9,41 @@ Skeleton HTML for user login page.
 References: https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
 -->
 
-{% extends "base.html" %}
-{% block content %}
-<div >
-    <h3 class="title">_('Login')</h3>
-    <div class="box">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] | escape }}
-            </div>
-        {% endif %}
-        {% endwith %}
-        <form method="POST" action="/login">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="_('Email')" autofocus="">
-                </div>
-            </div>
+{% extends "base.html" %} {% block content %}
+<div>
+  <h3 class="title">{{_('Login')}}</h3>
+  <div class="box">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="notification is-danger">{{ messages[0] | escape }}</div>
+    {% endif %} {% endwith %}
+    <form method="POST" action="/login">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input is-large"
+            type="email"
+            name="email"
+            placeholder="{{_('Email')}}"
+            autofocus=""
+          />
+        </div>
+      </div>
 
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="_('Email')" oncopy="return false" oncut="return false" onpaste="return false">
-                </div>
-            </div>
-            <button >_('Login')</button>
-        </form>
-    </div>
+      <div class="field">
+        <div class="control">
+          <input
+            class="input is-large"
+            type="password"
+            name="password"
+            placeholder="{{_('Email')}}"
+            oncopy="return false"
+            oncut="return false"
+            onpaste="return false"
+          />
+        </div>
+      </div>
+      <button>{{_('Login')}}</button>
+    </form>
+  </div>
 </div>
 {% endblock %}

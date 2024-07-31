@@ -12,35 +12,66 @@ Associated Files:
 
 {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['parole_info'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    <div class="container">
-      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ translations[language]['legal']['find_lawyers'] | escape }}
+  <h1>{{ _('About Humanitarian Parole') }}</h1>
+
+  <h2>{{ _('What is Humanitarian Parole?') }}</h2>
+
+  <p>
+    {{ _('While humanitarian parole is explicitly authorized by the INA for “urgent humanitarian reasons,” there is no statutory or regulatory definition of an “urgent humanitarian reason.” USCIS has stated, however, that it will consider factors such as the time-sensitivity of the circumstances and the degree of suffering that may result if parole is not authorized.') }}
+  </p>
+
+  <p>
+    {{ _('According to USCIS, examples of urgent humanitarian circumstances could include, but are not limited to:') }}
+  </p>
+
+  <ul>
+    <li>{{ _('Receiving critical medical treatment in the United States') }}</li>
+    <li>{{ _('Becoming an organ donor to an individual in the United States') }}</li>
+    <li>{{ _('Visiting or caring for a sick relative in the United States') }}</li>
+    <li>{{ _('Attending a funeral or settling the affairs of a deceased relative in the United States') }}</li>
+    <li>{{ _('Coming to the United States for protection from targeted or individualized harm') }}</li>
+  </ul>
+
+  <h2>{{ _('Are Individuals Granted Parole Eligible to Work?') }}</h2>
+
+  <p>
+    {{ _('Individuals granted parole can apply for work authorization while they remain in the U.S. on a grant of parole and, if approved, become eligible to work. Certain Afghan and Ukrainian parolees are authorized to work incident to their parole, and legally authorized to work without filing a separate application for employment authorization. Work authorization lasts as long as the applicants are on parole.') }}
+  </p>
+
+  <h2>{{ _('What Factors Are Considered in Making a Parole Decision?') }}</h2>
+
+  <p>
+    {{ _('Each DHS component has its own methodology for making parole decisions. Moreover, the factors to be considered will vary depending on the type of parole requested. In general, however, since parole is a discretionary benefit, all parole decisions will be made on a case-by-case basis, with the immigration officer considering the reason for the request and whether it constitutes a basis for parole, and then weighing the positive factors in the noncitizen’s case against any negative factors.') }}
+  </p>
+
+  <p>
+    {{ _('In deciding whether to favorably exercise discretion, the immigration officer evaluates a number of factors, including:') }}
+  </p>
+
+  <ul>
+    <li>{{ _('The reason for the parole request') }}</li>
+    <li>{{ _('Whether there is evidence of any criminal history or previous immigration violations') }}</li>
+    <li>{{ _('Whether there is evidence of any previous participation in fraud') }}</li>
+    <li>{{ _('Whether the noncitizen\'s presence would benefit a U.S. citizen, lawful permanent resident (LPR), or community in the United States') }}</li>
+    <li>{{ _('Evidence of the noncitizen\'s character') }}</li>
+    <li>{{ _('Whether there are other means available to the noncitizen to enter the United States for the stated parole purpose, such as a visa') }}</li>
+  </ul>
+
+  <h2>{{ _('The Parole Process and How It Works: Step-by-Step') }}</h2>
+
+  <p>
+    {{ _('Parole is reviewed on a case-by-case basis by an agency within DHS, and the burden of proof is placed on the applicant to establish that parole should be authorized. If parole is authorized, the agency authorizing parole will specify how long it may last, tailored to accomplish the purpose of the parole. Parole ends on the date it is set to expire, when the beneficiary departs the United States, or when the individual acquires an immigration status. DHS may revoke parole at any time if it is no longer warranted or the beneficiary violates the conditions of the parole. A parolee may also apply to extend or renew their parole with the agency that first issued the parole.') }}
+  </p>
+
+  <p>
+    <a href="https://www.americanimmigrationcouncil.org/research/use-parole-under-immigration-law" target="_blank">{{ _('American Immigration Council') }}</a>
+  </p>
+
+  <div class="container">
+    <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
+      {{ _('Find a Lawyer') }}
     </button>
-    </div>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}
+

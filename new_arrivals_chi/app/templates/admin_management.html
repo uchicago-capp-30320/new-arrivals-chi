@@ -6,14 +6,19 @@ Associated Files:
 
 HTML for edit organization page.
 -->
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="box">
-    <div class="box-big-title">{{_('Welcome to the Admin Dashboard') }}</div>
-    <button class="button blue" onclick="navigateTo('/admin/org_management', '{{ language | escape }}')">
-      {{ _('Organization Management') | escape }}
+  <div class="box-big-title">{{_('Welcome to the Admin Dashboard') }}</div>
+  <button
+    class="button blue"
+    onclick="navigateTo('/admin/org_management', '{{ language | escape }}')"
+  >
+    {{ _('Organization Management') | escape }}
   </button>
-  <button class="button green" onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'">
+  <button
+    class="button green"
+    onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'"
+  >
     {{ _('Website error reports') | escape }}
   </button>
 </div>
