@@ -1,4 +1,4 @@
-# Spanish translations for PROJECT.
+# English translations for PROJECT.
 # Copyright (C) 2024 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-31 02:41-0500\n"
-"PO-Revision-Date: 2024-07-31 02:42-0500\n"
-"Last-Translator: \n"
-"Language: es\n"
-"Language-Team: es <LL@li.org>\n"
+"PO-Revision-Date: 2024-07-31 02:41-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -21,10 +21,9 @@ msgstr ""
 #: new_arrivals_chi/app/templates/about.html:15
 #: new_arrivals_chi/app/templates/base.html:58
 msgid "About Us"
-msgstr "Acerca de Nosotros"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:17
-#, fuzzy
 msgid ""
 "New Arrivals Chi is a resource guide developed by six graduate\n"
 "      students from the University of Chicago to help newly arrived "
@@ -34,7 +33,7 @@ msgid ""
 "      provide accurate, up-to-date, and actionable information to address"
 " common\n"
 "      challenges faced by newcomers."
-msgstr "This page is translating."
+msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:23
 msgid "Team Members"
@@ -50,7 +49,7 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:27
 msgid "Summer Long"
-msgstr "Summer Long"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:28
 msgid "Kathryn Link-Oberstar"
@@ -227,17 +226,16 @@ msgid "New Arrival Resource Portal"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:27
-#, fuzzy
 msgid "Home"
-msgstr "Página de inicio"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:29
 msgid "Dashboard"
-msgstr "Panel de Control"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:30
 msgid "Logout"
-msgstr "Cerrar Sesi\\u00f3n"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:33
 #: new_arrivals_chi/app/templates/login.html:14
@@ -248,15 +246,15 @@ msgstr ""
 #: new_arrivals_chi/app/templates/base.html:34
 #: new_arrivals_chi/app/templates/signup.html:47
 msgid "Sign Up"
-msgstr "Registrarse"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:60
 msgid "Report Error"
-msgstr "Reportar error del sitio web"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:62
 msgid "This site does not collect any personal information."
-msgstr "Este sitio no recopila ninguna informaci\\u00f3n personal."
+msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:69
 msgid "Hello"
@@ -265,9 +263,8 @@ msgstr ""
 #: new_arrivals_chi/app/templates/base.html:70
 #: new_arrivals_chi/app/templates/general.html:19
 #: new_arrivals_chi/app/templates/health_general.html:18
-#, fuzzy
 msgid "Welcome"
-msgstr "\\u00a1Bienvenido a Chicago!"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/change_password.html:17
 #: new_arrivals_chi/app/templates/change_password.html:49
@@ -448,12 +445,6 @@ msgstr ""
 #: new_arrivals_chi/app/templates/register.html:30
 msgid "City:"
 msgstr ""
-"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
-"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
-"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias"
 
 #: new_arrivals_chi/app/templates/edit_organization.html:121
 #: new_arrivals_chi/app/templates/edit_organization.html:532
@@ -462,12 +453,6 @@ msgstr ""
 #: new_arrivals_chi/app/templates/register.html:33
 msgid "State:"
 msgstr ""
-"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
-"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
-"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias"
 
 #: new_arrivals_chi/app/templates/edit_organization.html:125
 #: new_arrivals_chi/app/templates/edit_organization.html:536
@@ -2620,7 +2605,7 @@ msgstr ""
 #: new_arrivals_chi/app/templates/general.html:17
 #: new_arrivals_chi/app/templates/home.html:20
 msgid "Welcome to Chicago!"
-msgstr "\\u00a1Bienvenido a Chicago!"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/general.html:22
 msgid ""
@@ -2997,12 +2982,6 @@ msgstr ""
 #: new_arrivals_chi/app/templates/health_general.html:75
 msgid "Refugee Status"
 msgstr ""
-"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
-"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
-"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias"
 
 #: new_arrivals_chi/app/templates/health_general.html:77
 msgid "Cuban/Haitian Entrant"
@@ -3087,12 +3066,6 @@ msgstr ""
 #: new_arrivals_chi/app/templates/health_general.html:134
 msgid "Legal Status"
 msgstr ""
-"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
-"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
-"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias"
 
 #: new_arrivals_chi/app/templates/health_general.html:137
 msgid ""
@@ -3137,9 +3110,8 @@ msgid "Illinois Healthcare and Family Services - Medicaid Guide"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:175
-#, fuzzy
 msgid "Undocumented"
-msgstr "Una Gu\\u00eda de Recursos para Nuevos Migrantes"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:178
 msgid ""
@@ -3262,7 +3234,7 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/home.html:21
 msgid "A Resource Guide for New Migrants"
-msgstr "Una Gu\\u00eda de Recursos para Nuevos Migrantes"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/home.html:23
 msgid ""
@@ -3274,28 +3246,22 @@ msgid ""
 "      resources offered by the City of Chicago, the State government and\n"
 "      community organizations."
 msgstr ""
-"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
-"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
-"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias."
 
 #: new_arrivals_chi/app/templates/home.html:32
 msgid "Please click below to begin:"
-msgstr "Por favor, haga clic a continuaci\\u00f3n para comenzar:"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/home.html:37
 msgid "Getting Started"
-msgstr "Primeros Pasos"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/home.html:43
 msgid "Legal Support"
-msgstr "Apoyo Legal"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/home.html:49
 msgid "Health Resources"
-msgstr "Recursos de Salud"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/home.html:55
 msgid ""
@@ -3304,12 +3270,6 @@ msgid ""
 "learn\n"
 "      more visit About Us."
 msgstr ""
-"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
-"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
-"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias"
 
 #: new_arrivals_chi/app/templates/lawyers.html:14
 msgid "Legal Services"
@@ -3322,12 +3282,6 @@ msgstr ""
 #: new_arrivals_chi/app/templates/org_management.html:23
 msgid "Status"
 msgstr ""
-"Esta gu\\u00eda de recursos est\\u00e1 dise\\u00f1ada para nuevos "
-"migrantes para darles la bienvenida a su nuevo hogar. En esta gu\\u00eda "
-"encontrar\\u00e1 informaci\\u00f3n sobre sus derechos como inmigrante y "
-"residente de Chicago, y sobre c\\u00f3mo acceder a los recursos ofrecidos"
-" por la Ciudad de Chicago, el gobierno estatal y las organizaciones "
-"comunitarias"
 
 #: new_arrivals_chi/app/templates/org_management.html:24
 msgid "Action"
@@ -4924,7 +4878,7 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/undocumented_resources.html:13
 msgid "Legal Resources for Undocumented Migrants"
-msgstr "Una Gu\\u00eda de Recursos para Nuevos Migrantes"
+msgstr ""
 
 #: new_arrivals_chi/app/templates/undocumented_resources.html:15
 msgid "For Those Who Don't Qualify for Status"

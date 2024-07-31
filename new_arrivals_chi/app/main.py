@@ -69,7 +69,8 @@ main = Blueprint("main", __name__, static_folder="static")
 babel = Babel()
 
 def get_locale():
-    return request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
+    lang = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
+    return lang
 
 @main.route("/")
 def home():
