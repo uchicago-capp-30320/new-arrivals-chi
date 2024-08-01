@@ -179,9 +179,7 @@ def legal_tps_info():
     Returns:
         Renders legal flow - TPS info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-
-    return render_template("tps_info.html", language=language)
+    return render_template("tps_info.html")
 
 
 @main.route("/legal/tps_apply")
@@ -193,9 +191,8 @@ def legal_tps_apply():
     Returns:
         Renders legal flow - TPS apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    return render_template("tps_apply.html", language=language)
+    return render_template("tps_apply.html")
 
 
 @main.route("/legal/vttc_info")
@@ -207,9 +204,8 @@ def legal_vttc_info():
     Returns:
         Renders legal VTTC info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    return render_template("vttc_info.html", language=language)
+    return render_template("vttc_info.html")
 
 
 @main.route("/legal/vttc_apply")
@@ -221,9 +217,8 @@ def legal_vttc_apply():
     Returns:
         Renders legal flow - VTTC apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    return render_template("vttc_apply.html", language=language)
+    return render_template("vttc_apply.html")
 
 
 @main.route("/legal/asylum_info")
@@ -235,9 +230,7 @@ def legal_asylum_info():
     Returns:
         Renders legal flow - Asylum info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-
-    return render_template("asylum_info.html", language=language)
+    return render_template("asylum_info.html")
 
 
 @main.route("/legal/asylum_apply")
@@ -249,9 +242,8 @@ def legal_asylum_apply():
     Returns:
         Renders legal flow - Asylum apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    return render_template("asylum_apply.html", language=language)
+    return render_template("asylum_apply.html")
 
 
 @main.route("/legal/parole_info")
@@ -263,9 +255,8 @@ def legal_parole_info():
     Returns:
         Renders legal flow - Parole info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    return render_template("parole_info.html", language=language)
+    return render_template("parole_info.html")
 
 
 @main.route("/legal/parole_apply")
@@ -277,9 +268,8 @@ def legal_parole_apply():
     Returns:
         Renders legal flow - Parole apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    return render_template("parole_apply.html", language=language)
+    return render_template("parole_apply.html")
 
 
 @main.route("/legal/undocumented_resources")
@@ -291,11 +281,9 @@ def legal_undocumented_resources():
     Returns:
         Renders legal flow - Undocumented Resources page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
     return render_template(
-        "undocumented_resources.html",
-        language=language,
+        "undocumented_resources.html"
     )
 
 
@@ -306,9 +294,7 @@ def workers_rights():
     Returns:
         Renders the workers' rights page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-
-    return render_template("work_rights.html", language=language)
+    return render_template("work_rights.html")
 
 
 @main.route("/legal/renters_rights")
@@ -318,9 +304,7 @@ def renters_rights():
     Returns:
         Renders the renters' rights page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-
-    return render_template("renters_rights.html", language=language)
+    return render_template("renters_rights.html")
 
 
 @main.route("/legal/lawyers")
@@ -330,9 +314,7 @@ def lawyers():
     Returns:
         Renders the page with contact information for lawyers
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-
-    return render_template("lawyers.html", language=language)
+    return render_template("lawyers.html")
 
 
 @main.route("/health")
@@ -344,8 +326,7 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    return render_template("health.html", language=language)
+    return render_template("health.html")
 
 
 @main.route("/health/search")
@@ -569,7 +550,7 @@ def add_organization():
 # Function to create the Flask app
 def create_app(config_override=None):
     """Function to create the Flask app.
-
+    
     Args:
         config_override (dict, optional):
           Configuration settings to override defaults. Defaults to None.
@@ -588,7 +569,7 @@ def create_app(config_override=None):
     app.config["NEIGHBORHOODS"] = load_neighborhoods()
 
     # Configure Babel
-    app.config["BABEL_DEFAULT_LOCALE"] = "es"  # Set Spanish as default locale
+    app.config["BABEL_DEFAULT_LOCALE"] = "en"
     app.config["BABEL_TRANSLATION_DIRECTORIES"] = "../translations"
 
     @app.context_processor

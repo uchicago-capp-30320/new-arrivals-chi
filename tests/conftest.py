@@ -28,7 +28,7 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt()
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def app():
     """Provides the Flask application instance configured for testing.
 
@@ -52,7 +52,7 @@ def app():
         db.drop_all()
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def client(app):
     """Provides a test client for the app.
 
