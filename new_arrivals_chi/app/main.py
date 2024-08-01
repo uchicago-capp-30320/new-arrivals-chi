@@ -191,7 +191,6 @@ def legal_tps_apply():
     Returns:
         Renders legal flow - TPS apply page.
     """
-
     return render_template("tps_apply.html")
 
 
@@ -204,7 +203,6 @@ def legal_vttc_info():
     Returns:
         Renders legal VTTC info page.
     """
-
     return render_template("vttc_info.html")
 
 
@@ -217,7 +215,6 @@ def legal_vttc_apply():
     Returns:
         Renders legal flow - VTTC apply page.
     """
-
     return render_template("vttc_apply.html")
 
 
@@ -242,7 +239,6 @@ def legal_asylum_apply():
     Returns:
         Renders legal flow - Asylum apply page.
     """
-
     return render_template("asylum_apply.html")
 
 
@@ -255,7 +251,6 @@ def legal_parole_info():
     Returns:
         Renders legal flow - Parole info page.
     """
-
     return render_template("parole_info.html")
 
 
@@ -268,7 +263,6 @@ def legal_parole_apply():
     Returns:
         Renders legal flow - Parole apply page.
     """
-
     return render_template("parole_apply.html")
 
 
@@ -281,10 +275,7 @@ def legal_undocumented_resources():
     Returns:
         Renders legal flow - Undocumented Resources page.
     """
-
-    return render_template(
-        "undocumented_resources.html"
-    )
+    return render_template("undocumented_resources.html")
 
 
 @main.route("/legal/work_rights")
@@ -550,7 +541,7 @@ def add_organization():
 # Function to create the Flask app
 def create_app(config_override=None):
     """Function to create the Flask app.
-    
+
     Args:
         config_override (dict, optional):
           Configuration settings to override defaults. Defaults to None.

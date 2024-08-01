@@ -90,9 +90,7 @@ def signup():
         Renders sign up page in their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    return render_template(
-        "signup.html", language=language
-    )
+    return render_template("signup.html", language=language)
 
 
 @authorize.route("/signup", methods=["POST"])
@@ -258,8 +256,7 @@ def registration_change_password():
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
     return render_template(
-        "registration_change_password.html",
-        language=language
+        "registration_change_password.html", language=language
     )
 
 
@@ -308,8 +305,7 @@ def post_registration_change_password():
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     return render_template(
-        "registration_change_password.html",
-        language=language
+        "registration_change_password.html", language=language
     )
 
 
