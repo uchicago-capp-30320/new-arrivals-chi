@@ -67,7 +67,10 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 
 
 <script>
-    function navigateTo(destination, language) {
-        window.location.href = destination + '?lang=' + language;
+function navigateTo(destination, language) {
+    if (!language) {
+        language = 'en'; 
     }
+    window.location.href = destination + '?lang=' + language;
+}
 </script>

@@ -13,7 +13,7 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-from flask import Flask, Blueprint, render_template, request, g
+from flask import Flask, Blueprint, render_template, request, g, current_app, flash
 from flask_babel import Babel, lazy_gettext as _
 from datetime import timedelta
 import os
@@ -26,6 +26,12 @@ from markupsafe import escape
 from new_arrivals_chi.app.utils import load_neighborhoods, validate_email_syntax, validate_phone_number, create_temp_pwd
 from new_arrivals_chi.app.data_handler import create_user, create_organization_profile, extract_organization
 from dotenv import load_dotenv
+from new_arrivals_chi.app.database import (
+    db,
+    User,
+    Organization,
+)
+from new_arrivals_chi.app.constants import KEY_LANGUAGE, DEFAULT_LANGUAGE 
 
 migrate = Migrate()
 load_dotenv()
@@ -262,7 +268,6 @@ def lawyers():
         Renders the page with contact information for lawyers
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
     return render_template(
         "lawyers.html", language=language
@@ -278,7 +283,8 @@ def health():
     Returns:
         Renders main health page.
     """
-    return render_template("health.html")
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+    return render_template("health.html", language=language)
 
 
 @main.route("/health/search")
@@ -291,6 +297,8 @@ def health_search():
     Returns:
         Renders the health search page.
     """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+
     organizations = []
 
     organization_ids = (
@@ -302,14 +310,12 @@ def health_search():
     for org_id in organization_ids:
         if extract_organization(org_id[0])["service"]:
             organizations.append(extract_organization(org_id[0]))
-
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
     
     return render_template(
         "health_search.html",
-        language=language,
         services_info=organizations,
         set=set,
+        language=language
     )
 
 
@@ -320,9 +326,7 @@ def health_general():
     Returns:
         Health Static Page
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
-
+    language = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
     return render_template(
         "health_general.html", language=language
     )

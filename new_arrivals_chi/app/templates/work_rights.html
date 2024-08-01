@@ -11,105 +11,105 @@ Associated Files:
 />
 {% endblock %} {% block content %}
 <div class="white-container">
-  <h1>_('Workers Rights')</h1>
+  <h1>{{_('Workers Rights')}}</h1>
 
-  <h2>_('Workers Rights')</h2>
+  <h2>{{_('Workers Rights')}}</h2>
 
   <h3>
-    _('All workers have rights, regardless of immigration status. In Chicago,
-    you have the right to:')
+    {{_('All workers have rights, regardless of immigration status. In Chicago,
+    you have the right to:')}}
   </h3>
 
   <ul>
-    <li>_('Receive payment for every hour you work.')</li>
+    <li>{{_('Receive payment for every hour you work.')}}</li>
 
     <li>
-      _('Receive overtime pay (time and a half) after working more than 40 hours
-      in a workweek.')
+      {{_('Receive overtime pay (time and a half) after working more than 40 hours
+      in a workweek.')}}
     </li>
 
     <li>
-      _('Be paid at least the minimum wage in the area where you work. In
-      Chicago, this is $14.50-$15.40/hr, depending on the number of employees.')
+      {{_('Be paid at least the minimum wage in the area where you work. In
+      Chicago, this is $14.50-$15.40/hr, depending on the number of employees.')}}
     </li>
 
     <li>
-      _('Receive 66% of your salary and paid medical bills if you suffer an
-      accident on the job.')
+      {{_('Receive 66 percent of your salary and paid medical bills if you suffer an
+      accident on the job.')}}
     </li>
 
     <li>
-      _('A safe and healthy workplace, including during times of COVID-19.')
+      {{_('A safe and healthy workplace, including during times of COVID-19.')}}
     </li>
 
     <li>
-      _('A workplace free of discrimination, sexual harassment or
-      intimidation.')
+      {{_('A workplace free of discrimination, sexual harassment or
+      intimidation.')}}
     </li>
 
     <li>
-      _('Organize for better working conditions through collective actions.')
+      {{_('Organize for better working conditions through collective actions.')}}
     </li>
   </ul>
 
-  <h3>_('Where can I go for help?')</h3>
+  <h3>{{_('Where can I go for help?')}}</h3>
 
-  <p>_('Chicago Community & Workers Rights')</p>
+  <p>{{_('Chicago Community & Workers Rights')}}</p>
 
   <ul>
-    <li>_('Service Area: State of Illinois')</li>
+    <li>{{_('Service Area: State of Illinois')}}</li>
 
-    <li>_('Phone: 773-653-3664')</li>
+    <li>{{_('Phone: 773-653-3664')}}</li>
 
-    <li>_('Facebook: @chicagoworkersrights')</li>
+    <li>{{_('Facebook: @chicagoworkersrights')}}</li>
 
-    <li>_('Website: chicagoworkersrights.org')</li>
+    <li>{{_('Website: chicagoworkersrights.org')}}</li>
   </ul>
 
-  <p>_('Centro de Trabajadores Unidos')</p>
+  <p>{{_('Centro de Trabajadores Unidos')}}</p>
 
   <ul>
-    <li>_('Service Area: Southeast Chicago + South Suburbs')</li>
+    <li>{{_('Service Area: Southeast Chicago + South Suburbs')}}</li>
 
-    <li>_('Phone: 733-720-7111')</li>
+    <li>{{_('Phone: 733-720-7111')}}</li>
 
-    <li>_('Facebook: @CentroDeTrabajadoresUnidos')</li>
+    <li>{{_('Facebook: @CentroDeTrabajadoresUnidos')}}</li>
 
-    <li>_('Website: centrodetrabajadoresunidos.org')</li>
+    <li>{{_('Website: centrodetrabajadoresunidos.org')}}</li>
   </ul>
 
-  <p>_('Chicago Workers Collaborative')</p>
+  <p>{{_('Chicago Workers Collaborative')}}</p>
 
   <ul>
-    <li>_('Service Area: Chicago + Suburbs')</li>
+    <li>{{_('Service Area: Chicago + Suburbs')}}</li>
 
-    <li>_('Phone: 847-596-7491')</li>
+    <li>{{_('Phone: 847-596-7491')}}</li>
 
-    <li>_('Facebook: @ChiTemps')</li>
+    <li>{{_('Facebook: @ChiTemps')}}</li>
 
-    <li>_('Website: chicagoworkerscollaborative.org<')/li></li>
+    <li>{{_('Website: chicagoworkerscollaborative.org<')}}</li>
   </ul>
 
-  <p>_('Farmworker & Landscaper Advocacy Project: FLAP')</p>
+  <p>{{_('Farmworker & Landscaper Advocacy Project: FLAP')}}</p>
 
   <ul>
-    <li>_('Service Area: State of Illinois')</li>
+    <li>{{_('Service Area: State of Illinois')}}</li>
 
-    <li>_('Phone: 1-888-451-3527')</li>
+    <li>{{_('Phone: 1-888-451-3527')}}</li>
 
-    <li>_('Facebook: @farmworkerlandscaper.advocacyproject')</li>
+    <li>{{_('Facebook: @farmworkerlandscaper.advocacyproject')}}</li>
 
-    <li>_('Website: flapillinois.org')</li>
+    <li>{{_('Website: flapillinois.org')}}</li>
   </ul>
 
-  <h3>_('How can I file a complaint?')</h3>
+  <h3>{{_('How can I file a complaint?')}}</h3>
 
   <ul>
-    <li>_('In the City of Chicago, you can call 311 to file a complaint.')</li>
+    <li>{{_('In the City of Chicago, you can call 311 to file a complaint.')}}</li>
 
     <li>
-      _('Investigations are confidential and the City will not ask about
-      immigration status.')
+      {{_('Investigations are confidential and the City will not ask about
+      immigration status.')}}
     </li>
   </ul>
 
@@ -126,7 +126,7 @@ Associated Files:
       class="button button-blue"
       onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'"
     >
-      {{ _('Find a Lawyer') }}
+      {{_('Find a Lawyer') }}
     </button>
   </div>
 </div>
