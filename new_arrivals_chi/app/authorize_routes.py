@@ -210,9 +210,8 @@ def change_password():
         Renders change password page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
-        "change_password.html", language=language, translations=translations
+        "change_password.html", language=language
     )
 
 
@@ -450,9 +449,7 @@ def toggle_suspend_organization(organization_id):
     return redirect(url_for("authorize.org_management"))
 
 
-@authorize.route(
-    "/admin/edit_organization/<int:organization_id>", methods=["GET", "POST"]
-)
+@authorize.route("/admin/edit_organization/<int:organization_id>")
 @admin_required
 def admin_edit_organization(organization_id):
     """Establishes route to the edit organization page.
@@ -465,17 +462,13 @@ def admin_edit_organization(organization_id):
         update their info.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
+    
 
     organization = Organization.query.get(organization_id)
 
-    if request.method == "POST":
-        # Handle the form submission
-        pass
     return render_template(
         "edit_organization.html",
         organization_id=organization_id,
         organization=organization,
         language=language,
-        translations=translations,
     )

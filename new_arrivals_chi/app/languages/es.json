@@ -367,10 +367,10 @@
       "welcome": "\u00a1Bienvenido a Chicago!"
     },
     "info": {
-      "languages_spoken": "Idiomas hablados: English, Spanish",
-      "open_hours": "Horas de Atenci\u00f3n: Lunes - Viernes, 9:00 AM - 5:00 PM",
+      "languages_spoken": "Idiomas hablados",
+      "open_hours": "Horas de Atenci\u00f3n",
       "organization_name": "Nombre de la Organizaci\u00f3n",
-      "supplies_and_services": "Recursos y Servicios: Comida"
+      "supplies_and_services": "Recursos y Servicios"
     },
     "lawyers": {
       "content": [

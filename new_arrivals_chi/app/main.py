@@ -13,7 +13,7 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-from flask import Flask, Blueprint, render_template, request, g, current_app, flash
+from flask import Flask, Blueprint, render_template, request, g, current_app, flash, url_for
 from flask_babel import Babel, lazy_gettext as _
 from datetime import timedelta
 import os
@@ -40,8 +40,7 @@ app = Flask(__name__)
 babel = Babel(app)
 
 def get_locale():
-    lang = request.args.get('lang', 'es')  # Default to Spanish
-    print(f"Selected language: {lang}")  # Debugging line
+    lang = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)  
     g.current_lang = lang
     return lang
 
@@ -355,7 +354,6 @@ def dashboard():
         and change password.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
     user = current_user
 
     if current_user.role == "admin":
@@ -369,20 +367,11 @@ def dashboard():
         if not organization:
             return "Organization not found", 404
 
-        # generate URL for edit_organization endpoint
-        edit_org_url = url_for(
-            "main.edit_organization",
-            organization_id=organization.id,
-            lang=language,
-        )
-
         return render_template(
             "dashboard.html",
             language=language,
             organization=organization,
-            edit_org_url=edit_org_url,
         )
-
 
 @main.route("/org/<int:organization_id>", methods=["GET"])
 def org(organization_id):
@@ -395,7 +384,6 @@ def org(organization_id):
         Renders the organization page (public facing).
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
     organization = extract_organization(organization_id)
 
@@ -420,16 +408,14 @@ def edit_organization(organization_id):
         update their info.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    user = current_user
-    organization = extract_organization(user.organization_id)
+    organization = Organization.query.get(organization_id)
 
     return render_template(
         "edit_organization.html",
+        organization_id=organization_id,
         organization=organization,
         language=language,
-        organization_id=organization_id,
     )
 
 
@@ -446,7 +432,6 @@ def add_organization_success():
         a success message after adding a new organization.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
     return render_template(
         "add_organization_success.html",
         language=language,
@@ -470,7 +455,6 @@ def add_organization():
         return "Unauthorized", 401
 
     language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
 
     if request.method == "POST":
         email = request.form.get("email")

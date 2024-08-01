@@ -35,12 +35,12 @@ HTML for edit organization page.
         </td>
         <td>
           <button
-            type="button"
-            class="btn-edit"
-            onclick="navigateTo('{{ url_for('authorize.admin_edit_organization', organization_id=organization.id) }}', '{{ language }}')"
-          >
-            {{ _('Edit') }}
-          </button>
+          type="button"
+          class="btn-edit"
+          onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=organization.id) }}', '{{ language }}')"
+      >
+          {{ _('Edit') }}
+      </button>
           <button
             type="button"
             class="btn-suspend"
