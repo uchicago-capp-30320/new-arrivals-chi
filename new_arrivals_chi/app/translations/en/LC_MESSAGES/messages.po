@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-01 00:54-0500\n"
+"POT-Creation-Date: 2024-08-01 09:44-0500\n"
 "PO-Revision-Date: 2024-07-31 02:41-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,49 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: new_arrivals_chi/app/main.py:76 new_arrivals_chi/app/main.py:543
+#: new_arrivals_chi/app/main.py:95
 msgid "I have a credible fear of persecution or torture in my home country."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:77 new_arrivals_chi/app/main.py:544
+#: new_arrivals_chi/app/main.py:99
 msgid "I want help applying for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:78 new_arrivals_chi/app/main.py:545
+#: new_arrivals_chi/app/main.py:100
 msgid "We think you may be eligible for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:79 new_arrivals_chi/app/main.py:546
+#: new_arrivals_chi/app/main.py:101
 msgid "I have applied for or received asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:80 new_arrivals_chi/app/main.py:547
+#: new_arrivals_chi/app/main.py:102
 msgid "Hide Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:81 new_arrivals_chi/app/main.py:548
+#: new_arrivals_chi/app/main.py:103
 msgid "Find Personalized Legal Assistance."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:82 new_arrivals_chi/app/main.py:549
+#: new_arrivals_chi/app/main.py:104
 msgid "None of these apply to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:83 new_arrivals_chi/app/main.py:550
+#: new_arrivals_chi/app/main.py:105
 msgid ""
 "We cannot determine your eligibility for Asylum, Parole, or Temporary "
 "Protected Status"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:84 new_arrivals_chi/app/main.py:551
+#: new_arrivals_chi/app/main.py:109
 msgid "One of the circumstances below applies to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:85 new_arrivals_chi/app/main.py:552
+#: new_arrivals_chi/app/main.py:110
 msgid "I want help applying for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:86 new_arrivals_chi/app/main.py:553
+#: new_arrivals_chi/app/main.py:111
 msgid ""
 "I am from Ukraine or Afghanistan\n"
 "I am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing "
@@ -70,37 +70,37 @@ msgid ""
 " I came to the US for Civil or Criminal Court Proceedings"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:87 new_arrivals_chi/app/main.py:554
+#: new_arrivals_chi/app/main.py:119
 msgid "We think you may be eligible for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:88 new_arrivals_chi/app/main.py:555
+#: new_arrivals_chi/app/main.py:122
 msgid "I have applied for or received humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:89 new_arrivals_chi/app/main.py:556
+#: new_arrivals_chi/app/main.py:123
 msgid "I need to learn more about my rights as a renter"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:90 new_arrivals_chi/app/main.py:557
+#: new_arrivals_chi/app/main.py:124
 msgid "See Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:91 new_arrivals_chi/app/main.py:558
+#: new_arrivals_chi/app/main.py:125
 msgid "I need help with something else"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:92 new_arrivals_chi/app/main.py:559
+#: new_arrivals_chi/app/main.py:126
 msgid ""
 "I am from one of the countries listed below & arrived before the date "
 "listed:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:93 new_arrivals_chi/app/main.py:560
+#: new_arrivals_chi/app/main.py:130
 msgid "I want help applying for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:94 new_arrivals_chi/app/main.py:561
+#: new_arrivals_chi/app/main.py:133
 msgid ""
 "Afghanistan (May 20, 2022)\n"
 "Burma (Myanmar) (March 25, 2024)\n"
@@ -120,27 +120,27 @@ msgid ""
 "Yemen (January 3, 2023)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:95 new_arrivals_chi/app/main.py:562
+#: new_arrivals_chi/app/main.py:143
 msgid "We think you may be eligible for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:96 new_arrivals_chi/app/main.py:563
+#: new_arrivals_chi/app/main.py:147
 msgid "I have applied for or received Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:97 new_arrivals_chi/app/main.py:564
+#: new_arrivals_chi/app/main.py:150
 msgid "Learn more about resources for undocumented migrants."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:98 new_arrivals_chi/app/main.py:565
+#: new_arrivals_chi/app/main.py:153
 msgid "I am the victim of one of the following:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:99 new_arrivals_chi/app/main.py:566
+#: new_arrivals_chi/app/main.py:154
 msgid "I want help applying for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:100 new_arrivals_chi/app/main.py:567
+#: new_arrivals_chi/app/main.py:155
 msgid ""
 "Trafficking\n"
 "Domestic violence\n"
@@ -151,39 +151,28 @@ msgid ""
 "Another Serious Offense."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:101 new_arrivals_chi/app/main.py:568
+#: new_arrivals_chi/app/main.py:159
 msgid "We think you may be eligible for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:102 new_arrivals_chi/app/main.py:569
+#: new_arrivals_chi/app/main.py:162
 msgid "I have applied for or received work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:103 new_arrivals_chi/app/main.py:570
+#: new_arrivals_chi/app/main.py:163
 msgid "What can I help you with?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:104 new_arrivals_chi/app/main.py:571
+#: new_arrivals_chi/app/main.py:164
 msgid "I need help getting authorization to work"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:105 new_arrivals_chi/app/main.py:572
+#: new_arrivals_chi/app/main.py:165
 msgid "Do any of the following circumstances apply to you?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:106 new_arrivals_chi/app/main.py:573
+#: new_arrivals_chi/app/main.py:168
 msgid "I need to learn more about my rights as a worker"
-msgstr ""
-
-#: new_arrivals_chi/app/main.py:574
-#: new_arrivals_chi/app/templates/dashboard.html:26
-#: new_arrivals_chi/app/templates/health.html:30
-#: new_arrivals_chi/app/templates/org_management.html:58
-msgid "Back"
-msgstr ""
-
-#: new_arrivals_chi/app/main.py:575
-msgid "Select an option"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:15
@@ -377,6 +366,7 @@ msgid "Welcome to IL"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/asylum_apply.html:45
+#: new_arrivals_chi/app/templates/asylum_info.html:149
 #: new_arrivals_chi/app/templates/parole_apply.html:86
 #: new_arrivals_chi/app/templates/parole_info.html:72
 #: new_arrivals_chi/app/templates/renters_rights.html:209
@@ -387,6 +377,176 @@ msgstr ""
 #: new_arrivals_chi/app/templates/vttc_info.html:145
 #: new_arrivals_chi/app/templates/work_rights.html:129
 msgid "Find a Lawyer"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:14
+msgid "Rights and Privileges of Asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:16
+msgid "What Is Asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:19
+msgid ""
+"Asylum status protects people who fear persecution in their home\n"
+"    countries because of their:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:24
+msgid "Race"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:26
+msgid "Religion"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:28
+msgid "Nationality"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:30
+msgid "Political opinion"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:33
+msgid ""
+"Membership in a particular social group (this includes sexual\n"
+"      orientation or gender identity)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:39
+msgid ""
+"Whether someone should apply as a refugee or asylee for immigration\n"
+"    status depends on whether they are already in the US. If the person "
+"is\n"
+"    already in the US, he or she may apply for the US asylum program. "
+"Learn more\n"
+"    about refugees and asylum. (If the person is not in the US, he or she"
+" may\n"
+"    apply for the US refugee program)"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:46
+msgid "Benefits of Asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:49
+msgid ""
+"Asylum is a form of protection. It protects people from removal to a\n"
+"    country of feared persecution. It allows them to stay in the US. They"
+" can\n"
+"    then become a lawful permanent resident."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:55
+msgid ""
+"Asylum is granted to refugees who are already in the US and fear\n"
+"    returning to their home countries."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:59
+msgid "Pathways to Asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:61
+msgid "There are three ways to apply for asylum:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:65
+msgid ""
+"Affirmatively, meaning you don't already have a case in front of an\n"
+"      immigration judge and you are submitting an application for asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:70
+msgid ""
+"Defensively, meaning there is already a removal or deportation case\n"
+"      against you in front of an immigration judge and you ask the judge "
+"for\n"
+"      asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:76
+msgid "You are in expedited removal proceedings and say you need asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:81
+msgid ""
+"You must apply for asylum within one year of arriving in the US, unless\n"
+"    you qualify for an exception. Your spouse and children who are in the"
+" US may\n"
+"    be included in the application. A child must be under 21 and "
+"unmarried to be\n"
+"    included"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:87
+msgid "Who cannot apply for asylum"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:90
+msgid ""
+"You may not be eligible to apply for asylum if you filed after being in\n"
+"    the US over a year. There are exceptions. You must prove:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:96
+msgid "Changed circumstances materially affecting your eligibility, or"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:100
+msgid "Extraordinary circumstances relating to your delay in filing."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:104
+msgid "Changed circumstances include:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:107
+msgid "Changes in country's conditions"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:109
+msgid "Changes in the laws that affect your eligibility"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:112
+msgid "Changes in family dynamics, such marriage, divorce, and death"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:115
+msgid "Changes in children's ages"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:118
+msgid "Extraordinary circumstances include:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:121
+msgid "Serious illness"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:123
+msgid "Mental or physical disabilities"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:126
+msgid ""
+"Legal disability, such as your status as an unaccompanied child or a\n"
+"      mental impairment"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:132
+msgid ""
+"You cannot apply for asylum if you already applied and were denied\n"
+"    unless circumstances changed."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/asylum_info.html:140
+#: new_arrivals_chi/app/templates/tps_apply.html:206
+#: new_arrivals_chi/app/templates/tps_info.html:93
+msgid "Illinois Legal Aid"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/base.html:16
@@ -455,6 +615,12 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/dashboard.html:23
 msgid "Change My Password"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/dashboard.html:26
+#: new_arrivals_chi/app/templates/health.html:30
+#: new_arrivals_chi/app/templates/org_management.html:58
+msgid "Back"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/edit_organization.html:16
@@ -4833,11 +4999,6 @@ msgid ""
 "      appeal to the USCIS Administrative Appeals Office (AAO)."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:206
-#: new_arrivals_chi/app/templates/tps_info.html:93
-msgid "Illinois Legal Aid"
-msgstr ""
-
 #: new_arrivals_chi/app/templates/tps_info.html:14
 msgid "About Temporary Protected Status (TPS)"
 msgstr ""
@@ -5643,3 +5804,7 @@ msgstr ""
 #~ "be eligible to receive any other "
 #~ "medical program"
 #~ msgstr ""
+
+#~ msgid "Select an option"
+#~ msgstr ""
+

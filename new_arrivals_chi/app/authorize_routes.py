@@ -39,7 +39,6 @@ from new_arrivals_chi.app.utils import (
     extract_registration_info,
 )
 from new_arrivals_chi.app.constants import (
-    KEY_TRANSLATIONS,
     KEY_LANGUAGE,
     DEFAULT_LANGUAGE,
 )
@@ -91,9 +90,8 @@ def signup():
         Renders sign up page in their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
-        "signup.html", language=language, translations=translations
+        "signup.html", language=language
     )
 
 
@@ -258,12 +256,10 @@ def registration_change_password():
         Renders change password page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
         "registration_change_password.html",
-        language=language,
-        translations=translations,
+        language=language
     )
 
 
@@ -311,11 +307,9 @@ def post_registration_change_password():
         return redirect(url_for("authorize.register"))
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
         "registration_change_password.html",
-        language=language,
-        translations=translations,
+        language=language
     )
 
 
