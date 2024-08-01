@@ -144,9 +144,8 @@ def login():
         Renders login page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
-        "login.html", language=language, translations=translations
+        "login.html", language=language
     )
 
 
@@ -403,7 +402,6 @@ def org_management():
         Renders template with organizations.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     organizations = Organization.query.with_entities(
         Organization.id, Organization.name, Organization.status
@@ -413,7 +411,6 @@ def org_management():
         "org_management.html",
         organizations=organizations,
         language=language,
-        translations=translations,
     )
 
 
