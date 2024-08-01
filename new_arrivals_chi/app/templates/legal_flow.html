@@ -22,7 +22,7 @@ HTML template for the decision tree for legal resources.
 <script src="{{ url_for('static', filename='js/legal_data.js') }}"></script>
 <script>
   const language = "{{ language | escape }}"
-  let languageData = {{ translations[language].legal_start | tojson | escape }};
+  let languageData = {{ legal_text | tojson | escape }};
 </script>
 <script src="{{ url_for('static', filename='js/legal_flow.js') }}"></script>
 

@@ -13,7 +13,7 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-from flask import Flask, Blueprint, render_template, request, g, current_app, flash, url_for
+from flask import Flask, Blueprint, render_template, request, g, current_app, flash, url_for, jsonify
 from flask_babel import Babel, lazy_gettext as _
 from datetime import timedelta
 import os
@@ -72,7 +72,40 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    return render_template("legal_flow.html")
+    legal_text = {
+        "asylum": _("I have a credible fear of persecution or torture in my home country."),
+        "asylum_apply": _("I want help applying for asylum."),
+        "asylum_header": _("We think you may be eligible for asylum."),
+        "asylum_info": _("I have applied for or received asylum."),
+        "hide_options": _("Hide Options"),
+        "lawyers": _("Find Personalized Legal Assistance."),
+        "other": _("None of these apply to me."),
+        "other_header": _("We cannot determine your eligibility for Asylum, Parole, or Temporary Protected Status"),
+        "parole": _("One of the circumstances below applies to me."),
+        "parole_apply": _("I want help applying for humanitarian parole."),
+        "parole_desc": _("I am from Ukraine or Afghanistan\nI am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing dangerous conditions, violence, or severe economic hardship in my home country\nI came to the US for Medical Family Reunification (adults and children)\n I came to the US for Civil or Criminal Court Proceedings"),
+        "parole_header": _("We think you may be eligible for humanitarian parole."),
+        "parole_info": _("I have applied for or received humanitarian parole."),
+        "renters_rights": _("I need to learn more about my rights as a renter"),
+        "see_options": _("See Options"),
+        "something_else": _("I need help with something else"),
+        "tps": _("I am from one of the countries listed below & arrived before the date listed:"),
+        "tps_apply": _("I want help applying for Temporary Protected Status (TPS)"),
+        "tps_desc": _("Afghanistan (May 20, 2022)\nBurma (Myanmar) (March 25, 2024)\nCameroon (June 7, 2022)\nEl Salvador (December 14, 2023)\nEthiopia (April 15, 2024)\nHaiti (December 14, 2023)\nHonduras (December 14, 2023)\nNepal (December 14, 2023)\nNicaragua (December 14, 2023)\nSomalia (March 13, 2023)\nSouth Sudan (August 21, 2023)\nSudan (December 14, 2023)\nSyria (January 29, 2024)\nUkraine (August 21, 2023)\nVenezuela (November 17, 2023)\nYemen (January 3, 2023)"),
+        "tps_header": _("We think you may be eligible for Temporary Protected Status (TPS)"),
+        "tps_info": _("I have applied for or received Temporary Protected Status (TPS)"),
+        "undocumented": _("Learn more about resources for undocumented migrants."),
+        "vttc": _("I am the victim of one of the following:"),
+        "vttc_apply": _("I want help applying for work authorization."),
+        "vttc_desc": _("Trafficking\nDomestic violence\nSexual assault\nHate crimes\nHuman trafficking\nInvoluntary servitude\nAnother Serious Offense."),
+        "vttc_header": _("We think you may be eligible for work authorization."),
+        "vttc_info": _("I have applied for or received work authorization."),
+        "what_help": _("What can I help you with?"),
+        "work_auth": _("I need help getting authorization to work"),
+        "work_auth_question": _("Do any of the following circumstances apply to you?"),
+        "work_rights": _("I need to learn more about my rights as a worker")
+    }
+    return render_template("legal_flow.html", legal_text=legal_text)
 
 
 @main.route("/legal/tps_info")
@@ -503,6 +536,45 @@ def add_organization():
         "add_organization.html",
         language=language,
     )
+
+@main.route("/get_translations")
+def get_translations():
+    translations = {
+        "legal_start.asylum": _("I have a credible fear of persecution or torture in my home country."),
+        "legal_start.asylum_apply": _("I want help applying for asylum."),
+        "legal_start.asylum_header": _("We think you may be eligible for asylum."),
+        "legal_start.asylum_info": _("I have applied for or received asylum."),
+        "legal_start.hide_options": _("Hide Options"),
+        "legal_start.lawyers": _("Find Personalized Legal Assistance."),
+        "legal_start.other": _("None of these apply to me."),
+        "legal_start.other_header": _("We cannot determine your eligibility for Asylum, Parole, or Temporary Protected Status"),
+        "legal_start.parole": _("One of the circumstances below applies to me."),
+        "legal_start.parole_apply": _("I want help applying for humanitarian parole."),
+        "legal_start.parole_desc": _("I am from Ukraine or Afghanistan\nI am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing dangerous conditions, violence, or severe economic hardship in my home country\nI came to the US for Medical Family Reunification (adults and children)\n I came to the US for Civil or Criminal Court Proceedings"),
+        "legal_start.parole_header": _("We think you may be eligible for humanitarian parole."),
+        "legal_start.parole_info": _("I have applied for or received humanitarian parole."),
+        "legal_start.renters_rights": _("I need to learn more about my rights as a renter"),
+        "legal_start.see_options": _("See Options"),
+        "legal_start.something_else": _("I need help with something else"),
+        "legal_start.tps": _("I am from one of the countries listed below & arrived before the date listed:"),
+        "legal_start.tps_apply": _("I want help applying for Temporary Protected Status (TPS)"),
+        "legal_start.tps_desc": _("Afghanistan (May 20, 2022)\nBurma (Myanmar) (March 25, 2024)\nCameroon (June 7, 2022)\nEl Salvador (December 14, 2023)\nEthiopia (April 15, 2024)\nHaiti (December 14, 2023)\nHonduras (December 14, 2023)\nNepal (December 14, 2023)\nNicaragua (December 14, 2023)\nSomalia (March 13, 2023)\nSouth Sudan (August 21, 2023)\nSudan (December 14, 2023)\nSyria (January 29, 2024)\nUkraine (August 21, 2023)\nVenezuela (November 17, 2023)\nYemen (January 3, 2023)"),
+        "legal_start.tps_header": _("We think you may be eligible for Temporary Protected Status (TPS)"),
+        "legal_start.tps_info": _("I have applied for or received Temporary Protected Status (TPS)"),
+        "legal_start.undocumented": _("Learn more about resources for undocumented migrants."),
+        "legal_start.vttc": _("I am the victim of one of the following:"),
+        "legal_start.vttc_apply": _("I want help applying for work authorization."),
+        "legal_start.vttc_desc": _("Trafficking\nDomestic violence\nSexual assault\nHate crimes\nHuman trafficking\nInvoluntary servitude\nAnother Serious Offense."),
+        "legal_start.vttc_header": _("We think you may be eligible for work authorization."),
+        "legal_start.vttc_info": _("I have applied for or received work authorization."),
+        "legal_start.what_help": _("What can I help you with?"),
+        "legal_start.work_auth": _("I need help getting authorization to work"),
+        "legal_start.work_auth_question": _("Do any of the following circumstances apply to you?"),
+        "legal_start.work_rights": _("I need to learn more about my rights as a worker"),
+        "Back": _("Back"),
+        "Select an option": _("Select an option"),
+    }
+    return jsonify(translations)
 
 
 # Function to create the Flask app
