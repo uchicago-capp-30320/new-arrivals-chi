@@ -144,9 +144,7 @@ def login():
         Renders login page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    return render_template(
-        "login.html", language=language
-    )
+    return render_template("login.html", language=language)
 
 
 @authorize.route("/login", methods=["POST"])
@@ -175,7 +173,6 @@ def login_post():
     if current_user.role == "admin":
         return render_template(
             "admin_management.html",
-
         )
     else:
         organization = Organization.query.get(user.organization_id)
@@ -210,9 +207,7 @@ def change_password():
         Renders change password page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    return render_template(
-        "change_password.html", language=language
-    )
+    return render_template("change_password.html", language=language)
 
 
 @authorize.route("/change_password", methods=["POST"])
@@ -378,15 +373,12 @@ def admin_dashboard():
         organizations or look at website error reports. If user is not admin,
         it redirects to home page.
     """
-
     if current_user.is_admin:
         return render_template(
             "admin_management.html",
         )
     else:
-        return render_template(
-            "home.html"
-        )
+        return render_template("home.html")
 
 
 @authorize.route("/admin/org_management", methods=["GET"])
@@ -462,7 +454,6 @@ def admin_edit_organization(organization_id):
         update their info.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
     organization = Organization.query.get(organization_id)
 

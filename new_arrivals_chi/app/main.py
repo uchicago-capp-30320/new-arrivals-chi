@@ -13,25 +13,33 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-from flask import Flask, Blueprint, render_template, request, g, current_app, flash, url_for, jsonify
+from flask import Flask, Blueprint, render_template, request, g, flash
 from flask_babel import Babel, lazy_gettext as _
 from datetime import timedelta
 import os
-from new_arrivals_chi.app.database import db
 from new_arrivals_chi.app.authorize_routes import authorize
 from flask_migrate import Migrate
 from flask_login import LoginManager, current_user, login_required
 import bleach
 from markupsafe import escape
-from new_arrivals_chi.app.utils import load_neighborhoods, validate_email_syntax, validate_phone_number, create_temp_pwd
-from new_arrivals_chi.app.data_handler import create_user, create_organization_profile, extract_organization
+from new_arrivals_chi.app.utils import (
+    load_neighborhoods,
+    validate_email_syntax,
+    validate_phone_number,
+    create_temp_pwd,
+)
+from new_arrivals_chi.app.data_handler import (
+    create_user,
+    create_organization_profile,
+    extract_organization,
+)
 from dotenv import load_dotenv
 from new_arrivals_chi.app.database import (
     db,
     User,
     Organization,
 )
-from new_arrivals_chi.app.constants import KEY_LANGUAGE, DEFAULT_LANGUAGE 
+from new_arrivals_chi.app.constants import KEY_LANGUAGE, DEFAULT_LANGUAGE
 
 migrate = Migrate()
 load_dotenv()
@@ -39,28 +47,39 @@ load_dotenv()
 app = Flask(__name__)
 babel = Babel(app)
 
+
 def get_locale():
-    lang = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)  
+    """Get the current locale based on the request."""
+    lang = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
     g.current_lang = lang
     return lang
 
+
 babel.init_app(app, locale_selector=get_locale)
+
 
 @app.context_processor
 def inject_locale():
-    return dict(get_locale=get_locale)
+    """Inject the current locale into the context."""
+    return {"get_locale": get_locale}
+
 
 # Define the blueprint
 main = Blueprint("main", __name__, static_folder="static")
 
+
 # Define routes within the blueprint
 @main.route("/")
 def home():
-    return render_template('home.html')
+    """Home page route."""
+    return render_template("home.html")
+
 
 @main.route("/about")
 def about():
+    """About page route."""
     return render_template("about.html")
+
 
 # Define other routes similarly within the `main` blueprint
 @main.route("/legal")
@@ -73,37 +92,80 @@ def legal():
         Renders main legal page.
     """
     legal_text = {
-        "asylum": _("I have a credible fear of persecution or torture in my home country."),
+        "asylum": _(
+            "I have a credible fear of persecution or torture in my home "
+            "country."
+        ),
         "asylum_apply": _("I want help applying for asylum."),
         "asylum_header": _("We think you may be eligible for asylum."),
         "asylum_info": _("I have applied for or received asylum."),
         "hide_options": _("Hide Options"),
         "lawyers": _("Find Personalized Legal Assistance."),
         "other": _("None of these apply to me."),
-        "other_header": _("We cannot determine your eligibility for Asylum, Parole, or Temporary Protected Status"),
+        "other_header": _(
+            "We cannot determine your eligibility for Asylum, Parole, or "
+            "Temporary Protected Status"
+        ),
         "parole": _("One of the circumstances below applies to me."),
         "parole_apply": _("I want help applying for humanitarian parole."),
-        "parole_desc": _("I am from Ukraine or Afghanistan\nI am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing dangerous conditions, violence, or severe economic hardship in my home country\nI came to the US for Medical Family Reunification (adults and children)\n I came to the US for Civil or Criminal Court Proceedings"),
-        "parole_header": _("We think you may be eligible for humanitarian parole."),
+        "parole_desc": _(
+            "I am from Ukraine or Afghanistan\nI am from Cuba, Haiti, "
+            "Nicaragua, and Venezuela and am experiencing dangerous "
+            "conditions, violence, or severe economic hardship in my home "
+            "country\nI came to the US for Medical Family Reunification "
+            "(adults and children)\n I came to the US for Civil or Criminal "
+            "Court Proceedings"
+        ),
+        "parole_header": _(
+            "We think you may be eligible for humanitarian parole."
+        ),
         "parole_info": _("I have applied for or received humanitarian parole."),
         "renters_rights": _("I need to learn more about my rights as a renter"),
         "see_options": _("See Options"),
         "something_else": _("I need help with something else"),
-        "tps": _("I am from one of the countries listed below & arrived before the date listed:"),
-        "tps_apply": _("I want help applying for Temporary Protected Status (TPS)"),
-        "tps_desc": _("Afghanistan (May 20, 2022)\nBurma (Myanmar) (March 25, 2024)\nCameroon (June 7, 2022)\nEl Salvador (December 14, 2023)\nEthiopia (April 15, 2024)\nHaiti (December 14, 2023)\nHonduras (December 14, 2023)\nNepal (December 14, 2023)\nNicaragua (December 14, 2023)\nSomalia (March 13, 2023)\nSouth Sudan (August 21, 2023)\nSudan (December 14, 2023)\nSyria (January 29, 2024)\nUkraine (August 21, 2023)\nVenezuela (November 17, 2023)\nYemen (January 3, 2023)"),
-        "tps_header": _("We think you may be eligible for Temporary Protected Status (TPS)"),
-        "tps_info": _("I have applied for or received Temporary Protected Status (TPS)"),
-        "undocumented": _("Learn more about resources for undocumented migrants."),
+        "tps": _(
+            "I am from one of the countries listed below & arrived before "
+            "the date listed:"
+        ),
+        "tps_apply": _(
+            "I want help applying for Temporary Protected Status (TPS)"
+        ),
+        "tps_desc": _(
+            "Afghanistan (May 20, 2022)\nBurma (Myanmar) (March 25, 2024)\n"
+            "Cameroon (June 7, 2022)\nEl Salvador (December 14, 2023)\n"
+            "Ethiopia (April 15, 2024)\nHaiti (December 14, 2023)\nHonduras "
+            "(December 14, 2023)\nNepal (December 14, 2023)\nNicaragua "
+            "(December 14, 2023)\nSomalia (March 13, 2023)\nSouth Sudan "
+            "(August 21, 2023)\nSudan (December 14, 2023)\nSyria (January 29, "
+            "2024)\nUkraine (August 21, 2023)\nVenezuela (November 17, 2023)\n"
+            "Yemen (January 3, 2023)"
+        ),
+        "tps_header": _(
+            "We think you may be eligible for Temporary Protected Status "
+            "(TPS)"
+        ),
+        "tps_info": _(
+            "I have applied for or received Temporary Protected Status (TPS)"
+        ),
+        "undocumented": _(
+            "Learn more about resources for undocumented migrants."
+        ),
         "vttc": _("I am the victim of one of the following:"),
         "vttc_apply": _("I want help applying for work authorization."),
-        "vttc_desc": _("Trafficking\nDomestic violence\nSexual assault\nHate crimes\nHuman trafficking\nInvoluntary servitude\nAnother Serious Offense."),
-        "vttc_header": _("We think you may be eligible for work authorization."),
+        "vttc_desc": _(
+            "Trafficking\nDomestic violence\nSexual assault\nHate crimes\n"
+            "Human trafficking\nInvoluntary servitude\nAnother Serious Offense."
+        ),
+        "vttc_header": _(
+            "We think you may be eligible for work authorization."
+        ),
         "vttc_info": _("I have applied for or received work authorization."),
         "what_help": _("What can I help you with?"),
         "work_auth": _("I need help getting authorization to work"),
-        "work_auth_question": _("Do any of the following circumstances apply to you?"),
-        "work_rights": _("I need to learn more about my rights as a worker")
+        "work_auth_question": _(
+            "Do any of the following circumstances apply to you?"
+        ),
+        "work_rights": _("I need to learn more about my rights as a worker"),
     }
     return render_template("legal_flow.html", legal_text=legal_text)
 
@@ -118,11 +180,8 @@ def legal_tps_info():
         Renders legal flow - TPS info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "tps_info.html", language=language
-    )
+    return render_template("tps_info.html", language=language)
 
 
 @main.route("/legal/tps_apply")
@@ -135,11 +194,8 @@ def legal_tps_apply():
         Renders legal flow - TPS apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "tps_apply.html", language=language
-    )
+    return render_template("tps_apply.html", language=language)
 
 
 @main.route("/legal/vttc_info")
@@ -152,11 +208,8 @@ def legal_vttc_info():
         Renders legal VTTC info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "vttc_info.html", language=language
-    )
+    return render_template("vttc_info.html", language=language)
 
 
 @main.route("/legal/vttc_apply")
@@ -169,11 +222,8 @@ def legal_vttc_apply():
         Renders legal flow - VTTC apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "vttc_apply.html", language=language
-    )
+    return render_template("vttc_apply.html", language=language)
 
 
 @main.route("/legal/asylum_info")
@@ -186,11 +236,8 @@ def legal_asylum_info():
         Renders legal flow - Asylum info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "asylum_info.html", language=language
-    )
+    return render_template("asylum_info.html", language=language)
 
 
 @main.route("/legal/asylum_apply")
@@ -203,11 +250,8 @@ def legal_asylum_apply():
         Renders legal flow - Asylum apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "asylum_apply.html", language=language
-    )
+    return render_template("asylum_apply.html", language=language)
 
 
 @main.route("/legal/parole_info")
@@ -220,11 +264,8 @@ def legal_parole_info():
         Renders legal flow - Parole info page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "parole_info.html", language=language
-    )
+    return render_template("parole_info.html", language=language)
 
 
 @main.route("/legal/parole_apply")
@@ -237,11 +278,8 @@ def legal_parole_apply():
         Renders legal flow - Parole apply page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "parole_apply.html", language=language
-    )
+    return render_template("parole_apply.html", language=language)
 
 
 @main.route("/legal/undocumented_resources")
@@ -254,7 +292,6 @@ def legal_undocumented_resources():
         Renders legal flow - Undocumented Resources page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
     return render_template(
         "undocumented_resources.html",
@@ -270,11 +307,8 @@ def workers_rights():
         Renders the workers' rights page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "work_rights.html", language=language
-    )
+    return render_template("work_rights.html", language=language)
 
 
 @main.route("/legal/renters_rights")
@@ -285,11 +319,8 @@ def renters_rights():
         Renders the renters' rights page.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    
 
-    return render_template(
-        "renters_rights.html", language=language
-    )
+    return render_template("renters_rights.html", language=language)
 
 
 @main.route("/legal/lawyers")
@@ -301,9 +332,7 @@ def lawyers():
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
 
-    return render_template(
-        "lawyers.html", language=language
-    )
+    return render_template("lawyers.html", language=language)
 
 
 @main.route("/health")
@@ -342,12 +371,12 @@ def health_search():
     for org_id in organization_ids:
         if extract_organization(org_id[0])["service"]:
             organizations.append(extract_organization(org_id[0]))
-    
+
     return render_template(
         "health_search.html",
         services_info=organizations,
         set=set,
-        language=language
+        language=language,
     )
 
 
@@ -359,9 +388,7 @@ def health_general():
         Health Static Page
     """
     language = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
-    return render_template(
-        "health_general.html", language=language
-    )
+    return render_template("health_general.html", language=language)
 
 
 @main.route("/general")
@@ -405,6 +432,7 @@ def dashboard():
             language=language,
             organization=organization,
         )
+
 
 @main.route("/org/<int:organization_id>", methods=["GET"])
 def org(organization_id):
@@ -537,49 +565,21 @@ def add_organization():
         language=language,
     )
 
-@main.route("/get_translations")
-def get_translations():
-    translations = {
-        "legal_start.asylum": _("I have a credible fear of persecution or torture in my home country."),
-        "legal_start.asylum_apply": _("I want help applying for asylum."),
-        "legal_start.asylum_header": _("We think you may be eligible for asylum."),
-        "legal_start.asylum_info": _("I have applied for or received asylum."),
-        "legal_start.hide_options": _("Hide Options"),
-        "legal_start.lawyers": _("Find Personalized Legal Assistance."),
-        "legal_start.other": _("None of these apply to me."),
-        "legal_start.other_header": _("We cannot determine your eligibility for Asylum, Parole, or Temporary Protected Status"),
-        "legal_start.parole": _("One of the circumstances below applies to me."),
-        "legal_start.parole_apply": _("I want help applying for humanitarian parole."),
-        "legal_start.parole_desc": _("I am from Ukraine or Afghanistan\nI am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing dangerous conditions, violence, or severe economic hardship in my home country\nI came to the US for Medical Family Reunification (adults and children)\n I came to the US for Civil or Criminal Court Proceedings"),
-        "legal_start.parole_header": _("We think you may be eligible for humanitarian parole."),
-        "legal_start.parole_info": _("I have applied for or received humanitarian parole."),
-        "legal_start.renters_rights": _("I need to learn more about my rights as a renter"),
-        "legal_start.see_options": _("See Options"),
-        "legal_start.something_else": _("I need help with something else"),
-        "legal_start.tps": _("I am from one of the countries listed below & arrived before the date listed:"),
-        "legal_start.tps_apply": _("I want help applying for Temporary Protected Status (TPS)"),
-        "legal_start.tps_desc": _("Afghanistan (May 20, 2022)\nBurma (Myanmar) (March 25, 2024)\nCameroon (June 7, 2022)\nEl Salvador (December 14, 2023)\nEthiopia (April 15, 2024)\nHaiti (December 14, 2023)\nHonduras (December 14, 2023)\nNepal (December 14, 2023)\nNicaragua (December 14, 2023)\nSomalia (March 13, 2023)\nSouth Sudan (August 21, 2023)\nSudan (December 14, 2023)\nSyria (January 29, 2024)\nUkraine (August 21, 2023)\nVenezuela (November 17, 2023)\nYemen (January 3, 2023)"),
-        "legal_start.tps_header": _("We think you may be eligible for Temporary Protected Status (TPS)"),
-        "legal_start.tps_info": _("I have applied for or received Temporary Protected Status (TPS)"),
-        "legal_start.undocumented": _("Learn more about resources for undocumented migrants."),
-        "legal_start.vttc": _("I am the victim of one of the following:"),
-        "legal_start.vttc_apply": _("I want help applying for work authorization."),
-        "legal_start.vttc_desc": _("Trafficking\nDomestic violence\nSexual assault\nHate crimes\nHuman trafficking\nInvoluntary servitude\nAnother Serious Offense."),
-        "legal_start.vttc_header": _("We think you may be eligible for work authorization."),
-        "legal_start.vttc_info": _("I have applied for or received work authorization."),
-        "legal_start.what_help": _("What can I help you with?"),
-        "legal_start.work_auth": _("I need help getting authorization to work"),
-        "legal_start.work_auth_question": _("Do any of the following circumstances apply to you?"),
-        "legal_start.work_rights": _("I need to learn more about my rights as a worker"),
-        "Back": _("Back"),
-        "Select an option": _("Select an option"),
-    }
-    return jsonify(translations)
-
 
 # Function to create the Flask app
 def create_app(config_override=None):
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", default="sqlite:///:memory:")
+    """Function to create the Flask app.
+
+    Args:
+        config_override (dict, optional):
+          Configuration settings to override defaults. Defaults to None.
+
+    Returns:
+        Flask: Configured Flask application instance.
+    """
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
+        "DATABASE_URL", default="sqlite:///:memory:"
+    )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
@@ -588,12 +588,12 @@ def create_app(config_override=None):
     app.config["NEIGHBORHOODS"] = load_neighborhoods()
 
     # Configure Babel
-    app.config['BABEL_DEFAULT_LOCALE'] = 'es'  # Set Spanish as default locale
-    app.config['BABEL_TRANSLATION_DIRECTORIES'] = '../translations'
+    app.config["BABEL_DEFAULT_LOCALE"] = "es"  # Set Spanish as default locale
+    app.config["BABEL_TRANSLATION_DIRECTORIES"] = "../translations"
 
     @app.context_processor
     def inject_locale():
-        return dict(get_locale=get_locale)
+        return {"get_locale": get_locale}
 
     if config_override:
         app.config.update(config_override)
@@ -614,6 +614,7 @@ def create_app(config_override=None):
         return User.query.get(int(user_id))
 
     return app
+
 
 # Run the Flask app with the correct entry point
 if __name__ == "__main__":

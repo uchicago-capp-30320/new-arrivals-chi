@@ -382,7 +382,7 @@ Requires authentication to access.
                 <button class="update-button button-blue" type="submit">{{_('Update Location')}}</button>
         </form>
     </div>
-    
+
     <body>
 
         <form action="/edit_hours_info" method="POST">
@@ -822,7 +822,7 @@ Requires authentication to access.
                             <div class="location-section">
                                 <label class="location-label" for="service-{{ service.id }}">{{_('Service Name:')}}</label>
                                 <input type="text" id="service-{{ service.id }}" name="service" value="{{ service.service }}" required>
-    
+
                                 <label class="location-label" for="category-{{ service.id }}">{{_('Category:')}}</label>
                                 <select name="category" id="category-{{ service.id }}" required>
                                     <option value="Family Care" {% if service.category == 'Family Care' %}selected{% endif %}>{{_('Family Care')}}</option>
@@ -1434,17 +1434,13 @@ Requires authentication to access.
             </div>
         </div>
     </body>
-    
+
     <script>
         function toggleEditForm(serviceId) {
             const editForm = document.getElementById(`edit-form-${serviceId}`);
             editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
         }
     </script>
-    
+
 
 {% endblock %}
-
-
-
-

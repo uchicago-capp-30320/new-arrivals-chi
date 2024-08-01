@@ -27,7 +27,6 @@ Methods:
 """
 
 import logging
-import json
 import re
 import os
 import bleach
@@ -35,7 +34,6 @@ import us
 from datetime import datetime
 from password_strength import PasswordPolicy
 from flask_bcrypt import Bcrypt
-from new_arrivals_chi.app.constants import LANGUAGES
 
 from flask import current_app
 
@@ -248,6 +246,7 @@ def verify_password(pw_hash, candidate):
         False otherwise.
     """
     return bcrypt.check_password_hash(pw_hash, candidate)
+
 
 def validate_street(street):
     """Validates the street address format.
