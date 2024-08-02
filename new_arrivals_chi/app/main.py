@@ -48,6 +48,7 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
+# Initialize local selector and blueprint
 def get_locale():
     """Get the current locale based on the request."""
     lang = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
@@ -55,20 +56,11 @@ def get_locale():
     return lang
 
 
+main = Blueprint("main", __name__, static_folder="static")
+
 babel.init_app(app, locale_selector=get_locale)
 
 
-@app.context_processor
-def inject_locale():
-    """Inject the current locale into the context."""
-    return {"get_locale": get_locale}
-
-
-# Define the blueprint
-main = Blueprint("main", __name__, static_folder="static")
-
-
-# Define routes within the blueprint
 @main.route("/")
 def home():
     """Home page route."""
@@ -81,7 +73,6 @@ def about():
     return render_template("about.html")
 
 
-# Define other routes similarly within the `main` blueprint
 @main.route("/legal")
 def legal():
     """Establishes route for the legal page.
