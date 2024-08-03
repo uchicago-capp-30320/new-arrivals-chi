@@ -13,91 +13,64 @@ Methods:
     * legal - Route to legal portion of application.
 """
 
-from flask import (
-    Flask,
-    Blueprint,
-    render_template,
-    request,
-    current_app,
-    flash,
-    url_for,
-)
+from flask import Flask, Blueprint, render_template, request, g, flash
+from flask_babel import Babel, lazy_gettext as _
+from datetime import timedelta
 import os
+from new_arrivals_chi.app.authorize_routes import authorize
+from flask_migrate import Migrate
+from flask_login import LoginManager, current_user, login_required
 import bleach
 from markupsafe import escape
-from dotenv import load_dotenv
-
-from new_arrivals_chi.app.constants import (
-    KEY_LANGUAGE,
-    KEY_TRANSLATIONS,
-    DEFAULT_LANGUAGE,
-)
-
-from new_arrivals_chi.app.database import (
-    db,
-    User,
-    Organization,
-)
-
 from new_arrivals_chi.app.utils import (
+    load_neighborhoods,
     validate_email_syntax,
-    load_translations,
     validate_phone_number,
     create_temp_pwd,
-    load_neighborhoods,
 )
-
 from new_arrivals_chi.app.data_handler import (
     create_user,
     create_organization_profile,
     extract_organization,
 )
-
-from flask_migrate import Migrate
-from flask_login import LoginManager, login_required, current_user
-from new_arrivals_chi.app.authorize_routes import authorize
-from datetime import timedelta
+from dotenv import load_dotenv
+from new_arrivals_chi.app.database import (
+    db,
+    User,
+    Organization,
+)
+from new_arrivals_chi.app.constants import KEY_LANGUAGE, DEFAULT_LANGUAGE
 
 migrate = Migrate()
-
 load_dotenv()
 
-main = Blueprint("main", __name__, static_folder="/static")
+app = Flask(__name__)
+babel = Babel(app)
+
+
+# Initialize local selector and blueprint
+def get_locale():
+    """Get the current locale based on the request."""
+    lang = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
+    g.current_lang = lang
+    return lang
+
+
+main = Blueprint("main", __name__, static_folder="static")
+
+babel.init_app(app, locale_selector=get_locale)
 
 
 @main.route("/")
 def home():
-    """Establishes route for the home page of New Arrivals Chi.
-
-    This route is accessible within the 'home' button in the navigation bar and
-    is the page that users are directed to when first visiting the site.
-
-    Returns:
-        Renders home page.
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "home.html", language=language, translations=translations
-    )
+    """Home page route."""
+    return render_template("home.html")
 
 
 @main.route("/about")
 def about():
-    """Establishes route for the about us page.
-
-    This route is accessible from the footer of every page.
-
-    Returns:
-        Renders about us page.
-    """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "about.html", language=language, translations=translations
-    )
+    """About page route."""
+    return render_template("about.html")
 
 
 @main.route("/legal")
@@ -109,12 +82,83 @@ def legal():
     Returns:
         Renders main legal page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "legal_flow.html", language=language, translations=translations
-    )
+    legal_text = {
+        "asylum": _(
+            "I have a credible fear of persecution or torture in my home "
+            "country."
+        ),
+        "asylum_apply": _("I want help applying for asylum."),
+        "asylum_header": _("We think you may be eligible for asylum."),
+        "asylum_info": _("I have applied for or received asylum."),
+        "hide_options": _("Hide Options"),
+        "lawyers": _("Find Personalized Legal Assistance."),
+        "other": _("None of these apply to me."),
+        "other_header": _(
+            "We cannot determine your eligibility for Asylum, Parole, or "
+            "Temporary Protected Status"
+        ),
+        "parole": _("One of the circumstances below applies to me."),
+        "parole_apply": _("I want help applying for humanitarian parole."),
+        "parole_desc": _(
+            "I am from Ukraine or Afghanistan\nI am from Cuba, Haiti, "
+            "Nicaragua, and Venezuela and am experiencing dangerous "
+            "conditions, violence, or severe economic hardship in my home "
+            "country\nI came to the US for Medical Family Reunification "
+            "(adults and children)\n I came to the US for Civil or Criminal "
+            "Court Proceedings"
+        ),
+        "parole_header": _(
+            "We think you may be eligible for humanitarian parole."
+        ),
+        "parole_info": _("I have applied for or received humanitarian parole."),
+        "renters_rights": _("I need to learn more about my rights as a renter"),
+        "see_options": _("See Options"),
+        "something_else": _("I need help with something else"),
+        "tps": _(
+            "I am from one of the countries listed below & arrived before "
+            "the date listed:"
+        ),
+        "tps_apply": _(
+            "I want help applying for Temporary Protected Status (TPS)"
+        ),
+        "tps_desc": _(
+            "Afghanistan (May 20, 2022)\nBurma (Myanmar) (March 25, 2024)\n"
+            "Cameroon (June 7, 2022)\nEl Salvador (December 14, 2023)\n"
+            "Ethiopia (April 15, 2024)\nHaiti (December 14, 2023)\nHonduras "
+            "(December 14, 2023)\nNepal (December 14, 2023)\nNicaragua "
+            "(December 14, 2023)\nSomalia (March 13, 2023)\nSouth Sudan "
+            "(August 21, 2023)\nSudan (December 14, 2023)\nSyria (January 29, "
+            "2024)\nUkraine (August 21, 2023)\nVenezuela (November 17, 2023)\n"
+            "Yemen (January 3, 2023)"
+        ),
+        "tps_header": _(
+            "We think you may be eligible for Temporary Protected Status "
+            "(TPS)"
+        ),
+        "tps_info": _(
+            "I have applied for or received Temporary Protected Status (TPS)"
+        ),
+        "undocumented": _(
+            "Learn more about resources for undocumented migrants."
+        ),
+        "vttc": _("I am the victim of one of the following:"),
+        "vttc_apply": _("I want help applying for work authorization."),
+        "vttc_desc": _(
+            "Trafficking\nDomestic violence\nSexual assault\nHate crimes\n"
+            "Human trafficking\nInvoluntary servitude\nAnother Serious Offense."
+        ),
+        "vttc_header": _(
+            "We think you may be eligible for work authorization."
+        ),
+        "vttc_info": _("I have applied for or received work authorization."),
+        "what_help": _("What can I help you with?"),
+        "work_auth": _("I need help getting authorization to work"),
+        "work_auth_question": _(
+            "Do any of the following circumstances apply to you?"
+        ),
+        "work_rights": _("I need to learn more about my rights as a worker"),
+    }
+    return render_template("legal_flow.html", legal_text=legal_text)
 
 
 @main.route("/legal/tps_info")
@@ -126,12 +170,7 @@ def legal_tps_info():
     Returns:
         Renders legal flow - TPS info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "tps_info.html", language=language, translations=translations
-    )
+    return render_template("tps_info.html")
 
 
 @main.route("/legal/tps_apply")
@@ -143,12 +182,7 @@ def legal_tps_apply():
     Returns:
         Renders legal flow - TPS apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "tps_apply.html", language=language, translations=translations
-    )
+    return render_template("tps_apply.html")
 
 
 @main.route("/legal/vttc_info")
@@ -160,12 +194,7 @@ def legal_vttc_info():
     Returns:
         Renders legal VTTC info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "vttc_info.html", language=language, translations=translations
-    )
+    return render_template("vttc_info.html")
 
 
 @main.route("/legal/vttc_apply")
@@ -177,12 +206,7 @@ def legal_vttc_apply():
     Returns:
         Renders legal flow - VTTC apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "vttc_apply.html", language=language, translations=translations
-    )
+    return render_template("vttc_apply.html")
 
 
 @main.route("/legal/asylum_info")
@@ -194,12 +218,7 @@ def legal_asylum_info():
     Returns:
         Renders legal flow - Asylum info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "asylum_info.html", language=language, translations=translations
-    )
+    return render_template("asylum_info.html")
 
 
 @main.route("/legal/asylum_apply")
@@ -211,12 +230,7 @@ def legal_asylum_apply():
     Returns:
         Renders legal flow - Asylum apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "asylum_apply.html", language=language, translations=translations
-    )
+    return render_template("asylum_apply.html")
 
 
 @main.route("/legal/parole_info")
@@ -228,12 +242,7 @@ def legal_parole_info():
     Returns:
         Renders legal flow - Parole info page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "parole_info.html", language=language, translations=translations
-    )
+    return render_template("parole_info.html")
 
 
 @main.route("/legal/parole_apply")
@@ -245,12 +254,7 @@ def legal_parole_apply():
     Returns:
         Renders legal flow - Parole apply page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "parole_apply.html", language=language, translations=translations
-    )
+    return render_template("parole_apply.html")
 
 
 @main.route("/legal/undocumented_resources")
@@ -262,14 +266,7 @@ def legal_undocumented_resources():
     Returns:
         Renders legal flow - Undocumented Resources page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "undocumented_resources.html",
-        language=language,
-        translations=translations,
-    )
+    return render_template("undocumented_resources.html")
 
 
 @main.route("/legal/work_rights")
@@ -279,12 +276,7 @@ def workers_rights():
     Returns:
         Renders the workers' rights page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "work_rights.html", language=language, translations=translations
-    )
+    return render_template("work_rights.html")
 
 
 @main.route("/legal/renters_rights")
@@ -294,12 +286,7 @@ def renters_rights():
     Returns:
         Renders the renters' rights page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "renters_rights.html", language=language, translations=translations
-    )
+    return render_template("renters_rights.html")
 
 
 @main.route("/legal/lawyers")
@@ -309,12 +296,7 @@ def lawyers():
     Returns:
         Renders the page with contact information for lawyers
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "lawyers.html", language=language, translations=translations
-    )
+    return render_template("lawyers.html")
 
 
 @main.route("/health")
@@ -326,12 +308,7 @@ def health():
     Returns:
         Renders main health page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "health.html", language=language, translations=translations
-    )
+    return render_template("health.html")
 
 
 @main.route("/health/search")
@@ -344,6 +321,8 @@ def health_search():
     Returns:
         Renders the health search page.
     """
+    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
+
     organizations = []
 
     organization_ids = (
@@ -356,14 +335,11 @@ def health_search():
         if extract_organization(org_id[0])["service"]:
             organizations.append(extract_organization(org_id[0]))
 
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
         "health_search.html",
-        language=language,
-        translations=translations,
         services_info=organizations,
         set=set,
+        language=language,
     )
 
 
@@ -374,12 +350,8 @@ def health_general():
     Returns:
         Health Static Page
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "health_general.html", language=language, translations=translations
-    )
+    language = request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE)
+    return render_template("health_general.html", language=language)
 
 
 @main.route("/general")
@@ -389,12 +361,7 @@ def general():
     Returns:
         Chicago 101 page
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
-    return render_template(
-        "general.html", language=language, translations=translations
-    )
+    return render_template("general.html")
 
 
 @main.route("/dashboard", methods=["GET"])
@@ -410,14 +377,12 @@ def dashboard():
         and change password.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     user = current_user
 
     if current_user.role == "admin":
         return render_template(
             "admin_management.html",
             language=language,
-            translations=translations,
         )
     else:
         organization = Organization.query.get(user.organization_id)
@@ -425,19 +390,10 @@ def dashboard():
         if not organization:
             return "Organization not found", 404
 
-        # generate URL for edit_organization endpoint
-        edit_org_url = url_for(
-            "main.edit_organization",
-            organization_id=organization.id,
-            lang=language,
-        )
-
         return render_template(
             "dashboard.html",
             language=language,
             organization=organization,
-            translations=translations,
-            edit_org_url=edit_org_url,
         )
 
 
@@ -452,7 +408,6 @@ def org(organization_id):
         Renders the organization page (public facing).
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     organization = extract_organization(organization_id)
 
@@ -460,7 +415,6 @@ def org(organization_id):
         "organization.html",
         organization=organization,
         language=language,
-        translations=translations,
         organization_id=organization_id,
     )
 
@@ -478,17 +432,14 @@ def edit_organization(organization_id):
         update their info.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
-    user = current_user
-    organization = extract_organization(user.organization_id)
+    organization = Organization.query.get(organization_id)
 
     return render_template(
         "edit_organization.html",
+        organization_id=organization_id,
         organization=organization,
         language=language,
-        translations=translations,
-        organization_id=organization_id,
     )
 
 
@@ -505,11 +456,9 @@ def add_organization_success():
         a success message after adding a new organization.
     """
     language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
     return render_template(
         "add_organization_success.html",
         language=language,
-        translations=translations,
     )
 
 
@@ -530,7 +479,6 @@ def add_organization():
         return "Unauthorized", 401
 
     language = bleach.clean(request.args.get("lang", "en"))
-    translations = current_app.config["TRANSLATIONS"][language]
 
     if request.method == "POST":
         email = request.form.get("email")
@@ -573,31 +521,43 @@ def add_organization():
             return render_template(
                 "add_organization_success.html",
                 language=language,
-                translations=translations,
             )
 
     return render_template(
         "add_organization.html",
         language=language,
-        translations=translations,
     )
 
 
+# Function to create the Flask app
 def create_app(config_override=None):
-    """This function creates the flask application for the web portal."""
-    app = Flask(__name__)
+    """Function to create the Flask app.
+
+    Args:
+        config_override (dict, optional):
+          Configuration settings to override defaults. Defaults to None.
+
+    Returns:
+        Flask: Configured Flask application instance.
+    """
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
         "DATABASE_URL", default="sqlite:///:memory:"
     )
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["REMEMBER_COOKIE_DURATION"] = timedelta(hours=12)
-    app.config[KEY_TRANSLATIONS] = load_translations()
 
     # Load neighborhoods from file and store in app config
     app.config["NEIGHBORHOODS"] = load_neighborhoods()
 
-    # Update app configuration with any provided override config (for testing)
+    # Configure Babel
+    app.config["BABEL_DEFAULT_LOCALE"] = "en"
+    app.config["BABEL_TRANSLATION_DIRECTORIES"] = "../translations"
+
+    @app.context_processor
+    def inject_locale():
+        return {"get_locale": get_locale}
+
     if config_override:
         app.config.update(config_override)
 
@@ -619,11 +579,7 @@ def create_app(config_override=None):
     return app
 
 
+# Run the Flask app with the correct entry point
 if __name__ == "__main__":
     app = create_app()
-    # Note: For the development server, we are using a auto-generated
-    # self-signed certificate as a result the CA is unable to validate a server
-    # certificate, though you can continue to proceed and visit the development
-    # site. For the production deployment, we will ensure a valid certificate
-    # from CA for our domain.
     app.run(ssl_context="adhoc", debug=True)

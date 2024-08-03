@@ -5,42 +5,38 @@ Associated Files:
     base.html, main.py, legal_page.css, lawyers.html
 -->
 {% extends "base.html" %}
-
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}" />
 {% endblock %}
-
 {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['undocumented'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    <div class="container">
-      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ translations[language]['legal']['find_lawyers'] | escape }}
-    </button>
-    </div>
+  <h1>{{ _('Legal Resources for Undocumented Migrants') }}</h1>
+
+  <h3>{{ _('For Those Who Don\'t Qualify for Status') }}</h3>
+
+  <p>
+    {{ _('There are 11 million undocumented people in the US who find ways to live and work in their communities. Chicago is known for its welcoming community:') }}
+  </p>
+
+  <ul>
+    <li>{{ _('Education: Children can attend school regardless of their immigration status.') }}</li>
+    <li>{{ _('Law Enforcement: Police officers are not permitted to inquire about an individual\'s immigration status.') }}</li>
+    <li>{{ _('Driving: After a year of residency, individuals can drive without a license.') }}</li>
+    <li>{{ _('Employment: Employers have the authority to verify employment authorization. If an individual cannot provide this, the employer cannot legally hire them.') }}</li>
+  </ul>
+
+  <p>{{ _('While undocumented status can make it challenging to:') }}</p>
+
+  <ul>
+    <li>{{ _('Street Vending: Many individuals work as street vendors and should be aware of their rights in this role.') }}</li>
+    <li>{{ _('Business Ownership: It is possible to open your own business in the City of Chicago.') }}</li>
+    <li>{{ _('Workers\' Rights: Even without proper documentation, workers are entitled to legal protection including fair pay, working hours, and how to report abuse.') }}</li>
+  </ul>
+
+  <p>{{ _('The informal economy offers various opportunities, but understanding the rights and protections available is crucial.') }}</p>
+
+  <div class="container">
+    <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">{{ _('Find a Lawyer') }}</button>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}

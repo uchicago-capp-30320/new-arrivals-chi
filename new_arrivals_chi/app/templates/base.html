@@ -9,11 +9,11 @@ Template for extension. Contains JavaScript function for language, HTML, and CSS
 References: https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
 -->
 <!DOCTYPE html>
-<html lang="{{ language | escape }}">
+<html lang="{{ get_locale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Arrival Resource Portal</title>
+    <title>{{ _('New Arrival Resource Portal') }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -24,27 +24,27 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 
 <body>
     <nav class="navbar" style="position: absolute; top: 20px; left: 20px;">
-        <button onclick="navigateTo('/', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['home'] | escape }}</button>
+        <button onclick="navigateTo('/', '{{ get_locale() }}')" class="navbar-item">{{ _('Home') }}</button>
         {% if current_user.is_authenticated %}
-        <button onclick="navigateTo('/dashboard', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['dashboard'] | escape }}</button>
-        <button onclick="navigateTo('/logout', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['logout'] | escape }}</button>
+        <button onclick="navigateTo('/dashboard', '{{ get_locale() }}')" class="navbar-item">{{ _('Dashboard') }}</button>
+        <button onclick="navigateTo('/logout', '{{ get_locale() }}')" class="navbar-item">{{ _('Logout') }}</button>
         {% endif %}
         {% if not current_user.is_authenticated %}
-        <button onclick="navigateTo('/login', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['util']['login'] | escape }}</button>
-        <button onclick="navigateTo('/signup', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['sign_up'] | escape }}</button>
+        <button onclick="navigateTo('/login', '{{ get_locale() }}')" class="navbar-item">{{ _('Login') }}</button>
+        <button onclick="navigateTo('/signup', '{{ get_locale() }}')" class="navbar-item">{{ _('Sign Up') }}</button>
         {% endif %}
     </nav>
 </body>
 
-<form action="{{ url_for(request.endpoint, organization_id=organization_id) }}" method="GET">
+<form action="{% if request.endpoint in ['main.edit_organization', 'main.org'] %}{{ url_for(request.endpoint, organization_id=organization.id) }}{% else %}{{ url_for(request.endpoint) }}{% endif %}" method="GET">
     <button type="submit" class="language-button">
-        {% if language == 'es' %}
+        {% if get_locale() == 'es' %}
             English
         {% else %}
             Español
         {% endif %}
     </button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+    <input type="hidden" name="lang" value="{{ 'es' if get_locale() == 'en' else 'en' | escape }}">
 </form>
 
 <div class="wrapper">
@@ -55,18 +55,22 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 </div>
 
 <p class="footer-links">
-    <a onclick="navigateTo('{{ url_for('main.about') }}', '{{ language }}')" class="underline">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
+    <a onclick="navigateTo('{{ url_for('main.about') }}', '{{ get_locale() }}')" class="underline">{{ _('About Us') }}</a> <i class="fa-solid fa-user"></i>
     <span>|</span>
-    <a onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'" class="underline">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
+    <a onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'" class="underline">{{ _('Report Error') }}</a> <i class="fas fa-bug"></i>
     <span>|</span>
-    <span>{{ translations[language]['base']['note'] | escape }}</span><i class="fa-solid fa-shield"></i>
+    <span>{{ _('This site does not collect any personal information.') }}</span><i class="fa-solid fa-shield"></i>
 </p>
 
 </html>
 
 
+
 <script>
-    function navigateTo(destination, language) {
-        window.location.href = destination + '?lang=' + language;
+function navigateTo(destination, language) {
+    if (!language) {
+        language = 'en';
     }
+    window.location.href = destination + '?lang=' + language;
+}
 </script>

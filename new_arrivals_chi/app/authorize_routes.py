@@ -39,7 +39,6 @@ from new_arrivals_chi.app.utils import (
     extract_registration_info,
 )
 from new_arrivals_chi.app.constants import (
-    KEY_TRANSLATIONS,
     KEY_LANGUAGE,
     DEFAULT_LANGUAGE,
 )
@@ -91,10 +90,7 @@ def signup():
         Renders sign up page in their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-    return render_template(
-        "signup.html", language=language, translations=translations
-    )
+    return render_template("signup.html", language=language)
 
 
 @authorize.route("/signup", methods=["POST"])
@@ -144,10 +140,7 @@ def login():
         Renders login page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-    return render_template(
-        "login.html", language=language, translations=translations
-    )
+    return render_template("login.html", language=language)
 
 
 @authorize.route("/login", methods=["POST"])
@@ -158,9 +151,6 @@ def login_post():
         Redirects to the user's dashboard page if login is successful,
         otherwise redirects back to the login page with a flash message.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
     email = request.form.get("email").lower()
     password = request.form.get("password")
 
@@ -179,15 +169,11 @@ def login_post():
     if current_user.role == "admin":
         return render_template(
             "admin_management.html",
-            language=language,
-            translations=translations,
         )
     else:
         organization = Organization.query.get(user.organization_id)
         return render_template(
             "dashboard.html",
-            language=language,
-            translations=translations,
             organization=organization,
         )
 
@@ -217,10 +203,7 @@ def change_password():
         Renders change password page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-    return render_template(
-        "change_password.html", language=language, translations=translations
-    )
+    return render_template("change_password.html", language=language)
 
 
 @authorize.route("/change_password", methods=["POST"])
@@ -271,12 +254,9 @@ def registration_change_password():
         Renders change password page for user with their selected language.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     return render_template(
-        "registration_change_password.html",
-        language=language,
-        translations=translations,
+        "registration_change_password.html", language=language
     )
 
 
@@ -324,11 +304,8 @@ def post_registration_change_password():
         return redirect(url_for("authorize.register"))
 
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
     return render_template(
-        "registration_change_password.html",
-        language=language,
-        translations=translations,
+        "registration_change_password.html", language=language
     )
 
 
@@ -386,19 +363,12 @@ def admin_dashboard():
         organizations or look at website error reports. If user is not admin,
         it redirects to home page.
     """
-    language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
-
     if current_user.is_admin:
         return render_template(
             "admin_management.html",
-            language=language,
-            translations=translations,
         )
     else:
-        return render_template(
-            "home.html", language=language, translations=translations
-        )
+        return render_template("home.html")
 
 
 @authorize.route("/admin/org_management", methods=["GET"])
@@ -413,7 +383,6 @@ def org_management():
         Renders template with organizations.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     organizations = Organization.query.with_entities(
         Organization.id, Organization.name, Organization.status
@@ -423,7 +392,6 @@ def org_management():
         "org_management.html",
         organizations=organizations,
         language=language,
-        translations=translations,
     )
 
 
@@ -463,9 +431,7 @@ def toggle_suspend_organization(organization_id):
     return redirect(url_for("authorize.org_management"))
 
 
-@authorize.route(
-    "/admin/edit_organization/<int:organization_id>", methods=["GET", "POST"]
-)
+@authorize.route("/admin/edit_organization/<int:organization_id>")
 @admin_required
 def admin_edit_organization(organization_id):
     """Establishes route to the edit organization page.
@@ -478,17 +444,12 @@ def admin_edit_organization(organization_id):
         update their info.
     """
     language = bleach.clean(request.args.get(KEY_LANGUAGE, DEFAULT_LANGUAGE))
-    translations = current_app.config[KEY_TRANSLATIONS][language]
 
     organization = Organization.query.get(organization_id)
 
-    if request.method == "POST":
-        # Handle the form submission
-        pass
     return render_template(
         "edit_organization.html",
         organization_id=organization_id,
         organization=organization,
         language=language,
-        translations=translations,
     )

@@ -7,25 +7,24 @@ Associated Files:
 HTML for organization dashboard page.
 -->
 {% extends "base.html" %}
-
 {% block content %}
 <div class="wrapper">
   <div class="text-container">
     <h1>{{ organization.name | escape }}</h1>
   </div>
   <div class="button-container">
-        <button class="button button-blue" onclick="navigateTo('{{ url_for('main.org', organization_id=organization.id) }}', '{{ language }}')">
-            {{ translations[language]['profile']['view_org_page'] | escape }}
-        </button>
-        <button class="button button-green" onclick="navigateTo('{{ url_for('main.dashboard') }}', '{{ language }}')">
-            {{ translations[language]['profile']['update_org_info'] | escape }}
-        </button>
-        <button class="button button-orange" onclick="navigateTo('{{ url_for('authorize.change_password') }}', '{{ language }}')">
-            {{ translations[language]['profile']['change_password'] | escape }}
-        </button>
-        <button class="yellow-button" onclick="navigateTo('{{ url_for('main.home') }}', '{{ language }}')">
-            {{ translations[language]['util']['back'] | escape }}
-        </button>
-    </div>
+    <button class="button button-blue" onclick="navigateTo('{{ url_for('main.org', organization_id=organization.id) }}', '{{ language }}')">
+      {{ _('View My Page') | escape }}
+    </button>
+    <button class="button button-green" onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=organization.id) }}', '{{ language }}')">
+      {{ _('Update My Information') | escape }}
+    </button>
+    <button class="button button-orange" onclick="navigateTo('{{ url_for('authorize.change_password') }}', '{{ language }}')">
+      {{ _('Change My Password') | escape }}
+    </button>
+    <button class="yellow-button" onclick="navigateTo('{{ url_for('main.home') }}', '{{ language }}')">
+      {{ _('Back') | escape }}
+    </button>
+  </div>
 </div>
 {% endblock %}

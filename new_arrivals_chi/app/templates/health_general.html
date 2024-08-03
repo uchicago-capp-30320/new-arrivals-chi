@@ -6,39 +6,308 @@ Associated Files:
 
 Health information page
 -->
-{% extends "base.html" %}
-
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/legal_page.css') }}"
+/>
+{% endblock %} {% block content %}
 <div class="white-container">
-  {% set content = translations[language]['health_gen'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    </div>
-  </div>
-  {% endblock %}
+  <h1>{{_('Navigating Healthcare in Chicago')}}</h1>
+
+  <h2>{{_('Welcome')}}</h2>
+
+  <p>
+    {{_('Welcome to our healthcare resource page designed to assist you in
+    navigating the healthcare system in Chicago. Here\'s what you\'ll find:')}}
+  </p>
+
+  <ul>
+    <li>{{_('Information about navigating healthcare access')}}</li>
+
+    <li>
+      {{_('Understanding healthcare access based on your legal status and/or age
+      group')}}
+    </li>
+
+    <li>
+      {{_('Guidance on finding healthcare providers, emergency and urgent care
+      services, mental health and well-being resources, physical therapy
+      options, and community health programs.')}}
+    </li>
+  </ul>
+
+  <h2>{{_('Navigating the Healthcare System')}}</h2>
+
+  <p>
+    {{_('In the United States, we have a system where people can choose their
+    doctors and hospitals. Patients have the option of paying out-of-pocket for
+    services provided or can pay for health insurance to help reduce the cost of
+    medical care.')}}
+  </p>
+
+  <h3>{{_('What is Health Insurance?')}}</h3>
+
+  <p>
+    {{_('Health insurance is like a membership that helps cover the cost of
+    doctor visits, hospital stays, medications, and more.')}}
+  </p>
+
+  <h3>{{_('Obtaining Health Insurance')}}</h3>
+
+  <p>
+    {{_('Health insurance may be purchased through healthcare.gov or secured
+    through your employer. You must have a qualifying legal status to qualify
+    for health insurance:')}}
+  </p>
+
+  <ul>
+    <li>{{_('U.S. Citizen')}}</li>
+
+    <li>{{_('Green Card')}}</li>
+
+    <li>
+      {{_('Asylum Status - only if you\'ve been granted employment authorization
+      or are under age 14 and have an application pending for at least 180
+      days')}}
+    </li>
+
+    <li>{{_('Refugee Status')}}</li>
+
+    <li>{{_('Cuban/Haitian Entrant')}}</li>
+
+    <li>{{_('Paroled into the U.S.')}}</li>
+
+    <li>{{_('Temporary Protected Status (TPS)')}}</li>
+
+    <li>{{_('Battered Spouse, Child and Parent')}}</li>
+
+    <li>
+      {{_('Victim of Trafficking and his/her Spouse, Child, Sibling or
+      Parent')}}
+    </li>
+
+    <li>
+      {{_('Granted Withholding of Deportation or Withholding of Removal, under
+      the immigration laws or under the Convention against Torture (CAT)')}}
+    </li>
+
+    <li>
+      {{_('Individual with Non-immigrant Status, includes worker visas (such as
+      H1, H-2A, H-2B), student visas, U-visa, T-visa, and other visas, and
+      citizens of Micronesia, the Marshall Islands, and Palau')}}
+    </li>
+
+    <li>{{_('Deferred Enforced Departure (DED)')}}</li>
+
+    <li>
+      {{_('Deferred Action Status (Exception: Deferred Action for Childhood
+      Arrivals (DACA) is not an eligible immigration status for applying for
+      health insurance)')}}
+    </li>
+
+    <li>{{_('Lawful Temporary Resident')}}</li>
+
+    <li>
+      {{_('Administrative order staying removal issued by the Department of
+      Homeland Security')}}
+    </li>
+
+    <li>{{_('Conditional Entrant Granted before 1980')}}</li>
+  </ul>
+
+  <p>
+    {{_('If you are undocumented, you may not be able to obtain health
+    insurance, but you can still receive emergency medical care and preventative
+    medical services at low-cost health centers in the City of Chicago.')}}
+  </p>
+
+  <h2>
+    {{_('Accessing Health Insurance Based on Legal Status and Age Group')}}
+  </h2>
+
+  <p>
+    {{_('Accessing health insurance can vary based on an individual\'s legal
+    status and age group.')}}
+  </p>
+
+  <h3>{{_('Legal Status')}}</h3>
+
+  <p>
+    {{_('Temporary Protected Status (TPS), Humanitarian Parole, Asylum or
+    Refugee: As someone with TPS, Parole, Asylum or Refugee Status, you qualify
+    for Medicaid or can buy a health insurance plan at healthcare.gov.')}}
+  </p>
+
+  <h3>{{_('What is Medicaid?')}}</h3>
+
+  <p>
+    {{_('Medicaid is a government program that helps people with low income and
+    limited resources pay for healthcare. It is a free or low-cost health
+    insurance that covers various medical services like doctor visits, hospital
+    stays, prescription medications, and more.')}}
+  </p>
+
+  <h3>{{_('Where do I Apply for Medicaid?')}}</h3>
+
+  <p>
+    {{_('In the state of Illinois, you can apply online, over the phone, in
+    person, or submit a paper application. Please see the following links for
+    details on how to apply:')}}
+  </p>
+
+  <p>
+    <a
+      href="https://getcareillinois.org/need-health-coverage/medicaid/"
+      target="_blank"
+      >{{_('Get Care Illinois - Apply for Medicaid')}}
+    </a>
+  </p>
+
+  <p>
+    <a
+      href="https://hfs.illinois.gov/medicalclients/medicaidguide/applying.html"
+      target="_blank"
+      >{{_('Illinois Healthcare and Family Services - Medicaid Guide')}}
+    </a>
+  </p>
+
+  <h3>{{_('Undocumented')}}</h3>
+
+  <p>
+    {{_('If you are undocumented, you may not be able to access a health
+    insurance plan. However, you can still receive emergency medical care and
+    preventative medical services at low-cost health centers in the City of
+    Chicago. Please see the next section on “Accessing Healthcare Services
+    Regardless of Legal Status.')}} ”
+  </p>
+
+  <p>
+    {{_('If you are an undocumented child, you qualify for All Kids, a health
+    insurance plan for children from low-income households who live in Illinois.
+    To apply for All Kids, please click the following links for more
+    details:')}}
+  </p>
+
+  <p>
+    <a
+      href="https://hfs.illinois.gov/medicalprograms/allkids/about.html"
+      target="_blank"
+      >{{_('All Kids - About')}}
+    </a>
+  </p>
+
+  <p>
+    <a
+      href="https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+      target="_blank"
+      >{{_('All Kids - Application')}}
+    </a>
+  </p>
+
+  <p>
+    {{_('If you are undocumented and pregnant, you qualify for two programs:')}}
+  </p>
+
+  <ul>
+    <li>
+      {{_('Moms and Babies, a health insurance plan for women while they are
+      pregnant for up to 12 months after the baby is born. To apply for Moms and
+      Babies, you can also use the All Kids application. Please click the
+      following links to apply.')}}
+    </li>
+
+    <li>
+      {{_('Medicaid Presumptive Eligibility (MPE), a plan that offers immediate,
+      temporary coverage for outpatient health services to pregnant women who
+      meet income requirements. To learn more about MPE, please see the
+      following links.')}}
+    </li>
+  </ul>
+
+  <p>
+    <a
+      href="https://hfs.illinois.gov/medicalprograms/allkids/application.html"
+      target="_blank"
+      >{{_('Moms and Babies - Application')}}
+    </a>
+  </p>
+
+  <p>
+    <a
+      href="https://hfs.illinois.gov/medicalprograms/allkids/momsandbabies.html"
+      target="_blank"
+      >{{_('Moms and Babies - About')}}
+    </a>
+  </p>
+
+  <h2>{{_('Accessing Healthcare Services Regardless of Legal Status')}}</h2>
+
+  <p>
+    Accessing healthcare services is a fundamental right, regardless of legal
+    status. Below are resources and options available to ensure that everyone
+    can access essential healthcare services and support in Chicago.')}}
+  </p>
+
+  <h3>{{_('Low-Cost Healthcare Providers')}}</h3>
+
+  <p>Below are different clinics that provide low-cost or free services:')}}</p>
+
+  <ul>
+    <li>
+      Low-cost clinics that are called Federally Qualified Health Centers:
+      please click the following links to find a center near you.')}}
+    </li>
+
+    <li>
+      Free or low-cost clinics that are called Free &amp; Charitable Clinics:
+      please click the following links to find a center near you.')}}
+    </li>
+  </ul>
+
+  <p>
+    <a href="https://www.fqhc.org/what-is-an-fqhc" target="_blank"
+      >{{_('What is an FQHC')}}
+    </a>
+  </p>
+
+  <p>
+    <a href="https://findahealthcenter.hrsa.gov/" target="_blank"
+      >{{_('Find a Health Center')}}
+    </a>
+  </p>
+
+  <p>
+    <a
+      href="https://www.illinoisfreeclinics.org/clinic-search/whats-a-free-charitable-clinic/"
+      target="_blank"
+      >{{_('What\'s a Free & Charitable Clinic')}}
+    </a>
+  </p>
+
+  <p>
+    <a
+      href="https://www.illinoisfreeclinics.org/clinic-search/clinic-directory/"
+      target="_blank"
+      >{{_('Clinic Directory')}}
+    </a>
+  </p>
+
+  <h3>Emergency and Urgent Care')}}</h3>
+
+  <p>
+    {{_('All non-profit hospitals are required to provide a set amount of
+    emergency care and financial assistance to uninsured patients, regardless of
+    status. Please click the following link to find a non-profit hospital.')}}
+  </p>
+
+  <p>
+    <a
+      href="https://www.ilalliancehealth.org/healthcare-access-programs"
+      target="_blank"
+      >{{_('Illinois Alliance for Welcoming Health Care - Healthcare Access
+      Programs')}}
+    </a>
+  </p>
+</div>
+{% endblock %}

@@ -27,7 +27,6 @@ Methods:
 """
 
 import logging
-import json
 import re
 import os
 import bleach
@@ -35,7 +34,6 @@ import us
 from datetime import datetime
 from password_strength import PasswordPolicy
 from flask_bcrypt import Bcrypt
-from new_arrivals_chi.app.constants import LANGUAGES
 
 from flask import current_app
 
@@ -248,19 +246,6 @@ def verify_password(pw_hash, candidate):
         False otherwise.
     """
     return bcrypt.check_password_hash(pw_hash, candidate)
-
-
-def load_translations():
-    """Loads translations from JSON files for supported languages.
-
-    Returns:
-        dict: A dictionary containing translations for supported languages.
-    """
-    translations = {}
-    for lang in LANGUAGES:
-        with open(f"new_arrivals_chi/app/languages/{lang}.json", "r") as file:
-            translations[lang] = json.load(file)
-    return translations
 
 
 def validate_street(street):

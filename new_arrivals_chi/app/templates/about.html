@@ -4,40 +4,68 @@ File name: asylum_apply.html
 Associated Files:
     base.html, main.py, legal_page.css, lawyers.html
 -->
-{% extends "base.html" %}
-
-{% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/legal_page.css') }}"
+/>
+{% endblock %} {% block content %}
 <div class="wrapper">
-    <div class="white-container">
-    {% set content = translations[language]['about_us'] %}
-    {% if content.title %}
-        <h1>{{ content.title }}</h1>
-    {% endif %}
-    {% for section in content.content %}
-        {% if section.header %}
-            <h2>{{ section.header }}</h2>
-        {% endif %}
-        {% if section.sub %}
-        <h3>{{ section.sub }}</h3>
-        {% endif %}
-        {% if section.body %}
-        <p>{{ section.body }}</p>
-        {% endif %}
-        {% if section.link_text and section.source_link %}
-        <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-        {% endif %}
-        {% if section.list %}
-        <ul>
-            {% for item in section.list %}
-            <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    {% endfor %}
-    </div>
+  <div class="white-container">
+    <h1>{{ _('About Us') }}</h1>
+    <p>
+      {{ _('New Arrivals Chi is a resource guide developed by six graduate
+      students from the University of Chicago to help newly arrived individuals
+      navigate the City of Chicago and its available resources. Our goal is to
+      provide accurate, up-to-date, and actionable information to address common
+      challenges faced by newcomers.') }}
+    </p>
+    <h2>{{ _('Team Members') }}</h2>
+    <ul>
+      <li>{{ _('Federico Dominguez Molina') }}</li>
+      <li>{{ _('Aaron Haefner') }}</li>
+      <li>{{ _('Summer Long') }}</li>
+      <li>{{ _('Kathryn Link-Oberstar') }}</li>
+      <li>{{ _('Madeleine Roberts') }}</li>
+      <li>{{ _('Xiomara Salazar Flores') }}</li>
+    </ul>
+    <p>
+      {{ _('We would like to express our sincere gratitude to our advisors,
+      James Turk and Michael Plunkett, for their invaluable guidance and support
+      throughout this project.') }}
+    </p>
+    <h2>{{ _('Acknowledgements') }}</h2>
+    <p>
+      {{ _('This resource guide was made possible by our incredible community
+      partners who graciously shared their knowledge and advice during the
+      development process.') }}
+    </p>
+    <ul>
+      <li>
+        {{ _('City of Chicago - Office of Immigrants, Migrant, Refugee Rights:
+        Marissa Arrez and Jesús Del Toro') }}
+      </li>
+      <li>
+        {{ _('Illinois Community for Displaced Immigrants: Johannes Favi') }}
+      </li>
+      <li>{{ _('The Resurrection Project: Oswaldo Gomez, Laura Mendoza') }}</li>
+      <li>{{ _('Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan') }}</li>
+    </ul>
+    <h2>{{ _('Get in touch') }}</h2>
+    <p>
+      {{ _('The codebase for this project is publicly available on GitHub.') }}
+    </p>
+    <p>
+      <a
+        href="https://github.com/uchicago-capp-30320/new-arrivals-chi/tree/main"
+        target="_blank"
+        >{{ _('View repository') }}</a
+      >
+    </p>
+    <p>
+      {{ _('For questions or inquiries, please contact us at
+      newarrivalschi.contact@gmail.com.') }}
+    </p>
+  </div>
 </div>
 {% endblock %}
