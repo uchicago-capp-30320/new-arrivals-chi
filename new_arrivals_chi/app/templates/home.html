@@ -9,7 +9,91 @@ Main landing page for the user. Does not require authentication to access.
 {% extends "base.html" %}
 
 {% block content %}
-<div class="wrapper">
+<style>
+    /* got image from here: https://commons.wikimedia.org/wiki/File:Chicago_Skyline_Sunrise_Panorama_%282015%29.jpg */
+    .cds-hero {
+        background-image: url('static/assets/img/Chicago_Skyline_Sunrise_Panorama_(2015).jpg');
+        background-position: 80%;
+        padding: 0;
+    }
+</style>
+<section class="cds-hero">
+    <div class="container">
+        <div class="cds-hero-callout">
+            <h1 class="cds-hero-heading">
+                <span class="text-white">{{ translations[language]['home']['welcome'] | escape }}</span><br>
+                <span class="blue-100">{{ translations[language]['home']['subheader'] | escape }}</span>
+            </h1>
+            <p>{{ translations[language]['home']['description'] | escape }}</p>
+        </div>
+    </div>
+</section>
+
+<main role="main">    
+    <div class="container mt-4">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+        <div class="col-lg-4 text-center">
+            <h2>{{ translations[language]['home']['general'] | escape }}</h2>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+            <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/general', '{{ language | escape }}')">{{ translations[language]['home']['please_click'] | escape }}</button>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-center">
+            <h2>{{ translations[language]['home']['legal'] | escape }}</h2>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+            <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['please_click'] | escape }}</button>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-center">
+            <h2>{{ translations[language]['home']['health'] | escape }}</h2>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+            <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['please_click'] | escape }}</button>
+        </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+    
+        <!-- START THE FEATURETTES -->
+    
+        <hr class="mt-5">
+    
+        <div class="row mt-5">
+        <div class="col-md-7">
+            <h1 >First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h1>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 text-right">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 400x400"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">400x400</text></svg>
+        </div>
+        </div>
+    
+        <hr class="mt-5">
+    
+        <div class="row mt-5">
+        <div class="col-md-7 order-md-2">
+            <h2 >Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="350" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 350x350"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">350x350</text></svg>
+        </div>
+        </div>
+    
+        <hr class="mt-5">
+    
+        <div class="row mt-5 mb-5">
+        <div class="col-md-8">
+            <h3>And lastly, this one. <span class="text-muted">Checkmate.</span></h3>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-4 text-right">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="250" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 250x250"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">250x250</text></svg>
+        </div>
+        </div>
+
+        <!-- /END THE FEATURETTES -->
+    
+    </div><!-- /.container -->
+      
+</main>
+<!-- <div class="wrapper">
     <div class="text-container">
         <h1>{{ translations[language]['home']['welcome'] | escape }}</h1>
         <h3>{{ translations[language]['home']['subheader'] | escape }}</h3>
@@ -18,7 +102,7 @@ Main landing page for the user. Does not require authentication to access.
     <div class="home-button-container">
         <div class="button-container">
             <h3>{{ translations[language]['home']['please_click'] | escape }}</h3>
-            <button class="button button-green" onclick="navigateTo('/general', '{{ language | escape }}')">{{ translations[language]['home']['general'] | escape }}</button>
+            <button class="btn btn-primary" type="button" onclick="navigateTo('/general', '{{ language | escape }}')">{{ translations[language]['home']['general'] | escape }}</button>
             <button class="button button-blue" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['legal'] | escape }}</button>
             <button class="button button-yellow" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['health'] | escape }}</button>
         </div>
@@ -26,5 +110,5 @@ Main landing page for the user. Does not require authentication to access.
     <div class="text-container">
         <i>{{ translations[language]['home']['find_support'] | escape }}</i>
     </div>
-</div>
+</div> -->
 {% endblock %}
