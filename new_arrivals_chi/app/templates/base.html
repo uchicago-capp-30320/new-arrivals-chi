@@ -27,85 +27,48 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-
-<!-- <button class="btn btn-secondary" onclick="navigateTo('/', '{{ language | escape }}')">{{ translations[language]['base']['home'] | escape }}</button>
-        {% if current_user.is_authenticated %}
-        <button onclick="navigateTo('/dashboard', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['dashboard'] | escape }}</button>
-        <button onclick="navigateTo('/logout', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['logout'] | escape }}</button>
-        {% endif %}
-        {% if not current_user.is_authenticated %}
-        <button class="btn btn-secondary" onclick="navigateTo('/login', '{{ language | escape }}')">{{ translations[language]['util']['login'] | escape }}</button>
-        <button class="btn btn-secondary" onclick="navigateTo('/signup', '{{ language | escape }}')">{{ translations[language]['base']['sign_up'] | escape }}</button>
-        {% endif %} -->
-
-        <!-- <form action="{{ url_for(request.endpoint, organization_id=organization_id) }}" method="GET">
-            <button type="submit" class="language-button">
-                {% if language == 'es' %}
-                    English
-                {% else %}
-                    Español
-                {% endif %}
-            </button>
-            <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-        </form> -->
-
-<div class="d-flex justify-content-center" style="height: 80px; padding: 0%;">
-    <nav role="navigation" class="cds-nav">
-        <div class="cds-nav-inner">
-            <button class="cds-nav-close" style="vertical-align: text-top;">
-                <img src="static/assets/img/close.svg" alt="close">
-            </button>
-            <ul class="cds-nav-primary cds-accordion">
-                <li><button class="cds-nav-link" onclick="navigateTo('/', '{{ language | escape }}')"><span>{{ translations[language]['base']['home'] | escape }}</span></a></li>
-                {% if current_user.is_authenticated %}
-                <li><button class="cds-nav-link" onclick="navigateTo('/dashboard', '{{ language | escape }}')"><span>{{ translations[language]['base']['dashboard'] | escape }}</span></a></li>
-                <li><button class="cds-nav-link" onclick="navigateTo('/logout', '{{ language | escape }}')"><span>{{ translations[language]['base']['logout'] | escape }}</span></a></li>
-                {% endif %}
-                {% if not current_user.is_authenticated %}
-                <li><button class="cds-nav-link"  onclick="navigateTo('/login', '{{ language | escape }}')"><span>{{ translations[language]['util']['login'] | escape }}</span></a></li>
-                <li><button class="cds-nav-link"  onclick="navigateTo('/', '{{ language | escape }}')"><span>{{ translations[language]['base']['sign_up'] | escape }}</span></a></li>
-                {% endif %}
-                <li>
-                    <form action="{{ url_for(request.endpoint, organization_id=organization_id) }}" method="GET">
-                        <button type="submit" class="cds-nav-link"><span>
-                            {% if language == 'es' %}
-                                English
-                            {% else %}
-                                Español
-                            {% endif %}
-                        </span></button>
-                        <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-                    </form>
-                </li>
-            </ul>		
+<!-- Mobile screen friendly -->
+<!-- Start Navigation -->
+<header class="cds-header" role="banner">
+    <body class="usa-mobile_nav-active" >
+        <div class="cds-navbar">
+        <button class="cds-menu-btn" onclick="menuToggleOn()" href="javascript:void(0)">MENU</button>
         </div>
-    </nav>
-</div>
-<!-- 
-<body>
-    <nav class="navbar" style="position: absolute; top: 20px; left: 20px;">
-        <button class="btn btn-secondary" onclick="navigateTo('/', '{{ language | escape }}')">{{ translations[language]['base']['home'] | escape }}</button>
-        {% if current_user.is_authenticated %}
-        <button onclick="navigateTo('/dashboard', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['dashboard'] | escape }}</button>
-        <button onclick="navigateTo('/logout', '{{ language | escape }}')" class="navbar-item">{{ translations[language]['base']['logout'] | escape }}</button>
-        {% endif %}
-        {% if not current_user.is_authenticated %}
-        <button class="btn btn-secondary" onclick="navigateTo('/login', '{{ language | escape }}')">{{ translations[language]['util']['login'] | escape }}</button>
-        <button class="btn btn-secondary" onclick="navigateTo('/signup', '{{ language | escape }}')">{{ translations[language]['base']['sign_up'] | escape }}</button>
-        {% endif %}
-    </nav>
-</body> -->
+        <nav role="navigation" class="cds-nav" id="Menu-cds-nav">
+            <div class="cds-nav-inner">
+                <button class="cds-nav-close" onclick="menuToggleOff()" href="javascript:void(0)">
+                    <img src="static/assets/img/close.svg" alt="close">
+                </button>
+                <ul class="cds-nav-primary cds-accordion">
+                    <li><button class="cds-nav-link" onclick="navigateTo('/', '{{ language | escape }}')"><span>{{ translations[language]['base']['home'] | escape }}</span></a></li>
+                    {% if current_user.is_authenticated %}
+                    <li><button class="cds-nav-link" onclick="navigateTo('/dashboard', '{{ language | escape }}')"><span>{{ translations[language]['base']['dashboard'] | escape }}</span></a></li>
+                    <li><button class="cds-nav-link" onclick="navigateTo('/logout', '{{ language | escape }}')"><span>{{ translations[language]['base']['logout'] | escape }}</span></a></li>
+                    {% endif %}
+                    {% if not current_user.is_authenticated %}
+                    <li><button class="cds-nav-link"  onclick="navigateTo('/login', '{{ language | escape }}')"><span>{{ translations[language]['util']['login'] | escape }}</span></a></li>
+                    <li><button class="cds-nav-link"  onclick="navigateTo('/signup', '{{ language | escape }}')"><span>{{ translations[language]['base']['sign_up'] | escape }}</span></a></li>
+                    {% endif %}
+                    <li>
+                        <form action="{{ url_for(request.endpoint, organization_id=organization_id) }}" method="GET">
+                            <button type="submit" class="cds-nav-link"><span>
+                                {% if language == 'es' %}
+                                    English
+                                {% else %}
+                                    Español
+                                {% endif %}
+                            </span></button>
+                            <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
+                        </form>
+                    </li>
+                </ul>		
+            </div>
+        </nav>
+      </div>
+   </body>
+</header>
 
-<!-- <form action="{{ url_for(request.endpoint, organization_id=organization_id) }}" method="GET">
-    <button type="submit" class="language-button">
-        {% if language == 'es' %}
-            English
-        {% else %}
-            Español
-        {% endif %}
-    </button>
-    <input type="hidden" name="lang" value="{{ 'es' if language == 'en' else 'en' | escape }}">
-</form> -->
+
 
 <div class="wrapper">
     <div class="container">
@@ -115,11 +78,13 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 </div>
 
 <p class="footer-links">
-    <a onclick="navigateTo('{{ url_for('main.about') }}', '{{ language }}')" class="underline">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
+    <div class="container" style="vertical-align:bottom; padding-top: .5in;">
+    <a onclick="navigateTo('{{ url_for('main.about') }}', '{{ language }}')" class="underline" style="cursor: pointer;">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
     <span>|</span>
-    <a onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'" class="underline">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
+    <a onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'" class="underline" style="cursor: pointer;">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
     <span>|</span>
     <span>{{ translations[language]['base']['note'] | escape }}</span><i class="fa-solid fa-shield"></i>
+    </div> 
 </p>
 
 </html>
@@ -128,5 +93,19 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 <script>
     function navigateTo(destination, language) {
         window.location.href = destination + '?lang=' + language;
+    }
+
+    function menuToggleOn() {
+        var x = document.getElementById("Menu-cds-nav");
+        if (x.className === "cds-nav") {
+            x.className += " is-visible";
+        }
+    }
+
+    function menuToggleOff() {
+        var x = document.getElementById("Menu-cds-nav");
+        if (x.className === "cds-nav is-visible") {
+            x.className = "cds-nav";
+        }
     }
 </script>
