@@ -11,7 +11,7 @@ HTML for edit organization page.
   <div class="box-big-title">{{_('Welcome to the Admin Dashboard') }}</div>
   <button
     class="button blue"
-    onclick="navigateTo('/admin/org_management', '{{ language | escape }}')"
+    onclick="navigateTo('/admin/org_management', '{{ get_locale() }}')"
   >
     {{ _('Organization Management') | escape }}
   </button>

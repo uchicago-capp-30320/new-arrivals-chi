@@ -13,16 +13,16 @@ HTML for organization dashboard page.
     <h1>{{ organization.name | escape }}</h1>
   </div>
   <div class="button-container">
-    <button class="button button-blue" onclick="navigateTo('{{ url_for('main.org', organization_id=organization.id) }}', '{{ language }}')">
+    <button class="button button-blue" onclick="navigateTo('{{ url_for('main.org', organization_id=organization.id) }}', '{{ get_locale() }}')">
       {{ _('View My Page') | escape }}
     </button>
-    <button class="button button-green" onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=organization.id) }}', '{{ language }}')">
+    <button class="button button-green" onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=organization.id) }}', '{{ get_locale() }}')">
       {{ _('Update My Information') | escape }}
     </button>
-    <button class="button button-orange" onclick="navigateTo('{{ url_for('authorize.change_password') }}', '{{ language }}')">
+    <button class="button button-orange" onclick="navigateTo('{{ url_for('authorize.change_password') }}', '{{ get_locale() }}')">
       {{ _('Change My Password') | escape }}
     </button>
-    <button class="yellow-button" onclick="navigateTo('{{ url_for('main.home') }}', '{{ language }}')">
+    <button class="yellow-button" onclick="navigateTo('{{ url_for('main.home') }}', '{{ get_locale() }}')">
       {{ _('Back') | escape }}
     </button>
   </div>
