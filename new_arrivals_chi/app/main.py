@@ -158,7 +158,10 @@ def legal():
         ),
         "work_rights": _("I need to learn more about my rights as a worker"),
     }
-    return render_template("legal_flow.html", legal_text=legal_text)
+    language = get_locale()
+    return render_template(
+        "legal_flow.html", legal_text=legal_text, language=language
+    )
 
 
 @main.route("/legal/tps_info")

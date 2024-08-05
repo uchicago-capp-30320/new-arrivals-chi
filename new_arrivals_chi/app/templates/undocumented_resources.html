@@ -36,7 +36,12 @@ Associated Files:
   <p>{{ _('The informal economy offers various opportunities, but understanding the rights and protections available is crucial.') }}</p>
 
   <div class="container">
-    <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">{{ _('Find a Lawyer') }}</button>
+    <button
+      class="button button-blue"
+      onclick="navigateTo('/legal/lawyers', '{{ get_locale() }}')"
+    >
+      {{ _('Find a Lawyer') | escape }}
+    </button>
   </div>
 </div>
 {% endblock %}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-01 09:44-0500\n"
+"POT-Creation-Date: 2024-08-05 09:27-0500\n"
 "PO-Revision-Date: 2024-07-31 02:41-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,49 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: new_arrivals_chi/app/main.py:95
+#: new_arrivals_chi/app/main.py:86
 msgid "I have a credible fear of persecution or torture in my home country."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:99
+#: new_arrivals_chi/app/main.py:90
 msgid "I want help applying for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:100
+#: new_arrivals_chi/app/main.py:91
 msgid "We think you may be eligible for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:101
+#: new_arrivals_chi/app/main.py:92
 msgid "I have applied for or received asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:102
+#: new_arrivals_chi/app/main.py:93
 msgid "Hide Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:103
+#: new_arrivals_chi/app/main.py:94
 msgid "Find Personalized Legal Assistance."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:104
+#: new_arrivals_chi/app/main.py:95
 msgid "None of these apply to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:105
+#: new_arrivals_chi/app/main.py:96
 msgid ""
 "We cannot determine your eligibility for Asylum, Parole, or Temporary "
 "Protected Status"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:109
+#: new_arrivals_chi/app/main.py:100
 msgid "One of the circumstances below applies to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:110
+#: new_arrivals_chi/app/main.py:101
 msgid "I want help applying for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:111
+#: new_arrivals_chi/app/main.py:102
 msgid ""
 "I am from Ukraine or Afghanistan\n"
 "I am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing "
@@ -70,37 +70,37 @@ msgid ""
 " I came to the US for Civil or Criminal Court Proceedings"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:119
+#: new_arrivals_chi/app/main.py:110
 msgid "We think you may be eligible for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:122
+#: new_arrivals_chi/app/main.py:113
 msgid "I have applied for or received humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:123
+#: new_arrivals_chi/app/main.py:114
 msgid "I need to learn more about my rights as a renter"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:124
+#: new_arrivals_chi/app/main.py:115
 msgid "See Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:125
+#: new_arrivals_chi/app/main.py:116
 msgid "I need help with something else"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:126
+#: new_arrivals_chi/app/main.py:117
 msgid ""
 "I am from one of the countries listed below & arrived before the date "
 "listed:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:130
+#: new_arrivals_chi/app/main.py:121
 msgid "I want help applying for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:133
+#: new_arrivals_chi/app/main.py:124
 msgid ""
 "Afghanistan (May 20, 2022)\n"
 "Burma (Myanmar) (March 25, 2024)\n"
@@ -120,27 +120,27 @@ msgid ""
 "Yemen (January 3, 2023)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:143
+#: new_arrivals_chi/app/main.py:134
 msgid "We think you may be eligible for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:147
+#: new_arrivals_chi/app/main.py:138
 msgid "I have applied for or received Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:150
+#: new_arrivals_chi/app/main.py:141
 msgid "Learn more about resources for undocumented migrants."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:153
+#: new_arrivals_chi/app/main.py:144
 msgid "I am the victim of one of the following:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:154
+#: new_arrivals_chi/app/main.py:145
 msgid "I want help applying for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:155
+#: new_arrivals_chi/app/main.py:146
 msgid ""
 "Trafficking\n"
 "Domestic violence\n"
@@ -151,27 +151,27 @@ msgid ""
 "Another Serious Offense."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:159
+#: new_arrivals_chi/app/main.py:150
 msgid "We think you may be eligible for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:162
+#: new_arrivals_chi/app/main.py:153
 msgid "I have applied for or received work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:163
+#: new_arrivals_chi/app/main.py:154
 msgid "What can I help you with?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:164
+#: new_arrivals_chi/app/main.py:155
 msgid "I need help getting authorization to work"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:165
+#: new_arrivals_chi/app/main.py:156
 msgid "Do any of the following circumstances apply to you?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:168
+#: new_arrivals_chi/app/main.py:159
 msgid "I need to learn more about my rights as a worker"
 msgstr ""
 
@@ -367,14 +367,14 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/asylum_apply.html:45
 #: new_arrivals_chi/app/templates/asylum_info.html:149
-#: new_arrivals_chi/app/templates/parole_apply.html:86
-#: new_arrivals_chi/app/templates/parole_info.html:72
-#: new_arrivals_chi/app/templates/renters_rights.html:209
+#: new_arrivals_chi/app/templates/parole_apply.html:89
+#: new_arrivals_chi/app/templates/parole_info.html:75
+#: new_arrivals_chi/app/templates/renters_rights.html:212
 #: new_arrivals_chi/app/templates/tps_apply.html:214
-#: new_arrivals_chi/app/templates/tps_info.html:97
-#: new_arrivals_chi/app/templates/undocumented_resources.html:39
-#: new_arrivals_chi/app/templates/vttc_apply.html:60
-#: new_arrivals_chi/app/templates/vttc_info.html:145
+#: new_arrivals_chi/app/templates/tps_info.html:101
+#: new_arrivals_chi/app/templates/undocumented_resources.html:43
+#: new_arrivals_chi/app/templates/vttc_apply.html:64
+#: new_arrivals_chi/app/templates/vttc_info.html:149
 #: new_arrivals_chi/app/templates/work_rights.html:129
 msgid "Find a Lawyer"
 msgstr ""
@@ -4153,33 +4153,35 @@ msgid "Cook County Residential Tenant and Landlord Ordinance"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/renters_rights.html:45
+#, python-format
 msgid ""
 "Prevents landlords from charging late fees greater than $10 a month for "
-"the monthly rent of up to $1,000, plus 5 percent per month for the "
-"monthly rent over $1,000."
+"the monthly rent of up to $1,000, plus 5%% per month for the monthly rent"
+" over $1,000."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/renters_rights.html:46
 msgid ""
-"Limits security deposits to no more than one and a half months’ rent. "
+"Limits security deposits to no more than one and a half months' rent. "
 "Security deposits must be returned within 30 days after the tenant has "
 "left the unit. If a reasonable amount has been deducted for repairs, the "
 "landlord must provide an itemized list of damages and costs for repairs."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/renters_rights.html:47
+#: new_arrivals_chi/app/templates/renters_rights.html:56
 msgid ""
 "Landlords cannot threaten to, attempt to, or forcefully remove a tenant "
 "without authority of the law. For example, landlords cannot change the "
 "locks, shut off utilities, or do anything else that interferes with the "
-"tenant’s use of the apartment."
+"tenant's use of the apartment."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/renters_rights.html:48
 msgid ""
 "Lockouts are always illegal, but the Cook County RTLO adds extra "
 "protections. In Cook County, you can sue your landlord for up to two "
-"months’ rent or twice the damages sustained by the tenant, whichever is "
+"months' rent or twice the damages sustained by the tenant, whichever is "
 "greater. In municipalities outside of the City of Chicago, violations "
 "should be made to the Cook County Sheriff's Office at 773-674-4357."
 msgstr ""
@@ -4189,10 +4191,11 @@ msgid "Chicago Residential Landlord Tenant Ordinance"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/renters_rights.html:53
+#, python-format
 msgid ""
 "Prevents landlords from charging late fees greater than $10 a month for "
-"the monthly rent of up to $500, plus 5 percent per month for the monthly "
-"rent over $500."
+"the monthly rent of up to $500, plus 5%% per month for the monthly rent "
+"over $500."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/renters_rights.html:54
@@ -4206,14 +4209,6 @@ msgid ""
 "Before the landlord can deduct expenses for damages, they must first "
 "provide the tenant with an itemized list of damages within 30 days after "
 "the tenant has left the unit."
-msgstr ""
-
-#: new_arrivals_chi/app/templates/renters_rights.html:56
-msgid ""
-"Landlords cannot threaten to, attempt to, or forcefully remove a tenant "
-"without authority of the law. For example, landlords cannot change the "
-"locks, shut off utilities, or do anything else that interferes with the "
-"tenant's use of the apartment."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/renters_rights.html:57
@@ -5806,4 +5801,55 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Select an option"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Prevents landlords from charging late "
+#~ "fees greater than $10 a month for"
+#~ " the monthly rent of up to "
+#~ "$1,000, plus 5 percent per month "
+#~ "for the monthly rent over $1,000."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Limits security deposits to no more "
+#~ "than one and a half months’ rent."
+#~ " Security deposits must be returned "
+#~ "within 30 days after the tenant "
+#~ "has left the unit. If a reasonable"
+#~ " amount has been deducted for "
+#~ "repairs, the landlord must provide an"
+#~ " itemized list of damages and costs"
+#~ " for repairs."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Landlords cannot threaten to, attempt "
+#~ "to, or forcefully remove a tenant "
+#~ "without authority of the law. For "
+#~ "example, landlords cannot change the "
+#~ "locks, shut off utilities, or do "
+#~ "anything else that interferes with the"
+#~ " tenant’s use of the apartment."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Lockouts are always illegal, but the "
+#~ "Cook County RTLO adds extra protections."
+#~ " In Cook County, you can sue "
+#~ "your landlord for up to two "
+#~ "months’ rent or twice the damages "
+#~ "sustained by the tenant, whichever is"
+#~ " greater. In municipalities outside of "
+#~ "the City of Chicago, violations should"
+#~ " be made to the Cook County "
+#~ "Sheriff's Office at 773-674-4357."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Prevents landlords from charging late "
+#~ "fees greater than $10 a month for"
+#~ " the monthly rent of up to "
+#~ "$500, plus 5 percent per month for"
+#~ " the monthly rent over $500."
 #~ msgstr ""

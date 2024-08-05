@@ -37,14 +37,14 @@ HTML for edit organization page.
           <button
           type="button"
           class="btn-edit"
-          onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=organization.id) }}', '{{ language }}')"
+          onclick="navigateTo('{{ url_for('main.edit_organization', organization_id=organization.id) }}', '{{ get_locale() }}')"
       >
           {{ _('Edit') }}
       </button>
           <button
             type="button"
             class="btn-suspend"
-            onclick="navigateTo('{{ url_for('authorize.toggle_suspend_organization', organization_id=organization.id) }}', '{{ language }}')"
+            onclick="navigateTo('{{ url_for('authorize.toggle_suspend_organization', organization_id=organization.id) }}', '{{ get_locale() }}')"
           >
             {% if organization.status == 'ACTIVE' %}{{ _('Suspend') }} {% else
             %}{{ _('Unsuspend')}} {% endif %}

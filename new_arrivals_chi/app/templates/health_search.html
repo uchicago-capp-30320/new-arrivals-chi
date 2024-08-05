@@ -68,7 +68,7 @@ time.hour == 0 %} 12:{{ '%02d' % time.minute }}am {% else %} {{ time.hour }}:{{
         <td>
           <a
             href="#"
-            onclick="navigateTo('{{ url_for('main.org', organization_id=org.id) }}', '{{ language }}')"
+            onclick="navigateTo('{{ url_for('main.org', organization_id=org.id) }}', '{{ get_locale() }}')"
             >{{ org.name }}</a
           >
         </td>

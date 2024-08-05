@@ -144,7 +144,7 @@ Associated Files:
   <div class="container">
     <button
       class="button button-blue"
-      onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'"
+      onclick="navigateTo('/legal/lawyers', '{{ get_locale() }}')"
     >
       {{ _('Find a Lawyer') | escape }}
     </button>

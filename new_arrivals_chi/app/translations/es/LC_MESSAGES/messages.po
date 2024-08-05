@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-01 09:44-0500\n"
-"PO-Revision-Date: 2024-08-01 09:47-0500\n"
+"POT-Creation-Date: 2024-08-05 09:27-0500\n"
+"PO-Revision-Date: 2024-08-05 10:56-0500\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
@@ -19,49 +19,51 @@ msgstr ""
 "Generated-By: Babel 2.15.0\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: new_arrivals_chi/app/main.py:95
+#: new_arrivals_chi/app/main.py:86
 msgid "I have a credible fear of persecution or torture in my home country."
-msgstr ""
+msgstr "Tengo un temor creíble de persecución o tortura en mi país de origen."
 
-#: new_arrivals_chi/app/main.py:99
+#: new_arrivals_chi/app/main.py:90
 msgid "I want help applying for asylum."
-msgstr ""
+msgstr "Quiero ayuda para solicitar asilo."
 
-#: new_arrivals_chi/app/main.py:100
+#: new_arrivals_chi/app/main.py:91
 msgid "We think you may be eligible for asylum."
-msgstr ""
+msgstr "Creemos que puede ser elegible para asilo."
 
-#: new_arrivals_chi/app/main.py:101
+#: new_arrivals_chi/app/main.py:92
 msgid "I have applied for or received asylum."
-msgstr ""
+msgstr "He solicitado asilo o lo he recibido."
 
-#: new_arrivals_chi/app/main.py:102
+#: new_arrivals_chi/app/main.py:93
 msgid "Hide Options"
-msgstr ""
+msgstr "Ocultar Opciones"
 
-#: new_arrivals_chi/app/main.py:103
+#: new_arrivals_chi/app/main.py:94
 msgid "Find Personalized Legal Assistance."
-msgstr ""
+msgstr "Encuentre Asistencia Legal Personalizada."
 
-#: new_arrivals_chi/app/main.py:104
+#: new_arrivals_chi/app/main.py:95
 msgid "None of these apply to me."
-msgstr ""
+msgstr "Ninguna de estas se aplica a mí."
 
-#: new_arrivals_chi/app/main.py:105
+#: new_arrivals_chi/app/main.py:96
 msgid ""
 "We cannot determine your eligibility for Asylum, Parole, or Temporary Protected "
 "Status"
 msgstr ""
+"No podemos determinar su elegibilidad para Asilo, Libertad Condicional, o "
+"Estatus de Protección Temporal."
 
-#: new_arrivals_chi/app/main.py:109
+#: new_arrivals_chi/app/main.py:100
 msgid "One of the circumstances below applies to me."
-msgstr ""
+msgstr "Una de las circunstancias a continuación se aplica a mí."
 
-#: new_arrivals_chi/app/main.py:110
+#: new_arrivals_chi/app/main.py:101
 msgid "I want help applying for humanitarian parole."
 msgstr "Quiero ayuda para solicitar permiso humanitario."
 
-#: new_arrivals_chi/app/main.py:111
+#: new_arrivals_chi/app/main.py:102
 msgid ""
 "I am from Ukraine or Afghanistan\n"
 "I am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing dangerous "
@@ -69,40 +71,48 @@ msgid ""
 "I came to the US for Medical Family Reunification (adults and children)\n"
 " I came to the US for Civil or Criminal Court Proceedings"
 msgstr ""
+"Soy de Ucrania o Afganistán.\n"
+"\n"
+"Soy de Cuba, Haití, Nicaragua o Venezuela y estoy experimentando condiciones "
+"peligrosas, violencia o dificultades económicas severas en mi país de origen.\n"
+"\n"
+"Vine a los EE. UU. para la Reunificación Familiar Médica (adultos y niños).\n"
+"\n"
+"Vine a los EE. UU. para procedimientos en el Tribunal Civil o Penal."
 
-#: new_arrivals_chi/app/main.py:119
+#: new_arrivals_chi/app/main.py:110
 msgid "We think you may be eligible for humanitarian parole."
 msgstr ""
 "Creemos que usted puede ser elegible para la libertad condicional humanitaria."
 
-#: new_arrivals_chi/app/main.py:122
+#: new_arrivals_chi/app/main.py:113
 msgid "I have applied for or received humanitarian parole."
 msgstr "He solicitado o recibido permiso humanitario."
 
-#: new_arrivals_chi/app/main.py:123
+#: new_arrivals_chi/app/main.py:114
 msgid "I need to learn more about my rights as a renter"
-msgstr ""
+msgstr "Necesito aprender más sobre mis derechos como inquilino."
 
-#: new_arrivals_chi/app/main.py:124
+#: new_arrivals_chi/app/main.py:115
 msgid "See Options"
-msgstr ""
+msgstr "Ver Opciones"
 
-#: new_arrivals_chi/app/main.py:125
+#: new_arrivals_chi/app/main.py:116
 msgid "I need help with something else"
-msgstr ""
+msgstr "Necesito ayuda con otra cosa."
 
-#: new_arrivals_chi/app/main.py:126
+#: new_arrivals_chi/app/main.py:117
 msgid ""
 "I am from one of the countries listed below & arrived before the date listed:"
 msgstr ""
 "Si es de uno de los siguientes países y llegó a los EE. UU. antes de la fecha "
 "indicada, probablemente sea elegible para TPS:"
 
-#: new_arrivals_chi/app/main.py:130
+#: new_arrivals_chi/app/main.py:121
 msgid "I want help applying for Temporary Protected Status (TPS)"
 msgstr "Quiero ayuda para solicitar el Estatus de Protección Temporal (TPS)"
 
-#: new_arrivals_chi/app/main.py:133
+#: new_arrivals_chi/app/main.py:124
 msgid ""
 "Afghanistan (May 20, 2022)\n"
 "Burma (Myanmar) (March 25, 2024)\n"
@@ -121,29 +131,45 @@ msgid ""
 "Venezuela (November 17, 2023)\n"
 "Yemen (January 3, 2023)"
 msgstr ""
+"Afganistán (20 de mayo de 2022)  \n"
+"Birmania (Myanmar) (25 de marzo de 2024)  \n"
+"Camerún (7 de junio de 2022)  \n"
+"El Salvador (14 de diciembre de 2023)  \n"
+"Etiopía (15 de abril de 2024)  \n"
+"Haití (14 de diciembre de 2023)  \n"
+"Honduras (14 de diciembre de 2023)  \n"
+"Nepal (14 de diciembre de 2023)  \n"
+"Nicaragua (14 de diciembre de 2023)  \n"
+"Somalia (13 de marzo de 2023)  \n"
+"Sudán del Sur (21 de agosto de 2023)  \n"
+"Sudán (14 de diciembre de 2023)  \n"
+"Siria (29 de enero de 2024)  \n"
+"Ucrania (21 de agosto de 2023)  \n"
+"Venezuela (17 de noviembre de 2023)  \n"
+"Yemen (3 de enero de 2023)"
 
-#: new_arrivals_chi/app/main.py:143
+#: new_arrivals_chi/app/main.py:134
 msgid "We think you may be eligible for Temporary Protected Status (TPS)"
 msgstr ""
 "Creemos que puede ser elegible para el Estatus de Protección Temporal (TPS)"
 
-#: new_arrivals_chi/app/main.py:147
+#: new_arrivals_chi/app/main.py:138
 msgid "I have applied for or received Temporary Protected Status (TPS)"
 msgstr "He solicitado o recibido Estatus de Protección Temporal (TPS)"
 
-#: new_arrivals_chi/app/main.py:150
+#: new_arrivals_chi/app/main.py:141
 msgid "Learn more about resources for undocumented migrants."
 msgstr "Obtenga más información sobre recursos para inmigrantes indocumentados."
 
-#: new_arrivals_chi/app/main.py:153
+#: new_arrivals_chi/app/main.py:144
 msgid "I am the victim of one of the following:"
-msgstr ""
+msgstr "Soy víctima de uno de los siguientes:"
 
-#: new_arrivals_chi/app/main.py:154
+#: new_arrivals_chi/app/main.py:145
 msgid "I want help applying for work authorization."
 msgstr "Quiero ayuda para solicitar autorización de trabajo."
 
-#: new_arrivals_chi/app/main.py:155
+#: new_arrivals_chi/app/main.py:146
 msgid ""
 "Trafficking\n"
 "Domestic violence\n"
@@ -161,29 +187,29 @@ msgstr ""
 "Servidumbre involuntaria\n"
 "Otro delito grave."
 
-#: new_arrivals_chi/app/main.py:159
+#: new_arrivals_chi/app/main.py:150
 msgid "We think you may be eligible for work authorization."
 msgstr "Creemos que puede ser elegible para una autorización de trabajo."
 
-#: new_arrivals_chi/app/main.py:162
+#: new_arrivals_chi/app/main.py:153
 msgid "I have applied for or received work authorization."
 msgstr "He solicitado o recibido autorización de trabajo."
 
-#: new_arrivals_chi/app/main.py:163
+#: new_arrivals_chi/app/main.py:154
 msgid "What can I help you with?"
 msgstr "¿En qué puedo ayudarte?"
 
-#: new_arrivals_chi/app/main.py:164
+#: new_arrivals_chi/app/main.py:155
 msgid "I need help getting authorization to work"
 msgstr "Necesito ayuda para obtener autorización para trabajar."
 
-#: new_arrivals_chi/app/main.py:165
+#: new_arrivals_chi/app/main.py:156
 msgid "Do any of the following circumstances apply to you?"
 msgstr ""
 "¿Alguna de las siguientes circunstancias se aplica a usted? Necesito ayuda para "
 "obtener autorización para trabajar"
 
-#: new_arrivals_chi/app/main.py:168
+#: new_arrivals_chi/app/main.py:159
 msgid "I need to learn more about my rights as a worker"
 msgstr "Necesito aprender más sobre mis derechos como trabajador"
 
@@ -397,21 +423,21 @@ msgstr "Bienvenido a IL"
 
 #: new_arrivals_chi/app/templates/asylum_apply.html:45
 #: new_arrivals_chi/app/templates/asylum_info.html:149
-#: new_arrivals_chi/app/templates/parole_apply.html:86
-#: new_arrivals_chi/app/templates/parole_info.html:72
-#: new_arrivals_chi/app/templates/renters_rights.html:209
+#: new_arrivals_chi/app/templates/parole_apply.html:89
+#: new_arrivals_chi/app/templates/parole_info.html:75
+#: new_arrivals_chi/app/templates/renters_rights.html:212
 #: new_arrivals_chi/app/templates/tps_apply.html:214
-#: new_arrivals_chi/app/templates/tps_info.html:97
-#: new_arrivals_chi/app/templates/undocumented_resources.html:39
-#: new_arrivals_chi/app/templates/vttc_apply.html:60
-#: new_arrivals_chi/app/templates/vttc_info.html:145
+#: new_arrivals_chi/app/templates/tps_info.html:101
+#: new_arrivals_chi/app/templates/undocumented_resources.html:43
+#: new_arrivals_chi/app/templates/vttc_apply.html:64
+#: new_arrivals_chi/app/templates/vttc_info.html:149
 #: new_arrivals_chi/app/templates/work_rights.html:129
 msgid "Find a Lawyer"
 msgstr "Encontrar un Abogado"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:14
 msgid "Rights and Privileges of Asylum"
-msgstr ""
+msgstr "Derechos y Privilegios del Asilo"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:16
 msgid "What Is Asylum"
@@ -422,28 +448,32 @@ msgid ""
 "Asylum status protects people who fear persecution in their home\n"
 "    countries because of their:"
 msgstr ""
+"El estatus de asilo protege a las personas que temen la persecución en sus "
+"países de origen debido a su:"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:24
 msgid "Race"
-msgstr ""
+msgstr "Raza"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:26
 msgid "Religion"
-msgstr ""
+msgstr "Religión"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:28
 msgid "Nationality"
-msgstr ""
+msgstr "Nacionalidad"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:30
 msgid "Political opinion"
-msgstr ""
+msgstr "Opinión política"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:33
 msgid ""
 "Membership in a particular social group (this includes sexual\n"
 "      orientation or gender identity)"
 msgstr ""
+"Pertenencia a un grupo social particular (esto incluye la orientación sexual o "
+"la identidad de género)"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:39
 msgid ""
@@ -454,6 +484,11 @@ msgid ""
 "    about refugees and asylum. (If the person is not in the US, he or she may\n"
 "    apply for the US refugee program)"
 msgstr ""
+"Si alguien debe solicitar el estatus de inmigración como refugiado o asilado "
+"depende de si ya está en los EE. UU. Si la persona ya está en los EE. UU., puede "
+"solicitar el programa de asilo en los EE. UU. Aprenda más sobre refugiados y "
+"asilo. (Si la persona no está en los EE. UU., puede solicitar el programa de "
+"refugiados en los EE. UU.)"
 
 #: new_arrivals_chi/app/templates/asylum_info.html:46
 #, fuzzy
@@ -4412,9 +4447,10 @@ msgid "Cook County Residential Tenant and Landlord Ordinance"
 msgstr "Ordenanza de Arrendador e Inquilino Residencial del Condado de Cook"
 
 #: new_arrivals_chi/app/templates/renters_rights.html:45
+#, fuzzy, python-format
 msgid ""
 "Prevents landlords from charging late fees greater than $10 a month for the "
-"monthly rent of up to $1,000, plus 5 percent per month for the monthly rent over "
+"monthly rent of up to $1,000, plus 5%% per month for the monthly rent over "
 "$1,000."
 msgstr ""
 "Evita que los arrendadores cobren tarifas por pago tardío superiores a $10 al "
@@ -4422,8 +4458,9 @@ msgstr ""
 "mensual superior a $1,000."
 
 #: new_arrivals_chi/app/templates/renters_rights.html:46
+#, fuzzy
 msgid ""
-"Limits security deposits to no more than one and a half months’ rent. Security "
+"Limits security deposits to no more than one and a half months' rent. Security "
 "deposits must be returned within 30 days after the tenant has left the unit. If "
 "a reasonable amount has been deducted for repairs, the landlord must provide an "
 "itemized list of damages and costs for repairs."
@@ -4435,10 +4472,11 @@ msgstr ""
 "costos de reparaciones."
 
 #: new_arrivals_chi/app/templates/renters_rights.html:47
+#: new_arrivals_chi/app/templates/renters_rights.html:56
 msgid ""
 "Landlords cannot threaten to, attempt to, or forcefully remove a tenant without "
 "authority of the law. For example, landlords cannot change the locks, shut off "
-"utilities, or do anything else that interferes with the tenant’s use of the "
+"utilities, or do anything else that interferes with the tenant's use of the "
 "apartment."
 msgstr ""
 "Los arrendadores no pueden amenazar con, intentar o forzar la remoción de un "
@@ -4447,9 +4485,10 @@ msgstr ""
 "cosa que interfiera con el uso del apartamento por parte del inquilino."
 
 #: new_arrivals_chi/app/templates/renters_rights.html:48
+#, fuzzy
 msgid ""
 "Lockouts are always illegal, but the Cook County RTLO adds extra protections. In "
-"Cook County, you can sue your landlord for up to two months’ rent or twice the "
+"Cook County, you can sue your landlord for up to two months' rent or twice the "
 "damages sustained by the tenant, whichever is greater. In municipalities outside "
 "of the City of Chicago, violations should be made to the Cook County Sheriff's "
 "Office at 773-674-4357."
@@ -4466,10 +4505,10 @@ msgid "Chicago Residential Landlord Tenant Ordinance"
 msgstr "Ordenanza de Arrendador e Inquilino Residencial de Chicago"
 
 #: new_arrivals_chi/app/templates/renters_rights.html:53
+#, fuzzy, python-format
 msgid ""
 "Prevents landlords from charging late fees greater than $10 a month for the "
-"monthly rent of up to $500, plus 5 percent per month for the monthly rent over "
-"$500."
+"monthly rent of up to $500, plus 5%% per month for the monthly rent over $500."
 msgstr ""
 "Evita que los arrendadores cobren tarifas por pago tardío superiores a $10 al "
 "mes por el alquiler mensual de hasta $500, más el 5% por mes para el alquiler "
@@ -4492,18 +4531,6 @@ msgstr ""
 "Antes de que el arrendador pueda deducir gastos por daños, primero deben "
 "proporcionar al inquilino una lista detallada de los daños dentro de los 30 días "
 "posteriores a la salida del inquilino de la unidad."
-
-#: new_arrivals_chi/app/templates/renters_rights.html:56
-msgid ""
-"Landlords cannot threaten to, attempt to, or forcefully remove a tenant without "
-"authority of the law. For example, landlords cannot change the locks, shut off "
-"utilities, or do anything else that interferes with the tenant's use of the "
-"apartment."
-msgstr ""
-"Los arrendadores no pueden amenazar con, intentar o forzar la remoción de un "
-"inquilino sin la autoridad de la ley. Por ejemplo, los arrendadores no pueden "
-"cambiar las cerraduras, cortar los servicios públicos o hacer cualquier otra "
-"cosa que interfiera con el uso del apartamento por parte del inquilino."
 
 #: new_arrivals_chi/app/templates/renters_rights.html:57
 msgid ""
@@ -6251,42 +6278,53 @@ msgid ""
 "All workers have rights, regardless of immigration status. In Chicago,\n"
 "    you have the right to:"
 msgstr ""
+"Todos los trabajadores tienen derechos, independientemente de su estatus "
+"migratorio. En Chicago, usted tiene el derecho a:"
 
 #: new_arrivals_chi/app/templates/work_rights.html:24
 msgid "Receive payment for every hour you work."
-msgstr ""
+msgstr "Recibir pago por cada hora que trabaja."
 
 #: new_arrivals_chi/app/templates/work_rights.html:27
 msgid ""
 "Receive overtime pay (time and a half) after working more than 40 hours\n"
 "      in a workweek."
 msgstr ""
+"Recibir pago de horas extras (tiempo y medio) después de trabajar más de 40 "
+"horas en una semana laboral."
 
 #: new_arrivals_chi/app/templates/work_rights.html:32
 msgid ""
 "Be paid at least the minimum wage in the area where you work. In\n"
 "      Chicago, this is $14.50-$15.40/hr, depending on the number of employees."
 msgstr ""
+"Recibir al menos el salario mínimo en el área donde trabaja. En Chicago, esto es "
+"$14.50-$15.40 por hora, dependiendo del número de empleados."
 
 #: new_arrivals_chi/app/templates/work_rights.html:37
 msgid ""
 "Receive 66 percent of your salary and paid medical bills if you suffer an\n"
 "      accident on the job."
 msgstr ""
+"Recibir el 66 por ciento de su salario y el pago de las facturas médicas si "
+"sufre un accidente en el trabajo."
 
 #: new_arrivals_chi/app/templates/work_rights.html:42
 msgid "A safe and healthy workplace, including during times of COVID-19."
 msgstr ""
+"Un lugar de trabajo seguro y saludable, incluso durante tiempos de COVID-19."
 
 #: new_arrivals_chi/app/templates/work_rights.html:46
 msgid ""
 "A workplace free of discrimination, sexual harassment or\n"
 "      intimidation."
-msgstr ""
+msgstr "Un lugar de trabajo libre de discriminación, acoso sexual o intimidación."
 
 #: new_arrivals_chi/app/templates/work_rights.html:51
 msgid "Organize for better working conditions through collective actions."
 msgstr ""
+"Organizarse para mejorar las condiciones laborales a través de acciones "
+"colectivas."
 
 #: new_arrivals_chi/app/templates/work_rights.html:55
 msgid "Where can I go for help?"
@@ -6389,3 +6427,14 @@ msgstr ""
 
 #~ msgid "Select an option"
 #~ msgstr "Seleccione una opción"
+
+#~ msgid ""
+#~ "Landlords cannot threaten to, attempt to, or forcefully remove a tenant "
+#~ "without authority of the law. For example, landlords cannot change the locks, "
+#~ "shut off utilities, or do anything else that interferes with the tenant’s use "
+#~ "of the apartment."
+#~ msgstr ""
+#~ "Los arrendadores no pueden amenazar con, intentar o forzar la remoción de un "
+#~ "inquilino sin la autoridad de la ley. Por ejemplo, los arrendadores no pueden "
+#~ "cambiar las cerraduras, cortar los servicios públicos o hacer cualquier otra "
+#~ "cosa que interfiera con el uso del apartamento por parte del inquilino."
