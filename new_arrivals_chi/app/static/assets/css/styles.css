@@ -471,7 +471,7 @@ pre {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;}
 
 @media (min-width: 576px) {
   .container-sm, .container {
@@ -487,7 +487,7 @@ pre {
 
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px; } }
+    max-width: unset; } }
 
 .row {
   display: flex;
@@ -7315,7 +7315,8 @@ nav
     margin-right: auto;
     padding-right: 15px;
     max-width: 720px;
-    position: relative; }
+    position: relative; 
+    text-align: center;}
   .cds-header .cds-nav-inner::after {
     clear: both;
     content: "";
@@ -8276,7 +8277,7 @@ Hero
 
 @media (min-width: 40em) {
   .cds-hero-callout {
-    max-width: 32rem; } }
+    max-width: 38rem; } }
 
 .cds-hero-callout {
   background-color: #162e51;
