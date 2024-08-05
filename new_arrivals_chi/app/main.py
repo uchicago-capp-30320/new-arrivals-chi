@@ -343,7 +343,7 @@ def health_search():
     )
 
 
-@main.route("/health_general")
+@main.route("/health/general")
 def health_general():
     """Route for general health static page.
 

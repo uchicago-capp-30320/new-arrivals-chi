@@ -16,13 +16,13 @@ Landing page for user to navigate through health information.
     <h2>{{ _('I want to...') | escape }}</h2>
     <button
       class="button button-orange"
-      onclick="navigateTo('/health/search', '{{ language | escape }}')"
+      onclick="navigateTo('/health/search', '{{ get_locale() }}')"
     >
       {{ _('Receive Assistance Now') | escape }}
     </button>
     <button
       class="button button-blue"
-      onclick="navigateTo('/health_general', '{{ language | escape }}')"
+      onclick="navigateTo('/health/general', '{{ get_locale() }}')"
     >
       {{ _('Learn More About Resources') | escape }}
     </button>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-01 09:44-0500\n"
+"POT-Creation-Date: 2024-08-05 08:55-0500\n"
 "PO-Revision-Date: 2024-07-31 02:41-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,49 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: new_arrivals_chi/app/main.py:95
+#: new_arrivals_chi/app/main.py:86
 msgid "I have a credible fear of persecution or torture in my home country."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:99
+#: new_arrivals_chi/app/main.py:90
 msgid "I want help applying for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:100
+#: new_arrivals_chi/app/main.py:91
 msgid "We think you may be eligible for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:101
+#: new_arrivals_chi/app/main.py:92
 msgid "I have applied for or received asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:102
+#: new_arrivals_chi/app/main.py:93
 msgid "Hide Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:103
+#: new_arrivals_chi/app/main.py:94
 msgid "Find Personalized Legal Assistance."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:104
+#: new_arrivals_chi/app/main.py:95
 msgid "None of these apply to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:105
+#: new_arrivals_chi/app/main.py:96
 msgid ""
 "We cannot determine your eligibility for Asylum, Parole, or Temporary "
 "Protected Status"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:109
+#: new_arrivals_chi/app/main.py:100
 msgid "One of the circumstances below applies to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:110
+#: new_arrivals_chi/app/main.py:101
 msgid "I want help applying for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:111
+#: new_arrivals_chi/app/main.py:102
 msgid ""
 "I am from Ukraine or Afghanistan\n"
 "I am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing "
@@ -70,37 +70,37 @@ msgid ""
 " I came to the US for Civil or Criminal Court Proceedings"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:119
+#: new_arrivals_chi/app/main.py:110
 msgid "We think you may be eligible for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:122
+#: new_arrivals_chi/app/main.py:113
 msgid "I have applied for or received humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:123
+#: new_arrivals_chi/app/main.py:114
 msgid "I need to learn more about my rights as a renter"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:124
+#: new_arrivals_chi/app/main.py:115
 msgid "See Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:125
+#: new_arrivals_chi/app/main.py:116
 msgid "I need help with something else"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:126
+#: new_arrivals_chi/app/main.py:117
 msgid ""
 "I am from one of the countries listed below & arrived before the date "
 "listed:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:130
+#: new_arrivals_chi/app/main.py:121
 msgid "I want help applying for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:133
+#: new_arrivals_chi/app/main.py:124
 msgid ""
 "Afghanistan (May 20, 2022)\n"
 "Burma (Myanmar) (March 25, 2024)\n"
@@ -120,27 +120,27 @@ msgid ""
 "Yemen (January 3, 2023)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:143
+#: new_arrivals_chi/app/main.py:134
 msgid "We think you may be eligible for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:147
+#: new_arrivals_chi/app/main.py:138
 msgid "I have applied for or received Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:150
+#: new_arrivals_chi/app/main.py:141
 msgid "Learn more about resources for undocumented migrants."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:153
+#: new_arrivals_chi/app/main.py:144
 msgid "I am the victim of one of the following:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:154
+#: new_arrivals_chi/app/main.py:145
 msgid "I want help applying for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:155
+#: new_arrivals_chi/app/main.py:146
 msgid ""
 "Trafficking\n"
 "Domestic violence\n"
@@ -151,27 +151,27 @@ msgid ""
 "Another Serious Offense."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:159
+#: new_arrivals_chi/app/main.py:150
 msgid "We think you may be eligible for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:162
+#: new_arrivals_chi/app/main.py:153
 msgid "I have applied for or received work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:163
+#: new_arrivals_chi/app/main.py:154
 msgid "What can I help you with?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:164
+#: new_arrivals_chi/app/main.py:155
 msgid "I need help getting authorization to work"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:165
+#: new_arrivals_chi/app/main.py:156
 msgid "Do any of the following circumstances apply to you?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:168
+#: new_arrivals_chi/app/main.py:159
 msgid "I need to learn more about my rights as a worker"
 msgstr ""
 
@@ -3500,8 +3500,33 @@ msgstr ""
 msgid "Accessing Healthcare Services Regardless of Legal Status"
 msgstr ""
 
+#: new_arrivals_chi/app/templates/health_general.html:247
+msgid ""
+"Accessing healthcare services is a fundamental right, regardless of legal"
+"\n"
+"    status. Below are resources and options available to ensure that "
+"everyone\n"
+"    can access essential healthcare services and support in Chicago."
+msgstr ""
+
 #: new_arrivals_chi/app/templates/health_general.html:252
 msgid "Low-Cost Healthcare Providers"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:254
+msgid "Below are different clinics that provide low-cost or free services:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:258
+msgid ""
+"Low-cost clinics that are called Federally Qualified Health Centers:\n"
+"      please click the following links to find a center near you."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:263
+msgid ""
+"Free or low-cost clinics that are called Free &amp; Charitable Clinics:\n"
+"      please click the following links to find a center near you."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:270
@@ -3518,6 +3543,10 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:292
 msgid "Clinic Directory"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:296
+msgid "Emergency and Urgent Care"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:299
