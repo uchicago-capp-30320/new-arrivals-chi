@@ -6566,4 +6566,3 @@ msgstr ""
 #~ " cualquier otra cosa que interfiera "
 #~ "con el uso del apartamento por "
 #~ "parte del inquilino."
-

@@ -5853,4 +5853,3 @@ msgstr ""
 #~ "$500, plus 5 percent per month for"
 #~ " the monthly rent over $500."
 #~ msgstr ""
-
