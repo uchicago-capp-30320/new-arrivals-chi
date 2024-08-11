@@ -17,36 +17,43 @@ Main landing page for the user. Does not require authentication to access.
         padding: 0;
     }
 
-</style>
-<section class="cds-hero">
-    <div class="container" style="max-width: unset;">
-        <div class="cds-hero-callout">
-            <h1 class="cds-hero-heading">
-                <span class="text-white">{{ translations[language]['home']['welcome'] | escape }}</span><br>
-                <span class="blue-100">{{ translations[language]['home']['subheader'] | escape }}</span>
-            </h1>
-            <p>{{ translations[language]['home']['description'] | escape }}</p>
-        </div>
-    </div>
-</section>
+    @media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: unset; } }
 
-<main role="main">    
-    <div class="container mt-4">
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-        <div class="col-lg-4 text-center">
-            <h2>{{ translations[language]['home']['general'] | escape }}</h2>
-            <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/general', '{{ language | escape }}')">{{ translations[language]['home']['please_click'] | escape }}</button>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 text-center">
-            <h2>{{ translations[language]['home']['legal'] | escape }}</h2>
-            <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['please_click'] | escape }}</button>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 text-center">
-            <h2>{{ translations[language]['home']['health'] | escape }}</h2>
-            <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['please_click'] | escape }}</button>
-        </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->  
+</style>
+
+<main >
+    <section class="cds-hero">
+        <div class="container" style="max-width: unset;">
+            <div class="cds-hero-callout">
+                <h1 class="cds-hero-heading">
+                    <span class="text-white">{{ translations[language]['home']['welcome'] | escape }}</span><br>
+                    <span class="blue-100">{{ translations[language]['home']['subheader'] | escape }}</span>
+                </h1>
+                <p>{{ translations[language]['home']['description'] | escape }}</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid">    
+            <div class="container mt-4">
+                <!-- Three columns of text below the carousel -->
+               <h2 style="padding-top: 2px; text-align: center;">{{ translations[language]['home']['please_click'] | escape }}</h2>
+                <div class="row">
+                <div class="col-lg-4 text-center" style="padding-top: 10px;">
+                    <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/general', '{{ language | escape }}')">{{ translations[language]['home']['general'] | escape }}</button>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 text-center", style="padding-top: 10px;">
+                    <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/legal', '{{ language | escape }}')">{{ translations[language]['home']['legal'] | escape }}</button>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 text-center" style="padding-top: 10px;"    >
+                    <button class="btn btn-primary btn-lg" type="button" onclick="navigateTo('/health', '{{ language | escape }}')">{{ translations[language]['home']['health'] | escape }}</button>
+                </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->  
+        </div>
+    </section>
 </main>
+
 {% endblock %}

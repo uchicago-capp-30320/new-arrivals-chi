@@ -27,19 +27,22 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
+<style>
+    .blocker {height: 55px;}
+</style>
 <!-- Mobile screen friendly -->
 <!-- Start Navigation -->
-<header class="cds-header" role="banner">
+<header class="cds-header" role="banner" style="position: fixed;">
     <body class="usa-mobile_nav-active" >
         <div class="cds-navbar">
-        <button class="cds-menu-btn" onclick="menuToggleOn()" href="javascript:void(0)">MENU</button>
+            <button class="cds-menu-btn" onclick="menuToggleOn()" href="javascript:void(0)" id="Menu button">MENU</button>
         </div>
         <nav role="navigation" class="cds-nav" id="Menu-cds-nav">
             <div class="cds-nav-inner">
-                <button class="cds-nav-close" onclick="menuToggleOff()" href="javascript:void(0)">
+                <button class="cds-nav-close" on onclick="menuToggleOff()" href="javascript:void(0)">
                     <img src="static/assets/img/close.svg" alt="close">
                 </button>
-                <ul class="cds-nav-primary cds-accordion">
+                <ul class="cds-nav-primary cds-accordion" id="test">
                     <li><button class="cds-nav-link" onclick="navigateTo('/', '{{ language | escape }}')"><span>{{ translations[language]['base']['home'] | escape }}</span></a></li>
                     {% if current_user.is_authenticated %}
                     <li><button class="cds-nav-link" onclick="navigateTo('/dashboard', '{{ language | escape }}')"><span>{{ translations[language]['base']['dashboard'] | escape }}</span></a></li>
@@ -67,7 +70,8 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
       </div>
    </body>
 </header>
-
+<!-- Create empty blocker as a placeholder for the menu -->
+<div class="blocker"></div>
 
 
 <div class="wrapper">
@@ -77,8 +81,8 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     </div>
 </div>
 
-<p class="footer-links">
-    <div class="container" style="vertical-align:bottom; padding-top: .5in;">
+<p class="mt-4" style="height: .25in;">
+    <div class="footer-main">
     <a onclick="navigateTo('{{ url_for('main.about') }}', '{{ language }}')" class="underline" style="cursor: pointer;">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
     <span>|</span>
     <a onclick="location.href='https://docs.google.com/forms/d/1Zfx-A7nWsHYx5XxphdKF9KGtovePZ6x8ZkDw-bfFFd0/edit#responses'" class="underline" style="cursor: pointer;">{{ translations[language]['base']['report_error'] | escape }}</a> <i class="fas fa-bug"></i>
@@ -95,17 +99,55 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
         window.location.href = destination + '?lang=' + language;
     }
 
+
+    // Add menu functionality when on small screens
+    // Open menu
     function menuToggleOn() {
-        var x = document.getElementById("Menu-cds-nav");
+        let x = document.getElementById("Menu-cds-nav");
         if (x.className === "cds-nav") {
             x.className += " is-visible";
         }
+        document.addEventListener('click', closeMenuOnClickOutside);
     }
 
+    // Close menu
     function menuToggleOff() {
-        var x = document.getElementById("Menu-cds-nav");
+        let x = document.getElementById("Menu-cds-nav");
         if (x.className === "cds-nav is-visible") {
             x.className = "cds-nav";
         }
+
+        document.removeEventListener('click', this);
     }
+
+    // Close menu if it is open and user clicks outside of it
+    function closeMenuOnClickOutside(event) {
+        const menu = document.getElementById('Menu-cds-nav');
+        const button = document.getElementById("Menu button");
+        
+        if (menu.className === "cds-nav is-visible" && !menu.contains(event.target) && !button.contains(event.target)) {
+            menuToggleOff();
+        }
+    } 
+
+
 </script>
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- // Functionality to search the page
+function searchThisPage(string) {
+    browser.find.find(string)
+}
+// If user presses enter while typing, search
+let searchInput = document.getElementById('search_input');
+searchInput.addEventListener("keypress", function(event) {
+    if (event.key =="Enter") {
+        document.getElementById('search_bar').click()
+
+    }
+}) -->
