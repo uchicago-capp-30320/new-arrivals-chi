@@ -46,8 +46,14 @@ Landing page for user to navigate through legal parole information.
           {% if content.title %}
           <h1>{{ content.title }}</h1>
           {% endif %}
+
+          <!-- Using namespace to dynamically capture header name through loop -->
+          {% set header_clean = ""%}
+          {% set ns = namespace(header_clean) %}
           {% for section in content.content %}
+          
             {% if section.header %}
+            {% set ns.header_clean = section.header | replace(" ", "") %}
               <h2 class="anchor-target" id="{{ section.header }}">{{ section.header }}</h2>
             {% endif %}
             {% if section.sub %}
@@ -57,8 +63,9 @@ Landing page for user to navigate through legal parole information.
               <p>{{ section.body }}</p>
             {% endif %}
             {% if section.link_text and section.source_link %}
-              <p><a href="{{ section.source_link }}" class="btn btn-primary" target="_blank">{{ section.link_text }}</a></p>
-            {% endif %}
+              <p class="{{ ns.header_clean }}-subheader-link" style="padding: 10px;"><a href="{{ section.source_link }}" class="btn btn-primary" target="_blank">{{ section.link_text }}</a></p>
+
+              {% endif %}
           {% if section.list %}
             <ul>
               {% for item in section.list %}
@@ -90,6 +97,8 @@ Landing page for user to navigate through legal parole information.
 
 <script>
 
+// Append the navigation/table of contents menu to the sidebar when the screen is small
+///
 function addNavtoMenu(window_match) {
   let sideBar = document.getElementById("test");
   let content_page_layout = document.getElementById("general_layout")
@@ -109,25 +118,59 @@ addNavtoMenu(matchMedia);
 matchMedia.addEventListener("change", function() {
   addNavtoMenu(matchMedia);
 });
+///
+
+// Code originated from ChatGPT with modifications
+// Finds all elements of the same class (as determined by the header it is under) appends them into a single object and put it where the first element was
+///
+document.addEventListener('DOMContentLoaded', function () {
+    // Create a dictionary to group elements by their class prefix
+    const groupedElements = {};
+
+    // Select all elements that match the "<header_name>-subheader-link" pattern
+    const elements = document.querySelectorAll('[class$="-subheader-link"]');
+
+    elements.forEach(function (element) {
+        // Extract the header_name from the class name
+        const className = element.className.split(' ').find(cls => cls.endsWith('-subheader-link'));
+        const headerName = className.replace('-subheader-link', '');
+
+        // Initialize the group if it doesn't exist
+        if (!groupedElements[headerName]) {
+            groupedElements[headerName] = { elements: [], firstElement: element };
+        }
+
+        // Add the element to the group
+        groupedElements[headerName].elements.push(element);
+    });
+
+    // Loop through the groups and create rows
+    for (const headerName in groupedElements) {
+        const group = groupedElements[headerName];
+
+        // Create a marker element to track the position of the first element
+        const marker = document.createElement('div');
+        marker.style.display = 'none'; // Hide the marker
+        group.firstElement.parentNode.insertBefore(marker, group.firstElement);
+
+        // Create a row container
+        const row = document.createElement('div');
+        row.classList.add('row');
+
+        // Append each element in the group to the row
+        group.elements.forEach(function (element) {
+            row.appendChild(element);
+        });
+
+        // Insert the row before the marker
+        marker.parentNode.insertBefore(row, marker);
+
+        // Remove the marker
+        marker.remove();
+    }
+});
+///
 
 </script> 
 
 {% endblock %}
-
-<!-- if (!sideBar.contains(tabContents)) {
-  sideBar.append(tabContents)
-}
-
-if (sideBar.contains(tabContents)) {
-  sideBar.removeChild(tabContents)
-  p4PlaceHolder.append(tabContents)
-} -->
-
-<!-- function addContentNavToSideBar() {
-  let sideBar = document.getElementById("test")
-  let tabContents = document.getElementsByClassName("p-4")
-  if (window.innerWidth <= '768') {
-    sideBar.appendChild(tabContents)
-  }
-}
-addEventListener('resize', addContentNavToSideBar) -->
