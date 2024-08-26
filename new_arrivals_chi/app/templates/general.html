@@ -40,7 +40,7 @@ Landing page for user to navigate through legal parole information.
               <p>{{ section.body }}</p>
             {% endif %}
             {% if section.link_text and section.source_link %}
-              <p class="{{ ns.header_clean }}-subheader-link" a><a href="{{ section.source_link }}" class="btn btn-primary" target="_blank">{{ section.link_text }}</a></p>
+              <p class="{{ ns.header_clean }}-subheader-link"><a href="{{ section.source_link }}" class="btn btn-primary" target="_blank">{{ section.link_text }}</a></p>
 
               {% endif %}
           {% if section.list %}

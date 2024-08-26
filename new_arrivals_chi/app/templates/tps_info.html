@@ -42,9 +42,6 @@ Associated Files:
               </ul>
               {% endif %}
             {% endfor %}
-            <button class="btn btn-primary" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-              {{ translations[language]['legal']['find_lawyers'] | escape }}
-            </button>
           </div>
         </div>
       <!-- Navigation side menu -->
@@ -58,6 +55,9 @@ Associated Files:
                       <a href="#{{ section.header }}">{{ section.header }}</a>
                     {% endif %}
                   {% endfor %}
+                  <button class="btn btn-primary" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
+                    {{ translations[language]['legal']['find_lawyers'] | escape }}
+                  </button>
               </li>
           </ul>
         </div>

@@ -151,10 +151,9 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
         let sideBar = document.getElementById("sidebar");
         let content_page_layout = document.getElementById("general_layout")
 
-        let tabContents = "";
-        tabContents = document.getElementsByClassName("p-4")[0]
+        let tabContents = document.getElementsByClassName("p-4")[0];
 
-        if (tabContents != "") {
+        if (tabContents != undefined) {
             if (window_match.matches && !sideBar.contains(tabContents)) {
             sideBar.append(tabContents);
             } 

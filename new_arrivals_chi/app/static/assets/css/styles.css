@@ -313,7 +313,8 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.2; }
 
 h1, .h1 {
-  font-size: 4.4rem; }
+  font-size: 4.4rem; 
+  margin-bottom: 20px;}
 
 h2, .h2 {
   font-size: 3.4rem; }
@@ -8412,6 +8413,19 @@ Table
   background-color: #5B616B;
 }
 
+/* Styling for when we append related links to the same row object */
+p[class$="-subheader-link"] {
+  padding: 5px;
+}
+
+.input-login {
+  width: 20pc;
+}
+
+.btn-login {
+  width: 10pc;
+  margin-top: 10px;
+}
 
 /* conditionally add padding for search bar */
 @media screen and (max-width: 768px) {
