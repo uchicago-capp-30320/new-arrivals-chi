@@ -7,40 +7,61 @@ Associated Files:
 {% extends "base.html" %}
 
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/legal_page.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
 {% endblock %}
 
 {% block content %}
-<div class="white-container">
-  {% set content = translations[language]['tps_apply'] %}
-  {% if content.title %}
-    <h1>{{ content.title }}</h1>
-  {% endif %}
-  {% for section in content.content %}
-    {% if section.header %}
-        <h2>{{ section.header }}</h2>
-    {% endif %}
-    {% if section.sub %}
-      <h3>{{ section.sub }}</h3>
-    {% endif %}
-    {% if section.body %}
-      <p>{{ section.body }}</p>
-    {% endif %}
-    {% if section.link_text and section.source_link %}
-      <p><a href="{{ section.source_link }}" target="_blank">{{ section.link_text }}</a></p>
-    {% endif %}
-    {% if section.list %}
-      <ul>
-        {% for item in section.list %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endfor %}
-    <div class="container">
-      <button class="button button-blue" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
-        {{ translations[language]['legal']['find_lawyers'] | escape }}
-    </button>
+<body>
+  <main role="main" class="container">
+    <div class="row" id="general_layout">
+      <div class="col-md-8">
+        <div>
+          {% set content = translations[language]['tps_apply'] %}
+          {% if content.title %}
+            <h1>{{ content.title }}</h1>
+          {% endif %}
+          {% for section in content.content %}
+            {% if section.header %}
+                <h2 class="anchor-target" id="{{ section.header }}">{{ section.header }}</h2>
+            {% endif %}
+            {% if section.sub %}
+              <h3>{{ section.sub }}</h3>
+            {% endif %}
+            {% if section.body %}
+              <p>{{ section.body }}</p>
+            {% endif %}
+            {% if section.link_text and section.source_link %}
+              <p><a href="{{ section.source_link }}" class="btn btn-primary" target="_blank">{{ section.link_text }}</a></p>
+            {% endif %}
+            {% if section.list %}
+              <ul>
+                {% for item in section.list %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            {% endfor %}
+            <button class="btn btn-primary" onclick="location.href='{{ url_for('main.lawyers', lang=language) }}'">
+              {{ translations[language]['legal']['find_lawyers'] | escape }}
+            </button>
+          </div>
+        </div>
+          <!-- Navigation side menu -->
+      <div class="p-4">
+        <div style="position: fixed;" id="table of contents">
+          <h4 class="font-italic">Navigation</h4>
+          <ul class="cds-sidenav  flex-column">
+              <li>
+                  {% for section in content.content %}
+                    {% if section.header %}
+                      <a href="#{{ section.header }}">{{ section.header }}</a>
+                    {% endif %}
+                  {% endfor %}
+              </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
+</body>
   {% endblock %}

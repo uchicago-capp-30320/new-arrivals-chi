@@ -40,9 +40,9 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
         <nav role="navigation" class="cds-nav" id="Menu-cds-nav">
             <div class="cds-nav-inner">
                 <button class="cds-nav-close" on onclick="menuToggleOff()" href="javascript:void(0)">
-                    <img src="static/assets/img/close.svg" alt="close">
+                    <img src="static/assets/img/close.svg" alt="X">
                 </button>
-                <ul class="cds-nav-primary cds-accordion" id="test">
+                <ul class="cds-nav-primary cds-accordion" id="sidebar">
                     <li><button class="cds-nav-link" onclick="navigateTo('/', '{{ language | escape }}')"><span>{{ translations[language]['base']['home'] | escape }}</span></a></li>
                     {% if current_user.is_authenticated %}
                     <li><button class="cds-nav-link" onclick="navigateTo('/dashboard', '{{ language | escape }}')"><span>{{ translations[language]['base']['dashboard'] | escape }}</span></a></li>
@@ -103,12 +103,17 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 
     // Check if document height is greater than window height
     // This assures that the footer remains at the bottom of the page
-    if ($(window).height() < $(document).height()) {
+    function keepFooterAtBottom() {
+        if ($(window).height() < $(document).height()) {
             document.getElementsByClassName("footer-main")[0].style.position = 'relative';
-    } else {
-        document.getElementsByClassName("footer-main")[0].style.position = 'absolute';
+        } else {
+            document.getElementsByClassName("footer-main")[0].style.position = 'absolute';
+        }
     }
-
+    const contentObserver = new MutationObserver(keepFooterAtBottom);
+    contentObserver.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener("resize", keepFooterAtBottom)
+    
  
     // Add menu functionality when on small screens
     // Open menu
@@ -140,80 +145,85 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
         }
     } 
 
-// Append the navigation/table of contents menu to the sidebar when the screen is small
-///
-function addNavtoMenu(window_match) {
-  let sideBar = document.getElementById("test");
-  let content_page_layout = document.getElementById("general_layout")
-  let tabContents = document.getElementsByClassName("p-4")[0];
+    // Append the navigation/table of contents menu to the sidebar when the screen is small
+    ///
+    function addNavtoMenu(window_match) {
+        let sideBar = document.getElementById("sidebar");
+        let content_page_layout = document.getElementById("general_layout")
 
-  if (window_match.matches && !sideBar.contains(tabContents)) {
-    sideBar.append(tabContents);
-  } 
-  if (!window_match.matches && sideBar.contains(tabContents)) {
-    sideBar.removeChild(tabContents);
-    content_page_layout.append(tabContents)
-  }
-}
-let matchMedia = window.matchMedia("(max-width: 768px)")
+        let tabContents = "";
+        tabContents = document.getElementsByClassName("p-4")[0]
 
-addNavtoMenu(matchMedia);
-
-matchMedia.addEventListener("change", function() {
-  addNavtoMenu(matchMedia);
-});
-///
-
-// Code originated from ChatGPT with modifications
-// Finds all elements of the same class (as determined by the header it is under) appends them into a single object and put it where the first element was
-///
-document.addEventListener('DOMContentLoaded', function () {
-    // Create a dictionary to group elements by their class prefix
-    const groupedElements = {};
-
-    // Select all elements that match the "<header_name>-subheader-link" pattern
-    const elements = document.querySelectorAll('[class$="-subheader-link"]');
-
-    elements.forEach(function (element) {
-        // Extract the header_name from the class name
-        const className = element.className.split(' ').find(cls => cls.endsWith('-subheader-link'));
-        const headerName = className.replace('-subheader-link', '');
-
-        // Initialize the group if it doesn't exist
-        if (!groupedElements[headerName]) {
-            groupedElements[headerName] = { elements: [], firstElement: element };
+        if (tabContents != "") {
+            if (window_match.matches && !sideBar.contains(tabContents)) {
+            sideBar.append(tabContents);
+            } 
+            if (!window_match.matches && sideBar.contains(tabContents)) {
+                sideBar.removeChild(tabContents);
+                content_page_layout.append(tabContents)
+            }
         }
+    }
+    let matchMedia = window.matchMedia("(max-width: 768px)")
 
-        // Add the element to the group
-        groupedElements[headerName].elements.push(element);
+    addNavtoMenu(matchMedia);
+
+    matchMedia.addEventListener("change", function() {
+        addNavtoMenu(matchMedia);
     });
+    ///
 
-    // Loop through the groups and create rows
-    for (const headerName in groupedElements) {
-        const group = groupedElements[headerName];
+    // Code originated from ChatGPT with modifications
+    // Finds all elements of the same class (as determined by the header it is under) appends them into a single object and put it where the first element was
+    // Used to append related hyperlinks into a single row object
+    ///
+    document.addEventListener("DOMContentLoaded", function () {
+        // Create a dictionary to group elements by their class prefix
+        const groupedElements = {};
 
-        // Create a marker element to track the position of the first element
-        const marker = document.createElement('div');
-        marker.style.display = 'none'; // Hide the marker
-        group.firstElement.parentNode.insertBefore(marker, group.firstElement);
+        // Select all elements that match the "<header_name>-subheader-link" pattern
+        const elements = document.querySelectorAll('[class$="-subheader-link"]');
 
-        // Create a row container
-        const row = document.createElement('div');
-        row.classList.add('row');
+        elements.forEach(function (element) {
+            // Extract the header_name from the class name
+            const className = element.className.split(' ').find(cls => cls.endsWith('-subheader-link'));
+            const headerName = className.replace('-subheader-link', '');
 
-        // Append each element in the group to the row
-        group.elements.forEach(function (element) {
-            row.appendChild(element);
+            // Initialize the group if it doesn't exist
+            if (!groupedElements[headerName]) {
+                groupedElements[headerName] = { elements: [], firstElement: element };
+            }
+
+            // Add the element to the group
+            groupedElements[headerName].elements.push(element);
         });
 
-        // Insert the row before the marker
-        marker.parentNode.insertBefore(row, marker);
+        // Loop through the groups and create rows
+        for (const headerName in groupedElements) {
+            const group = groupedElements[headerName];
 
-        // Remove the marker
-        marker.remove();
-    }
-});
-///
+            // Create a marker element to track the position of the first element
+            const marker = document.createElement('div');
+            marker.style.display = 'none'; // Hide the marker
+            group.firstElement.parentNode.insertBefore(marker, group.firstElement);
+
+            // Create a row container
+            const row = document.createElement('div');
+            row.classList.add('row');
+
+            // Append each element in the group to the row
+            group.elements.forEach(function (element) {
+                row.appendChild(element);
+            });
+
+            // Insert the row before the marker
+            marker.parentNode.insertBefore(row, marker);
+
+            // Remove the marker
+            marker.remove();
+        }
+    });
+    ///
 
 </script>
 
