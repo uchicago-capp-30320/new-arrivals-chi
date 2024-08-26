@@ -18,7 +18,7 @@ function createButtons(currentOptions, language, parentColor = '') {
 
     // get the header text from the language data
     const headerText = getHeaderText(currentOptions);
-    $('#buttonContainer').append($('<div>').addClass('box-title').text(headerText));
+    $('#buttonContainer').append($('<h2>').addClass('box-title').text(headerText));
 
     // create a group for the buttons at this level
     const buttonGroup = $('<div>').addClass('button-group');
@@ -56,22 +56,22 @@ function getButtonDescription(childOption) {
 function getColorClass(key) {
     switch (key) {
         case 'work_auth':
-            return 'button-blue';
+            return 'btn-blue';
         case 'work_rights':
-            return 'button-yellow';
+            return 'btn-yellow';
         case 'renters_rights':
-            return 'button-green';
+            return 'btn-green';
         case 'something_else':
-            return 'button-orange';
+            return 'btn-grey';
         default:
-            return 'button-blue';
+            return 'btn-blue';
     }
 }
 
 // create a button element
 function createButton(btnText, colorClass, childOption, currentOptions, language) {
     return $('<button>')
-        .addClass('button')
+        .addClass('btn btn-primary')
         .addClass(colorClass)
         .text(btnText)
         .on('click', () => {
@@ -116,7 +116,7 @@ function createToggleLink(collapsible, language) {
 // create a back button element
 function createBackButton(language) {
     return $('<button>')
-        .addClass('button yellow-button')
+        .addClass('btn btn-dark')
         .text('Back')
         .on('click', () => {
             const prevOptions = previousOptions.pop();
