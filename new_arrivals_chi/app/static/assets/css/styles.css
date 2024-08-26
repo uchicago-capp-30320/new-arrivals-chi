@@ -50,7 +50,10 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+  height: 100%;
+  padding: 0;
+  margin: 0;}
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
@@ -63,7 +66,8 @@ body {
   line-height: 1.5;
   color: #212121;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff; 
+  height: 100%;}
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -8081,9 +8085,13 @@ footer
   max-width: 5em; }
 
 .footer-main {
-  padding-bottom: 1.25rem;
+  padding-bottom: 0;
   padding-top: 1.25rem;
-  background-color: #D9D9D9 !important; }
+  background-color: #D9D9D9 !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;}
 
 .footer-main-right {
   display: flex;
@@ -8318,3 +8326,24 @@ Table
 */
 .table thead {
   font-family: Roboto, serif; }
+
+/* New additions */
+
+.anchor-target::before {
+    content: "";
+    display: block;
+    height: 55px; /* Match the height of your blocker header */
+    margin-top: -55px; /* Negative margin to offset the height */
+    visibility: hidden;
+}
+
+/* conditionally add padding for search bar */
+@media screen and (max-width: 768px) {
+  .anchor-target::before {
+    height: 20px;
+    margin-top: 0px;
+  }
+  .p-4 {
+      padding-top: 10%;
+  }
+}

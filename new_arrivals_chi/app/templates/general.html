@@ -12,30 +12,8 @@ Landing page for user to navigate through legal parole information.
 
 {% block content %}
 
-<style>
-  .anchor-target::before {
-        content: "";
-        display: block;
-        height: 55px; /* Match the height of your blocker header */
-        margin-top: -55px; /* Negative margin to offset the height */
-        visibility: hidden;
-    }
-
-    /* conditionally add padding for search bar */
-    @media screen and (max-width: 768px) {
-      .anchor-target::before {
-        height: 20px;
-        margin-top: 0px;
-      }
-      .p-4 {
-          padding-top: 10%;
-      }
-    }
-    
-</style>
-
-
 <!-- CONTENT-->
+<html>
 <body>
   <main role="main" class="container">
     <div class="row" id="general_layout">
@@ -51,7 +29,6 @@ Landing page for user to navigate through legal parole information.
           {% set header_clean = ""%}
           {% set ns = namespace(header_clean) %}
           {% for section in content.content %}
-          
             {% if section.header %}
             {% set ns.header_clean = section.header | replace(" ", "") %}
               <h2 class="anchor-target" id="{{ section.header }}">{{ section.header }}</h2>
@@ -94,83 +71,6 @@ Landing page for user to navigate through legal parole information.
     </div>
   </main>
 </body>
-
-<script>
-
-// Append the navigation/table of contents menu to the sidebar when the screen is small
-///
-function addNavtoMenu(window_match) {
-  let sideBar = document.getElementById("test");
-  let content_page_layout = document.getElementById("general_layout")
-  let tabContents = document.getElementsByClassName("p-4")[0];
-
-  if (window_match.matches && !sideBar.contains(tabContents)) {
-    sideBar.append(tabContents);
-  } 
-  if (!window_match.matches && sideBar.contains(tabContents)) {
-    sideBar.removeChild(tabContents);
-    content_page_layout.append(tabContents)
-  }
-}
-let matchMedia = window.matchMedia("(max-width: 768px)")
-addNavtoMenu(matchMedia);
-
-matchMedia.addEventListener("change", function() {
-  addNavtoMenu(matchMedia);
-});
-///
-
-// Code originated from ChatGPT with modifications
-// Finds all elements of the same class (as determined by the header it is under) appends them into a single object and put it where the first element was
-///
-document.addEventListener('DOMContentLoaded', function () {
-    // Create a dictionary to group elements by their class prefix
-    const groupedElements = {};
-
-    // Select all elements that match the "<header_name>-subheader-link" pattern
-    const elements = document.querySelectorAll('[class$="-subheader-link"]');
-
-    elements.forEach(function (element) {
-        // Extract the header_name from the class name
-        const className = element.className.split(' ').find(cls => cls.endsWith('-subheader-link'));
-        const headerName = className.replace('-subheader-link', '');
-
-        // Initialize the group if it doesn't exist
-        if (!groupedElements[headerName]) {
-            groupedElements[headerName] = { elements: [], firstElement: element };
-        }
-
-        // Add the element to the group
-        groupedElements[headerName].elements.push(element);
-    });
-
-    // Loop through the groups and create rows
-    for (const headerName in groupedElements) {
-        const group = groupedElements[headerName];
-
-        // Create a marker element to track the position of the first element
-        const marker = document.createElement('div');
-        marker.style.display = 'none'; // Hide the marker
-        group.firstElement.parentNode.insertBefore(marker, group.firstElement);
-
-        // Create a row container
-        const row = document.createElement('div');
-        row.classList.add('row');
-
-        // Append each element in the group to the row
-        group.elements.forEach(function (element) {
-            row.appendChild(element);
-        });
-
-        // Insert the row before the marker
-        marker.parentNode.insertBefore(row, marker);
-
-        // Remove the marker
-        marker.remove();
-    }
-});
-///
-
-</script> 
+</html>
 
 {% endblock %}

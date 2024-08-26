@@ -73,15 +73,16 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
 <!-- Create empty blocker as a placeholder for the menu -->
 <div class="blocker"></div>
 
-
-<div class="wrapper">
-    <div class="container">
-        {% block content %}
-        {% endblock %}
+<body>
+    <div class="wrapper">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
-</div>
+</body>
 
-<p class="mt-4" style="height: .25in;">
+<footer class="mt-4">
     <div class="footer-main">
     <a onclick="navigateTo('{{ url_for('main.about') }}', '{{ language }}')" class="underline" style="cursor: pointer;">{{ translations[language]['base']['about_us'] | escape }}</a> <i class="fa-solid fa-user"></i>
     <span>|</span>
@@ -89,9 +90,10 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
     <span>|</span>
     <span>{{ translations[language]['base']['note'] | escape }}</span><i class="fa-solid fa-shield"></i>
     </div> 
-</p>
+</footer>
 
 </html>
+
 
 
 <script>
@@ -99,7 +101,15 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
         window.location.href = destination + '?lang=' + language;
     }
 
+    // Check if document height is greater than window height
+    // This assures that the footer remains at the bottom of the page
+    if ($(window).height() < $(document).height()) {
+            document.getElementsByClassName("footer-main")[0].style.position = 'relative';
+    } else {
+        document.getElementsByClassName("footer-main")[0].style.position = 'absolute';
+    }
 
+ 
     // Add menu functionality when on small screens
     // Open menu
     function menuToggleOn() {
@@ -130,6 +140,80 @@ References: https://www.digitalocean.com/community/tutorials/how-to-add-authenti
         }
     } 
 
+// Append the navigation/table of contents menu to the sidebar when the screen is small
+///
+function addNavtoMenu(window_match) {
+  let sideBar = document.getElementById("test");
+  let content_page_layout = document.getElementById("general_layout")
+  let tabContents = document.getElementsByClassName("p-4")[0];
+
+  if (window_match.matches && !sideBar.contains(tabContents)) {
+    sideBar.append(tabContents);
+  } 
+  if (!window_match.matches && sideBar.contains(tabContents)) {
+    sideBar.removeChild(tabContents);
+    content_page_layout.append(tabContents)
+  }
+}
+let matchMedia = window.matchMedia("(max-width: 768px)")
+
+addNavtoMenu(matchMedia);
+
+matchMedia.addEventListener("change", function() {
+  addNavtoMenu(matchMedia);
+});
+///
+
+// Code originated from ChatGPT with modifications
+// Finds all elements of the same class (as determined by the header it is under) appends them into a single object and put it where the first element was
+///
+document.addEventListener('DOMContentLoaded', function () {
+    // Create a dictionary to group elements by their class prefix
+    const groupedElements = {};
+
+    // Select all elements that match the "<header_name>-subheader-link" pattern
+    const elements = document.querySelectorAll('[class$="-subheader-link"]');
+
+    elements.forEach(function (element) {
+        // Extract the header_name from the class name
+        const className = element.className.split(' ').find(cls => cls.endsWith('-subheader-link'));
+        const headerName = className.replace('-subheader-link', '');
+
+        // Initialize the group if it doesn't exist
+        if (!groupedElements[headerName]) {
+            groupedElements[headerName] = { elements: [], firstElement: element };
+        }
+
+        // Add the element to the group
+        groupedElements[headerName].elements.push(element);
+    });
+
+    // Loop through the groups and create rows
+    for (const headerName in groupedElements) {
+        const group = groupedElements[headerName];
+
+        // Create a marker element to track the position of the first element
+        const marker = document.createElement('div');
+        marker.style.display = 'none'; // Hide the marker
+        group.firstElement.parentNode.insertBefore(marker, group.firstElement);
+
+        // Create a row container
+        const row = document.createElement('div');
+        row.classList.add('row');
+
+        // Append each element in the group to the row
+        group.elements.forEach(function (element) {
+            row.appendChild(element);
+        });
+
+        // Insert the row before the marker
+        marker.parentNode.insertBefore(row, marker);
+
+        // Remove the marker
+        marker.remove();
+    }
+});
+///
 
 </script>
 
