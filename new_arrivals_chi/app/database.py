@@ -84,20 +84,19 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
-    role = db.Column(
-        Enum("admin", "standard", name="role_types"),
-        nullable=False,
-        default="standard",
-    )
     password = db.Column(db.String(255), nullable=False)
     organization_id = db.Column(
         db.Integer,
         db.ForeignKey("organizations.id", name="users_organization_id_fkey"),
         nullable=True,
     )
+
+    # Relationships
     organization = db.relationship(
         "Organization", back_populates="users", foreign_keys=[organization_id]
     )
+
+    user_org_role = db.relationship("User_Org_Role", back_populates="users", foreign_keys="User_Org_Role.user_id")
 
 
 class Organization(db.Model):
@@ -149,6 +148,20 @@ class Organization(db.Model):
     )
     locations = db.relationship("Location", back_populates="organization")
 
+    user_org_roles = db.relationship("User_Org_Role", back_populates="organizations")
+
+class User_Org_Role(db.Model):
+    __tablename__ = "user_org_role"
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    organization_id = db.Column(db.Integer, db.ForeignKey("organizations.id"))
+    role = db.Column(db.String(50), nullable=False, default="standard")
+    super_user = db.Column(db.Boolean, nullable=False, default=False)
+
+    # Relationships
+    user = db.relationship("User", back_populates="user_org_roles", foreign_keys=[user_id])
+
+    organization = db.relationship("Organization", back_populates="user_org_roles", foreign_keys=[organization_id])
 
 class Language(db.Model):
     """Class for the languages table in the database."""

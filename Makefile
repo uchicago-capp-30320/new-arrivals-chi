@@ -5,7 +5,7 @@ create_requirements:
 	poetry export --without-hashes --format=requirements.txt > requirements.txt
 
 .PHONY: update_db
-update_db:
+update_db: # Update database to match current migrations
 	alembic --config=./new_arrivals_chi/migrations/alembic.ini upgrade head
 
 .PHONY: lint
@@ -21,5 +21,5 @@ stamp_db: # Runs the stamp command to set the base state of the db
 	alembic --config=./new_arrivals_chi/migrations/alembic.ini stamp head
 
 .PHONY: create_revision
-create_revision: # Runs the command that creates the Alembic revision
+create_revision: # Adds a migration that would convert the current database to match database.py
 	alembic --config=./new_arrivals_chi/migrations/alembic.ini revision --autogenerate
