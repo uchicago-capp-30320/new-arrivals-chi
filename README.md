@@ -96,21 +96,16 @@ Poetry:
     poetry shell
     ```
 
-2. Before making any changes, stamp the database with the current revision:
-    ```bash
-    make stamp_db
-    ```
+2. Make your changes to the database models in `new_arrivals_chi/app/models.py`.
 
-3. Make your changes to the database models in `new_arrivals_chi/app/models.py`.
-
-4. Generate a migration, you should see a new file in `new_arrivals_chi/migrations/versions/`:
+3. Generate a migration, you should see a new file in `new_arrivals_chi/migrations/versions/`:
     ```bash
     make create_revision
     ```
 
     Note that you may need to make changes to the migration file to ensure that the migration is correct.
 
-5. Apply the migration to the database:
+4. Apply the migration to the database:
     ```bash
     make update_db
     ```
