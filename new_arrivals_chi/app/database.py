@@ -90,6 +90,7 @@ class User(UserMixin, db.Model):
         db.ForeignKey("organizations.id", name="users_organization_id_fkey"),
         nullable=True,
     )
+    super_user = db.Column(db.Boolean, nullable=False, default=False)
 
     # Relationships
     organization = db.relationship(
@@ -155,8 +156,8 @@ class User_Org_Role(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     organization_id = db.Column(db.Integer, db.ForeignKey("organizations.id"))
-    role = db.Column(db.String(50), nullable=False, default="standard")
-    super_user = db.Column(db.Boolean, nullable=False, default=False)
+    role = db.Column(db.String(50), nullable=False, default='"standard" if not User.super_user else "admin"')
+    super_user = db.Column(db.Boolean, nullable=False, default=User.super_user)
 
     # Relationships
     user = db.relationship("User", back_populates="user_org_roles", foreign_keys=[user_id])
