@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-01 09:44-0500\n"
+"POT-Creation-Date: 2024-09-26 21:56-0500\n"
 "PO-Revision-Date: 2024-07-31 02:41-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,49 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: new_arrivals_chi/app/main.py:95
+#: new_arrivals_chi/app/main.py:86
 msgid "I have a credible fear of persecution or torture in my home country."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:99
+#: new_arrivals_chi/app/main.py:90
 msgid "I want help applying for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:100
+#: new_arrivals_chi/app/main.py:91
 msgid "We think you may be eligible for asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:101
+#: new_arrivals_chi/app/main.py:92
 msgid "I have applied for or received asylum."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:102
+#: new_arrivals_chi/app/main.py:93
 msgid "Hide Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:103
+#: new_arrivals_chi/app/main.py:94
 msgid "Find Personalized Legal Assistance."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:104
+#: new_arrivals_chi/app/main.py:95
 msgid "None of these apply to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:105
+#: new_arrivals_chi/app/main.py:96
 msgid ""
 "We cannot determine your eligibility for Asylum, Parole, or Temporary "
 "Protected Status"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:109
+#: new_arrivals_chi/app/main.py:100
 msgid "One of the circumstances below applies to me."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:110
+#: new_arrivals_chi/app/main.py:101
 msgid "I want help applying for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:111
+#: new_arrivals_chi/app/main.py:102
 msgid ""
 "I am from Ukraine or Afghanistan\n"
 "I am from Cuba, Haiti, Nicaragua, and Venezuela and am experiencing "
@@ -70,37 +70,37 @@ msgid ""
 " I came to the US for Civil or Criminal Court Proceedings"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:119
+#: new_arrivals_chi/app/main.py:110
 msgid "We think you may be eligible for humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:122
+#: new_arrivals_chi/app/main.py:113
 msgid "I have applied for or received humanitarian parole."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:123
+#: new_arrivals_chi/app/main.py:114
 msgid "I need to learn more about my rights as a renter"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:124
+#: new_arrivals_chi/app/main.py:115
 msgid "See Options"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:125
+#: new_arrivals_chi/app/main.py:116
 msgid "I need help with something else"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:126
+#: new_arrivals_chi/app/main.py:117
 msgid ""
 "I am from one of the countries listed below & arrived before the date "
 "listed:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:130
+#: new_arrivals_chi/app/main.py:121
 msgid "I want help applying for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:133
+#: new_arrivals_chi/app/main.py:124
 msgid ""
 "Afghanistan (May 20, 2022)\n"
 "Burma (Myanmar) (March 25, 2024)\n"
@@ -120,27 +120,27 @@ msgid ""
 "Yemen (January 3, 2023)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:143
+#: new_arrivals_chi/app/main.py:134
 msgid "We think you may be eligible for Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:147
+#: new_arrivals_chi/app/main.py:138
 msgid "I have applied for or received Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:150
+#: new_arrivals_chi/app/main.py:141
 msgid "Learn more about resources for undocumented migrants."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:153
+#: new_arrivals_chi/app/main.py:144
 msgid "I am the victim of one of the following:"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:154
+#: new_arrivals_chi/app/main.py:145
 msgid "I want help applying for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:155
+#: new_arrivals_chi/app/main.py:146
 msgid ""
 "Trafficking\n"
 "Domestic violence\n"
@@ -151,27 +151,27 @@ msgid ""
 "Another Serious Offense."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:159
+#: new_arrivals_chi/app/main.py:150
 msgid "We think you may be eligible for work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:162
+#: new_arrivals_chi/app/main.py:153
 msgid "I have applied for or received work authorization."
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:163
+#: new_arrivals_chi/app/main.py:154
 msgid "What can I help you with?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:164
+#: new_arrivals_chi/app/main.py:155
 msgid "I need help getting authorization to work"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:165
+#: new_arrivals_chi/app/main.py:156
 msgid "Do any of the following circumstances apply to you?"
 msgstr ""
 
-#: new_arrivals_chi/app/main.py:168
+#: new_arrivals_chi/app/main.py:159
 msgid "I need to learn more about my rights as a worker"
 msgstr ""
 
@@ -182,98 +182,93 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:17
 msgid ""
-"New Arrivals Chi is a resource guide developed by six graduate\n"
-"      students from the University of Chicago to help newly arrived "
-"individuals\n"
-"      navigate the City of Chicago and its available resources. Our goal "
-"is to\n"
-"      provide accurate, up-to-date, and actionable information to address"
-" common\n"
-"      challenges faced by newcomers."
+"New Arrivals Chi is a resource guide developed by six graduate students "
+"from the University of Chicago to help newly arrived individuals navigate"
+" the City of Chicago and its available resources. Our goal is to provide "
+"accurate, up-to-date, and actionable information to address common "
+"challenges faced by newcomers."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:23
+#: new_arrivals_chi/app/templates/about.html:19
 msgid "Team Members"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:25
+#: new_arrivals_chi/app/templates/about.html:21
 msgid "Federico Dominguez Molina"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:26
+#: new_arrivals_chi/app/templates/about.html:22
 msgid "Aaron Haefner"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:27
+#: new_arrivals_chi/app/templates/about.html:23
 msgid "Summer Long"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:28
+#: new_arrivals_chi/app/templates/about.html:24
 msgid "Kathryn Link-Oberstar"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:29
+#: new_arrivals_chi/app/templates/about.html:25
 msgid "Madeleine Roberts"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:30
+#: new_arrivals_chi/app/templates/about.html:26
 msgid "Xiomara Salazar Flores"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:29
+msgid ""
+"We would like to express our sincere gratitude to our advisors, James "
+"Turk and Michael Plunkett, for their invaluable guidance and support "
+"throughout this project."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/about.html:31
+msgid "Acknowledgements"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:33
 msgid ""
-"We would like to express our sincere gratitude to our advisors,\n"
-"      James Turk and Michael Plunkett, for their invaluable guidance and "
-"support\n"
-"      throughout this project."
+"This resource guide was made possible by our incredible community "
+"partners who graciously shared their knowledge and advice during the "
+"development process."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/about.html:37
-msgid "Acknowledgements"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:39
 msgid ""
-"This resource guide was made possible by our incredible community\n"
-"      partners who graciously shared their knowledge and advice during "
-"the\n"
-"      development process."
+"City of Chicago - Office of Immigrants, Migrant, Refugee Rights: Marissa "
+"Arrez and Jesús Del Toro"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:45
-msgid ""
-"City of Chicago - Office of Immigrants, Migrant, Refugee Rights:\n"
-"        Marissa Arrez and Jesús Del Toro"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/about.html:49
+#: new_arrivals_chi/app/templates/about.html:40
 msgid "Illinois Community for Displaced Immigrants: Johannes Favi"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:51
+#: new_arrivals_chi/app/templates/about.html:42
 msgid "The Resurrection Project: Oswaldo Gomez, Laura Mendoza"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:52
+#: new_arrivals_chi/app/templates/about.html:43
 msgid "Chicago Street Medicine: Saara-Anne Azizi, Dan Dolan"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:54
+#: new_arrivals_chi/app/templates/about.html:45
 msgid "Get in touch"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:56
+#: new_arrivals_chi/app/templates/about.html:47
 msgid "The codebase for this project is publicly available on GitHub."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:62
+#: new_arrivals_chi/app/templates/about.html:53
 msgid "View repository"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/about.html:66
+#: new_arrivals_chi/app/templates/about.html:57
 msgid ""
-"For questions or inquiries, please contact us at\n"
-"      newarrivalschi.contact@gmail.com."
+"For questions or inquiries, please contact us at "
+"newarrivalschi.contact@gmail.com."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/add_organization.html:15
@@ -334,48 +329,46 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/asylum_apply.html:17
 msgid ""
-"Legal Aid Society of Metropolitan Family Services is coordinating a\n"
-"    Centralized Immigration Legal Service Center for recent arrivals to "
-"support\n"
-"    in asylum, change of address, or change of venue cases."
+"Legal Aid Society of Metropolitan Family Services is coordinating a "
+"Centralized Immigration Legal Service Center for recent arrivals to "
+"support in asylum, change of address, or change of venue cases."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:22
+#: new_arrivals_chi/app/templates/asylum_apply.html:20
 msgid ""
-"The Center provides free legal information and assistance to\n"
-"    individuals who entered on or before January 1, 2022."
+"The Center provides free legal information and assistance to individuals "
+"who entered on or before January 1, 2022."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:26
+#: new_arrivals_chi/app/templates/asylum_apply.html:23
 msgid ""
-"The Centralized Immigration Legal Services Clinic is located at 401 S.\n"
-"    Clinton St, Chicago IL 60607, inside the Illinois Department of Human"
-"\n"
-"    Services Building (IDHS) on the first floor."
+"The Centralized Immigration Legal Services Clinic is located at 401 S. "
+"Clinton St, Chicago IL 60607, inside the Illinois Department of Human "
+"Services Building (IDHS) on the first floor."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:32
+#: new_arrivals_chi/app/templates/asylum_apply.html:27
 msgid "Click here to schedule an appointment."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:37
+#: new_arrivals_chi/app/templates/asylum_apply.html:32
 #: new_arrivals_chi/app/templates/parole_apply.html:73
-#: new_arrivals_chi/app/templates/tps_apply.html:26
+#: new_arrivals_chi/app/templates/tps_apply.html:24
 #: new_arrivals_chi/app/templates/vttc_apply.html:42
 msgid "Welcome to IL"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_apply.html:45
-#: new_arrivals_chi/app/templates/asylum_info.html:149
+#: new_arrivals_chi/app/templates/asylum_apply.html:40
+#: new_arrivals_chi/app/templates/asylum_info.html:131
 #: new_arrivals_chi/app/templates/parole_apply.html:86
 #: new_arrivals_chi/app/templates/parole_info.html:72
 #: new_arrivals_chi/app/templates/renters_rights.html:209
-#: new_arrivals_chi/app/templates/tps_apply.html:214
+#: new_arrivals_chi/app/templates/tps_apply.html:190
 #: new_arrivals_chi/app/templates/tps_info.html:97
 #: new_arrivals_chi/app/templates/undocumented_resources.html:39
 #: new_arrivals_chi/app/templates/vttc_apply.html:60
 #: new_arrivals_chi/app/templates/vttc_info.html:145
-#: new_arrivals_chi/app/templates/work_rights.html:129
+#: new_arrivals_chi/app/templates/work_rights.html:123
 msgid "Find a Lawyer"
 msgstr ""
 
@@ -389,162 +382,155 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/asylum_info.html:19
 msgid ""
-"Asylum status protects people who fear persecution in their home\n"
-"    countries because of their:"
+"Asylum status protects people who fear persecution in their home "
+"countries because of their:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:24
+#: new_arrivals_chi/app/templates/asylum_info.html:23
 msgid "Race"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:26
+#: new_arrivals_chi/app/templates/asylum_info.html:25
 msgid "Religion"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:28
+#: new_arrivals_chi/app/templates/asylum_info.html:27
 msgid "Nationality"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:30
+#: new_arrivals_chi/app/templates/asylum_info.html:29
 msgid "Political opinion"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:33
+#: new_arrivals_chi/app/templates/asylum_info.html:32
 msgid ""
-"Membership in a particular social group (this includes sexual\n"
-"      orientation or gender identity)"
+"Membership in a particular social group (this includes sexual orientation"
+" or gender identity)"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:39
+#: new_arrivals_chi/app/templates/asylum_info.html:37
 msgid ""
-"Whether someone should apply as a refugee or asylee for immigration\n"
-"    status depends on whether they are already in the US. If the person "
-"is\n"
-"    already in the US, he or she may apply for the US asylum program. "
-"Learn more\n"
-"    about refugees and asylum. (If the person is not in the US, he or she"
-" may\n"
-"    apply for the US refugee program)"
+"Whether someone should apply as a refugee or asylee for immigration "
+"status depends on whether they are already in the US. If the person is "
+"already in the US, he or she may apply for the US asylum program. Learn "
+"more about refugees and asylum. (If the person is not in the US, he or "
+"she may apply for the US refugee program)"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:46
+#: new_arrivals_chi/app/templates/asylum_info.html:40
 msgid "Benefits of Asylum"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:49
+#: new_arrivals_chi/app/templates/asylum_info.html:43
 msgid ""
-"Asylum is a form of protection. It protects people from removal to a\n"
-"    country of feared persecution. It allows them to stay in the US. They"
-" can\n"
-"    then become a lawful permanent resident."
+"Asylum is a form of protection. It protects people from removal to a "
+"country of feared persecution. It allows them to stay in the US. They can"
+" then become a lawful permanent resident."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:55
+#: new_arrivals_chi/app/templates/asylum_info.html:47
 msgid ""
-"Asylum is granted to refugees who are already in the US and fear\n"
-"    returning to their home countries."
+"Asylum is granted to refugees who are already in the US and fear "
+"returning to their home countries."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:59
+#: new_arrivals_chi/app/templates/asylum_info.html:50
 msgid "Pathways to Asylum"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:61
+#: new_arrivals_chi/app/templates/asylum_info.html:52
 msgid "There are three ways to apply for asylum:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:65
+#: new_arrivals_chi/app/templates/asylum_info.html:56
 msgid ""
-"Affirmatively, meaning you don't already have a case in front of an\n"
-"      immigration judge and you are submitting an application for asylum"
+"Affirmatively, meaning you don't already have a case in front of an "
+"immigration judge and you are submitting an application for asylum"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:70
+#: new_arrivals_chi/app/templates/asylum_info.html:60
 msgid ""
-"Defensively, meaning there is already a removal or deportation case\n"
-"      against you in front of an immigration judge and you ask the judge "
-"for\n"
-"      asylum"
+"Defensively, meaning there is already a removal or deportation case "
+"against you in front of an immigration judge and you ask the judge for "
+"asylum"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:76
+#: new_arrivals_chi/app/templates/asylum_info.html:64
 msgid "You are in expedited removal proceedings and say you need asylum"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:81
+#: new_arrivals_chi/app/templates/asylum_info.html:69
 msgid ""
-"You must apply for asylum within one year of arriving in the US, unless\n"
-"    you qualify for an exception. Your spouse and children who are in the"
-" US may\n"
-"    be included in the application. A child must be under 21 and "
-"unmarried to be\n"
-"    included"
+"You must apply for asylum within one year of arriving in the US, unless "
+"you qualify for an exception. Your spouse and children who are in the US "
+"may be included in the application. A child must be under 21 and "
+"unmarried to be included"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:87
+#: new_arrivals_chi/app/templates/asylum_info.html:72
 msgid "Who cannot apply for asylum"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:90
+#: new_arrivals_chi/app/templates/asylum_info.html:75
 msgid ""
-"You may not be eligible to apply for asylum if you filed after being in\n"
-"    the US over a year. There are exceptions. You must prove:"
+"You may not be eligible to apply for asylum if you filed after being in "
+"the US over a year. There are exceptions. You must prove:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:96
+#: new_arrivals_chi/app/templates/asylum_info.html:80
 msgid "Changed circumstances materially affecting your eligibility, or"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:100
+#: new_arrivals_chi/app/templates/asylum_info.html:84
 msgid "Extraordinary circumstances relating to your delay in filing."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:104
+#: new_arrivals_chi/app/templates/asylum_info.html:88
 msgid "Changed circumstances include:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:107
+#: new_arrivals_chi/app/templates/asylum_info.html:91
 msgid "Changes in country's conditions"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:109
+#: new_arrivals_chi/app/templates/asylum_info.html:93
 msgid "Changes in the laws that affect your eligibility"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:112
+#: new_arrivals_chi/app/templates/asylum_info.html:96
 msgid "Changes in family dynamics, such marriage, divorce, and death"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:115
+#: new_arrivals_chi/app/templates/asylum_info.html:99
 msgid "Changes in children's ages"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:118
+#: new_arrivals_chi/app/templates/asylum_info.html:102
 msgid "Extraordinary circumstances include:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:121
+#: new_arrivals_chi/app/templates/asylum_info.html:105
 msgid "Serious illness"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:123
+#: new_arrivals_chi/app/templates/asylum_info.html:107
 msgid "Mental or physical disabilities"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:126
+#: new_arrivals_chi/app/templates/asylum_info.html:110
 msgid ""
-"Legal disability, such as your status as an unaccompanied child or a\n"
-"      mental impairment"
+"Legal disability, such as your status as an unaccompanied child or a "
+"mental impairment"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:132
+#: new_arrivals_chi/app/templates/asylum_info.html:115
 msgid ""
-"You cannot apply for asylum if you already applied and were denied\n"
-"    unless circumstances changed."
+"You cannot apply for asylum if you already applied and were denied unless"
+" circumstances changed."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/asylum_info.html:140
-#: new_arrivals_chi/app/templates/tps_apply.html:206
+#: new_arrivals_chi/app/templates/asylum_info.html:122
+#: new_arrivals_chi/app/templates/tps_apply.html:182
 #: new_arrivals_chi/app/templates/tps_info.html:93
 msgid "Illinois Legal Aid"
 msgstr ""
@@ -2932,278 +2918,245 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/general.html:22
 msgid ""
-"Known for its vibrant culture, diverse communities, and bustling city\n"
-"    life, Chicago is a welcoming city that embraces people from all walks"
-" of\n"
-"    life. A group of university students in collaboration with the City "
-"of\n"
-"    Chicago and local community organizations created this website to "
-"help New\n"
-"    Arrivals, who are immigrants, migrants, and refugees from around the "
-"world,\n"
-"    understand the resources and services they have available to them in\n"
-"    Chicago. We understand that this transition is challenging and we "
-"hope to\n"
-"    provide clear information to help you begin your new life in Chicago."
-" On\n"
-"    this page, you will find general information about:"
+"Known for its vibrant culture, diverse communities, and bustling city "
+"life, Chicago is a welcoming city that embraces people from all walks of "
+"life. A group of university students in collaboration with the City of "
+"Chicago and local community organizations created this website to help "
+"New Arrivals, who are immigrants, migrants, and refugees from around the "
+"world, understand the resources and services they have available to them "
+"in Chicago. We understand that this transition is challenging and we hope"
+" to provide clear information to help you begin your new life in Chicago."
+" On this page, you will find general information about:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:33
+#: new_arrivals_chi/app/templates/general.html:25
 msgid "Chicago CityKey ID, a form of identification"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:35
+#: new_arrivals_chi/app/templates/general.html:27
 msgid "Using the CTA, Chicago’s public transit system"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:37
-#: new_arrivals_chi/app/templates/general.html:122
+#: new_arrivals_chi/app/templates/general.html:29
+#: new_arrivals_chi/app/templates/general.html:96
 msgid "Public Education for Kids"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:39
+#: new_arrivals_chi/app/templates/general.html:31
 msgid "Access to food banks"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:41
+#: new_arrivals_chi/app/templates/general.html:33
 msgid "Driver's insurance"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:44
+#: new_arrivals_chi/app/templates/general.html:36
 msgid "Chicago CityKey ID"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:47
+#: new_arrivals_chi/app/templates/general.html:39
 msgid ""
-"The Chicago CityKey ID is an optional, valid, government-issued ID\n"
-"    card offered to all Chicago residents, including New Arrivals. It "
-"serves as\n"
-"    a four-in-one card by serving as a government-issued ID card, a "
-"Chicago\n"
-"    Public Library card, a Ventra card, and a pharmaceutical discount "
-"card."
+"The Chicago CityKey ID is an optional, valid, government-issued ID card "
+"offered to all Chicago residents, including New Arrivals. It serves as a "
+"four-in-one card by serving as a government-issued ID card, a Chicago "
+"Public Library card, a Ventra card, and a pharmaceutical discount card."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:54
+#: new_arrivals_chi/app/templates/general.html:43
 msgid ""
-"To apply for a CityKey ID, you will need three documents that prove\n"
-"    your identity, including a photo and date of birth, and that prove "
-"that you\n"
-"    are a resident of the City of Chicago. For more information about "
-"applying,\n"
-"    please click the following links:"
+"To apply for a CityKey ID, you will need three documents that prove your "
+"identity, including a photo and date of birth, and that prove that you "
+"are a resident of the City of Chicago. For more information about "
+"applying, please click the following links:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:64
+#: new_arrivals_chi/app/templates/general.html:50
 #: new_arrivals_chi/app/templates/vttc_apply.html:16
 msgid "How to Apply"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:70
+#: new_arrivals_chi/app/templates/general.html:56
 msgid "Book an Appointment"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:78
+#: new_arrivals_chi/app/templates/general.html:64
 msgid "Application Materials"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:82
+#: new_arrivals_chi/app/templates/general.html:68
 msgid "Using the CTA"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:85
+#: new_arrivals_chi/app/templates/general.html:71
 msgid ""
-"The easiest way to get around Chicago is by leveraging the CTA, which\n"
-"    is the Chicago Transit Authority. With its comprehensive network of "
-"buses\n"
-"    and trains, the CTA offers convenient and affordable transportation "
-"options\n"
-"    for navigating the city."
+"The easiest way to get around Chicago is by leveraging the CTA, which is "
+"the Chicago Transit Authority. With its comprehensive network of buses "
+"and trains, the CTA offers convenient and affordable transportation "
+"options for navigating the city."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:91
+#: new_arrivals_chi/app/templates/general.html:74
 msgid "Figuring out travel route"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:94
+#: new_arrivals_chi/app/templates/general.html:77
 msgid ""
-"You can plan your trip using Google Maps by clicking on the train icon\n"
-"    to find the quickest way to your destination. As a reminder, Google "
-"Maps\n"
-"    provides an estimate and buses or trains may be delayed due to "
-"construction\n"
-"    or traffic."
+"You can plan your trip using Google Maps by clicking on the train icon to"
+" find the quickest way to your destination. As a reminder, Google Maps "
+"provides an estimate and buses or trains may be delayed due to "
+"construction or traffic."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:101
+#: new_arrivals_chi/app/templates/general.html:81
 msgid ""
-"Another way to see how far the bus is away is the Ventra app. On the\n"
-"    home page, it tells you which buses/trains or bikes are nearby. If "
-"you click\n"
-"    on nearby, you can expand the view or move your position around."
+"Another way to see how far the bus is away is the Ventra app. On the home"
+" page, it tells you which buses/trains or bikes are nearby. If you click "
+"on nearby, you can expand the view or move your position around."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:106
+#: new_arrivals_chi/app/templates/general.html:84
 msgid "Paying for CTA"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:109
+#: new_arrivals_chi/app/templates/general.html:87
 msgid ""
-"To pay for CTA buses, you must have the exact fare to pay for the bus\n"
-"    or use your Ventra card. For trains, you must have a Ventra card "
-"which you\n"
-"    can get at a kiosk before entering the train or by downloading the "
-"app. To\n"
-"    find a physical location to buy a Ventra card, please see the "
-"following\n"
-"    link:"
+"To pay for CTA buses, you must have the exact fare to pay for the bus or "
+"use your Ventra card. For trains, you must have a Ventra card which you "
+"can get at a kiosk before entering the train or by downloading the app. "
+"To find a physical location to buy a Ventra card, please see the "
+"following link:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:118
+#: new_arrivals_chi/app/templates/general.html:92
 msgid "Ventra Retail Locations"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:125
+#: new_arrivals_chi/app/templates/general.html:99
 msgid ""
-"In Chicago, public education is offered free of charge, ensuring that\n"
-"    every child has access to quality learning opportunities. To enroll "
-"your\n"
-"    child, they must meet certain requirements, including proof of age, "
-"proof of\n"
-"    address, and proof of medical compliance such as a physical "
-"examination,\n"
-"    immunization record, and dental exam. For more information, please "
-"click the\n"
-"    following links:"
+"In Chicago, public education is offered free of charge, ensuring that "
+"every child has access to quality learning opportunities. To enroll your "
+"child, they must meet certain requirements, including proof of age, proof"
+" of address, and proof of medical compliance such as a physical "
+"examination, immunization record, and dental exam. For more information, "
+"please click the following links:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:137
+#: new_arrivals_chi/app/templates/general.html:106
 msgid "Enrollment Requirements"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:143
+#: new_arrivals_chi/app/templates/general.html:112
 msgid "Apply and Enroll"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:147
+#: new_arrivals_chi/app/templates/general.html:116
 msgid "Access to Free Food"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:150
+#: new_arrivals_chi/app/templates/general.html:119
 msgid ""
-"Regardless of your status, you are able to access groceries that are\n"
-"    free at your local food bank. Please click the following link to find"
-" the\n"
-"    nearest food pantry near you:"
+"Regardless of your status, you are able to access groceries that are free"
+" at your local food bank. Please click the following link to find the "
+"nearest food pantry near you:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:159
+#: new_arrivals_chi/app/templates/general.html:126
 msgid "Find a Food Pantry"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:163
+#: new_arrivals_chi/app/templates/general.html:130
 msgid "Driver's Insurance"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:166
+#: new_arrivals_chi/app/templates/general.html:133
 msgid ""
-"The State of Illinois issues a special driver's license to\n"
-"    non-citizens who cannot get a SSN. The license is called Temporary "
-"Visitor\n"
-"    Driver's License (TVDL). There are two kinds of TVDLs: The first is "
-"for\n"
-"    someone authorized to reside in this country for one or more years. "
-"The\n"
-"    second is for someone who does not have lawful status or is "
-"undocumented but\n"
-"    has lived in the US for at least a year."
+"The State of Illinois issues a special driver's license to non-citizens "
+"who cannot get a SSN. The license is called Temporary Visitor Driver's "
+"License (TVDL). There are two kinds of TVDLs: The first is for someone "
+"authorized to reside in this country for one or more years. The second is"
+" for someone who does not have lawful status or is undocumented but has "
+"lived in the US for at least a year."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:174
+#: new_arrivals_chi/app/templates/general.html:136
 msgid "To qualify for a TVDL as a lawful resident, applicants must:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:177
-#: new_arrivals_chi/app/templates/general.html:213
+#: new_arrivals_chi/app/templates/general.html:139
+#: new_arrivals_chi/app/templates/general.html:171
 msgid "Prove their name and date of birth;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:179
+#: new_arrivals_chi/app/templates/general.html:141
 msgid "Prove that they live in Illinois;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:181
-#: new_arrivals_chi/app/templates/general.html:215
+#: new_arrivals_chi/app/templates/general.html:143
+#: new_arrivals_chi/app/templates/general.html:173
 msgid "Prove their written signature;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:184
+#: new_arrivals_chi/app/templates/general.html:146
 msgid ""
-"Provide documentation issued by the United States Citizenship and\n"
-"      Immigration Services that proves legal status;"
+"Provide documentation issued by the United States Citizenship and "
+"Immigration Services that proves legal status;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:189
-#: new_arrivals_chi/app/templates/general.html:224
+#: new_arrivals_chi/app/templates/general.html:150
+#: new_arrivals_chi/app/templates/general.html:182
 msgid "Affirm that they are ineligible to get a social security number;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:192
-#: new_arrivals_chi/app/templates/general.html:233
+#: new_arrivals_chi/app/templates/general.html:153
+#: new_arrivals_chi/app/templates/general.html:189
 msgid "Pass the vision, written, and road exams;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:195
-#: new_arrivals_chi/app/templates/general.html:236
-msgid ""
-"Provide proof of insurance for the vehicle used for the road\n"
-"      test;"
+#: new_arrivals_chi/app/templates/general.html:156
+#: new_arrivals_chi/app/templates/general.html:192
+msgid "Provide proof of insurance for the vehicle used for the road test;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:200
-#: new_arrivals_chi/app/templates/general.html:241
+#: new_arrivals_chi/app/templates/general.html:160
+#: new_arrivals_chi/app/templates/general.html:196
 msgid ""
-"Provide proof (ages 18-20) of completing a 6-hour adult driver\n"
-"      education course; and"
+"Provide proof (ages 18-20) of completing a 6-hour adult driver education "
+"course; and"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:204
-#: new_arrivals_chi/app/templates/general.html:245
+#: new_arrivals_chi/app/templates/general.html:163
+#: new_arrivals_chi/app/templates/general.html:199
 msgid "Pay a $30 application fee ($35 for motorcycles)."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:208
-msgid ""
-"To qualify for a TVDL as an undocumented immigrant, applicants\n"
-"    must:"
+#: new_arrivals_chi/app/templates/general.html:167
+msgid "To qualify for a TVDL as an undocumented immigrant, applicants must:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:218
+#: new_arrivals_chi/app/templates/general.html:176
 msgid "Prove that they have lived in Illinois for at least 12 months;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:221
+#: new_arrivals_chi/app/templates/general.html:179
 msgid "Prove where they live in Illinois now;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:228
+#: new_arrivals_chi/app/templates/general.html:186
 msgid ""
-"Provide a valid, unexpired passport or consular card issued by an\n"
-"      approved country, or provide other proof of identity and residency "
-"the\n"
-"      Secretary of State may require;"
+"Provide a valid, unexpired passport or consular card issued by an "
+"approved country, or provide other proof of identity and residency the "
+"Secretary of State may require;"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:248
+#: new_arrivals_chi/app/templates/general.html:202
 msgid "For more information, please see the following links:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:254
+#: new_arrivals_chi/app/templates/general.html:208
 msgid "Illinois Secretary of State - TVDL"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/general.html:262
+#: new_arrivals_chi/app/templates/general.html:216
 msgid "Illinois Legal Aid - Driver's license for immigrants"
 msgstr ""
 
@@ -3229,309 +3182,309 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:21
 msgid ""
-"Welcome to our healthcare resource page designed to assist you in\n"
-"    navigating the healthcare system in Chicago. Here's what you'll find:"
+"Welcome to our healthcare resource page designed to assist you in "
+"navigating the healthcare system in Chicago. Here's what you'll find:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:26
+#: new_arrivals_chi/app/templates/health_general.html:25
 msgid "Information about navigating healthcare access"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:29
+#: new_arrivals_chi/app/templates/health_general.html:28
 msgid ""
-"Understanding healthcare access based on your legal status and/or age\n"
-"      group"
+"Understanding healthcare access based on your legal status and/or age "
+"group"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:34
+#: new_arrivals_chi/app/templates/health_general.html:32
 msgid ""
-"Guidance on finding healthcare providers, emergency and urgent care\n"
-"      services, mental health and well-being resources, physical therapy\n"
-"      options, and community health programs."
+"Guidance on finding healthcare providers, emergency and urgent care "
+"services, mental health and well-being resources, physical therapy "
+"options, and community health programs."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:40
+#: new_arrivals_chi/app/templates/health_general.html:36
 msgid "Navigating the Healthcare System"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:43
+#: new_arrivals_chi/app/templates/health_general.html:39
 msgid ""
-"In the United States, we have a system where people can choose their\n"
-"    doctors and hospitals. Patients have the option of paying out-of-"
-"pocket for\n"
-"    services provided or can pay for health insurance to help reduce the "
-"cost of\n"
-"    medical care."
+"In the United States, we have a system where people can choose their "
+"doctors and hospitals. Patients have the option of paying out-of-pocket "
+"for services provided or can pay for health insurance to help reduce the "
+"cost of medical care."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:49
+#: new_arrivals_chi/app/templates/health_general.html:42
 msgid "What is Health Insurance?"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:52
+#: new_arrivals_chi/app/templates/health_general.html:45
 msgid ""
-"Health insurance is like a membership that helps cover the cost of\n"
-"    doctor visits, hospital stays, medications, and more."
+"Health insurance is like a membership that helps cover the cost of doctor"
+" visits, hospital stays, medications, and more."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:56
+#: new_arrivals_chi/app/templates/health_general.html:48
 msgid "Obtaining Health Insurance"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:59
+#: new_arrivals_chi/app/templates/health_general.html:51
 msgid ""
-"Health insurance may be purchased through healthcare.gov or secured\n"
-"    through your employer. You must have a qualifying legal status to "
-"qualify\n"
-"    for health insurance:"
+"Health insurance may be purchased through healthcare.gov or secured "
+"through your employer. You must have a qualifying legal status to qualify"
+" for health insurance:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:65
+#: new_arrivals_chi/app/templates/health_general.html:55
 msgid "U.S. Citizen"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:67
+#: new_arrivals_chi/app/templates/health_general.html:57
 msgid "Green Card"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:70
+#: new_arrivals_chi/app/templates/health_general.html:60
 msgid ""
-"Asylum Status - only if you've been granted employment authorization\n"
-"      or are under age 14 and have an application pending for at least "
-"180\n"
-"      days"
+"Asylum Status - only if you've been granted employment authorization or "
+"are under age 14 and have an application pending for at least 180 days"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:75
+#: new_arrivals_chi/app/templates/health_general.html:63
 msgid "Refugee Status"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:77
+#: new_arrivals_chi/app/templates/health_general.html:65
 msgid "Cuban/Haitian Entrant"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:79
+#: new_arrivals_chi/app/templates/health_general.html:67
 msgid "Paroled into the U.S."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:81
+#: new_arrivals_chi/app/templates/health_general.html:69
 msgid "Temporary Protected Status (TPS)"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:83
+#: new_arrivals_chi/app/templates/health_general.html:71
 msgid "Battered Spouse, Child and Parent"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:86
-msgid ""
-"Victim of Trafficking and his/her Spouse, Child, Sibling or\n"
-"      Parent"
+#: new_arrivals_chi/app/templates/health_general.html:74
+msgid "Victim of Trafficking and his/her Spouse, Child, Sibling or Parent"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:91
+#: new_arrivals_chi/app/templates/health_general.html:78
 msgid ""
-"Granted Withholding of Deportation or Withholding of Removal, under\n"
-"      the immigration laws or under the Convention against Torture (CAT)"
+"Granted Withholding of Deportation or Withholding of Removal, under the "
+"immigration laws or under the Convention against Torture (CAT)"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:96
+#: new_arrivals_chi/app/templates/health_general.html:82
 msgid ""
-"Individual with Non-immigrant Status, includes worker visas (such as\n"
-"      H1, H-2A, H-2B), student visas, U-visa, T-visa, and other visas, "
-"and\n"
-"      citizens of Micronesia, the Marshall Islands, and Palau"
+"Individual with Non-immigrant Status, includes worker visas (such as H1, "
+"H-2A, H-2B), student visas, U-visa, T-visa, and other visas, and citizens"
+" of Micronesia, the Marshall Islands, and Palau"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:101
+#: new_arrivals_chi/app/templates/health_general.html:85
 msgid "Deferred Enforced Departure (DED)"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:104
+#: new_arrivals_chi/app/templates/health_general.html:88
 msgid ""
-"Deferred Action Status (Exception: Deferred Action for Childhood\n"
-"      Arrivals (DACA) is not an eligible immigration status for applying "
-"for\n"
-"      health insurance)"
+"Deferred Action Status (Exception: Deferred Action for Childhood Arrivals"
+" (DACA) is not an eligible immigration status for applying for health "
+"insurance)"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:109
+#: new_arrivals_chi/app/templates/health_general.html:91
 msgid "Lawful Temporary Resident"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:112
+#: new_arrivals_chi/app/templates/health_general.html:94
 msgid ""
-"Administrative order staying removal issued by the Department of\n"
-"      Homeland Security"
+"Administrative order staying removal issued by the Department of Homeland"
+" Security"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:116
+#: new_arrivals_chi/app/templates/health_general.html:97
 msgid "Conditional Entrant Granted before 1980"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:120
+#: new_arrivals_chi/app/templates/health_general.html:101
 msgid ""
-"If you are undocumented, you may not be able to obtain health\n"
-"    insurance, but you can still receive emergency medical care and "
-"preventative\n"
-"    medical services at low-cost health centers in the City of Chicago."
+"If you are undocumented, you may not be able to obtain health insurance, "
+"but you can still receive emergency medical care and preventative medical"
+" services at low-cost health centers in the City of Chicago."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:126
+#: new_arrivals_chi/app/templates/health_general.html:105
 msgid "Accessing Health Insurance Based on Legal Status and Age Group"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:130
+#: new_arrivals_chi/app/templates/health_general.html:109
 msgid ""
-"Accessing health insurance can vary based on an individual's legal\n"
-"    status and age group."
+"Accessing health insurance can vary based on an individual's legal status"
+" and age group."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:134
+#: new_arrivals_chi/app/templates/health_general.html:112
 msgid "Legal Status"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:137
+#: new_arrivals_chi/app/templates/health_general.html:115
 msgid ""
-"Temporary Protected Status (TPS), Humanitarian Parole, Asylum or\n"
-"    Refugee: As someone with TPS, Parole, Asylum or Refugee Status, you "
-"qualify\n"
-"    for Medicaid or can buy a health insurance plan at healthcare.gov."
+"Temporary Protected Status (TPS), Humanitarian Parole, Asylum or Refugee:"
+" As someone with TPS, Parole, Asylum or Refugee Status, you qualify for "
+"Medicaid or can buy a health insurance plan at healthcare.gov."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:142
+#: new_arrivals_chi/app/templates/health_general.html:118
 msgid "What is Medicaid?"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:145
+#: new_arrivals_chi/app/templates/health_general.html:121
 msgid ""
-"Medicaid is a government program that helps people with low income and\n"
-"    limited resources pay for healthcare. It is a free or low-cost health"
-"\n"
-"    insurance that covers various medical services like doctor visits, "
-"hospital\n"
-"    stays, prescription medications, and more."
+"Medicaid is a government program that helps people with low income and "
+"limited resources pay for healthcare. It is a free or low-cost health "
+"insurance that covers various medical services like doctor visits, "
+"hospital stays, prescription medications, and more."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:151
+#: new_arrivals_chi/app/templates/health_general.html:124
 msgid "Where do I Apply for Medicaid?"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:154
+#: new_arrivals_chi/app/templates/health_general.html:127
 msgid ""
-"In the state of Illinois, you can apply online, over the phone, in\n"
-"    person, or submit a paper application. Please see the following links"
-" for\n"
-"    details on how to apply:"
+"In the state of Illinois, you can apply online, over the phone, in "
+"person, or submit a paper application. Please see the following links for"
+" details on how to apply:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:163
+#: new_arrivals_chi/app/templates/health_general.html:134
 msgid "Get Care Illinois - Apply for Medicaid"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:171
+#: new_arrivals_chi/app/templates/health_general.html:142
 msgid "Illinois Healthcare and Family Services - Medicaid Guide"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:175
+#: new_arrivals_chi/app/templates/health_general.html:146
 msgid "Undocumented"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:149
+msgid ""
+"If you are undocumented, you may not be able to access a health insurance"
+" plan. However, you can still receive emergency medical care and "
+"preventative medical services at low-cost health centers in the City of "
+"Chicago. Please see the next section on “Accessing Healthcare Services "
+"Regardless of Legal Status."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:153
+msgid ""
+"If you are an undocumented child, you qualify for All Kids, a health "
+"insurance plan for children from low-income households who live in "
+"Illinois. To apply for All Kids, please click the following links for "
+"more details:"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:160
+msgid "All Kids - About"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:168
+msgid "All Kids - Application"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:173
+msgid "If you are undocumented and pregnant, you qualify for two programs:"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:178
 msgid ""
-"If you are undocumented, you may not be able to access a health\n"
-"    insurance plan. However, you can still receive emergency medical care"
-" and\n"
-"    preventative medical services at low-cost health centers in the City "
-"of\n"
-"    Chicago. Please see the next section on “Accessing Healthcare "
-"Services\n"
-"    Regardless of Legal Status."
+"Moms and Babies, a health insurance plan for women while they are "
+"pregnant for up to 12 months after the baby is born. To apply for Moms "
+"and Babies, you can also use the All Kids application. Please click the "
+"following links to apply."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:186
+#: new_arrivals_chi/app/templates/health_general.html:182
 msgid ""
-"If you are an undocumented child, you qualify for All Kids, a health\n"
-"    insurance plan for children from low-income households who live in "
-"Illinois.\n"
-"    To apply for All Kids, please click the following links for more\n"
-"    details:"
+"Medicaid Presumptive Eligibility (MPE), a plan that offers immediate, "
+"temporary coverage for outpatient health services to pregnant women who "
+"meet income requirements. To learn more about MPE, please see the "
+"following links."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:196
-msgid "All Kids - About"
+#: new_arrivals_chi/app/templates/health_general.html:190
+msgid "Moms and Babies - Application"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:204
-msgid "All Kids - Application"
+#: new_arrivals_chi/app/templates/health_general.html:198
+msgid "Moms and Babies - About"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:209
-msgid "If you are undocumented and pregnant, you qualify for two programs:"
+#: new_arrivals_chi/app/templates/health_general.html:202
+msgid "Accessing Healthcare Services Regardless of Legal Status"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:205
+msgid ""
+"Accessing healthcare services is a fundamental right, regardless of legal"
+" status. Below are resources and options available to ensure that "
+"everyone can access essential healthcare services and support in Chicago."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:208
+msgid "Low-Cost Healthcare Providers"
+msgstr ""
+
+#: new_arrivals_chi/app/templates/health_general.html:210
+msgid "Below are different clinics that provide low-cost or free services:"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/health_general.html:214
 msgid ""
-"Moms and Babies, a health insurance plan for women while they are\n"
-"      pregnant for up to 12 months after the baby is born. To apply for "
-"Moms and\n"
-"      Babies, you can also use the All Kids application. Please click the"
-"\n"
-"      following links to apply."
+"Low-cost clinics that are called Federally Qualified Health Centers: "
+"please click the following links to find a center near you."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:221
+#: new_arrivals_chi/app/templates/health_general.html:218
 msgid ""
-"Medicaid Presumptive Eligibility (MPE), a plan that offers immediate,\n"
-"      temporary coverage for outpatient health services to pregnant women"
-" who\n"
-"      meet income requirements. To learn more about MPE, please see the\n"
-"      following links."
+"Free or low-cost clinics that are called Free &amp; Charitable Clinics: "
+"please click the following links to find a center near you."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:232
-msgid "Moms and Babies - Application"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/health_general.html:240
-msgid "Moms and Babies - About"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/health_general.html:244
-msgid "Accessing Healthcare Services Regardless of Legal Status"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/health_general.html:252
-msgid "Low-Cost Healthcare Providers"
-msgstr ""
-
-#: new_arrivals_chi/app/templates/health_general.html:270
+#: new_arrivals_chi/app/templates/health_general.html:224
 msgid "What is an FQHC"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:276
+#: new_arrivals_chi/app/templates/health_general.html:230
 msgid "Find a Health Center"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:284
+#: new_arrivals_chi/app/templates/health_general.html:238
 msgid "What's a Free & Charitable Clinic"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:292
+#: new_arrivals_chi/app/templates/health_general.html:246
 msgid "Clinic Directory"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:299
+#: new_arrivals_chi/app/templates/health_general.html:253
 msgid ""
-"All non-profit hospitals are required to provide a set amount of\n"
-"    emergency care and financial assistance to uninsured patients, "
-"regardless of\n"
-"    status. Please click the following link to find a non-profit hospital."
+"All non-profit hospitals are required to provide a set amount of "
+"emergency care and financial assistance to uninsured patients, regardless"
+" of status. Please click the following link to find a non-profit "
+"hospital."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/health_general.html:308
-msgid ""
-"Illinois Alliance for Welcoming Health Care - Healthcare Access\n"
-"      Programs"
+#: new_arrivals_chi/app/templates/health_general.html:260
+msgid "Illinois Alliance for Welcoming Health Care - Healthcare Access Programs"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/health_search.html:11
@@ -3561,37 +3514,34 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/home.html:23
 msgid ""
-"This resource guide is designed for new migrants to welcome to your\n"
-"      new home. In this guide you will find information about your rights"
-" as an\n"
-"      immigrant and resident of Chicago, and information on how to access"
-"\n"
-"      resources offered by the City of Chicago, the State government and\n"
-"      community organizations."
+"This resource guide is designed for new migrants to welcome to your new "
+"home. In this guide you will find information about your rights as an "
+"immigrant and resident of Chicago, and information on how to access "
+"resources offered by the City of Chicago, the State government and "
+"community organizations."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/home.html:32
+#: new_arrivals_chi/app/templates/home.html:28
 msgid "Please click below to begin:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/home.html:37
+#: new_arrivals_chi/app/templates/home.html:33
 msgid "Getting Started"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/home.html:43
+#: new_arrivals_chi/app/templates/home.html:39
 msgid "Legal Support"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/home.html:49
+#: new_arrivals_chi/app/templates/home.html:45
 msgid "Health Resources"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/home.html:55
+#: new_arrivals_chi/app/templates/home.html:51
 msgid ""
-"This resource guide is a collaboration between Chicago Area\n"
-"      Student, Chicago-based organizations, and the City of Chicago. To "
-"learn\n"
-"      more visit About Us."
+"This resource guide is a collaboration between Chicago Area Student, "
+"Chicago-based organizations, and the City of Chicago. To learn more visit"
+" About Us."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/lawyers.html:14
@@ -4785,218 +4735,201 @@ msgid "Workshops"
 msgstr ""
 
 #: new_arrivals_chi/app/templates/tps_apply.html:19
+#: new_arrivals_chi/app/templates/vttc_apply.html:41
 msgid ""
-"TPS & Work Permit Immigration Application Workshops for Recent\n"
-"    Arrivals. Registration for centralized workshops for work permits "
-"through\n"
-"    Temporary Protected Status and parole is currently closed."
+"TPS & Work Permit Immigration Application Workshops for Recent Arrivals. "
+"Registration for centralized workshops for work permits through Temporary"
+" Protected Status and parole is currently closed."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:30
+#: new_arrivals_chi/app/templates/tps_apply.html:28
 msgid "How can I apply for TPS?"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:33
+#: new_arrivals_chi/app/templates/tps_apply.html:31
 msgid ""
-"To apply for TPS or re-register, submit Form I-821, Application for\n"
-"    Temporary Protected Status I-821 to USCIS. There are instructions on "
-"how to\n"
-"    apply on the USCIS website."
+"To apply for TPS or re-register, submit Form I-821, Application for "
+"Temporary Protected Status I-821 to USCIS. There are instructions on how "
+"to apply on the USCIS website."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:40
+#: new_arrivals_chi/app/templates/tps_apply.html:36
 msgid "View and submit Form I-821 here."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:45
+#: new_arrivals_chi/app/templates/tps_apply.html:41
 msgid ""
-"You can also request an employment authorization document (EAD) at the\n"
-"    same time. Use Form I-765, Request for Employment Authorization. You "
-"can\n"
-"    also file this later."
+"You can also request an employment authorization document (EAD) at the "
+"same time. Use Form I-765, Request for Employment Authorization. You can "
+"also file this later."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:50
+#: new_arrivals_chi/app/templates/tps_apply.html:44
 msgid "Evidence"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:53
+#: new_arrivals_chi/app/templates/tps_apply.html:47
 msgid "Along with your application, you must also submit evidence proving:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:57
+#: new_arrivals_chi/app/templates/tps_apply.html:51
 msgid "Your identity and nationality,"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:59
+#: new_arrivals_chi/app/templates/tps_apply.html:53
 msgid "The date you entered the US,"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:61
+#: new_arrivals_chi/app/templates/tps_apply.html:55
 msgid "Residence in the US, and"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:64
-msgid ""
-"Court disposition record (if you were arrested, charged, or\n"
-"      convicted)."
+#: new_arrivals_chi/app/templates/tps_apply.html:58
+msgid "Court disposition record (if you were arrested, charged, or convicted)."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:69
+#: new_arrivals_chi/app/templates/tps_apply.html:62
 msgid "Fees:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:73
-msgid ""
-"There is a fee to file. The fee is based on factors such as your\n"
-"      age."
+#: new_arrivals_chi/app/templates/tps_apply.html:66
+msgid "There is a fee to file. The fee is based on factors such as your age."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:70
+msgid "If you are applying for the first time, the fee to file Form I-821 is $50."
+msgstr ""
+
+#: new_arrivals_chi/app/templates/tps_apply.html:74
+msgid "If you have TPS and are re-registering, there is no fee for the form."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/tps_apply.html:78
 msgid ""
-"If you are applying for the first time, the fee to file Form I-821 is\n"
-"      $50."
+"If you also apply for employment authorization, the fee is $410 for Form "
+"I-765."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:83
+#: new_arrivals_chi/app/templates/tps_apply.html:82
 msgid ""
-"If you have TPS and are re-registering, there is no fee for the\n"
-"      form."
+"If you are under 14 or over 65, you don't have to pay for the EAD when "
+"you file a TPS application."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:88
-msgid ""
-"If you also apply for employment authorization, the fee is $410 for\n"
-"      Form I-765."
-msgstr ""
-
-#: new_arrivals_chi/app/templates/tps_apply.html:93
-msgid ""
-"If you are under 14 or over 65, you don't have to pay for the EAD\n"
-"      when you file a TPS application."
-msgstr ""
-
-#: new_arrivals_chi/app/templates/tps_apply.html:98
+#: new_arrivals_chi/app/templates/tps_apply.html:86
 msgid "If you are 14 or older, there is a $85 biometric services fee."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:102
+#: new_arrivals_chi/app/templates/tps_apply.html:90
 msgid "You may also use their fee calculator to figure out your fee."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:106
+#: new_arrivals_chi/app/templates/tps_apply.html:94
 msgid "Fee Waiver"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:110
+#: new_arrivals_chi/app/templates/tps_apply.html:98
 msgid "Form I-912, Application for Fee Waiver."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:116
+#: new_arrivals_chi/app/templates/tps_apply.html:104
 msgid "If you can't pay for the filing fees or biometric services fees"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:120
+#: new_arrivals_chi/app/templates/tps_apply.html:108
 msgid "Filing the fee waiver request with your application."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:124
-msgid ""
-"You can use one form for both the filing and biometric service\n"
-"      fee."
+#: new_arrivals_chi/app/templates/tps_apply.html:112
+msgid "You can use one form for both the filing and biometric service fee."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:128
+#: new_arrivals_chi/app/templates/tps_apply.html:115
 msgid "If USCIS approves your request, both fees will be waived."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:131
+#: new_arrivals_chi/app/templates/tps_apply.html:118
 msgid ""
-"If you are requesting a fee waiver, you have to file paper versions\n"
-"      of the application and fee waiver request."
+"If you are requesting a fee waiver, you have to file paper versions of "
+"the application and fee waiver request."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:136
+#: new_arrivals_chi/app/templates/tps_apply.html:122
 msgid ""
-"You can file one Form I-912 for all family member's applications.\n"
-"      All the forms must be sent together."
+"You can file one Form I-912 for all family member's applications. All the"
+" forms must be sent together."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:140
+#: new_arrivals_chi/app/templates/tps_apply.html:125
 msgid "To receive a fee waiver, you must prove that:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:143
+#: new_arrivals_chi/app/templates/tps_apply.html:128
 msgid ""
-"You are receiving a public benefit based on your income (such as\n"
-"      Medicaid, SNAP, TANF, or SSI),"
+"You are receiving a public benefit based on your income (such as "
+"Medicaid, SNAP, TANF, or SSI),"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:148
+#: new_arrivals_chi/app/templates/tps_apply.html:132
 msgid ""
 "Your household income is at or below 150 percent of the federal poverty "
 "level."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:151
+#: new_arrivals_chi/app/templates/tps_apply.html:135
 msgid "You are experiencing financial hardship."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:154
+#: new_arrivals_chi/app/templates/tps_apply.html:138
 msgid ""
-"If your fee waiver is denied, you can refile and pay the fees. You\n"
-"      must pay the fees either before the registration deadline or within"
-" 45\n"
-"      days of the date on your fee waiver denial letter, whichever is "
-"later."
+"If your fee waiver is denied, you can refile and pay the fees. You must "
+"pay the fees either before the registration deadline or within 45 days of"
+" the date on your fee waiver denial letter, whichever is later."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:164
+#: new_arrivals_chi/app/templates/tps_apply.html:146
 msgid "Learn more about filing a fee waiver here."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:169
+#: new_arrivals_chi/app/templates/tps_apply.html:151
 msgid ""
-"You can call USCIS at (800)375-5283 to request a paper form. For TTY,\n"
-"    call (800)767-1833."
+"You can call USCIS at (800)375-5283 to request a paper form. For TTY, "
+"call (800)767-1833."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:173
+#: new_arrivals_chi/app/templates/tps_apply.html:154
 msgid "What happens after I apply?"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:175
+#: new_arrivals_chi/app/templates/tps_apply.html:156
 msgid "If you are approved:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:179
+#: new_arrivals_chi/app/templates/tps_apply.html:160
 msgid ""
-"If USCIS approves your TPS application, they will send you an\n"
-"      approval notice with an I-94, Arrival/Departure Record. This is "
-"evidence\n"
-"      of your TPS."
+"If USCIS approves your TPS application, they will send you an approval "
+"notice with an I-94, Arrival/Departure Record. This is evidence of your "
+"TPS."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:185
+#: new_arrivals_chi/app/templates/tps_apply.html:164
 msgid ""
-"If you applied for employment authorization, you will receive an\n"
-"      Employment Authorization Document (EAD)."
+"If you applied for employment authorization, you will receive an "
+"Employment Authorization Document (EAD)."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:190
+#: new_arrivals_chi/app/templates/tps_apply.html:168
 msgid "If you are denied:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:194
-msgid ""
-"IF USCIS denies your application, you will receive a denial\n"
-"      letter."
+#: new_arrivals_chi/app/templates/tps_apply.html:172
+msgid "IF USCIS denies your application, you will receive a denial letter."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/tps_apply.html:199
+#: new_arrivals_chi/app/templates/tps_apply.html:176
 msgid ""
-"If you are eligible, the letter will state that you have 30 days to\n"
-"      appeal to the USCIS Administrative Appeals Office (AAO)."
+"If you are eligible, the letter will state that you have 30 days to "
+"appeal to the USCIS Administrative Appeals Office (AAO)."
 msgstr ""
 
 #: new_arrivals_chi/app/templates/tps_info.html:14
@@ -5336,13 +5269,6 @@ msgid ""
 " application and forward it to Special Units for processing."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/vttc_apply.html:41
-msgid ""
-"TPS & Work Permit Immigration Application Workshops for Recent Arrivals. "
-"Registration for centralized workshops for work permits through Temporary"
-" Protected Status and parole is currently closed."
-msgstr ""
-
 #: new_arrivals_chi/app/templates/vttc_apply.html:47
 msgid ""
 "Step 1: Determine if you are eligible to attend a workshop – complete a "
@@ -5628,141 +5554,137 @@ msgstr ""
 
 #: new_arrivals_chi/app/templates/work_rights.html:19
 msgid ""
-"All workers have rights, regardless of immigration status. In Chicago,\n"
-"    you have the right to:"
+"All workers have rights, regardless of immigration status. In Chicago, "
+"you have the right to:"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:24
+#: new_arrivals_chi/app/templates/work_rights.html:23
 msgid "Receive payment for every hour you work."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:27
+#: new_arrivals_chi/app/templates/work_rights.html:26
 msgid ""
-"Receive overtime pay (time and a half) after working more than 40 hours\n"
-"      in a workweek."
+"Receive overtime pay (time and a half) after working more than 40 hours "
+"in a workweek."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:32
+#: new_arrivals_chi/app/templates/work_rights.html:30
 msgid ""
-"Be paid at least the minimum wage in the area where you work. In\n"
-"      Chicago, this is $14.50-$15.40/hr, depending on the number of "
-"employees."
+"Be paid at least the minimum wage in the area where you work. In Chicago,"
+" this is $14.50-$15.40/hr, depending on the number of employees."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:37
+#: new_arrivals_chi/app/templates/work_rights.html:34
 msgid ""
 "Receive 66 percent of your salary and paid medical bills if you suffer an"
-"\n"
-"      accident on the job."
+" accident on the job."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:42
+#: new_arrivals_chi/app/templates/work_rights.html:38
 msgid "A safe and healthy workplace, including during times of COVID-19."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:46
-msgid ""
-"A workplace free of discrimination, sexual harassment or\n"
-"      intimidation."
+#: new_arrivals_chi/app/templates/work_rights.html:42
+msgid "A workplace free of discrimination, sexual harassment or intimidation."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:51
+#: new_arrivals_chi/app/templates/work_rights.html:46
 msgid "Organize for better working conditions through collective actions."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:55
+#: new_arrivals_chi/app/templates/work_rights.html:50
 msgid "Where can I go for help?"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:57
+#: new_arrivals_chi/app/templates/work_rights.html:52
 msgid "Chicago Community & Workers Rights"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:60
-#: new_arrivals_chi/app/templates/work_rights.html:96
+#: new_arrivals_chi/app/templates/work_rights.html:55
+#: new_arrivals_chi/app/templates/work_rights.html:91
 msgid "Service Area: State of Illinois"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:62
+#: new_arrivals_chi/app/templates/work_rights.html:57
 msgid "Phone: 773-653-3664"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:64
+#: new_arrivals_chi/app/templates/work_rights.html:59
 msgid "Facebook: @chicagoworkersrights"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:66
+#: new_arrivals_chi/app/templates/work_rights.html:61
 msgid "Website: chicagoworkersrights.org"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:69
+#: new_arrivals_chi/app/templates/work_rights.html:64
 msgid "Centro de Trabajadores Unidos"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:72
+#: new_arrivals_chi/app/templates/work_rights.html:67
 msgid "Service Area: Southeast Chicago + South Suburbs"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:74
+#: new_arrivals_chi/app/templates/work_rights.html:69
 msgid "Phone: 733-720-7111"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:76
+#: new_arrivals_chi/app/templates/work_rights.html:71
 msgid "Facebook: @CentroDeTrabajadoresUnidos"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:78
+#: new_arrivals_chi/app/templates/work_rights.html:73
 msgid "Website: centrodetrabajadoresunidos.org"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:81
+#: new_arrivals_chi/app/templates/work_rights.html:76
 msgid "Chicago Workers Collaborative"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:84
+#: new_arrivals_chi/app/templates/work_rights.html:79
 msgid "Service Area: Chicago + Suburbs"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:86
+#: new_arrivals_chi/app/templates/work_rights.html:81
 msgid "Phone: 847-596-7491"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:88
+#: new_arrivals_chi/app/templates/work_rights.html:83
 msgid "Facebook: @ChiTemps"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:90
+#: new_arrivals_chi/app/templates/work_rights.html:85
 msgid "Website: chicagoworkerscollaborative.org<"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:93
+#: new_arrivals_chi/app/templates/work_rights.html:88
 msgid "Farmworker & Landscaper Advocacy Project: FLAP"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:98
+#: new_arrivals_chi/app/templates/work_rights.html:93
 msgid "Phone: 1-888-451-3527"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:100
+#: new_arrivals_chi/app/templates/work_rights.html:95
 msgid "Facebook: @farmworkerlandscaper.advocacyproject"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:102
+#: new_arrivals_chi/app/templates/work_rights.html:97
 msgid "Website: flapillinois.org"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:105
+#: new_arrivals_chi/app/templates/work_rights.html:100
 msgid "How can I file a complaint?"
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:108
+#: new_arrivals_chi/app/templates/work_rights.html:103
 msgid "In the City of Chicago, you can call 311 to file a complaint."
 msgstr ""
 
-#: new_arrivals_chi/app/templates/work_rights.html:111
+#: new_arrivals_chi/app/templates/work_rights.html:106
 msgid ""
-"Investigations are confidential and the City will not ask about\n"
-"      immigration status."
+"Investigations are confidential and the City will not ask about "
+"immigration status."
 msgstr ""
 
 #~ msgid "Hello"
@@ -5806,4 +5728,667 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Select an option"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "New Arrivals Chi is a resource guide developed by six graduate\n"
+#~ "      students from the University of"
+#~ " Chicago to help newly arrived "
+#~ "individuals\n"
+#~ "      navigate the City of Chicago "
+#~ "and its available resources. Our goal"
+#~ " is to\n"
+#~ "      provide accurate, up-to-date, "
+#~ "and actionable information to address "
+#~ "common\n"
+#~ "      challenges faced by newcomers."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We would like to express our sincere gratitude to our advisors,\n"
+#~ "      James Turk and Michael Plunkett,"
+#~ " for their invaluable guidance and "
+#~ "support\n"
+#~ "      throughout this project."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This resource guide was made possible by our incredible community\n"
+#~ "      partners who graciously shared "
+#~ "their knowledge and advice during the"
+#~ "\n"
+#~ "      development process."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "City of Chicago - Office of Immigrants, Migrant, Refugee Rights:\n"
+#~ "        Marissa Arrez and Jesús Del Toro"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For questions or inquiries, please contact us at\n"
+#~ "      newarrivalschi.contact@gmail.com."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Legal Aid Society of Metropolitan Family Services is coordinating a\n"
+#~ "    Centralized Immigration Legal Service "
+#~ "Center for recent arrivals to support"
+#~ "\n"
+#~ "    in asylum, change of address, or change of venue cases."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Center provides free legal information and assistance to\n"
+#~ "    individuals who entered on or before January 1, 2022."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Centralized Immigration Legal Services "
+#~ "Clinic is located at 401 S.\n"
+#~ "    Clinton St, Chicago IL 60607, "
+#~ "inside the Illinois Department of Human"
+#~ "\n"
+#~ "    Services Building (IDHS) on the first floor."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Known for its vibrant culture, diverse communities, and bustling city\n"
+#~ "    life, Chicago is a welcoming "
+#~ "city that embraces people from all "
+#~ "walks of\n"
+#~ "    life. A group of university "
+#~ "students in collaboration with the City"
+#~ " of\n"
+#~ "    Chicago and local community "
+#~ "organizations created this website to "
+#~ "help New\n"
+#~ "    Arrivals, who are immigrants, "
+#~ "migrants, and refugees from around the"
+#~ " world,\n"
+#~ "    understand the resources and "
+#~ "services they have available to them "
+#~ "in\n"
+#~ "    Chicago. We understand that this "
+#~ "transition is challenging and we hope"
+#~ " to\n"
+#~ "    provide clear information to help"
+#~ " you begin your new life in "
+#~ "Chicago. On\n"
+#~ "    this page, you will find general information about:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Chicago CityKey ID is an optional, valid, government-issued ID\n"
+#~ "    card offered to all Chicago "
+#~ "residents, including New Arrivals. It "
+#~ "serves as\n"
+#~ "    a four-in-one card by "
+#~ "serving as a government-issued ID "
+#~ "card, a Chicago\n"
+#~ "    Public Library card, a Ventra "
+#~ "card, and a pharmaceutical discount "
+#~ "card."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To apply for a CityKey ID, you will need three documents that prove\n"
+#~ "    your identity, including a photo "
+#~ "and date of birth, and that prove"
+#~ " that you\n"
+#~ "    are a resident of the City "
+#~ "of Chicago. For more information about"
+#~ " applying,\n"
+#~ "    please click the following links:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The easiest way to get around Chicago is by leveraging the CTA, which\n"
+#~ "    is the Chicago Transit Authority."
+#~ " With its comprehensive network of "
+#~ "buses\n"
+#~ "    and trains, the CTA offers "
+#~ "convenient and affordable transportation "
+#~ "options\n"
+#~ "    for navigating the city."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can plan your trip using "
+#~ "Google Maps by clicking on the "
+#~ "train icon\n"
+#~ "    to find the quickest way to"
+#~ " your destination. As a reminder, "
+#~ "Google Maps\n"
+#~ "    provides an estimate and buses "
+#~ "or trains may be delayed due to"
+#~ " construction\n"
+#~ "    or traffic."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Another way to see how far the bus is away is the Ventra app. On the\n"
+#~ "    home page, it tells you which"
+#~ " buses/trains or bikes are nearby. If"
+#~ " you click\n"
+#~ "    on nearby, you can expand the view or move your position around."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To pay for CTA buses, you must have the exact fare to pay for the bus\n"
+#~ "    or use your Ventra card. For"
+#~ " trains, you must have a Ventra "
+#~ "card which you\n"
+#~ "    can get at a kiosk before "
+#~ "entering the train or by downloading "
+#~ "the app. To\n"
+#~ "    find a physical location to "
+#~ "buy a Ventra card, please see the"
+#~ " following\n"
+#~ "    link:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In Chicago, public education is offered free of charge, ensuring that\n"
+#~ "    every child has access to "
+#~ "quality learning opportunities. To enroll "
+#~ "your\n"
+#~ "    child, they must meet certain "
+#~ "requirements, including proof of age, "
+#~ "proof of\n"
+#~ "    address, and proof of medical "
+#~ "compliance such as a physical "
+#~ "examination,\n"
+#~ "    immunization record, and dental "
+#~ "exam. For more information, please click"
+#~ " the\n"
+#~ "    following links:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Regardless of your status, you are able to access groceries that are\n"
+#~ "    free at your local food bank."
+#~ " Please click the following link to"
+#~ " find the\n"
+#~ "    nearest food pantry near you:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The State of Illinois issues a special driver's license to\n"
+#~ "    non-citizens who cannot get a"
+#~ " SSN. The license is called Temporary"
+#~ " Visitor\n"
+#~ "    Driver's License (TVDL). There are"
+#~ " two kinds of TVDLs: The first "
+#~ "is for\n"
+#~ "    someone authorized to reside in "
+#~ "this country for one or more "
+#~ "years. The\n"
+#~ "    second is for someone who does"
+#~ " not have lawful status or is "
+#~ "undocumented but\n"
+#~ "    has lived in the US for at least a year."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Provide documentation issued by the United States Citizenship and\n"
+#~ "      Immigration Services that proves legal status;"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Provide proof of insurance for the vehicle used for the road\n"
+#~ "      test;"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Provide proof (ages 18-20) of completing a 6-hour adult driver\n"
+#~ "      education course; and"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To qualify for a TVDL as an undocumented immigrant, applicants\n"
+#~ "    must:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Provide a valid, unexpired passport or consular card issued by an\n"
+#~ "      approved country, or provide other"
+#~ " proof of identity and residency the"
+#~ "\n"
+#~ "      Secretary of State may require;"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Welcome to our healthcare resource page designed to assist you in\n"
+#~ "    navigating the healthcare system in"
+#~ " Chicago. Here's what you'll find:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Understanding healthcare access based on your legal status and/or age\n"
+#~ "      group"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Guidance on finding healthcare providers, emergency and urgent care\n"
+#~ "      services, mental health and "
+#~ "well-being resources, physical therapy\n"
+#~ "      options, and community health programs."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the United States, we have a system where people can choose their\n"
+#~ "    doctors and hospitals. Patients have"
+#~ " the option of paying out-of-"
+#~ "pocket for\n"
+#~ "    services provided or can pay "
+#~ "for health insurance to help reduce "
+#~ "the cost of\n"
+#~ "    medical care."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Health insurance is like a membership that helps cover the cost of\n"
+#~ "    doctor visits, hospital stays, medications, and more."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Health insurance may be purchased through healthcare.gov or secured\n"
+#~ "    through your employer. You must "
+#~ "have a qualifying legal status to "
+#~ "qualify\n"
+#~ "    for health insurance:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Asylum Status - only if you've been granted employment authorization\n"
+#~ "      or are under age 14 and "
+#~ "have an application pending for at "
+#~ "least 180\n"
+#~ "      days"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Victim of Trafficking and his/her Spouse, Child, Sibling or\n"
+#~ "      Parent"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Granted Withholding of Deportation or Withholding of Removal, under\n"
+#~ "      the immigration laws or under "
+#~ "the Convention against Torture (CAT)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Individual with Non-immigrant Status, includes worker visas (such as\n"
+#~ "      H1, H-2A, H-2B), student visas,"
+#~ " U-visa, T-visa, and other visas, and"
+#~ "\n"
+#~ "      citizens of Micronesia, the Marshall Islands, and Palau"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Deferred Action Status (Exception: Deferred Action for Childhood\n"
+#~ "      Arrivals (DACA) is not an "
+#~ "eligible immigration status for applying "
+#~ "for\n"
+#~ "      health insurance)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Administrative order staying removal issued by the Department of\n"
+#~ "      Homeland Security"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are undocumented, you may not be able to obtain health\n"
+#~ "    insurance, but you can still "
+#~ "receive emergency medical care and "
+#~ "preventative\n"
+#~ "    medical services at low-cost health centers in the City of Chicago."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Accessing health insurance can vary based on an individual's legal\n"
+#~ "    status and age group."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Temporary Protected Status (TPS), Humanitarian Parole, Asylum or\n"
+#~ "    Refugee: As someone with TPS, "
+#~ "Parole, Asylum or Refugee Status, you"
+#~ " qualify\n"
+#~ "    for Medicaid or can buy a health insurance plan at healthcare.gov."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Medicaid is a government program that"
+#~ " helps people with low income and"
+#~ "\n"
+#~ "    limited resources pay for "
+#~ "healthcare. It is a free or "
+#~ "low-cost health\n"
+#~ "    insurance that covers various "
+#~ "medical services like doctor visits, "
+#~ "hospital\n"
+#~ "    stays, prescription medications, and more."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the state of Illinois, you can apply online, over the phone, in\n"
+#~ "    person, or submit a paper "
+#~ "application. Please see the following "
+#~ "links for\n"
+#~ "    details on how to apply:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are undocumented, you may not be able to access a health\n"
+#~ "    insurance plan. However, you can "
+#~ "still receive emergency medical care and"
+#~ "\n"
+#~ "    preventative medical services at "
+#~ "low-cost health centers in the City"
+#~ " of\n"
+#~ "    Chicago. Please see the next "
+#~ "section on “Accessing Healthcare Services\n"
+#~ ""
+#~ "    Regardless of Legal Status."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are an undocumented child, you qualify for All Kids, a health\n"
+#~ "    insurance plan for children from "
+#~ "low-income households who live in "
+#~ "Illinois.\n"
+#~ "    To apply for All Kids, please click the following links for more\n"
+#~ "    details:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Moms and Babies, a health insurance plan for women while they are\n"
+#~ "      pregnant for up to 12 months"
+#~ " after the baby is born. To "
+#~ "apply for Moms and\n"
+#~ "      Babies, you can also use the"
+#~ " All Kids application. Please click "
+#~ "the\n"
+#~ "      following links to apply."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Medicaid Presumptive Eligibility (MPE), a plan that offers immediate,\n"
+#~ "      temporary coverage for outpatient "
+#~ "health services to pregnant women who"
+#~ "\n"
+#~ "      meet income requirements. To learn"
+#~ " more about MPE, please see the\n"
+#~ ""
+#~ "      following links."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "All non-profit hospitals are required to provide a set amount of\n"
+#~ "    emergency care and financial "
+#~ "assistance to uninsured patients, regardless"
+#~ " of\n"
+#~ "    status. Please click the following"
+#~ " link to find a non-profit "
+#~ "hospital."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Illinois Alliance for Welcoming Health Care - Healthcare Access\n"
+#~ "      Programs"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "TPS & Work Permit Immigration Application Workshops for Recent\n"
+#~ "    Arrivals. Registration for centralized "
+#~ "workshops for work permits through\n"
+#~ "    Temporary Protected Status and parole is currently closed."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To apply for TPS or re-register, submit Form I-821, Application for\n"
+#~ "    Temporary Protected Status I-821 to"
+#~ " USCIS. There are instructions on how"
+#~ " to\n"
+#~ "    apply on the USCIS website."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can also request an employment "
+#~ "authorization document (EAD) at the\n"
+#~ "    same time. Use Form I-765, "
+#~ "Request for Employment Authorization. You "
+#~ "can\n"
+#~ "    also file this later."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Court disposition record (if you were arrested, charged, or\n"
+#~ "      convicted)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There is a fee to file. The fee is based on factors such as your\n"
+#~ "      age."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are applying for the first time, the fee to file Form I-821 is\n"
+#~ "      $50."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you have TPS and are re-registering, there is no fee for the\n"
+#~ "      form."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you also apply for employment authorization, the fee is $410 for\n"
+#~ "      Form I-765."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are under 14 or over 65, you don't have to pay for the EAD\n"
+#~ "      when you file a TPS application."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can use one form for both the filing and biometric service\n"
+#~ "      fee."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are requesting a fee waiver, you have to file paper versions\n"
+#~ "      of the application and fee waiver request."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can file one Form I-912 for all family member's applications.\n"
+#~ "      All the forms must be sent together."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You are receiving a public benefit based on your income (such as\n"
+#~ "      Medicaid, SNAP, TANF, or SSI),"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If your fee waiver is denied, you can refile and pay the fees. You\n"
+#~ "      must pay the fees either "
+#~ "before the registration deadline or "
+#~ "within 45\n"
+#~ "      days of the date on your "
+#~ "fee waiver denial letter, whichever is"
+#~ " later."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can call USCIS at (800)375-5283 to request a paper form. For TTY,\n"
+#~ "    call (800)767-1833."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If USCIS approves your TPS application, they will send you an\n"
+#~ "      approval notice with an I-94, "
+#~ "Arrival/Departure Record. This is evidence"
+#~ "\n"
+#~ "      of your TPS."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you applied for employment authorization, you will receive an\n"
+#~ "      Employment Authorization Document (EAD)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "IF USCIS denies your application, you will receive a denial\n"
+#~ "      letter."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are eligible, the letter will state that you have 30 days to\n"
+#~ "      appeal to the USCIS Administrative Appeals Office (AAO)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Asylum status protects people who fear persecution in their home\n"
+#~ "    countries because of their:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Membership in a particular social group (this includes sexual\n"
+#~ "      orientation or gender identity)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Whether someone should apply as a refugee or asylee for immigration\n"
+#~ "    status depends on whether they "
+#~ "are already in the US. If the "
+#~ "person is\n"
+#~ "    already in the US, he or "
+#~ "she may apply for the US asylum"
+#~ " program. Learn more\n"
+#~ "    about refugees and asylum. (If "
+#~ "the person is not in the US, "
+#~ "he or she may\n"
+#~ "    apply for the US refugee program)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Asylum is a form of protection. It protects people from removal to a\n"
+#~ "    country of feared persecution. It"
+#~ " allows them to stay in the US."
+#~ " They can\n"
+#~ "    then become a lawful permanent resident."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Asylum is granted to refugees who are already in the US and fear\n"
+#~ "    returning to their home countries."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Affirmatively, meaning you don't already have a case in front of an\n"
+#~ "      immigration judge and you are "
+#~ "submitting an application for asylum"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Defensively, meaning there is already a removal or deportation case\n"
+#~ "      against you in front of an"
+#~ " immigration judge and you ask the"
+#~ " judge for\n"
+#~ "      asylum"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You must apply for asylum within "
+#~ "one year of arriving in the US,"
+#~ " unless\n"
+#~ "    you qualify for an exception. "
+#~ "Your spouse and children who are "
+#~ "in the US may\n"
+#~ "    be included in the application. "
+#~ "A child must be under 21 and "
+#~ "unmarried to be\n"
+#~ "    included"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You may not be eligible to apply"
+#~ " for asylum if you filed after "
+#~ "being in\n"
+#~ "    the US over a year. There are exceptions. You must prove:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Legal disability, such as your status as an unaccompanied child or a\n"
+#~ "      mental impairment"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You cannot apply for asylum if you already applied and were denied\n"
+#~ "    unless circumstances changed."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This resource guide is designed for new migrants to welcome to your\n"
+#~ "      new home. In this guide you"
+#~ " will find information about your "
+#~ "rights as an\n"
+#~ "      immigrant and resident of Chicago,"
+#~ " and information on how to access"
+#~ "\n"
+#~ "      resources offered by the City "
+#~ "of Chicago, the State government and"
+#~ "\n"
+#~ "      community organizations."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This resource guide is a collaboration between Chicago Area\n"
+#~ "      Student, Chicago-based organizations,"
+#~ " and the City of Chicago. To "
+#~ "learn\n"
+#~ "      more visit About Us."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "All workers have rights, regardless of"
+#~ " immigration status. In Chicago,\n"
+#~ "    you have the right to:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Receive overtime pay (time and a "
+#~ "half) after working more than 40 "
+#~ "hours\n"
+#~ "      in a workweek."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Be paid at least the minimum wage in the area where you work. In\n"
+#~ "      Chicago, this is $14.50-$15.40/hr, "
+#~ "depending on the number of employees."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Receive 66 percent of your salary "
+#~ "and paid medical bills if you "
+#~ "suffer an\n"
+#~ "      accident on the job."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A workplace free of discrimination, sexual harassment or\n"
+#~ "      intimidation."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Investigations are confidential and the City will not ask about\n"
+#~ "      immigration status."
 #~ msgstr ""
